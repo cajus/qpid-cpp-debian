@@ -1,0 +1,3 @@
+usr/lib/libqpidclient.la
+usr/lib/libqpidclient.so
+usr/include/qpid/client

@@ -1,0 +1,5 @@
+qpid-cpp (0.12-1) unstable; urgency=low
+
+  * Initial release.
+
+ -- Cajus Pollmeier <cajus@debian.org>  Fri, 06 May 2011 11:59:58 +0200

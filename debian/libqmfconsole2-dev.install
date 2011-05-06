@@ -1,0 +1,3 @@
+usr/include/qpid/console
+usr/lib/libqmfconsole.so
+usr/lib/libqmfconsole.la

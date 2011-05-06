@@ -1,0 +1,292 @@
+Source: qpid-cpp
+Section: misc
+Priority: extra
+Maintainer: Cajus Pollmeier <cajus@naasa.net>
+Build-Depends: debhelper (>= 7), autotools-dev, libboost-all-dev, ruby, uuid-dev, libopenais-dev, libsasl2-dev, libxqilla-dev, libxmltooling4, libibverbs-dev, librdmacm-dev, libnspr4-dev, libnss3-dev, libssl-dev, sasl2-bin, libcorosync-dev, libxqilla-dev, libxerces-c-dev, libcman-dev, swig
+XS-Python-Version: >= 2.6
+Standards-Version: 3.7.3
+Homepage: http://qpid.apache.org
+
+Package: qpid-broker
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, adduser, libsasl2-modules
+Description: Apache qpid AMQP broker
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP broker.
+
+Package: qpid-client
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP client
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP client support.
+
+Package: libqmf
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP libraries
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the QMF libraries.
+
+Package: libqmf-dev
+Architecture: any
+Section: libdevel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP develpment files
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the QMF development files.
+
+Package: libqmf2
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP libraries
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the QMF2 libraries.
+
+Package: libqmf2-dev
+Architecture: any
+Section: libdevel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP develpment files
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the QMF2 development files.
+
+Package: libqmfconsole2
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP libraries
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP libraries.
+
+Package: libqmfconsole2-dev
+Architecture: any
+Section: libdevel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP develpment files
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP development files.
+
+Package: libqpidmessaging2
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP libraries
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP messaging libraries.
+
+Package: libqpidmessaging2-dev
+Architecture: any
+Section: libdevel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP develpment files
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP messaging development files.
+
+Package: libsslcommon2
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP libraries
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP libraries.
+
+Package: libsslcommon2-dev
+Architecture: any
+Section: libdevel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP develpment files
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP development files.
+
+Package: librdmawrap2
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP libraries
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP libraries.
+
+Package: librdmawrap2-dev
+Architecture: any
+Section: libdevel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP develpment files
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP development files.
+
+Package: libqpidtypes1
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP libraries
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP libraries.
+
+Package: libqpidtypes1-dev
+Architecture: any
+Section: libdevel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP develpment files
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP development files.
+
+Package: libqpidcommon2
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP libraries
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP libraries.
+
+Package: libqpidcommon2-dev
+Architecture: any
+Section: libdevel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP develpment files
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP development files.
+
+Package: libqpidclient2
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP libraries
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP libraries.
+
+Package: libqpidclient2-dev
+Architecture: any
+Section: libdevel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP develpment files
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP development files.
+
+Package: libqpidbroker2
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP libraries
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP libraries.
+
+Package: libqpidbroker2-dev
+Architecture: any
+Section: libdevel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP develpment files
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP development files.
+
+Package: libqmfengine1
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP libraries
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP libraries.
+
+Package: libqmfengine1-dev
+Architecture: any
+Section: libdevel
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Apache qpid AMQP develpment files
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP development files.
+
+Package: python-qmfgen
+Architecture: all
+Section: python
+Depends: ${python:Depends}, ${shlibs:Depends}, ${misc:Depends}
+Provides: ${python:Provides}
+XB-Python-Version: ${python:Versions}
+Description: Apache qpid AMQP Python qmfgen module
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP Python qmf module.
+
+Package: python-cqpid
+Architecture: any
+Section: python
+Depends: ${python:Depends}, ${shlibs:Depends}, ${misc:Depends}
+Provides: ${python:Provides}
+XB-Python-Version: ${python:Versions}
+Description: Apache qpid AMQP Python cqpid module
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP Python cqpid module.
+
+Package: python-qmf2
+Architecture: any
+Section: python
+Depends: ${python:Depends}, ${shlibs:Depends}, ${misc:Depends}
+Provides: ${python:Provides}
+XB-Python-Version: ${python:Versions}
+Description: Apache qpid AMQP Python qmf2 module
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP Python qmf2 module.
+
+Package: python-qmf
+Architecture: any
+Section: python
+Depends: ${python:Depends}, ${shlibs:Depends}, ${misc:Depends}
+Provides: ${python:Provides}
+XB-Python-Version: ${python:Versions}
+Description: Apache qpid AMQP Python qmf module
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP Python qmf module.
+
+Package: qpid-doc
+Architecture: all
+Description: Apache qpid AMQP documentation and examples
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP documentation.
+
