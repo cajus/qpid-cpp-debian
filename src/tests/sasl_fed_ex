@@ -1,0 +1,361 @@
+#! /bin/bash
+
+#
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+# 
+#   http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
+
+#===============================================================================
+# These tests create federated links between two brokers using SASL security.
+# The SASL mechanism used is EXTERNAL, which is satisfied by SSL
+# transport-layer security.
+#===============================================================================
+
+source ./test_env.sh
+
+script_name=`basename $0`
+
+if [ $# -lt 1 ] || [ $# -gt 2 ]
+then
+  echo
+  # These are the four different ways of creating links ( or routes+links ) 
+  # that the qpid-route command provides.
+  echo "Usage: ${script_name} dynamic|link|queue|route [cluster]"
+  echo
+  exit 1
+fi
+
+# Has the user told us to do clustering ? -----------
+clustering_flag=
+if [ $# -eq "2" ] && [ "$2" == "cluster" ]; then
+  clustering_flag=true
+fi
+
+qpid_route_method=$1
+
+# Debugging print. --------------------------
+debug=
+function print {
+  if [ "$debug" ]; then
+    echo "${script_name}: $1"
+  fi
+}
+
+print "=========== start sasl_fed_ex $* ============"
+
+
+
+# This minimum value corresponds to sasl version 2.1.22
+minimum_sasl_version=131350
+
+sasl_version=`$QPID_TEST_EXEC_DIR/sasl_version`
+
+# This test is necessary because this sasl version is the first one that permits 
+# redirection of the sasl config file path.
+if [ "$sasl_version" -lt  "$minimum_sasl_version" ]; then
+  echo "sasl_fed: must have sasl version 2.1.22 or greater.  ( Integer value: $minimum_sasl_version )  Version is: $sasl_version"
+  exit 0
+fi
+
+# In a distribution, the python tools will be absent.
+if [ ! -f $QPID_CONFIG_EXEC ] || [ ! -f $QPID_ROUTE_EXEC ] ; then
+    echo "python tools absent - skipping sasl_fed_ex."
+    exit 0
+fi
+
+CERT_DIR=`pwd`/test_cert_db
+CERT_PW_FILE=`pwd`/cert.password
+TEST_HOSTNAME=127.0.0.1
+
+create_certs() {
+    #create certificate and key databases with single, simple, self-signed certificate in it
+    mkdir ${CERT_DIR}
+    certutil -N -d ${CERT_DIR} -f ${CERT_PW_FILE}
+    certutil -S -d ${CERT_DIR} -n ${TEST_HOSTNAME} -s "CN=${TEST_HOSTNAME}" -t "CT,," -x -f ${CERT_PW_FILE} -z /usr/bin/certutil 2> /dev/null
+}
+
+delete_certs() {
+    if [[ -e ${CERT_DIR} ]] ;  then
+        print "removing cert dir ${CERT_DIR}"
+        rm -rf ${CERT_DIR}
+    fi
+}
+
+
+CERTUTIL=$(type -p certutil)
+if [[ !(-x $CERTUTIL) ]] ; then
+    echo "No certutil, skipping ssl test";
+    exit 0;
+fi
+
+delete_certs
+create_certs 2> /dev/null
+if [ ! $? ]; then
+  error "Could not create test certificate"
+  exit 1
+fi
+
+sasl_config_dir=$builddir/sasl_config
+
+tmp_root=${builddir}/sasl_fed_ex_temp
+print "results dir is ${tmp_root}"
+rm -rf ${tmp_root}
+mkdir -p $tmp_root
+
+SRC_SSL_PORT=6667
+DST_SSL_PORT=6666
+
+SRC_SSL_PORT_2=6668
+DST_SSL_PORT_2=6669
+
+SRC_TCP_PORT=5801
+DST_TCP_PORT=5807
+
+SRC_TCP_PORT_2=5802
+DST_TCP_PORT_2=5803
+
+CLUSTER_NAME_SUFFIX=`hostname | tr '.' ' ' | awk '{print $1}'`
+CLUSTER_1_NAME=sasl_fed_ex_cluster_1_${CLUSTER_NAME_SUFFIX}
+CLUSTER_2_NAME=sasl_fed_ex_cluster_2_${CLUSTER_NAME_SUFFIX}
+
+print "CLUSTER_1_NAME == ${CLUSTER_1_NAME}"
+print "CLUSTER_2_NAME == ${CLUSTER_2_NAME}"
+
+SSL_LIB=${moduledir}/ssl.so
+CLUSTER_LIB=${moduledir}/cluster.so
+
+export QPID_SSL_CERT_NAME=${TEST_HOSTNAME}
+
+export QPID_NO_MODULE_DIR=1
+export QPID_LOAD_MODULE=$SSLCONNECTOR_LIB
+export QPID_SSL_CERT_DB=${CERT_DIR}
+export QPID_SSL_CERT_PASSWORD_FILE=${CERT_PW_FILE}
+export QPID_SSL_CERT_NAME=${TEST_HOSTNAME}
+
+
+
+#######################################
+# Understanding this Plumbing
+#######################################
+#  1. when you establish the route with qpid-route,
+#     here is the best termiology to use:
+#
+#        qpid-route route add  DST  SRC
+#
+#  2. DST will connect to SRC through the ssl port of SRC.
+#
+#  3. sender client connects to the tcp port of SRC.
+#
+#  4. sender specifies mechanism ANONYMOUS.
+#
+#  5. DST pulls messages off the temp queue on SRC to itself.
+#
+
+COMMON_BROKER_OPTIONS="                          \
+      --ssl-sasl-no-dict                         \
+      --sasl-config=$sasl_config_dir             \
+      --ssl-require-client-authentication        \
+      --auth yes                                 \
+      --ssl-cert-db $CERT_DIR                    \
+      --ssl-cert-password-file $CERT_PW_FILE     \
+      --ssl-cert-name $TEST_HOSTNAME             \
+      --no-data-dir                              \
+      --no-module-dir                            \
+      --load-module ${SSL_LIB}                   \
+      --mgmt-enable=yes                          \
+      --log-enable info+                         \
+      --log-source yes                           \
+      --daemon "                                 
+                      
+
+function start_brokers {
+  if [ $1 ]; then
+    # clustered ----------------------------------------
+    print "Starting SRC cluster"
+
+    print "  src broker 1"
+    $QPIDD_EXEC                                  \
+      --port=${SRC_TCP_PORT}                     \
+      --ssl-port ${SRC_SSL_PORT}                 \
+      ${COMMON_BROKER_OPTIONS}                   \
+      --load-module ${CLUSTER_LIB}               \
+      --cluster-name ${CLUSTER_1_NAME}           \
+      --log-to-file $tmp_root/qpidd_src.log 2> /dev/null
+
+    broker_ports[0]=${SRC_TCP_PORT}
+
+    print "  src broker 2"
+    $QPIDD_EXEC                                  \
+      --port=${SRC_TCP_PORT_2}                   \
+      --ssl-port ${SRC_SSL_PORT_2}               \
+      ${COMMON_BROKER_OPTIONS}                   \
+      --load-module ${CLUSTER_LIB}               \
+      --cluster-name ${CLUSTER_1_NAME}           \
+      --log-to-file $tmp_root/qpidd_src_2.log 2> /dev/null
+
+    broker_ports[1]=${SRC_TCP_PORT_2}
+
+
+    print "Starting DST cluster"
+
+    print "  dst broker 1"
+    $QPIDD_EXEC                                  \
+      --port=${DST_TCP_PORT}                     \
+      --ssl-port ${DST_SSL_PORT}                 \
+      ${COMMON_BROKER_OPTIONS}                   \
+      --load-module ${CLUSTER_LIB}               \
+      --cluster-name ${CLUSTER_2_NAME}           \
+      --log-to-file $tmp_root/qpidd_dst.log 2> /dev/null
+
+    broker_ports[2]=${DST_TCP_PORT}
+
+    print "  dst broker 2"
+    $QPIDD_EXEC                                  \
+      --port=${DST_TCP_PORT_2}                   \
+      --ssl-port ${DST_SSL_PORT_2}               \
+      ${COMMON_BROKER_OPTIONS}                   \
+      --load-module ${CLUSTER_LIB}               \
+      --cluster-name ${CLUSTER_2_NAME}           \
+      --log-to-file $tmp_root/qpidd_dst_2.log 2> /dev/null
+
+    broker_ports[3]=${DST_TCP_PORT_2}
+
+  else
+    # vanilla brokers --------------------------------
+    print "Starting SRC broker"
+    $QPIDD_EXEC                                  \
+      --port=${SRC_TCP_PORT}                     \
+      --ssl-port ${SRC_SSL_PORT}                 \
+      ${COMMON_BROKER_OPTIONS}                   \
+      --log-to-file $tmp_root/qpidd_src.log 2> /dev/null
+
+    broker_ports[0]=${SRC_TCP_PORT}
+
+    print "Starting DST broker"
+    $QPIDD_EXEC                                  \
+      --port=${DST_TCP_PORT}                     \
+      --ssl-port ${DST_SSL_PORT}                 \
+      ${COMMON_BROKER_OPTIONS}                   \
+      --log-to-file $tmp_root/qpidd_dst.log 2> /dev/null
+
+    broker_ports[1]=${DST_TCP_PORT}
+  fi
+}
+
+
+function halt_brokers {
+  n_brokers=${#broker_ports[@]}
+  print "Halting ${n_brokers} brokers."
+  for i in $(seq 0 $((${n_brokers} - 1)))
+  do
+    halt_port=${broker_ports[$i]}
+    print "Halting broker $i on port ${halt_port}"
+    $QPIDD_EXEC --port ${halt_port} --quit
+  done
+
+}
+
+
+start_brokers $clustering_flag
+
+
+# I am not randomizing these names, because this test creates its own brokers.
+QUEUE_NAME=sasl_fed_queue
+ROUTING_KEY=sasl_fed_queue
+EXCHANGE_NAME=sasl_fedex
+
+
+print "add exchanges"
+$QPID_CONFIG_EXEC -a localhost:${SRC_TCP_PORT} add exchange direct $EXCHANGE_NAME
+$QPID_CONFIG_EXEC -a localhost:${DST_TCP_PORT} add exchange direct $EXCHANGE_NAME
+
+
+print "add queues"
+$QPID_CONFIG_EXEC -a localhost:${SRC_TCP_PORT} add queue $QUEUE_NAME
+$QPID_CONFIG_EXEC -a localhost:${DST_TCP_PORT} add queue $QUEUE_NAME
+
+
+print "create bindings"
+$QPID_CONFIG_EXEC -a localhost:${SRC_TCP_PORT} bind $EXCHANGE_NAME $QUEUE_NAME $ROUTING_KEY
+$QPID_CONFIG_EXEC -a localhost:${DST_TCP_PORT} bind $EXCHANGE_NAME $QUEUE_NAME $ROUTING_KEY
+
+
+#
+# NOTE: The SRC broker *must* be referred to as $TEST_HOSTNAME, and not as "localhost".
+#       It must be referred to by the exact string given as the Common Name (CN) in the cert,
+#       which was created in the function create_certs, above.
+
+
+
+#----------------------------------------------------------------
+# Use qpid-route to create the link, or the link+route, depending
+# on which of its several methods was requested.
+#----------------------------------------------------------------
+if   [ ${qpid_route_method} == "dynamic" ]; then
+  print "dynamic add"
+  $QPID_ROUTE_EXEC -t ssl dynamic add localhost:${DST_TCP_PORT} $TEST_HOSTNAME:${SRC_SSL_PORT} $EXCHANGE_NAME "" "" EXTERNAL
+elif [ ${qpid_route_method} == "link"   ];  then
+  print "link add"
+  $QPID_ROUTE_EXEC -t ssl link add localhost:${DST_TCP_PORT} $TEST_HOSTNAME:${SRC_SSL_PORT}  EXTERNAL
+elif [ ${qpid_route_method} == "queue" ];   then
+  print "queue add"
+  $QPID_ROUTE_EXEC -t ssl queue add localhost:${DST_TCP_PORT}   $TEST_HOSTNAME:${SRC_SSL_PORT} $EXCHANGE_NAME $ROUTING_KEY EXTERNAL
+elif [ ${qpid_route_method} == "route" ];   then
+  print "route add"
+  $QPID_ROUTE_EXEC -t ssl route add localhost:${DST_TCP_PORT}   $TEST_HOSTNAME:${SRC_SSL_PORT} $EXCHANGE_NAME $ROUTING_KEY "" "" EXTERNAL
+else
+  echo "unknown method: |${qpid_route_method}|"
+  echo " choices are: dynamic|link|queue|route "
+  halt_brokers
+  exit 1
+fi
+
+
+# I don't know how to avoid this sleep yet.  It has to come after route-creation 
+# to avoid false negatives.
+sleep 5
+
+# This should work the same whether or not we are running a clustered test.
+# In the case of clustered tests, the status is not printed by qpid_route.
+# So in either case, I will look only at the transport field, which should be "ssl".
+print "check the link"
+link_status=$($QPID_ROUTE_EXEC link list localhost:${DST_TCP_PORT} | tail -1 | awk '{print $3}')
+
+halt_brokers
+
+sleep 1
+
+if [ ! ${link_status} ]; then
+  print "link_status is empty"
+  print "result: fail"
+  exit 2
+fi
+
+if [ ${link_status} == "ssl" ]; then
+  print "result: good"
+  # Only remove the tmp_root on success, to permit debugging.
+  print "Removing temporary directory $tmp_root"
+  rm -rf $tmp_root
+  exit 0
+fi
+
+print "link_status has a bad value: ${link_status}"
+print "result: fail"
+exit 3
+
+
+
