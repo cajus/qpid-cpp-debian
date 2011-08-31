@@ -74,8 +74,8 @@ install-arch:
 	dh_installdirs -s
 
 	$(MAKE) DESTDIR=$(CURDIR)/debian/tmp install
-	cp debian/qpidd.conf debian/qpid-broker/etc/qpid
-	cp debian/qpidd.policy debian/qpid-broker/etc/qpid
+	cp debian/qpidd.conf debian/qpidd/etc/qpid
+	cp debian/qpidd.policy debian/qpidd/etc/qpid
 
 	dh_install -s
 # Must not depend on anything. This is to be called by

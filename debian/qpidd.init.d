@@ -19,9 +19,9 @@ export SASL_CONF_PATH=/etc/qpid/sasl
 DAEMON=/usr/sbin/qpidd
 NAME=qpidd
 DESC="AMQP broker"
-LOGDIR=/var/log/qpidd
+LOGDIR=/var/log/qpid
 STARTTIME=2
-PIDFILE=/var/run/qpidd/$NAME.pid
+PIDFILE=/var/run/qpid/$NAME.pid
 
 test -x $DAEMON || exit 0
 
@@ -36,8 +36,8 @@ LOGFILE=$LOGDIR/$NAME.log
 DAEMONUSER=qpidd
 
 # Include defaults if available
-if [ -f /etc/default/qpid-broker ] ; then
-	. /etc/default/qpid-broker
+if [ -f /etc/default/qpidd ] ; then
+	. /etc/default/qpidd
 fi
 
 # Check that the user exists (if we set a user)

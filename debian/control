@@ -7,9 +7,11 @@ XS-Python-Version: >= 2.6
 Standards-Version: 3.7.3
 Homepage: http://qpid.apache.org
 
-Package: qpid-broker
+Package: qpidd
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, adduser, libsasl2-modules
+Replaces: qpid-broker
+Conflicts: qpid-broker
 Description: Apache qpid AMQP broker
  Qpid/C++ is a C++ implementation of the AMQP protocol described at
  http://amqp.org/

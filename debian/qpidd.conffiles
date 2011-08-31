@@ -1,0 +1,3 @@
+etc/qpid/qpidd.conf
+etc/qpid/sasl/qpidd.conf
+var/lib/qpid/qpidd.sasldb

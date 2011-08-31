@@ -1,4 +1,4 @@
-/var/log/qpidd.log {
+/var/log/qpid/*.log {
     weekly
     rotate 4
     compress

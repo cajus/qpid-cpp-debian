@@ -1,0 +1,26 @@
+Index: qpid-cpp-debian/etc/Makefile.am
+===================================================================
+--- qpid-cpp-debian.orig/etc/Makefile.am	2011-08-31 08:59:51.199805319 +0200
++++ qpid-cpp-debian/etc/Makefile.am	2011-08-31 09:00:00.343803167 +0200
+@@ -35,7 +35,7 @@
+ nobase_sysconf_DATA += \
+ 	$(SASL_CONF)
+ 
+-sasldbdir = $(localstatedir)/lib/qpidd
++sasldbdir = $(localstatedir)/lib/qpid
+ sasldb_DATA = $(SASL_DB)
+ 
+ # Setup the default sasldb file with a single user, guest, with an
+Index: qpid-cpp-debian/etc/Makefile.in
+===================================================================
+--- qpid-cpp-debian.orig/etc/Makefile.in	2011-08-31 08:59:25.052803895 +0200
++++ qpid-cpp-debian/etc/Makefile.in	2011-08-31 08:59:47.651802630 +0200
+@@ -270,7 +270,7 @@
+ 
+ nobase_sysconf_DATA = qpidd.conf $(am__append_1)
+ @HAVE_SASL_TRUE@SASL_DB = qpidd.sasldb
+-@HAVE_SASL_TRUE@sasldbdir = $(localstatedir)/lib/qpidd
++@HAVE_SASL_TRUE@sasldbdir = $(localstatedir)/lib/qpid
+ @HAVE_SASL_TRUE@sasldb_DATA = $(SASL_DB)
+ @HAVE_SASL_TRUE@CLEANFILES = $(SASL_DB)
+ all: all-am
