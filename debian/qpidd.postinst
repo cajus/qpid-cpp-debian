@@ -7,14 +7,20 @@ set -e
 
 case "$1" in
     configure)
-      if [ ! -d /var/run/qpid ]; then
-              mkdir -m 0750 /var/run/qpid
-              mkdir -m 0750 /var/spool/qpid
-      fi
-      chgrp qpidd /etc/qpid/sasl/qpidd.conf 2>/dev/null || addgroup --system qpidd
-      chown qpidd /etc/qpid/sasl/qpidd.conf 2>/dev/null || adduser --system --home /var/run/qpid --no-create-home --disabled-password --ingroup qpidd qpidd
-      chgrp qpidd /var/run/qpid /var/spool/qpid /etc/qpid/sasl/qpidd.conf 2>/dev/null
-      chown qpidd /var/run/qpid /var/spool/qpid /etc/qpid/sasl/qpidd.conf 2>/dev/null
+
+        # Create a user if missing
+        if ! getent passwd qpidd > /dev/null ; then
+            echo 'Adding system-user for qpidd' 1>&2
+            adduser --system --home /var/run/qpid --group --no-create-home --disabled-password --ingroup qpidd qpidd
+        fi
+
+        # Create directories
+        install -d -oqpidd -gadm -m2750 /var/log/qpid
+        install -d -oqpidd -gqpidd -m750 /var/run/qpid
+        install -d -oqpidd -gqpidd -m750 /var/spool/qpid
+
+        # Make sure that the sasl config permissions are set correctly
+        chgrp qpidd.qpidd /etc/qpid/sasl/qpidd.conf 2>/dev/null
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
