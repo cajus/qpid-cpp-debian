@@ -2,8 +2,8 @@
 #
 ### BEGIN INIT INFO
 # Provides:          qpidd
-# Required-Start:    $network $local_fs
-# Required-Stop:
+# Required-Start:       $remote_fs $syslog $network
+# Required-Stop:        $remote_fs $syslog $network
 # Should-Start:
 # Should-Stop:
 # Default-Start:     2 3 4 5
