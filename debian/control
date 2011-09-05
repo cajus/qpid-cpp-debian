@@ -2,7 +2,7 @@ Source: qpid-cpp
 Section: misc
 Priority: extra
 Maintainer: Cajus Pollmeier <cajus@naasa.net>
-Build-Depends: debhelper (>= 7), autotools-dev, libboost-all-dev, ruby, uuid-dev, libopenais-dev, libsasl2-dev, libxqilla-dev, libxmltooling4, libibverbs-dev, librdmacm-dev, libnspr4-dev, libnss3-dev, libssl-dev, sasl2-bin, libcorosync-dev, libxqilla-dev, libxerces-c-dev, libcman-dev, swig
+Build-Depends: debhelper (>= 7), autotools-dev, libboost-all-dev, ruby, uuid-dev, libopenais-dev, libsasl2-dev, libxqilla-dev, libxmltooling4, libibverbs-dev, librdmacm-dev, libnspr4-dev, libnss3-dev, libssl-dev, sasl2-bin, libcorosync-dev, libxqilla-dev, libxerces-c-dev, libcman-dev, swig, python-support
 XS-Python-Version: >= 2.6
 Standards-Version: 3.7.3
 Homepage: http://qpid.apache.org

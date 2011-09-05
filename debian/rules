@@ -72,12 +72,14 @@ install-arch:
 	dh_testroot
 	dh_clean -k -s 
 	dh_installdirs -s
-
+	
 	$(MAKE) DESTDIR=$(CURDIR)/debian/tmp install
 	cp debian/qpidd.conf debian/qpidd/etc/qpid
 	cp debian/qpidd.policy debian/qpidd/etc/qpid
-
+	
 	dh_install -s
+	dh_pysupport -i
+
 # Must not depend on anything. This is to be called by
 # binary-arch/binary-indep
 # in another 'make' thread.
