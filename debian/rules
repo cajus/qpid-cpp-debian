@@ -78,7 +78,7 @@ install-arch:
 	cp debian/qpidd.policy debian/qpidd/etc/qpid
 	
 	dh_install -s
-	dh_pysupport -i
+	dh_pysupport -s
 
 # Must not depend on anything. This is to be called by
 # binary-arch/binary-indep

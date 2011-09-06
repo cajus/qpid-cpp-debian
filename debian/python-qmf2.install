@@ -1,5 +1,2 @@
-usr/lib/python2.6/site-packages/qmf2.py usr/lib/python2.6/dist-packages
-usr/lib/python2.6/site-packages/qmf2.pyo usr/lib/python2.6/dist-packages
-usr/lib/python2.6/site-packages/cqmf2.py usr/lib/python2.6/dist-packages
-usr/lib/python2.6/site-packages/cqmf2.pyo usr/lib/python2.6/dist-packages
-usr/lib/_cqmf2.so usr/lib/python2.6/dist-packages
+usr/lib/python2.6/site-packages/qmf2.py
+usr/lib/python2.6/site-packages/qmf2.pyo

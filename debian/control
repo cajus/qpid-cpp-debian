@@ -272,6 +272,18 @@ Description: Apache qpid AMQP Python qmf2 module
  .
  This package contains the AMQP Python qmf2 module.
 
+Package: python-cqmf2
+Architecture: any
+Section: python
+Depends: ${python:Depends}, ${shlibs:Depends}, ${misc:Depends}
+Provides: ${python:Provides}
+XB-Python-Version: ${python:Versions}
+Description: Apache qpid AMQP Python cqmf2 module
+ Qpid/C++ is a C++ implementation of the AMQP protocol described at
+ http://amqp.org/
+ .
+ This package contains the AMQP Python cqmf2 module.
+
 Package: python-qmf
 Architecture: any
 Section: python
