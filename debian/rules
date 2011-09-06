@@ -62,7 +62,6 @@ install: install-indep install-arch
 install-indep:
 	dh_testdir
 	dh_testroot
-	dh_prep -i
 	dh_installdirs -i
 	dh_install -i
 	dh_pysupport -i
