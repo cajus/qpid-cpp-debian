@@ -62,7 +62,7 @@ install: install-indep install-arch
 install-indep:
 	dh_testdir
 	dh_testroot
-	#dh_clean -k -i 
+	dh_prep -i
 	dh_installdirs -i
 	dh_install -i
 	dh_pysupport -i
@@ -70,7 +70,7 @@ install-indep:
 install-arch:
 	dh_testdir
 	dh_testroot
-	dh_clean -k -s 
+	dh_prep -s
 	dh_installdirs -s
 	
 	$(MAKE) DESTDIR=$(CURDIR)/debian/tmp install

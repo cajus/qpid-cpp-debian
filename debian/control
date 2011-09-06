@@ -4,7 +4,7 @@ Priority: extra
 Maintainer: Cajus Pollmeier <cajus@naasa.net>
 Build-Depends: debhelper (>= 7), autotools-dev, libboost-all-dev, ruby, uuid-dev, libopenais-dev, libsasl2-dev, libxqilla-dev, libxmltooling4, libibverbs-dev, librdmacm-dev, libnspr4-dev, libnss3-dev, libssl-dev, sasl2-bin, libcorosync-dev, libxqilla-dev, libxerces-c-dev, libcman-dev, swig, python-support
 XS-Python-Version: >= 2.6
-Standards-Version: 3.7.3
+Standards-Version: 3.9.1
 Homepage: http://qpid.apache.org
 
 Package: qpidd
@@ -298,6 +298,7 @@ Description: Apache qpid AMQP Python qmf module
 
 Package: qpid-doc
 Architecture: all
+Depends: ${misc:Depends}
 Description: Apache qpid AMQP documentation and examples
  Qpid/C++ is a C++ implementation of the AMQP protocol described at
  http://amqp.org/
