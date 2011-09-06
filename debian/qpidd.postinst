@@ -20,7 +20,7 @@ case "$1" in
         install -d -oqpidd -gqpidd -m750 /var/spool/qpid
 
         # Make sure that the sasl config permissions are set correctly
-        chown qpidd.qpidd /etc/qpid/sasl/qpidd.conf 2>/dev/null
+        chown qpidd:qpidd /etc/qpid/sasl/qpidd.conf 2>/dev/null
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)

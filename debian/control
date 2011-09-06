@@ -27,7 +27,7 @@ Description: Apache qpid AMQP client
  .
  This package contains the AMQP client support.
 
-Package: libqmf
+Package: libqmf1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Apache qpid AMQP libraries
@@ -46,7 +46,7 @@ Description: Apache qpid AMQP develpment files
  .
  This package contains the QMF development files.
 
-Package: libqmf2
+Package: libqmf2-1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Apache qpid AMQP libraries
@@ -286,6 +286,7 @@ Description: Apache qpid AMQP Python qmf module
 
 Package: qpid-doc
 Architecture: all
+Section: doc
 Depends: ${misc:Depends}
 Description: Apache qpid AMQP documentation and examples
  Qpid/C++ is a C++ implementation of the AMQP protocol described at
