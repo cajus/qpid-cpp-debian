@@ -236,18 +236,6 @@ Description: Apache qpid AMQP develpment files
  .
  This package contains the AMQP development files.
 
-Package: python-qmfgen
-Architecture: all
-Section: python
-Depends: ${python:Depends}, ${shlibs:Depends}, ${misc:Depends}
-Provides: ${python:Provides}
-XB-Python-Version: ${python:Versions}
-Description: Apache qpid AMQP Python qmfgen module
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
- .
- This package contains the AMQP Python qmf module.
-
 Package: python-cqpid
 Architecture: any
 Section: python
