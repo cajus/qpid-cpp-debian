@@ -1,4 +1,3 @@
 etc/sasl2/qpidd.conf /etc/qpid/sasl
 usr/sbin/qpidd
 usr/lib/qpid/daemon
-var/lib/qpid
