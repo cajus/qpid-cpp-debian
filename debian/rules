@@ -13,4 +13,4 @@ override_dh_auto_configure:
 	dh_auto_configure -- --with-sasl --with-xml --with-rdma --with-ssl --with-cpg --with-swig
 
 %:
-	dh  $@
+	dh  $@ --with python2
