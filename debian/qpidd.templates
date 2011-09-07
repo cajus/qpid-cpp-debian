@@ -1,0 +1,15 @@
+Template: qpidd/password1
+Type: password
+_Description: Administrator password:
+ Please enter the password for the QPID daemon administrator.
+
+Template: qpidd/password2
+Type: password
+_Description: Confirm password:
+ Please enter the password for the QPID daemon administrator again to verify
+ that you have typed it correctly.
+
+Template: qpidd/password_mismatch
+Type: note
+_Description: Password mismatch
+ The two passwords you entered were not the same. Please try again.

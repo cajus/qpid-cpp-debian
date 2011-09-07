@@ -1,0 +1,39 @@
+#. Type: password
+#. Description
+#: ../qpidd.templates:1001
+msgid "Administrator password:"
+msgstr "Administratoren Passwort:"
+
+#. Type: password
+#. Description
+#: ../qpidd.templates:1001
+msgid "Please enter the password for the QPID daemon administrator."
+msgstr "Bitte geben Sie das Passwort für den QPID-Daemon Administrator ein."
+
+#. Type: password
+#. Description
+#: ../qpidd.templates:2001
+msgid "Confirm password:"
+msgstr ""
+
+#. Type: password
+#. Description
+#: ../qpidd.templates:2001
+msgid ""
+"Please enter the password for the QPID daemon administrator again to verify "
+"that you have typed it correctly."
+msgstr ""
+"Bitte geben Sie das Passwort für den QPID-Daemon Administrator erneut ein, "
+"um zu überprüfen ob es korrekt geschrieben wurde."
+
+#. Type: note
+#. Description
+#: ../qpidd.templates:3001
+msgid "Password mismatch"
+msgstr "Passworte stimmen nicht überein"
+
+#. Type: note
+#. Description
+#: ../qpidd.templates:3001
+msgid "The two passwords you entered were not the same. Please try again."
+msgstr "Die beiden von Ihnen eingegebenen Passwörter sind nicht gleich. Bitte versuchen Sie es erneut."
