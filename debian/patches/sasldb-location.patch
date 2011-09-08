@@ -1,7 +1,5 @@
-Index: qpid-cpp-debian/etc/Makefile.am
-===================================================================
---- qpid-cpp-debian.orig/etc/Makefile.am	2011-08-31 08:59:51.199805319 +0200
-+++ qpid-cpp-debian/etc/Makefile.am	2011-08-31 09:00:00.343803167 +0200
+--- a/etc/Makefile.am
++++ b/etc/Makefile.am
 @@ -35,7 +35,7 @@
  nobase_sysconf_DATA += \
  	$(SASL_CONF)
@@ -11,10 +9,8 @@ Index: qpid-cpp-debian/etc/Makefile.am
  sasldb_DATA = $(SASL_DB)
  
  # Setup the default sasldb file with a single user, guest, with an
-Index: qpid-cpp-debian/etc/Makefile.in
-===================================================================
---- qpid-cpp-debian.orig/etc/Makefile.in	2011-08-31 08:59:25.052803895 +0200
-+++ qpid-cpp-debian/etc/Makefile.in	2011-08-31 08:59:47.651802630 +0200
+--- a/etc/Makefile.in
++++ b/etc/Makefile.in
 @@ -270,7 +270,7 @@
  
  nobase_sysconf_DATA = qpidd.conf $(am__append_1)
@@ -24,3 +20,14 @@ Index: qpid-cpp-debian/etc/Makefile.in
  @HAVE_SASL_TRUE@sasldb_DATA = $(SASL_DB)
  @HAVE_SASL_TRUE@CLEANFILES = $(SASL_DB)
  all: all-am
+--- a/etc/sasl2/qpidd.conf
++++ b/etc/sasl2/qpidd.conf
+@@ -38,7 +38,7 @@
+ #
+ pwcheck_method: auxprop
+ auxprop_plugin: sasldb
+-sasldb_path: /var/lib/qpidd/qpidd.sasldb
++sasldb_path: /etc/qpid/qpidd.sasldb
+ 
+ #following line stops spurious 'sql_select option missing' errors when
+ #cyrus-sql-sasl plugin is installed
