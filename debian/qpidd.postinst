@@ -26,7 +26,7 @@ set_admin_pass() {
                 RET=`od -vAn -N4 -tu4 < /dev/random | base64`
         fi
 
-	echo -n "$RET" | /usr/sbin/saslpasswd2 -cpf /etc/qpid/qpidd.sasldb -u QPID admin
+	echo -n "$RET" | saslpasswd2 -cpf /etc/qpid/qpidd.sasldb -u QPID admin
 
         # Purge data
         db_set qpidd/password1 ""
