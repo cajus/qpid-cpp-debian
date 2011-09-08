@@ -1,0 +1,1 @@
+# saslpasswd2 -cf /etc/qpid/qpidd.sasldb -u QPID admin
