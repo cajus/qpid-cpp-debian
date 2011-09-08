@@ -2,4 +2,4 @@ etc/sasl2/qpidd.conf /etc/qpid/sasl
 usr/sbin/qpidd
 usr/lib/qpid/daemon
 ../qpidd.conf /etc/qpid
-../qpidd.policy /etc/qpid
+../qpidd.acl /etc/qpid
