@@ -9,7 +9,7 @@ Homepage: http://qpid.apache.org
 
 Package: qpidd
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, adduser, libsasl2-modules
+Depends: ${shlibs:Depends}, ${misc:Depends}, adduser, libsasl2-modules, sasl2-bin
 Replaces: qpid-broker
 Conflicts: qpid-broker
 Description: Apache qpid AMQP broker

@@ -40,7 +40,7 @@ case "$1" in
         # Create a user if missing
         if ! getent passwd qpidd > /dev/null ; then
             echo 'Adding system-user for qpidd' 1>&2
-            adduser --system --home /var/run/qpid --group --no-create-home --disabled-password --ingroup qpidd qpidd
+            adduser --system --home /var/run/qpid --group --no-create-home --disabled-password qpidd
         fi
 
         # Create directories
