@@ -1,0 +1,39 @@
+Index: qpid-cpp-debian/bindings/qmf/python/Makefile.am
+===================================================================
+--- qpid-cpp-debian.orig/bindings/qmf/python/Makefile.am	2011-09-09 11:11:20.000000000 +0200
++++ qpid-cpp-debian/bindings/qmf/python/Makefile.am	2011-09-09 11:12:18.000000000 +0200
+@@ -34,7 +34,7 @@
+ 
+ pylibdir = $(PYTHON_LIB)
+ 
+-lib_LTLIBRARIES = _qmfengine.la
++pylib_LTLIBRARIES = _qmfengine.la
+ qenginedir = $(pyexecdir)
+ qengine_PYTHON = qmfengine.py qmf.py
+ 
+Index: qpid-cpp-debian/bindings/qmf2/python/Makefile.am
+===================================================================
+--- qpid-cpp-debian.orig/bindings/qmf2/python/Makefile.am	2011-09-09 11:11:16.000000000 +0200
++++ qpid-cpp-debian/bindings/qmf2/python/Makefile.am	2011-09-09 11:12:12.000000000 +0200
+@@ -34,7 +34,7 @@
+ 
+ pylibdir = $(PYTHON_LIB)
+ 
+-lib_LTLIBRARIES = _cqmf2.la
++pylib_LTLIBRARIES = _cqmf2.la
+ cqpiddir = $(pyexecdir)
+ cqpid_PYTHON = qmf2.py cqmf2.py
+ 
+Index: qpid-cpp-debian/bindings/qpid/python/Makefile.am
+===================================================================
+--- qpid-cpp-debian.orig/bindings/qpid/python/Makefile.am	2011-09-09 11:11:28.000000000 +0200
++++ qpid-cpp-debian/bindings/qpid/python/Makefile.am	2011-09-09 11:12:21.000000000 +0200
+@@ -34,7 +34,7 @@
+ 
+ pylibdir = $(PYTHON_LIB)
+ 
+-lib_LTLIBRARIES = _cqpid.la
++pylib_LTLIBRARIES = _cqpid.la
+ cqpiddir = $(pyexecdir)
+ cqpid_PYTHON = cqpid.py
+ 
