@@ -1,2 +1,3 @@
-usr/lib/perl/5.10/* usr/lib/perl/5.10/auto
+usr/lib/libcqpid_perl.la usr/lib/perl/5.10/auto
+usr/lib/libcqpid_perl.so usr/lib/perl/5.10/auto
 ../../bindings/qpid/perl/cqpid_perl.pm usr/lib/perl/5.10/auto
