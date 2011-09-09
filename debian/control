@@ -2,7 +2,7 @@ Source: qpid-cpp
 Section: misc
 Priority: extra
 Maintainer: Cajus Pollmeier <cajus@naasa.net>
-Build-Depends: debhelper (>= 7.0.50~), autotools-dev, autoconf (>= 2.61), automake (>= 1.9.6), libtool (>= 1.5.22), libboost-all-dev (>= 1.35), ruby (>= 1.8.4), uuid-dev, libopenais-dev (>= 0.80.3), libsasl2-dev, libxqilla-dev (>= 2.0.0), libxmltooling4, libibverbs-dev, librdmacm-dev, libnspr4-dev, libnss3-dev, libssl-dev, sasl2-bin, libcorosync-dev, libxerces-c-dev (>= 2.7.0), libcman-dev, swig (>= 1.3.35), python (>= 2.6.6-3~)
+Build-Depends: debhelper (>= 7.0.50~), autotools-dev, autoconf (>= 2.61), automake (>= 1.9.6), libtool (>= 1.5.22), libboost-dev (>= 1.35), libboost-filesystem-dev (>= 1.35), libboost-program-options-dev (>= 1.35), libboost-test-dev (>= 1.35), ruby (>= 1.8.4), ruby-dev, libperl-dev, uuid-dev, libopenais-dev (>= 0.80.3), libsasl2-dev, libxqilla-dev (>= 2.0.0), libxmltooling4, libibverbs-dev, librdmacm-dev, libnspr4-dev, libnss3-dev, libssl-dev, sasl2-bin, libcorosync-dev, libxerces-c-dev (>= 2.7.0), libcman-dev, swig (>= 1.3.35), python (>= 2.6.6-3~), doxygen, help2man
 X-Python-Version: >= 2.6
 Standards-Version: 3.9.1
 Homepage: http://qpid.apache.org
@@ -13,8 +13,10 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, adduser, libsasl2-modules, sasl2-bi
 Replaces: qpid-broker
 Conflicts: qpid-broker
 Description: Apache qpid AMQP broker
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP broker.
 
@@ -22,8 +24,10 @@ Package: qpid-client
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Apache qpid AMQP client
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP client support.
 
@@ -31,8 +35,10 @@ Package: libqmf1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Apache qpid AMQP libraries
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the QMF libraries.
 
@@ -41,8 +47,10 @@ Architecture: any
 Section: libdevel
 Depends: ${misc:Depends}
 Description: Apache qpid AMQP develpment files
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the QMF development files.
 
@@ -50,8 +58,10 @@ Package: libqmf2-1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Apache qpid AMQP libraries
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the QMF2 libraries.
 
@@ -60,8 +70,10 @@ Architecture: any
 Section: libdevel
 Depends: ${misc:Depends}
 Description: Apache qpid AMQP develpment files
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the QMF2 development files.
 
@@ -69,8 +81,10 @@ Package: libqmfconsole2
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Apache qpid AMQP libraries
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP libraries.
 
@@ -79,8 +93,10 @@ Architecture: any
 Section: libdevel
 Depends: ${misc:Depends}
 Description: Apache qpid AMQP develpment files
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP development files.
 
@@ -88,8 +104,10 @@ Package: libqpidmessaging2
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Apache qpid AMQP libraries
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP messaging libraries.
 
@@ -98,8 +116,10 @@ Architecture: any
 Section: libdevel
 Depends: ${misc:Depends}
 Description: Apache qpid AMQP develpment files
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP messaging development files.
 
@@ -107,8 +127,10 @@ Package: libsslcommon2
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Apache qpid AMQP libraries
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP libraries.
 
@@ -117,8 +139,10 @@ Architecture: any
 Section: libdevel
 Depends: ${misc:Depends}
 Description: Apache qpid AMQP develpment files
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP development files.
 
@@ -126,8 +150,10 @@ Package: librdmawrap2
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Apache qpid AMQP libraries
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP libraries.
 
@@ -136,8 +162,10 @@ Architecture: any
 Section: libdevel
 Depends: ${misc:Depends}
 Description: Apache qpid AMQP develpment files
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP development files.
 
@@ -145,8 +173,10 @@ Package: libqpidtypes1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Apache qpid AMQP libraries
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP libraries.
 
@@ -155,8 +185,10 @@ Architecture: any
 Section: libdevel
 Depends: ${misc:Depends}
 Description: Apache qpid AMQP develpment files
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP development files.
 
@@ -164,8 +196,10 @@ Package: libqpidcommon2
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Apache qpid AMQP libraries
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP libraries.
 
@@ -174,8 +208,10 @@ Architecture: any
 Section: libdevel
 Depends: ${misc:Depends}
 Description: Apache qpid AMQP develpment files
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP development files.
 
@@ -183,8 +219,10 @@ Package: libqpidclient2
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Apache qpid AMQP libraries
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP libraries.
 
@@ -193,8 +231,10 @@ Architecture: any
 Section: libdevel
 Depends: ${misc:Depends}
 Description: Apache qpid AMQP develpment files
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP development files.
 
@@ -202,8 +242,10 @@ Package: libqpidbroker2
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Apache qpid AMQP libraries
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP libraries.
 
@@ -212,8 +254,10 @@ Architecture: any
 Section: libdevel
 Depends: ${misc:Depends}
 Description: Apache qpid AMQP develpment files
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP development files.
 
@@ -221,8 +265,10 @@ Package: libqmfengine1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Apache qpid AMQP libraries
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP libraries.
 
@@ -231,8 +277,10 @@ Architecture: any
 Section: libdevel
 Depends: ${misc:Depends}
 Description: Apache qpid AMQP develpment files
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP development files.
 
@@ -242,8 +290,10 @@ Section: python
 Depends: ${python:Depends}, ${shlibs:Depends}, ${misc:Depends}
 Provides: ${python:Provides}
 Description: Apache qpid AMQP Python cqpid module
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP Python cqpid module.
 
@@ -253,8 +303,10 @@ Section: python
 Depends: ${python:Depends}, ${misc:Depends}
 Provides: ${python:Provides}
 Description: Apache qpid AMQP Python qmf2 module
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP Python qmf2 module.
 
@@ -264,8 +316,10 @@ Section: python
 Depends: ${python:Depends}, ${shlibs:Depends}, ${misc:Depends}
 Provides: ${python:Provides}
 Description: Apache qpid AMQP Python cqmf2 module
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP Python cqmf2 module.
 
@@ -275,8 +329,10 @@ Section: python
 Depends: ${python:Depends}, ${shlibs:Depends}, ${misc:Depends}
 Provides: ${python:Provides}
 Description: Apache qpid AMQP Python qmf module
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP Python qmf module.
 
@@ -285,8 +341,45 @@ Architecture: all
 Section: doc
 Depends: ${misc:Depends}
 Description: Apache qpid AMQP documentation and examples
- Qpid/C++ is a C++ implementation of the AMQP protocol described at
- http://amqp.org/
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
  .
  This package contains the AMQP documentation.
 
+Package: libqpid-ruby1.8
+Architecture: any
+Section: ruby
+Depends: ${shlibs:Depends}, qpid-specs
+Description: Apache qpid Ruby bindings
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
+ .
+ This package contains the AMQP Ruby support.
+
+Package: libqpid-perl
+Architecture: any
+Depends: ${shlibs:Depends}
+Section: perl
+Description: Apache qpid Perl bindings
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
+ .
+ This package contains the Qpid perl bindings.
+
+Package: qpid-tests
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Suggests: qpid-doc
+Description: Qpid test programs
+ Apache Qpid is a cross-platform Enterprise Messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
+ .
+ This package contains some Qpid test programs.
