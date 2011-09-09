@@ -1,1 +1,2 @@
 usr/lib/perl/5.10/* usr/lib/perl/5.10/auto
+../../bindings/qpid/perl/cqpid_perl.pm usr/lib/perl/5.10/auto

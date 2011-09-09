@@ -371,15 +371,3 @@ Description: Apache qpid Perl bindings
  and Ruby.
  .
  This package contains the Qpid perl bindings.
-
-Package: qpid-tests
-Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
-Suggests: qpid-doc
-Description: Qpid test programs
- Apache Qpid is a cross-platform Enterprise Messaging system which implements
- the Advanced Message Queuing Protocol (AMQP), providing message brokers
- written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
- and Ruby.
- .
- This package contains some Qpid test programs.
