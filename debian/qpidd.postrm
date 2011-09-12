@@ -2,6 +2,10 @@
 
 set -e
 
+if [ -e "/usr/share/debconf/confmodule" ]; then
+  . /usr/share/debconf/confmodule
+fi
+
 if [ "$1" = "purge" ]; then
   echo -n "Removing qpidd configuration... "
   rm -f /etc/qpid/qpidd.conf 2>/dev/null || true
