@@ -351,7 +351,7 @@ Description: Apache qpid AMQP documentation and examples
 Package: libqpid-ruby1.8
 Architecture: any
 Section: ruby
-Depends: ${shlibs:Depends}, ${misc:Depends}, qpid-specs
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Apache qpid Ruby bindings
  Apache Qpid is a cross-platform Enterprise Messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
