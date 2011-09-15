@@ -12,7 +12,7 @@ usr/include/qmf/Query.h
 usr/include/qmf/Schema.h
 usr/include/qmf/SchemaId.h
 usr/include/qmf/SchemaMethod.h
-usr/include/qmf/schemaProperty.h
+usr/include/qmf/SchemaProperty.h
 usr/include/qmf/SchemaTypes.h
 usr/include/qmf/Subscription.h
 usr/include/qmf/org
