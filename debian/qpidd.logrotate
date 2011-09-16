@@ -1,10 +1,13 @@
 /var/log/qpid/qpidd.log {
-    daily
-    rotate 10
+    weekly
+    rotate 4
     compress
     missingok
     delaycompress
     notifempty
     create 640 qpidd adm
+    postrotate
+        invoke-rc.d rsyslog reload > /dev/null
+    endscript
 }
 
