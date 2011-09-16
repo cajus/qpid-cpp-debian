@@ -1,2 +1,3 @@
 etc/qpid
+etc/rsyslog.d
 usr/sbin
