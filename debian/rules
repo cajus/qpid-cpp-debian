@@ -14,7 +14,9 @@ export RUBY_LIB = $(shell ruby1.8 -r rbconfig -e 'print Config::CONFIG["rubylibd
 export RUBY_LIB_ARCH = $(shell ruby1.8 -r rbconfig -e 'print Config::CONFIG["archdir"]')
 
 override_dh_auto_test:
-	# Disabled for the moment, because it doesn't run in sbuild
+	# Disabled until qpid-tools are not available for debian, sadly
+	# the qpid-tools depend on this (the current) build and form a
+	# circular dependency.
 
 override_dh_auto_configure:
 	dh_auto_configure -- --with-sasl --with-xml --with-rdma --with-ssl --with-cpg --with-swig
