@@ -1,6 +1,13 @@
 etc/sasl2/qpidd.conf /etc/qpid/sasl
 usr/sbin/qpidd
-usr/lib/qpid/daemon
+usr/lib/qpid/daemon/xml.so
+usr/lib/qpid/daemon/replication_exchange.so
+usr/lib/qpid/daemon/watchdog.so
+usr/lib/qpid/daemon/replicating_listener.so
+usr/lib/qpid/daemon/rdma.so
+usr/lib/qpid/daemon/ssl.so
+usr/lib/qpid/daemon/acl.so
+usr/lib/qpid/daemon/cluster.so
 ../qpidd.conf /etc/qpid
 ../qpidd.acl /etc/qpid
 ../rsyslog/qpidd.conf /etc/rsyslog.d
