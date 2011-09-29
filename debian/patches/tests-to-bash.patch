@@ -1,0 +1,264 @@
+--- a/src/tests/ais_check
++++ b/src/tests/ais_check
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+ # or more contributor license agreements.  See the NOTICE file
+--- a/src/tests/allhosts
++++ b/src/tests/allhosts
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+ # or more contributor license agreements.  See the NOTICE file
+--- a/src/tests/cluster_python_tests
++++ b/src/tests/cluster_python_tests
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/cluster_read_credit
++++ b/src/tests/cluster_read_credit
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+ # or more contributor license agreements.  See the NOTICE file
+--- a/src/tests/clustered_replication_test
++++ b/src/tests/clustered_replication_test
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/dynamic_log_level_test
++++ b/src/tests/dynamic_log_level_test
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/fanout_perftest
++++ b/src/tests/fanout_perftest
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/federated_cluster_test
++++ b/src/tests/federated_cluster_test
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/federated_cluster_test_with_node_failure
++++ b/src/tests/federated_cluster_test_with_node_failure
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/multiq_perftest
++++ b/src/tests/multiq_perftest
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/qpid-build-rinstall
++++ b/src/tests/qpid-build-rinstall
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ #
+ # Licensed to the Apache Software Foundation (ASF) under onemake
+ # or more contributor license agreements.  See the NOTICE file
+--- a/src/tests/qpid-cluster-benchmark
++++ b/src/tests/qpid-cluster-benchmark
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+ # or more contributor license agreements.  See the NOTICE file
+--- a/src/tests/qpid-src-rinstall
++++ b/src/tests/qpid-src-rinstall
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ #
+ # Licensed to the Apache Software Foundation (ASF) under onemake
+ # or more contributor license agreements.  See the NOTICE file
+--- a/src/tests/qpid-test-cluster
++++ b/src/tests/qpid-test-cluster
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+ # or more contributor license agreements.  See the NOTICE file
+--- a/src/tests/quick_perftest
++++ b/src/tests/quick_perftest
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/quick_topictest
++++ b/src/tests/quick_topictest
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/quick_txtest
++++ b/src/tests/quick_txtest
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/reliable_replication_test
++++ b/src/tests/reliable_replication_test
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/restart_cluster
++++ b/src/tests/restart_cluster
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+@@ -24,13 +24,13 @@
+ srcdir=`dirname $0`
+ $srcdir/stop_cluster
+ exec $srcdir/start_cluster "$@"
+-#!/bin/sh
++#!/bin/bash
+ # Re-start a cluster on the local host.
+ 
+ srcdir=`dirname $0`
+ $srcdir/stop_cluster
+ exec $srcdir/start_cluster "$@"
+-#!/bin/sh
++#!/bin/bash
+ # Re-start a cluster on the local host.
+ 
+ srcdir=`dirname $0`
+--- a/src/tests/rsynchosts
++++ b/src/tests/rsynchosts
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ #
+ # Licensed to the Apache Software Foundation (ASF) under onemake
+ # or more contributor license agreements.  See the NOTICE file
+--- a/src/tests/run-unit-tests
++++ b/src/tests/run-unit-tests
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/run_failover_soak
++++ b/src/tests/run_failover_soak
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/run_perftest
++++ b/src/tests/run_perftest
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/run_queue_flow_limit_tests
++++ b/src/tests/run_queue_flow_limit_tests
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/shared_perftest
++++ b/src/tests/shared_perftest
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/start_broker
++++ b/src/tests/start_broker
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/start_cluster
++++ b/src/tests/start_cluster
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/stop_broker
++++ b/src/tests/stop_broker
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/stop_cluster
++++ b/src/tests/stop_cluster
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/test_watchdog
++++ b/src/tests/test_watchdog
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+--- a/src/tests/topic_perftest
++++ b/src/tests/topic_perftest
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
