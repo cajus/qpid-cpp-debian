@@ -1,4 +1,3 @@
-usr/lib/libqpidcommon.la
 usr/lib/libqpidcommon.so
 usr/include/qpid/Address.h
 usr/include/qpid/amqp_0_10

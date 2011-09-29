@@ -1,3 +1,2 @@
-usr/lib/libqpidtypes.la
 usr/lib/libqpidtypes.so
 usr/include/qpid/types
