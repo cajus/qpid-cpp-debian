@@ -1,0 +1,51 @@
+--- a/src/tests/test_env.sh.in
++++ b/src/tests/test_env.sh.in
+@@ -72,7 +72,8 @@
+ 
+ # Qpid options
+ export QPID_NO_MODULE_DIR=1	# Don't accidentally load installed modules
+-export QPID_DATA_DIR= 		# Default to no data dir, not ~/.qpidd
++export QPID_DATA_DIR=/tmp/qpid
++export QPID_PID_DIR=/tmp/qpid
+ 
+ # Options for boost test framework
+ export BOOST_TEST_SHOW_PROGRESS=yes
+--- a/examples/old_api/verify
++++ b/examples/old_api/verify
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+@@ -30,9 +30,10 @@
+ # If $QPID_HOST or $QPID_PORT are set, use them to connect.
+ #
+ 
+-QPID_DATA_DIR=
++QPID_DATA_DIR=/tmp/qpid
++QPID_PID_DIR=/tmp/qpid
+ QPID_NO_MODULE_DIR=1
+-export QPID_DATA_DIR QPID_NO_MODULE_DIR
++export QPID_DATA_DIR QPID_NO_MODULE_DIR QPID_PID_DIR
+ 
+ cleanup() {
+     test -n "$QPIDD" &&  $QPIDD -q # Private broker
+--- a/examples/old_api/verify_all
++++ b/examples/old_api/verify_all
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ #
+ # Licensed to the Apache Software Foundation (ASF) under one
+@@ -28,6 +28,9 @@
+ broker_args=$3
+ exclude_regexp=$4
+ 
++export QPID_DATA_DIR=/tmp/qpid
++export QPID_PID_DIR=/tmp/qpid
++
+ trap "$qpidd -q" exit
+ QPID_PORT=`$qpidd -dp0 $broker_args` || { echo "Can't run qpidd" ; exit 1; }
+ export QPID_PORT
