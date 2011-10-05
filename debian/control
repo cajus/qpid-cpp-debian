@@ -336,17 +336,17 @@ Description: Apache qpid AMQP Python qmf module
  .
  This package contains the AMQP Python qmf module.
 
-Package: qpid-doc
-Architecture: all
-Section: doc
-Depends: ${misc:Depends}
-Description: Apache qpid AMQP documentation and examples
- Apache Qpid is a cross-platform Enterprise Messaging system which implements
- the Advanced Message Queuing Protocol (AMQP), providing message brokers
- written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
- and Ruby.
- .
- This package contains the AMQP documentation.
+#Package: qpid-doc
+#Architecture: all
+#Section: doc
+#Depends: ${misc:Depends}
+#Description: Apache qpid AMQP documentation and examples
+# Apache Qpid is a cross-platform Enterprise Messaging system which implements
+# the Advanced Message Queuing Protocol (AMQP), providing message brokers
+# written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+# and Ruby.
+# .
+# This package contains the AMQP documentation.
 
 Package: libqpid-ruby1.8
 Architecture: any
