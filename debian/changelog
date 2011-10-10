@@ -1,3 +1,10 @@
+qpid-cpp (0.12-2) unstable; urgency=low
+
+  * Updated valgrind dependencies to allow builds on architectures
+    not supported by valgrind.
+
+ -- Cajus Pollmeier <cajus@debian.org>  Mon, 10 Oct 2011 16:25:38 +0200
+
 qpid-cpp (0.12-1) unstable; urgency=low
 
   * Initial release. (Closes: #640497)
