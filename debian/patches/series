@@ -1,3 +1,4 @@
+fix-armel-compilation.patch
 test-fix-qpid-dirs.patch
 tests-to-bash.patch
 sasldb-location.patch

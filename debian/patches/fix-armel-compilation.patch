@@ -1,0 +1,13 @@
+Index: qpid-cpp-debian/src/qpid/RefCountedBuffer.cpp
+===================================================================
+--- qpid-cpp-debian.orig/src/qpid/RefCountedBuffer.cpp	2011-10-10 17:18:59.052443993 +0200
++++ qpid-cpp-debian/src/qpid/RefCountedBuffer.cpp	2011-10-10 17:19:36.084442739 +0200
+@@ -34,7 +34,7 @@
+     new(store) RefCountedBuffer;
+     char* start = store+sizeof(RefCountedBuffer);
+     return BufferRef(
+-        boost::intrusive_ptr<RefCounted>(reinterpret_cast<RefCountedBuffer*>(store)),
++        boost::intrusive_ptr<RefCounted>(reinterpret_cast<RefCountedBuffer*>((void*)store)),
+         start, start+n);
+ }
+ 
