@@ -2,10 +2,9 @@ qpid-cpp (0.12-2) unstable; urgency=low
 
   * Updated valgrind dependencies to allow builds on architectures
     not supported by valgrind.
-
   * Fixed compilation error on armel.
-
   * Added accidently missing qpid-doc package.
+  * Send "translate me" request. Closes #645160.
 
  -- Cajus Pollmeier <cajus@debian.org>  Mon, 10 Oct 2011 16:25:38 +0200
 
