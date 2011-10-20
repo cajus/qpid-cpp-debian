@@ -86,7 +86,7 @@ Description: Enterprise messaging system - QMF console library
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the QMF console.
+ This package contains the QMF console library.
 
 Package: libqmfconsole2-dev
 Architecture: any
