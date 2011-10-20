@@ -1,10 +1,15 @@
 qpid-cpp (0.12-2) unstable; urgency=low
 
+  [ Cajus Pollmeier ]
   * Updated valgrind dependencies to allow builds on architectures
     not supported by valgrind.
   * Fixed compilation error on armel.
   * Added accidently missing qpid-doc package.
-  * Send "translate me" request. Closes #645160.
+
+  [ Christian Perrier ]
+  * Debconf templates and debian/control reviewed by the debian-l10n-
+    english team as part of the Smith review project. Closes: #645160
+  * [Debconf translation updates]
 
  -- Cajus Pollmeier <cajus@debian.org>  Mon, 10 Oct 2011 16:25:38 +0200
 
