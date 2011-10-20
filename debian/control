@@ -45,7 +45,7 @@ Description: enterprise messaging system - QMF libraries
 Package: libqmf-dev
 Architecture: any
 Section: libdevel
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, libqmf1
 Description: enterprise messaging system - QMF development files
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
@@ -68,7 +68,7 @@ Description: enterprise messaging system - QMF2 libraries
 Package: libqmf2-dev
 Architecture: any
 Section: libdevel
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, libqmf2-1
 Description: enterprise messaging system - QMF2 development files
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
@@ -91,7 +91,7 @@ Description: enterprise messaging system - QMF console library
 Package: libqmfconsole2-dev
 Architecture: any
 Section: libdevel
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, libqmfconsole2
 Description: enterprise messaging system - QMF console development files
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
@@ -114,7 +114,7 @@ Description: enterprise messaging system - AMQP messaging libraries
 Package: libqpidmessaging2-dev
 Architecture: any
 Section: libdevel
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, libqpidmessaging2
 Description: enterprise messaging system - AMQP messaging development files
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
@@ -137,7 +137,7 @@ Description: enterprise messaging system - common SSL libraries
 Package: libsslcommon2-dev
 Architecture: any
 Section: libdevel
-Depends: ${misc:Depends}, uuid-dev
+Depends: ${misc:Depends}, uuid-dev, libsslcommon2
 Description: enterprise messaging system - common SSL development files
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
@@ -160,7 +160,7 @@ Description: enterprise messaging system - RDMA libraries
 Package: librdmawrap2-dev
 Architecture: any
 Section: libdevel
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, librdmawrap2
 Description: enterprise messaging system - RDMA development files
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
@@ -183,7 +183,7 @@ Description: enterprise messaging system - API libraries
 Package: libqpidtypes1-dev
 Architecture: any
 Section: libdevel
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, libqpidtypes1
 Description: enterprise messaging system - API development files
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
@@ -206,7 +206,7 @@ Description: enterprise messaging system - common libraries
 Package: libqpidcommon2-dev
 Architecture: any
 Section: libdevel
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, libqpidcommon2
 Description: enterprise messaging system - common development files
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
@@ -229,7 +229,7 @@ Description: enterprise messaging system - client libraries
 Package: libqpidclient2-dev
 Architecture: any
 Section: libdevel
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, libqpidclient2
 Description: enterprise messaging system - client development files
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
@@ -252,7 +252,7 @@ Description: enterprise messaging system - broker libraries
 Package: libqpidbroker2-dev
 Architecture: any
 Section: libdevel
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, libqpidbroker2
 Description: enterprise messaging system - broker development files
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
@@ -275,7 +275,7 @@ Description: enterprise messaging system - QMF engine libraries
 Package: libqmfengine1-dev
 Architecture: any
 Section: libdevel
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, libqmfengine1
 Description: enterprise messaging system - QMF engine development files
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
