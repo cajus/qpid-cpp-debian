@@ -137,7 +137,7 @@ Description: enterprise messaging system - common SSL libraries
 Package: libsslcommon2-dev
 Architecture: any
 Section: libdevel
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, uuid-dev
 Description: enterprise messaging system - common SSL development files
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
