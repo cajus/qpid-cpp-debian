@@ -18,7 +18,7 @@ Description: enterprise messaging system - AMQP broker
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the AMQP broker.
+ This package provides the AMQP broker.
 
 Package: qpid-client
 Architecture: any
@@ -29,7 +29,7 @@ Description: enterprise messaging system - AMQP client
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the AMQP client support.
+ This package provides the AMQP client support.
 
 Package: libqmf1
 Architecture: any
@@ -40,7 +40,7 @@ Description: enterprise messaging system - QMF libraries
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the Qpid Management Framework libraries.
+ This package provides the Qpid Management Framework libraries.
 
 Package: libqmf-dev
 Architecture: any
@@ -52,7 +52,7 @@ Description: enterprise messaging system - QMF development files
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the Qpid Management Framework development files.
+ This package provides the Qpid Management Framework development files.
 
 Package: libqmf2-1
 Architecture: any
@@ -63,7 +63,7 @@ Description: enterprise messaging system - QMF2 libraries
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the QMF2 libraries.
+ This package provides the QMF2 libraries.
 
 Package: libqmf2-dev
 Architecture: any
@@ -75,7 +75,7 @@ Description: enterprise messaging system - QMF2 development files
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the QMF2 development files.
+ This package provides the QMF2 development files.
 
 Package: libqmfconsole2
 Architecture: any
@@ -86,7 +86,7 @@ Description: enterprise messaging system - QMF console library
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the QMF console library.
+ This package provides the QMF console library.
 
 Package: libqmfconsole2-dev
 Architecture: any
@@ -98,7 +98,7 @@ Description: enterprise messaging system - QMF console development files
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the QMF console development files.
+ This package provides the QMF console development files.
 
 Package: libqpidmessaging2
 Architecture: any
@@ -109,7 +109,7 @@ Description: enterprise messaging system - AMQP messaging libraries
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the AMQP messaging libraries.
+ This package provides the AMQP messaging libraries.
 
 Package: libqpidmessaging2-dev
 Architecture: any
@@ -121,7 +121,7 @@ Description: enterprise messaging system - AMQP messaging development files
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the AMQP messaging development files.
+ This package provides the AMQP messaging development files.
 
 Package: libsslcommon2
 Architecture: any
@@ -132,7 +132,7 @@ Description: enterprise messaging system - common SSL libraries
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the AMQP SSL libraries.
+ This package provides the AMQP SSL libraries.
 
 Package: libsslcommon2-dev
 Architecture: any
@@ -144,7 +144,7 @@ Description: enterprise messaging system - common SSL development files
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the AMQP SSL development files.
+ This package provides the AMQP SSL development files.
 
 Package: librdmawrap2
 Architecture: any
@@ -155,7 +155,7 @@ Description: enterprise messaging system - RDMA libraries
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the AMQP Remote Direct Memory Access libraries.
+ This package provides the AMQP Remote Direct Memory Access libraries.
 
 Package: librdmawrap2-dev
 Architecture: any
@@ -167,7 +167,7 @@ Description: enterprise messaging system - RDMA development files
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the AMQP Remote Direct Memory Access development files.
+ This package provides the AMQP Remote Direct Memory Access development files.
 
 Package: libqpidtypes1
 Architecture: any
@@ -178,7 +178,7 @@ Description: enterprise messaging system - API libraries
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the AMQP libraries.
+ This package provides the AMQP libraries.
 
 Package: libqpidtypes1-dev
 Architecture: any
@@ -190,7 +190,7 @@ Description: enterprise messaging system - API development files
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the AMQP development files.
+ This package provides the AMQP development files.
 
 Package: libqpidcommon2
 Architecture: any
@@ -201,7 +201,7 @@ Description: enterprise messaging system - common libraries
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the common AMQP libraries.
+ This package provides the common AMQP libraries.
 
 Package: libqpidcommon2-dev
 Architecture: any
@@ -213,7 +213,7 @@ Description: enterprise messaging system - common development files
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the common AMQP development files.
+ This package provides the common AMQP development files.
 
 Package: libqpidclient2
 Architecture: any
@@ -224,7 +224,7 @@ Description: enterprise messaging system - client libraries
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the AMQP client libraries.
+ This package provides the AMQP client libraries.
 
 Package: libqpidclient2-dev
 Architecture: any
@@ -236,7 +236,7 @@ Description: enterprise messaging system - client development files
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the AMQP client development files.
+ This package provides the AMQP client development files.
 
 Package: libqpidbroker2
 Architecture: any
@@ -247,7 +247,7 @@ Description: enterprise messaging system - broker libraries
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the AMQP broker libraries.
+ This package provides the AMQP broker libraries.
 
 Package: libqpidbroker2-dev
 Architecture: any
@@ -259,7 +259,7 @@ Description: enterprise messaging system - broker development files
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the AMQP broker development files.
+ This package provides the AMQP broker development files.
 
 Package: libqmfengine1
 Architecture: any
@@ -270,7 +270,7 @@ Description: enterprise messaging system - QMF engine libraries
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the QMF engine libraries.
+ This package provides the QMF engine libraries.
 
 Package: libqmfengine1-dev
 Architecture: any
@@ -282,7 +282,7 @@ Description: enterprise messaging system - QMF engine development files
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the QMF engine development files.
+ This package provides the QMF engine development files.
 
 Package: python-cqpid
 Architecture: any
@@ -295,7 +295,7 @@ Description: Apache Qpid Python cqpid bindings
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the Python cqpid bindings.
+ This package provides the Python cqpid bindings.
 
 Package: python-qmf2
 Architecture: any
@@ -308,7 +308,7 @@ Description: Apache Qpid Python qmf2 bindings
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the Python QMF2 bindings.
+ This package provides the Python QMF2 bindings.
 
 Package: python-cqmf2
 Architecture: any
@@ -321,7 +321,7 @@ Description: Apache Qpid Python cqmf2 bindings
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the Python QMF2 bindings.
+ This package provides the Python QMF2 bindings.
 
 Package: python-qmf
 Architecture: any
@@ -334,7 +334,7 @@ Description: Apache Qpid Python qmf module
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the Apache Qpid Python QMF bindings.
+ This package provides the Apache Qpid Python QMF bindings.
 
 Package: qpid-doc
 Architecture: all
@@ -346,7 +346,7 @@ Description: Apache Qpid documentation and examples
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the Apache Qpid documentation.
+ This package provides the Apache Qpid documentation.
 
 Package: libqpid-ruby1.8
 Architecture: any
@@ -358,7 +358,7 @@ Description: Apache Qpid Ruby bindings
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
  and Ruby.
  .
- This package contains the Apache Qpid Ruby bindings.
+ This package provides the Apache Qpid Ruby bindings.
 
 #Package: libqpid-perl
 #Architecture: any
@@ -370,4 +370,4 @@ Description: Apache Qpid Ruby bindings
 # written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
 # and Ruby.
 # .
-# This package contains the Apache Qpid Perl bindings.
+# This package provides the Apache Qpid Perl bindings.
