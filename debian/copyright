@@ -1,4 +1,4 @@
-This package was debianized by Cajus Pollmeier <cajus@naasa.net> on
+This package was debianized by Cajus Pollmeier <cajus@debian.org> on
 Sat, 16 Jan 2010 14:22:29 +0100.
 
 It was downloaded from http://qpid.apache.org
@@ -23,5 +23,5 @@ License:
     On a Debian system, the license can be found at
     /usr/share/common-licenses/Apache-2.0 .
 
-The Debian packaging is (C) 2010, Cajus Pollmeier <cajus@naasa.net> and
+The Debian packaging is (C) 2010, Cajus Pollmeier <cajus@debian.org> and
 is licensed under the GPL, see `/usr/share/common-licenses/GPL'.

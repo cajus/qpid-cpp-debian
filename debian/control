@@ -289,7 +289,7 @@ Architecture: any
 Section: python
 Depends: ${python:Depends}, ${shlibs:Depends}, ${misc:Depends}
 Provides: ${python:Provides}
-Description: Apache Qpid Python cqpid bindings
+Description: enterprise messaging system - Python CQPID bindings
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
@@ -302,7 +302,7 @@ Architecture: any
 Section: python
 Depends: ${python:Depends}, ${misc:Depends}
 Provides: ${python:Provides}
-Description: Apache Qpid Python qmf2 bindings
+Description: enterprise messaging system - Python QMF2 bindings
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
@@ -315,7 +315,7 @@ Architecture: any
 Section: python
 Depends: ${python:Depends}, ${shlibs:Depends}, ${misc:Depends}
 Provides: ${python:Provides}
-Description: Apache Qpid Python cqmf2 bindings
+Description: enterprise messaging system - Python CQMF2 bindings
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
@@ -328,7 +328,7 @@ Architecture: any
 Section: python
 Depends: ${python:Depends}, ${shlibs:Depends}, ${misc:Depends}
 Provides: ${python:Provides}
-Description: Apache Qpid Python qmf module
+Description: enterprise messaging system - Python QMF module
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
@@ -340,7 +340,7 @@ Package: qpid-doc
 Architecture: all
 Section: doc
 Depends: ${misc:Depends}
-Description: Apache Qpid documentation and examples
+Description: enterprise messaging system - documentation and examples
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
@@ -352,7 +352,7 @@ Package: libqpid-ruby1.8
 Architecture: any
 Section: ruby
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: Apache Qpid Ruby bindings
+Description: enterprise messaging system - Ruby bindings
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
  written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
@@ -364,7 +364,7 @@ Description: Apache Qpid Ruby bindings
 #Architecture: any
 #Depends: ${shlibs:Depends}, ${misc:Depends}
 #Section: perl
-#Description: Apache Qpid Perl bindings
+#Description: enterprise messaging system - Perl bindings
 # Apache Qpid is a cross-platform enterprise messaging system which implements
 # the Advanced Message Queuing Protocol (AMQP), providing message brokers
 # written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
