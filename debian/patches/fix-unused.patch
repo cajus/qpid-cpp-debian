@@ -1,0 +1,71 @@
+--- a/src/qpid/sys/posix/LockFile.cpp
++++ b/src/qpid/sys/posix/LockFile.cpp
+@@ -58,7 +58,9 @@
+     if (impl) {
+         int f = impl->fd;
+         if (f >= 0) {
+-            (void) ::lockf(f, F_ULOCK, 0); // Suppress warnings about ignoring return value.
++	    size_t ret;
++            ret = ::lockf(f, F_ULOCK, 0); // Suppress warnings about ignoring return value.
++	    (void)ret;
+             ::close(f);
+             impl->fd = -1;
+         }
+--- a/src/qpid/broker/Daemon.cpp
++++ b/src/qpid/broker/Daemon.cpp
+@@ -93,13 +93,15 @@
+         catch (const exception& e) {
+             QPID_LOG(critical, "Unexpected error: " << e.what());
+             uint16_t port = 0;
+-            (void) write(pipeFds[1], &port, sizeof(uint16_t));
++	    int res;
++            res = write(pipeFds[1], &port, sizeof(uint16_t));
+ 
+             std::string pipeFailureMessage = e.what();
+-            (void) write ( pipeFds[1], 
+-                    pipeFailureMessage.c_str(), 
++            res = write ( pipeFds[1],
++                    pipeFailureMessage.c_str(),
+                     strlen(pipeFailureMessage.c_str())
+                   );
++	    (void)res;
+         }
+     }
+     else {                      // Parent
+--- a/src/qmf/engine/ResilientConnection.cpp
++++ b/src/qmf/engine/ResilientConnection.cpp
+@@ -334,7 +334,9 @@
+ {
+     if (notifyFd != -1)
+     {
+-        (void) ::write(notifyFd, ".", 1);
++	int ret;
++        ret = ::write(notifyFd, ".", 1);
++	(void)ret;
+     }
+ }
+ 
+@@ -431,7 +433,9 @@
+ 
+     if (notifyFd != -1)
+     {
+-        (void) ::write(notifyFd, ".", 1);
++	int ret;
++        ret = ::write(notifyFd, ".", 1);
++	(void)ret;
+     }
+ }
+ 
+--- a/src/tests/ForkedBroker.cpp
++++ b/src/tests/ForkedBroker.cpp
+@@ -68,7 +68,9 @@
+     }
+     if (!dataDir.empty())
+     {
+-        (void) ::system(("rm -rf "+dataDir).c_str());
++	int ret;
++        ret = ::system(("rm -rf "+dataDir).c_str());
++	(void)ret;
+     }
+ }
+ 

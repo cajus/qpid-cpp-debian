@@ -1,2 +1,2 @@
-usr/lib/libsslcommon.so.2
-usr/lib/libsslcommon.so.2.0.0
+usr/lib/*/libsslcommon.so.2
+usr/lib/*/libsslcommon.so.2.0.0

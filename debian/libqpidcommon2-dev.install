@@ -1,4 +1,4 @@
-usr/lib/libqpidcommon.so
+usr/lib/*/libqpidcommon.so
 usr/include/qpid/Address.h
 usr/include/qpid/amqp_0_10
 usr/include/qpid/CommonImportExport.h

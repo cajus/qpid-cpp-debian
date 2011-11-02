@@ -14,7 +14,7 @@
 ### END INIT INFO
 
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
-export SASL_CONF_PATH=/etc/qpid/sasl
+export SASL_CONF_PATH=/etc/sasl2
 
 DAEMON=/usr/sbin/qpidd
 NAME=qpidd

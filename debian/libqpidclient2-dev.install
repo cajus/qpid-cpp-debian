@@ -1,2 +1,2 @@
-usr/lib/libqpidclient.so
+usr/lib/*/libqpidclient.so
 usr/include/qpid/client
