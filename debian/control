@@ -6,6 +6,8 @@ Build-Depends: debhelper (>= 7.0.50~), autotools-dev, autoconf (>= 2.61), automa
 X-Python-Version: 2.7
 Standards-Version: 3.9.2
 Homepage: http://qpid.apache.org
+Vcs-Git: git://github.com/cajus/qpid-cpp-debian.git
+Vcs-Browser: https://github.com/cajus/qpid-cpp-debian
 
 Package: qpidd
 Architecture: any
