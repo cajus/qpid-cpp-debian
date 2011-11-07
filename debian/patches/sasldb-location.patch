@@ -9,17 +9,6 @@
  sasldb_DATA = $(SASL_DB)
  
  # Setup the default sasldb file with a single user, guest, with an
---- a/etc/Makefile.in
-+++ b/etc/Makefile.in
-@@ -270,7 +270,7 @@
- 
- nobase_sysconf_DATA = qpidd.conf $(am__append_1)
- @HAVE_SASL_TRUE@SASL_DB = qpidd.sasldb
--@HAVE_SASL_TRUE@sasldbdir = $(localstatedir)/lib/qpidd
-+@HAVE_SASL_TRUE@sasldbdir = $(sysconfdir)/qpid
- @HAVE_SASL_TRUE@sasldb_DATA = $(SASL_DB)
- @HAVE_SASL_TRUE@CLEANFILES = $(SASL_DB)
- all: all-am
 --- a/etc/sasl2/qpidd.conf
 +++ b/etc/sasl2/qpidd.conf
 @@ -38,7 +38,7 @@

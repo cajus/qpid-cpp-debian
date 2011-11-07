@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: qpid-cpp@packages.debian.org\n"
-"POT-Creation-Date: 2011-09-07 18:17+0200\n"
+"POT-Creation-Date: 2011-10-25 11:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,27 +26,27 @@ msgstr ""
 #. Type: password
 #. Description
 #: ../qpidd.templates:1001
-msgid "Please enter the password for the QPID daemon administrator."
+msgid "Please enter the password for the Qpid daemon administrator."
 msgstr ""
 
 #. Type: password
 #. Description
 #: ../qpidd.templates:2001
-msgid "Confirm password:"
+msgid "Re-enter password to verify:"
 msgstr ""
 
 #. Type: password
 #. Description
 #: ../qpidd.templates:2001
 msgid ""
-"Please enter the password for the QPID daemon administrator again to verify "
+"Please enter the same Qpid daemon administrator password again to verify "
 "that you have typed it correctly."
 msgstr ""
 
 #. Type: note
 #. Description
 #: ../qpidd.templates:3001
-msgid "Password mismatch"
+msgid "Password input error"
 msgstr ""
 
 #. Type: note
