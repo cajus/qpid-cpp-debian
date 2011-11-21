@@ -20,7 +20,8 @@ qpid-cpp (0.12-2) unstable; urgency=low
   * Dutch debconf translation by Jeroen Shot. Closes: #649065
   * Czech debconf translation by Michal Simunek. Closes: #649104
   * Danish debconf translation by Joe Dalton. Closes: #649268
-  * Portuguese debconf by Miguel Figueiredo. Closes: #649295
+  * Portuguese debconf translation by Miguel Figueiredo. Closes: #649295
+  * Swedish debconf translation by Martin Bagge. Closes: #649452
 
  -- Cajus Pollmeier <cajus@debian.org>  Mon, 10 Oct 2011 16:25:38 +0200
 
