@@ -55,4 +55,3 @@ msgstr "Indtastningsfejl for adgangskode"
 #: ../qpidd.templates:3001
 msgid "The two passwords you entered were not the same. Please try again."
 msgstr "De to adgangskoder du indtastede var ikke ens. Prøv igen."
-

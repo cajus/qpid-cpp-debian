@@ -8,20 +8,18 @@ qpid-cpp (0.12-2) unstable; urgency=low
   * Added accidently missing qpid-doc package.
 
   [ Christian Perrier ]
-  * Debconf templates and debian/control reviewed by the debian-l10n-
-    english team as part of the Smith review project. Closes: #645160
-  * [Debconf translation updates]
-
-  [ Debian I18N team ]
-  * Russian debconf translation by Yuri Kozlov. Closes: #647982
-  * Slovak debconf translation by Slavko. Closes: #648752
-  * Spanish debconf translation by Francisco Javier Cuadrado. Closes: #648884
-  * French debconf translation by Julien Patriarca. Closes: #648920
-  * Dutch debconf translation by Jeroen Shot. Closes: #649065
-  * Czech debconf translation by Michal Simunek. Closes: #649104
-  * Danish debconf translation by Joe Dalton. Closes: #649268
-  * Portuguese debconf translation by Miguel Figueiredo. Closes: #649295
-  * Swedish debconf translation by Martin Bagge. Closes: #649452
+  * Debconf templates and debian/control reviewed by the debian-l10n-                                                                  
+    english team as part of the Smith review project. Closes: #645160                                                                  
+  * [Debconf translation updates]                                                                                                      
+  * Russian (Yuri Kozlov).  Closes: #647982                                                                                            
+  * Slovak (Slavko).  Closes: #648752                                                                                                  
+  * Spanish; (Francisco Javier Cuadrado).  Closes: #648884                                                                             
+  * French (Julien Patriarca).  Closes: #648920                                                                                        
+  * Dutch; (Jeroen Schot).  Closes: #649065                                                                                            
+  * Czech (Michal Simunek).  Closes: #649104                                                                                           
+  * Danish (Joe Hansen).  Closes: #649268                                                                                              
+  * Portuguese (Miguel Figueiredo).  Closes: #649295                                                                                   
+  * Swedish (Martin Bagge / brother).  Closes: #649452 
 
  -- Cajus Pollmeier <cajus@debian.org>  Mon, 10 Oct 2011 16:25:38 +0200
 

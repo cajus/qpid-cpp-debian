@@ -61,8 +61,12 @@ msgstr "Introduzca de nuevo la contraseña para comprobarla:"
 #. Type: password
 #. Description
 #: ../qpidd.templates:2001
-msgid "Please enter the same Qpid daemon administrator password again to verify that you have typed it correctly."
-msgstr "Introduzca de nuevo la contraseña del administrador del demonio de Qpid para comprobar que la ha escrito correctamente."
+msgid ""
+"Please enter the same Qpid daemon administrator password again to verify "
+"that you have typed it correctly."
+msgstr ""
+"Introduzca de nuevo la contraseña del administrador del demonio de Qpid para "
+"comprobar que la ha escrito correctamente."
 
 #. Type: note
 #. Description
@@ -74,5 +78,6 @@ msgstr "Error al introducir la contraseña"
 #. Description
 #: ../qpidd.templates:3001
 msgid "The two passwords you entered were not the same. Please try again."
-msgstr "Las dos contraseñas que ha introducido no son iguales. Por favor, inténtenlo de nuevo."
-
+msgstr ""
+"Las dos contraseñas que ha introducido no son iguales. Por favor, inténtenlo "
+"de nuevo."
