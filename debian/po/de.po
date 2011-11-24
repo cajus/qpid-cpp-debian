@@ -20,13 +20,13 @@ msgstr ""
 #. Description
 #: ../qpidd.templates:1001
 msgid "Administrator password:"
-msgstr "Administratoren Passwort:"
+msgstr "Administratoren-Passwort:"
 
 #. Type: password
 #. Description
 #: ../qpidd.templates:1001
 msgid "Please enter the password for the Qpid daemon administrator."
-msgstr "Bitte geben Sie das Passwort für den Qpid-Daemon Administrator ein."
+msgstr "Bitte geben Sie das Passwort für den Qpid-Daemon-Administrator ein."
 
 #. Type: password
 #. Description
@@ -41,8 +41,8 @@ msgid ""
 "Please enter the same Qpid daemon administrator password again to verify "
 "that you have typed it correctly."
 msgstr ""
-"Bitte geben Sie das selbe Passwort für den Qpid-Daemon Administrator erneut "
-"ein, um zu überprüfen ob es korrekt geschrieben wurde."
+"Bitte geben Sie das selbe Passwort für den Qpid-Daemon-Administrator erneut "
+"ein, um zu überprüfen, ob es korrekt geschrieben wurde."
 
 #. Type: note
 #. Description
