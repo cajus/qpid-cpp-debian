@@ -40,6 +40,11 @@ if [ -f /etc/default/qpidd ] ; then
 	. /etc/default/qpidd
 fi
 
+# Create /var/run/qpid if it does not exist
+if [ ! -d /var/run/qpid ]; then
+	install -d -o$DAEMONUSER -g$DAEMONUSER -m750 /var/run/qpid
+fi
+
 # Check that the user exists (if we set a user)
 # Does the user exist?
 if [ -n "$DAEMONUSER" ] ; then
