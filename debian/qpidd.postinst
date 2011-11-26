@@ -45,11 +45,10 @@ case "$1" in
 
         # Create directories
         install -d -oqpidd -gadm -m2750 /var/log/qpid 2> /dev/null || true
-        install -d -oqpidd -gqpidd -m750 /var/run/qpid 2> /dev/null || true
         install -d -oqpidd -gqpidd -m750 /var/spool/qpid 2> /dev/null || true
 
         # Make sure that the sasl config permissions are set correctly
-        chown qpidd:qpidd /etc/qpid/sasl/qpidd.conf 2>/dev/null
+        chown qpidd:qpidd /etc/sasl2/qpidd.conf 2>/dev/null
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
