@@ -371,6 +371,19 @@ Description: enterprise messaging system - Python QMF module
  .
  This package provides the Apache Qpid Python QMF bindings.
 
+Package: python-qmfgen
+Architecture: any
+Section: python
+Depends: ${python:Depends}, ${shlibs:Depends}, ${misc:Depends}
+Provides: ${python:Provides}
+Description: enterprise messaging system - Python QMF interface generator
+ Apache Qpid is a cross-platform enterprise messaging system which implements
+ the Advanced Message Queuing Protocol (AMQP), providing message brokers
+ written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+ and Ruby.
+ .
+ This package provides the Apache Qpid Python QMF interface generator.
+
 Package: qpid-doc
 Architecture: all
 Section: doc

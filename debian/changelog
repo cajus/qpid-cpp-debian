@@ -5,7 +5,7 @@ qpid-cpp (0.12-2) unstable; urgency=low
     not supported by valgrind.
   * Multiarch support.
   * Fixed compilation error on armel.
-  * Added accidently missing qpid-doc package.
+  * Added accidently missing qpid-doc and python-qmfgen packages.
 
   [ Christian Perrier ]
   * Debconf templates and debian/control reviewed by the debian-l10n-                                                                  
