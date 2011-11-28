@@ -371,7 +371,7 @@ Description: enterprise messaging system - Python QMF module
  .
  This package provides the Apache Qpid Python QMF bindings.
 
-Package: python-qmfgen
+Package: qmfgen
 Architecture: any
 Section: python
 Depends: ${python:Depends}, ${shlibs:Depends}, ${misc:Depends}
