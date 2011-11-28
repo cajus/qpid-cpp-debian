@@ -50,6 +50,7 @@ Package: libqmf-dev
 Architecture: any
 Section: libdevel
 Depends: libqmf1 (= ${binary:Version}), ${misc:Depends}
+Suggests: qmfgen
 Multi-Arch: same
 Description: enterprise messaging system - QMF development files
  Apache Qpid is a cross-platform enterprise messaging system which implements
@@ -77,6 +78,7 @@ Architecture: any
 Section: libdevel
 Depends: libqmf2-1 (= ${binary:Version}), ${misc:Depends}
 Multi-Arch: same
+Suggests: qmfgen
 Description: enterprise messaging system - QMF2 development files
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers
