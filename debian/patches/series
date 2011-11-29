@@ -1,3 +1,4 @@
+disable-perl.patch
 module-location.patch
 fix-unused.patch
 fix-armel-compilation.patch
