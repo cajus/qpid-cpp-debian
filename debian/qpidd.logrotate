@@ -7,7 +7,7 @@
     notifempty
     create 640 qpidd adm
     postrotate
-        invoke-rc.d rsyslog force-reload > /dev/null
+        invoke-rc.d rsyslog rotate > /dev/null
     endscript
 }
 
