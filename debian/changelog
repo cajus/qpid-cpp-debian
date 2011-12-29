@@ -1,3 +1,10 @@
+qpid-cpp (0.12-3) unstable; urgency=low
+
+  * Re-build against libxqilla6.
+  * Fixed rsyslog hook.
+
+ -- Cajus Pollmeier <cajus@debian.org>  Thu, 29 Dec 2011 11:56:58 +0100
+
 qpid-cpp (0.12-2) unstable; urgency=low
 
   [ Cajus Pollmeier ]
