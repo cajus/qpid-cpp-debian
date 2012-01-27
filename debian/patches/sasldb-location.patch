@@ -1,14 +1,3 @@
---- a/etc/Makefile.am
-+++ b/etc/Makefile.am
-@@ -35,7 +35,7 @@
- nobase_sysconf_DATA += \
- 	$(SASL_CONF)
- 
--sasldbdir = $(localstatedir)/lib/qpidd
-+sasldbdir = $(sysconfdir)/qpid
- sasldb_DATA = $(SASL_DB)
- 
- # Setup the default sasldb file with a single user, guest, with an
 --- a/etc/sasl2/qpidd.conf
 +++ b/etc/sasl2/qpidd.conf
 @@ -38,7 +38,7 @@
@@ -17,6 +6,6 @@
  auxprop_plugin: sasldb
 -sasldb_path: /var/lib/qpidd/qpidd.sasldb
 +sasldb_path: /etc/qpid/qpidd.sasldb
+ mech_list: ANONYMOUS
  
- #following line stops spurious 'sql_select option missing' errors when
- #cyrus-sql-sasl plugin is installed
+ 

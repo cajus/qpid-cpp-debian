@@ -1,8 +1,8 @@
+fix-explicit-link.patch
+no-system-tests.patch
 no-implmenetion-detail.patch
 disable-perl.patch
 module-location.patch
 fix-unused.patch
 fix-armel-compilation.patch
-test-fix-qpid-dirs.patch
-tests-to-bash.patch
 sasldb-location.patch
