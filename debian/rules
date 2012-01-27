@@ -14,7 +14,6 @@ DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 # Set install ruby locations for configure
 export RUBY_LIB = $(shell ruby1.8 -r rbconfig -e 'print Config::CONFIG["rubylibdir"]')
 export RUBY_LIB_ARCH = $(shell ruby1.8 -r rbconfig -e 'print Config::CONFIG["archdir"]')
-export LDFLAGS=-L`dirname $(pwd)`/src/.libs
 
 override_dh_auto_configure:
 	dh_auto_configure -- --with-sasl --with-xml --with-rdma --with-ssl --with-cpg --with-swig --libexecdir='/usr/lib'
