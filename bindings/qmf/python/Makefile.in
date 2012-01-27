@@ -289,7 +289,7 @@ top_srcdir = @top_srcdir@
 @HAVE_PYTHON_DEVEL_TRUE@	qmfengine.cpp \
 @HAVE_PYTHON_DEVEL_TRUE@	qmfengine.py
 
-@HAVE_PYTHON_DEVEL_TRUE@EXTRA_DIST = python.i
+@HAVE_PYTHON_DEVEL_TRUE@EXTRA_DIST = CMakeLists.txt python.i
 @HAVE_PYTHON_DEVEL_TRUE@BUILT_SOURCES = $(generated_file_list)
 @HAVE_PYTHON_DEVEL_TRUE@SWIG_FLAGS = -w362,401
 @HAVE_PYTHON_DEVEL_TRUE@pylibdir = $(PYTHON_LIB)

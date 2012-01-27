@@ -83,8 +83,8 @@ class Queue : public ::qpid::management::ManagementObject
         uint64_t  msgTxnDequeues;
         uint64_t  msgPersistEnqueues;
         uint64_t  msgPersistDequeues;
-        uint32_t  msgDepth;
-        uint32_t  byteDepth;
+        uint64_t  msgDepth;
+        uint64_t  byteDepth;
         uint64_t  byteTotalEnqueues;
         uint64_t  byteTotalDequeues;
         uint64_t  byteTxnEnqueues;

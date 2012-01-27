@@ -74,9 +74,8 @@ am__nobase_list = $(am__nobase_strip_setup); \
 am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
-am__installdirs = "$(DESTDIR)$(confdir)" "$(DESTDIR)$(sysconfdir)" \
-	"$(DESTDIR)$(sasldbdir)"
-DATA = $(nobase_conf_DATA) $(nobase_sysconf_DATA) $(sasldb_DATA)
+am__installdirs = "$(DESTDIR)$(confdir)" "$(DESTDIR)$(sysconfdir)"
+DATA = $(nobase_conf_DATA) $(nobase_sysconf_DATA)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 AMQP_FINAL_XML = @AMQP_FINAL_XML@
@@ -269,10 +268,6 @@ nobase_conf_DATA = \
 	qpidc.conf
 
 nobase_sysconf_DATA = qpidd.conf $(am__append_1)
-@HAVE_SASL_TRUE@SASL_DB = qpidd.sasldb
-@HAVE_SASL_TRUE@sasldbdir = $(localstatedir)/lib/qpidd
-@HAVE_SASL_TRUE@sasldb_DATA = $(SASL_DB)
-@HAVE_SASL_TRUE@CLEANFILES = $(SASL_DB)
 all: all-am
 
 .SUFFIXES:
@@ -358,26 +353,6 @@ uninstall-nobase_sysconfDATA:
 	test -n "$$files" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(sysconfdir)' && rm -f" $$files ")"; \
 	cd "$(DESTDIR)$(sysconfdir)" && rm -f $$files
-install-sasldbDATA: $(sasldb_DATA)
-	@$(NORMAL_INSTALL)
-	test -z "$(sasldbdir)" || $(MKDIR_P) "$(DESTDIR)$(sasldbdir)"
-	@list='$(sasldb_DATA)'; test -n "$(sasldbdir)" || list=; \
-	for p in $$list; do \
-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
-	  echo "$$d$$p"; \
-	done | $(am__base_list) | \
-	while read files; do \
-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(sasldbdir)'"; \
-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(sasldbdir)" || exit $$?; \
-	done
-
-uninstall-sasldbDATA:
-	@$(NORMAL_UNINSTALL)
-	@list='$(sasldb_DATA)'; test -n "$(sasldbdir)" || list=; \
-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
-	test -n "$$files" || exit 0; \
-	echo " ( cd '$(DESTDIR)$(sasldbdir)' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(sasldbdir)" && rm -f $$files
 tags: TAGS
 TAGS:
 
@@ -419,7 +394,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(DATA)
 installdirs:
-	for dir in "$(DESTDIR)$(confdir)" "$(DESTDIR)$(sysconfdir)" "$(DESTDIR)$(sasldbdir)"; do \
+	for dir in "$(DESTDIR)$(confdir)" "$(DESTDIR)$(sysconfdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -439,7 +414,6 @@ install-strip:
 mostlyclean-generic:
 
 clean-generic:
-	-test -z "$(CLEANFILES)" || rm -f $(CLEANFILES)
 
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
@@ -468,7 +442,7 @@ info: info-am
 
 info-am:
 
-install-data-am: install-nobase_confDATA install-sasldbDATA
+install-data-am: install-nobase_confDATA
 
 install-dvi: install-dvi-am
 
@@ -512,8 +486,7 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-nobase_confDATA uninstall-nobase_sysconfDATA \
-	uninstall-sasldbDATA
+uninstall-am: uninstall-nobase_confDATA uninstall-nobase_sysconfDATA
 
 .MAKE: install-am install-strip
 
@@ -524,29 +497,12 @@ uninstall-am: uninstall-nobase_confDATA uninstall-nobase_sysconfDATA \
 	install-exec install-exec-am install-html install-html-am \
 	install-info install-info-am install-man \
 	install-nobase_confDATA install-nobase_sysconfDATA install-pdf \
-	install-pdf-am install-ps install-ps-am install-sasldbDATA \
-	install-strip installcheck installcheck-am installdirs \
-	maintainer-clean maintainer-clean-generic mostlyclean \
-	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
-	uninstall uninstall-am uninstall-nobase_confDATA \
-	uninstall-nobase_sysconfDATA uninstall-sasldbDATA
+	install-pdf-am install-ps install-ps-am install-strip \
+	installcheck installcheck-am installdirs maintainer-clean \
+	maintainer-clean-generic mostlyclean mostlyclean-generic \
+	mostlyclean-libtool pdf pdf-am ps ps-am uninstall uninstall-am \
+	uninstall-nobase_confDATA uninstall-nobase_sysconfDATA
 
-
-# Setup the default sasldb file with a single user, guest, with an
-# obvious password. This user and password are the default for many
-# clients.
-#
-# The realm specified by -u is very important, and QPID is the default
-# for the broker so we use it here. The realm is important because it
-# defaults to the local hostname of the machine running the
-# broker. This may not seem to bad at first glance, but it means that
-# the sasldb has to be tailored to each machine that would be running
-# a broker, and if the machine ever changed its name the
-# authentication would stop working until the sasldb was updated. For
-# these reasons we always want the broker to specify a realm where its
-# users live, and we want the users to exist in that realm as well.
-@HAVE_SASL_TRUE@$(SASL_DB):
-@HAVE_SASL_TRUE@	echo guest | $(SASL_PASSWD) -c -p -f $(SASL_DB) -u QPID guest
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

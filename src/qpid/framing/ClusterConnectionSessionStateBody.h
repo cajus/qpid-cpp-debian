@@ -58,7 +58,8 @@ public:
         const SequenceNumber& _expected,
         const SequenceNumber& _received,
         const SequenceSet& _unknownCompleted,
-        const SequenceSet& _receivedIncomplete) : 
+        const SequenceSet& _receivedIncomplete,
+        bool _dtxSelected) : 
         replayStart(_replayStart),
         commandPoint(_commandPoint),
         sentIncomplete(_sentIncomplete),
@@ -67,6 +68,7 @@ public:
         unknownCompleted(_unknownCompleted),
         receivedIncomplete(_receivedIncomplete),
         flags(0){
+        setDtxSelected(_dtxSelected);
         flags |= (1 << 8);
         flags |= (1 << 9);
         flags |= (1 << 10);
@@ -105,10 +107,12 @@ public:
     QPID_COMMON_EXTERN const SequenceSet& getReceivedIncomplete() const;
     QPID_COMMON_EXTERN bool hasReceivedIncomplete() const;
     QPID_COMMON_EXTERN void clearReceivedIncompleteFlag();
+    QPID_COMMON_EXTERN void setDtxSelected(bool _dtxSelected);
+    QPID_COMMON_EXTERN bool getDtxSelected() const;
     typedef void ResultType;
 
     template <class T> ResultType invoke(T& invocable) const {
-        return invocable.sessionState(getReplayStart(), getCommandPoint(), getSentIncomplete(), getExpected(), getReceived(), getUnknownCompleted(), getReceivedIncomplete());
+        return invocable.sessionState(getReplayStart(), getCommandPoint(), getSentIncomplete(), getExpected(), getReceived(), getUnknownCompleted(), getReceivedIncomplete(), getDtxSelected());
     }
 
     using  AMQMethodBody::accept;

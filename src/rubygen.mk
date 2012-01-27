@@ -2,23 +2,23 @@
 # Including makefile defines $(rgen_dir) $(rgen_cmd) and $(specs).
 
 rgen_generator=$(rgen_dir)/framing.0-10/OperationsInvoker.rb \
+    $(rgen_dir)/framing.0-10/MethodBodyConstVisitor.rb \
+    $(rgen_dir)/framing.0-10/frame_body_lists.rb \
+    $(rgen_dir)/framing.0-10/Proxy.rb \
+    $(rgen_dir)/framing.0-10/structs.rb \
+    $(rgen_dir)/framing.0-10/constants.rb \
+    $(rgen_dir)/framing.0-10/Operations.rb \
+    $(rgen_dir)/framing.0-10/all_method_bodies.rb \
     $(rgen_dir)/framing.0-10/MethodBodyFactory.rb \
     $(rgen_dir)/framing.0-10/Session.rb \
-    $(rgen_dir)/framing.0-10/all_method_bodies.rb \
-    $(rgen_dir)/framing.0-10/Proxy.rb \
-    $(rgen_dir)/framing.0-10/MethodBodyConstVisitor.rb \
-    $(rgen_dir)/framing.0-10/constants.rb \
-    $(rgen_dir)/framing.0-10/structs.rb \
-    $(rgen_dir)/framing.0-10/frame_body_lists.rb \
-    $(rgen_dir)/framing.0-10/Operations.rb \
     $(rgen_dir)/framing.0-10/MethodBodyDefaultVisitor.rb \
-    $(rgen_dir)/0-10/specification.rb \
-    $(rgen_dir)/0-10/exceptions.rb \
+    $(rgen_dir)/amqpgen.rb \
     $(rgen_dir)/0-10/handlers.rb \
     $(rgen_dir)/0-10/typecode.rb \
     $(rgen_dir)/0-10/allsegmenttypes.rb \
+    $(rgen_dir)/0-10/exceptions.rb \
+    $(rgen_dir)/0-10/specification.rb \
     $(rgen_dir)/cppgen.rb \
-    $(rgen_dir)/amqpgen.rb \
     $(rgen_dir)/MethodBodyDefaultVisitor.rb \
     $(rgen_dir)/generate
 
@@ -35,10 +35,10 @@ rgen_framing_srcs = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/ClusterConnectionRetractOfferBody.cpp \
     ../include/qpid/framing/QueueQueryResult.h \
     ./qpid/framing/ClusterConnectionQueueDequeueSincePurgeStateBody.cpp \
-    ./qpid/framing/ClusterInitialStatusBody.cpp \
-    ./qpid/framing/StreamPublishBody.cpp \
     ./qpid/framing/ExchangeBoundBody.cpp \
     ./qpid/framing/ConnectionCloseBody.cpp \
+    ./qpid/framing/StreamPublishBody.cpp \
+    ./qpid/framing/ClusterInitialStatusBody.cpp \
     ./qpid/framing/SessionFlushBody.h \
     ./qpid/framing/FileOpenOkBody.cpp \
     ./qpid/framing/ClusterConnectionAddQueueListenerBody.cpp \
@@ -49,6 +49,7 @@ rgen_framing_srcs = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/ConnectionStartBody.h \
     ./qpid/framing/SessionKnownCompletedBody.cpp \
     ./qpid/framing/ClusterConnectionQueueObserverStateBody.h \
+    ./qpid/framing/ClusterConnectionDtxBufferRefBody.cpp \
     ./qpid/framing/ConnectionTuneBody.cpp \
     ./qpid/framing/ConnectionCloseOkBody.cpp \
     ../include/qpid/framing/Header.h \
@@ -76,17 +77,17 @@ rgen_framing_srcs = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/ClusterErrorCheckBody.h \
     ./qpid/framing/MessageRejectBody.cpp \
     ./qpid/framing/SessionExpectedBody.cpp \
+    ../include/qpid/framing/enum.h \
     ./qpid/framing/ClusterConnectionAccumulatedAckBody.h \
     ./qpid/framing/FileStageBody.h \
     ./qpid/framing/ExecutionExceptionBody.h \
-    ../include/qpid/framing/enum.h \
     ./qpid/framing/ConnectionCloseBody.h \
     ./qpid/framing/ClusterConnectionSessionStateBody.cpp \
     ./qpid/framing/ClusterShutdownBody.h \
     ../include/qpid/framing/MessageResumeResult.h \
     ./qpid/framing/QueueDeleteBody.cpp \
-    ./qpid/framing/ClusterRetractOfferBody.cpp \
     ./qpid/framing/MessageTransferBody.h \
+    ./qpid/framing/ClusterRetractOfferBody.cpp \
     ./qpid/framing/ServerInvoker.cpp \
     ./qpid/framing/StreamConsumeBody.h \
     ./qpid/framing/ClusterConnectionTxStartBody.cpp \
@@ -104,11 +105,11 @@ rgen_framing_srcs = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/ExchangeBindBody.cpp \
     ./qpid/framing/FileOpenBody.cpp \
     ./qpid/framing/ClusterShutdownBody.cpp \
-    ./qpid/framing/ClusterUpdateRequestBody.h \
     ./qpid/framing/FileQosBody.cpp \
     ./qpid/framing/ConnectionOpenBody.cpp \
     ./qpid/framing/ConnectionSecureBody.h \
     ./qpid/framing/AMQP_AllProxy.cpp \
+    ./qpid/framing/ClusterUpdateRequestBody.h \
     ./qpid/framing/DeliveryProperties.cpp \
     ./qpid/framing/ClusterConnectionTxPublishBody.cpp \
     ./qpid/framing/FilePublishBody.cpp \
@@ -120,19 +121,20 @@ rgen_framing_srcs = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/MessageFlushBody.cpp \
     ./qpid/framing/TxSelectBody.cpp \
     ../include/qpid/framing/StreamProperties.h \
+    ./qpid/framing/reply_exceptions.cpp \
     ./qpid/framing/ClusterConnectionShadowSetUserBody.cpp \
     ./qpid/framing/ClusterRetractOfferBody.h \
-    ./qpid/framing/reply_exceptions.cpp \
     ./qpid/framing/DtxSetTimeoutBody.cpp \
     ./qpid/framing/ClusterConnectionAbortBody.h \
     ./qpid/framing/ExchangeBoundBody.h \
     ./qpid/framing/SessionCommandPointBody.h \
     ./qpid/framing/StreamConsumeBody.cpp \
+    ./qpid/framing/TypeCode.cpp \
+    ./qpid/framing/ClusterConnectionDtxEndBody.h \
     ./qpid/framing/ClusterConnectionDeliverCloseBody.h \
     ./qpid/framing/ClientInvoker.h \
     ./qpid/framing/StreamQosOkBody.cpp \
     ./qpid/framing/FileReturnBody.h \
-    ./qpid/framing/TypeCode.cpp \
     ./qpid/framing/QueueDeclareBody.cpp \
     ./qpid/framing/ConnectionSecureOkBody.cpp \
     ./qpid/framing/QueueDeclareBody.h \
@@ -149,13 +151,14 @@ rgen_framing_srcs = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ../include/qpid/framing/XaResult.h \
     ./qpid/framing/QueuePurgeBody.cpp \
     ./qpid/framing/MessageRejectBody.h \
+    ./qpid/framing/MethodBodyFactory.cpp \
+    ./qpid/framing/all_method_bodies.h \
     ./qpid/framing/ClusterConnectionQueueFairshareStateBody.h \
+    ./qpid/framing/ClusterConnectionDtxAckBody.h \
     ./qpid/framing/ClusterReadyBody.h \
     ./qpid/framing/MethodBodyConstVisitor.h \
     ./qpid/framing/ExchangeDeleteBody.h \
-    ./qpid/framing/all_method_bodies.h \
     ./qpid/framing/MessageTransferBody.cpp \
-    ./qpid/framing/MethodBodyFactory.cpp \
     ./qpid/framing/ConnectionStartBody.cpp \
     ./qpid/framing/MethodBodyDefaultVisitor.cpp \
     ./qpid/framing/ClusterConnectionTxPublishBody.h \
@@ -171,25 +174,27 @@ rgen_framing_srcs = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/ExchangeBoundResult.cpp \
     ./qpid/framing/FileQosOkBody.cpp \
     ./qpid/framing/ClusterConnectionExchangeBody.cpp \
-    ./qpid/framing/StreamReturnBody.h \
+    ./qpid/framing/ClusterConnectionDtxWorkRecordBody.h \
     ./qpid/framing/FileOpenBody.h \
     ./qpid/framing/FileAckBody.h \
+    ./qpid/framing/StreamReturnBody.h \
     ./qpid/framing/MessageAcceptBody.cpp \
     ./qpid/framing/ClusterConnectionOutputTaskBody.h \
-    ./qpid/framing/ClusterInitialStatusBody.h \
     ./qpid/framing/StreamConsumeOkBody.cpp \
+    ./qpid/framing/ClusterInitialStatusBody.h \
     ./qpid/framing/ExchangeDeclareBody.h \
     ./qpid/framing/Xid.cpp \
     ./qpid/framing/MessageFlowBody.cpp \
+    ./qpid/framing/ClusterConnectionDtxStartBody.cpp \
     ./qpid/framing/StreamCancelBody.cpp \
     ./qpid/framing/DtxPrepareBody.h \
     ./qpid/framing/ConnectionTuneOkBody.h \
     ./qpid/framing/ClusterConnectionDeliverDoOutputBody.cpp \
     ./qpid/framing/ClusterClockBody.cpp \
-    ./qpid/framing/ClusterUpdateRequestBody.cpp \
     ../include/qpid/framing/MessageAcquireResult.h \
     ./qpid/framing/SessionKnownCompletedBody.h \
     ./qpid/framing/FileRejectBody.h \
+    ./qpid/framing/ClusterUpdateRequestBody.cpp \
     ./qpid/framing/ConnectionRedirectBody.h \
     ../include/qpid/framing/Xid.h \
     ./qpid/framing/SessionRequestTimeoutBody.h \
@@ -220,20 +225,22 @@ rgen_framing_srcs = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/ClientInvoker.cpp \
     ../include/qpid/framing/MessageProperties.h \
     ./qpid/framing/MessageSetFlowModeBody.h \
-    ./qpid/framing/frame_body_lists.h \
     ./qpid/framing/ClusterConfigChangeBody.h \
+    ./qpid/framing/frame_body_lists.h \
     ./qpid/framing/ReplyTo.cpp \
     ./qpid/framing/ConnectionStartOkBody.h \
     ../include/qpid/framing/TypeCode.h \
     ./qpid/framing/QueueQueryBody.cpp \
     ./qpid/framing/FileConsumeBody.cpp \
     ../include/qpid/framing/amqp_structs.h \
+    ./qpid/framing/ClusterConnectionDtxWorkRecordBody.cpp \
     ./qpid/framing/ClusterConnectionAccumulatedAckBody.cpp \
     ./qpid/framing/ClusterConnectionTxDequeueBody.h \
     ./qpid/framing/ExchangeUnbindBody.h \
     ./qpid/framing/DtxStartBody.cpp \
     ./qpid/framing/SessionFlushBody.cpp \
     ../include/qpid/framing/constants.h \
+    ./qpid/framing/ClusterConnectionDtxAckBody.cpp \
     ./qpid/framing/ClusterConnectionConfigBody.h \
     ./qpid/framing/MessageAcquireResult.cpp \
     ./qpid/framing/SessionAttachedBody.h \
@@ -242,15 +249,18 @@ rgen_framing_srcs = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/SessionCompletedBody.h \
     ./qpid/framing/QueueDeleteBody.h \
     ./qpid/framing/StreamCancelBody.h \
+    ./qpid/framing/ClusterConnectionDtxStartBody.h \
     ./qpid/framing/FileAckBody.cpp \
     ./qpid/framing/DtxSelectBody.cpp \
     ./qpid/framing/DtxRecoverBody.cpp \
     ./qpid/framing/MessageStopBody.h \
     ./qpid/framing/DtxGetTimeoutResult.cpp \
+    ./qpid/framing/ClusterConnectionDtxBufferRefBody.h \
     ./qpid/framing/DtxRecoverResult.cpp \
     ../include/qpid/framing/FileProperties.h \
     ./qpid/framing/FileQosOkBody.h \
     ./qpid/framing/MessageSubscribeBody.cpp \
+    ./qpid/framing/ClusterConnectionDtxEndBody.cpp \
     ./qpid/framing/ClusterClockBody.h \
     ./qpid/framing/ExchangeQueryBody.cpp \
     ./qpid/framing/ExchangeDeleteBody.cpp \
@@ -262,12 +272,12 @@ rgen_framing_srcs = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/ExchangeBindBody.h \
     ./qpid/framing/ClusterConnectionQueueFairshareStateBody.cpp \
     ./qpid/framing/ClusterConnectionShadowReadyBody.h \
-    ./qpid/framing/StreamDeliverBody.cpp \
     ./qpid/framing/AMQP_ServerProxy.h \
     ./qpid/framing/AllInvoker.cpp \
     ./qpid/framing/FileProperties.cpp \
     ./qpid/framing/ConnectionRedirectBody.cpp \
     ./qpid/framing/QueuePurgeBody.h \
+    ./qpid/framing/StreamDeliverBody.cpp \
     ./qpid/framing/AMQP_ClientProxy.cpp \
     ./qpid/framing/ConnectionOpenBody.h \
     ./qpid/framing/DtxSelectBody.h \
@@ -280,8 +290,8 @@ rgen_framing_srcs = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/AMQP_AllOperations.h \
     ./qpid/framing/ClusterConnectionTxDequeueBody.cpp \
     ./qpid/framing/ClusterTimerDropBody.h \
-    ./qpid/framing/ClusterUpdateOfferBody.h \
     ./qpid/framing/AMQP_ServerProxy.cpp \
+    ./qpid/framing/ClusterUpdateOfferBody.h \
     ./qpid/framing/ExecutionSyncBody.cpp \
     ./qpid/framing/AMQP_AllProxy.h \
     ./qpid/framing/FileConsumeOkBody.h \
@@ -291,14 +301,14 @@ rgen_framing_srcs = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ../include/qpid/framing/ReplyTo.h \
     ./qpid/framing/FileConsumeBody.h \
     ./qpid/framing/ClusterConnectionOutputTaskBody.cpp \
-    ./qpid/framing/ClusterUpdateOfferBody.cpp \
     ./qpid/framing/FileCancelBody.h \
     ./qpid/framing/SessionCompletedBody.cpp \
+    ./qpid/framing/ClusterUpdateOfferBody.cpp \
     ./qpid/framing/SessionAttachedBody.cpp \
     ./qpid/framing/MessageFlushBody.h \
+    ../include/qpid/framing/reply_exceptions.h \
     ./qpid/framing/FileStageBody.cpp \
     ./qpid/framing/SessionAttachBody.h \
-    ../include/qpid/framing/reply_exceptions.h \
     ./qpid/framing/MessageResumeResult.cpp \
     ./qpid/framing/ExecutionResultBody.h \
     ./qpid/framing/DtxSetTimeoutBody.h \
@@ -336,9 +346,9 @@ rgen_framing_srcs = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
 rgen_amqp_0_10_srcs = ./qpid/amqp_0_10/specification.h \
     ./qpid/amqp_0_10/handlers.h \
     ./qpid/amqp_0_10/ControlHolder.h \
-    ./qpid/amqp_0_10/CodeForType.h \
     ./qpid/amqp_0_10/ApplyStruct.h \
     ./qpid/amqp_0_10/StructVisitor.h \
+    ./qpid/amqp_0_10/CodeForType.h \
     ./qpid/amqp_0_10/exceptions.h \
     ./qpid/amqp_0_10/ApplyControl.h \
     ./qpid/amqp_0_10/ControlVisitor.h \
@@ -380,10 +390,10 @@ rgen_srcs=./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/ClusterConnectionRetractOfferBody.cpp \
     ../include/qpid/framing/QueueQueryResult.h \
     ./qpid/framing/ClusterConnectionQueueDequeueSincePurgeStateBody.cpp \
-    ./qpid/framing/ClusterInitialStatusBody.cpp \
-    ./qpid/framing/StreamPublishBody.cpp \
     ./qpid/framing/ExchangeBoundBody.cpp \
     ./qpid/framing/ConnectionCloseBody.cpp \
+    ./qpid/framing/StreamPublishBody.cpp \
+    ./qpid/framing/ClusterInitialStatusBody.cpp \
     ./qpid/framing/SessionFlushBody.h \
     ./qpid/framing/FileOpenOkBody.cpp \
     ./qpid/framing/ClusterConnectionAddQueueListenerBody.cpp \
@@ -394,6 +404,7 @@ rgen_srcs=./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/ConnectionStartBody.h \
     ./qpid/framing/SessionKnownCompletedBody.cpp \
     ./qpid/framing/ClusterConnectionQueueObserverStateBody.h \
+    ./qpid/framing/ClusterConnectionDtxBufferRefBody.cpp \
     ./qpid/framing/ConnectionTuneBody.cpp \
     ./qpid/framing/ConnectionCloseOkBody.cpp \
     ../include/qpid/framing/Header.h \
@@ -421,18 +432,18 @@ rgen_srcs=./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/ClusterErrorCheckBody.h \
     ./qpid/framing/MessageRejectBody.cpp \
     ./qpid/framing/SessionExpectedBody.cpp \
+    ../include/qpid/framing/enum.h \
     ./qpid/framing/ClusterConnectionAccumulatedAckBody.h \
     ./qpid/framing/FileStageBody.h \
     ./qpid/framing/ExecutionExceptionBody.h \
-    ../include/qpid/framing/enum.h \
     ./qpid/framing/ConnectionCloseBody.h \
     ./qpid/amqp_0_10/handlers.h \
     ./qpid/framing/ClusterConnectionSessionStateBody.cpp \
     ./qpid/framing/ClusterShutdownBody.h \
     ../include/qpid/framing/MessageResumeResult.h \
     ./qpid/framing/QueueDeleteBody.cpp \
-    ./qpid/framing/ClusterRetractOfferBody.cpp \
     ./qpid/framing/MessageTransferBody.h \
+    ./qpid/framing/ClusterRetractOfferBody.cpp \
     ./qpid/framing/ServerInvoker.cpp \
     ./qpid/framing/StreamConsumeBody.h \
     ./qpid/framing/ClusterConnectionTxStartBody.cpp \
@@ -449,19 +460,19 @@ rgen_srcs=./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/FileReturnBody.cpp \
     ./qpid/framing/ExchangeBindBody.cpp \
     ./qpid/framing/FileOpenBody.cpp \
-    ./tests/allSegmentTypes.h \
     ./qpid/amqp_0_10/ControlHolder.h \
+    ./tests/allSegmentTypes.h \
     ./qpid/framing/ClusterShutdownBody.cpp \
-    ./qpid/framing/ClusterUpdateRequestBody.h \
     ./qpid/framing/FileQosBody.cpp \
     ./qpid/framing/ConnectionOpenBody.cpp \
     ./qpid/framing/ConnectionSecureBody.h \
     ./qpid/framing/AMQP_AllProxy.cpp \
+    ./qpid/framing/ClusterUpdateRequestBody.h \
     ./qpid/framing/DeliveryProperties.cpp \
     ./qpid/framing/ClusterConnectionTxPublishBody.cpp \
-    ./qpid/amqp_0_10/CodeForType.h \
     ./qpid/amqp_0_10/ApplyStruct.h \
     ./qpid/amqp_0_10/StructVisitor.h \
+    ./qpid/amqp_0_10/CodeForType.h \
     ./qpid/framing/FilePublishBody.cpp \
     ./qpid/framing/QueueQueryResult.cpp \
     ../include/qpid/framing/DeliveryProperties.h \
@@ -472,19 +483,20 @@ rgen_srcs=./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/MessageFlushBody.cpp \
     ./qpid/framing/TxSelectBody.cpp \
     ../include/qpid/framing/StreamProperties.h \
+    ./qpid/framing/reply_exceptions.cpp \
     ./qpid/framing/ClusterConnectionShadowSetUserBody.cpp \
     ./qpid/framing/ClusterRetractOfferBody.h \
-    ./qpid/framing/reply_exceptions.cpp \
     ./qpid/framing/DtxSetTimeoutBody.cpp \
     ./qpid/framing/ClusterConnectionAbortBody.h \
     ./qpid/framing/ExchangeBoundBody.h \
     ./qpid/framing/SessionCommandPointBody.h \
     ./qpid/framing/StreamConsumeBody.cpp \
+    ./qpid/framing/TypeCode.cpp \
+    ./qpid/framing/ClusterConnectionDtxEndBody.h \
     ./qpid/framing/ClusterConnectionDeliverCloseBody.h \
     ./qpid/framing/ClientInvoker.h \
     ./qpid/framing/StreamQosOkBody.cpp \
     ./qpid/framing/FileReturnBody.h \
-    ./qpid/framing/TypeCode.cpp \
     ./qpid/framing/QueueDeclareBody.cpp \
     ./qpid/amqp_0_10/ApplyControl.h \
     ./qpid/amqp_0_10/ControlVisitor.h \
@@ -503,13 +515,14 @@ rgen_srcs=./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ../include/qpid/framing/XaResult.h \
     ./qpid/framing/QueuePurgeBody.cpp \
     ./qpid/framing/MessageRejectBody.h \
+    ./qpid/framing/MethodBodyFactory.cpp \
+    ./qpid/framing/all_method_bodies.h \
     ./qpid/framing/ClusterConnectionQueueFairshareStateBody.h \
+    ./qpid/framing/ClusterConnectionDtxAckBody.h \
     ./qpid/framing/ClusterReadyBody.h \
     ./qpid/framing/MethodBodyConstVisitor.h \
     ./qpid/framing/ExchangeDeleteBody.h \
-    ./qpid/framing/all_method_bodies.h \
     ./qpid/framing/MessageTransferBody.cpp \
-    ./qpid/framing/MethodBodyFactory.cpp \
     ./qpid/framing/ConnectionStartBody.cpp \
     ./qpid/amqp_0_10/CommandVisitor.h \
     ./qpid/framing/MethodBodyDefaultVisitor.cpp \
@@ -520,36 +533,38 @@ rgen_srcs=./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/SessionTimeoutBody.h \
     ./qpid/amqp_0_10/StructHolder.cpp \
     ./qpid/amqp_0_10/structs.cpp \
+    ../include/qpid/client/no_keyword/AsyncSession_0_10.h \
     ./qpid/framing/ClusterConnectionManagementSetupStateBody.cpp \
     ./qpid/framing/TxSelectBody.h \
     ./qpid/framing/ConnectionOpenOkBody.h \
     ./qpid/framing/SessionConfirmedBody.h \
     ./qpid/framing/DtxCommitBody.h \
-    ../include/qpid/client/no_keyword/AsyncSession_0_10.h \
     ./qpid/framing/ExchangeBoundResult.cpp \
     ./qpid/framing/FileQosOkBody.cpp \
     ./qpid/framing/ClusterConnectionExchangeBody.cpp \
-    ./qpid/framing/StreamReturnBody.h \
+    ./qpid/framing/ClusterConnectionDtxWorkRecordBody.h \
     ./qpid/framing/FileOpenBody.h \
     ./qpid/framing/FileAckBody.h \
+    ./qpid/framing/StreamReturnBody.h \
     ./qpid/framing/MessageAcceptBody.cpp \
     ./qpid/framing/ClusterConnectionOutputTaskBody.h \
-    ./qpid/framing/ClusterInitialStatusBody.h \
     ./qpid/framing/StreamConsumeOkBody.cpp \
+    ./qpid/framing/ClusterInitialStatusBody.h \
     ./qpid/framing/ExchangeDeclareBody.h \
     ./qpid/framing/Xid.cpp \
     ./qpid/framing/MessageFlowBody.cpp \
     ./qpid/amqp_0_10/ApplyCommand.h \
     ./qpid/amqp_0_10/CommandHolder.h \
+    ./qpid/framing/ClusterConnectionDtxStartBody.cpp \
     ./qpid/framing/StreamCancelBody.cpp \
     ./qpid/framing/DtxPrepareBody.h \
     ./qpid/framing/ConnectionTuneOkBody.h \
     ./qpid/framing/ClusterConnectionDeliverDoOutputBody.cpp \
     ./qpid/framing/ClusterClockBody.cpp \
-    ./qpid/framing/ClusterUpdateRequestBody.cpp \
     ../include/qpid/framing/MessageAcquireResult.h \
     ./qpid/framing/SessionKnownCompletedBody.h \
     ./qpid/framing/FileRejectBody.h \
+    ./qpid/framing/ClusterUpdateRequestBody.cpp \
     ./qpid/framing/ConnectionRedirectBody.h \
     ../include/qpid/framing/Xid.h \
     ./qpid/framing/SessionRequestTimeoutBody.h \
@@ -567,11 +582,11 @@ rgen_srcs=./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/ClusterConnectionQueuePositionBody.cpp \
     ./qpid/framing/ClusterConnectionConsumerStateBody.h \
     ./qpid/framing/ClusterConnectionShadowPrepareBody.h \
+    ../include/qpid/client/AsyncSession_0_10.h \
     ./qpid/framing/ClusterConnectionQueueObserverStateBody.cpp \
     ./qpid/framing/ClusterConnectionAnnounceBody.h \
     ./qpid/framing/StreamDeliverBody.h \
     ./qpid/framing/StreamPublishBody.h \
-    ../include/qpid/client/AsyncSession_0_10.h \
     ./qpid/amqp_0_10/CodeForType.cpp \
     ./qpid/framing/ClusterConnectionClockBody.cpp \
     ./qpid/framing/ClusterConnectionClockBody.h \
@@ -583,22 +598,24 @@ rgen_srcs=./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ../include/qpid/framing/MessageProperties.h \
     ./qpid/framing/MessageSetFlowModeBody.h \
     ./qpid/amqp_0_10/specification_fwd.h \
-    ./qpid/framing/frame_body_lists.h \
     ./qpid/framing/ClusterConfigChangeBody.h \
+    ./qpid/framing/frame_body_lists.h \
     ./qpid/framing/ReplyTo.cpp \
     ./qpid/framing/ConnectionStartOkBody.h \
     ../include/qpid/framing/TypeCode.h \
     ./qpid/framing/QueueQueryBody.cpp \
     ./qpid/framing/FileConsumeBody.cpp \
     ../include/qpid/framing/amqp_structs.h \
+    ./qpid/framing/ClusterConnectionDtxWorkRecordBody.cpp \
     ./qpid/framing/ClusterConnectionAccumulatedAckBody.cpp \
     ./qpid/framing/ClusterConnectionTxDequeueBody.h \
     ./qpid/framing/ExchangeUnbindBody.h \
     ./qpid/framing/DtxStartBody.cpp \
     ./qpid/framing/SessionFlushBody.cpp \
     ../include/qpid/framing/constants.h \
-    ./qpid/framing/ClusterConnectionConfigBody.h \
+    ./qpid/framing/ClusterConnectionDtxAckBody.cpp \
     ../include/qpid/client/Session_0_10.h \
+    ./qpid/framing/ClusterConnectionConfigBody.h \
     ./qpid/framing/MessageAcquireResult.cpp \
     ./qpid/framing/SessionAttachedBody.h \
     ./qpid/framing/ConnectionHeartbeatBody.h \
@@ -606,17 +623,20 @@ rgen_srcs=./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/SessionCompletedBody.h \
     ./qpid/framing/QueueDeleteBody.h \
     ./qpid/framing/StreamCancelBody.h \
+    ./qpid/framing/ClusterConnectionDtxStartBody.h \
     ./qpid/framing/FileAckBody.cpp \
     ./qpid/framing/DtxSelectBody.cpp \
     ./qpid/framing/DtxRecoverBody.cpp \
     ./qpid/framing/MessageStopBody.h \
     ./qpid/framing/DtxGetTimeoutResult.cpp \
     ./qpid/amqp_0_10/CommandHolder.cpp \
+    ./qpid/client/no_keyword/AsyncSession_0_10.cpp \
+    ./qpid/framing/ClusterConnectionDtxBufferRefBody.h \
     ./qpid/framing/DtxRecoverResult.cpp \
     ../include/qpid/framing/FileProperties.h \
     ./qpid/framing/FileQosOkBody.h \
     ./qpid/framing/MessageSubscribeBody.cpp \
-    ./qpid/client/no_keyword/AsyncSession_0_10.cpp \
+    ./qpid/framing/ClusterConnectionDtxEndBody.cpp \
     ./qpid/framing/ClusterClockBody.h \
     ./qpid/framing/ExchangeQueryBody.cpp \
     ./qpid/framing/ExchangeDeleteBody.cpp \
@@ -628,12 +648,12 @@ rgen_srcs=./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/ExchangeBindBody.h \
     ./qpid/framing/ClusterConnectionQueueFairshareStateBody.cpp \
     ./qpid/framing/ClusterConnectionShadowReadyBody.h \
-    ./qpid/framing/StreamDeliverBody.cpp \
     ./qpid/framing/AMQP_ServerProxy.h \
     ./qpid/framing/AllInvoker.cpp \
     ./qpid/framing/FileProperties.cpp \
     ./qpid/framing/ConnectionRedirectBody.cpp \
     ./qpid/framing/QueuePurgeBody.h \
+    ./qpid/framing/StreamDeliverBody.cpp \
     ./qpid/framing/AMQP_ClientProxy.cpp \
     ./qpid/framing/ConnectionOpenBody.h \
     ./qpid/framing/DtxSelectBody.h \
@@ -646,27 +666,27 @@ rgen_srcs=./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/AMQP_AllOperations.h \
     ./qpid/framing/ClusterConnectionTxDequeueBody.cpp \
     ./qpid/framing/ClusterTimerDropBody.h \
-    ./qpid/framing/ClusterUpdateOfferBody.h \
     ./qpid/framing/AMQP_ServerProxy.cpp \
+    ./qpid/framing/ClusterUpdateOfferBody.h \
     ./qpid/framing/ExecutionSyncBody.cpp \
     ./qpid/framing/AMQP_AllProxy.h \
     ./qpid/framing/FileConsumeOkBody.h \
     ./qpid/amqp_0_10/TypeForCode.h \
+    ../include/qpid/client/arg.h \
     ./qpid/framing/DtxGetTimeoutBody.cpp \
     ./qpid/framing/AllInvoker.h \
-    ../include/qpid/client/arg.h \
     ./qpid/framing/DtxEndBody.h \
     ../include/qpid/framing/ReplyTo.h \
     ./qpid/framing/FileConsumeBody.h \
     ./qpid/framing/ClusterConnectionOutputTaskBody.cpp \
-    ./qpid/framing/ClusterUpdateOfferBody.cpp \
     ./qpid/framing/FileCancelBody.h \
     ./qpid/framing/SessionCompletedBody.cpp \
+    ./qpid/framing/ClusterUpdateOfferBody.cpp \
     ./qpid/framing/SessionAttachedBody.cpp \
     ./qpid/framing/MessageFlushBody.h \
+    ../include/qpid/framing/reply_exceptions.h \
     ./qpid/framing/FileStageBody.cpp \
     ./qpid/framing/SessionAttachBody.h \
-    ../include/qpid/framing/reply_exceptions.h \
     ./qpid/framing/MessageResumeResult.cpp \
     ./qpid/framing/ExecutionResultBody.h \
     ./qpid/framing/DtxSetTimeoutBody.h \
@@ -704,8 +724,8 @@ rgen_srcs=./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/MessageAcquireBody.cpp \
     ./qpid/framing/DtxPrepareBody.cpp \
     ./qpid/amqp_0_10/ProxyTemplate.h \
-    ./qpid/framing/MessageCancelBody.h \
     ./qpid/client/no_keyword/Session_0_10.cpp \
+    ./qpid/framing/MessageCancelBody.h \
     ./qpid/framing/QueueQueryBody.h
 
 # Header file install rules.
@@ -713,9 +733,9 @@ qpid_amqp_0_10dir = $(includedir)/qpid/amqp_0_10
 dist_qpid_amqp_0_10_HEADERS = ./qpid/amqp_0_10/specification.h \
     ./qpid/amqp_0_10/handlers.h \
     ./qpid/amqp_0_10/ControlHolder.h \
-    ./qpid/amqp_0_10/CodeForType.h \
     ./qpid/amqp_0_10/ApplyStruct.h \
     ./qpid/amqp_0_10/StructVisitor.h \
+    ./qpid/amqp_0_10/CodeForType.h \
     ./qpid/amqp_0_10/exceptions.h \
     ./qpid/amqp_0_10/ApplyControl.h \
     ./qpid/amqp_0_10/ControlVisitor.h \
@@ -750,10 +770,10 @@ dist_qpid_framing_HEADERS = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/TxCommitBody.h \
     ./qpid/framing/ClusterConnectionQueueDequeueSincePurgeStateBody.h \
     ./qpid/framing/ClusterErrorCheckBody.h \
+    ../include/qpid/framing/enum.h \
     ./qpid/framing/ClusterConnectionAccumulatedAckBody.h \
     ./qpid/framing/FileStageBody.h \
     ./qpid/framing/ExecutionExceptionBody.h \
-    ../include/qpid/framing/enum.h \
     ./qpid/framing/ConnectionCloseBody.h \
     ./qpid/framing/ClusterShutdownBody.h \
     ../include/qpid/framing/MessageResumeResult.h \
@@ -764,8 +784,8 @@ dist_qpid_framing_HEADERS = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/ExecutionSyncBody.h \
     ./qpid/framing/ClusterConnectionDeliveryRecordBody.h \
     ../include/qpid/framing/DtxRecoverResult.h \
-    ./qpid/framing/ClusterUpdateRequestBody.h \
     ./qpid/framing/ConnectionSecureBody.h \
+    ./qpid/framing/ClusterUpdateRequestBody.h \
     ../include/qpid/framing/DeliveryProperties.h \
     ./qpid/framing/ConnectionCloseOkBody.h \
     ./qpid/framing/MessageAcquireBody.h \
@@ -774,6 +794,7 @@ dist_qpid_framing_HEADERS = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/ClusterConnectionAbortBody.h \
     ./qpid/framing/ExchangeBoundBody.h \
     ./qpid/framing/SessionCommandPointBody.h \
+    ./qpid/framing/ClusterConnectionDtxEndBody.h \
     ./qpid/framing/ClusterConnectionDeliverCloseBody.h \
     ./qpid/framing/ClientInvoker.h \
     ./qpid/framing/FileReturnBody.h \
@@ -784,11 +805,12 @@ dist_qpid_framing_HEADERS = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/AMQP_ClientProxy.h \
     ../include/qpid/framing/XaResult.h \
     ./qpid/framing/MessageRejectBody.h \
+    ./qpid/framing/all_method_bodies.h \
     ./qpid/framing/ClusterConnectionQueueFairshareStateBody.h \
+    ./qpid/framing/ClusterConnectionDtxAckBody.h \
     ./qpid/framing/ClusterReadyBody.h \
     ./qpid/framing/MethodBodyConstVisitor.h \
     ./qpid/framing/ExchangeDeleteBody.h \
-    ./qpid/framing/all_method_bodies.h \
     ./qpid/framing/ClusterConnectionTxPublishBody.h \
     ./qpid/framing/FileOpenOkBody.h \
     ../include/qpid/framing/ExchangeBoundResult.h \
@@ -797,9 +819,10 @@ dist_qpid_framing_HEADERS = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/ConnectionOpenOkBody.h \
     ./qpid/framing/SessionConfirmedBody.h \
     ./qpid/framing/DtxCommitBody.h \
-    ./qpid/framing/StreamReturnBody.h \
+    ./qpid/framing/ClusterConnectionDtxWorkRecordBody.h \
     ./qpid/framing/FileOpenBody.h \
     ./qpid/framing/FileAckBody.h \
+    ./qpid/framing/StreamReturnBody.h \
     ./qpid/framing/ClusterConnectionOutputTaskBody.h \
     ./qpid/framing/ClusterInitialStatusBody.h \
     ./qpid/framing/ExchangeDeclareBody.h \
@@ -825,8 +848,8 @@ dist_qpid_framing_HEADERS = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/MessageResumeBody.h \
     ../include/qpid/framing/MessageProperties.h \
     ./qpid/framing/MessageSetFlowModeBody.h \
-    ./qpid/framing/frame_body_lists.h \
     ./qpid/framing/ClusterConfigChangeBody.h \
+    ./qpid/framing/frame_body_lists.h \
     ./qpid/framing/ConnectionStartOkBody.h \
     ../include/qpid/framing/TypeCode.h \
     ../include/qpid/framing/amqp_structs.h \
@@ -839,7 +862,9 @@ dist_qpid_framing_HEADERS = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/SessionCompletedBody.h \
     ./qpid/framing/QueueDeleteBody.h \
     ./qpid/framing/StreamCancelBody.h \
+    ./qpid/framing/ClusterConnectionDtxStartBody.h \
     ./qpid/framing/MessageStopBody.h \
+    ./qpid/framing/ClusterConnectionDtxBufferRefBody.h \
     ../include/qpid/framing/FileProperties.h \
     ./qpid/framing/FileQosOkBody.h \
     ./qpid/framing/ClusterClockBody.h \
@@ -868,8 +893,8 @@ dist_qpid_framing_HEADERS = ./qpid/framing/ClusterConnectionTxAcceptBody.h \
     ./qpid/framing/FileConsumeBody.h \
     ./qpid/framing/FileCancelBody.h \
     ./qpid/framing/MessageFlushBody.h \
-    ./qpid/framing/SessionAttachBody.h \
     ../include/qpid/framing/reply_exceptions.h \
+    ./qpid/framing/SessionAttachBody.h \
     ./qpid/framing/ExecutionResultBody.h \
     ./qpid/framing/DtxSetTimeoutBody.h \
     ./qpid/framing/DtxForgetBody.h \

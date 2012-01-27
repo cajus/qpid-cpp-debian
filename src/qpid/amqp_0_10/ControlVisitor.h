@@ -89,6 +89,11 @@ struct ControlVisitor
     virtual void visit(cluster-connection::TxEnd&) = 0;
     virtual void visit(cluster-connection::AccumulatedAck&) = 0;
     virtual void visit(cluster-connection::OutputTask&) = 0;
+    virtual void visit(cluster-connection::DtxStart&) = 0;
+    virtual void visit(cluster-connection::DtxEnd&) = 0;
+    virtual void visit(cluster-connection::DtxAck&) = 0;
+    virtual void visit(cluster-connection::DtxBufferRef&) = 0;
+    virtual void visit(cluster-connection::DtxWorkRecord&) = 0;
     virtual void visit(cluster-connection::SessionState&) = 0;
     virtual void visit(cluster-connection::ShadowReady&) = 0;
     virtual void visit(cluster-connection::Membership&) = 0;
@@ -160,6 +165,11 @@ struct ConstControlVisitor
     virtual void visit(const cluster-connection::TxEnd&) = 0;
     virtual void visit(const cluster-connection::AccumulatedAck&) = 0;
     virtual void visit(const cluster-connection::OutputTask&) = 0;
+    virtual void visit(const cluster-connection::DtxStart&) = 0;
+    virtual void visit(const cluster-connection::DtxEnd&) = 0;
+    virtual void visit(const cluster-connection::DtxAck&) = 0;
+    virtual void visit(const cluster-connection::DtxBufferRef&) = 0;
+    virtual void visit(const cluster-connection::DtxWorkRecord&) = 0;
     virtual void visit(const cluster-connection::SessionState&) = 0;
     virtual void visit(const cluster-connection::ShadowReady&) = 0;
     virtual void visit(const cluster-connection::Membership&) = 0;

@@ -143,6 +143,11 @@
     (ClusterConnectionTxEndBody) \
     (ClusterConnectionAccumulatedAckBody) \
     (ClusterConnectionOutputTaskBody) \
+    (ClusterConnectionDtxStartBody) \
+    (ClusterConnectionDtxEndBody) \
+    (ClusterConnectionDtxAckBody) \
+    (ClusterConnectionDtxBufferRefBody) \
+    (ClusterConnectionDtxWorkRecordBody) \
     (ClusterConnectionSessionStateBody) \
     (ClusterConnectionShadowReadyBody) \
     (ClusterConnectionMembershipBody) \

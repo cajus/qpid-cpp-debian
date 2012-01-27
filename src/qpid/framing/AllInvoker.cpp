@@ -132,6 +132,11 @@
 #include "qpid/framing/ClusterConnectionTxEndBody.h"
 #include "qpid/framing/ClusterConnectionAccumulatedAckBody.h"
 #include "qpid/framing/ClusterConnectionOutputTaskBody.h"
+#include "qpid/framing/ClusterConnectionDtxStartBody.h"
+#include "qpid/framing/ClusterConnectionDtxEndBody.h"
+#include "qpid/framing/ClusterConnectionDtxAckBody.h"
+#include "qpid/framing/ClusterConnectionDtxBufferRefBody.h"
+#include "qpid/framing/ClusterConnectionDtxWorkRecordBody.h"
 #include "qpid/framing/ClusterConnectionSessionStateBody.h"
 #include "qpid/framing/ClusterConnectionShadowReadyBody.h"
 #include "qpid/framing/ClusterConnectionMembershipBody.h"
@@ -679,6 +684,31 @@ void AMQP_AllOperations::Invoker::visit(const ClusterConnectionOutputTaskBody& b
     body.accept(invoker);
     result=invoker.getResult();
 }
+void AMQP_AllOperations::Invoker::visit(const ClusterConnectionDtxStartBody& body) {
+    AMQP_AllOperations::ClusterConnectionHandler::Invoker invoker(*target.getClusterConnectionHandler());
+    body.accept(invoker);
+    result=invoker.getResult();
+}
+void AMQP_AllOperations::Invoker::visit(const ClusterConnectionDtxEndBody& body) {
+    AMQP_AllOperations::ClusterConnectionHandler::Invoker invoker(*target.getClusterConnectionHandler());
+    body.accept(invoker);
+    result=invoker.getResult();
+}
+void AMQP_AllOperations::Invoker::visit(const ClusterConnectionDtxAckBody& body) {
+    AMQP_AllOperations::ClusterConnectionHandler::Invoker invoker(*target.getClusterConnectionHandler());
+    body.accept(invoker);
+    result=invoker.getResult();
+}
+void AMQP_AllOperations::Invoker::visit(const ClusterConnectionDtxBufferRefBody& body) {
+    AMQP_AllOperations::ClusterConnectionHandler::Invoker invoker(*target.getClusterConnectionHandler());
+    body.accept(invoker);
+    result=invoker.getResult();
+}
+void AMQP_AllOperations::Invoker::visit(const ClusterConnectionDtxWorkRecordBody& body) {
+    AMQP_AllOperations::ClusterConnectionHandler::Invoker invoker(*target.getClusterConnectionHandler());
+    body.accept(invoker);
+    result=invoker.getResult();
+}
 void AMQP_AllOperations::Invoker::visit(const ClusterConnectionSessionStateBody& body) {
     AMQP_AllOperations::ClusterConnectionHandler::Invoker invoker(*target.getClusterConnectionHandler());
     body.accept(invoker);
@@ -1165,6 +1195,26 @@ void AMQP_AllOperations::ClusterConnectionHandler::Invoker::visit(const ClusterC
     result.handled=true;
 }
 void AMQP_AllOperations::ClusterConnectionHandler::Invoker::visit(const ClusterConnectionOutputTaskBody& body) {
+    body.invoke(target);
+    result.handled=true;
+}
+void AMQP_AllOperations::ClusterConnectionHandler::Invoker::visit(const ClusterConnectionDtxStartBody& body) {
+    body.invoke(target);
+    result.handled=true;
+}
+void AMQP_AllOperations::ClusterConnectionHandler::Invoker::visit(const ClusterConnectionDtxEndBody& body) {
+    body.invoke(target);
+    result.handled=true;
+}
+void AMQP_AllOperations::ClusterConnectionHandler::Invoker::visit(const ClusterConnectionDtxAckBody& body) {
+    body.invoke(target);
+    result.handled=true;
+}
+void AMQP_AllOperations::ClusterConnectionHandler::Invoker::visit(const ClusterConnectionDtxBufferRefBody& body) {
+    body.invoke(target);
+    result.handled=true;
+}
+void AMQP_AllOperations::ClusterConnectionHandler::Invoker::visit(const ClusterConnectionDtxWorkRecordBody& body) {
     body.invoke(target);
     result.handled=true;
 }

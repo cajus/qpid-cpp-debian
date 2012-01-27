@@ -90,6 +90,11 @@ struct ApplyVisitor<ControlVisitor, F>:
     virtual void visit(cluster-connection::TxEnd& x) { this->invoke(x); }
     virtual void visit(cluster-connection::AccumulatedAck& x) { this->invoke(x); }
     virtual void visit(cluster-connection::OutputTask& x) { this->invoke(x); }
+    virtual void visit(cluster-connection::DtxStart& x) { this->invoke(x); }
+    virtual void visit(cluster-connection::DtxEnd& x) { this->invoke(x); }
+    virtual void visit(cluster-connection::DtxAck& x) { this->invoke(x); }
+    virtual void visit(cluster-connection::DtxBufferRef& x) { this->invoke(x); }
+    virtual void visit(cluster-connection::DtxWorkRecord& x) { this->invoke(x); }
     virtual void visit(cluster-connection::SessionState& x) { this->invoke(x); }
     virtual void visit(cluster-connection::ShadowReady& x) { this->invoke(x); }
     virtual void visit(cluster-connection::Membership& x) { this->invoke(x); }
@@ -161,6 +166,11 @@ struct ApplyVisitor<ConstControlVisitor, F>:
     virtual void visit(const cluster-connection::TxEnd& x) { this->invoke(x); }
     virtual void visit(const cluster-connection::AccumulatedAck& x) { this->invoke(x); }
     virtual void visit(const cluster-connection::OutputTask& x) { this->invoke(x); }
+    virtual void visit(const cluster-connection::DtxStart& x) { this->invoke(x); }
+    virtual void visit(const cluster-connection::DtxEnd& x) { this->invoke(x); }
+    virtual void visit(const cluster-connection::DtxAck& x) { this->invoke(x); }
+    virtual void visit(const cluster-connection::DtxBufferRef& x) { this->invoke(x); }
+    virtual void visit(const cluster-connection::DtxWorkRecord& x) { this->invoke(x); }
     virtual void visit(const cluster-connection::SessionState& x) { this->invoke(x); }
     virtual void visit(const cluster-connection::ShadowReady& x) { this->invoke(x); }
     virtual void visit(const cluster-connection::Membership& x) { this->invoke(x); }

@@ -54,6 +54,8 @@ windows_dist = \
   qpid/sys/windows/uuid.cpp \
   qpid/sys/windows/uuid.h \
   windows/QpiddBroker.cpp \
+  windows/SCM.h \
+  windows/SCM.cpp \
   qpid/broker/windows/BrokerDefaults.cpp \
   qpid/broker/windows/SaslAuthenticator.cpp \
   qpid/broker/windows/SslProtocolFactory.cpp \
@@ -89,7 +91,7 @@ rgen_cmd=ruby -I $(rgen_dir) $(rgen_dir)/generate . ../include $(specs) all
 
 $(rgen_srcs) $(srcdir)/rubygen.mk: rgen.timestamp
 rgen.timestamp: $(rgen_generator) $(specs)
-	$(rgen_cmd) $(srcdir)/rubygen.mk; touch $@
+	$(rgen_cmd) $(srcdir)/rubygen.mk && touch $@
 $(rgen_generator):
 
 # The CMake version is needed for dist
@@ -286,6 +288,7 @@ EXTRA_DIST +=\
   ssl.cmake \
   managementgen.cmake \
   rubygen.cmake \
+  versions.cmake \
   $(rgen_amqp_0_10_srcs) \
   qpid/amqp_0_10/apply.h \
   qpid/amqp_0_10/built_in_types.h \
@@ -497,6 +500,7 @@ libqpidcommon_la_SOURCES +=			\
   qpid/sys/Waitable.h				\
   qpid/sys/alloca.h				\
   qpid/sys/uuid.h				\
+  qpid/sys/unordered_map.h			\
   qpid/amqp_0_10/Codecs.cpp
 
 if HAVE_SASL
@@ -671,6 +675,11 @@ libqpidbroker_la_SOURCES = \
   qpid/broker/TxPublish.h \
   qpid/broker/Vhost.cpp \
   qpid/broker/Vhost.h \
+  qpid/broker/MessageDistributor.h \
+  qpid/broker/FifoDistributor.h \
+  qpid/broker/FifoDistributor.cpp \
+  qpid/broker/MessageGroupManager.cpp \
+  qpid/broker/MessageGroupManager.h \
   qpid/management/ManagementAgent.cpp \
   qpid/management/ManagementAgent.h \
   qpid/management/ManagementDirectExchange.cpp \
@@ -789,9 +798,7 @@ libqpidmessaging_la_SOURCES =			\
   qpid/client/amqp0_10/SessionImpl.h		\
   qpid/client/amqp0_10/SessionImpl.cpp		\
   qpid/client/amqp0_10/SenderImpl.h		\
-  qpid/client/amqp0_10/SenderImpl.cpp           \
-  qpid/client/amqp0_10/SimpleUrlParser.h	\
-  qpid/client/amqp0_10/SimpleUrlParser.cpp
+  qpid/client/amqp0_10/SenderImpl.cpp
 
 QPIDMESSAGING_VERSION_INFO  = 2:0:0
 libqpidmessaging_la_LDFLAGS = -version-info $(QPIDMESSAGING_VERSION_INFO)

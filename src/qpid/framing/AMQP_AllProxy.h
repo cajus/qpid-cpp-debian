@@ -526,13 +526,32 @@ class QPID_COMMON_CLASS_EXTERN AMQP_AllProxy:
         QPID_COMMON_EXTERN virtual void outputTask(uint16_t channel,
                     const std::string& name);
         
+        QPID_COMMON_EXTERN virtual void dtxStart(const std::string& xid,
+                    bool ended,
+                    bool suspended,
+                    bool failed,
+                    bool expired);
+        
+        QPID_COMMON_EXTERN virtual void dtxEnd();
+        
+        QPID_COMMON_EXTERN virtual void dtxAck();
+        
+        QPID_COMMON_EXTERN virtual void dtxBufferRef(const std::string& xid,
+                    uint32_t index,
+                    bool suspended);
+        
+        QPID_COMMON_EXTERN virtual void dtxWorkRecord(const std::string& xid,
+                    bool prepared,
+                    uint32_t timeout);
+        
         QPID_COMMON_EXTERN virtual void sessionState(const SequenceNumber& replayStart,
                     const SequenceNumber& commandPoint,
                     const SequenceSet& sentIncomplete,
                     const SequenceNumber& expected,
                     const SequenceNumber& received,
                     const SequenceSet& unknownCompleted,
-                    const SequenceSet& receivedIncomplete);
+                    const SequenceSet& receivedIncomplete,
+                    bool dtxSelected);
         
         QPID_COMMON_EXTERN virtual void shadowReady(uint64_t memberId,
                     uint64_t connectionId,

@@ -40,6 +40,7 @@ namespace broker {
     uint32_t i_request;
     bool i_useAltExchange;
     std::string i_exchange;
+    ::qpid::types::Variant::Map i_filter;
 
 };
 

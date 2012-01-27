@@ -529,13 +529,32 @@ class AMQP_AllOperations {
     virtual void outputTask(uint16_t channel,
     const std::string& name) = 0;
     
+    virtual void dtxStart(const std::string& xid,
+    bool ended,
+    bool suspended,
+    bool failed,
+    bool expired) = 0;
+    
+    virtual void dtxEnd(    ) = 0;
+    
+    virtual void dtxAck(    ) = 0;
+    
+    virtual void dtxBufferRef(const std::string& xid,
+    uint32_t index,
+    bool suspended) = 0;
+    
+    virtual void dtxWorkRecord(const std::string& xid,
+    bool prepared,
+    uint32_t timeout) = 0;
+    
     virtual void sessionState(const SequenceNumber& replayStart,
     const SequenceNumber& commandPoint,
     const SequenceSet& sentIncomplete,
     const SequenceNumber& expected,
     const SequenceNumber& received,
     const SequenceSet& unknownCompleted,
-    const SequenceSet& receivedIncomplete) = 0;
+    const SequenceSet& receivedIncomplete,
+    bool dtxSelected) = 0;
     
     virtual void shadowReady(uint64_t memberId,
     uint64_t connectionId,

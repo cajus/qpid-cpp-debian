@@ -17,4 +17,16 @@
 # under the License.
 #
 
-install(FILES qpidd.conf qpidc.conf DESTINATION ${QPID_INSTALL_CONFDIR})
+install(FILES qpidc.conf
+        DESTINATION ${QPID_INSTALL_CONFDIR}
+        COMPONENT ${QPID_COMPONENT_CLIENT})
+install(FILES qpidd.conf
+        DESTINATION ${QPID_INSTALL_CONFDIR}
+        COMPONENT ${QPID_COMPONENT_BROKER})
+if (BUILD_SASL)
+  install(FILES sasl2/qpidd.conf
+          DESTINATION ${QPID_INSTALL_SASLDIR}
+          COMPONENT ${QPID_COMPONENT_BROKER}
+          RENAME ${BROKER_SASL_NAME}.conf)
+endif (BUILD_SASL)
+

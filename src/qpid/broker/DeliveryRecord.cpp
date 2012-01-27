@@ -75,7 +75,7 @@ void DeliveryRecord::deliver(framing::FrameHandler& h, DeliveryId deliveryId, ui
 {
     id = deliveryId;
     if (msg.payload->getRedelivered()){
-        msg.payload->getProperties<framing::DeliveryProperties>()->setRedelivered(true);
+        msg.payload->setRedelivered();
     }
     msg.payload->adjustTtl();
 
@@ -153,7 +153,7 @@ uint32_t DeliveryRecord::getCredit() const
 }
 
 void DeliveryRecord::acquire(DeliveryIds& results) {
-    if (queue->acquire(msg)) {
+    if (queue->acquire(msg, tag)) {
         acquired = true;
         results.push_back(id);
         if (!acceptExpected) {

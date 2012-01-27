@@ -162,12 +162,13 @@ check_PROGRAMS = unit_test$(EXEEXT) $(am__EXEEXT_1) echotest$(EXEEXT) \
 	failover_soak$(EXEEXT) declare_queues$(EXEEXT) \
 	replaying_sender$(EXEEXT) resuming_receiver$(EXEEXT) \
 	txshift$(EXEEXT) txjob$(EXEEXT) PollerTest$(EXEEXT) \
-	DispatcherTest$(EXEEXT) datagen$(EXEEXT) qpid-stream$(EXEEXT)
-TESTS = unit_test$(EXEEXT) $(am__append_2) $(am__append_8) \
-	$(am__append_11) start_broker $(am__EXEEXT_3) python_tests \
-	stop_broker run_federation_tests run_acl_tests run_cli_tests \
-	replication_test dynamic_log_level_test \
-	run_queue_flow_limit_tests
+	DispatcherTest$(EXEEXT) datagen$(EXEEXT) qpid-stream$(EXEEXT) \
+	msg_group_test$(EXEEXT)
+TESTS = unit_test$(EXEEXT) $(am__append_2) $(am__append_9) \
+	$(am__append_12) start_broker $(am__EXEEXT_3) python_tests \
+	stop_broker run_federation_tests run_federation_sys_tests \
+	run_acl_tests run_cli_tests replication_test \
+	dynamic_log_level_test run_queue_flow_limit_tests ipv6_test
 qpidexec_PROGRAMS =
 qpidtest_PROGRAMS = $(am__EXEEXT_2) receiver$(EXEEXT) sender$(EXEEXT) \
 	qpid-receive$(EXEEXT) qpid-send$(EXEEXT) \
@@ -208,7 +209,11 @@ DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 @HAVE_LIBCPG_TRUE@	stop_cluster
 
 @HAVE_LIBCPG_TRUE@am__append_5 = cluster_test
-@HAVE_LIBCPG_TRUE@am__append_6 = run_cluster_tests brokertest.py \
+
+# Moved this file here from cluster_test_SOURCES as it breaks the autotools build, but not the cmake
+# build and so we need to make sure it is present in the tarball
+@HAVE_LIBCPG_TRUE@am__append_6 = StoreStatus.cpp
+@HAVE_LIBCPG_TRUE@am__append_7 = run_cluster_tests brokertest.py \
 @HAVE_LIBCPG_TRUE@	cluster_tests.py cluster_test_logs.py \
 @HAVE_LIBCPG_TRUE@	run_long_cluster_tests long_cluster_tests.py \
 @HAVE_LIBCPG_TRUE@	testlib.py cluster_tests.fail \
@@ -217,11 +222,11 @@ DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 # Test that are only relevant if SASL is enabled.
 
 # Note: sasl_version is not a test -- it is a tool used by tests.
-@HAVE_SASL_TRUE@am__append_7 = cluster_authentication_soak \
+@HAVE_SASL_TRUE@am__append_8 = cluster_authentication_soak \
 @HAVE_SASL_TRUE@	sasl_version
-@HAVE_SASL_TRUE@am__append_8 = run_cluster_authentication_test sasl_fed sasl_fed_ex_dynamic sasl_fed_ex_link sasl_fed_ex_queue sasl_fed_ex_route sasl_fed_ex_route_cluster sasl_fed_ex_link_cluster sasl_fed_ex_queue_cluster sasl_fed_ex_dynamic_cluster
-@HAVE_SASL_TRUE@am__append_9 = run_cluster_authentication_soak
-@HAVE_SASL_TRUE@am__append_10 = run_cluster_authentication_test \
+@HAVE_SASL_TRUE@am__append_9 = run_cluster_authentication_test sasl_fed sasl_fed_ex_dynamic sasl_fed_ex_link sasl_fed_ex_queue sasl_fed_ex_route sasl_fed_ex_route_cluster sasl_fed_ex_link_cluster sasl_fed_ex_queue_cluster sasl_fed_ex_dynamic_cluster sasl_no_dir
+@HAVE_SASL_TRUE@am__append_10 = run_cluster_authentication_soak
+@HAVE_SASL_TRUE@am__append_11 = run_cluster_authentication_test \
 @HAVE_SASL_TRUE@              sasl_fed                        \
 @HAVE_SASL_TRUE@              sasl_fed_ex                     \
 @HAVE_SASL_TRUE@              run_cluster_authentication_soak \
@@ -232,11 +237,12 @@ DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 @HAVE_SASL_TRUE@              sasl_fed_ex_dynamic_cluster     \
 @HAVE_SASL_TRUE@              sasl_fed_ex_link_cluster        \
 @HAVE_SASL_TRUE@              sasl_fed_ex_queue_cluster       \
-@HAVE_SASL_TRUE@              sasl_fed_ex_route_cluster
+@HAVE_SASL_TRUE@              sasl_fed_ex_route_cluster       \
+@HAVE_SASL_TRUE@              sasl_no_dir
 
-@SSL_TRUE@am__append_11 = ssl_test
 @SSL_TRUE@am__append_12 = ssl_test
-@SSL_TRUE@am__append_13 = test_cert_db cert.password
+@SSL_TRUE@am__append_13 = ssl_test
+@SSL_TRUE@am__append_14 = test_cert_db cert.password
 subdir = src/tests
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ac_pkg_swig.m4 \
@@ -318,12 +324,14 @@ cluster_authentication_soak_OBJECTS =  \
 @HAVE_SASL_TRUE@	$(lib_client) $(lib_broker)
 am__cluster_test_SOURCES_DIST = cluster_test.cpp unit_test.cpp \
 	ClusterFixture.cpp ClusterFixture.h ForkedBroker.h \
-	ForkedBroker.cpp PartialFailure.cpp ClusterFailover.cpp
+	ForkedBroker.cpp PartialFailure.cpp ClusterFailover.cpp \
+	InitialStatusMap.cpp
 @HAVE_LIBCPG_TRUE@am_cluster_test_OBJECTS = cluster_test.$(OBJEXT) \
 @HAVE_LIBCPG_TRUE@	unit_test.$(OBJEXT) ClusterFixture.$(OBJEXT) \
 @HAVE_LIBCPG_TRUE@	ForkedBroker.$(OBJEXT) \
 @HAVE_LIBCPG_TRUE@	PartialFailure.$(OBJEXT) \
-@HAVE_LIBCPG_TRUE@	ClusterFailover.$(OBJEXT)
+@HAVE_LIBCPG_TRUE@	ClusterFailover.$(OBJEXT) \
+@HAVE_LIBCPG_TRUE@	InitialStatusMap.$(OBJEXT)
 cluster_test_OBJECTS = $(am_cluster_test_OBJECTS)
 @HAVE_LIBCPG_TRUE@cluster_test_DEPENDENCIES = $(lib_client) \
 @HAVE_LIBCPG_TRUE@	$(lib_broker) ../cluster.la
@@ -346,6 +354,9 @@ failover_soak_DEPENDENCIES = $(lib_client) $(lib_broker)
 am_header_test_OBJECTS = header_test.$(OBJEXT)
 header_test_OBJECTS = $(am_header_test_OBJECTS)
 header_test_DEPENDENCIES = $(lib_client)
+am_msg_group_test_OBJECTS = msg_group_test.$(OBJEXT)
+msg_group_test_OBJECTS = $(am_msg_group_test_OBJECTS)
+msg_group_test_DEPENDENCIES = $(lib_messaging)
 am_publish_OBJECTS = publish.$(OBJEXT)
 publish_OBJECTS = $(am_publish_OBJECTS)
 publish_DEPENDENCIES = $(lib_client)
@@ -416,12 +427,12 @@ txshift_DEPENDENCIES = $(lib_client)
 am__unit_test_SOURCES_DIST = unit_test.cpp unit_test.h \
 	MessagingSessionTests.cpp MessagingThreadTests.cpp \
 	MessagingFixture.h ClientSessionTest.cpp BrokerFixture.h \
-	SocketProxy.h exception_test.cpp RefCounted.cpp \
-	SessionState.cpp logging.cpp AsyncCompletion.cpp Url.cpp \
-	Uuid.cpp Shlib.cpp FieldValue.cpp FieldTable.cpp Array.cpp \
-	QueueOptionsTest.cpp InlineAllocator.cpp InlineVector.cpp \
-	SequenceSet.cpp StringUtils.cpp RangeSet.cpp AtomicValue.cpp \
-	QueueTest.cpp AccumulatedAckTest.cpp DtxWorkRecordTest.cpp \
+	exception_test.cpp RefCounted.cpp SessionState.cpp logging.cpp \
+	AsyncCompletion.cpp Url.cpp Uuid.cpp Shlib.cpp FieldValue.cpp \
+	FieldTable.cpp Array.cpp QueueOptionsTest.cpp \
+	InlineAllocator.cpp InlineVector.cpp SequenceSet.cpp \
+	StringUtils.cpp RangeSet.cpp AtomicValue.cpp QueueTest.cpp \
+	AccumulatedAckTest.cpp DtxWorkRecordTest.cpp \
 	DeliveryRecordTest.cpp ExchangeTest.cpp \
 	HeadersExchangeTest.cpp MessageTest.cpp QueueRegistryTest.cpp \
 	QueuePolicyTest.cpp QueueFlowLimitTest.cpp FramingTest.cpp \
@@ -432,7 +443,7 @@ am__unit_test_SOURCES_DIST = unit_test.cpp unit_test.h \
 	ConsoleTest.cpp QueueEvents.cpp ProxyTest.cpp RetryList.cpp \
 	RateFlowcontrolTest.cpp FrameDecoder.cpp ReplicationTest.cpp \
 	ClientMessageTest.cpp PollableCondition.cpp Variant.cpp \
-	Address.cpp ClientMessage.cpp Qmf2.cpp \
+	Address.cpp ClientMessage.cpp Qmf2.cpp BrokerOptions.cpp \
 	XmlClientSessionTest.cpp BrokerMgmtAgent.cpp \
 	brokermgmt_gen/qmf/org/apache/qpid/broker/mgmt/test/Package.cpp \
 	brokermgmt_gen/qmf/org/apache/qpid/broker/mgmt/test/Package.h \
@@ -467,7 +478,8 @@ am_unit_test_OBJECTS = unit_test.$(OBJEXT) \
 	ReplicationTest.$(OBJEXT) ClientMessageTest.$(OBJEXT) \
 	PollableCondition.$(OBJEXT) Variant.$(OBJEXT) \
 	Address.$(OBJEXT) ClientMessage.$(OBJEXT) Qmf2.$(OBJEXT) \
-	$(am__objects_2) BrokerMgmtAgent.$(OBJEXT) $(am__objects_3)
+	BrokerOptions.$(OBJEXT) $(am__objects_2) \
+	BrokerMgmtAgent.$(OBJEXT) $(am__objects_3)
 unit_test_OBJECTS = $(am_unit_test_OBJECTS)
 unit_test_DEPENDENCIES = $(lib_messaging) $(lib_broker) $(lib_console) \
 	$(lib_qmf2)
@@ -500,15 +512,16 @@ SOURCES = $(libdlclose_noop_la_SOURCES) $(libshlibtest_la_SOURCES) \
 	$(cluster_test_SOURCES) $(consume_SOURCES) $(datagen_SOURCES) \
 	$(declare_queues_SOURCES) $(echotest_SOURCES) \
 	$(failover_soak_SOURCES) $(header_test_SOURCES) \
-	$(publish_SOURCES) $(qpid_client_test_SOURCES) \
-	$(qpid_latency_test_SOURCES) $(qpid_perftest_SOURCES) \
-	$(qpid_ping_SOURCES) $(qpid_receive_SOURCES) \
-	$(qpid_send_SOURCES) $(qpid_stream_SOURCES) \
-	$(qpid_topic_listener_SOURCES) $(qpid_topic_publisher_SOURCES) \
-	$(qpid_txtest_SOURCES) $(receiver_SOURCES) \
-	$(replaying_sender_SOURCES) $(resuming_receiver_SOURCES) \
-	$(sasl_version_SOURCES) $(sender_SOURCES) $(testagent_SOURCES) \
-	$(txjob_SOURCES) $(txshift_SOURCES) $(unit_test_SOURCES)
+	$(msg_group_test_SOURCES) $(publish_SOURCES) \
+	$(qpid_client_test_SOURCES) $(qpid_latency_test_SOURCES) \
+	$(qpid_perftest_SOURCES) $(qpid_ping_SOURCES) \
+	$(qpid_receive_SOURCES) $(qpid_send_SOURCES) \
+	$(qpid_stream_SOURCES) $(qpid_topic_listener_SOURCES) \
+	$(qpid_topic_publisher_SOURCES) $(qpid_txtest_SOURCES) \
+	$(receiver_SOURCES) $(replaying_sender_SOURCES) \
+	$(resuming_receiver_SOURCES) $(sasl_version_SOURCES) \
+	$(sender_SOURCES) $(testagent_SOURCES) $(txjob_SOURCES) \
+	$(txshift_SOURCES) $(unit_test_SOURCES)
 DIST_SOURCES = $(libdlclose_noop_la_SOURCES) \
 	$(libshlibtest_la_SOURCES) $(test_store_la_SOURCES) \
 	$(DispatcherTest_SOURCES) $(PollerTest_SOURCES) \
@@ -516,22 +529,24 @@ DIST_SOURCES = $(libdlclose_noop_la_SOURCES) \
 	$(am__cluster_test_SOURCES_DIST) $(consume_SOURCES) \
 	$(datagen_SOURCES) $(declare_queues_SOURCES) \
 	$(echotest_SOURCES) $(failover_soak_SOURCES) \
-	$(header_test_SOURCES) $(publish_SOURCES) \
-	$(qpid_client_test_SOURCES) $(qpid_latency_test_SOURCES) \
-	$(qpid_perftest_SOURCES) $(qpid_ping_SOURCES) \
-	$(qpid_receive_SOURCES) $(qpid_send_SOURCES) \
-	$(qpid_stream_SOURCES) $(qpid_topic_listener_SOURCES) \
-	$(qpid_topic_publisher_SOURCES) $(qpid_txtest_SOURCES) \
-	$(receiver_SOURCES) $(replaying_sender_SOURCES) \
-	$(resuming_receiver_SOURCES) $(am__sasl_version_SOURCES_DIST) \
-	$(sender_SOURCES) $(testagent_SOURCES) $(txjob_SOURCES) \
-	$(txshift_SOURCES) $(am__unit_test_SOURCES_DIST)
+	$(header_test_SOURCES) $(msg_group_test_SOURCES) \
+	$(publish_SOURCES) $(qpid_client_test_SOURCES) \
+	$(qpid_latency_test_SOURCES) $(qpid_perftest_SOURCES) \
+	$(qpid_ping_SOURCES) $(qpid_receive_SOURCES) \
+	$(qpid_send_SOURCES) $(qpid_stream_SOURCES) \
+	$(qpid_topic_listener_SOURCES) $(qpid_topic_publisher_SOURCES) \
+	$(qpid_txtest_SOURCES) $(receiver_SOURCES) \
+	$(replaying_sender_SOURCES) $(resuming_receiver_SOURCES) \
+	$(am__sasl_version_SOURCES_DIST) $(sender_SOURCES) \
+	$(testagent_SOURCES) $(txjob_SOURCES) $(txshift_SOURCES) \
+	$(am__unit_test_SOURCES_DIST)
 ETAGS = etags
 CTAGS = ctags
 am__tty_colors = \
 red=; grn=; lgn=; blu=; std=
 am__EXEEXT_3 = qpid-client-test$(EXEEXT) quick_perftest \
-	quick_topictest run_header_test quick_txtest
+	quick_topictest run_header_test quick_txtest \
+	run_msg_group_tests
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
 AMQP_FINAL_XML = @AMQP_FINAL_XML@
@@ -715,12 +730,13 @@ EXTRA_DIST = $(CLUSTER_TEST_SCRIPTS_LIST) ais_check run_cluster_test \
 	clustered_replication_test run_cluster_tests \
 	run_long_cluster_tests testlib.py brokertest.py \
 	cluster_tests.py cluster_test_logs.py long_cluster_tests.py \
-	cluster_tests.fail $(am__append_10) $(am__append_12) \
-	qpid-cpp-benchmark install_env.sh run_test vg_check \
-	run-unit-tests start_broker python_tests stop_broker \
+	cluster_tests.fail $(am__append_6) $(am__append_11) \
+	$(am__append_13) qpid-cpp-benchmark install_env.sh run_test \
+	vg_check run-unit-tests start_broker python_tests stop_broker \
 	quick_topictest quick_perftest quick_txtest topictest \
 	run_header_test header_test.py ssl_test config.null ais_check \
-	run_federation_tests run_cli_tests run_acl_tests \
+	run_federation_tests run_federation_sys_tests \
+	run_long_federation_sys_tests run_cli_tests run_acl_tests \
 	.valgrind.supp MessageUtils.h TestMessageStore.h TxMocks.h \
 	replication_test run_perftest ring_queue_test \
 	run_ring_queue_test dynamic_log_level_test qpid-ctrl \
@@ -729,11 +745,11 @@ EXTRA_DIST = $(CLUSTER_TEST_SCRIPTS_LIST) ais_check run_cluster_test \
 	find_prog.ps1 python_tests.ps1 quick_topictest.ps1 \
 	run_federation_tests.ps1 run_header_test.ps1 run_test.ps1 \
 	start_broker.ps1 stop_broker.ps1 topictest.ps1 \
-	run_queue_flow_limit_tests fanout_perftest shared_perftest \
-	multiq_perftest topic_perftest run_failover_soak \
-	reliable_replication_test \
+	run_queue_flow_limit_tests run_msg_group_tests ipv6_test \
+	fanout_perftest shared_perftest multiq_perftest topic_perftest \
+	run_failover_soak reliable_replication_test \
 	federated_cluster_test_with_node_failure sasl_test_setup.sh \
-	testagent.xml BrokerMgmtAgent.xml
+	run_msg_group_tests_soak testagent.xml BrokerMgmtAgent.xml
 CLEANFILES = $(am__append_3) valgrind.out *.log *.vglog* dummy_test \
 	qpidd.port $(unit_wrappers) $(TESTAGENT_GEN_SRC) \
 	testagent_gen.timestamp $(BROKERMGMT_GEN_SRC) \
@@ -741,12 +757,13 @@ CLEANFILES = $(am__append_3) valgrind.out *.log *.vglog* dummy_test \
 
 # Longer running stability tests, not run by default check: target.
 # Not run under valgrind, too slow
-LONG_TESTS = $(am__append_4) $(am__append_9) start_broker \
+LONG_TESTS = $(am__append_4) $(am__append_10) start_broker \
 	fanout_perftest shared_perftest multiq_perftest topic_perftest \
-	run_ring_queue_test stop_broker run_failover_soak \
+	run_ring_queue_test run_msg_group_tests_soak stop_broker \
+	run_long_federation_sys_tests run_failover_soak \
 	reliable_replication_test \
 	federated_cluster_test_with_node_failure
-CLEAN_LOCAL = $(am__append_13) sasl_config
+CLEAN_LOCAL = $(am__append_14) sasl_config
 
 #
 # Destination for intalled programs and tests defined here
@@ -756,7 +773,7 @@ qpidexec_SCRIPTS =
 qpidtestdir = $(qpidexecdir)/tests
 
 # Test programs that are installed and therefore built as part of make, not make check
-qpidtest_SCRIPTS = $(am__append_6) qpid-cpp-benchmark install_env.sh
+qpidtest_SCRIPTS = $(am__append_7) qpid-cpp-benchmark install_env.sh
 tmoduledir = $(libdir)/qpid/tests
 tmodule_LTLIBRARIES = test_store.la
 unit_test_LDADD = -lboost_unit_test_framework \
@@ -765,12 +782,12 @@ unit_test_LDADD = -lboost_unit_test_framework \
 unit_test_SOURCES = unit_test.cpp unit_test.h \
 	MessagingSessionTests.cpp MessagingThreadTests.cpp \
 	MessagingFixture.h ClientSessionTest.cpp BrokerFixture.h \
-	SocketProxy.h exception_test.cpp RefCounted.cpp \
-	SessionState.cpp logging.cpp AsyncCompletion.cpp Url.cpp \
-	Uuid.cpp Shlib.cpp FieldValue.cpp FieldTable.cpp Array.cpp \
-	QueueOptionsTest.cpp InlineAllocator.cpp InlineVector.cpp \
-	SequenceSet.cpp StringUtils.cpp RangeSet.cpp AtomicValue.cpp \
-	QueueTest.cpp AccumulatedAckTest.cpp DtxWorkRecordTest.cpp \
+	exception_test.cpp RefCounted.cpp SessionState.cpp logging.cpp \
+	AsyncCompletion.cpp Url.cpp Uuid.cpp Shlib.cpp FieldValue.cpp \
+	FieldTable.cpp Array.cpp QueueOptionsTest.cpp \
+	InlineAllocator.cpp InlineVector.cpp SequenceSet.cpp \
+	StringUtils.cpp RangeSet.cpp AtomicValue.cpp QueueTest.cpp \
+	AccumulatedAckTest.cpp DtxWorkRecordTest.cpp \
 	DeliveryRecordTest.cpp ExchangeTest.cpp \
 	HeadersExchangeTest.cpp MessageTest.cpp QueueRegistryTest.cpp \
 	QueuePolicyTest.cpp QueueFlowLimitTest.cpp FramingTest.cpp \
@@ -781,8 +798,8 @@ unit_test_SOURCES = unit_test.cpp unit_test.h \
 	ConsoleTest.cpp QueueEvents.cpp ProxyTest.cpp RetryList.cpp \
 	RateFlowcontrolTest.cpp FrameDecoder.cpp ReplicationTest.cpp \
 	ClientMessageTest.cpp PollableCondition.cpp Variant.cpp \
-	Address.cpp ClientMessage.cpp Qmf2.cpp $(am__append_1) \
-	BrokerMgmtAgent.cpp ${BROKERMGMT_GEN_SRC}
+	Address.cpp ClientMessage.cpp Qmf2.cpp BrokerOptions.cpp \
+	$(am__append_1) BrokerMgmtAgent.cpp ${BROKERMGMT_GEN_SRC}
 TESTLIBFLAGS = -module -rpath $(abs_builddir)
 libshlibtest_la_LDFLAGS = $(TESTLIBFLAGS)
 libshlibtest_la_SOURCES = shlibtest.cpp
@@ -798,14 +815,15 @@ CLUSTER_TEST_SCRIPTS_LIST = \
 	qpid-cluster-benchmark
 
 @HAVE_LIBCPG_TRUE@cluster_test_SOURCES = \
-@HAVE_LIBCPG_TRUE@	cluster_test.cpp			\
-@HAVE_LIBCPG_TRUE@	unit_test.cpp				\
-@HAVE_LIBCPG_TRUE@	ClusterFixture.cpp			\
-@HAVE_LIBCPG_TRUE@	ClusterFixture.h			\
-@HAVE_LIBCPG_TRUE@	ForkedBroker.h				\
-@HAVE_LIBCPG_TRUE@	ForkedBroker.cpp			\
-@HAVE_LIBCPG_TRUE@	PartialFailure.cpp			\
-@HAVE_LIBCPG_TRUE@	ClusterFailover.cpp
+@HAVE_LIBCPG_TRUE@    cluster_test.cpp			\
+@HAVE_LIBCPG_TRUE@    unit_test.cpp				\
+@HAVE_LIBCPG_TRUE@    ClusterFixture.cpp			\
+@HAVE_LIBCPG_TRUE@    ClusterFixture.h			\
+@HAVE_LIBCPG_TRUE@    ForkedBroker.h				\
+@HAVE_LIBCPG_TRUE@    ForkedBroker.cpp			\
+@HAVE_LIBCPG_TRUE@    PartialFailure.cpp			\
+@HAVE_LIBCPG_TRUE@    ClusterFailover.cpp         \
+@HAVE_LIBCPG_TRUE@    InitialStatusMap.cpp
 
 @HAVE_LIBCPG_TRUE@cluster_test_LDADD = $(lib_client) $(lib_broker) ../cluster.la -lboost_unit_test_framework
 @HAVE_SASL_TRUE@cluster_authentication_soak_INCLUDES = $(PUBLIC_INCLUDES)
@@ -902,13 +920,18 @@ datagen_LDADD = $(lib_common) $(lib_client)
 qpid_stream_INCLUDES = $(PUBLIC_INCLUDES)
 qpid_stream_SOURCES = qpid-stream.cpp
 qpid_stream_LDADD = $(lib_messaging)
+msg_group_test_INCLUDES = $(PUBLIC_INCLUDES)
+msg_group_test_SOURCES = msg_group_test.cpp
+msg_group_test_LDADD = $(lib_messaging)
 TESTS_ENVIRONMENT = \
     VALGRIND=$(VALGRIND) \
     LIBTOOL="$(LIBTOOL)" \
     QPID_DATA_DIR= \
     $(srcdir)/run_test 
 
-system_tests = qpid-client-test quick_perftest quick_topictest run_header_test quick_txtest
+system_tests = qpid-client-test quick_perftest quick_topictest run_header_test quick_txtest \
+  run_msg_group_tests
+
 libdlclose_noop_la_LDFLAGS = -module -rpath $(abs_builddir)
 libdlclose_noop_la_SOURCES = dlclose_noop.c
 PYTHON_SRC_DIR = $(abs_srcdir)/../../../python
@@ -1146,6 +1169,9 @@ failover_soak$(EXEEXT): $(failover_soak_OBJECTS) $(failover_soak_DEPENDENCIES)
 header_test$(EXEEXT): $(header_test_OBJECTS) $(header_test_DEPENDENCIES) 
 	@rm -f header_test$(EXEEXT)
 	$(CXXLINK) $(header_test_OBJECTS) $(header_test_LDADD) $(LIBS)
+msg_group_test$(EXEEXT): $(msg_group_test_OBJECTS) $(msg_group_test_DEPENDENCIES) 
+	@rm -f msg_group_test$(EXEEXT)
+	$(CXXLINK) $(msg_group_test_OBJECTS) $(msg_group_test_LDADD) $(LIBS)
 publish$(EXEEXT): $(publish_OBJECTS) $(publish_DEPENDENCIES) 
 	@rm -f publish$(EXEEXT)
 	$(CXXLINK) $(publish_OBJECTS) $(publish_LDADD) $(LIBS)
@@ -1320,6 +1346,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/AsyncCompletion.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/AtomicValue.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/BrokerMgmtAgent.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/BrokerOptions.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ClientMessage.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ClientMessageTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ClientSessionTest.Po@am__quote@
@@ -1337,6 +1364,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/FramingTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/HeaderTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/HeadersExchangeTest.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/InitialStatusMap.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/InlineAllocator.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/InlineVector.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ManagementTest.Po@am__quote@
@@ -1386,6 +1414,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/failover_soak.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/header_test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/logging.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/msg_group_test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/publish.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/qpid-client-test.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/qpid-latency-test.Po@am__quote@

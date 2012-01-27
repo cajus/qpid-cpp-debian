@@ -143,6 +143,11 @@ void MethodBodyDefaultVisitor::visit(const ClusterConnectionTxPublishBody& b) { 
 void MethodBodyDefaultVisitor::visit(const ClusterConnectionTxEndBody& b) { defaultVisit(b); }
 void MethodBodyDefaultVisitor::visit(const ClusterConnectionAccumulatedAckBody& b) { defaultVisit(b); }
 void MethodBodyDefaultVisitor::visit(const ClusterConnectionOutputTaskBody& b) { defaultVisit(b); }
+void MethodBodyDefaultVisitor::visit(const ClusterConnectionDtxStartBody& b) { defaultVisit(b); }
+void MethodBodyDefaultVisitor::visit(const ClusterConnectionDtxEndBody& b) { defaultVisit(b); }
+void MethodBodyDefaultVisitor::visit(const ClusterConnectionDtxAckBody& b) { defaultVisit(b); }
+void MethodBodyDefaultVisitor::visit(const ClusterConnectionDtxBufferRefBody& b) { defaultVisit(b); }
+void MethodBodyDefaultVisitor::visit(const ClusterConnectionDtxWorkRecordBody& b) { defaultVisit(b); }
 void MethodBodyDefaultVisitor::visit(const ClusterConnectionSessionStateBody& b) { defaultVisit(b); }
 void MethodBodyDefaultVisitor::visit(const ClusterConnectionShadowReadyBody& b) { defaultVisit(b); }
 void MethodBodyDefaultVisitor::visit(const ClusterConnectionMembershipBody& b) { defaultVisit(b); }

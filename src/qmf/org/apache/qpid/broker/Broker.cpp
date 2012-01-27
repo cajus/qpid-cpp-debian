@@ -32,8 +32,11 @@
 #include "ArgsBrokerQueueMoveMessages.h"
 #include "ArgsBrokerSetLogLevel.h"
 #include "ArgsBrokerGetLogLevel.h"
+#include "ArgsBrokerGetTimestampConfig.h"
+#include "ArgsBrokerSetTimestampConfig.h"
 #include "ArgsBrokerCreate.h"
 #include "ArgsBrokerDelete.h"
+#include "ArgsBrokerQuery.h"
 
 #include <iostream>
 #include <sstream>
@@ -49,7 +52,7 @@ using           std::string;
 string  Broker::packageName  = string ("org.apache.qpid.broker");
 string  Broker::className    = string ("broker");
 uint8_t Broker::md5Sum[MD5_LEN]   =
-    {0xe7,0x12,0xf2,0x76,0x68,0xdc,0x3,0x46,0x45,0x2a,0xe2,0x78,0xa1,0xc9,0xa2,0xe5};
+    {0x16,0x6e,0x9a,0xf1,0x1,0x60,0xe9,0x73,0x58,0x4,0x57,0x97,0x58,0x50,0x8a,0x1f};
 
 Broker::Broker (ManagementAgent*, Manageable* _core, ::qpid::management::Manageable* _parent, const std::string& _name) :
     ManagementObject(_core),name(_name)
@@ -114,7 +117,7 @@ void Broker::writeSchema (std::string& schema)
     buf.putBin128      (md5Sum);      // Schema Hash
     buf.putShort       (10); // Config Element Count
     buf.putShort       (1); // Inst Element Count
-    buf.putShort       (7); // Method Count
+    buf.putShort       (10); // Method Count
 
     // Properties
     ft.clear();
@@ -288,7 +291,7 @@ void Broker::writeSchema (std::string& schema)
 
     ft.clear();
     ft[NAME] =  "queueMoveMessages";
-    ft[ARGCOUNT] = 3;
+    ft[ARGCOUNT] = 4;
     ft[DESC] = "Move messages from one queue to another";
     buf.putMap(ft);
 
@@ -314,6 +317,14 @@ void Broker::writeSchema (std::string& schema)
     buf.putMap(ft);
 
     ft.clear();
+    ft[NAME] = "filter";
+    ft[TYPE] = TYPE_FTABLE;
+    ft[DIR] = "I";
+    ft[DEFAULT] = "{}";
+    ft[DESC] = "if specified, move only those messages matching this filter";
+    buf.putMap(ft);
+
+    ft.clear();
     ft[NAME] =  "setLogLevel";
     ft[ARGCOUNT] = 1;
     ft[DESC] = "Set the log level";
@@ -335,6 +346,32 @@ void Broker::writeSchema (std::string& schema)
     ft[NAME] = "level";
     ft[TYPE] = TYPE_SSTR;
     ft[DIR] = "O";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] =  "getTimestampConfig";
+    ft[ARGCOUNT] = 1;
+    ft[DESC] = "Get the message timestamping configuration";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "receive";
+    ft[TYPE] = TYPE_BOOL;
+    ft[DIR] = "O";
+    ft[DESC] = "True if received messages are timestamped.";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] =  "setTimestampConfig";
+    ft[ARGCOUNT] = 1;
+    ft[DESC] = "Set the message timestamping configuration";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "receive";
+    ft[TYPE] = TYPE_BOOL;
+    ft[DIR] = "I";
+    ft[DESC] = "Set true to enable timestamping received messages.";
     buf.putMap(ft);
 
     ft.clear();
@@ -396,6 +433,33 @@ void Broker::writeSchema (std::string& schema)
     ft[TYPE] = TYPE_FTABLE;
     ft[DIR] = "I";
     ft[DESC] = "Type specific object options for deletion";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] =  "query";
+    ft[ARGCOUNT] = 3;
+    ft[DESC] = "Query the current state of an object.";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "type";
+    ft[TYPE] = TYPE_SSTR;
+    ft[DIR] = "I";
+    ft[DESC] = "The type of object to query.";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "name";
+    ft[TYPE] = TYPE_SSTR;
+    ft[DIR] = "I";
+    ft[DESC] = "The name of the object to query";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "results";
+    ft[TYPE] = TYPE_FTABLE;
+    ft[DIR] = "O";
+    ft[DESC] = "A snapshot of the object's state.";
     buf.putMap(ft);
 
 
@@ -592,6 +656,7 @@ void Broker::doMethod (string& methodName, const string& inStr, string& outStr, 
         inBuf.getShortString(ioArgs.i_srcQueue);
         inBuf.getShortString(ioArgs.i_destQueue);
         ioArgs.i_qty = inBuf.getLong();
+        inBuf.getMap(ioArgs.i_filter);
         bool allow = coreObject->AuthorizeMethod(METHOD_QUEUEMOVEMESSAGES, ioArgs, userId);
         if (allow)
             status = coreObject->ManagementMethod (METHOD_QUEUEMOVEMESSAGES, ioArgs, text);
@@ -627,6 +692,32 @@ void Broker::doMethod (string& methodName, const string& inStr, string& outStr, 
         outBuf.putShortString(ioArgs.o_level);
     }
 
+    if (methodName == "getTimestampConfig") {
+        _matched = true;
+        ArgsBrokerGetTimestampConfig ioArgs;
+        bool allow = coreObject->AuthorizeMethod(METHOD_GETTIMESTAMPCONFIG, ioArgs, userId);
+        if (allow)
+            status = coreObject->ManagementMethod (METHOD_GETTIMESTAMPCONFIG, ioArgs, text);
+        else
+            status = Manageable::STATUS_FORBIDDEN;
+        outBuf.putLong        (status);
+        outBuf.putMediumString(::qpid::management::Manageable::StatusText (status, text));
+        outBuf.putOctet(ioArgs.o_receive?1:0);
+    }
+
+    if (methodName == "setTimestampConfig") {
+        _matched = true;
+        ArgsBrokerSetTimestampConfig ioArgs;
+        ioArgs.i_receive = inBuf.getOctet()==1;
+        bool allow = coreObject->AuthorizeMethod(METHOD_SETTIMESTAMPCONFIG, ioArgs, userId);
+        if (allow)
+            status = coreObject->ManagementMethod (METHOD_SETTIMESTAMPCONFIG, ioArgs, text);
+        else
+            status = Manageable::STATUS_FORBIDDEN;
+        outBuf.putLong        (status);
+        outBuf.putMediumString(::qpid::management::Manageable::StatusText (status, text));
+    }
+
     if (methodName == "create") {
         _matched = true;
         ArgsBrokerCreate ioArgs;
@@ -656,6 +747,21 @@ void Broker::doMethod (string& methodName, const string& inStr, string& outStr, 
             status = Manageable::STATUS_FORBIDDEN;
         outBuf.putLong        (status);
         outBuf.putMediumString(::qpid::management::Manageable::StatusText (status, text));
+    }
+
+    if (methodName == "query") {
+        _matched = true;
+        ArgsBrokerQuery ioArgs;
+        inBuf.getShortString(ioArgs.i_type);
+        inBuf.getShortString(ioArgs.i_name);
+        bool allow = coreObject->AuthorizeMethod(METHOD_QUERY, ioArgs, userId);
+        if (allow)
+            status = coreObject->ManagementMethod (METHOD_QUERY, ioArgs, text);
+        else
+            status = Manageable::STATUS_FORBIDDEN;
+        outBuf.putLong        (status);
+        outBuf.putMediumString(::qpid::management::Manageable::StatusText (status, text));
+        outBuf.putMap(ioArgs.o_results);
     }
 
     delete [] _tmpBuf;
@@ -839,6 +945,9 @@ void Broker::doMethod (string& methodName, const ::qpid::types::Variant::Map& in
         if ((_i = inMap.find("qty")) != inMap.end()) {
             ioArgs.i_qty = _i->second;
         }
+        if ((_i = inMap.find("filter")) != inMap.end()) {
+            ioArgs.i_filter = (_i->second).asMap();
+        }
         bool allow = coreObject->AuthorizeMethod(METHOD_QUEUEMOVEMESSAGES, ioArgs, userId);
         if (allow)
             status = coreObject->ManagementMethod (METHOD_QUEUEMOVEMESSAGES, ioArgs, text);
@@ -876,6 +985,36 @@ void Broker::doMethod (string& methodName, const ::qpid::types::Variant::Map& in
         outMap["_status_code"] = (uint32_t) status;
         outMap["_status_text"] = ::qpid::management::Manageable::StatusText(status, text);
         outMap["level"] = ::qpid::types::Variant(ioArgs.o_level);
+        return;
+    }
+
+    if (methodName == "getTimestampConfig") {
+        ArgsBrokerGetTimestampConfig ioArgs;
+        ::qpid::types::Variant::Map::const_iterator _i;
+        bool allow = coreObject->AuthorizeMethod(METHOD_GETTIMESTAMPCONFIG, ioArgs, userId);
+        if (allow)
+            status = coreObject->ManagementMethod (METHOD_GETTIMESTAMPCONFIG, ioArgs, text);
+        else
+            status = Manageable::STATUS_FORBIDDEN;
+        outMap["_status_code"] = (uint32_t) status;
+        outMap["_status_text"] = ::qpid::management::Manageable::StatusText(status, text);
+        outMap["receive"] = ::qpid::types::Variant(ioArgs.o_receive);
+        return;
+    }
+
+    if (methodName == "setTimestampConfig") {
+        ArgsBrokerSetTimestampConfig ioArgs;
+        ::qpid::types::Variant::Map::const_iterator _i;
+        if ((_i = inMap.find("receive")) != inMap.end()) {
+            ioArgs.i_receive = _i->second;
+        }
+        bool allow = coreObject->AuthorizeMethod(METHOD_SETTIMESTAMPCONFIG, ioArgs, userId);
+        if (allow)
+            status = coreObject->ManagementMethod (METHOD_SETTIMESTAMPCONFIG, ioArgs, text);
+        else
+            status = Manageable::STATUS_FORBIDDEN;
+        outMap["_status_code"] = (uint32_t) status;
+        outMap["_status_text"] = ::qpid::management::Manageable::StatusText(status, text);
         return;
     }
 
@@ -923,6 +1062,26 @@ void Broker::doMethod (string& methodName, const ::qpid::types::Variant::Map& in
             status = Manageable::STATUS_FORBIDDEN;
         outMap["_status_code"] = (uint32_t) status;
         outMap["_status_text"] = ::qpid::management::Manageable::StatusText(status, text);
+        return;
+    }
+
+    if (methodName == "query") {
+        ArgsBrokerQuery ioArgs;
+        ::qpid::types::Variant::Map::const_iterator _i;
+        if ((_i = inMap.find("type")) != inMap.end()) {
+            ioArgs.i_type = (_i->second).getString();
+        }
+        if ((_i = inMap.find("name")) != inMap.end()) {
+            ioArgs.i_name = (_i->second).getString();
+        }
+        bool allow = coreObject->AuthorizeMethod(METHOD_QUERY, ioArgs, userId);
+        if (allow)
+            status = coreObject->ManagementMethod (METHOD_QUERY, ioArgs, text);
+        else
+            status = Manageable::STATUS_FORBIDDEN;
+        outMap["_status_code"] = (uint32_t) status;
+        outMap["_status_text"] = ::qpid::management::Manageable::StatusText(status, text);
+        outMap["results"] = ::qpid::types::Variant(ioArgs.o_results);
         return;
     }
 

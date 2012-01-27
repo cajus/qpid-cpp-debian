@@ -33,14 +33,18 @@
 #include "qpid/broker/Link.h"
 #include "qpid/broker/ExpiryPolicy.h"
 #include "qpid/broker/QueueFlowLimit.h"
+#include "qpid/broker/MessageGroupManager.h"
 
 #include "qmf/org/apache/qpid/broker/Package.h"
 #include "qmf/org/apache/qpid/broker/ArgsBrokerCreate.h"
 #include "qmf/org/apache/qpid/broker/ArgsBrokerDelete.h"
+#include "qmf/org/apache/qpid/broker/ArgsBrokerQuery.h"
 #include "qmf/org/apache/qpid/broker/ArgsBrokerEcho.h"
 #include "qmf/org/apache/qpid/broker/ArgsBrokerGetLogLevel.h"
 #include "qmf/org/apache/qpid/broker/ArgsBrokerQueueMoveMessages.h"
 #include "qmf/org/apache/qpid/broker/ArgsBrokerSetLogLevel.h"
+#include "qmf/org/apache/qpid/broker/ArgsBrokerSetTimestampConfig.h"
+#include "qmf/org/apache/qpid/broker/ArgsBrokerGetTimestampConfig.h"
 #include "qmf/org/apache/qpid/broker/EventExchangeDeclare.h"
 #include "qmf/org/apache/qpid/broker/EventExchangeDelete.h"
 #include "qmf/org/apache/qpid/broker/EventQueueDeclare.h"
@@ -122,7 +126,9 @@ Broker::Options::Options(const std::string& name) :
     qmf1Support(true),
     queueFlowStopRatio(80),
     queueFlowResumeRatio(70),
-    queueThresholdEventRatio(80)
+    queueThresholdEventRatio(80),
+    defaultMsgGroup("qpid.no-group"),
+    timestampRcvMsgs(false)     // set the 0.10 timestamp delivery property
 {
     int c = sys::SystemInfo::concurrency();
     workerThreads=c+1;
@@ -158,7 +164,9 @@ Broker::Options::Options(const std::string& name) :
         ("async-queue-events", optValue(asyncQueueEvents, "yes|no"), "Set Queue Events async, used for services like replication")
         ("default-flow-stop-threshold", optValue(queueFlowStopRatio, "PERCENT"), "Percent of queue's maximum capacity at which flow control is activated.")
         ("default-flow-resume-threshold", optValue(queueFlowResumeRatio, "PERCENT"), "Percent of queue's maximum capacity at which flow control is de-activated.")
-        ("default-event-threshold-ratio", optValue(queueThresholdEventRatio, "%age of limit"), "The ratio of any specified queue limit at which an event will be raised");
+        ("default-event-threshold-ratio", optValue(queueThresholdEventRatio, "%age of limit"), "The ratio of any specified queue limit at which an event will be raised")
+        ("default-message-group", optValue(defaultMsgGroup, "GROUP-IDENTIFER"), "Group identifier to assign to messages delivered to a message group queue that do not contain an identifier.")
+        ("enable-timestamp", optValue(timestampRcvMsgs, "yes|no"), "Add current time to each received message.");
 }
 
 const std::string empty;
@@ -249,6 +257,7 @@ Broker::Broker(const Broker::Options& conf) :
     Plugin::earlyInitAll(*this);
 
     QueueFlowLimit::setDefaults(conf.queueLimit, conf.queueFlowStopRatio, conf.queueFlowResumeRatio);
+    MessageGroupManager::setDefaults(conf.defaultMsgGroup);
 
     // If no plugin store module registered itself, set up the null store.
     if (NullMessageStore::isNullStore(store.get()))
@@ -296,6 +305,11 @@ Broker::Broker(const Broker::Options& conf) :
     else
         QPID_LOG(info, "Management not enabled");
 
+    // this feature affects performance, so let's be sure that gets logged!
+    if (conf.timestampRcvMsgs) {
+        QPID_LOG(notice, "Receive message timestamping is ENABLED.");
+    }
+
     /**
      * SASL setup, can fail and terminate startup
      */
@@ -324,6 +338,13 @@ Broker::Broker(const Broker::Options& conf) :
     } else if (conf.knownHosts != knownHostsNone) {
         knownBrokers.push_back(Url(conf.knownHosts));
     }
+
+    // check for and warn if deprecated features have been configured
+    if (conf.maxSessionRate) {
+        QPID_LOG(warning, "The 'max-session-rate' feature will be removed in a future release of QPID."
+                 "  Queue-based flow control should be used instead.");
+    }
+
     } catch (const std::exception& /*e*/) {
         finalize();
         throw;
@@ -434,8 +455,9 @@ Manageable::status_t Broker::ManagementMethod (uint32_t methodId,
         _qmf::ArgsBrokerConnect& hp=
             dynamic_cast<_qmf::ArgsBrokerConnect&>(args);
 
-        QPID_LOG (debug, "Broker::connect()");
         string transport = hp.i_transport.empty() ? TCP_TRANSPORT : hp.i_transport;
+        QPID_LOG (debug, "Broker::connect() " << hp.i_host << ":" << hp.i_port << "; transport=" << transport <<
+                        "; durable=" << (hp.i_durable?"T":"F") << "; authMech=\"" << hp.i_authMechanism << "\"");
         if (!getProtocolFactory(transport)) {
             QPID_LOG(error, "Transport '" << transport << "' not supported");
             return  Manageable::STATUS_NOT_IMPLEMENTED;
@@ -452,9 +474,9 @@ Manageable::status_t Broker::ManagementMethod (uint32_t methodId,
         _qmf::ArgsBrokerQueueMoveMessages& moveArgs=
             dynamic_cast<_qmf::ArgsBrokerQueueMoveMessages&>(args);
         QPID_LOG (debug, "Broker::queueMoveMessages()");
-	if (queueMoveMessages(moveArgs.i_srcQueue, moveArgs.i_destQueue, moveArgs.i_qty))
+        if (queueMoveMessages(moveArgs.i_srcQueue, moveArgs.i_destQueue, moveArgs.i_qty, moveArgs.i_filter))
             status = Manageable::STATUS_OK;
-	else
+        else
             return Manageable::STATUS_PARAMETER_INVALID;
         break;
       }
@@ -482,6 +504,24 @@ Manageable::status_t Broker::ManagementMethod (uint32_t methodId,
           status = Manageable::STATUS_OK;
           break;
       }
+    case _qmf::Broker::METHOD_QUERY :
+      {
+          _qmf::ArgsBrokerQuery& a = dynamic_cast<_qmf::ArgsBrokerQuery&>(args);
+          status = queryObject(a.i_type, a.i_name, a.o_results, getManagementExecutionContext());
+          break;
+      }
+    case _qmf::Broker::METHOD_GETTIMESTAMPCONFIG:
+        {
+          _qmf::ArgsBrokerGetTimestampConfig& a = dynamic_cast<_qmf::ArgsBrokerGetTimestampConfig&>(args);
+          status = getTimestampConfig(a.o_receive, getManagementExecutionContext());
+          break;
+        }
+    case _qmf::Broker::METHOD_SETTIMESTAMPCONFIG:
+        {
+          _qmf::ArgsBrokerSetTimestampConfig& a = dynamic_cast<_qmf::ArgsBrokerSetTimestampConfig&>(args);
+          status = setTimestampConfig(a.i_receive, getManagementExecutionContext());
+          break;
+        }
    default:
         QPID_LOG (debug, "Broker ManagementMethod not implemented: id=" << methodId << "]");
         status = Manageable::STATUS_NOT_IMPLEMENTED;
@@ -503,6 +543,8 @@ const std::string ALTERNATE_EXCHANGE("alternate-exchange");
 const std::string EXCHANGE_TYPE("exchange-type");
 const std::string QUEUE_NAME("queue");
 const std::string EXCHANGE_NAME("exchange");
+
+const std::string ATTRIBUTE_TIMESTAMP_0_10("timestamp-0.10");
 
 const std::string _TRUE("true");
 const std::string _FALSE("false");
@@ -654,6 +696,75 @@ void Broker::deleteObject(const std::string& type, const std::string& name,
 
 }
 
+Manageable::status_t Broker::queryObject(const std::string& type,
+                                         const std::string& name,
+                                         Variant::Map& results,
+                                         const ConnectionState* context)
+{
+    std::string userId;
+    std::string connectionId;
+    if (context) {
+        userId = context->getUserId();
+        connectionId = context->getUrl();
+    }
+    QPID_LOG (debug, "Broker::query(" << type << ", " << name << ")");
+
+    if (type == TYPE_QUEUE)
+        return queryQueue( name, userId, connectionId, results );
+
+    if (type == TYPE_EXCHANGE ||
+        type == TYPE_TOPIC ||
+        type == TYPE_BINDING)
+        return Manageable::STATUS_NOT_IMPLEMENTED;
+
+    throw UnknownObjectType(type);
+}
+
+Manageable::status_t Broker::queryQueue( const std::string& name,
+                                         const std::string& userId,
+                                         const std::string& /*connectionId*/,
+                                         Variant::Map& results )
+{
+    (void) results;
+    if (acl) {
+        if (!acl->authorise(userId, acl::ACT_ACCESS, acl::OBJ_QUEUE, name, NULL) )
+            throw framing::UnauthorizedAccessException(QPID_MSG("ACL denied queue query request from " << userId));
+    }
+
+    boost::shared_ptr<Queue> q(queues.find(name));
+    if (!q) {
+        QPID_LOG(error, "Query failed: queue not found, name=" << name);
+        return Manageable::STATUS_UNKNOWN_OBJECT;
+    }
+    q->query( results );
+    return Manageable::STATUS_OK;;
+}
+
+Manageable::status_t Broker::getTimestampConfig(bool& receive,
+                                                const ConnectionState* context)
+{
+    std::string name;   // none needed for broker
+    std::string userId = context->getUserId();
+    if (acl && !acl->authorise(userId, acl::ACT_ACCESS, acl::OBJ_BROKER, name, NULL))  {
+        throw framing::UnauthorizedAccessException(QPID_MSG("ACL denied broker timestamp get request from " << userId));
+    }
+    receive = config.timestampRcvMsgs;
+    return Manageable::STATUS_OK;
+}
+
+Manageable::status_t Broker::setTimestampConfig(const bool receive,
+                                                const ConnectionState* context)
+{
+    std::string name;   // none needed for broker
+    std::string userId = context->getUserId();
+    if (acl && !acl->authorise(userId, acl::ACT_UPDATE, acl::OBJ_BROKER, name, NULL)) {
+        throw framing::UnauthorizedAccessException(QPID_MSG("ACL denied broker timestamp set request from " << userId));
+    }
+    config.timestampRcvMsgs = receive;
+    QPID_LOG(notice, "Receive message timestamping is " << ((config.timestampRcvMsgs) ? "ENABLED." : "DISABLED."));
+    return Manageable::STATUS_OK;
+}
+
 void Broker::setLogLevel(const std::string& level)
 {
     QPID_LOG(notice, "Changing log level to " << level);
@@ -723,7 +834,8 @@ void Broker::connect(
 uint32_t Broker::queueMoveMessages(
      const std::string& srcQueue,
      const std::string& destQueue,
-     uint32_t  qty)
+     uint32_t  qty,
+     const Variant::Map& filter)
 {
   Queue::shared_ptr src_queue = queues.find(srcQueue);
   if (!src_queue)
@@ -732,7 +844,7 @@ uint32_t Broker::queueMoveMessages(
   if (!dest_queue)
     return 0;
 
-  return src_queue->move(dest_queue, qty);
+  return src_queue->move(dest_queue, qty, &filter);
 }
 
 
@@ -751,6 +863,7 @@ bool Broker::deferDeliveryImpl(const std::string& ,
 void Broker::setClusterTimer(std::auto_ptr<sys::Timer> t) {
     clusterTimer = t;
     queueCleaner.setTimer(clusterTimer.get());
+    dtxManager.setTimer(*clusterTimer.get());
 }
 
 const std::string Broker::TCP_TRANSPORT("tcp");
@@ -888,6 +1001,9 @@ void Broker::deleteExchange(const std::string& name, const std::string& userId,
             throw framing::UnauthorizedAccessException(QPID_MSG("ACL denied exchange delete request from " << userId));
     }
 
+    if (name.empty()) {
+        throw framing::InvalidArgumentException(QPID_MSG("Delete not allowed for default exchange"));
+    }
     Exchange::shared_ptr exchange(exchanges.get(name));
     if (!exchange) throw framing::NotFoundException(QPID_MSG("Delete failed. No such exchange: " << name));
     if (exchange->inUseAsAlternate()) throw framing::NotAllowedException(QPID_MSG("Exchange in use as alternate-exchange."));
@@ -914,6 +1030,9 @@ void Broker::bind(const std::string& queueName,
 
         if (!acl->authorise(userId,acl::ACT_BIND,acl::OBJ_EXCHANGE,exchangeName,&params))
             throw framing::UnauthorizedAccessException(QPID_MSG("ACL denied exchange bind request from " << userId));
+    }
+    if (exchangeName.empty()) {
+        throw framing::InvalidArgumentException(QPID_MSG("Bind not allowed for default exchange"));
     }
 
     Queue::shared_ptr queue = queues.find(queueName);
@@ -945,13 +1064,15 @@ void Broker::unbind(const std::string& queueName,
         if (!acl->authorise(userId,acl::ACT_UNBIND,acl::OBJ_EXCHANGE,exchangeName,&params) )
             throw framing::UnauthorizedAccessException(QPID_MSG("ACL denied exchange unbind request from " << userId));
     }
-
+    if (exchangeName.empty()) {
+        throw framing::InvalidArgumentException(QPID_MSG("Unbind not allowed for default exchange"));
+    }
     Queue::shared_ptr queue = queues.find(queueName);
     Exchange::shared_ptr exchange = exchanges.get(exchangeName);
     if (!queue) {
-        throw framing::NotFoundException(QPID_MSG("Bind failed. No such queue: " << queueName));
+        throw framing::NotFoundException(QPID_MSG("Unbind failed. No such queue: " << queueName));
     } else if (!exchange) {
-        throw framing::NotFoundException(QPID_MSG("Bind failed. No such exchange: " << exchangeName));
+        throw framing::NotFoundException(QPID_MSG("Unbind failed. No such exchange: " << exchangeName));
     } else {
         if (exchange->unbind(queue, key, 0)) {
             if (exchange->isDurable() && queue->isDurable()) {

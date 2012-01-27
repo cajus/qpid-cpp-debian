@@ -140,6 +140,11 @@
 #include "qpid/framing/ClusterConnectionTxEndBody.h"
 #include "qpid/framing/ClusterConnectionAccumulatedAckBody.h"
 #include "qpid/framing/ClusterConnectionOutputTaskBody.h"
+#include "qpid/framing/ClusterConnectionDtxStartBody.h"
+#include "qpid/framing/ClusterConnectionDtxEndBody.h"
+#include "qpid/framing/ClusterConnectionDtxAckBody.h"
+#include "qpid/framing/ClusterConnectionDtxBufferRefBody.h"
+#include "qpid/framing/ClusterConnectionDtxWorkRecordBody.h"
 #include "qpid/framing/ClusterConnectionSessionStateBody.h"
 #include "qpid/framing/ClusterConnectionShadowReadyBody.h"
 #include "qpid/framing/ClusterConnectionMembershipBody.h"
@@ -621,9 +626,29 @@ void AMQP_AllProxy::ClusterConnection::outputTask(uint16_t channel, const std::s
 {
     send(ClusterConnectionOutputTaskBody(getVersion(), channel, name));
 }
-void AMQP_AllProxy::ClusterConnection::sessionState(const SequenceNumber& replayStart, const SequenceNumber& commandPoint, const SequenceSet& sentIncomplete, const SequenceNumber& expected, const SequenceNumber& received, const SequenceSet& unknownCompleted, const SequenceSet& receivedIncomplete)
+void AMQP_AllProxy::ClusterConnection::dtxStart(const std::string& xid, bool ended, bool suspended, bool failed, bool expired)
 {
-    send(ClusterConnectionSessionStateBody(getVersion(), replayStart, commandPoint, sentIncomplete, expected, received, unknownCompleted, receivedIncomplete));
+    send(ClusterConnectionDtxStartBody(getVersion(), xid, ended, suspended, failed, expired));
+}
+void AMQP_AllProxy::ClusterConnection::dtxEnd()
+{
+    send(ClusterConnectionDtxEndBody(getVersion()));
+}
+void AMQP_AllProxy::ClusterConnection::dtxAck()
+{
+    send(ClusterConnectionDtxAckBody(getVersion()));
+}
+void AMQP_AllProxy::ClusterConnection::dtxBufferRef(const std::string& xid, uint32_t index, bool suspended)
+{
+    send(ClusterConnectionDtxBufferRefBody(getVersion(), xid, index, suspended));
+}
+void AMQP_AllProxy::ClusterConnection::dtxWorkRecord(const std::string& xid, bool prepared, uint32_t timeout)
+{
+    send(ClusterConnectionDtxWorkRecordBody(getVersion(), xid, prepared, timeout));
+}
+void AMQP_AllProxy::ClusterConnection::sessionState(const SequenceNumber& replayStart, const SequenceNumber& commandPoint, const SequenceSet& sentIncomplete, const SequenceNumber& expected, const SequenceNumber& received, const SequenceSet& unknownCompleted, const SequenceSet& receivedIncomplete, bool dtxSelected)
+{
+    send(ClusterConnectionSessionStateBody(getVersion(), replayStart, commandPoint, sentIncomplete, expected, received, unknownCompleted, receivedIncomplete, dtxSelected));
 }
 void AMQP_AllProxy::ClusterConnection::shadowReady(uint64_t memberId, uint64_t connectionId, const std::string& managementId, const std::string& userName, const std::string& fragment, uint32_t sendMax)
 {

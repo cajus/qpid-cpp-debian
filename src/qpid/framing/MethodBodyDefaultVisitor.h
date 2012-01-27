@@ -151,6 +151,11 @@ class QPID_COMMON_CLASS_EXTERN MethodBodyDefaultVisitor:
     QPID_COMMON_EXTERN virtual void visit(const ClusterConnectionTxEndBody&);
     QPID_COMMON_EXTERN virtual void visit(const ClusterConnectionAccumulatedAckBody&);
     QPID_COMMON_EXTERN virtual void visit(const ClusterConnectionOutputTaskBody&);
+    QPID_COMMON_EXTERN virtual void visit(const ClusterConnectionDtxStartBody&);
+    QPID_COMMON_EXTERN virtual void visit(const ClusterConnectionDtxEndBody&);
+    QPID_COMMON_EXTERN virtual void visit(const ClusterConnectionDtxAckBody&);
+    QPID_COMMON_EXTERN virtual void visit(const ClusterConnectionDtxBufferRefBody&);
+    QPID_COMMON_EXTERN virtual void visit(const ClusterConnectionDtxWorkRecordBody&);
     QPID_COMMON_EXTERN virtual void visit(const ClusterConnectionSessionStateBody&);
     QPID_COMMON_EXTERN virtual void visit(const ClusterConnectionShadowReadyBody&);
     QPID_COMMON_EXTERN virtual void visit(const ClusterConnectionMembershipBody&);

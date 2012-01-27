@@ -69,6 +69,8 @@ class Connection : public ::qpid::management::ManagementObject
     uint32_t remotePid;
     uint32_t remoteParentPid;
     bool shadow;
+    std::string saslMechanism;
+    uint16_t saslSsf;
 
     // Statistics
     bool  closing;
@@ -232,6 +234,24 @@ class Connection : public ::qpid::management::ManagementObject
     inline bool get_shadow() {
         ::qpid::management::Mutex::ScopedLock mutex(accessLock);
         return shadow;
+    }
+    inline void set_saslMechanism (const std::string& val) {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        saslMechanism = val;
+        configChanged = true;
+    }
+    inline const std::string& get_saslMechanism() {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        return saslMechanism;
+    }
+    inline void set_saslSsf (uint16_t val) {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        saslSsf = val;
+        configChanged = true;
+    }
+    inline uint16_t get_saslSsf() {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        return saslSsf;
     }
     inline void set_closing (bool val) {
         ::qpid::management::Mutex::ScopedLock mutex(accessLock);

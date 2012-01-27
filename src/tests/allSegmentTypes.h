@@ -148,6 +148,11 @@ template <class Op> size_t allSegmentTypes(Op& op) {
     op(ControlHolder(cluster_connection::TxEnd()));
     op(ControlHolder(cluster_connection::AccumulatedAck()));
     op(ControlHolder(cluster_connection::OutputTask()));
+    op(ControlHolder(cluster_connection::DtxStart()));
+    op(ControlHolder(cluster_connection::DtxEnd()));
+    op(ControlHolder(cluster_connection::DtxAck()));
+    op(ControlHolder(cluster_connection::DtxBufferRef()));
+    op(ControlHolder(cluster_connection::DtxWorkRecord()));
     op(ControlHolder(cluster_connection::SessionState()));
     op(ControlHolder(cluster_connection::ShadowReady()));
     op(ControlHolder(cluster_connection::Membership()));

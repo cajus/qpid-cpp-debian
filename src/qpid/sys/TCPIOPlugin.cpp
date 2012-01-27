@@ -25,24 +25,25 @@
 
 #include "qpid/Plugin.h"
 #include "qpid/sys/Socket.h"
+#include "qpid/sys/SocketAddress.h"
 #include "qpid/sys/Poller.h"
 #include "qpid/broker/Broker.h"
 #include "qpid/log/Statement.h"
 
 #include <boost/bind.hpp>
-#include <memory>
+#include <boost/ptr_container/ptr_vector.hpp>
 
 namespace qpid {
 namespace sys {
 
 class AsynchIOProtocolFactory : public ProtocolFactory {
     const bool tcpNoDelay;
-    Socket listener;
-    const uint16_t listeningPort;
-    std::auto_ptr<AsynchAcceptor> acceptor;
+    boost::ptr_vector<Socket> listeners;
+    boost::ptr_vector<AsynchAcceptor> acceptors;
+    uint16_t listeningPort;
 
   public:
-    AsynchIOProtocolFactory(const std::string& host, const std::string& port, int backlog, bool nodelay);
+    AsynchIOProtocolFactory(const std::string& host, const std::string& port, int backlog, bool nodelay, bool shouldListen);
     void accept(Poller::shared_ptr, ConnectionCodec::Factory*);
     void connect(Poller::shared_ptr, const std::string& host, const std::string& port,
                  ConnectionCodec::Factory*,
@@ -56,6 +57,20 @@ class AsynchIOProtocolFactory : public ProtocolFactory {
     void connectFailed(const Socket&, int, const std::string&, ConnectFailedCallback);
 };
 
+static bool sslMultiplexEnabled(void)
+{
+    Options o;
+    Plugin::addOptions(o);
+
+    if (o.find_nothrow("ssl-multiplex", false)) {
+        // This option is added by the SSL plugin when the SSL port
+        // is configured to be the same as the main port.
+        QPID_LOG(notice, "SSL multiplexing enabled");
+        return true;
+    }
+    return false;
+}
+
 // Static instance to initialise plugin
 static class TCPIOPlugin : public Plugin {
     void earlyInitialize(Target&) {
@@ -66,20 +81,57 @@ static class TCPIOPlugin : public Plugin {
         // Only provide to a Broker
         if (broker) {
             const broker::Broker::Options& opts = broker->getOptions();
+
+            // Check for SSL on the same port
+            bool shouldListen = !sslMultiplexEnabled();
+
             ProtocolFactory::shared_ptr protocolt(
                 new AsynchIOProtocolFactory(
                     "", boost::lexical_cast<std::string>(opts.port),
                     opts.connectionBacklog,
-                    opts.tcpNoDelay));
-            QPID_LOG(notice, "Listening on TCP port " << protocolt->getPort());
+                    opts.tcpNoDelay,
+                    shouldListen));
+
+            if (shouldListen) {
+                QPID_LOG(notice, "Listening on TCP/TCP6 port " << protocolt->getPort());
+            }
+
             broker->registerProtocolFactory("tcp", protocolt);
         }
     }
 } tcpPlugin;
 
-AsynchIOProtocolFactory::AsynchIOProtocolFactory(const std::string& host, const std::string& port, int backlog, bool nodelay) :
-    tcpNoDelay(nodelay), listeningPort(listener.listen(host, port, backlog))
-{}
+AsynchIOProtocolFactory::AsynchIOProtocolFactory(const std::string& host, const std::string& port, int backlog, bool nodelay, bool shouldListen) :
+    tcpNoDelay(nodelay)
+{
+    if (!shouldListen) {
+        listeningPort = boost::lexical_cast<uint16_t>(port);
+        return;
+    }
+
+    SocketAddress sa(host, port);
+
+    // We must have at least one resolved address
+    QPID_LOG(info, "Listening to: " << sa.asString())
+    Socket* s = new Socket;
+    uint16_t lport = s->listen(sa, backlog);
+    QPID_LOG(debug, "Listened to: " << lport);
+    listeners.push_back(s);
+
+    listeningPort = lport;
+
+    // Try any other resolved addresses
+    while (sa.nextAddress()) {
+        // Hack to ensure that all listening connections are on the same port
+        sa.setAddrInfoPort(listeningPort);
+        QPID_LOG(info, "Listening to: " << sa.asString())
+        Socket* s = new Socket;
+        uint16_t lport = s->listen(sa, backlog);
+        QPID_LOG(debug, "Listened to: " << lport);
+        listeners.push_back(s);
+    }
+
+}
 
 void AsynchIOProtocolFactory::established(Poller::shared_ptr poller, const Socket& s,
                                           ConnectionCodec::Factory* f, bool isClient) {
@@ -111,10 +163,12 @@ uint16_t AsynchIOProtocolFactory::getPort() const {
 
 void AsynchIOProtocolFactory::accept(Poller::shared_ptr poller,
                                      ConnectionCodec::Factory* fact) {
-    acceptor.reset(
-        AsynchAcceptor::create(listener,
-                           boost::bind(&AsynchIOProtocolFactory::established, this, poller, _1, fact, false)));
-    acceptor->start(poller);
+    for (unsigned i = 0; i<listeners.size(); ++i) {
+        acceptors.push_back(
+            AsynchAcceptor::create(listeners[i],
+                            boost::bind(&AsynchIOProtocolFactory::established, this, poller, _1, fact, false)));
+        acceptors[i].start(poller);
+    }
 }
 
 void AsynchIOProtocolFactory::connectFailed(
@@ -138,6 +192,7 @@ void AsynchIOProtocolFactory::connect(
     // shutdown.  The allocated AsynchConnector frees itself when it
     // is no longer needed.
     Socket* socket = new Socket();
+    try {
     AsynchConnector* c = AsynchConnector::create(
         *socket,
         host,
@@ -147,6 +202,12 @@ void AsynchIOProtocolFactory::connect(
         boost::bind(&AsynchIOProtocolFactory::connectFailed,
                     this, _1, _2, _3, failed));
     c->start(poller);
+    } catch (std::exception&) {
+        // TODO: Design question - should we do the error callback and also throw?
+        int errCode = socket->getError();
+        connectFailed(*socket, errCode, strError(errCode), failed);
+        throw;
+    }
 }
 
 }} // namespace qpid::sys

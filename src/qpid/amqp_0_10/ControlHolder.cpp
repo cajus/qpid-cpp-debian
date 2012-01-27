@@ -89,6 +89,11 @@ void ControlHolder::set(uint8_t classCode, uint8_t code) {
         case 0x8117: *this=in_place<cluster-connection::TxEnd>(); break;
         case 0x8118: *this=in_place<cluster-connection::AccumulatedAck>(); break;
         case 0x8119: *this=in_place<cluster-connection::OutputTask>(); break;
+        case 0x811a: *this=in_place<cluster-connection::DtxStart>(); break;
+        case 0x811b: *this=in_place<cluster-connection::DtxEnd>(); break;
+        case 0x811c: *this=in_place<cluster-connection::DtxAck>(); break;
+        case 0x811d: *this=in_place<cluster-connection::DtxBufferRef>(); break;
+        case 0x811e: *this=in_place<cluster-connection::DtxWorkRecord>(); break;
         case 0x811f: *this=in_place<cluster-connection::SessionState>(); break;
         case 0x8120: *this=in_place<cluster-connection::ShadowReady>(); break;
         case 0x8121: *this=in_place<cluster-connection::Membership>(); break;

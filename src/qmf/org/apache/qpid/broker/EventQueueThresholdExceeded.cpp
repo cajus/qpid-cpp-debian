@@ -39,11 +39,11 @@ using           std::string;
 string  EventQueueThresholdExceeded::packageName  = string ("org.apache.qpid.broker");
 string  EventQueueThresholdExceeded::eventName    = string ("queueThresholdExceeded");
 uint8_t EventQueueThresholdExceeded::md5Sum[16]   =
-    {0x9d,0x17,0x54,0xc2,0x79,0xbc,0x37,0x67,0xdf,0x74,0x92,0xd7,0xbd,0x1c,0xaa,0xe};
+    {0x4f,0xdb,0x27,0x39,0xd,0x3e,0xe2,0x12,0x33,0xe6,0xf3,0xd3,0xf9,0xc7,0x4d,0x9e};
 
 EventQueueThresholdExceeded::EventQueueThresholdExceeded (const std::string& _qName,
-        const uint32_t _msgDepth,
-        const uint32_t _byteDepth) :
+        const uint64_t _msgDepth,
+        const uint64_t _byteDepth) :
     qName(_qName),
     msgDepth(_msgDepth),
     byteDepth(_byteDepth)
@@ -85,13 +85,13 @@ void EventQueueThresholdExceeded::writeSchema (std::string& schema)
 
     ft.clear();
     ft[NAME] = "msgDepth";
-    ft[TYPE] = TYPE_U32;
+    ft[TYPE] = TYPE_U64;
     ft[DESC] = "Current size of queue in messages";
     buf.putMap(ft);
 
     ft.clear();
     ft[NAME] = "byteDepth";
-    ft[TYPE] = TYPE_U32;
+    ft[TYPE] = TYPE_U64;
     ft[DESC] = "Current size of queue in bytes";
     buf.putMap(ft);
 
@@ -110,8 +110,8 @@ void EventQueueThresholdExceeded::encode(std::string& _sBuf) const
     ::qpid::management::Buffer buf(_msgChars, _bufSize);
 
     buf.putShortString(qName);
-    buf.putLong(msgDepth);
-    buf.putLong(byteDepth);
+    buf.putLongLong(msgDepth);
+    buf.putLongLong(byteDepth);
 
 
     uint32_t _bufLen = buf.getPosition();

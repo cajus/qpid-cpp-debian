@@ -42,7 +42,7 @@ using           std::string;
 string  Connection::packageName  = string ("org.apache.qpid.broker");
 string  Connection::className    = string ("connection");
 uint8_t Connection::md5Sum[MD5_LEN]   =
-    {0xbb,0x22,0x21,0x31,0xb6,0x58,0x1e,0x3f,0x5b,0xcb,0xd5,0x5,0xca,0xaf,0x89,0xc4};
+    {0x9,0xa3,0x9a,0x61,0xd0,0x9a,0x6a,0x80,0x1f,0x85,0x67,0xa,0x97,0x55,0x7a,0x46};
 
 Connection::Connection (ManagementAgent*, Manageable* _core, ::qpid::management::Manageable* _parent, const std::string& _address, bool _incoming, bool _SystemConnection) :
     ManagementObject(_core),address(_address),incoming(_incoming),SystemConnection(_SystemConnection)
@@ -55,6 +55,8 @@ Connection::Connection (ManagementAgent*, Manageable* _core, ::qpid::management:
     remotePid = 0;
     remoteParentPid = 0;
     shadow = 0;
+    saslMechanism = "";
+    saslSsf = 0;
     closing = 0;
 
 
@@ -113,7 +115,7 @@ void Connection::writeSchema (std::string& schema)
     buf.putShortString (packageName); // Package Name
     buf.putShortString (className);   // Class Name
     buf.putBin128      (md5Sum);      // Schema Hash
-    buf.putShort       (11); // Config Element Count
+    buf.putShort       (13); // Config Element Count
     buf.putShort       (7); // Inst Element Count
     buf.putShort       (1); // Method Count
 
@@ -148,7 +150,7 @@ void Connection::writeSchema (std::string& schema)
     ft[ACCESS] = ACCESS_RC;
     ft[IS_INDEX] = 0;
     ft[IS_OPTIONAL] = 0;
-    ft[DESC] = "Infrastucture/ Inter-system connection (Cluster, Federation, ...)";
+    ft[DESC] = "Infrastructure/ Inter-system connection (Cluster, Federation, ...)";
     buf.putMap(ft);
 
     ft.clear();
@@ -212,6 +214,24 @@ void Connection::writeSchema (std::string& schema)
     ft[IS_INDEX] = 0;
     ft[IS_OPTIONAL] = 0;
     ft[DESC] = "True for shadow connections";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "saslMechanism";
+    ft[TYPE] = TYPE_SSTR;
+    ft[ACCESS] = ACCESS_RO;
+    ft[IS_INDEX] = 0;
+    ft[IS_OPTIONAL] = 0;
+    ft[DESC] = "SASL mechanism";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "saslSsf";
+    ft[TYPE] = TYPE_U16;
+    ft[ACCESS] = ACCESS_RO;
+    ft[IS_INDEX] = 0;
+    ft[IS_OPTIONAL] = 0;
+    ft[DESC] = "SASL security strength factor";
     buf.putMap(ft);
 
 
@@ -316,6 +336,8 @@ uint32_t Connection::writePropertiesSize() const
         size += 4;  // remoteParentPid
     }
     size += 1;  // shadow
+    size += (1 + saslMechanism.length());  // saslMechanism
+    size += 2;  // saslSsf
 
     return size;
 }
@@ -354,6 +376,8 @@ void Connection::readProperties (const std::string& _sBuf)
         remoteParentPid = buf.getLong();
     }
     shadow = buf.getOctet()==1;
+    buf.getShortString(saslMechanism);
+    saslSsf = buf.getShort();
 
 
     delete [] _tmpBuf;
@@ -396,6 +420,8 @@ void Connection::writeProperties (std::string& _sBuf) const
         buf.putLong(remoteParentPid);
     }
     buf.putOctet(shadow?1:0);
+    buf.putShortString(saslMechanism);
+    buf.putShort(saslSsf);
 
 
     uint32_t _bufLen = buf.getPosition();
@@ -515,6 +541,8 @@ void Connection::mapEncodeValues (::qpid::types::Variant::Map& _map,
         _map["remoteParentPid"] = ::qpid::types::Variant(remoteParentPid);
     }
     _map["shadow"] = ::qpid::types::Variant(shadow);
+    _map["saslMechanism"] = ::qpid::types::Variant(saslMechanism);
+    _map["saslSsf"] = ::qpid::types::Variant(saslSsf);
 
     }
 
@@ -596,6 +624,12 @@ void Connection::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
     }
     if ((_i = _map.find("shadow")) != _map.end()) {
         shadow = _i->second;
+    }
+    if ((_i = _map.find("saslMechanism")) != _map.end()) {
+        saslMechanism = (_i->second).getString();
+    }
+    if ((_i = _map.find("saslSsf")) != _map.end()) {
+        saslSsf = _i->second;
     }
 
 }

@@ -86,6 +86,12 @@ const SequenceSet& ClusterConnectionSessionStateBody::getReceivedIncomplete() co
 bool ClusterConnectionSessionStateBody::hasReceivedIncomplete() const { return flags & (1 << 14); }
 void ClusterConnectionSessionStateBody::clearReceivedIncompleteFlag() { flags &= ~(1 << 14); }
 
+void ClusterConnectionSessionStateBody::setDtxSelected(bool _dtxSelected) {
+    if (_dtxSelected) flags |= (1 << 15);
+    else flags &= ~(1 << 15);
+}
+bool ClusterConnectionSessionStateBody::getDtxSelected() const { return flags & (1 << 15); }
+
 void ClusterConnectionSessionStateBody::encodeStructBody(Buffer& buffer) const
 {
 encodeHeader(buffer);
@@ -180,5 +186,7 @@ void ClusterConnectionSessionStateBody::print(std::ostream& out) const
         out << "unknown-completed=" << unknownCompleted << "; ";
     if (flags & (1 << 14))
         out << "received-incomplete=" << receivedIncomplete << "; ";
+    if (flags & (1 << 15))
+        out << "dtx-selected=" << getDtxSelected() << "; ";
     out << "}";
 }
