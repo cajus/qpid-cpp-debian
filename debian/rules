@@ -18,7 +18,7 @@ export RUBY_LIB_ARCH = $(shell ruby1.8 -r rbconfig -e 'print Config::CONFIG["arc
 override_dh_auto_configure:
 	dh_auto_configure -- --with-sasl --with-xml --with-rdma --with-ssl --with-cpg --with-swig --libexecdir='/usr/lib'
 
-overide_dh_auto_test:
+override_dh_auto_test:
 	# do not test here because of cyclic dependencies
 
 %:
