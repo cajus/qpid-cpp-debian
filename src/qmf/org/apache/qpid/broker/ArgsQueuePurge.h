@@ -38,6 +38,7 @@ namespace broker {
 {
   public:
     uint32_t i_request;
+    ::qpid::types::Variant::Map i_filter;
 
 };
 

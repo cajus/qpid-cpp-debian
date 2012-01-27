@@ -42,16 +42,16 @@ class EventQueueThresholdExceeded : public ::qpid::management::ManagementEvent
     static uint8_t md5Sum[MD5_LEN];
 
     const std::string& qName;
-    const uint32_t msgDepth;
-    const uint32_t byteDepth;
+    const uint64_t msgDepth;
+    const uint64_t byteDepth;
 
 
   public:
     writeSchemaCall_t getWriteSchemaCall(void) { return writeSchema; }
 
     EventQueueThresholdExceeded(const std::string& _qName,
-        const uint32_t _msgDepth,
-        const uint32_t _byteDepth);
+        const uint64_t _msgDepth,
+        const uint64_t _byteDepth);
     ~EventQueueThresholdExceeded() {};
 
     static void registerSelf(::qpid::management::ManagementAgent* agent);

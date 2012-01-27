@@ -75,9 +75,7 @@ SemanticState::SemanticState(DeliveryAdapter& da, SessionContext& ss)
       userName(getSession().getConnection().getUserId().substr(0,getSession().getConnection().getUserId().find('@'))),
       isDefaultRealm(userID.find('@') != std::string::npos && getSession().getBroker().getOptions().realm == userID.substr(userID.find('@')+1,userID.size())),
       closeComplete(false)
-{
-    acl = getSession().getBroker().getAcl();
-}
+{}
 
 SemanticState::~SemanticState() {
     closed();
@@ -107,11 +105,18 @@ bool SemanticState::exists(const string& consumerTag){
     return consumers.find(consumerTag) != consumers.end();
 }
 
+namespace {
+    const std::string SEPARATOR("::");
+}
+    
 void SemanticState::consume(const string& tag,
                             Queue::shared_ptr queue, bool ackRequired, bool acquire,
                             bool exclusive, const string& resumeId, uint64_t resumeTtl, const FieldTable& arguments)
 {
-    ConsumerImpl::shared_ptr c(new ConsumerImpl(this, tag, queue, ackRequired, acquire, exclusive, resumeId, resumeTtl, arguments));
+    // "tag" is only guaranteed to be unique to this session (see AMQP 0-10 Message.subscribe, destination).
+    // Create a globally unique name so the broker can identify individual consumers
+    std::string name = session.getSessionId().str() + SEPARATOR + tag;
+    ConsumerImpl::shared_ptr c(new ConsumerImpl(this, name, queue, ackRequired, acquire, exclusive, tag, resumeId, resumeTtl, arguments));
     queue->consume(c, exclusive);//may throw exception
     consumers[tag] = c;
 }
@@ -125,6 +130,10 @@ bool SemanticState::cancel(const string& tag)
         //should cancel all unacked messages for this consumer so that
         //they are not redelivered on recovery
         for_each(unacked.begin(), unacked.end(), boost::bind(&DeliveryRecord::cancel, _1, tag));
+        //can also remove any records that are now redundant
+        DeliveryRecords::iterator removed =
+            remove_if(unacked.begin(), unacked.end(), bind(&DeliveryRecord::isRedundant, _1));
+        unacked.erase(removed, unacked.end());
         return true;
     } else {
         return false;
@@ -170,8 +179,8 @@ void SemanticState::startDtx(const std::string& xid, DtxManager& mgr, bool join)
     if (!dtxSelected) {
         throw CommandInvalidException(QPID_MSG("Session has not been selected for use with dtx"));
     }
-    dtxBuffer = DtxBuffer::shared_ptr(new DtxBuffer(xid));
-    txBuffer = boost::static_pointer_cast<TxBuffer>(dtxBuffer);
+    dtxBuffer.reset(new DtxBuffer(xid));
+    txBuffer = dtxBuffer;
     if (join) {
         mgr.join(xid, dtxBuffer);
     } else {
@@ -239,7 +248,7 @@ void SemanticState::resumeDtx(const std::string& xid)
 
     checkDtxTimeout();
     dtxBuffer->setSuspended(false);
-    txBuffer = boost::static_pointer_cast<TxBuffer>(dtxBuffer);
+    txBuffer = dtxBuffer;
 }
 
 void SemanticState::checkDtxTimeout()
@@ -263,22 +272,24 @@ SemanticState::ConsumerImpl::ConsumerImpl(SemanticState* _parent,
                                           bool ack,
                                           bool _acquire,
                                           bool _exclusive,
+                                          const string& _tag,
                                           const string& _resumeId,
                                           uint64_t _resumeTtl,
                                           const framing::FieldTable& _arguments
 
 
 ) :
-    Consumer(_acquire),
+    Consumer(_name, _acquire),
     parent(_parent),
-    name(_name),
     queue(_queue),
     ackExpected(ack),
     acquire(_acquire),
     blocked(true),
     windowing(true),
+    windowActive(false),
     exclusive(_exclusive),
     resumeId(_resumeId),
+    tag(_tag),
     resumeTtl(_resumeTtl),
     arguments(_arguments),
     msgCredit(0),
@@ -295,7 +306,7 @@ SemanticState::ConsumerImpl::ConsumerImpl(SemanticState* _parent,
 
         if (agent != 0)
         {
-            mgmtObject = new _qmf::Subscription(agent, this, ms , queue->GetManagementObject()->getObjectId() ,name,
+            mgmtObject = new _qmf::Subscription(agent, this, ms , queue->GetManagementObject()->getObjectId(), getTag(),
                                                 !acquire, ackExpected, exclusive, ManagementAgent::toMap(arguments));
             agent->addObject (mgmtObject);
             mgmtObject->set_creditMode("WINDOW");
@@ -327,16 +338,16 @@ bool SemanticState::ConsumerImpl::deliver(QueuedMessage& msg)
 {
     assertClusterSafe();
     allocateCredit(msg.payload);
-    DeliveryRecord record(msg, queue, name, acquire, !ackExpected, windowing);
+    DeliveryRecord record(msg, queue, getTag(), acquire, !ackExpected, windowing);
     bool sync = syncFrequency && ++deliveryCount >= syncFrequency;
     if (sync) deliveryCount = 0;//reset
     parent->deliver(record, sync);
-    if (!ackExpected && acquire) record.setEnded();//allows message to be released now its been delivered
     if (windowing || ackExpected || !acquire) {
         parent->record(record);
     }
-    if (acquire && !ackExpected) {
-        queue->dequeue(0, msg);
+    if (acquire && !ackExpected) {  // auto acquire && auto accept
+        queue->dequeue(0 /*ctxt*/, msg);
+        record.setEnded();
     }
     if (mgmtObject) { mgmtObject->inc_delivered(); }
     return true;
@@ -366,7 +377,7 @@ struct ConsumerName {
 };
 
 ostream& operator<<(ostream& o, const ConsumerName& pc) {
-    return o << pc.consumer.getName() << " on "
+    return o << pc.consumer.getTag() << " on "
              << pc.consumer.getParent().getSession().getSessionId();
 }
 }
@@ -459,7 +470,7 @@ const std::string nullstring;
 }
 
 void SemanticState::route(intrusive_ptr<Message> msg, Deliverable& strategy) {
-    msg->setTimestamp(getSession().getBroker().getExpiryPolicy());
+    msg->computeExpiration(getSession().getBroker().getExpiryPolicy());
 
     std::string exchangeName = msg->getExchangeName();
     if (!cacheExchange || cacheExchange->getName() != exchangeName || cacheExchange->isDestroyed())
@@ -475,6 +486,7 @@ void SemanticState::route(intrusive_ptr<Message> msg, Deliverable& strategy) {
         throw UnauthorizedAccessException(QPID_MSG("authorised user id : " << userID << " but user id in message declared as " << id));
     }
 
+    AclModule* acl = getSession().getBroker().getAcl();
     if (acl && acl->doTransferAcl())
     {
         if (!acl->authorise(getSession().getConnection().getUserId(),acl::ACT_PUBLISH,acl::OBJ_EXCHANGE,exchangeName, msg->getRoutingKey() ))
@@ -527,7 +539,7 @@ void SemanticState::ConsumerImpl::complete(DeliveryRecord& delivery)
 {
     if (!delivery.isComplete()) {
         delivery.complete();
-        if (windowing) {
+        if (windowing && windowActive) {
             if (msgCredit != 0xFFFFFFFF) msgCredit++;
             if (byteCredit != 0xFFFFFFFF) byteCredit += delivery.getCredit();
         }
@@ -556,50 +568,61 @@ void SemanticState::deliver(DeliveryRecord& msg, bool sync)
     return deliveryAdapter.deliver(msg, sync);
 }
 
-SemanticState::ConsumerImpl& SemanticState::find(const std::string& destination)
+const SemanticState::ConsumerImpl::shared_ptr SemanticState::find(const std::string& destination) const
 {
-    ConsumerImplMap::iterator i = consumers.find(destination);
-    if (i == consumers.end()) {
-        throw NotFoundException(QPID_MSG("Unknown destination " << destination));
+    ConsumerImpl::shared_ptr consumer;
+    if (!find(destination, consumer)) {
+        throw NotFoundException(QPID_MSG("Unknown destination " << destination << " session=" << session.getSessionId()));
     } else {
-        return *(i->second);
+        return consumer;
     }
+}
+
+bool SemanticState::find(const std::string& destination, ConsumerImpl::shared_ptr& consumer) const
+{
+    // @todo KAG gsim: shouldn't the consumers map be locked????
+    ConsumerImplMap::const_iterator i = consumers.find(destination);
+    if (i == consumers.end()) {
+        return false;
+    }
+    consumer = i->second;
+    return true;
 }
 
 void SemanticState::setWindowMode(const std::string& destination)
 {
-    find(destination).setWindowMode();
+    find(destination)->setWindowMode();
 }
 
 void SemanticState::setCreditMode(const std::string& destination)
 {
-    find(destination).setCreditMode();
+    find(destination)->setCreditMode();
 }
 
 void SemanticState::addByteCredit(const std::string& destination, uint32_t value)
 {
-    ConsumerImpl& c = find(destination);
-    c.addByteCredit(value);
-    c.requestDispatch();
+    ConsumerImpl::shared_ptr c = find(destination);
+    c->addByteCredit(value);
+    c->requestDispatch();
 }
 
 
 void SemanticState::addMessageCredit(const std::string& destination, uint32_t value)
 {
-    ConsumerImpl& c = find(destination);
-    c.addMessageCredit(value);
-    c.requestDispatch();
+    ConsumerImpl::shared_ptr c = find(destination);
+    c->addMessageCredit(value);
+    c->requestDispatch();
 }
 
 void SemanticState::flush(const std::string& destination)
 {
-    find(destination).flush();
+    find(destination)->flush();
 }
 
 
 void SemanticState::stop(const std::string& destination)
 {
-    find(destination).stop();
+    find(destination)->stop();
 }
 
 void SemanticState::ConsumerImpl::setWindowMode()
@@ -623,6 +646,7 @@ void SemanticState::ConsumerImpl::setCreditMode()
 void SemanticState::ConsumerImpl::addByteCredit(uint32_t value)
 {
     assertClusterSafe();
+    if (windowing) windowActive = true;
     if (byteCredit != 0xFFFFFFFF) {
         if (value == 0xFFFFFFFF) byteCredit = value;
         else byteCredit += value;
@@ -632,6 +656,7 @@ void SemanticState::ConsumerImpl::addByteCredit(uint32_t value)
 void SemanticState::ConsumerImpl::addMessageCredit(uint32_t value)
 {
     assertClusterSafe();
+    if (windowing) windowActive = true;
     if (msgCredit != 0xFFFFFFFF) {
         if (value == 0xFFFFFFFF) msgCredit = value;
         else msgCredit += value;
@@ -652,7 +677,8 @@ void SemanticState::ConsumerImpl::flush()
 {
     while(haveCredit() && queue->dispatch(shared_from_this()))
         ;
-    stop();
+    msgCredit = 0;
+    byteCredit = 0;
 }
 
 void SemanticState::ConsumerImpl::stop()
@@ -660,6 +686,7 @@ void SemanticState::ConsumerImpl::stop()
     assertClusterSafe();
     msgCredit = 0;
     byteCredit = 0;
+    windowActive = false;
 }
 
 Queue::shared_ptr SemanticState::getQueue(const string& name) const {
@@ -693,6 +720,10 @@ void SemanticState::release(DeliveryId first, DeliveryId last, bool setRedeliver
     DeliveryRecords::reverse_iterator start(range.end);
     DeliveryRecords::reverse_iterator end(range.start);
     for_each(start, end, boost::bind(&DeliveryRecord::release, _1, setRedelivered));
+
+    DeliveryRecords::iterator removed =
+        remove_if(range.start, range.end, bind(&DeliveryRecord::isRedundant, _1));
+    unacked.erase(removed, range.end);
 }
 
 void SemanticState::reject(DeliveryId first, DeliveryId last)

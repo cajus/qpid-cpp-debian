@@ -3366,6 +3366,157 @@ void OutputTask::Handler::clusterConnectionOutputTask(
     throw NotImplementedException(QPID_MSG("cluster-connection.output-task not implemented."));
 }
 
+const char* DtxStart::NAME="cluster-connection.dtx-start";
+const char* DtxStart::CLASS_NAME=cluster_connection::NAME;
+
+DtxStart::DtxStart(
+    const Str16& xid_,
+    Bit ended_,
+    Bit suspended_,
+    Bit failed_,
+    Bit expired_
+) :
+    xid(xid_),
+    ended(ended_),
+    suspended(suspended_),
+    failed(failed_),
+    expired(expired_){
+}
+void DtxStart::accept(Visitor& v) {  v.visit(*this); }
+void DtxStart::accept(ConstVisitor& v) const { v.visit(*this); }
+
+std::ostream& operator << (std::ostream& o, const DtxStart&x) {
+    o << "cluster-connection.dtx-start[";
+    o << " xid=" << x.xid;
+    o << " ended=" << x.ended;
+    o << " suspended=" << x.suspended;
+    o << " failed=" << x.failed;
+    o << " expired=" << x.expired;
+    o << "]";
+    return o;
+}
+void DtxStart::Handler::clusterConnectionDtxStart(
+    const Str16& /*xid_*/,
+    Bit /*ended_*/,
+    Bit /*suspended_*/,
+    Bit /*failed_*/,
+    Bit /*expired_*/
+)
+{
+    assert(0);
+    throw NotImplementedException(QPID_MSG("cluster-connection.dtx-start not implemented."));
+}
+
+const char* DtxEnd::NAME="cluster-connection.dtx-end";
+const char* DtxEnd::CLASS_NAME=cluster_connection::NAME;
+
+DtxEnd::DtxEnd()
+{
+}
+void DtxEnd::accept(Visitor& v) {  v.visit(*this); }
+void DtxEnd::accept(ConstVisitor& v) const { v.visit(*this); }
+
+std::ostream& operator << (std::ostream& o, const DtxEnd&) {
+    o << "cluster-connection.dtx-end[";
+    o << "]";
+    return o;
+}
+void DtxEnd::Handler::clusterConnectionDtxEnd(
+    
+)
+{
+    assert(0);
+    throw NotImplementedException(QPID_MSG("cluster-connection.dtx-end not implemented."));
+}
+
+const char* DtxAck::NAME="cluster-connection.dtx-ack";
+const char* DtxAck::CLASS_NAME=cluster_connection::NAME;
+
+DtxAck::DtxAck()
+{
+}
+void DtxAck::accept(Visitor& v) {  v.visit(*this); }
+void DtxAck::accept(ConstVisitor& v) const { v.visit(*this); }
+
+std::ostream& operator << (std::ostream& o, const DtxAck&) {
+    o << "cluster-connection.dtx-ack[";
+    o << "]";
+    return o;
+}
+void DtxAck::Handler::clusterConnectionDtxAck(
+    
+)
+{
+    assert(0);
+    throw NotImplementedException(QPID_MSG("cluster-connection.dtx-ack not implemented."));
+}
+
+const char* DtxBufferRef::NAME="cluster-connection.dtx-buffer-ref";
+const char* DtxBufferRef::CLASS_NAME=cluster_connection::NAME;
+
+DtxBufferRef::DtxBufferRef(
+    const Str16& xid_,
+    Uint32 index_,
+    Bit suspended_
+) :
+    xid(xid_),
+    index(index_),
+    suspended(suspended_){
+}
+void DtxBufferRef::accept(Visitor& v) {  v.visit(*this); }
+void DtxBufferRef::accept(ConstVisitor& v) const { v.visit(*this); }
+
+std::ostream& operator << (std::ostream& o, const DtxBufferRef&x) {
+    o << "cluster-connection.dtx-buffer-ref[";
+    o << " xid=" << x.xid;
+    o << " index=" << x.index;
+    o << " suspended=" << x.suspended;
+    o << "]";
+    return o;
+}
+void DtxBufferRef::Handler::clusterConnectionDtxBufferRef(
+    const Str16& /*xid_*/,
+    Uint32 /*index_*/,
+    Bit /*suspended_*/
+)
+{
+    assert(0);
+    throw NotImplementedException(QPID_MSG("cluster-connection.dtx-buffer-ref not implemented."));
+}
+
+const char* DtxWorkRecord::NAME="cluster-connection.dtx-work-record";
+const char* DtxWorkRecord::CLASS_NAME=cluster_connection::NAME;
+
+DtxWorkRecord::DtxWorkRecord(
+    const Str16& xid_,
+    Bit prepared_,
+    Uint32 timeout_
+) :
+    xid(xid_),
+    prepared(prepared_),
+    timeout(timeout_){
+}
+void DtxWorkRecord::accept(Visitor& v) {  v.visit(*this); }
+void DtxWorkRecord::accept(ConstVisitor& v) const { v.visit(*this); }
+
+std::ostream& operator << (std::ostream& o, const DtxWorkRecord&x) {
+    o << "cluster-connection.dtx-work-record[";
+    o << " xid=" << x.xid;
+    o << " prepared=" << x.prepared;
+    o << " timeout=" << x.timeout;
+    o << "]";
+    return o;
+}
+void DtxWorkRecord::Handler::clusterConnectionDtxWorkRecord(
+    const Str16& /*xid_*/,
+    Bit /*prepared_*/,
+    Uint32 /*timeout_*/
+)
+{
+    assert(0);
+    throw NotImplementedException(QPID_MSG("cluster-connection.dtx-work-record not implemented."));
+}
+
 const char* SessionState::NAME="cluster-connection.session-state";
 const char* SessionState::CLASS_NAME=cluster_connection::NAME;
 
@@ -3376,7 +3527,8 @@ SessionState::SessionState(
     const SequenceNo& expected_,
     const SequenceNo& received_,
     const SequenceSet& unknownCompleted_,
-    const SequenceSet& receivedIncomplete_
+    const SequenceSet& receivedIncomplete_,
+    Bit dtxSelected_
 ) :
     replayStart(replayStart_),
     commandPoint(commandPoint_),
@@ -3384,7 +3536,8 @@ SessionState::SessionState(
     expected(expected_),
     received(received_),
     unknownCompleted(unknownCompleted_),
-    receivedIncomplete(receivedIncomplete_){
+    receivedIncomplete(receivedIncomplete_),
+    dtxSelected(dtxSelected_){
 }
 void SessionState::accept(Visitor& v) {  v.visit(*this); }
 void SessionState::accept(ConstVisitor& v) const { v.visit(*this); }
@@ -3398,6 +3551,7 @@ std::ostream& operator << (std::ostream& o, const SessionState&x) {
     o << " received=" << x.received;
     o << " unknown-completed=" << x.unknownCompleted;
     o << " received-incomplete=" << x.receivedIncomplete;
+    o << " dtx-selected=" << x.dtxSelected;
     o << "]";
     return o;
 }
@@ -3408,7 +3562,8 @@ void SessionState::Handler::clusterConnectionSessionState(
     const SequenceNo& /*expected_*/,
     const SequenceNo& /*received_*/,
     const SequenceSet& /*unknownCompleted_*/,
-    const SequenceSet& /*receivedIncomplete_*/
+    const SequenceSet& /*receivedIncomplete_*/,
+    Bit /*dtxSelected_*/
 )
 {
     assert(0);

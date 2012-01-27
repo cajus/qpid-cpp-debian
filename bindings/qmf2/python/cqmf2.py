@@ -344,8 +344,6 @@ class DataAddr(_object):
     __repr__ = _swig_repr
     __swig_destroy__ = _cqmf2.delete_DataAddr
     __del__ = lambda self : None;
-    def __eq__(self, *args): return _cqmf2.DataAddr___eq__(self, *args)
-    def __lt__(self, *args): return _cqmf2.DataAddr___lt__(self, *args)
     def __init__(self, *args): 
         this = _cqmf2.new_DataAddr(*args)
         try: self.this.append(this)
@@ -354,6 +352,8 @@ class DataAddr(_object):
     def getAgentName(self): return _cqmf2.DataAddr_getAgentName(self)
     def getAgentEpoch(self): return _cqmf2.DataAddr_getAgentEpoch(self)
     def asMap(self): return _cqmf2.DataAddr_asMap(self)
+    def __eq__(self, *args): return _cqmf2.DataAddr___eq__(self, *args)
+    def __lt__(self, *args): return _cqmf2.DataAddr___lt__(self, *args)
 DataAddr_swigregister = _cqmf2.DataAddr_swigregister
 DataAddr_swigregister(DataAddr)
 

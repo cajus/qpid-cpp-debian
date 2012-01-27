@@ -1079,6 +1079,55 @@ class QPID_COMMON_CLASS_EXTERN ProxyTemplate
     }
     
     
+    R clusterConnectionDtxStart(
+        const Str16& xid_,
+        Bit ended_,
+        Bit suspended_,
+        Bit failed_,
+        Bit expired_
+    )
+    {
+        cluster-connection::DtxStart dtxStart(xid_, ended_, suspended_, failed_, expired_);
+        return functor(dtxStart);
+    }
+    
+    
+    R clusterConnectionDtxEnd()
+    {
+        cluster-connection::DtxEnd dtxEnd;
+        return functor(dtxEnd);
+    }
+    
+    
+    R clusterConnectionDtxAck()
+    {
+        cluster-connection::DtxAck dtxAck;
+        return functor(dtxAck);
+    }
+    
+    
+    R clusterConnectionDtxBufferRef(
+        const Str16& xid_,
+        Uint32 index_,
+        Bit suspended_
+    )
+    {
+        cluster-connection::DtxBufferRef dtxBufferRef(xid_, index_, suspended_);
+        return functor(dtxBufferRef);
+    }
+    
+    
+    R clusterConnectionDtxWorkRecord(
+        const Str16& xid_,
+        Bit prepared_,
+        Uint32 timeout_
+    )
+    {
+        cluster-connection::DtxWorkRecord dtxWorkRecord(xid_, prepared_, timeout_);
+        return functor(dtxWorkRecord);
+    }
+    
+    
     R clusterConnectionSessionState(
         const SequenceNo& replayStart_,
         const SequenceNo& commandPoint_,
@@ -1086,10 +1135,11 @@ class QPID_COMMON_CLASS_EXTERN ProxyTemplate
         const SequenceNo& expected_,
         const SequenceNo& received_,
         const SequenceSet& unknownCompleted_,
-        const SequenceSet& receivedIncomplete_
+        const SequenceSet& receivedIncomplete_,
+        Bit dtxSelected_
     )
     {
-        cluster-connection::SessionState sessionState(replayStart_, commandPoint_, sentIncomplete_, expected_, received_, unknownCompleted_, receivedIncomplete_);
+        cluster-connection::SessionState sessionState(replayStart_, commandPoint_, sentIncomplete_, expected_, received_, unknownCompleted_, receivedIncomplete_, dtxSelected_);
         return functor(sessionState);
     }
     

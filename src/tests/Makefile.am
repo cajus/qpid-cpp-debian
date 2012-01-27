@@ -75,7 +75,7 @@ unit_test_SOURCES= unit_test.cpp unit_test.h \
 	MessagingThreadTests.cpp \
 	MessagingFixture.h \
 	ClientSessionTest.cpp \
-	BrokerFixture.h SocketProxy.h \
+	BrokerFixture.h \
 	exception_test.cpp \
 	RefCounted.cpp \
 	SessionState.cpp logging.cpp \
@@ -124,7 +124,8 @@ unit_test_SOURCES= unit_test.cpp unit_test.h \
 	Variant.cpp \
 	Address.cpp \
 	ClientMessage.cpp \
-	Qmf2.cpp
+	Qmf2.cpp \
+	BrokerOptions.cpp
 
 if HAVE_XML
 unit_test_SOURCES+= XmlClientSessionTest.cpp
@@ -291,16 +292,22 @@ qpid_stream_INCLUDES=$(PUBLIC_INCLUDES)
 qpid_stream_SOURCES=qpid-stream.cpp
 qpid_stream_LDADD=$(lib_messaging)
 
+check_PROGRAMS+=msg_group_test
+msg_group_test_INCLUDES=$(PUBLIC_INCLUDES)
+msg_group_test_SOURCES=msg_group_test.cpp
+msg_group_test_LDADD=$(lib_messaging)
+
 TESTS_ENVIRONMENT = \
     VALGRIND=$(VALGRIND) \
     LIBTOOL="$(LIBTOOL)" \
     QPID_DATA_DIR= \
     $(srcdir)/run_test 
 
-system_tests = qpid-client-test quick_perftest quick_topictest run_header_test quick_txtest
-TESTS += start_broker $(system_tests) python_tests stop_broker run_federation_tests \
+system_tests = qpid-client-test quick_perftest quick_topictest run_header_test quick_txtest \
+  run_msg_group_tests
+TESTS += start_broker $(system_tests) python_tests stop_broker run_federation_tests run_federation_sys_tests \
   run_acl_tests run_cli_tests replication_test dynamic_log_level_test \
-  run_queue_flow_limit_tests
+  run_queue_flow_limit_tests ipv6_test
 
 EXTRA_DIST +=								\
   run_test vg_check							\
@@ -315,6 +322,8 @@ EXTRA_DIST +=								\
   config.null								\
   ais_check								\
   run_federation_tests							\
+  run_federation_sys_tests                  \
+  run_long_federation_sys_tests             \
   run_cli_tests								\
   run_acl_tests								\
   .valgrind.supp							\
@@ -340,7 +349,9 @@ EXTRA_DIST +=								\
   start_broker.ps1							\
   stop_broker.ps1							\
   topictest.ps1                                                         \
-  run_queue_flow_limit_tests
+  run_queue_flow_limit_tests						\
+  run_msg_group_tests							\
+  ipv6_test
 
 check_LTLIBRARIES += libdlclose_noop.la
 libdlclose_noop_la_LDFLAGS = -module -rpath $(abs_builddir)
@@ -351,7 +362,11 @@ CLEANFILES+=valgrind.out *.log *.vglog* dummy_test qpidd.port $(unit_wrappers)
 # Longer running stability tests, not run by default check: target.
 # Not run under valgrind, too slow
 
-LONG_TESTS+=start_broker fanout_perftest shared_perftest multiq_perftest topic_perftest run_ring_queue_test stop_broker \
+LONG_TESTS+=start_broker \
+ fanout_perftest shared_perftest multiq_perftest topic_perftest run_ring_queue_test \
+ run_msg_group_tests_soak \
+ stop_broker \
+ run_long_federation_sys_tests \
  run_failover_soak reliable_replication_test \
  federated_cluster_test_with_node_failure
 
@@ -363,7 +378,8 @@ EXTRA_DIST+=						\
 	run_failover_soak				\
 	reliable_replication_test			\
 	federated_cluster_test_with_node_failure        \
-	sasl_test_setup.sh
+	sasl_test_setup.sh                              \
+	run_msg_group_tests_soak
 
 check-long:
 	$(MAKE) check TESTS="$(LONG_TESTS)" VALGRIND=

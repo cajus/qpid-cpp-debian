@@ -111,8 +111,11 @@ class Broker : public ::qpid::management::ManagementObject
     static const uint32_t METHOD_QUEUEMOVEMESSAGES = 3;
     static const uint32_t METHOD_SETLOGLEVEL = 4;
     static const uint32_t METHOD_GETLOGLEVEL = 5;
-    static const uint32_t METHOD_CREATE = 6;
-    static const uint32_t METHOD_DELETE = 7;
+    static const uint32_t METHOD_GETTIMESTAMPCONFIG = 6;
+    static const uint32_t METHOD_SETTIMESTAMPCONFIG = 7;
+    static const uint32_t METHOD_CREATE = 8;
+    static const uint32_t METHOD_DELETE = 9;
+    static const uint32_t METHOD_QUERY = 10;
 
     // Accessor Methods
     inline void set_systemRef (const ::qpid::management::ObjectId& val) {

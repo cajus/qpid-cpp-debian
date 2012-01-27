@@ -44,7 +44,7 @@ using           std::string;
 string  Queue::packageName  = string ("org.apache.qpid.broker");
 string  Queue::className    = string ("queue");
 uint8_t Queue::md5Sum[MD5_LEN]   =
-    {0xbf,0xd4,0xd3,0x78,0xc6,0xe6,0xef,0xb6,0xf0,0xd0,0x96,0x32,0x52,0xce,0xdf,0xaa};
+    {0x3,0xf4,0xbc,0x66,0xbf,0xe,0x0,0x49,0x1d,0xa6,0x6f,0x26,0x9,0x7d,0x5b,0x95};
 
 Queue::Queue (ManagementAgent*, Manageable* _core, ::qpid::management::Manageable* _parent, const std::string& _name, bool _durable, bool _autoDelete, bool _exclusive) :
     ManagementObject(_core),name(_name),durable(_durable),autoDelete(_autoDelete),exclusive(_exclusive)
@@ -227,14 +227,14 @@ void Queue::writeSchema (std::string& schema)
 
     ft.clear();
     ft[NAME] = "msgDepth";
-    ft[TYPE] = TYPE_U32;
+    ft[TYPE] = TYPE_U64;
     ft[UNIT] = "message";
     ft[DESC] = "Current size of queue in messages";
     buf.putMap(ft);
 
     ft.clear();
     ft[NAME] = "byteDepth";
-    ft[TYPE] = TYPE_U32;
+    ft[TYPE] = TYPE_U64;
     ft[UNIT] = "octet";
     ft[DESC] = "Current size of queue in bytes";
     buf.putMap(ft);
@@ -388,7 +388,7 @@ void Queue::writeSchema (std::string& schema)
     // Methods
     ft.clear();
     ft[NAME] =  "purge";
-    ft[ARGCOUNT] = 1;
+    ft[ARGCOUNT] = 2;
     ft[DESC] = "Discard all or some messages on a queue";
     buf.putMap(ft);
 
@@ -400,8 +400,16 @@ void Queue::writeSchema (std::string& schema)
     buf.putMap(ft);
 
     ft.clear();
+    ft[NAME] = "filter";
+    ft[TYPE] = TYPE_FTABLE;
+    ft[DIR] = "I";
+    ft[DEFAULT] = "{}";
+    ft[DESC] = "if specified, purge only those messages matching this filter";
+    buf.putMap(ft);
+
+    ft.clear();
     ft[NAME] =  "reroute";
-    ft[ARGCOUNT] = 3;
+    ft[ARGCOUNT] = 4;
     ft[DESC] = "Remove all or some messages on this queue and route them to an exchange";
     buf.putMap(ft);
 
@@ -424,6 +432,14 @@ void Queue::writeSchema (std::string& schema)
     ft[TYPE] = TYPE_SSTR;
     ft[DIR] = "I";
     ft[DESC] = "Name of the exchange to route the messages through";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "filter";
+    ft[TYPE] = TYPE_FTABLE;
+    ft[DIR] = "I";
+    ft[DEFAULT] = "{}";
+    ft[DESC] = "if specified, reroute only those messages matching this filter";
     buf.putMap(ft);
 
 
@@ -587,8 +603,8 @@ void Queue::writeStatistics (std::string& _sBuf, bool skipHeaders)
     for (int idx = 0; idx < maxThreads; idx++) {
         struct PerThreadStats* threadStats = perThreadStatsArray[idx];
         if (threadStats != 0) {
-        threadStats->msgDepth = (uint32_t) (threadStats->msgTotalEnqueues - threadStats->msgTotalDequeues);
-        threadStats->byteDepth = (uint32_t) (threadStats->byteTotalEnqueues - threadStats->byteTotalDequeues);
+        threadStats->msgDepth = (uint64_t) (threadStats->msgTotalEnqueues - threadStats->msgTotalDequeues);
+        threadStats->byteDepth = (uint64_t) (threadStats->byteTotalEnqueues - threadStats->byteTotalDequeues);
 
         }
     }
@@ -610,8 +626,8 @@ void Queue::writeStatistics (std::string& _sBuf, bool skipHeaders)
     buf.putLongLong(totals.msgTxnDequeues);
     buf.putLongLong(totals.msgPersistEnqueues);
     buf.putLongLong(totals.msgPersistDequeues);
-    buf.putLong(totals.msgDepth);
-    buf.putLong(totals.byteDepth);
+    buf.putLongLong(totals.msgDepth);
+    buf.putLongLong(totals.byteDepth);
     buf.putLongLong(totals.byteTotalEnqueues);
     buf.putLongLong(totals.byteTotalDequeues);
     buf.putLongLong(totals.byteTxnEnqueues);
@@ -682,6 +698,7 @@ void Queue::doMethod (string& methodName, const string& inStr, string& outStr, c
         _matched = true;
         ArgsQueuePurge ioArgs;
         ioArgs.i_request = inBuf.getLong();
+        inBuf.getMap(ioArgs.i_filter);
         bool allow = coreObject->AuthorizeMethod(METHOD_PURGE, ioArgs, userId);
         if (allow)
             status = coreObject->ManagementMethod (METHOD_PURGE, ioArgs, text);
@@ -697,6 +714,7 @@ void Queue::doMethod (string& methodName, const string& inStr, string& outStr, c
         ioArgs.i_request = inBuf.getLong();
         ioArgs.i_useAltExchange = inBuf.getOctet()==1;
         inBuf.getShortString(ioArgs.i_exchange);
+        inBuf.getMap(ioArgs.i_filter);
         bool allow = coreObject->AuthorizeMethod(METHOD_REROUTE, ioArgs, userId);
         if (allow)
             status = coreObject->ManagementMethod (METHOD_REROUTE, ioArgs, text);
@@ -757,8 +775,8 @@ void Queue::mapEncodeValues (::qpid::types::Variant::Map& _map,
         for (int idx = 0; idx < maxThreads; idx++) {
             struct PerThreadStats* threadStats = perThreadStatsArray[idx];
             if (threadStats != 0) {
-        threadStats->msgDepth = (uint32_t) (threadStats->msgTotalEnqueues - threadStats->msgTotalDequeues);
-        threadStats->byteDepth = (uint32_t) (threadStats->byteTotalEnqueues - threadStats->byteTotalDequeues);
+        threadStats->msgDepth = (uint64_t) (threadStats->msgTotalEnqueues - threadStats->msgTotalDequeues);
+        threadStats->byteDepth = (uint64_t) (threadStats->byteTotalEnqueues - threadStats->byteTotalDequeues);
 
             }
         }
@@ -871,6 +889,9 @@ void Queue::doMethod (string& methodName, const ::qpid::types::Variant::Map& inM
         if ((_i = inMap.find("request")) != inMap.end()) {
             ioArgs.i_request = _i->second;
         }
+        if ((_i = inMap.find("filter")) != inMap.end()) {
+            ioArgs.i_filter = (_i->second).asMap();
+        }
         bool allow = coreObject->AuthorizeMethod(METHOD_PURGE, ioArgs, userId);
         if (allow)
             status = coreObject->ManagementMethod (METHOD_PURGE, ioArgs, text);
@@ -892,6 +913,9 @@ void Queue::doMethod (string& methodName, const ::qpid::types::Variant::Map& inM
         }
         if ((_i = inMap.find("exchange")) != inMap.end()) {
             ioArgs.i_exchange = (_i->second).getString();
+        }
+        if ((_i = inMap.find("filter")) != inMap.end()) {
+            ioArgs.i_filter = (_i->second).asMap();
         }
         bool allow = coreObject->AuthorizeMethod(METHOD_REROUTE, ioArgs, userId);
         if (allow)

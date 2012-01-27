@@ -17,6 +17,9 @@
 # under the License.
 #
 
+# library versions
+include (versions.cmake)
+
 # Option to require building optional plugins
 foreach (r ${REQUIRE})
   set(${r}_force ON)
@@ -256,7 +259,6 @@ if (ENABLE_VALGRIND AND NOT VALGRIND)
 endif (ENABLE_VALGRIND AND NOT VALGRIND)
 
 if (CMAKE_COMPILER_IS_GNUCXX)
-   set (COMPILER_FLAGS "")
    # Warnings: Enable as many as possible, keep the code clean. Please
    # do not disable warnings or remove -Werror without discussing on
    # qpid-dev list.
@@ -281,13 +283,14 @@ endif (NOT ENABLE_WARNINGS)
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${COMPILER_FLAGS} ${WARNING_FLAGS}")
 
 # Expand a bit from the basic Find_Boost; be specific about what's needed.
-# TODO: Not all these libs are needed everywhere:
-# Linux only uses filesystem program_options unit_test_framework
-# (which itself uses regex).
 # Boost.system is sometimes needed; it's handled separately, below.
-find_package(Boost 1.33 REQUIRED
-             COMPONENTS filesystem program_options date_time thread
-                        regex unit_test_framework)
+if (CMAKE_SYSTEM_NAME STREQUAL Windows)
+  set (Boost_components filesystem program_options date_time thread unit_test_framework regex)
+else (CMAKE_SYSTEM_NAME STREQUAL Windows)
+  set (Boost_components filesystem program_options unit_test_framework)
+endif (CMAKE_SYSTEM_NAME STREQUAL Windows)
+
+find_package(Boost 1.33 REQUIRED COMPONENTS ${Boost_components})
 if(NOT Boost_FOUND)
   message(FATAL_ERROR "Boost C++ libraries not found.  Please install or try setting BOOST_ROOT")
 endif(NOT Boost_FOUND)
@@ -457,6 +460,15 @@ else (NOT CLOCK_GETTIME_IN_RT)
   set(QPID_HAS_CLOCK_GETTIME YES CACHE BOOL "Platform has clock_gettime")
 endif (NOT CLOCK_GETTIME_IN_RT)
 
+# If not windows ensure that we have uuid library
+if (NOT CMAKE_SYSTEM_NAME STREQUAL Windows)
+  CHECK_LIBRARY_EXISTS (uuid uuid_compare "" HAVE_UUID)
+  CHECK_INCLUDE_FILES(uuid/uuid.h HAVE_UUID_H)
+  if (NOT HAVE_UUID AND NOT HAVE_UUID_H)
+    message(FATAL_ERROR "Uuid library and/or header file not found")
+  endif (NOT HAVE_UUID AND NOT HAVE_UUID_H)
+endif (NOT CMAKE_SYSTEM_NAME STREQUAL Windows)
+
 # See if Cyrus SASL is desired and available
 CHECK_LIBRARY_EXISTS (sasl2 sasl_checkpass "" HAVE_SASL)
 CHECK_INCLUDE_FILES (sasl/sasl.h HAVE_SASL_H)
@@ -475,6 +487,7 @@ if (BUILD_SASL)
     message(FATAL_ERROR "Cyrus SASL support requested but sasl.h not found")
   endif (NOT HAVE_SASL_H)
 
+  find_program(SASLPASSWD2 saslpasswd2 DOC "Location of the saslpasswd2 program")
   set(BROKER_SASL_NAME "qpidd" CACHE STRING "SASL app name for the qpid broker")
   set(qpidcommon_sasl_source
       qpid/sys/cyrus/CyrusSecurityLayer.h
@@ -580,6 +593,15 @@ include (ssl.cmake)
 check_symbol_exists (LOG_AUTHPRIV "sys/syslog.h" HAVE_LOG_AUTHPRIV)
 check_symbol_exists (LOG_FTP "sys/syslog.h" HAVE_LOG_FTP)
 
+# Allow MSVC user to select 'WinXP-SP3/Windows Server 2003' as build target version
+set (win32_winnt_default OFF)
+if (CMAKE_SYSTEM_NAME STREQUAL Windows)
+    if (MSVC)
+        set (win32_winnt_default ON)
+    endif (MSVC)
+endif (CMAKE_SYSTEM_NAME STREQUAL Windows)
+option(SET_WIN32_WINNT "In Windows-MSVC build: define _WIN32_WINNT=0x0502 to select target version: Windows XP with SP3" ${win32_winnt_default})
+
 if (CMAKE_SYSTEM_NAME STREQUAL Windows)
   if (MSVC)
     add_definitions(
@@ -589,10 +611,11 @@ if (CMAKE_SYSTEM_NAME STREQUAL Windows)
       /wd4244
       /wd4800
       /wd4355
+      /wd4267
     )
-    if (MSVC80)
-      add_definitions(/D "_WIN32_WINNT=0x0501")
-    endif (MSVC80)
+    if (SET_WIN32_WINNT)
+        add_definitions(/D "_WIN32_WINNT=0x0502")
+    endif (SET_WIN32_WINNT)
 
     # set the RelWithDebInfo compile/link switches to equal Release
     set (CMAKE_CXX_FLAGS_RELWITHDEBINFO "/MD /O2 /Ob2 /D NDEBUG")
@@ -655,6 +678,7 @@ if (CMAKE_SYSTEM_NAME STREQUAL Windows)
 
   set (qpidd_platform_SOURCES
     windows/QpiddBroker.cpp
+    windows/SCM.cpp
   )
 
   set (qpidmessaging_platform_SOURCES
@@ -671,7 +695,10 @@ else (CMAKE_SYSTEM_NAME STREQUAL Windows)
       qpid/sys/posix/SystemInfo.cpp
     )
     add_definitions(-pthread)
-    set (CMAKE_EXE_LINKER_FLAGS ${CMAKE_EXE_LINKER_FLAGS} -pthread)
+    set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pthread")
+    if (CMAKE_COMPILER_IS_GNUCXX)
+      set (CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--no-undefined -pthread")
+    endif (CMAKE_COMPILER_IS_GNUCXX)
   endif (CMAKE_SYSTEM_NAME STREQUAL Linux)
 
   if (CMAKE_SYSTEM_NAME STREQUAL SunOS)
@@ -684,6 +711,7 @@ else (CMAKE_SYSTEM_NAME STREQUAL Windows)
   set (qpidtypes_platform_SOURCES)
   set (qpidtypes_platform_LIBS
     uuid
+    ${Boost_SYSTEM_LIBRARY}
   )
 
   set (qpidcommon_platform_SOURCES
@@ -804,7 +832,7 @@ target_link_libraries (qpidcommon qpidtypes
                        ${qpidcommon_platform_LIBS}
                        ${qpidcommon_sasl_lib})
 set_target_properties (qpidcommon PROPERTIES
-                       VERSION ${qpidc_version})
+                       VERSION ${qpidcommon_version})
 install (TARGETS qpidcommon
          DESTINATION ${QPID_INSTALL_LIBDIR}
          COMPONENT ${QPID_COMPONENT_COMMON})
@@ -819,7 +847,7 @@ set(qpidtypes_SOURCES
 add_msvc_version (qpidtypes library dll)
 add_library(qpidtypes SHARED ${qpidtypes_SOURCES})
 target_link_libraries(qpidtypes ${qpidtypes_platform_LIBS})
-set_target_properties (qpidtypes PROPERTIES VERSION ${qpidc_version})
+set_target_properties (qpidtypes PROPERTIES VERSION ${qpidtypes_version})
 install(TARGETS qpidtypes
   DESTINATION ${QPID_INSTALL_LIBDIR}
   COMPONENT ${QPID_COMPONENT_COMMON})
@@ -866,7 +894,7 @@ add_msvc_version (qpidclient library dll)
 
 add_library (qpidclient SHARED ${qpidclient_SOURCES})
 target_link_libraries (qpidclient qpidcommon ${qpidclient_platform_LIBS})
-set_target_properties (qpidclient PROPERTIES VERSION ${qpidc_version})
+set_target_properties (qpidclient PROPERTIES VERSION ${qpidclient_version})
 install (TARGETS qpidclient
          DESTINATION ${QPID_INSTALL_LIBDIR}
          COMPONENT ${QPID_COMPONENT_CLIENT})
@@ -914,14 +942,12 @@ set (qpidmessaging_SOURCES
      qpid/client/amqp0_10/SessionImpl.cpp
      qpid/client/amqp0_10/SenderImpl.h
      qpid/client/amqp0_10/SenderImpl.cpp
-     qpid/client/amqp0_10/SimpleUrlParser.h
-     qpid/client/amqp0_10/SimpleUrlParser.cpp
 )
 add_msvc_version (qpidmessaging library dll)
 
 add_library (qpidmessaging SHARED ${qpidmessaging_SOURCES})
 target_link_libraries (qpidmessaging qpidclient)
-set_target_properties (qpidmessaging PROPERTIES VERSION ${qpidc_version})
+set_target_properties (qpidmessaging PROPERTIES VERSION ${qpidmessaging_version})
 install (TARGETS qpidmessaging
          DESTINATION ${QPID_INSTALL_LIBDIR}
          COMPONENT ${QPID_COMPONENT_CLIENT})
@@ -968,6 +994,8 @@ set (qpidbroker_SOURCES
      qpid/broker/Queue.cpp
      qpid/broker/QueueCleaner.cpp
      qpid/broker/QueueListeners.cpp
+     qpid/broker/FifoDistributor.cpp
+     qpid/broker/MessageGroupManager.cpp
      qpid/broker/PersistableMessage.cpp
      qpid/broker/Bridge.cpp
      qpid/broker/Connection.cpp
@@ -1028,7 +1056,7 @@ set (qpidbroker_SOURCES
 add_msvc_version (qpidbroker library dll)
 add_library (qpidbroker SHARED ${qpidbroker_SOURCES})
 target_link_libraries (qpidbroker qpidcommon ${qpidbroker_platform_LIBS})
-set_target_properties (qpidbroker PROPERTIES VERSION ${qpidc_version})
+set_target_properties (qpidbroker PROPERTIES VERSION ${qpidbroker_version})
 if (MSVC)
   set_target_properties (qpidbroker PROPERTIES COMPILE_FLAGS /wd4290)
 endif (MSVC)
@@ -1048,36 +1076,37 @@ add_executable (qpidd ${qpidd_SOURCES})
 target_link_libraries (qpidd qpidbroker qpidcommon ${Boost_PROGRAM_OPTIONS_LIBRARY}
                           ${Boost_FILESYSTEM_LIBRARY})
 install (TARGETS qpidd RUNTIME
-         DESTINATION ${QPID_INSTALL_BINDIR}
+         DESTINATION ${QPID_INSTALL_SBINDIR}
          COMPONENT ${QPID_COMPONENT_BROKER})
 if (CPACK_GENERATOR STREQUAL "NSIS")
     set (CPACK_NSIS_MENU_LINKS
          "qpidd" "Start Qpid Broker")
 endif (CPACK_GENERATOR STREQUAL "NSIS")
 
-# QMF library
-# Library Version Information (CURRENT.REVISION.AGE):
-#
-#  CURRENT  => API/ABI version.  Bump this if the interface changes
-#  REVISION => Version of underlying implementation.
-#              Bump if implementation changes but API/ABI doesn't
-#  AGE      => Number of API/ABI versions this is backward compatible with
-set (qmf_version 2.0.0)
-set (qmf2_version 1.0.0)
-set (qmfengine_version 1.0.0)
+if (UNIX)
+  install (CODE "FILE(MAKE_DIRECTORY \$ENV{DESTDIR}${QPID_LOCALSTATE_DIR}/lib/qpidd)")
+  install (CODE "FILE(MAKE_DIRECTORY \$ENV{DESTDIR}${QPID_LOCALSTATE_DIR}/spool/qpidd)")
+endif (UNIX)
 
 set (qmf_SOURCES
     qpid/agent/ManagementAgentImpl.cpp
     qpid/agent/ManagementAgentImpl.h
     )
+set (qmf_HEADERS
+  ../include/qpid/agent/ManagementAgent.h
+  ../include/qpid/agent/QmfAgentImportExport.h
+    )
 
 add_msvc_version (qmf library dll)
 add_library (qmf SHARED ${qmf_SOURCES})
-target_link_libraries (qmf qpidclient)
+target_link_libraries (qmf qmfengine)
 set_target_properties (qmf PROPERTIES
                        VERSION ${qmf_version})
 install (TARGETS qmf OPTIONAL
          DESTINATION ${QPID_INSTALL_LIBDIR}
+         COMPONENT ${QPID_COMPONENT_QMF})
+install (FILES ${qmf_HEADERS}
+         DESTINATION ${QPID_INSTALL_INCLUDEDIR}/qpid/agent
          COMPONENT ${QPID_COMPONENT_QMF})
 install_pdb (qmf ${QPID_COMPONENT_QMF})
 
@@ -1093,6 +1122,7 @@ if(NOT WIN32)
         ../include/qmf/exceptions.h
         ../include/qmf/Handle.h
         ../include/qmf/ImportExport.h
+        ../include/qmf/posix/EventNotifier.h
         ../include/qmf/Query.h
         ../include/qmf/Schema.h
         ../include/qmf/SchemaId.h
@@ -1122,6 +1152,10 @@ if(NOT WIN32)
         qmf/DataAddrImpl.h
         qmf/Data.cpp
         qmf/DataImpl.h
+        qmf/EventNotifierImpl.h
+        qmf/EventNotifierImpl.cpp
+        qmf/PosixEventNotifier.cpp
+        qmf/PosixEventNotifierImpl.cpp
         qmf/exceptions.cpp
         qmf/Expression.cpp
         qmf/Expression.h
@@ -1185,6 +1219,26 @@ set (qmfengine_SOURCES
      qmf/engine/ValueImpl.cpp
      qmf/engine/ValueImpl.h
     )
+
+set (qmfengine_HEADERS
+  ../include/qmf/engine/Agent.h
+  ../include/qmf/engine/ConnectionSettings.h
+  ../include/qmf/engine/Console.h
+  ../include/qmf/engine/Event.h
+  ../include/qmf/engine/Message.h
+  ../include/qmf/engine/Object.h
+  ../include/qmf/engine/ObjectId.h
+  ../include/qmf/engine/QmfEngineImportExport.h
+  ../include/qmf/engine/Query.h
+  ../include/qmf/engine/ResilientConnection.h
+  ../include/qmf/engine/Schema.h
+  ../include/qmf/engine/Typecode.h
+  ../include/qmf/engine/Value.h
+    )
+install (FILES ${qmfengine_HEADERS}
+         DESTINATION ${QPID_INSTALL_INCLUDEDIR}/qmf/engine
+         COMPONENT ${QPID_COMPONENT_QMF})
+
 if (NOT WIN32)
     list(APPEND qmfengine_SOURCES qmf/engine/ResilientConnection.cpp)
 endif (NOT WIN32)
@@ -1199,22 +1253,20 @@ install (TARGETS qmfengine OPTIONAL
          COMPONENT ${QPID_COMPONENT_QMF})
 install_pdb (qmfengine ${QPID_COMPONENT_QMF})
 
-# QMF console library
-#module_hdr += \
-#  qpid/console/Agent.h \
-#  qpid/console/Broker.h \
-#  qpid/console/ClassKey.h \
-#  qpid/console/ConsoleImportExport.h \
-#  qpid/console/ConsoleListener.h \
-#  qpid/console/Event.h \
-#  qpid/console/Object.h \
-#  qpid/console/ObjectId.h \
-#  qpid/console/Package.h \
-#  qpid/console/Schema.h \
-#  qpid/console/SequenceManager.h \
-#  qpid/console/SessionManager.h \
-#  qpid/console/Value.h
 set (qmfconsole_SOURCES
+     qpid/console/Agent.cpp
+     qpid/console/Broker.cpp
+     qpid/console/ClassKey.cpp
+     qpid/console/Event.cpp
+     qpid/console/Object.cpp
+     qpid/console/ObjectId.cpp
+     qpid/console/Package.cpp
+     qpid/console/Schema.cpp
+     qpid/console/SequenceManager.cpp
+     qpid/console/SessionManager.cpp
+     qpid/console/Value.cpp
+    )
+set (qmfconsole_HEADERS
      ../include/qpid/console/Agent.h
      ../include/qpid/console/Broker.h
      ../include/qpid/console/ClassKey.h
@@ -1228,25 +1280,17 @@ set (qmfconsole_SOURCES
      ../include/qpid/console/SequenceManager.h
      ../include/qpid/console/SessionManager.h
      ../include/qpid/console/Value.h
-     qpid/console/Agent.cpp
-     qpid/console/Broker.cpp
-     qpid/console/ClassKey.cpp
-     qpid/console/Event.cpp
-     qpid/console/Object.cpp
-     qpid/console/ObjectId.cpp
-     qpid/console/Package.cpp
-     qpid/console/Schema.cpp
-     qpid/console/SequenceManager.cpp
-     qpid/console/SessionManager.cpp
-     qpid/console/Value.cpp
     )
 add_msvc_version (qmfconsole library dll)
 add_library (qmfconsole SHARED ${qmfconsole_SOURCES})
 target_link_libraries (qmfconsole qpidclient)
 set_target_properties (qmfconsole PROPERTIES
-                       VERSION ${qpidc_version})
+                       VERSION ${qmfconsole_version})
 install (TARGETS qmfconsole
          DESTINATION ${QPID_INSTALL_LIBDIR}
+         COMPONENT ${QPID_COMPONENT_QMF})
+install (FILES ${qmfconsole_HEADERS}
+         DESTINATION ${QPID_INSTALL_INCLUDEDIR}/qpid/console
          COMPONENT ${QPID_COMPONENT_QMF})
 install_pdb (qmfconsole ${QPID_COMPONENT_QMF})
 
@@ -1302,3 +1346,14 @@ configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.h.cmake
                ${CMAKE_CURRENT_BINARY_DIR}/config.h)
 add_subdirectory(qpid/store)
 add_subdirectory(tests)
+
+# Support for pkg-config
+if (UNIX)
+  add_custom_target(pkgconfig ALL echo DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/qpid.pc)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/qpid.pc.in
+                 ${CMAKE_CURRENT_BINARY_DIR}/qpid.pc)
+  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/qpid.pc
+           DESTINATION ${QPID_INSTALL_LIBDIR}/pkgconfig
+           COMPONENT ${QPID_COMPONENT_COMMON})
+endif (UNIX)
+

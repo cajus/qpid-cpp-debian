@@ -57,12 +57,12 @@
  * - management::ManagementBroker: uses MessageHandler supplied by  cluster
  *   to send messages to the broker via the cluster.
  *
- * - Dtx: not yet supported with cluster.
- *
- * cluster::ExpiryPolicy implements the strategy for message expiry.
+ * cluster::ExpiryPolicy uses cluster time.
  *
  * ClusterTimer implements periodic timed events in the cluster context.
- * Used for periodic management events.
+ * Used for:
+ * - periodic management events.
+ * - DTX transaction timeouts.
  *
  * <h1>CLUSTER PROTOCOL OVERVIEW</h1>
  *
@@ -199,7 +199,7 @@ namespace _qmf = ::qmf::org::apache::qpid::cluster;
  * Currently use SVN revision to avoid clashes with versions from
  * different branches.
  */
-const uint32_t Cluster::CLUSTER_VERSION = 1128070;
+const uint32_t Cluster::CLUSTER_VERSION = 1159329;
 
 struct ClusterDispatcher : public framing::AMQP_AllOperations::ClusterHandler {
     qpid::cluster::Cluster& cluster;
@@ -278,7 +278,8 @@ Cluster::Cluster(const ClusterSettings& set, broker::Broker& b) :
     lastBroker(false),
     updateRetracted(false),
     updateClosed(false),
-    error(*this)
+    error(*this),
+    acl(0)
 {
     broker.setInCluster(true);
 
@@ -526,7 +527,7 @@ void Cluster::deliveredFrame(const EventFrame& efConst) {
 
 void Cluster::processFrame(const EventFrame& e, Lock& l) {
     if (e.isCluster()) {
-        QPID_LOG(trace, *this << " DLVR: " << e);
+        QPID_LOG_IF(trace, loggable(e.frame), *this << " DLVR: " << e);
         ClusterDispatcher dispatch(*this, e.connectionId.getMember(), l);
         if (!framing::invoke(dispatch, *e.frame.getBody()).wasHandled())
             throw Exception(QPID_MSG("Invalid cluster control"));
@@ -535,14 +536,15 @@ void Cluster::processFrame(const EventFrame& e, Lock& l) {
         map.incrementFrameSeq();
         ConnectionPtr connection = getConnection(e, l);
         if (connection) {
-            QPID_LOG(trace, *this << " DLVR " << map.getFrameSeq() << ":  " << e);
+            QPID_LOG_IF(trace, loggable(e.frame),
+                        *this << " DLVR " << map.getFrameSeq() << ":  " << e);
             connection->deliveredFrame(e);
         }
         else
             throw Exception(QPID_MSG("Unknown connection: " << e));
     }
     else // Drop connection frames while state < CATCHUP
-        QPID_LOG(trace, *this << " DROP (joining): " << e);
+        QPID_LOG_IF(trace, loggable(e.frame), *this << " DROP (joining): " << e);
 }
 
 // Called in deliverFrameQueue thread
@@ -855,6 +857,8 @@ void Cluster::updateOffer(const MemberId& updater, uint64_t updateeInt, Lock& l)
     else if (updatee == self && url) {
         assert(state == JOINER);
         state = UPDATEE;
+        acl = broker.getAcl();
+        broker.setAcl(0);       // Disable ACL during update
         QPID_LOG(notice, *this << " receiving update from " << updater);
         checkUpdateIn(l);
     }
@@ -955,6 +959,7 @@ void Cluster::checkUpdateIn(Lock& l) {
         // NB: don't updateMgmtMembership() here as we are not in the deliver
         // thread. It will be updated on delivery of the "ready" we just mcast.
         broker.setClusterUpdatee(false);
+        broker.setAcl(acl);     // Restore ACL
         discarding = false;     // OK to set, we're stalled for update.
         QPID_LOG(notice, *this << " update complete, starting catch-up.");
         QPID_LOG(debug, debugSnapshot()); // OK to call because we're stalled.
@@ -1217,6 +1222,14 @@ bool Cluster::deferDeliveryImpl(const std::string& queue,
     msg->encode(buf);
     mcast.mcastControl(ClusterDeliverToQueueBody(ProtocolVersion(), queue, message), self);
     return true;
+}
+
+bool Cluster::loggable(const AMQFrame& f) {
+    const  AMQMethodBody* method = (f.getMethod());
+    if (!method) return true;     // Not a method
+    bool isClock = method->amqpClassId() ==  ClusterClockBody::CLASS_ID
+        && method->amqpMethodId() == ClusterClockBody::METHOD_ID;
+    return !isClock;
 }
 
 }} // namespace qpid::cluster

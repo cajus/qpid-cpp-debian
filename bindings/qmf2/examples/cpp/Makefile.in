@@ -53,8 +53,8 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-noinst_PROGRAMS = agent$(EXEEXT) list_agents$(EXEEXT) \
-	print_events$(EXEEXT)
+noinst_PROGRAMS = agent$(EXEEXT) event_driven_list_agents$(EXEEXT) \
+	list_agents$(EXEEXT) print_events$(EXEEXT)
 subdir = bindings/qmf2/examples/cpp
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -73,6 +73,12 @@ PROGRAMS = $(noinst_PROGRAMS)
 am_agent_OBJECTS = agent.$(OBJEXT)
 agent_OBJECTS = $(am_agent_OBJECTS)
 agent_DEPENDENCIES = $(top_builddir)/src/libqmf2.la
+am_event_driven_list_agents_OBJECTS =  \
+	event_driven_list_agents.$(OBJEXT)
+event_driven_list_agents_OBJECTS =  \
+	$(am_event_driven_list_agents_OBJECTS)
+event_driven_list_agents_DEPENDENCIES =  \
+	$(top_builddir)/src/libqmf2.la
 am_list_agents_OBJECTS = list_agents.$(OBJEXT)
 list_agents_OBJECTS = $(am_list_agents_OBJECTS)
 list_agents_DEPENDENCIES = $(top_builddir)/src/libqmf2.la
@@ -92,10 +98,10 @@ CXXLD = $(CXX)
 CXXLINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
 	--mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(AM_LDFLAGS) \
 	$(LDFLAGS) -o $@
-SOURCES = $(agent_SOURCES) $(list_agents_SOURCES) \
-	$(print_events_SOURCES)
-DIST_SOURCES = $(agent_SOURCES) $(list_agents_SOURCES) \
-	$(print_events_SOURCES)
+SOURCES = $(agent_SOURCES) $(event_driven_list_agents_SOURCES) \
+	$(list_agents_SOURCES) $(print_events_SOURCES)
+DIST_SOURCES = $(agent_SOURCES) $(event_driven_list_agents_SOURCES) \
+	$(list_agents_SOURCES) $(print_events_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -267,6 +273,8 @@ agent_SOURCES = agent.cpp
 agent_LDADD = $(top_builddir)/src/libqmf2.la
 list_agents_SOURCES = list_agents.cpp
 list_agents_LDADD = $(top_builddir)/src/libqmf2.la
+event_driven_list_agents_SOURCES = event_driven_list_agents.cpp
+event_driven_list_agents_LDADD = $(top_builddir)/src/libqmf2.la
 print_events_SOURCES = print_events.cpp
 print_events_LDADD = $(top_builddir)/src/libqmf2.la
 all: all-am
@@ -315,6 +323,9 @@ clean-noinstPROGRAMS:
 agent$(EXEEXT): $(agent_OBJECTS) $(agent_DEPENDENCIES) 
 	@rm -f agent$(EXEEXT)
 	$(CXXLINK) $(agent_OBJECTS) $(agent_LDADD) $(LIBS)
+event_driven_list_agents$(EXEEXT): $(event_driven_list_agents_OBJECTS) $(event_driven_list_agents_DEPENDENCIES) 
+	@rm -f event_driven_list_agents$(EXEEXT)
+	$(CXXLINK) $(event_driven_list_agents_OBJECTS) $(event_driven_list_agents_LDADD) $(LIBS)
 list_agents$(EXEEXT): $(list_agents_OBJECTS) $(list_agents_DEPENDENCIES) 
 	@rm -f list_agents$(EXEEXT)
 	$(CXXLINK) $(list_agents_OBJECTS) $(list_agents_LDADD) $(LIBS)
@@ -329,6 +340,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/agent.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/event_driven_list_agents.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/list_agents.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/print_events.Po@am__quote@
 

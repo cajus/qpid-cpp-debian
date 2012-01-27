@@ -4193,6 +4193,190 @@ inline Packer<OutputTask> serializable(OutputTask& x) { return Packer<OutputTask
 std::ostream& operator << (std::ostream&, const OutputTask&);
 bool operator==(const OutputTask&, const OutputTask&);
 
+struct DtxStart:
+    public Control
+{
+    Str16 xid;
+    Bit ended;
+    Bit suspended;
+    Bit failed;
+    Bit expired;
+    
+    static const char* NAME;
+    static const uint8_t CODE=0x1A;
+    static const uint8_t CLASS_CODE=cluster_connection::CODE;
+    static const char* CLASS_NAME;
+    explicit DtxStart(
+        const Str16& xid_=Str16(),
+        Bit ended_=Bit(),
+        Bit suspended_=Bit(),
+        Bit failed_=Bit(),
+        Bit expired_=Bit()
+    );
+    void accept(Visitor&);
+    void accept(ConstVisitor&) const;
+    template <class S> void serialize(S& s) {
+        s(xid)(ended)(suspended)(failed)(expired);
+    }
+    
+    struct Handler
+    {
+        void clusterConnectionDtxStart(
+            const Str16& xid_,
+            Bit ended_,
+            Bit suspended_,
+            Bit failed_,
+            Bit expired_
+        );
+    };
+    
+    template <class T> void invoke(T& target)const
+    {
+        target.clusterConnectionDtxStart(xid, ended, suspended, failed, expired );
+    }
+};
+inline Packer<DtxStart> serializable(DtxStart& x) { return Packer<DtxStart>(x); }
+std::ostream& operator << (std::ostream&, const DtxStart&);
+bool operator==(const DtxStart&, const DtxStart&);
+
+struct DtxEnd:
+    public Control
+{
+    
+    static const char* NAME;
+    static const uint8_t CODE=0x1B;
+    static const uint8_t CLASS_CODE=cluster_connection::CODE;
+    static const char* CLASS_NAME;
+    explicit DtxEnd();
+    void accept(Visitor&);
+    void accept(ConstVisitor&) const;
+    template <class S> void serialize(S&) {}
+    
+    struct Handler
+    {
+        void clusterConnectionDtxEnd(
+            
+        );
+    };
+    
+    template <class T> void invoke(T& target)const
+    {
+        target.clusterConnectionDtxEnd( );
+    }
+};
+inline Packer<DtxEnd> serializable(DtxEnd& x) { return Packer<DtxEnd>(x); }
+std::ostream& operator << (std::ostream&, const DtxEnd&);
+bool operator==(const DtxEnd&, const DtxEnd&);
+
+struct DtxAck:
+    public Control
+{
+    
+    static const char* NAME;
+    static const uint8_t CODE=0x1C;
+    static const uint8_t CLASS_CODE=cluster_connection::CODE;
+    static const char* CLASS_NAME;
+    explicit DtxAck();
+    void accept(Visitor&);
+    void accept(ConstVisitor&) const;
+    template <class S> void serialize(S&) {}
+    
+    struct Handler
+    {
+        void clusterConnectionDtxAck(
+            
+        );
+    };
+    
+    template <class T> void invoke(T& target)const
+    {
+        target.clusterConnectionDtxAck( );
+    }
+};
+inline Packer<DtxAck> serializable(DtxAck& x) { return Packer<DtxAck>(x); }
+std::ostream& operator << (std::ostream&, const DtxAck&);
+bool operator==(const DtxAck&, const DtxAck&);
+
+struct DtxBufferRef:
+    public Control
+{
+    Str16 xid;
+    Uint32 index;
+    Bit suspended;
+    
+    static const char* NAME;
+    static const uint8_t CODE=0x1D;
+    static const uint8_t CLASS_CODE=cluster_connection::CODE;
+    static const char* CLASS_NAME;
+    explicit DtxBufferRef(
+        const Str16& xid_=Str16(),
+        Uint32 index_=Uint32(),
+        Bit suspended_=Bit()
+    );
+    void accept(Visitor&);
+    void accept(ConstVisitor&) const;
+    template <class S> void serialize(S& s) {
+        s(xid)(index)(suspended);
+    }
+    
+    struct Handler
+    {
+        void clusterConnectionDtxBufferRef(
+            const Str16& xid_,
+            Uint32 index_,
+            Bit suspended_
+        );
+    };
+    
+    template <class T> void invoke(T& target)const
+    {
+        target.clusterConnectionDtxBufferRef(xid, index, suspended );
+    }
+};
+inline Packer<DtxBufferRef> serializable(DtxBufferRef& x) { return Packer<DtxBufferRef>(x); }
+std::ostream& operator << (std::ostream&, const DtxBufferRef&);
+bool operator==(const DtxBufferRef&, const DtxBufferRef&);
+
+struct DtxWorkRecord:
+    public Control
+{
+    Str16 xid;
+    Bit prepared;
+    Uint32 timeout;
+    
+    static const char* NAME;
+    static const uint8_t CODE=0x1E;
+    static const uint8_t CLASS_CODE=cluster_connection::CODE;
+    static const char* CLASS_NAME;
+    explicit DtxWorkRecord(
+        const Str16& xid_=Str16(),
+        Bit prepared_=Bit(),
+        Uint32 timeout_=Uint32()
+    );
+    void accept(Visitor&);
+    void accept(ConstVisitor&) const;
+    template <class S> void serialize(S& s) {
+        s(xid)(prepared)(timeout);
+    }
+    
+    struct Handler
+    {
+        void clusterConnectionDtxWorkRecord(
+            const Str16& xid_,
+            Bit prepared_,
+            Uint32 timeout_
+        );
+    };
+    
+    template <class T> void invoke(T& target)const
+    {
+        target.clusterConnectionDtxWorkRecord(xid, prepared, timeout );
+    }
+};
+inline Packer<DtxWorkRecord> serializable(DtxWorkRecord& x) { return Packer<DtxWorkRecord>(x); }
+std::ostream& operator << (std::ostream&, const DtxWorkRecord&);
+bool operator==(const DtxWorkRecord&, const DtxWorkRecord&);
+
 struct SessionState:
     public Control
 {
@@ -4203,6 +4387,7 @@ struct SessionState:
     SequenceNo received;
     SequenceSet unknownCompleted;
     SequenceSet receivedIncomplete;
+    Bit dtxSelected;
     
     static const char* NAME;
     static const uint8_t CODE=0x1F;
@@ -4215,12 +4400,13 @@ struct SessionState:
         const SequenceNo& expected_=SequenceNo(),
         const SequenceNo& received_=SequenceNo(),
         const SequenceSet& unknownCompleted_=SequenceSet(),
-        const SequenceSet& receivedIncomplete_=SequenceSet()
+        const SequenceSet& receivedIncomplete_=SequenceSet(),
+        Bit dtxSelected_=Bit()
     );
     void accept(Visitor&);
     void accept(ConstVisitor&) const;
     template <class S> void serialize(S& s) {
-        s(replayStart)(commandPoint)(sentIncomplete)(expected)(received)(unknownCompleted)(receivedIncomplete);
+        s(replayStart)(commandPoint)(sentIncomplete)(expected)(received)(unknownCompleted)(receivedIncomplete)(dtxSelected);
     }
     
     struct Handler
@@ -4232,13 +4418,14 @@ struct SessionState:
             const SequenceNo& expected_,
             const SequenceNo& received_,
             const SequenceSet& unknownCompleted_,
-            const SequenceSet& receivedIncomplete_
+            const SequenceSet& receivedIncomplete_,
+            Bit dtxSelected_
         );
     };
     
     template <class T> void invoke(T& target)const
     {
-        target.clusterConnectionSessionState(replayStart, commandPoint, sentIncomplete, expected, received, unknownCompleted, receivedIncomplete );
+        target.clusterConnectionSessionState(replayStart, commandPoint, sentIncomplete, expected, received, unknownCompleted, receivedIncomplete, dtxSelected );
     }
 };
 inline Packer<SessionState> serializable(SessionState& x) { return Packer<SessionState>(x); }

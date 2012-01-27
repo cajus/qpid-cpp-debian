@@ -67,6 +67,11 @@ except AttributeError:
     _newclass = 0
 
 
+Empty = _cqpid.NoMessageAvailable
+TargetCapacityExceeded = _cqpid.TargetCapacityExceeded
+NotFound = _cqpid.NotFound
+ConnectError = _cqpid.TransportFailure
+
 class Address(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, Address, name, value)
@@ -137,8 +142,8 @@ class Message(_object):
         except: self.this = this
     __swig_destroy__ = _cqpid.delete_Message
     __del__ = lambda self : None;
-    def setReplyTo(self, *args): return _cqpid.Message_setReplyTo(self, *args)
-    def getReplyTo(self): return _cqpid.Message_getReplyTo(self)
+    def _setReplyTo(self, *args): return _cqpid.Message__setReplyTo(self, *args)
+    def _getReplyTo(self): return _cqpid.Message__getReplyTo(self)
     def setSubject(self, *args): return _cqpid.Message_setSubject(self, *args)
     def getSubject(self): return _cqpid.Message_getSubject(self)
     def setContentType(self, *args): return _cqpid.Message_setContentType(self, *args)
@@ -151,8 +156,8 @@ class Message(_object):
     def getCorrelationId(self): return _cqpid.Message_getCorrelationId(self)
     def setPriority(self, *args): return _cqpid.Message_setPriority(self, *args)
     def getPriority(self): return _cqpid.Message_getPriority(self)
-    def setTtl(self, *args): return _cqpid.Message_setTtl(self, *args)
-    def getTtl(self): return _cqpid.Message_getTtl(self)
+    def _setTtl(self, *args): return _cqpid.Message__setTtl(self, *args)
+    def _getTtl(self): return _cqpid.Message__getTtl(self)
     def setDurable(self, *args): return _cqpid.Message_setDurable(self, *args)
     def getDurable(self): return _cqpid.Message_getDurable(self)
     def getRedelivered(self): return _cqpid.Message_getRedelivered(self)
@@ -163,6 +168,132 @@ class Message(_object):
     def getContentPtr(self): return _cqpid.Message_getContentPtr(self)
     def getContentSize(self): return _cqpid.Message_getContentSize(self)
     def setProperty(self, *args): return _cqpid.Message_setProperty(self, *args)
+    # UNSPECIFIED was module level before, but I do not
+    # know how to insert python code at the top of the module.
+    # (A bare "%pythoncode" inserts at the end.
+    UNSPECIFIED=object()
+    def __init__(self, content=None, content_type=UNSPECIFIED, id=None,
+                 subject=None, user_id=None, reply_to=None,
+                 correlation_id=None, durable=None, priority=None,
+                 ttl=None, properties=None):
+        this = _cqpid.new_Message('')
+        try: self.this.append(this)
+        except: self.this = this
+        if content :
+            self.content = content
+        if content_type != UNSPECIFIED :
+            self.content_type = content_type
+        if id is not None :
+            self.id = id
+        if subject is not None :
+            self.subject = subject
+        if user_id is not None :
+            self.user_id = user_id
+        if reply_to is not None :
+            self.reply_to = reply_to
+        if correlation_id is not None :
+            self.correlation_id = correlation_id
+        if durable is not None :
+            self.durable = durable
+        if priority is not None :
+            self.priority = priority
+        if ttl is not None :
+            self.ttl = ttl
+        if properties is not None :
+            # Can't set properties via (inst).getProperties, because
+            # the typemaps make a copy of the underlying properties.
+            # Instead, set via setProperty for the time-being
+            for k, v in properties.iteritems() :
+                self.setProperty(k, v)
+
+    def _get_content(self) :
+        if self.content_type == "amqp/list" :
+            return decodeList(self)
+        if self.content_type == "amqp/map" :
+            return decodeMap(self)
+        return self.getContent()
+    def _set_content(self, content) :
+        if isinstance(content, basestring) :
+            self.setContent(content)
+        elif isinstance(content, list) or isinstance(content, dict) :
+            encode(content, self)
+        else :
+            # Not a type we can handle.  Try setting it anyway,
+            # although this will probably lead to a swig error
+            self.setContent(content)
+    __swig_getmethods__["content"] = _get_content
+    __swig_setmethods__["content"] = _set_content
+    if _newclass: content = _swig_property(_get_content, _set_content)
+
+    __swig_getmethods__["content_type"] = getContentType
+    __swig_setmethods__["content_type"] = setContentType
+    if _newclass: content_type = _swig_property(getContentType,
+                                                setContentType)
+
+    __swig_getmethods__["id"] = getMessageId
+    __swig_setmethods__["id"] = setMessageId
+    if _newclass: id = _swig_property(getMessageId, setMessageId)
+
+    __swig_getmethods__["subject"] = getSubject
+    __swig_setmethods__["subject"] = setSubject
+    if _newclass: subject = _swig_property(getSubject, setSubject)
+
+    __swig_getmethods__["priority"] = getPriority
+    __swig_setmethods__["priority"] = setPriority
+    if _newclass: priority = _swig_property(getPriority, setPriority)
+
+    def getTtl(self) :
+        return self._getTtl().getMilliseconds()/1000.0
+    def setTtl(self, duration) :
+        self._setTtl(Duration(int(1000*duration)))
+    __swig_getmethods__["ttl"] = getTtl
+    __swig_setmethods__["ttl"] = setTtl
+    if _newclass: ttl = _swig_property(getTtl, setTtl)
+
+    __swig_getmethods__["user_id"] = getUserId
+    __swig_setmethods__["user_id"] = setUserId
+    if _newclass: user_id = _swig_property(getUserId, setUserId)
+
+    __swig_getmethods__["correlation_id"] = getCorrelationId
+    __swig_setmethods__["correlation_id"] = setCorrelationId
+    if _newclass: correlation_id = _swig_property(getCorrelationId,
+                                                  setCorrelationId)
+
+    __swig_getmethods__["redelivered"] = getRedelivered
+    __swig_setmethods__["redelivered"] = setRedelivered
+    if _newclass: redelivered = _swig_property(getRedelivered,
+                                               setRedelivered)
+
+    __swig_getmethods__["durable"] = getDurable
+    __swig_setmethods__["durable"] = setDurable
+    if _newclass: durable = _swig_property(getDurable, setDurable)
+
+    __swig_getmethods__["properties"] = getProperties
+    if _newclass: properties = _swig_property(getProperties)
+
+    def getReplyTo(self) :
+        return self._getReplyTo().str()
+    def setReplyTo(self, address_str) :
+        self._setReplyTo(Address(address_str))
+    __swig_getmethods__["reply_to"] = getReplyTo
+    __swig_setmethods__["reply_to"] = setReplyTo
+    if _newclass: reply_to = _swig_property(getReplyTo, setReplyTo)
+
+    def __repr__(self):
+        args = []
+        for name in ["id", "subject", "user_id", "reply_to",
+                     "correlation_id", "priority", "ttl",
+                     "durable", "redelivered", "properties",
+                     "content_type"] :
+            value = getattr(self, name)
+            if value : args.append("%s=%r" % (name, value))
+        if self.content is not None:
+            if args:
+                args.append("content=%r" % self.content)
+            else:
+                args.append(repr(self.content))
+        return "Message(%s)" % ", ".join(args)
+
 Message_swigregister = _cqpid.Message_swigregister
 Message_swigregister(Message)
 
@@ -198,15 +329,30 @@ class Receiver(_object):
     __swig_destroy__ = _cqpid.delete_Receiver
     __del__ = lambda self : None;
     def get(self, *args): return _cqpid.Receiver_get(self, *args)
-    def fetch(self, *args): return _cqpid.Receiver_fetch(self, *args)
+    def _fetch(self, *args): return _cqpid.Receiver__fetch(self, *args)
     def setCapacity(self, *args): return _cqpid.Receiver_setCapacity(self, *args)
     def getCapacity(self): return _cqpid.Receiver_getCapacity(self)
-    def getAvailable(self): return _cqpid.Receiver_getAvailable(self)
-    def getUnsettled(self): return _cqpid.Receiver_getUnsettled(self)
+    def available(self): return _cqpid.Receiver_available(self)
+    def unsettled(self): return _cqpid.Receiver_unsettled(self)
     def close(self): return _cqpid.Receiver_close(self)
     def isClosed(self): return _cqpid.Receiver_isClosed(self)
     def getName(self): return _cqpid.Receiver_getName(self)
     def getSession(self): return _cqpid.Receiver_getSession(self)
+    __swig_getmethods__["capacity"] = getCapacity
+    __swig_setmethods__["capacity"] = setCapacity
+    if _newclass: capacity = _swig_property(getCapacity, setCapacity)
+
+    __swig_getmethods__["session"] = getSession
+    if _newclass: session = _swig_property(getSession)
+
+    def fetch(self, timeout=None) :
+        if timeout is None :
+            return self._fetch()
+        else :
+            # Python API uses timeouts in seconds,
+            # but C++ API uses milliseconds
+            return self._fetch(Duration(int(1000*timeout)))
+
 Receiver_swigregister = _cqpid.Receiver_swigregister
 Receiver_swigregister(Receiver)
 
@@ -230,14 +376,28 @@ class Sender(_object):
         except: self.this = this
     __swig_destroy__ = _cqpid.delete_Sender
     __del__ = lambda self : None;
-    def send(self, *args): return _cqpid.Sender_send(self, *args)
+    def _send(self, *args): return _cqpid.Sender__send(self, *args)
     def close(self): return _cqpid.Sender_close(self)
     def setCapacity(self, *args): return _cqpid.Sender_setCapacity(self, *args)
     def getCapacity(self): return _cqpid.Sender_getCapacity(self)
-    def getUnsettled(self): return _cqpid.Sender_getUnsettled(self)
-    def getAvailable(self): return _cqpid.Sender_getAvailable(self)
+    def unsettled(self): return _cqpid.Sender_unsettled(self)
+    def available(self): return _cqpid.Sender_available(self)
     def getName(self): return _cqpid.Sender_getName(self)
     def getSession(self): return _cqpid.Sender_getSession(self)
+    def send(self, object, sync=True) :
+        if isinstance(object, Message):
+            message = object
+        else:
+            message = Message(object)
+        return self._send(message, sync)
+
+    __swig_getmethods__["capacity"] = getCapacity
+    __swig_setmethods__["capacity"] = setCapacity
+    if _newclass: capacity = _swig_property(getCapacity, setCapacity)
+
+    __swig_getmethods__["session"] = getSession
+    if _newclass: session = _swig_property(getSession)
+
 Sender_swigregister = _cqpid.Sender_swigregister
 Sender_swigregister(Sender)
 
@@ -256,6 +416,8 @@ class Session(_object):
     def close(self): return _cqpid.Session_close(self)
     def commit(self): return _cqpid.Session_commit(self)
     def rollback(self): return _cqpid.Session_rollback(self)
+    def _acknowledge_all(self, sync = False): return _cqpid.Session__acknowledge_all(self, sync)
+    def _acknowledge_msg(self, *args): return _cqpid.Session__acknowledge_msg(self, *args)
     def acknowledge(self, *args): return _cqpid.Session_acknowledge(self, *args)
     def acknowledgeUpTo(self, *args): return _cqpid.Session_acknowledgeUpTo(self, *args)
     def reject(self, *args): return _cqpid.Session_reject(self, *args)
@@ -264,13 +426,25 @@ class Session(_object):
     def getReceivable(self): return _cqpid.Session_getReceivable(self)
     def getUnsettledAcks(self): return _cqpid.Session_getUnsettledAcks(self)
     def nextReceiver(self, *args): return _cqpid.Session_nextReceiver(self, *args)
-    def createSender(self, *args): return _cqpid.Session_createSender(self, *args)
-    def createReceiver(self, *args): return _cqpid.Session_createReceiver(self, *args)
+    def sender(self, *args): return _cqpid.Session_sender(self, *args)
+    def receiver(self, *args): return _cqpid.Session_receiver(self, *args)
     def getSender(self, *args): return _cqpid.Session_getSender(self, *args)
     def getReceiver(self, *args): return _cqpid.Session_getReceiver(self, *args)
     def getConnection(self): return _cqpid.Session_getConnection(self)
     def hasError(self): return _cqpid.Session_hasError(self)
     def checkError(self): return _cqpid.Session_checkError(self)
+    def acknowledge(self, message=None, disposition=None, sync=True) :
+        if disposition :
+            raise Exception("SWIG does not support dispositions yet. Use "
+                            "Session.reject and Session.release instead")
+        if message :
+            self._acknowledge_msg(message, sync)
+        else :
+            self._acknowledge_all(sync)
+
+    __swig_getmethods__["connection"] = getConnection
+    if _newclass: connection = _swig_property(getConnection)
+
 Session_swigregister = _cqpid.Session_swigregister
 Session_swigregister(Session)
 
@@ -288,12 +462,43 @@ class Connection(_object):
     __del__ = lambda self : None;
     def setOption(self, *args): return _cqpid.Connection_setOption(self, *args)
     def open(self): return _cqpid.Connection_open(self)
-    def isOpen(self, *args): return _cqpid.Connection_isOpen(self, *args)
+    def opened(self): return _cqpid.Connection_opened(self)
+    def isOpen(self): return _cqpid.Connection_isOpen(self)
     def close(self): return _cqpid.Connection_close(self)
     def createTransactionalSession(self, *args): return _cqpid.Connection_createTransactionalSession(self, *args)
     def createSession(self, *args): return _cqpid.Connection_createSession(self, *args)
     def getSession(self, *args): return _cqpid.Connection_getSession(self, *args)
     def getAuthenticatedUsername(self): return _cqpid.Connection_getAuthenticatedUsername(self)
+    # Handle the different options by converting underscores to hyphens.
+    # Also, the sasl_mechanisms option in Python has no direct
+    # equivalent in C++, so we will translate them to sasl_mechanism
+    # when possible.
+    def __init__(self, url=None, **options):
+        args = [url] if url else []
+        if options :
+            if "sasl_mechanisms" in options :
+                if ' ' in options.get("sasl_mechanisms",'') :
+                    raise Exception(
+                        "C++ Connection objects are unable to handle "
+                        "multiple sasl-mechanisms")
+                options["sasl_mechanism"] = options.pop("sasl_mechanisms")
+            args.append(options)
+        this = _cqpid.new_Connection(*args)
+        try: self.this.append(this)
+        except: self.this = this
+
+    def _session(self, *args): return _cqpid.Connection__session(self, *args)
+    def session(self, name=None, transactional=False) :
+        if name is None :
+            name = ''
+        return self._session(name, transactional)
+
+    @staticmethod
+    def establish(url=None, **options) :
+        conn = Connection(url, **options)
+        conn.open()
+        return conn
+
 Connection_swigregister = _cqpid.Connection_swigregister
 Connection_swigregister(Connection)
 
@@ -320,6 +525,9 @@ decodeMap = _cqpid.decodeMap
 def decodeList(*args):
   return _cqpid.decodeList(*args)
 decodeList = _cqpid.decodeList
+# Bring into module scope
+UNSPECIFIED = Message.UNSPECIFIED
+
 # This file is compatible with both classic and new-style classes.
 
 

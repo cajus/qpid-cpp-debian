@@ -276,6 +276,7 @@ void IncomingMessages::retrieve(FrameSetPtr command, qpid::messaging::Message* m
     }
     const MessageTransferBody* transfer = command->as<MessageTransferBody>(); 
     if (transfer->getAcquireMode() == ACQUIRE_MODE_PRE_ACQUIRED && transfer->getAcceptMode() == ACCEPT_MODE_EXPLICIT) {
+        sys::Mutex::ScopedLock l(lock);
         acceptTracker.delivered(transfer->getDestination(), command->getId());
     }
     session.markCompleted(command->getId(), false, false);
@@ -301,6 +302,7 @@ const std::string SUBJECT("qpid.subject");
 const std::string X_APP_ID("x-amqp-0-10.app-id");
 const std::string X_ROUTING_KEY("x-amqp-0-10.routing-key");
 const std::string X_CONTENT_ENCODING("x-amqp-0-10.content-encoding");
+const std::string X_TIMESTAMP("x-amqp-0-10.timestamp");
 }
 
 void populateHeaders(qpid::messaging::Message& message, 
@@ -334,9 +336,12 @@ void populateHeaders(qpid::messaging::Message& message,
         if (messageProperties->hasContentEncoding()) {
             message.getProperties()[X_CONTENT_ENCODING] = messageProperties->getContentEncoding();
         }
-        //    routing-key, others?
+        //    routing-key, timestamp, others?
         if (deliveryProperties && deliveryProperties->hasRoutingKey()) {
             message.getProperties()[X_ROUTING_KEY] = deliveryProperties->getRoutingKey();
+        }
+        if (deliveryProperties && deliveryProperties->hasTimestamp()) {
+            message.getProperties()[X_TIMESTAMP] = deliveryProperties->getTimestamp();
         }
     }
 }

@@ -40,6 +40,7 @@ namespace broker {
     std::string i_srcQueue;
     std::string i_destQueue;
     uint32_t i_qty;
+    ::qpid::types::Variant::Map i_filter;
 
 };
 

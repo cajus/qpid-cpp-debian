@@ -273,7 +273,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-@HAVE_SWIG_TRUE@EXTRA_DIST = qmfengine.i
+@HAVE_SWIG_TRUE@EXTRA_DIST = CMakeLists.txt qmfengine.i
 @HAVE_SWIG_TRUE@SUBDIRS = tests $(am__append_1) $(am__append_2)
 all: all-recursive
 

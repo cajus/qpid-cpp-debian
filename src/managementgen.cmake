@@ -110,8 +110,11 @@ set(mgen_broker_cpp qmf/org/apache/qpid/broker/System.cpp
     #qmf/org/apache/qpid/broker/ArgsBrokerQueueMoveMessages.h
     #qmf/org/apache/qpid/broker/ArgsBrokerSetLogLevel.h
     #qmf/org/apache/qpid/broker/ArgsBrokerGetLogLevel.h
+    #qmf/org/apache/qpid/broker/ArgsBrokerGetTimestampConfig.h
+    #qmf/org/apache/qpid/broker/ArgsBrokerSetTimestampConfig.h
     #qmf/org/apache/qpid/broker/ArgsBrokerCreate.h
     #qmf/org/apache/qpid/broker/ArgsBrokerDelete.h
+    #qmf/org/apache/qpid/broker/ArgsBrokerQuery.h
     #qmf/org/apache/qpid/broker/ArgsQueuePurge.h
     #qmf/org/apache/qpid/broker/ArgsQueueReroute.h
     #qmf/org/apache/qpid/broker/ArgsLinkBridge.h
@@ -173,8 +176,11 @@ set(qmfgen_sources qmf/org/apache/qpid/broker/System.h
     qmf/org/apache/qpid/broker/ArgsBrokerQueueMoveMessages.h 
     qmf/org/apache/qpid/broker/ArgsBrokerSetLogLevel.h 
     qmf/org/apache/qpid/broker/ArgsBrokerGetLogLevel.h 
+    qmf/org/apache/qpid/broker/ArgsBrokerGetTimestampConfig.h 
+    qmf/org/apache/qpid/broker/ArgsBrokerSetTimestampConfig.h 
     qmf/org/apache/qpid/broker/ArgsBrokerCreate.h 
     qmf/org/apache/qpid/broker/ArgsBrokerDelete.h 
+    qmf/org/apache/qpid/broker/ArgsBrokerQuery.h 
     qmf/org/apache/qpid/broker/ArgsQueuePurge.h 
     qmf/org/apache/qpid/broker/ArgsQueueReroute.h 
     qmf/org/apache/qpid/broker/ArgsLinkBridge.h 

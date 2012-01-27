@@ -139,6 +139,11 @@
 #include "qpid/framing/ClusterConnectionTxEndBody.h"
 #include "qpid/framing/ClusterConnectionAccumulatedAckBody.h"
 #include "qpid/framing/ClusterConnectionOutputTaskBody.h"
+#include "qpid/framing/ClusterConnectionDtxStartBody.h"
+#include "qpid/framing/ClusterConnectionDtxEndBody.h"
+#include "qpid/framing/ClusterConnectionDtxAckBody.h"
+#include "qpid/framing/ClusterConnectionDtxBufferRefBody.h"
+#include "qpid/framing/ClusterConnectionDtxWorkRecordBody.h"
 #include "qpid/framing/ClusterConnectionSessionStateBody.h"
 #include "qpid/framing/ClusterConnectionShadowReadyBody.h"
 #include "qpid/framing/ClusterConnectionMembershipBody.h"
@@ -318,6 +323,11 @@ boost::intrusive_ptr<AMQMethodBody> MethodBodyFactory::create(ClassId c, MethodI
             case 0x17: return BodyFactory::create<ClusterConnectionTxEndBody>();
             case 0x18: return BodyFactory::create<ClusterConnectionAccumulatedAckBody>();
             case 0x19: return BodyFactory::create<ClusterConnectionOutputTaskBody>();
+            case 0x1A: return BodyFactory::create<ClusterConnectionDtxStartBody>();
+            case 0x1B: return BodyFactory::create<ClusterConnectionDtxEndBody>();
+            case 0x1C: return BodyFactory::create<ClusterConnectionDtxAckBody>();
+            case 0x1D: return BodyFactory::create<ClusterConnectionDtxBufferRefBody>();
+            case 0x1E: return BodyFactory::create<ClusterConnectionDtxWorkRecordBody>();
             case 0x1F: return BodyFactory::create<ClusterConnectionSessionStateBody>();
             case 0x20: return BodyFactory::create<ClusterConnectionShadowReadyBody>();
             case 0x21: return BodyFactory::create<ClusterConnectionMembershipBody>();
