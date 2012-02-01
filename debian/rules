@@ -19,7 +19,7 @@ override_dh_auto_configure:
 	dh_auto_configure -- --with-sasl --with-xml --with-rdma --with-ssl --with-cpg --with-swig --libexecdir='/usr/lib'
 
 override_dh_auto_test:
-	# do not test here because of cyclic dependencies
+	# do not test
 
 %:
-	dh  $@ --with python2 --with autoreconf
+	dh  $@ --with python2
