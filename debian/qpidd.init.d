@@ -58,6 +58,11 @@ if [ ! -d /var/run/qpid ]; then
 	install -d -o$DAEMONUSER -m750 /var/run/qpid
 fi
 
+# Create /var/spool/qpidd if it does not exist
+if [ ! -d /var/spool/qpidd ]; then
+	install -d -o$DAEMONUSER -m750 /var/spool/qpidd
+fi
+
 
 set -e
 

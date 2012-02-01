@@ -1,3 +1,9 @@
+qpid-cpp (0.14-2) unstable; urgency=low
+
+  * Create missing spool directory.
+
+ -- Cajus Pollmeier <cajus@debian.org>  Wed, 01 Feb 2012 07:51:20 +0100
+
 qpid-cpp (0.14-1) unstable; urgency=low
 
   * New upstream release.
