@@ -1,5 +1,5 @@
---- a/src/qpid/sys/posix/SocketAddress.cpp	2012/02/09 17:40:14	1242411
-+++ b/src/qpid/sys/posix/SocketAddress.cpp	2012/02/16 21:43:35	1245195
+--- a/src/qpid/sys/posix/SocketAddress.cpp
++++ b/src/qpid/sys/posix/SocketAddress.cpp
 @@ -84,8 +84,8 @@
  uint16_t SocketAddress::getPort(::sockaddr const * const addr)
  {
@@ -11,3 +11,14 @@
          default:throw Exception(QPID_MSG("Unexpected socket type"));
      }
  }
+
+--- a/src/qpid/sys/posix/Socket.cpp
++++ b/src/qpid/sys/posix/Socket.cpp
+@@ -29,6 +29,7 @@
+ #include <sys/types.h>
+ #include <sys/socket.h>
+ #include <sys/errno.h>
++#include <unistd.h>
+ #include <netinet/in.h>
+ #include <netinet/tcp.h>
+ #include <netdb.h>

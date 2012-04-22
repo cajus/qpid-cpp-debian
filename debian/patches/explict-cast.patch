@@ -1,5 +1,5 @@
---- a/src/qpid/broker/MessageGroupManager.cpp	2011/11/09 18:46:57	1199914
-+++ b/src/qpid/broker/MessageGroupManager.cpp	2011/12/12 22:55:20	1213485
+--- a/src/qpid/broker/MessageGroupManager.cpp
++++ b/src/qpid/broker/MessageGroupManager.cpp
 @@ -280,7 +280,7 @@
           g != messageGroups.end(); ++g) {
          qpid::types::Variant::Map info;
