@@ -1,0 +1,11 @@
+--- a/src/qpid/broker/MessageGroupManager.cpp	2011/11/09 18:46:57	1199914
++++ b/src/qpid/broker/MessageGroupManager.cpp	2011/12/12 22:55:20	1213485
+@@ -280,7 +280,7 @@
+          g != messageGroups.end(); ++g) {
+         qpid::types::Variant::Map info;
+         info[GROUP_ID_KEY] = g->first;
+-        info[GROUP_MSG_COUNT] = g->second.members.size();
++        info[GROUP_MSG_COUNT] = (uint64_t) g->second.members.size();
+         // set the timestamp to the arrival timestamp of the oldest (HEAD) message, if present
+         info[GROUP_TIMESTAMP] = 0;
+         if (g->second.members.size() != 0) {
