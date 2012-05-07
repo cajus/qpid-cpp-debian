@@ -27,6 +27,8 @@ set_admin_pass() {
         fi
 
 	echo -n "$RET" | saslpasswd2 -cpf /etc/qpid/qpidd.sasldb -u QPID admin
+        chown root:qpidd /etc/qpid/qpidd.sasldb
+	chmod 640 /etc/qpid/qpidd.sasldb
 
         # Purge data
         db_set qpidd/password1 ""

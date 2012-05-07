@@ -1,10 +1,5 @@
 fix-explicit-link.patch
 no-system-tests.patch
-no-implmenetion-detail.patch
-disable-perl.patch
 module-location.patch
-fix-unused.patch
 fix-armel-compilation.patch
-fix-alignment.patch
-explicit-cast.patch
 sasldb-location.patch
