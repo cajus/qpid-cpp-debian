@@ -2,7 +2,7 @@ qpid-cpp (0.16-1) unstable; urgency=low
 
   * New upstream release.
   * Upstream release fixes compilation problems on several platforms with
-    gcc 4.7. (Closes: #670056)
+    gcc 4.7. (Closes: #670056, #672091)
 
  -- Cajus Pollmeier <cajus@debian.org>  Wed, 11 Apr 2012 09:38:05 +0200
 
