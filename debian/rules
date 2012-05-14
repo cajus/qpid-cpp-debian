@@ -7,16 +7,17 @@
 # This special exception was added by Craig Small in version 0.37 of dh-make.
 
 # Uncomment this to turn on verbose mode.
-#export DH_VERBOSE=1
+export DH_VERBOSE=1
 
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 
 # Set install ruby locations for configure
 export RUBY_LIB = $(shell ruby1.8 -r rbconfig -e 'print Config::CONFIG["rubylibdir"]' | sed 's,/ruby/,/ruby/vendor_ruby/,')
 export RUBY_LIB_ARCH = $(shell ruby1.8 -r rbconfig -e 'print Config::CONFIG["archdir"]' | sed 's,/ruby/,/ruby/vendor_ruby/,')
+export LDFLAGS=-L$(CURDIR)/src/.libs
 
 override_dh_auto_configure:
 	dh_auto_configure -- --with-sasl --with-xml --with-rdma --with-ssl --with-cpg --with-swig --libexecdir='/usr/lib'
 
 %:
-	dh  $@ --with python2
+	dh  $@ --with python2 --with autoreconf

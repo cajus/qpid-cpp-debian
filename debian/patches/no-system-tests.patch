@@ -9,14 +9,3 @@
    run_acl_tests run_cli_tests replication_test dynamic_log_level_test \
    run_queue_flow_limit_tests ipv6_test
  
---- a/src/tests/Makefile.in
-+++ b/src/tests/Makefile.in
-@@ -166,7 +166,7 @@
- 	msg_group_test$(EXEEXT)
- TESTS = unit_test$(EXEEXT) $(am__append_2) $(am__append_9) \
- 	$(am__append_12) start_broker $(am__EXEEXT_3) python_tests \
--	stop_broker ha_tests.py run_federation_tests \
-+	stop_broker run_federation_tests \
- 	run_federation_sys_tests run_acl_tests run_cli_tests \
- 	replication_test dynamic_log_level_test \
- 	run_queue_flow_limit_tests ipv6_test

@@ -12,22 +12,3 @@
 +#endif
  
  endif
---- a/bindings/qpid/Makefile.in
-+++ b/bindings/qpid/Makefile.in
-@@ -54,7 +54,6 @@
- host_triplet = @host@
- @HAVE_RUBY_DEVEL_TRUE@@HAVE_SWIG_TRUE@am__append_1 = ruby
- @HAVE_PYTHON_DEVEL_TRUE@@HAVE_SWIG_TRUE@am__append_2 = python
--@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@am__append_3 = perl
- subdir = bindings/qpid
- DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
- ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
-@@ -85,7 +84,7 @@
- 	distdir
- ETAGS = etags
- CTAGS = ctags
--DIST_SUBDIRS = dotnet ruby python perl
-+DIST_SUBDIRS = dotnet ruby python
- DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
- am__relativize = \
-   dir0=`pwd`; \

@@ -11,16 +11,3 @@
  dmoduleexec_LTLIBRARIES =
  cmoduleexec_LTLIBRARIES =
  
---- a/src/Makefile.in
-+++ b/src/Makefile.in
-@@ -3031,8 +3031,8 @@
- # Definitions for client and daemon plugins
- PLUGINLDFLAGS = -no-undefined -module -avoid-version
- confdir = $(sysconfdir)/qpid
--dmoduleexecdir = $(libdir)/qpid/daemon
--cmoduleexecdir = $(libdir)/qpid/client
-+dmoduleexecdir = /usr/lib/qpid/daemon
-+cmoduleexecdir = /usr/lib/qpid/client
- 
- #
- # Licensed to the Apache Software Foundation (ASF) under one
