@@ -58,6 +58,22 @@ SequenceNumber ClusterConnectionConsumerStateBody::getPosition() const { return 
 bool ClusterConnectionConsumerStateBody::hasPosition() const { return flags & (1 << 11); }
 void ClusterConnectionConsumerStateBody::clearPositionFlag() { flags &= ~(1 << 11); }
 
+void ClusterConnectionConsumerStateBody::setUsedMsgCredit(uint32_t _usedMsgCredit) {
+    usedMsgCredit = _usedMsgCredit;
+    flags |= (1 << 12);
+}
+uint32_t ClusterConnectionConsumerStateBody::getUsedMsgCredit() const { return usedMsgCredit; }
+bool ClusterConnectionConsumerStateBody::hasUsedMsgCredit() const { return flags & (1 << 12); }
+void ClusterConnectionConsumerStateBody::clearUsedMsgCreditFlag() { flags &= ~(1 << 12); }
+
+void ClusterConnectionConsumerStateBody::setUsedByteCredit(uint32_t _usedByteCredit) {
+    usedByteCredit = _usedByteCredit;
+    flags |= (1 << 13);
+}
+uint32_t ClusterConnectionConsumerStateBody::getUsedByteCredit() const { return usedByteCredit; }
+bool ClusterConnectionConsumerStateBody::hasUsedByteCredit() const { return flags & (1 << 13); }
+void ClusterConnectionConsumerStateBody::clearUsedByteCreditFlag() { flags &= ~(1 << 13); }
+
 void ClusterConnectionConsumerStateBody::encodeStructBody(Buffer& buffer) const
 {
 encodeHeader(buffer);
@@ -66,6 +82,10 @@ encodeHeader(buffer);
         buffer.putShortString(name);
     if (flags & (1 << 11))
         position.encode(buffer);
+    if (flags & (1 << 12))
+        buffer.putLong(usedMsgCredit);
+    if (flags & (1 << 13))
+        buffer.putLong(usedByteCredit);
 }
 
 void ClusterConnectionConsumerStateBody::encode(Buffer& buffer) const
@@ -81,6 +101,10 @@ decodeHeader(buffer);
         buffer.getShortString(name);
     if (flags & (1 << 11))
         position.decode(buffer);
+    if (flags & (1 << 12))
+        usedMsgCredit = buffer.getLong();
+    if (flags & (1 << 13))
+        usedByteCredit = buffer.getLong();
 }
 
 void ClusterConnectionConsumerStateBody::decode(Buffer& buffer, uint32_t /*size*/)
@@ -97,6 +121,10 @@ total += headerSize();
         total += 1 + name.size();
     if (flags & (1 << 11))
         total += position.encodedSize();
+    if (flags & (1 << 12))
+        total += 4;//usedMsgCredit
+    if (flags & (1 << 13))
+        total += 4;//usedByteCredit
     return total;
 }
 
@@ -116,5 +144,9 @@ void ClusterConnectionConsumerStateBody::print(std::ostream& out) const
         out << "notifyEnabled=" << getNotifyEnabled() << "; ";
     if (flags & (1 << 11))
         out << "position=" << position << "; ";
+    if (flags & (1 << 12))
+        out << "used-msg-credit=" << usedMsgCredit << "; ";
+    if (flags & (1 << 13))
+        out << "used-byte-credit=" << usedByteCredit << "; ";
     out << "}";
 }

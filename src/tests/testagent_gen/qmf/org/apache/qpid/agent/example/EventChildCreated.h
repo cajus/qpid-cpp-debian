@@ -25,6 +25,7 @@
 // Please do not edit.
 
 #include "qpid/management/ManagementEvent.h"
+#include "qmf/BrokerImportExport.h"
 
 namespace qmf {
 namespace org {
@@ -34,7 +35,7 @@ namespace agent {
 namespace example {
 
 
-class EventChildCreated : public ::qpid::management::ManagementEvent
+QPID_BROKER_CLASS_EXTERN class EventChildCreated : public ::qpid::management::ManagementEvent
 {
   private:
     static void writeSchema (std::string& schema);
@@ -48,16 +49,18 @@ class EventChildCreated : public ::qpid::management::ManagementEvent
   public:
     writeSchemaCall_t getWriteSchemaCall(void) { return writeSchema; }
 
-    EventChildCreated(const std::string& _childName);
-    ~EventChildCreated() {};
+    QPID_BROKER_EXTERN EventChildCreated(const std::string& _childName);
+    QPID_BROKER_EXTERN ~EventChildCreated() {};
 
     static void registerSelf(::qpid::management::ManagementAgent* agent);
     std::string& getPackageName() const { return packageName; }
     std::string& getEventName() const { return eventName; }
     uint8_t* getMd5Sum() const { return md5Sum; }
     uint8_t getSeverity() const { return 6; }
-    void encode(std::string& buffer) const;
-    void mapEncode(::qpid::types::Variant::Map& map) const;
+    QPID_BROKER_EXTERN void encode(std::string& buffer) const;
+    QPID_BROKER_EXTERN void mapEncode(::qpid::types::Variant::Map& map) const;
+
+    QPID_BROKER_EXTERN static bool match(const std::string& evt, const std::string& pkg);
 };
 
 }}}}}}

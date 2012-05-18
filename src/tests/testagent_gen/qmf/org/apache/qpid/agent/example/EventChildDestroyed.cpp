@@ -107,3 +107,8 @@ void EventChildDestroyed::mapEncode(::qpid::types::Variant::Map& map) const
     map["childName"] = ::qpid::types::Variant(childName);
 
 }
+
+bool EventChildDestroyed::match(const std::string& evt, const std::string& pkg)
+{
+    return eventName == evt && packageName == pkg;
+}

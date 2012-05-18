@@ -119,7 +119,8 @@ Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Print in format 1b4e28ba-2fa1-11d2-883f-b9a761bde3fb.  <a href="#af86247d266d06be5863387fc0e0c861f"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00170.html">std::istream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a891bb9ebc0abcbb75cb1f4f9c2da3342">operator&gt;&gt;</a> (<a class="el" href="a00170.html">std::istream</a> &amp;, <a class="el" href="a00375.html">Uuid</a> &amp;)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Read from format 1b4e28ba-2fa1-11d2-883f-b9a761bde3fb.  <a href="#a891bb9ebc0abcbb75cb1f4f9c2da3342"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a8513349b89e9950e8af79cdd262ec8f0">getTypeName</a> (<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16">VariantType</a> type)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#abea01d998021253cc0774f9f1e68e960">getTypeName</a> (<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16">VariantType</a> type)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a8f3a2d85fa7422cca02f3a67c7c3e383">isIntegerType</a> (<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16">VariantType</a> type)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a73d30b9f74c30cfd39839fecd9249c73">operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;out, const <a class="el" href="a00385.html">Variant</a> &amp;value)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a95e61f6c2b56dac4596c2dd833068b23">operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;out, const <a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">Variant::Map</a> &amp;map)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a15c402659610534a4338768f05c096c5">operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;out, const <a class="el" href="a00385.html#a8603092790e51851bc2166e9562a2e11">Variant::List</a> &amp;list)</td></tr>
@@ -178,12 +179,29 @@ Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Function Documentation</h2>
-<a class="anchor" id="a8513349b89e9950e8af79cdd262ec8f0"></a><!-- doxytag: member="qpid::types::getTypeName" ref="a8513349b89e9950e8af79cdd262ec8f0" args="(VariantType type)" -->
+<a class="anchor" id="abea01d998021253cc0774f9f1e68e960"></a><!-- doxytag: member="qpid::types::getTypeName" ref="abea01d998021253cc0774f9f1e68e960" args="(VariantType type)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> qpid::types::getTypeName </td>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00345.html">std::string</a> qpid::types::getTypeName </td>
+          <td>(</td>
+          <td class="paramtype">VariantType&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8f3a2d85fa7422cca02f3a67c7c3e383"></a><!-- doxytag: member="qpid::types::isIntegerType" ref="a8f3a2d85fa7422cca02f3a67c7c3e383" args="(VariantType type)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::isIntegerType </td>
           <td>(</td>
           <td class="paramtype">VariantType&#160;</td>
           <td class="paramname"><em>type</em></td><td>)</td>
@@ -555,7 +573,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Wed Jan 11 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

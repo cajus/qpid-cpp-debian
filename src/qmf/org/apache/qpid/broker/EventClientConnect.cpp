@@ -118,3 +118,8 @@ void EventClientConnect::mapEncode(::qpid::types::Variant::Map& map) const
     map["user"] = ::qpid::types::Variant(user);
 
 }
+
+bool EventClientConnect::match(const std::string& evt, const std::string& pkg)
+{
+    return eventName == evt && packageName == pkg;
+}

@@ -73,9 +73,9 @@
 <a name="l00010"></a>00010 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
 <a name="l00011"></a>00011 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
 <a name="l00012"></a>00012 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
-<a name="l00013"></a>00013 <span class="comment"> * </span>
+<a name="l00013"></a>00013 <span class="comment"> *</span>
 <a name="l00014"></a>00014 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
-<a name="l00015"></a>00015 <span class="comment"> * </span>
+<a name="l00015"></a>00015 <span class="comment"> *</span>
 <a name="l00016"></a>00016 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
 <a name="l00017"></a>00017 <span class="comment"> * software distributed under the License is distributed on an</span>
 <a name="l00018"></a>00018 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
@@ -107,30 +107,30 @@
 <a name="l00048"></a>00048     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Connection(ConnectionImpl* impl);
 <a name="l00049"></a>00049     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Connection(<span class="keyword">const</span> Connection&amp;);
 <a name="l00050"></a>00050     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Connection();
-<a name="l00080"></a>00080     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Connection(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; url, <span class="keyword">const</span> <a class="code" href="a00202.html" title="STL class.">qpid::types::Variant::Map</a>&amp; options = <a class="code" href="a00202.html" title="STL class.">qpid::types::Variant::Map</a>());
-<a name="l00087"></a>00087     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Connection(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; url, <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; options);
-<a name="l00088"></a>00088     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> ~Connection();
-<a name="l00089"></a>00089     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Connection&amp; operator=(<span class="keyword">const</span> Connection&amp;);
-<a name="l00090"></a>00090     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">void</span> setOption(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; name, <span class="keyword">const</span> <a class="code" href="a00385.html" title="Represents a value of variable type.">qpid::types::Variant</a>&amp; value);
-<a name="l00091"></a>00091     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">void</span> open();
-<a name="l00092"></a>00092     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">bool</span> isOpen();
-<a name="l00093"></a>00093     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">bool</span> isOpen() <span class="keyword">const</span>;
-<a name="l00099"></a>00099     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">void</span> close();
-<a name="l00100"></a>00100     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <a class="code" href="a00576.html#aa15500ce0ba4cea17f4226bebe584a67" title="Session is an alias for Session_0_10.">Session</a> createTransactionalSession(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; name = <a class="code" href="a00345.html" title="STL class.">std::string</a>());
-<a name="l00101"></a>00101     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <a class="code" href="a00576.html#aa15500ce0ba4cea17f4226bebe584a67" title="Session is an alias for Session_0_10.">Session</a> createSession(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; name = <a class="code" href="a00345.html" title="STL class.">std::string</a>());
-<a name="l00102"></a>00102 
-<a name="l00103"></a>00103     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <a class="code" href="a00576.html#aa15500ce0ba4cea17f4226bebe584a67" title="Session is an alias for Session_0_10.">Session</a> getSession(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; name) <span class="keyword">const</span>;
-<a name="l00104"></a>00104     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> std::string getAuthenticatedUsername();
-<a name="l00105"></a>00105 
-<a name="l00106"></a>00106 <span class="preprocessor">#ifndef SWIG</span>
-<a name="l00107"></a>00107 <span class="preprocessor"></span>  <span class="keyword">private</span>:
-<a name="l00108"></a><a class="code" href="a00059.html#afcda8a5ddde952c834a8cd1bb7771b69">00108</a>   <span class="keyword">friend</span> <span class="keyword">class </span>qpid::messaging::PrivateImplRef&lt;<a class="code" href="a00059.html" title="A connection represents a network connection to a remote endpoint.">Connection</a>&gt;;
-<a name="l00109"></a>00109 <span class="preprocessor">#endif</span>
-<a name="l00110"></a>00110 <span class="preprocessor"></span>};
-<a name="l00111"></a>00111 
-<a name="l00112"></a>00112 }} <span class="comment">// namespace qpid::messaging</span>
+<a name="l00082"></a>00082     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Connection(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; url, <span class="keyword">const</span> <a class="code" href="a00202.html" title="STL class.">qpid::types::Variant::Map</a>&amp; options = <a class="code" href="a00202.html" title="STL class.">qpid::types::Variant::Map</a>());
+<a name="l00089"></a>00089     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Connection(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; url, <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; options);
+<a name="l00090"></a>00090     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> ~Connection();
+<a name="l00091"></a>00091     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Connection&amp; operator=(<span class="keyword">const</span> Connection&amp;);
+<a name="l00092"></a>00092     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">void</span> setOption(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; name, <span class="keyword">const</span> <a class="code" href="a00385.html" title="Represents a value of variable type.">qpid::types::Variant</a>&amp; value);
+<a name="l00093"></a>00093     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">void</span> open();
+<a name="l00094"></a>00094     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">bool</span> isOpen();
+<a name="l00095"></a>00095     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">bool</span> isOpen() <span class="keyword">const</span>;
+<a name="l00101"></a>00101     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">void</span> close();
+<a name="l00102"></a>00102     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <a class="code" href="a00576.html#aa15500ce0ba4cea17f4226bebe584a67" title="Session is an alias for Session_0_10.">Session</a> createTransactionalSession(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; name = <a class="code" href="a00345.html" title="STL class.">std::string</a>());
+<a name="l00103"></a>00103     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <a class="code" href="a00576.html#aa15500ce0ba4cea17f4226bebe584a67" title="Session is an alias for Session_0_10.">Session</a> createSession(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; name = <a class="code" href="a00345.html" title="STL class.">std::string</a>());
+<a name="l00104"></a>00104 
+<a name="l00105"></a>00105     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <a class="code" href="a00576.html#aa15500ce0ba4cea17f4226bebe584a67" title="Session is an alias for Session_0_10.">Session</a> getSession(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; name) <span class="keyword">const</span>;
+<a name="l00106"></a>00106     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> std::string getAuthenticatedUsername();
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108 <span class="preprocessor">#ifndef SWIG</span>
+<a name="l00109"></a>00109 <span class="preprocessor"></span>  <span class="keyword">private</span>:
+<a name="l00110"></a><a class="code" href="a00059.html#afcda8a5ddde952c834a8cd1bb7771b69">00110</a>   <span class="keyword">friend</span> <span class="keyword">class </span>qpid::messaging::PrivateImplRef&lt;<a class="code" href="a00059.html" title="A connection represents a network connection to a remote endpoint.">Connection</a>&gt;;
+<a name="l00111"></a>00111 <span class="preprocessor">#endif</span>
+<a name="l00112"></a>00112 <span class="preprocessor"></span>};
 <a name="l00113"></a>00113 
-<a name="l00114"></a>00114 <span class="preprocessor">#endif  </span>
+<a name="l00114"></a>00114 }} <span class="comment">// namespace qpid::messaging</span>
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -160,7 +160,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Wed Jan 11 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

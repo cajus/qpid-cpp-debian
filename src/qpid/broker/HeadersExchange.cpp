@@ -191,8 +191,9 @@ bool HeadersExchange::unbind(Queue::shared_ptr queue, const string& bindingKey, 
 }
 
 
-void HeadersExchange::route(Deliverable& msg, const string& /*routingKey*/, const FieldTable* args)
+void HeadersExchange::route(Deliverable& msg)
 {
+    const FieldTable* args = msg.getMessage().getApplicationHeaders();
     if (!args) {
         //can't match if there were no headers passed in
         if (mgmtExchange != 0) {
@@ -200,6 +201,8 @@ void HeadersExchange::route(Deliverable& msg, const string& /*routingKey*/, cons
             mgmtExchange->inc_byteReceives(msg.contentSize());
             mgmtExchange->inc_msgDrops();
             mgmtExchange->inc_byteDrops(msg.contentSize());
+            if (brokerMgmtObject)
+                brokerMgmtObject->inc_discardsNoRoute();
         }
         return;
     }

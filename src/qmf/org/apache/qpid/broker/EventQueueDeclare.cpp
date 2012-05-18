@@ -39,7 +39,7 @@ using           std::string;
 string  EventQueueDeclare::packageName  = string ("org.apache.qpid.broker");
 string  EventQueueDeclare::eventName    = string ("queueDeclare");
 uint8_t EventQueueDeclare::md5Sum[16]   =
-    {0xa2,0x27,0xe1,0xd0,0xa1,0xcd,0x44,0x4d,0x3a,0x3c,0x76,0xe6,0x4a,0xf7,0xa9,0xd7};
+    {0x81,0xc1,0x4a,0x6d,0x4e,0x35,0xa,0x72,0x44,0xdb,0x7f,0x8a,0x9,0xd0,0x64,0x6e};
 
 EventQueueDeclare::EventQueueDeclare (const std::string& _rhost,
         const std::string& _user,
@@ -47,6 +47,7 @@ EventQueueDeclare::EventQueueDeclare (const std::string& _rhost,
         const bool _durable,
         const bool _excl,
         const bool _autoDel,
+        const std::string& _altEx,
         const ::qpid::types::Variant::Map& _args,
         const std::string& _disp) :
     rhost(_rhost),
@@ -55,6 +56,7 @@ EventQueueDeclare::EventQueueDeclare (const std::string& _rhost,
     durable(_durable),
     excl(_excl),
     autoDel(_autoDel),
+    altEx(_altEx),
     args(_args),
     disp(_disp)
 {}
@@ -84,7 +86,7 @@ void EventQueueDeclare::writeSchema (std::string& schema)
     buf.putShortString (packageName); // Package Name
     buf.putShortString (eventName);   // Event Name
     buf.putBin128      (md5Sum);      // Schema Hash
-    buf.putShort       (8); // Argument Count
+    buf.putShort       (9); // Argument Count
 
     // Arguments
     ft.clear();
@@ -124,6 +126,12 @@ void EventQueueDeclare::writeSchema (std::string& schema)
     buf.putMap(ft);
 
     ft.clear();
+    ft[NAME] = "altEx";
+    ft[TYPE] = TYPE_SSTR;
+    ft[DESC] = "Name of the alternate exchange";
+    buf.putMap(ft);
+
+    ft.clear();
     ft[NAME] = "args";
     ft[TYPE] = TYPE_FTABLE;
     ft[DESC] = "Supplemental arguments or parameters supplied";
@@ -155,6 +163,7 @@ void EventQueueDeclare::encode(std::string& _sBuf) const
     buf.putOctet(durable?1:0);
     buf.putOctet(excl?1:0);
     buf.putOctet(autoDel?1:0);
+    buf.putShortString(altEx);
     buf.putMap(args);
     buf.putShortString(disp);
 
@@ -174,7 +183,13 @@ void EventQueueDeclare::mapEncode(::qpid::types::Variant::Map& map) const
     map["durable"] = ::qpid::types::Variant(durable);
     map["excl"] = ::qpid::types::Variant(excl);
     map["autoDel"] = ::qpid::types::Variant(autoDel);
+    map["altEx"] = ::qpid::types::Variant(altEx);
     map["args"] = ::qpid::types::Variant(args);
     map["disp"] = ::qpid::types::Variant(disp);
 
+}
+
+bool EventQueueDeclare::match(const std::string& evt, const std::string& pkg)
+{
+    return eventName == evt && packageName == pkg;
 }

@@ -223,24 +223,23 @@ class Message(_object):
             self.setContent(content)
     __swig_getmethods__["content"] = _get_content
     __swig_setmethods__["content"] = _set_content
-    if _newclass: content = _swig_property(_get_content, _set_content)
+    if _newclass: content = property(_get_content, _set_content)
 
     __swig_getmethods__["content_type"] = getContentType
     __swig_setmethods__["content_type"] = setContentType
-    if _newclass: content_type = _swig_property(getContentType,
-                                                setContentType)
+    if _newclass: content_type = property(getContentType, setContentType)
 
     __swig_getmethods__["id"] = getMessageId
     __swig_setmethods__["id"] = setMessageId
-    if _newclass: id = _swig_property(getMessageId, setMessageId)
+    if _newclass: id = property(getMessageId, setMessageId)
 
     __swig_getmethods__["subject"] = getSubject
     __swig_setmethods__["subject"] = setSubject
-    if _newclass: subject = _swig_property(getSubject, setSubject)
+    if _newclass: subject = property(getSubject, setSubject)
 
     __swig_getmethods__["priority"] = getPriority
     __swig_setmethods__["priority"] = setPriority
-    if _newclass: priority = _swig_property(getPriority, setPriority)
+    if _newclass: priority = property(getPriority, setPriority)
 
     def getTtl(self) :
         return self._getTtl().getMilliseconds()/1000.0
@@ -248,28 +247,26 @@ class Message(_object):
         self._setTtl(Duration(int(1000*duration)))
     __swig_getmethods__["ttl"] = getTtl
     __swig_setmethods__["ttl"] = setTtl
-    if _newclass: ttl = _swig_property(getTtl, setTtl)
+    if _newclass: ttl = property(getTtl, setTtl)
 
     __swig_getmethods__["user_id"] = getUserId
     __swig_setmethods__["user_id"] = setUserId
-    if _newclass: user_id = _swig_property(getUserId, setUserId)
+    if _newclass: user_id = property(getUserId, setUserId)
 
     __swig_getmethods__["correlation_id"] = getCorrelationId
     __swig_setmethods__["correlation_id"] = setCorrelationId
-    if _newclass: correlation_id = _swig_property(getCorrelationId,
-                                                  setCorrelationId)
+    if _newclass: correlation_id = property(getCorrelationId, setCorrelationId)
 
     __swig_getmethods__["redelivered"] = getRedelivered
     __swig_setmethods__["redelivered"] = setRedelivered
-    if _newclass: redelivered = _swig_property(getRedelivered,
-                                               setRedelivered)
+    if _newclass: redelivered = property(getRedelivered, setRedelivered)
 
     __swig_getmethods__["durable"] = getDurable
     __swig_setmethods__["durable"] = setDurable
-    if _newclass: durable = _swig_property(getDurable, setDurable)
+    if _newclass: durable = property(getDurable, setDurable)
 
     __swig_getmethods__["properties"] = getProperties
-    if _newclass: properties = _swig_property(getProperties)
+    if _newclass: properties = property(getProperties)
 
     def getReplyTo(self) :
         return self._getReplyTo().str()
@@ -277,7 +274,7 @@ class Message(_object):
         self._setReplyTo(Address(address_str))
     __swig_getmethods__["reply_to"] = getReplyTo
     __swig_setmethods__["reply_to"] = setReplyTo
-    if _newclass: reply_to = _swig_property(getReplyTo, setReplyTo)
+    if _newclass: reply_to = property(getReplyTo, setReplyTo)
 
     def __repr__(self):
         args = []
@@ -340,10 +337,10 @@ class Receiver(_object):
     def getSession(self): return _cqpid.Receiver_getSession(self)
     __swig_getmethods__["capacity"] = getCapacity
     __swig_setmethods__["capacity"] = setCapacity
-    if _newclass: capacity = _swig_property(getCapacity, setCapacity)
+    if _newclass: capacity = property(getCapacity, setCapacity)
 
     __swig_getmethods__["session"] = getSession
-    if _newclass: session = _swig_property(getSession)
+    if _newclass: session = property(getSession)
 
     def fetch(self, timeout=None) :
         if timeout is None :
@@ -393,10 +390,10 @@ class Sender(_object):
 
     __swig_getmethods__["capacity"] = getCapacity
     __swig_setmethods__["capacity"] = setCapacity
-    if _newclass: capacity = _swig_property(getCapacity, setCapacity)
+    if _newclass: capacity = property(getCapacity, setCapacity)
 
     __swig_getmethods__["session"] = getSession
-    if _newclass: session = _swig_property(getSession)
+    if _newclass: session = property(getSession)
 
 Sender_swigregister = _cqpid.Sender_swigregister
 Sender_swigregister(Sender)
@@ -443,7 +440,7 @@ class Session(_object):
             self._acknowledge_all(sync)
 
     __swig_getmethods__["connection"] = getConnection
-    if _newclass: connection = _swig_property(getConnection)
+    if _newclass: connection = property(getConnection)
 
 Session_swigregister = _cqpid.Session_swigregister
 Session_swigregister(Session)
@@ -474,7 +471,10 @@ class Connection(_object):
     # equivalent in C++, so we will translate them to sasl_mechanism
     # when possible.
     def __init__(self, url=None, **options):
-        args = [url] if url else []
+        if url:
+            args = [url]
+        else:
+            args = []
         if options :
             if "sasl_mechanisms" in options :
                 if ' ' in options.get("sasl_mechanisms",'') :

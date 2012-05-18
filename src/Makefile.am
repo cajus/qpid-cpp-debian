@@ -53,6 +53,7 @@ windows_dist = \
   ../include/qpid/sys/windows/Time.h \
   qpid/sys/windows/uuid.cpp \
   qpid/sys/windows/uuid.h \
+  qpid/sys/windows/MemStat.cpp \
   windows/QpiddBroker.cpp \
   windows/SCM.h \
   windows/SCM.cpp \
@@ -69,6 +70,7 @@ EXTRA_DIST= $(platform_dist) $(rgen_srcs) $(windows_dist)
 # Define variables that are be appended to by this file and included .mk files.
 nobase_include_HEADERS =
 libqpidcommon_la_SOURCES =
+pkgconfig_DATA =
 
 ## Generated code
 
@@ -100,14 +102,16 @@ $(srcdir)/rubygen.cmake: $(rgen_generator) $(specs)
 
 # Management generator.
 mgen_dir=$(top_srcdir)/managementgen
+mgen_xml=$(top_srcdir)/../specs/management-schema.xml \
+	$(srcdir)/qpid/acl/management-schema.xml \
+	$(srcdir)/qpid/cluster/management-schema.xml \
+	$(srcdir)/qpid/ha/management-schema.xml
 mgen_cmd=$(mgen_dir)/qmf-gen -m $(srcdir)/managementgen.mk \
 	-c $(srcdir)/managementgen.cmake -q -b -o qmf \
-	$(top_srcdir)/../specs/management-schema.xml \
-	$(srcdir)/qpid/acl/management-schema.xml \
-	$(srcdir)/qpid/cluster/management-schema.xml
+	$(mgen_xml)
 
 $(srcdir)/managementgen.mk $(mgen_broker_cpp) $(dist_qpid_management_HEADERS): mgen.timestamp
-mgen.timestamp: $(mgen_generator)
+mgen.timestamp: $(mgen_generator) $(mgen_xml)
 	$(mgen_cmd); touch $@
 $(mgen_generator):
 
@@ -162,6 +166,7 @@ libqpidcommon_la_SOURCES +=			\
   qpid/sys/posix/Time.cpp			\
   qpid/sys/posix/Thread.cpp			\
   qpid/sys/posix/Shlib.cpp			\
+  qpid/sys/posix/MemStat.cpp			\
   qpid/sys/posix/Mutex.cpp			\
   qpid/sys/posix/Fork.cpp			\
   qpid/sys/posix/StrError.cpp			\
@@ -179,11 +184,15 @@ nobase_include_HEADERS +=			\
   ../include/qpid/sys/posix/Time.h		\
   ../include/qpid/sys/posix/check.h
 
-if HAVE_EPOLL
+if USE_EPOLL
   poller = qpid/sys/epoll/EpollPoller.cpp
 endif
 
-if HAVE_ECF
+if USE_POLL
+  poller = qpid/sys/posix/PosixPoller.cpp
+endif
+
+if USE_ECF
   poller = qpid/sys/solaris/ECFPoller.cpp
 endif
 
@@ -209,6 +218,7 @@ dmoduleexec_LTLIBRARIES =
 cmoduleexec_LTLIBRARIES =
 
 include cluster.mk
+include ha.mk
 include acl.mk
 include qmf.mk
 include qmfc.mk
@@ -359,6 +369,8 @@ libqpidcommon_la_SOURCES +=			\
   qpid/StringUtils.cpp				\
   qpid/StringUtils.h				\
   qpid/Url.cpp					\
+  qpid/UrlArray.cpp				\
+  qpid/UrlArray.h				\
   qpid/Version.h				\
   qpid/amqp_0_10/Exception.h			\
   qpid/amqp_0_10/SessionHandler.cpp		\
@@ -474,12 +486,14 @@ libqpidcommon_la_SOURCES +=			\
   qpid/sys/Fork.h				\
   qpid/sys/LockFile.h				\
   qpid/sys/LockPtr.h				\
+  qpid/sys/MemStat.h				\
   qpid/sys/OutputControl.h			\
   qpid/sys/OutputTask.h				\
   qpid/sys/PipeHandle.h				\
   qpid/sys/PollableCondition.h			\
   qpid/sys/PollableQueue.h			\
   qpid/sys/Poller.h				\
+  qpid/sys/Probes.h				\
   qpid/sys/ProtocolFactory.h			\
   qpid/sys/Runnable.cpp				\
   qpid/sys/ScopedIncrement.h			\
@@ -533,6 +547,11 @@ libqpidbroker_la_SOURCES = \
   qpid/broker/ConnectionState.h \
   qpid/broker/ConnectionToken.h \
   qpid/broker/Consumer.h \
+  qpid/broker/Credit.h \
+  qpid/broker/Credit.cpp \
+  qpid/broker/ConsumerFactory.h \
+  qpid/broker/ConnectionObserver.h \
+  qpid/broker/ConnectionObservers.h \
   qpid/broker/Daemon.cpp \
   qpid/broker/Daemon.h \
   qpid/broker/Deliverable.h \
@@ -620,7 +639,6 @@ libqpidbroker_la_SOURCES = \
   qpid/broker/QueuedMessage.h \
   qpid/broker/QueueFlowLimit.h \
   qpid/broker/QueueFlowLimit.cpp \
-  qpid/broker/RateFlowcontrol.h \
   qpid/broker/RecoverableConfig.h \
   qpid/broker/RecoverableExchange.h \
   qpid/broker/RecoverableMessage.h \
@@ -900,4 +918,4 @@ install-data-local:
 
 # Support for pkg-config
 pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = qpid.pc
+pkgconfig_DATA += qpid.pc

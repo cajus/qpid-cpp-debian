@@ -89,8 +89,8 @@ am__nobase_list = $(am__nobase_strip_setup); \
 am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
-am__installdirs = "$(DESTDIR)$(libdir)" "$(DESTDIR)$(cqpiddir)"
-LTLIBRARIES = $(lib_LTLIBRARIES)
+am__installdirs = "$(DESTDIR)$(pylibdir)" "$(DESTDIR)$(cqpiddir)"
+LTLIBRARIES = $(pylib_LTLIBRARIES)
 am__DEPENDENCIES_1 =
 @HAVE_PYTHON_DEVEL_TRUE@_cqpid_la_DEPENDENCIES =  \
 @HAVE_PYTHON_DEVEL_TRUE@	$(am__DEPENDENCIES_1) \
@@ -101,7 +101,7 @@ _cqpid_la_OBJECTS = $(nodist__cqpid_la_OBJECTS)
 _cqpid_la_LINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(_cqpid_la_CXXFLAGS) \
 	$(CXXFLAGS) $(_cqpid_la_LDFLAGS) $(LDFLAGS) -o $@
-@HAVE_PYTHON_DEVEL_TRUE@am__cqpid_la_rpath = -rpath $(libdir)
+@HAVE_PYTHON_DEVEL_TRUE@am__cqpid_la_rpath = -rpath $(pylibdir)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/src
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
 am__depfiles_maybe = depfiles
@@ -193,11 +193,14 @@ PACKAGE_URL = @PACKAGE_URL@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 PERL = @PERL@
+PERL_ARCHLIB = @PERL_ARCHLIB@
 PERL_INC = @PERL_INC@
+PKG_CONFIG = @PKG_CONFIG@
+PKG_CONFIG_LIBDIR = @PKG_CONFIG_LIBDIR@
+PKG_CONFIG_PATH = @PKG_CONFIG_PATH@
 PYTHON = @PYTHON@
+PYTHON_CFLAGS = @PYTHON_CFLAGS@
 PYTHON_EXEC_PREFIX = @PYTHON_EXEC_PREFIX@
-PYTHON_INC = @PYTHON_INC@
-PYTHON_LIB = @PYTHON_LIB@
 PYTHON_LIBS = @PYTHON_LIBS@
 PYTHON_PLATFORM = @PYTHON_PLATFORM@
 PYTHON_PREFIX = @PYTHON_PREFIX@
@@ -292,13 +295,13 @@ top_srcdir = @top_srcdir@
 @HAVE_PYTHON_DEVEL_TRUE@EXTRA_DIST = CMakeLists.txt python.i
 @HAVE_PYTHON_DEVEL_TRUE@BUILT_SOURCES = $(generated_file_list)
 @HAVE_PYTHON_DEVEL_TRUE@SWIG_FLAGS = -w362,401
-@HAVE_PYTHON_DEVEL_TRUE@pylibdir = $(PYTHON_LIB)
-@HAVE_PYTHON_DEVEL_TRUE@lib_LTLIBRARIES = _cqpid.la
-@HAVE_PYTHON_DEVEL_TRUE@cqpiddir = $(pyexecdir)
+@HAVE_PYTHON_DEVEL_TRUE@pylibdir = $(pyexecdir)
+@HAVE_PYTHON_DEVEL_TRUE@pylib_LTLIBRARIES = _cqpid.la
+@HAVE_PYTHON_DEVEL_TRUE@cqpiddir = $(pythondir)
 @HAVE_PYTHON_DEVEL_TRUE@cqpid_PYTHON = cqpid.py
 @HAVE_PYTHON_DEVEL_TRUE@_cqpid_la_LDFLAGS = -avoid-version -module -shared
 @HAVE_PYTHON_DEVEL_TRUE@_cqpid_la_LIBADD = $(PYTHON_LIBS) -L$(top_builddir)/src/.libs -lqpidmessaging -lqpidtypes $(top_builddir)/src/libqpidmessaging.la $(top_builddir)/src/libqpidtypes.la
-@HAVE_PYTHON_DEVEL_TRUE@_cqpid_la_CXXFLAGS = $(INCLUDES) -I$(PYTHON_INC) -fno-strict-aliasing
+@HAVE_PYTHON_DEVEL_TRUE@_cqpid_la_CXXFLAGS = $(INCLUDES) $(PYTHON_CFLAGS) -fno-strict-aliasing
 @HAVE_PYTHON_DEVEL_TRUE@nodist__cqpid_la_SOURCES = cqpid.cpp
 @HAVE_PYTHON_DEVEL_TRUE@CLEANFILES = $(generated_file_list)
 all: $(BUILT_SOURCES)
@@ -336,32 +339,32 @@ $(top_srcdir)/configure:  $(am__configure_deps)
 $(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(am__aclocal_m4_deps):
-install-libLTLIBRARIES: $(lib_LTLIBRARIES)
+install-pylibLTLIBRARIES: $(pylib_LTLIBRARIES)
 	@$(NORMAL_INSTALL)
-	test -z "$(libdir)" || $(MKDIR_P) "$(DESTDIR)$(libdir)"
-	@list='$(lib_LTLIBRARIES)'; test -n "$(libdir)" || list=; \
+	test -z "$(pylibdir)" || $(MKDIR_P) "$(DESTDIR)$(pylibdir)"
+	@list='$(pylib_LTLIBRARIES)'; test -n "$(pylibdir)" || list=; \
 	list2=; for p in $$list; do \
 	  if test -f $$p; then \
 	    list2="$$list2 $$p"; \
 	  else :; fi; \
 	done; \
 	test -z "$$list2" || { \
-	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 '$(DESTDIR)$(libdir)'"; \
-	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 "$(DESTDIR)$(libdir)"; \
+	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 '$(DESTDIR)$(pylibdir)'"; \
+	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 "$(DESTDIR)$(pylibdir)"; \
 	}
 
-uninstall-libLTLIBRARIES:
+uninstall-pylibLTLIBRARIES:
 	@$(NORMAL_UNINSTALL)
-	@list='$(lib_LTLIBRARIES)'; test -n "$(libdir)" || list=; \
+	@list='$(pylib_LTLIBRARIES)'; test -n "$(pylibdir)" || list=; \
 	for p in $$list; do \
 	  $(am__strip_dir) \
-	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f '$(DESTDIR)$(libdir)/$$f'"; \
-	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f "$(DESTDIR)$(libdir)/$$f"; \
+	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f '$(DESTDIR)$(pylibdir)/$$f'"; \
+	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f "$(DESTDIR)$(pylibdir)/$$f"; \
 	done
 
-clean-libLTLIBRARIES:
-	-test -z "$(lib_LTLIBRARIES)" || rm -f $(lib_LTLIBRARIES)
-	@list='$(lib_LTLIBRARIES)'; for p in $$list; do \
+clean-pylibLTLIBRARIES:
+	-test -z "$(pylib_LTLIBRARIES)" || rm -f $(pylib_LTLIBRARIES)
+	@list='$(pylib_LTLIBRARIES)'; for p in $$list; do \
 	  dir="`echo $$p | sed -e 's|/[^/]*$$||'`"; \
 	  test "$$dir" != "$$p" || dir=.; \
 	  echo "rm -f \"$${dir}/so_locations\""; \
@@ -540,7 +543,7 @@ check: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) check-am
 all-am: Makefile $(LTLIBRARIES)
 installdirs:
-	for dir in "$(DESTDIR)$(libdir)" "$(DESTDIR)$(cqpiddir)"; do \
+	for dir in "$(DESTDIR)$(pylibdir)" "$(DESTDIR)$(cqpiddir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: $(BUILT_SOURCES)
@@ -573,7 +576,7 @@ maintainer-clean-generic:
 	-test -z "$(BUILT_SOURCES)" || rm -f $(BUILT_SOURCES)
 clean: clean-am
 
-clean-am: clean-generic clean-libLTLIBRARIES clean-libtool \
+clean-am: clean-generic clean-libtool clean-pylibLTLIBRARIES \
 	mostlyclean-am
 
 distclean: distclean-am
@@ -594,13 +597,13 @@ info: info-am
 
 info-am:
 
-install-data-am: install-cqpidPYTHON
+install-data-am: install-cqpidPYTHON install-pylibLTLIBRARIES
 
 install-dvi: install-dvi-am
 
 install-dvi-am:
 
-install-exec-am: install-libLTLIBRARIES
+install-exec-am:
 
 install-html: install-html-am
 
@@ -640,24 +643,24 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-cqpidPYTHON uninstall-libLTLIBRARIES
+uninstall-am: uninstall-cqpidPYTHON uninstall-pylibLTLIBRARIES
 
 .MAKE: all check install install-am install-strip
 
 .PHONY: CTAGS GTAGS all all-am check check-am clean clean-generic \
-	clean-libLTLIBRARIES clean-libtool ctags distclean \
+	clean-libtool clean-pylibLTLIBRARIES ctags distclean \
 	distclean-compile distclean-generic distclean-libtool \
 	distclean-tags distdir dvi dvi-am html html-am info info-am \
 	install install-am install-cqpidPYTHON install-data \
 	install-data-am install-dvi install-dvi-am install-exec \
 	install-exec-am install-html install-html-am install-info \
-	install-info-am install-libLTLIBRARIES install-man install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
-	tags uninstall uninstall-am uninstall-cqpidPYTHON \
-	uninstall-libLTLIBRARIES
+	install-info-am install-man install-pdf install-pdf-am \
+	install-ps install-ps-am install-pylibLTLIBRARIES \
+	install-strip installcheck installcheck-am installdirs \
+	maintainer-clean maintainer-clean-generic mostlyclean \
+	mostlyclean-compile mostlyclean-generic mostlyclean-libtool \
+	pdf pdf-am ps ps-am tags uninstall uninstall-am \
+	uninstall-cqpidPYTHON uninstall-pylibLTLIBRARIES
 
 
 @HAVE_PYTHON_DEVEL_TRUE@$(generated_file_list): $(srcdir)/python.i $(srcdir)/../qpid.i $(srcdir)/../../swig_python_typemaps.i

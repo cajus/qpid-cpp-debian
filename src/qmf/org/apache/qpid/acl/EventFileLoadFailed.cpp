@@ -116,3 +116,8 @@ void EventFileLoadFailed::mapEncode(::qpid::types::Variant::Map& map) const
     map["reason"] = ::qpid::types::Variant(reason);
 
 }
+
+bool EventFileLoadFailed::match(const std::string& evt, const std::string& pkg)
+{
+    return eventName == evt && packageName == pkg;
+}

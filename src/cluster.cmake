@@ -96,6 +96,8 @@ if (BUILD_CLUSTER)
        qpid/cluster/ConnectionCodec.h
        qpid/cluster/Cpg.cpp
        qpid/cluster/Cpg.h
+       qpid/cluster/CredentialsExchange.cpp
+       qpid/cluster/CredentialsExchange.h
        qpid/cluster/Dispatchable.h
        qpid/cluster/UpdateClient.cpp
        qpid/cluster/UpdateClient.h
@@ -152,7 +154,7 @@ if (BUILD_CLUSTER)
     # Turn off optimisation based on strict-aliasing because we get warnings about violations
     set_target_properties(cluster cluster_shared PROPERTIES
                           COMPILE_FLAGS "-fno-strict-aliasing"
-                          LINK_FLAGS "-Wl,--no-undefined -pthread")
+                          LINK_FLAGS "${GCC_CATCH_UNDEFINED} -pthread")
   endif (CMAKE_COMPILER_IS_GNUCXX)
 
   add_library (watchdog MODULE qpid/cluster/WatchDogPlugin.cpp)

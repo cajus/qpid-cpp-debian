@@ -108,3 +108,8 @@ void EventBrokerLinkUp::mapEncode(::qpid::types::Variant::Map& map) const
     map["rhost"] = ::qpid::types::Variant(rhost);
 
 }
+
+bool EventBrokerLinkUp::match(const std::string& evt, const std::string& pkg)
+{
+    return eventName == evt && packageName == pkg;
+}

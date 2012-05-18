@@ -96,10 +96,9 @@ Public Types</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef ValueMap::value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00123.html#ac5775b5a0b85d439a5892eb69723e5c9">value_type</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00123.html#a00eb58ecdda9e03badb5d9d8b6bb2427">FieldTable</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00123.html#a1144bd542eff9129c8737162aa90ce64">FieldTable</a> (const <a class="el" href="a00123.html">FieldTable</a> &amp;ft)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00123.html#a1d099ec0dbe908a4d6e16b20c6cd7029">~FieldTable</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00123.html">FieldTable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00123.html#a3b7afeee210dee6743a52fe0a9758d89">operator=</a> (const <a class="el" href="a00123.html">FieldTable</a> &amp;ft)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00123.html#a82662aa2da3ea4f40f0d40e5c728558f">FieldTable</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00123.html#af839313f342590ee4401b52525485587">FieldTable</a> (const <a class="el" href="a00123.html">FieldTable</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00123.html">FieldTable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00123.html#ac52ad466cda49a3490c49f86b53409a3">operator=</a> (const <a class="el" href="a00123.html">FieldTable</a> &amp;)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00123.html#ac574fcc56c2aeced89f2bf1c5d2357aa">encodedSize</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00123.html#ae81cf3f05b604f6e6258bfc0dfff6814">encode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;buffer) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00123.html#a2e1aae38c4f1893687c2a73dee4942a4">decode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;buffer)</td></tr>
@@ -138,7 +137,6 @@ Public Member Functions</h2></td></tr>
 bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00123.html#ab8c702a456b4051f3f3e928d42f68e04">insert</a> (const ValueMap::value_type &amp;)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">ValueMap::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00123.html#ae8839202f510f8a9f274b1dcc9daf6ad">insert</a> (ValueMap::iterator, const ValueMap::value_type &amp;)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00123.html#ae4f9483a1243120e63d6db94a4fd2626">clear</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">ValueMap::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00123.html#a7728f8991c0f39c469113b01e08a5fe8">getValues</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00123.html#a8ae7b6b7d2875865b60f6c8c9d32216a">operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;out, const <a class="el" href="a00123.html">FieldTable</a> &amp;body)</td></tr>
@@ -158,7 +156,7 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00505_source.html#l00054">54</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
+<p>Definition at line <a class="el" href="a00505_source.html#l00059">59</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
 
 </div>
 </div>
@@ -173,7 +171,7 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00505_source.html#l00055">55</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
+<p>Definition at line <a class="el" href="a00505_source.html#l00060">60</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
 
 </div>
 </div>
@@ -188,7 +186,7 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00505_source.html#l00053">53</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
+<p>Definition at line <a class="el" href="a00505_source.html#l00058">58</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
 
 </div>
 </div>
@@ -203,7 +201,7 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00505_source.html#l00056">56</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
+<p>Definition at line <a class="el" href="a00505_source.html#l00061">61</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
 
 </div>
 </div>
@@ -218,7 +216,7 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00505_source.html#l00057">57</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
+<p>Definition at line <a class="el" href="a00505_source.html#l00062">62</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
 
 </div>
 </div>
@@ -233,7 +231,7 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00505_source.html#l00052">52</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
+<p>Definition at line <a class="el" href="a00505_source.html#l00057">57</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
 
 </div>
 </div>
@@ -248,38 +246,19 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00505_source.html#l00051">51</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
+<p>Definition at line <a class="el" href="a00505_source.html#l00056">56</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a00eb58ecdda9e03badb5d9d8b6bb2427"></a><!-- doxytag: member="qpid::framing::FieldTable::FieldTable" ref="a00eb58ecdda9e03badb5d9d8b6bb2427" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN qpid::framing::FieldTable::FieldTable </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00505_source.html#l00059">59</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1144bd542eff9129c8737162aa90ce64"></a><!-- doxytag: member="qpid::framing::FieldTable::FieldTable" ref="a1144bd542eff9129c8737162aa90ce64" args="(const FieldTable &amp;ft)" -->
+<a class="anchor" id="a82662aa2da3ea4f40f0d40e5c728558f"></a><!-- doxytag: member="qpid::framing::FieldTable::FieldTable" ref="a82662aa2da3ea4f40f0d40e5c728558f" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">qpid::framing::FieldTable::FieldTable </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00123.html">FieldTable</a> &amp;&#160;</td>
-          <td class="paramname"><em>ft</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -288,13 +267,14 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a1d099ec0dbe908a4d6e16b20c6cd7029"></a><!-- doxytag: member="qpid::framing::FieldTable::~FieldTable" ref="a1d099ec0dbe908a4d6e16b20c6cd7029" args="()" -->
+<a class="anchor" id="af839313f342590ee4401b52525485587"></a><!-- doxytag: member="qpid::framing::FieldTable::FieldTable" ref="af839313f342590ee4401b52525485587" args="(const FieldTable &amp;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::framing::FieldTable::~FieldTable </td>
+          <td class="memname">qpid::framing::FieldTable::FieldTable </td>
           <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00123.html">FieldTable</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -313,13 +293,11 @@ Friends</h2></td></tr>
           <td class="memname">ValueMap::const_iterator qpid::framing::FieldTable::begin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00505_source.html#l00102">102</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
 
 </div>
 </div>
@@ -331,13 +309,11 @@ Friends</h2></td></tr>
           <td class="memname">ValueMap::iterator qpid::framing::FieldTable::begin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00505_source.html#l00106">106</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
 
 </div>
 </div>
@@ -349,13 +325,11 @@ Friends</h2></td></tr>
           <td class="memname">void qpid::framing::FieldTable::clear </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00505_source.html#l00112">112</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
 
 </div>
 </div>
@@ -406,9 +380,9 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00505_source.html#l00069">69</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
+<p>Definition at line <a class="el" href="a00505_source.html#l00074">74</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
 
-<p>References <a class="el" href="a00505_source.html#l00068">size()</a>.</p>
+<p>References <a class="el" href="a00505_source.html#l00073">size()</a>.</p>
 
 </div>
 </div>
@@ -453,13 +427,11 @@ Friends</h2></td></tr>
           <td class="memname">ValueMap::const_iterator qpid::framing::FieldTable::end </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00505_source.html#l00103">103</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
 
 </div>
 </div>
@@ -471,13 +443,11 @@ Friends</h2></td></tr>
           <td class="memname">ValueMap::iterator qpid::framing::FieldTable::end </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00505_source.html#l00107">107</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
 
 </div>
 </div>
@@ -507,13 +477,11 @@ Friends</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
           <td class="paramname"><em>s</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00505_source.html#l00104">104</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
 
 </div>
 </div>
@@ -526,13 +494,11 @@ Friends</h2></td></tr>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
           <td class="paramname"><em>s</em></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00505_source.html#l00108">108</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
 
 </div>
 </div>
@@ -729,24 +695,6 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a7728f8991c0f39c469113b01e08a5fe8"></a><!-- doxytag: member="qpid::framing::FieldTable::getValues" ref="a7728f8991c0f39c469113b01e08a5fe8" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">ValueMap::iterator qpid::framing::FieldTable::getValues </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00505_source.html#l00116">116</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
-
-</div>
-</div>
 <a class="anchor" id="ab8c702a456b4051f3f3e928d42f68e04"></a><!-- doxytag: member="qpid::framing::FieldTable::insert" ref="ab8c702a456b4051f3f3e928d42f68e04" args="(const ValueMap::value_type &amp;)" -->
 <div class="memitem">
 <div class="memproto">
@@ -806,11 +754,11 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00505_source.html#l00072">72</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
+<p>Definition at line <a class="el" href="a00505_source.html#l00077">77</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3b7afeee210dee6743a52fe0a9758d89"></a><!-- doxytag: member="qpid::framing::FieldTable::operator=" ref="a3b7afeee210dee6743a52fe0a9758d89" args="(const FieldTable &amp;ft)" -->
+<a class="anchor" id="ac52ad466cda49a3490c49f86b53409a3"></a><!-- doxytag: member="qpid::framing::FieldTable::operator=" ref="ac52ad466cda49a3490c49f86b53409a3" args="(const FieldTable &amp;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -818,7 +766,7 @@ Friends</h2></td></tr>
           <td class="memname"><a class="el" href="a00123.html">FieldTable</a>&amp; qpid::framing::FieldTable::operator= </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="a00123.html">FieldTable</a> &amp;&#160;</td>
-          <td class="paramname"><em>ft</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1128,9 +1076,9 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00505_source.html#l00068">68</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
+<p>Definition at line <a class="el" href="a00505_source.html#l00073">73</a> of file <a class="el" href="a00505_source.html">FieldTable.h</a>.</p>
 
-<p>Referenced by <a class="el" href="a00505_source.html#l00069">empty()</a>.</p>
+<p>Referenced by <a class="el" href="a00505_source.html#l00074">empty()</a>.</p>
 
 </div>
 </div>
@@ -1193,7 +1141,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Wed Jan 11 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

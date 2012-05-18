@@ -118,3 +118,8 @@ void EventClientDisconnect::mapEncode(::qpid::types::Variant::Map& map) const
     map["user"] = ::qpid::types::Variant(user);
 
 }
+
+bool EventClientDisconnect::match(const std::string& evt, const std::string& pkg)
+{
+    return eventName == evt && packageName == pkg;
+}

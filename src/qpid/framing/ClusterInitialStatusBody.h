@@ -45,6 +45,7 @@ class QPID_COMMON_CLASS_EXTERN ClusterInitialStatusBody : public ModelMethod {
     uint8_t storeState;
     Uuid shutdownId;
     std::string firstConfig;
+    Array urls;
     uint16_t flags;
 public:
     static const ClassId CLASS_ID = 0x80;
@@ -55,12 +56,14 @@ public:
         const Uuid& _clusterId,
         uint8_t _storeState,
         const Uuid& _shutdownId,
-        const std::string& _firstConfig) : 
+        const std::string& _firstConfig,
+        const Array& _urls) : 
         version(_version),
         clusterId(_clusterId),
         storeState(_storeState),
         shutdownId(_shutdownId),
         firstConfig(_firstConfig),
+        urls(_urls),
         flags(0){
         setActive(_active);
         flags |= (1 << 8);
@@ -68,6 +71,7 @@ public:
         flags |= (1 << 11);
         flags |= (1 << 12);
         flags |= (1 << 13);
+        flags |= (1 << 14);
     }
     ClusterInitialStatusBody(ProtocolVersion=ProtocolVersion())  : version(0), storeState(0), flags(0) {}
     
@@ -93,10 +97,14 @@ public:
     QPID_COMMON_EXTERN const std::string& getFirstConfig() const;
     QPID_COMMON_EXTERN bool hasFirstConfig() const;
     QPID_COMMON_EXTERN void clearFirstConfigFlag();
+    QPID_COMMON_EXTERN void setUrls(const Array& _urls);
+    QPID_COMMON_EXTERN const Array& getUrls() const;
+    QPID_COMMON_EXTERN bool hasUrls() const;
+    QPID_COMMON_EXTERN void clearUrlsFlag();
     typedef void ResultType;
 
     template <class T> ResultType invoke(T& invocable) const {
-        return invocable.initialStatus(getVersion(), getActive(), getClusterId(), getStoreState(), getShutdownId(), getFirstConfig());
+        return invocable.initialStatus(getVersion(), getActive(), getClusterId(), getStoreState(), getShutdownId(), getFirstConfig(), getUrls());
     }
 
     using  AMQMethodBody::accept;

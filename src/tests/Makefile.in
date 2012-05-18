@@ -166,12 +166,13 @@ check_PROGRAMS = unit_test$(EXEEXT) $(am__EXEEXT_1) echotest$(EXEEXT) \
 	msg_group_test$(EXEEXT)
 TESTS = unit_test$(EXEEXT) $(am__append_2) $(am__append_9) \
 	$(am__append_12) start_broker $(am__EXEEXT_3) python_tests \
-	stop_broker run_federation_tests run_federation_sys_tests \
-	run_acl_tests run_cli_tests replication_test \
-	dynamic_log_level_test run_queue_flow_limit_tests ipv6_test
+	stop_broker run_ha_tests run_federation_tests \
+	run_federation_sys_tests run_acl_tests run_cli_tests \
+	replication_test dynamic_log_level_test \
+	run_queue_flow_limit_tests ipv6_test
 qpidexec_PROGRAMS =
-qpidtest_PROGRAMS = $(am__EXEEXT_2) receiver$(EXEEXT) sender$(EXEEXT) \
-	qpid-receive$(EXEEXT) qpid-send$(EXEEXT) \
+qpidexectest_PROGRAMS = $(am__EXEEXT_2) receiver$(EXEEXT) \
+	sender$(EXEEXT) qpid-receive$(EXEEXT) qpid-send$(EXEEXT) \
 	qpid-perftest$(EXEEXT) qpid-txtest$(EXEEXT) \
 	qpid-latency-test$(EXEEXT) qpid-client-test$(EXEEXT) \
 	qpid-topic-listener$(EXEEXT) qpid-topic-publisher$(EXEEXT) \
@@ -278,8 +279,8 @@ am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
 am__installdirs = "$(DESTDIR)$(tmoduledir)" "$(DESTDIR)$(qpidexecdir)" \
-	"$(DESTDIR)$(qpidtestdir)" "$(DESTDIR)$(qpidexecdir)" \
-	"$(DESTDIR)$(qpidtestdir)"
+	"$(DESTDIR)$(qpidexectestdir)" "$(DESTDIR)$(qpidexecdir)" \
+	"$(DESTDIR)$(qpidexectestdir)"
 LTLIBRARIES = $(tmodule_LTLIBRARIES)
 libdlclose_noop_la_LIBADD =
 am_libdlclose_noop_la_OBJECTS = dlclose_noop.lo
@@ -302,7 +303,7 @@ test_store_la_LINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) \
 @HAVE_SASL_TRUE@am__EXEEXT_1 = cluster_authentication_soak$(EXEEXT) \
 @HAVE_SASL_TRUE@	sasl_version$(EXEEXT)
 @HAVE_LIBCPG_TRUE@am__EXEEXT_2 = cluster_test$(EXEEXT)
-PROGRAMS = $(qpidexec_PROGRAMS) $(qpidtest_PROGRAMS)
+PROGRAMS = $(qpidexec_PROGRAMS) $(qpidexectest_PROGRAMS)
 am_DispatcherTest_OBJECTS = DispatcherTest.$(OBJEXT)
 DispatcherTest_OBJECTS = $(am_DispatcherTest_OBJECTS)
 am__DEPENDENCIES_1 =
@@ -441,9 +442,9 @@ am__unit_test_SOURCES_DIST = unit_test.cpp unit_test.h \
 	MessageBuilderTest.cpp ConnectionOptions.h ForkedBroker.h \
 	ForkedBroker.cpp ManagementTest.cpp MessageReplayTracker.cpp \
 	ConsoleTest.cpp QueueEvents.cpp ProxyTest.cpp RetryList.cpp \
-	RateFlowcontrolTest.cpp FrameDecoder.cpp ReplicationTest.cpp \
-	ClientMessageTest.cpp PollableCondition.cpp Variant.cpp \
-	Address.cpp ClientMessage.cpp Qmf2.cpp BrokerOptions.cpp \
+	FrameDecoder.cpp ReplicationTest.cpp ClientMessageTest.cpp \
+	PollableCondition.cpp Variant.cpp Address.cpp \
+	ClientMessage.cpp Qmf2.cpp BrokerOptions.cpp \
 	XmlClientSessionTest.cpp BrokerMgmtAgent.cpp \
 	brokermgmt_gen/qmf/org/apache/qpid/broker/mgmt/test/Package.cpp \
 	brokermgmt_gen/qmf/org/apache/qpid/broker/mgmt/test/Package.h \
@@ -473,8 +474,7 @@ am_unit_test_OBJECTS = unit_test.$(OBJEXT) \
 	MessageBuilderTest.$(OBJEXT) ForkedBroker.$(OBJEXT) \
 	ManagementTest.$(OBJEXT) MessageReplayTracker.$(OBJEXT) \
 	ConsoleTest.$(OBJEXT) QueueEvents.$(OBJEXT) \
-	ProxyTest.$(OBJEXT) RetryList.$(OBJEXT) \
-	RateFlowcontrolTest.$(OBJEXT) FrameDecoder.$(OBJEXT) \
+	ProxyTest.$(OBJEXT) RetryList.$(OBJEXT) FrameDecoder.$(OBJEXT) \
 	ReplicationTest.$(OBJEXT) ClientMessageTest.$(OBJEXT) \
 	PollableCondition.$(OBJEXT) Variant.$(OBJEXT) \
 	Address.$(OBJEXT) ClientMessage.$(OBJEXT) Qmf2.$(OBJEXT) \
@@ -483,7 +483,7 @@ am_unit_test_OBJECTS = unit_test.$(OBJEXT) \
 unit_test_OBJECTS = $(am_unit_test_OBJECTS)
 unit_test_DEPENDENCIES = $(lib_messaging) $(lib_broker) $(lib_console) \
 	$(lib_qmf2)
-SCRIPTS = $(qpidexec_SCRIPTS) $(qpidtest_SCRIPTS)
+SCRIPTS = $(qpidexec_SCRIPTS) $(qpidexectest_SCRIPTS)
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)/src
 depcomp = $(SHELL) $(top_srcdir)/build-aux/depcomp
 am__depfiles_maybe = depfiles
@@ -619,11 +619,14 @@ PACKAGE_URL = @PACKAGE_URL@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 PERL = @PERL@
+PERL_ARCHLIB = @PERL_ARCHLIB@
 PERL_INC = @PERL_INC@
+PKG_CONFIG = @PKG_CONFIG@
+PKG_CONFIG_LIBDIR = @PKG_CONFIG_LIBDIR@
+PKG_CONFIG_PATH = @PKG_CONFIG_PATH@
 PYTHON = @PYTHON@
+PYTHON_CFLAGS = @PYTHON_CFLAGS@
 PYTHON_EXEC_PREFIX = @PYTHON_EXEC_PREFIX@
-PYTHON_INC = @PYTHON_INC@
-PYTHON_LIB = @PYTHON_LIB@
 PYTHON_LIBS = @PYTHON_LIBS@
 PYTHON_PLATFORM = @PYTHON_PLATFORM@
 PYTHON_PREFIX = @PYTHON_PREFIX@
@@ -731,22 +734,23 @@ EXTRA_DIST = $(CLUSTER_TEST_SCRIPTS_LIST) ais_check run_cluster_test \
 	run_long_cluster_tests testlib.py brokertest.py \
 	cluster_tests.py cluster_test_logs.py long_cluster_tests.py \
 	cluster_tests.fail $(am__append_6) $(am__append_11) \
-	$(am__append_13) qpid-cpp-benchmark install_env.sh run_test \
-	vg_check run-unit-tests start_broker python_tests stop_broker \
-	quick_topictest quick_perftest quick_txtest topictest \
-	run_header_test header_test.py ssl_test config.null ais_check \
-	run_federation_tests run_federation_sys_tests \
-	run_long_federation_sys_tests run_cli_tests run_acl_tests \
-	.valgrind.supp MessageUtils.h TestMessageStore.h TxMocks.h \
-	replication_test run_perftest ring_queue_test \
-	run_ring_queue_test dynamic_log_level_test qpid-ctrl \
-	CMakeLists.txt cluster.cmake \
+	$(am__append_13) qpid-cpp-benchmark qpid-cluster-benchmark \
+	install_env.sh run_test vg_check run-unit-tests start_broker \
+	python_tests stop_broker quick_topictest quick_perftest \
+	quick_txtest topictest run_header_test header_test.py ssl_test \
+	config.null ais_check run_federation_tests \
+	run_federation_sys_tests run_long_federation_sys_tests \
+	run_cli_tests run_acl_tests .valgrind.supp MessageUtils.h \
+	TestMessageStore.h TxMocks.h replication_test run_perftest \
+	ring_queue_test run_ring_queue_test dynamic_log_level_test \
+	qpid-ctrl CMakeLists.txt cluster.cmake \
 	windows/DisableWin32ErrorWindows.cpp background.ps1 \
 	find_prog.ps1 python_tests.ps1 quick_topictest.ps1 \
 	run_federation_tests.ps1 run_header_test.ps1 run_test.ps1 \
 	start_broker.ps1 stop_broker.ps1 topictest.ps1 \
 	run_queue_flow_limit_tests run_msg_group_tests ipv6_test \
-	fanout_perftest shared_perftest multiq_perftest topic_perftest \
+	run_ha_tests ha_tests.py test_env.ps1.in fanout_perftest \
+	shared_perftest multiq_perftest topic_perftest \
 	run_failover_soak reliable_replication_test \
 	federated_cluster_test_with_node_failure sasl_test_setup.sh \
 	run_msg_group_tests_soak testagent.xml BrokerMgmtAgent.xml
@@ -770,10 +774,11 @@ CLEAN_LOCAL = $(am__append_14) sasl_config
 #
 qpidexecdir = $(libexecdir)/qpid
 qpidexec_SCRIPTS = 
-qpidtestdir = $(qpidexecdir)/tests
+qpidexectestdir = $(qpidexecdir)/tests
 
 # Test programs that are installed and therefore built as part of make, not make check
-qpidtest_SCRIPTS = $(am__append_7) qpid-cpp-benchmark install_env.sh
+qpidexectest_SCRIPTS = $(am__append_7) qpid-cpp-benchmark \
+	install_env.sh
 tmoduledir = $(libdir)/qpid/tests
 tmodule_LTLIBRARIES = test_store.la
 unit_test_LDADD = -lboost_unit_test_framework \
@@ -796,10 +801,10 @@ unit_test_SOURCES = unit_test.cpp unit_test.h \
 	MessageBuilderTest.cpp ConnectionOptions.h ForkedBroker.h \
 	ForkedBroker.cpp ManagementTest.cpp MessageReplayTracker.cpp \
 	ConsoleTest.cpp QueueEvents.cpp ProxyTest.cpp RetryList.cpp \
-	RateFlowcontrolTest.cpp FrameDecoder.cpp ReplicationTest.cpp \
-	ClientMessageTest.cpp PollableCondition.cpp Variant.cpp \
-	Address.cpp ClientMessage.cpp Qmf2.cpp BrokerOptions.cpp \
-	$(am__append_1) BrokerMgmtAgent.cpp ${BROKERMGMT_GEN_SRC}
+	FrameDecoder.cpp ReplicationTest.cpp ClientMessageTest.cpp \
+	PollableCondition.cpp Variant.cpp Address.cpp \
+	ClientMessage.cpp Qmf2.cpp BrokerOptions.cpp $(am__append_1) \
+	BrokerMgmtAgent.cpp ${BROKERMGMT_GEN_SRC}
 TESTLIBFLAGS = -module -rpath $(abs_builddir)
 libshlibtest_la_LDFLAGS = $(TESTLIBFLAGS)
 libshlibtest_la_SOURCES = shlibtest.cpp
@@ -1096,10 +1101,10 @@ clean-qpidexecPROGRAMS:
 	list=`for p in $$list; do echo "$$p"; done | sed 's/$(EXEEXT)$$//'`; \
 	echo " rm -f" $$list; \
 	rm -f $$list
-install-qpidtestPROGRAMS: $(qpidtest_PROGRAMS)
+install-qpidexectestPROGRAMS: $(qpidexectest_PROGRAMS)
 	@$(NORMAL_INSTALL)
-	test -z "$(qpidtestdir)" || $(MKDIR_P) "$(DESTDIR)$(qpidtestdir)"
-	@list='$(qpidtest_PROGRAMS)'; test -n "$(qpidtestdir)" || list=; \
+	test -z "$(qpidexectestdir)" || $(MKDIR_P) "$(DESTDIR)$(qpidexectestdir)"
+	@list='$(qpidexectest_PROGRAMS)'; test -n "$(qpidexectestdir)" || list=; \
 	for p in $$list; do echo "$$p $$p"; done | \
 	sed 's/$(EXEEXT)$$//' | \
 	while read p p1; do if test -f $$p || test -f $$p1; \
@@ -1116,23 +1121,23 @@ install-qpidtestPROGRAMS: $(qpidtest_PROGRAMS)
 	while read type dir files; do \
 	    if test "$$dir" = .; then dir=; else dir=/$$dir; fi; \
 	    test -z "$$files" || { \
-	    echo " $(INSTALL_PROGRAM_ENV) $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL_PROGRAM) $$files '$(DESTDIR)$(qpidtestdir)$$dir'"; \
-	    $(INSTALL_PROGRAM_ENV) $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL_PROGRAM) $$files "$(DESTDIR)$(qpidtestdir)$$dir" || exit $$?; \
+	    echo " $(INSTALL_PROGRAM_ENV) $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL_PROGRAM) $$files '$(DESTDIR)$(qpidexectestdir)$$dir'"; \
+	    $(INSTALL_PROGRAM_ENV) $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL_PROGRAM) $$files "$(DESTDIR)$(qpidexectestdir)$$dir" || exit $$?; \
 	    } \
 	; done
 
-uninstall-qpidtestPROGRAMS:
+uninstall-qpidexectestPROGRAMS:
 	@$(NORMAL_UNINSTALL)
-	@list='$(qpidtest_PROGRAMS)'; test -n "$(qpidtestdir)" || list=; \
+	@list='$(qpidexectest_PROGRAMS)'; test -n "$(qpidexectestdir)" || list=; \
 	files=`for p in $$list; do echo "$$p"; done | \
 	  sed -e 'h;s,^.*/,,;s/$(EXEEXT)$$//;$(transform)' \
 	      -e 's/$$/$(EXEEXT)/' `; \
 	test -n "$$list" || exit 0; \
-	echo " ( cd '$(DESTDIR)$(qpidtestdir)' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(qpidtestdir)" && rm -f $$files
+	echo " ( cd '$(DESTDIR)$(qpidexectestdir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(qpidexectestdir)" && rm -f $$files
 
-clean-qpidtestPROGRAMS:
-	@list='$(qpidtest_PROGRAMS)'; test -n "$$list" || exit 0; \
+clean-qpidexectestPROGRAMS:
+	@list='$(qpidexectest_PROGRAMS)'; test -n "$$list" || exit 0; \
 	echo " rm -f" $$list; \
 	rm -f $$list || exit $$?; \
 	test -n "$(EXEEXT)" || exit 0; \
@@ -1292,10 +1297,10 @@ uninstall-qpidexecSCRIPTS:
 	test -n "$$list" || exit 0; \
 	echo " ( cd '$(DESTDIR)$(qpidexecdir)' && rm -f" $$files ")"; \
 	cd "$(DESTDIR)$(qpidexecdir)" && rm -f $$files
-install-qpidtestSCRIPTS: $(qpidtest_SCRIPTS)
+install-qpidexectestSCRIPTS: $(qpidexectest_SCRIPTS)
 	@$(NORMAL_INSTALL)
-	test -z "$(qpidtestdir)" || $(MKDIR_P) "$(DESTDIR)$(qpidtestdir)"
-	@list='$(qpidtest_SCRIPTS)'; test -n "$(qpidtestdir)" || list=; \
+	test -z "$(qpidexectestdir)" || $(MKDIR_P) "$(DESTDIR)$(qpidexectestdir)"
+	@list='$(qpidexectest_SCRIPTS)'; test -n "$(qpidexectestdir)" || list=; \
 	for p in $$list; do \
 	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
 	  if test -f "$$d$$p"; then echo "$$d$$p"; echo "$$p"; else :; fi; \
@@ -1313,19 +1318,19 @@ install-qpidtestSCRIPTS: $(qpidtest_SCRIPTS)
 	while read type dir files; do \
 	     if test "$$dir" = .; then dir=; else dir=/$$dir; fi; \
 	     test -z "$$files" || { \
-	       echo " $(INSTALL_SCRIPT) $$files '$(DESTDIR)$(qpidtestdir)$$dir'"; \
-	       $(INSTALL_SCRIPT) $$files "$(DESTDIR)$(qpidtestdir)$$dir" || exit $$?; \
+	       echo " $(INSTALL_SCRIPT) $$files '$(DESTDIR)$(qpidexectestdir)$$dir'"; \
+	       $(INSTALL_SCRIPT) $$files "$(DESTDIR)$(qpidexectestdir)$$dir" || exit $$?; \
 	     } \
 	; done
 
-uninstall-qpidtestSCRIPTS:
+uninstall-qpidexectestSCRIPTS:
 	@$(NORMAL_UNINSTALL)
-	@list='$(qpidtest_SCRIPTS)'; test -n "$(qpidtestdir)" || exit 0; \
+	@list='$(qpidexectest_SCRIPTS)'; test -n "$(qpidexectestdir)" || exit 0; \
 	files=`for p in $$list; do echo "$$p"; done | \
 	       sed -e 's,.*/,,;$(transform)'`; \
 	test -n "$$list" || exit 0; \
-	echo " ( cd '$(DESTDIR)$(qpidtestdir)' && rm -f" $$files ")"; \
-	cd "$(DESTDIR)$(qpidtestdir)" && rm -f $$files
+	echo " ( cd '$(DESTDIR)$(qpidexectestdir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(qpidexectestdir)" && rm -f $$files
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -1385,7 +1390,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/QueueRegistryTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/QueueTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/RangeSet.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/RateFlowcontrolTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/RefCounted.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ReplicationTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/RetryList.Po@am__quote@
@@ -1763,7 +1767,7 @@ check-am: all-am
 check: check-am
 all-am: Makefile $(LTLIBRARIES) $(PROGRAMS) $(SCRIPTS)
 installdirs:
-	for dir in "$(DESTDIR)$(tmoduledir)" "$(DESTDIR)$(qpidexecdir)" "$(DESTDIR)$(qpidtestdir)" "$(DESTDIR)$(qpidexecdir)" "$(DESTDIR)$(qpidtestdir)"; do \
+	for dir in "$(DESTDIR)$(tmoduledir)" "$(DESTDIR)$(qpidexecdir)" "$(DESTDIR)$(qpidexectestdir)" "$(DESTDIR)$(qpidexecdir)" "$(DESTDIR)$(qpidexectestdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -1800,7 +1804,8 @@ clean: clean-am
 
 clean-am: clean-checkLTLIBRARIES clean-checkPROGRAMS clean-generic \
 	clean-libtool clean-local clean-qpidexecPROGRAMS \
-	clean-qpidtestPROGRAMS clean-tmoduleLTLIBRARIES mostlyclean-am
+	clean-qpidexectestPROGRAMS clean-tmoduleLTLIBRARIES \
+	mostlyclean-am
 
 distclean: distclean-am
 	-rm -rf ./$(DEPDIR) brokermgmt_gen/qmf/org/apache/qpid/broker/mgmt/test/$(DEPDIR) testagent_gen/qmf/org/apache/qpid/agent/example/$(DEPDIR)
@@ -1820,14 +1825,14 @@ info: info-am
 
 info-am:
 
-install-data-am: install-qpidtestPROGRAMS install-qpidtestSCRIPTS \
-	install-tmoduleLTLIBRARIES
+install-data-am: install-tmoduleLTLIBRARIES
 
 install-dvi: install-dvi-am
 
 install-dvi-am:
 
-install-exec-am: install-qpidexecPROGRAMS install-qpidexecSCRIPTS
+install-exec-am: install-qpidexecPROGRAMS install-qpidexecSCRIPTS \
+	install-qpidexectestPROGRAMS install-qpidexectestSCRIPTS
 
 install-html: install-html-am
 
@@ -1868,7 +1873,7 @@ ps: ps-am
 ps-am:
 
 uninstall-am: uninstall-qpidexecPROGRAMS uninstall-qpidexecSCRIPTS \
-	uninstall-qpidtestPROGRAMS uninstall-qpidtestSCRIPTS \
+	uninstall-qpidexectestPROGRAMS uninstall-qpidexectestSCRIPTS \
 	uninstall-tmoduleLTLIBRARIES
 
 .MAKE: check-am install-am install-strip
@@ -1876,7 +1881,7 @@ uninstall-am: uninstall-qpidexecPROGRAMS uninstall-qpidexecSCRIPTS \
 .PHONY: CTAGS GTAGS all all-am check check-TESTS check-am clean \
 	clean-checkLTLIBRARIES clean-checkPROGRAMS clean-generic \
 	clean-libtool clean-local clean-qpidexecPROGRAMS \
-	clean-qpidtestPROGRAMS clean-tmoduleLTLIBRARIES ctags \
+	clean-qpidexectestPROGRAMS clean-tmoduleLTLIBRARIES ctags \
 	distclean distclean-compile distclean-generic \
 	distclean-libtool distclean-tags distdir dvi dvi-am html \
 	html-am info info-am install install-am install-data \
@@ -1884,15 +1889,15 @@ uninstall-am: uninstall-qpidexecPROGRAMS uninstall-qpidexecSCRIPTS \
 	install-exec-am install-html install-html-am install-info \
 	install-info-am install-man install-pdf install-pdf-am \
 	install-ps install-ps-am install-qpidexecPROGRAMS \
-	install-qpidexecSCRIPTS install-qpidtestPROGRAMS \
-	install-qpidtestSCRIPTS install-strip \
+	install-qpidexecSCRIPTS install-qpidexectestPROGRAMS \
+	install-qpidexectestSCRIPTS install-strip \
 	install-tmoduleLTLIBRARIES installcheck installcheck-am \
 	installdirs maintainer-clean maintainer-clean-generic \
 	mostlyclean mostlyclean-compile mostlyclean-generic \
 	mostlyclean-libtool pdf pdf-am ps ps-am tags uninstall \
 	uninstall-am uninstall-qpidexecPROGRAMS \
-	uninstall-qpidexecSCRIPTS uninstall-qpidtestPROGRAMS \
-	uninstall-qpidtestSCRIPTS uninstall-tmoduleLTLIBRARIES
+	uninstall-qpidexecSCRIPTS uninstall-qpidexectestPROGRAMS \
+	uninstall-qpidexectestSCRIPTS uninstall-tmoduleLTLIBRARIES
 
 
 check-long:

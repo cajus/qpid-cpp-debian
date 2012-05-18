@@ -135,18 +135,23 @@ void Exchange::doRoute(Deliverable& msg, ConstBindingList b)
 
     if (mgmtExchange != 0)
     {
-        mgmtExchange->inc_msgReceives  ();
-        mgmtExchange->inc_byteReceives (msg.contentSize ());
+        qmf::org::apache::qpid::broker::Exchange::PerThreadStats *eStats = mgmtExchange->getStatistics();
+        uint64_t contentSize = msg.contentSize();
+
+        eStats->msgReceives += 1;
+        eStats->byteReceives += contentSize;
         if (count == 0)
         {
             //QPID_LOG(warning, "Exchange " << getName() << " could not route message; no matching binding found");
-            mgmtExchange->inc_msgDrops  ();
-            mgmtExchange->inc_byteDrops (msg.contentSize ());
+            eStats->msgDrops += 1;
+            eStats->byteDrops += contentSize;
+            if (brokerMgmtObject)
+                brokerMgmtObject->inc_discardsNoRoute();
         }
         else
         {
-            mgmtExchange->inc_msgRoutes  (count);
-            mgmtExchange->inc_byteRoutes (count * msg.contentSize ());
+            eStats->msgRoutes += count;
+            eStats->byteRoutes += count * contentSize;
         }
     }
 }
@@ -154,14 +159,14 @@ void Exchange::doRoute(Deliverable& msg, ConstBindingList b)
 void Exchange::routeIVE(){
     if (ive && lastMsg.get()){
         DeliverableMessage dmsg(lastMsg);
-        route(dmsg, lastMsg->getRoutingKey(), lastMsg->getApplicationHeaders());
+        route(dmsg);
     }
 }
 
 
 Exchange::Exchange (const string& _name, Manageable* parent, Broker* b) :
     name(_name), durable(false), persistenceId(0), sequence(false),
-    sequenceNo(0), ive(false), mgmtExchange(0), broker(b), destroyed(false)
+    sequenceNo(0), ive(false), mgmtExchange(0), brokerMgmtObject(0), broker(b), destroyed(false)
 {
     if (parent != 0 && broker != 0)
     {
@@ -172,6 +177,8 @@ Exchange::Exchange (const string& _name, Manageable* parent, Broker* b) :
             mgmtExchange->set_durable(durable);
             mgmtExchange->set_autoDelete(false);
             agent->addObject(mgmtExchange, 0, durable);
+            if (broker)
+                brokerMgmtObject = (qmf::org::apache::qpid::broker::Broker*) broker->GetManagementObject();
         }
     }
 }
@@ -179,7 +186,7 @@ Exchange::Exchange (const string& _name, Manageable* parent, Broker* b) :
 Exchange::Exchange(const string& _name, bool _durable, const qpid::framing::FieldTable& _args,
                    Manageable* parent, Broker* b)
     : name(_name), durable(_durable), alternateUsers(0), persistenceId(0),
-      args(_args), sequence(false), sequenceNo(0), ive(false), mgmtExchange(0), broker(b), destroyed(false)
+      args(_args), sequence(false), sequenceNo(0), ive(false), mgmtExchange(0), brokerMgmtObject(0), broker(b), destroyed(false)
 {
     if (parent != 0 && broker != 0)
     {
@@ -191,6 +198,8 @@ Exchange::Exchange(const string& _name, bool _durable, const qpid::framing::Fiel
             mgmtExchange->set_autoDelete(false);
             mgmtExchange->set_arguments(ManagementAgent::toMap(args));
             agent->addObject(mgmtExchange, 0, durable);
+            if (broker)
+                brokerMgmtObject = (qmf::org::apache::qpid::broker::Broker*) broker->GetManagementObject();
         }
     }
 
@@ -279,12 +288,10 @@ uint32_t Exchange::encodedSize() const
 void Exchange::recoveryComplete(ExchangeRegistry& exchanges)
 {
     if (!alternateName.empty()) {
-        try {
-            Exchange::shared_ptr ae = exchanges.get(alternateName);
-            setAlternate(ae);
-        } catch (const NotFoundException&) {
-            QPID_LOG(warning, "Could not set alternate exchange \"" << alternateName << "\": does not exist.");
-        }
+        Exchange::shared_ptr ae = exchanges.find(alternateName);
+        if (ae) setAlternate(ae);
+        else QPID_LOG(warning, "Could not set alternate exchange \""
+                      << alternateName << "\": does not exist.");
     }
 }
 
@@ -395,9 +402,9 @@ void Exchange::setProperties(const boost::intrusive_ptr<Message>& msg) {
 
 bool Exchange::routeWithAlternate(Deliverable& msg)
 {
-    route(msg, msg.getMessage().getRoutingKey(), msg.getMessage().getApplicationHeaders());
+    route(msg);
     if (!msg.delivered && alternate) {
-        alternate->route(msg, msg.getMessage().getRoutingKey(), msg.getMessage().getApplicationHeaders());
+        alternate->route(msg);
     }
     return msg.delivered;
 }

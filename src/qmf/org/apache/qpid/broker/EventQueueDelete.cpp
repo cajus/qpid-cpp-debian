@@ -128,3 +128,8 @@ void EventQueueDelete::mapEncode(::qpid::types::Variant::Map& map) const
     map["qName"] = ::qpid::types::Variant(qName);
 
 }
+
+bool EventQueueDelete::match(const std::string& evt, const std::string& pkg)
+{
+    return eventName == evt && packageName == pkg;
+}

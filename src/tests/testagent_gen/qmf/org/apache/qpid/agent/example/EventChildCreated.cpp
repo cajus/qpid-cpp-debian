@@ -107,3 +107,8 @@ void EventChildCreated::mapEncode(::qpid::types::Variant::Map& map) const
     map["childName"] = ::qpid::types::Variant(childName);
 
 }
+
+bool EventChildCreated::match(const std::string& evt, const std::string& pkg)
+{
+    return eventName == evt && packageName == pkg;
+}

@@ -42,6 +42,8 @@ namespace framing {
 class QPID_COMMON_CLASS_EXTERN ClusterConnectionConsumerStateBody : public ModelMethod {
     std::string name;
     SequenceNumber position;
+    uint32_t usedMsgCredit;
+    uint32_t usedByteCredit;
     uint16_t flags;
 public:
     static const ClassId CLASS_ID = 0x81;
@@ -50,16 +52,22 @@ public:
         ProtocolVersion, const std::string& _name,
         bool _blocked,
         bool _notifyEnabled,
-        const SequenceNumber& _position) : 
+        const SequenceNumber& _position,
+        uint32_t _usedMsgCredit,
+        uint32_t _usedByteCredit) : 
         name(_name),
         position(_position),
+        usedMsgCredit(_usedMsgCredit),
+        usedByteCredit(_usedByteCredit),
         flags(0){
         setBlocked(_blocked);
         setNotifyEnabled(_notifyEnabled);
         flags |= (1 << 8);
         flags |= (1 << 11);
+        flags |= (1 << 12);
+        flags |= (1 << 13);
     }
-    ClusterConnectionConsumerStateBody(ProtocolVersion=ProtocolVersion())  : flags(0) {}
+    ClusterConnectionConsumerStateBody(ProtocolVersion=ProtocolVersion())  : usedMsgCredit(0), usedByteCredit(0), flags(0) {}
     
     QPID_COMMON_EXTERN void setName(const std::string& _name);
     QPID_COMMON_EXTERN const std::string& getName() const;
@@ -73,10 +81,18 @@ public:
     QPID_COMMON_EXTERN SequenceNumber getPosition() const;
     QPID_COMMON_EXTERN bool hasPosition() const;
     QPID_COMMON_EXTERN void clearPositionFlag();
+    QPID_COMMON_EXTERN void setUsedMsgCredit(uint32_t _usedMsgCredit);
+    QPID_COMMON_EXTERN uint32_t getUsedMsgCredit() const;
+    QPID_COMMON_EXTERN bool hasUsedMsgCredit() const;
+    QPID_COMMON_EXTERN void clearUsedMsgCreditFlag();
+    QPID_COMMON_EXTERN void setUsedByteCredit(uint32_t _usedByteCredit);
+    QPID_COMMON_EXTERN uint32_t getUsedByteCredit() const;
+    QPID_COMMON_EXTERN bool hasUsedByteCredit() const;
+    QPID_COMMON_EXTERN void clearUsedByteCreditFlag();
     typedef void ResultType;
 
     template <class T> ResultType invoke(T& invocable) const {
-        return invocable.consumerState(getName(), getBlocked(), getNotifyEnabled(), getPosition());
+        return invocable.consumerState(getName(), getBlocked(), getNotifyEnabled(), getPosition(), getUsedMsgCredit(), getUsedByteCredit());
     }
 
     using  AMQMethodBody::accept;

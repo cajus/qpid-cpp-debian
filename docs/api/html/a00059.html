@@ -213,10 +213,29 @@ Protected Attributes</h2></td></tr>
 <div class="memdoc">
 
 <p>Current implementation supports the following options: </p>
-<p>username password heartbeat tcp_nodelay sasl_mechanisms sasl_service sasl_min_ssf sasl_max_ssf transport</p>
+<ul>
+<li>username</li>
+<li>password</li>
+<li>heartbeat</li>
+<li>tcp_nodelay</li>
+<li>sasl_mechanisms</li>
+<li>sasl_service</li>
+<li>sasl_min_ssf</li>
+<li>sasl_max_ssf</li>
+<li>transport</li>
+</ul>
 <p>Reconnect behaviour can be controlled through the following options:</p>
-<p>reconnect: true/false (enables/disables reconnect entirely) reconnect_timeout: number of seconds (give up and report failure after specified time) reconnect_limit: n (give up and report failure after specified number of attempts) reconnect_interval_min: number of seconds (initial delay between failed reconnection attempts) reconnect_interval_max: number of seconds (maximum delay between failed reconnection attempts) reconnect_interval: shorthand for setting the same reconnect_interval_min/max reconnect_urls: list of alternate urls to try when connecting</p>
-<p>The reconnect_interval is the time that the client waits for after a failed attempt to reconnect before retrying. It starts at the value of the min_retry_interval and is doubled every failure until the value of max_retry_interval is reached. </p>
+<ul>
+<li>reconnect: true/false (enables/disables reconnect entirely)</li>
+<li>reconnect_timeout: seconds (give up and report failure after specified time)</li>
+<li>reconnect_limit: n (give up and report failure after specified number of attempts)</li>
+<li>reconnect_interval_min: seconds (initial delay between failed reconnection attempts)</li>
+<li>reconnect_interval_max: seconds (maximum delay between failed reconnection attempts)</li>
+<li>reconnect_interval: shorthand for setting the same reconnect_interval_min/max</li>
+<li>reconnect_urls: list of alternate urls to try when connecting</li>
+</ul>
+<p>The reconnect_interval is the time that the client waits for after a failed attempt to reconnect before retrying. It starts at the value of the min_retry_interval and is doubled every failure until the value of max_retry_interval is reached.</p>
+<p>Values in seconds can be fractional, for example 0.001 is a millisecond delay. </p>
 
 </div>
 </div>
@@ -595,7 +614,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Wed Jan 11 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

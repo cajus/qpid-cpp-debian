@@ -138,8 +138,6 @@ void Connection::init() {
     else {                      // Shadow or catch-up connection
         // Passive, discard cluster-order frames
         connection->setClusterOrderOutput(nullFrameHandler);
-        // Disable client throttling, done by active node.
-        connection->setClientThrottling(false);
     }
     if (!isCatchUp())
         connection->setErrorListener(this);
@@ -404,11 +402,13 @@ void Connection::shadowSetUser(const std::string& userId) {
     connection->setUserId(userId);
 }
 
-void Connection::consumerState(const string& name, bool blocked, bool notifyEnabled, const SequenceNumber& position)
+void Connection::consumerState(const string& name, bool blocked, bool notifyEnabled, const SequenceNumber& position,
+                               uint32_t usedMsgCredit, uint32_t usedByteCredit)
 {
     broker::SemanticState::ConsumerImpl::shared_ptr c = semanticState().find(name);
-    c->position = position;
+    c->setPosition(position);
     c->setBlocked(blocked);
+    if (c->getCredit().isWindowMode()) c->getCredit().consume(usedMsgCredit, usedByteCredit);
     if (notifyEnabled) c->enableNotify(); else c->disableNotify();
     updateIn.consumerNumbering.add(c);
 }
@@ -549,7 +549,7 @@ void Connection::deliveryRecord(const string& qname,
         } else {                // Message at original position in original queue
             queue->find(position, m);
         }
-        // FIXME aconway 2011-08-19: removed:
+        // NOTE: removed:
         // if (!m.payload)
         //      throw Exception(QPID_MSG("deliveryRecord no update message"));
         //
@@ -561,7 +561,14 @@ void Connection::deliveryRecord(const string& qname,
         //
     }
 
-    broker::DeliveryRecord dr(m, queue, tag, acquired, accepted, windowing, credit);
+    // If a subscription is cancelled while there are unacked messages for it
+    // there won't be a consumer. Just null it out in this case, it isn't needed.
+    boost::shared_ptr<broker::Consumer> consumer;
+    try { consumer = semanticState().find(tag); }
+    catch(...) {}
+
+    broker::DeliveryRecord dr(
+        m, queue, tag, consumer, acquired, accepted, windowing, credit);
     dr.setId(id);
     if (cancelled) dr.cancel(dr.getTag());
     if (completed) dr.complete();
@@ -736,8 +743,11 @@ void Connection::sessionError(uint16_t , const std::string& msg) {
 
 void Connection::connectionError(const std::string& msg) {
     // Ignore errors before isOpen(), we're not multicasting yet.
-    if (connection->isOpen())
+    if (connection->isOpen()) {
         cluster.flagError(*this, ERROR_TYPE_CONNECTION, msg);
+    }
+    else
+      cluster.eraseLocal(self);
 }
 
 void Connection::addQueueListener(const std::string& q, uint32_t listener) {

@@ -76,6 +76,14 @@ const std::string& ClusterInitialStatusBody::getFirstConfig() const { return fir
 bool ClusterInitialStatusBody::hasFirstConfig() const { return flags & (1 << 13); }
 void ClusterInitialStatusBody::clearFirstConfigFlag() { flags &= ~(1 << 13); }
 
+void ClusterInitialStatusBody::setUrls(const Array& _urls) {
+    urls = _urls;
+    flags |= (1 << 14);
+}
+const Array& ClusterInitialStatusBody::getUrls() const { return urls; }
+bool ClusterInitialStatusBody::hasUrls() const { return flags & (1 << 14); }
+void ClusterInitialStatusBody::clearUrlsFlag() { flags &= ~(1 << 14); }
+
 void ClusterInitialStatusBody::encodeStructBody(Buffer& buffer) const
 {
 encodeHeader(buffer);
@@ -90,6 +98,8 @@ encodeHeader(buffer);
         shutdownId.encode(buffer);
     if (flags & (1 << 13))
         buffer.putMediumString(firstConfig);
+    if (flags & (1 << 14))
+        urls.encode(buffer);
 }
 
 void ClusterInitialStatusBody::encode(Buffer& buffer) const
@@ -111,6 +121,8 @@ decodeHeader(buffer);
         shutdownId.decode(buffer);
     if (flags & (1 << 13))
         buffer.getMediumString(firstConfig);
+    if (flags & (1 << 14))
+        urls.decode(buffer);
 }
 
 void ClusterInitialStatusBody::decode(Buffer& buffer, uint32_t /*size*/)
@@ -133,6 +145,8 @@ total += headerSize();
         total += shutdownId.encodedSize();
     if (flags & (1 << 13))
         total += 2 + firstConfig.size();
+    if (flags & (1 << 14))
+        total += urls.encodedSize();
     return total;
 }
 
@@ -156,5 +170,7 @@ void ClusterInitialStatusBody::print(std::ostream& out) const
         out << "shutdown-id=" << shutdownId << "; ";
     if (flags & (1 << 13))
         out << "first-config=" << firstConfig << "; ";
+    if (flags & (1 << 14))
+        out << "urls=" << urls << "; ";
     out << "}";
 }

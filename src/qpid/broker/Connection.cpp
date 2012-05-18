@@ -19,6 +19,7 @@
  *
  */
 #include "qpid/broker/Connection.h"
+#include "qpid/broker/ConnectionObserver.h"
 #include "qpid/broker/SessionOutputException.h"
 #include "qpid/broker/SessionState.h"
 #include "qpid/broker/Bridge.h"
@@ -83,14 +84,14 @@ Connection::Connection(ConnectionOutputHandler* out_,
                        Broker& broker_, const
                        std::string& mgmtId_,
                        const qpid::sys::SecuritySettings& external,
-                       bool isLink_,
+                       bool link_,
                        uint64_t objectId_,
                        bool shadow_,
                        bool delayManagement) :
     ConnectionState(out_, broker_),
     securitySettings(external),
-    adapter(*this, isLink_, shadow_),
-    isLink(isLink_),
+    adapter(*this, link_, shadow_),
+    link(link_),
     mgmtClosing(false),
     mgmtId(mgmtId_),
     mgmtObject(0),
@@ -103,8 +104,7 @@ Connection::Connection(ConnectionOutputHandler* out_,
     outboundTracker(*this)
 {
     outboundTracker.wrap(out);
-    if (isLink)
-        links.notifyConnection(mgmtId, this);
+    broker.getConnectionObservers().connection(*this);
     // In a cluster, allow adding the management object to be delayed.
     if (!delayManagement) addManagementObject();
     if (!isShadow()) broker.getConnectionCounter().inc_connectionCount();
@@ -118,7 +118,7 @@ void Connection::addManagementObject() {
         agent = broker.getManagementAgent();
         if (agent != 0) {
             // TODO set last bool true if system connection
-            mgmtObject = new _qmf::Connection(agent, this, parent, mgmtId, !isLink, false);
+            mgmtObject = new _qmf::Connection(agent, this, parent, mgmtId, !link, false);
             mgmtObject->set_shadow(shadow);
             agent->addObject(mgmtObject, objectId);
         }
@@ -130,7 +130,7 @@ void Connection::requestIOProcessing(boost::function0<void> callback)
 {
     ScopedLock<Mutex> l(ioCallbackLock);
     ioCallbacks.push(callback);
-    out.activateOutput();
+    if (isOpen()) out.activateOutput();
 }
 
 Connection::~Connection()
@@ -139,11 +139,10 @@ Connection::~Connection()
         mgmtObject->resourceDestroy();
         // In a cluster, Connections destroyed during shutdown are in
         // a cluster-unsafe context. Don't raise an event in that case.
-        if (!isLink && isClusterSafe())
+        if (!link && isClusterSafe())
             agent->raiseEvent(_qmf::EventClientDisconnect(mgmtId, ConnectionState::getUserId()));
     }
-    if (isLink)
-        links.notifyClosed(mgmtId);
+    broker.getConnectionObservers().closed(*this);
 
     if (heartbeatTimer)
         heartbeatTimer->cancel();
@@ -156,16 +155,21 @@ Connection::~Connection()
 void Connection::received(framing::AMQFrame& frame) {
     // Received frame on connection so delay timeout
     restartTimeout();
+    bool wasOpen = isOpen();
     adapter.handle(frame);
-    if (isLink) //i.e. we are acting as the client to another broker
+    if (link) //i.e. we are acting as the client to another broker
         recordFromServer(frame);
     else
         recordFromClient(frame);
+    if (!wasOpen && isOpen()) {
+        doIoCallbacks(); // Do any callbacks registered before we opened.
+        broker.getConnectionObservers().opened(*this);
+    }
 }
 
 void Connection::sent(const framing::AMQFrame& frame)
 {
-    if (isLink) //i.e. we are acting as the client to another broker
+    if (link) //i.e. we are acting as the client to another broker
         recordFromClient(frame);
     else
         recordFromServer(frame);
@@ -181,11 +185,13 @@ void Connection::recordFromServer(const framing::AMQFrame& frame)
     // Don't record management stats in cluster-unsafe contexts
     if (mgmtObject != 0 && isClusterSafe())
     {
-        mgmtObject->inc_framesToClient();
-        mgmtObject->inc_bytesToClient(frame.encodedSize());
+        qmf::org::apache::qpid::broker::Connection::PerThreadStats *cStats = mgmtObject->getStatistics();
+        cStats->framesToClient += 1;
+        cStats->bytesToClient += frame.encodedSize();
         if (isMessage(frame.getMethod())) {
-            mgmtObject->inc_msgsToClient();
+            cStats->msgsToClient += 1;
         }
+        mgmtObject->statisticsUpdated();
     }
 }
 
@@ -194,17 +200,19 @@ void Connection::recordFromClient(const framing::AMQFrame& frame)
     // Don't record management stats in cluster-unsafe contexts
     if (mgmtObject != 0 && isClusterSafe())
     {
-        mgmtObject->inc_framesFromClient();
-        mgmtObject->inc_bytesFromClient(frame.encodedSize());
+        qmf::org::apache::qpid::broker::Connection::PerThreadStats *cStats = mgmtObject->getStatistics();
+        cStats->framesFromClient += 1;
+        cStats->bytesFromClient += frame.encodedSize();
         if (isMessage(frame.getMethod())) {
-            mgmtObject->inc_msgsFromClient();
+            cStats->msgsFromClient += 1;
         }
+        mgmtObject->statisticsUpdated();
     }
 }
 
 string Connection::getAuthMechanism()
 {
-    if (!isLink)
+    if (!link)
         return string("ANONYMOUS");
 
     return links.getAuthMechanism(mgmtId);
@@ -212,7 +220,7 @@ string Connection::getAuthMechanism()
 
 string Connection::getUsername ( )
 {
-    if (!isLink)
+    if (!link)
         return string("anonymous");
 
     return links.getUsername(mgmtId);
@@ -220,7 +228,7 @@ string Connection::getUsername ( )
 
 string Connection::getPassword ( )
 {
-    if (!isLink)
+    if (!link)
         return string("");
 
     return links.getPassword(mgmtId);
@@ -228,7 +236,7 @@ string Connection::getPassword ( )
 
 string Connection::getHost ( )
 {
-    if (!isLink)
+    if (!link)
         return string("");
 
     return links.getHost(mgmtId);
@@ -236,7 +244,7 @@ string Connection::getHost ( )
 
 uint16_t Connection::getPort ( )
 {
-    if (!isLink)
+    if (!link)
         return 0;
 
     return links.getPort(mgmtId);
@@ -244,7 +252,7 @@ uint16_t Connection::getPort ( )
 
 string Connection::getAuthCredentials()
 {
-    if (!isLink)
+    if (!link)
         return string();
 
     if (mgmtObject != 0)
@@ -260,8 +268,7 @@ string Connection::getAuthCredentials()
 
 void Connection::notifyConnectionForced(const string& text)
 {
-    if (isLink)
-        links.notifyConnectionForced(mgmtId, text);
+    broker.getConnectionObservers().forced(*this, text);
 }
 
 void Connection::setUserId(const string& userId)
@@ -329,17 +336,16 @@ void Connection::closed(){ // Physically closed, suspend open sessions.
 }
 
 void Connection::doIoCallbacks() {
-    {
-        ScopedLock<Mutex> l(ioCallbackLock);
-        // Although IO callbacks execute in the connection thread context, they are
-        // not cluster safe because they are queued for execution in non-IO threads.
-        ClusterUnsafeScope cus;
-        while (!ioCallbacks.empty()) {
-            boost::function0<void> cb = ioCallbacks.front();
-            ioCallbacks.pop();
-            ScopedUnlock<Mutex> ul(ioCallbackLock);
-            cb(); // Lend the IO thread for management processing
-        }
+    if (!isOpen()) return; // Don't process IO callbacks until we are open.
+    ScopedLock<Mutex> l(ioCallbackLock);
+    // Although IO callbacks execute in the connection thread context, they are
+    // not cluster safe because they are queued for execution in non-IO threads.
+    ClusterUnsafeScope cus;
+    while (!ioCallbacks.empty()) {
+        boost::function0<void> cb = ioCallbacks.front();
+        ioCallbacks.pop();
+        ScopedUnlock<Mutex> ul(ioCallbackLock);
+        cb(); // Lend the IO thread for management processing
     }
 }
 
