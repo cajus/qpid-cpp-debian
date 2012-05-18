@@ -526,9 +526,9 @@ void AMQP_AllProxy::Cluster::retractOffer(uint64_t updatee)
 {
     send(ClusterRetractOfferBody(getVersion(), updatee));
 }
-void AMQP_AllProxy::Cluster::initialStatus(uint32_t version, bool active, const Uuid& clusterId, uint8_t storeState, const Uuid& shutdownId, const std::string& firstConfig)
+void AMQP_AllProxy::Cluster::initialStatus(uint32_t version, bool active, const Uuid& clusterId, uint8_t storeState, const Uuid& shutdownId, const std::string& firstConfig, const Array& urls)
 {
-    send(ClusterInitialStatusBody(getVersion(), version, active, clusterId, storeState, shutdownId, firstConfig));
+    send(ClusterInitialStatusBody(getVersion(), version, active, clusterId, storeState, shutdownId, firstConfig, urls));
 }
 void AMQP_AllProxy::Cluster::ready(const std::string& url)
 {
@@ -586,9 +586,9 @@ void AMQP_AllProxy::ClusterConnection::shadowPrepare(const std::string& manageme
 {
     send(ClusterConnectionShadowPrepareBody(getVersion(), managementId));
 }
-void AMQP_AllProxy::ClusterConnection::consumerState(const std::string& name, bool blocked, bool notifyEnabled, const SequenceNumber& position)
+void AMQP_AllProxy::ClusterConnection::consumerState(const std::string& name, bool blocked, bool notifyEnabled, const SequenceNumber& position, uint32_t usedMsgCredit, uint32_t usedByteCredit)
 {
-    send(ClusterConnectionConsumerStateBody(getVersion(), name, blocked, notifyEnabled, position));
+    send(ClusterConnectionConsumerStateBody(getVersion(), name, blocked, notifyEnabled, position, usedMsgCredit, usedByteCredit));
 }
 void AMQP_AllProxy::ClusterConnection::deliveryRecord(const std::string& queue, const SequenceNumber& position, const std::string& tag, const SequenceNumber& id, bool acquired, bool accepted, bool cancelled, bool completed, bool ended, bool windowing, bool enqueued, uint32_t credit)
 {

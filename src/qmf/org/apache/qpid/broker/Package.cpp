@@ -23,6 +23,7 @@
 
 #include "Package.h"
 #include "System.h"
+#include "Memory.h"
 #include "Broker.h"
 #include "Agent.h"
 #include "Vhost.h"
@@ -56,6 +57,7 @@ using namespace qmf::org::apache::qpid::broker;
 Package::Package (::qpid::management::ManagementAgent* agent)
 {
     System::registerSelf(agent);
+    Memory::registerSelf(agent);
     Broker::registerSelf(agent);
     Agent::registerSelf(agent);
     Vhost::registerSelf(agent);

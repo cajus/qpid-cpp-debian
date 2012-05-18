@@ -862,10 +862,11 @@ class QPID_COMMON_CLASS_EXTERN ProxyTemplate
         const Uuid& clusterId_,
         const cluster::StoreState& storeState_,
         const Uuid& shutdownId_,
-        const Str16& firstConfig_
+        const Str16& firstConfig_,
+        const ArrayDomain<Str16> & urls_
     )
     {
-        cluster::InitialStatus initialStatus(version_, active_, clusterId_, storeState_, shutdownId_, firstConfig_);
+        cluster::InitialStatus initialStatus(version_, active_, clusterId_, storeState_, shutdownId_, firstConfig_, urls_);
         return functor(initialStatus);
     }
     
@@ -989,10 +990,12 @@ class QPID_COMMON_CLASS_EXTERN ProxyTemplate
         const Str8& name_,
         Bit blocked_,
         Bit notifyEnabled_,
-        const SequenceNo& position_
+        const SequenceNo& position_,
+        Uint32 usedMsgCredit_,
+        Uint32 usedByteCredit_
     )
     {
-        cluster-connection::ConsumerState consumerState(name_, blocked_, notifyEnabled_, position_);
+        cluster-connection::ConsumerState consumerState(name_, blocked_, notifyEnabled_, position_, usedMsgCredit_, usedByteCredit_);
         return functor(consumerState);
     }
     

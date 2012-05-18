@@ -52,7 +52,7 @@ using           std::string;
 string  Broker::packageName  = string ("org.apache.qpid.broker");
 string  Broker::className    = string ("broker");
 uint8_t Broker::md5Sum[MD5_LEN]   =
-    {0x16,0x6e,0x9a,0xf1,0x1,0x60,0xe9,0x73,0x58,0x4,0x57,0x97,0x58,0x50,0x8a,0x1f};
+    {0x51,0x39,0x10,0x71,0x15,0x43,0xcd,0xa4,0xe,0xae,0x70,0x15,0x2a,0xf2,0xca,0x82};
 
 Broker::Broker (ManagementAgent*, Manageable* _core, ::qpid::management::Manageable* _parent, const std::string& _name) :
     ManagementObject(_core),name(_name)
@@ -63,6 +63,7 @@ Broker::Broker (ManagementAgent*, Manageable* _core, ::qpid::management::Managea
     maxConns = 0;
     connBacklog = 0;
     stagingThreshold = 0;
+    mgmtPublish = 0;
     mgmtPubInterval = 0;
     version = "";
     dataDir = "";
@@ -74,10 +75,19 @@ Broker::Broker (ManagementAgent*, Manageable* _core, ::qpid::management::Managea
         presenceMask[idx] = 0;
 
 
+    perThreadStatsArray = new struct PerThreadStats*[maxThreads];
+    for (int idx = 0; idx < maxThreads; idx++)
+        perThreadStatsArray[idx] = 0;
+
 }
 
 Broker::~Broker ()
 {
+
+    for (int idx = 0; idx < maxThreads; idx++)
+        if (perThreadStatsArray[idx] != 0)
+            delete perThreadStatsArray[idx];
+    delete[] perThreadStatsArray;
 
 }
 
@@ -115,8 +125,8 @@ void Broker::writeSchema (std::string& schema)
     buf.putShortString (packageName); // Package Name
     buf.putShortString (className);   // Class Name
     buf.putBin128      (md5Sum);      // Schema Hash
-    buf.putShort       (10); // Config Element Count
-    buf.putShort       (1); // Inst Element Count
+    buf.putShort       (11); // Config Element Count
+    buf.putShort       (34); // Inst Element Count
     buf.putShort       (10); // Method Count
 
     // Properties
@@ -184,6 +194,15 @@ void Broker::writeSchema (std::string& schema)
     buf.putMap(ft);
 
     ft.clear();
+    ft[NAME] = "mgmtPublish";
+    ft[TYPE] = TYPE_BOOL;
+    ft[ACCESS] = ACCESS_RO;
+    ft[IS_INDEX] = 0;
+    ft[IS_OPTIONAL] = 0;
+    ft[DESC] = "Broker's management agent sends unsolicited data on the publish interval";
+    buf.putMap(ft);
+
+    ft.clear();
     ft[NAME] = "mgmtPubInterval";
     ft[TYPE] = TYPE_U16;
     ft[ACCESS] = ACCESS_RW;
@@ -217,6 +236,237 @@ void Broker::writeSchema (std::string& schema)
     ft.clear();
     ft[NAME] = "uptime";
     ft[TYPE] = TYPE_DELTATIME;
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "queueCount";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "queue";
+    ft[DESC] = "Number of queues in the broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "msgTotalEnqueues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Total messages enqueued to broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "msgTotalDequeues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Total messages dequeued from broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "byteTotalEnqueues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "octet";
+    ft[DESC] = "Total bytes enqueued to broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "byteTotalDequeues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "octet";
+    ft[DESC] = "Total bytes dequeued from broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "msgDepth";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Current number of messages on queues in broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "byteDepth";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "octet";
+    ft[DESC] = "Current number of bytes on queues in broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "msgPersistEnqueues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Total persistent messages enqueued to broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "msgPersistDequeues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Total persistent messages dequeued from broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "bytePersistEnqueues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "octet";
+    ft[DESC] = "Total persistent bytes enqueued to broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "bytePersistDequeues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "octet";
+    ft[DESC] = "Total persistent bytes dequeued from broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "msgTxnEnqueues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Total transactional messages enqueued to broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "msgTxnDequeues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Total transactional messages dequeued from broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "byteTxnEnqueues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "octet";
+    ft[DESC] = "Total transactional bytes enqueued to broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "byteTxnDequeues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "octet";
+    ft[DESC] = "Total transactional bytes dequeued from broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "msgFtdEnqueues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Total message bodies released from memory and flowed-to-disk on broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "msgFtdDequeues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Total message bodies dequeued from the broker having been flowed-to-disk";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "byteFtdEnqueues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "octet";
+    ft[DESC] = "Total bytes released from memory and flowed-to-disk on broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "byteFtdDequeues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "octet";
+    ft[DESC] = "Total bytes dequeued from the broker having been flowed-to-disk";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "msgFtdDepth";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Current number of messages flowed-to-disk";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "byteFtdDepth";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "octet";
+    ft[DESC] = "Current number of bytes flowed-to-disk";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "releases";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Acquired messages reinserted into the queue";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "acquires";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages acquired from the queue";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "discardsNoRoute";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages discarded due to no-route from exchange";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "discardsTtl";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages discarded due to TTL expiration";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "discardsRing";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages discarded due to ring-queue overflow";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "discardsLvq";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages discarded due to LVQ insert";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "discardsOverflow";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages discarded due to reject-policy overflow";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "discardsSubscriber";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages discarded due to subscriber reject";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "discardsPurge";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages discarded due to management purge";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "reroutes";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages dequeued to management re-route";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "abandoned";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages left in a deleted queue";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "abandonedViaAlt";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages routed to alternate exchange from a deleted queue";
     buf.putMap(ft);
 
 
@@ -471,6 +721,83 @@ void Broker::writeSchema (std::string& schema)
 }
 
 
+void Broker::aggregatePerThreadStats(struct PerThreadStats* totals) const
+{
+    totals->queueCount = 0;
+    totals->msgTotalEnqueues = 0;
+    totals->msgTotalDequeues = 0;
+    totals->byteTotalEnqueues = 0;
+    totals->byteTotalDequeues = 0;
+    totals->msgDepth = 0;
+    totals->byteDepth = 0;
+    totals->msgPersistEnqueues = 0;
+    totals->msgPersistDequeues = 0;
+    totals->bytePersistEnqueues = 0;
+    totals->bytePersistDequeues = 0;
+    totals->msgTxnEnqueues = 0;
+    totals->msgTxnDequeues = 0;
+    totals->byteTxnEnqueues = 0;
+    totals->byteTxnDequeues = 0;
+    totals->msgFtdEnqueues = 0;
+    totals->msgFtdDequeues = 0;
+    totals->byteFtdEnqueues = 0;
+    totals->byteFtdDequeues = 0;
+    totals->msgFtdDepth = 0;
+    totals->byteFtdDepth = 0;
+    totals->releases = 0;
+    totals->acquires = 0;
+    totals->discardsNoRoute = 0;
+    totals->discardsTtl = 0;
+    totals->discardsRing = 0;
+    totals->discardsLvq = 0;
+    totals->discardsOverflow = 0;
+    totals->discardsSubscriber = 0;
+    totals->discardsPurge = 0;
+    totals->reroutes = 0;
+    totals->abandoned = 0;
+    totals->abandonedViaAlt = 0;
+
+    for (int idx = 0; idx < maxThreads; idx++) {
+        struct PerThreadStats* threadStats = perThreadStatsArray[idx];
+        if (threadStats != 0) {
+            totals->queueCount += threadStats->queueCount;
+            totals->msgTotalEnqueues += threadStats->msgTotalEnqueues;
+            totals->msgTotalDequeues += threadStats->msgTotalDequeues;
+            totals->byteTotalEnqueues += threadStats->byteTotalEnqueues;
+            totals->byteTotalDequeues += threadStats->byteTotalDequeues;
+            totals->msgDepth += threadStats->msgDepth;
+            totals->byteDepth += threadStats->byteDepth;
+            totals->msgPersistEnqueues += threadStats->msgPersistEnqueues;
+            totals->msgPersistDequeues += threadStats->msgPersistDequeues;
+            totals->bytePersistEnqueues += threadStats->bytePersistEnqueues;
+            totals->bytePersistDequeues += threadStats->bytePersistDequeues;
+            totals->msgTxnEnqueues += threadStats->msgTxnEnqueues;
+            totals->msgTxnDequeues += threadStats->msgTxnDequeues;
+            totals->byteTxnEnqueues += threadStats->byteTxnEnqueues;
+            totals->byteTxnDequeues += threadStats->byteTxnDequeues;
+            totals->msgFtdEnqueues += threadStats->msgFtdEnqueues;
+            totals->msgFtdDequeues += threadStats->msgFtdDequeues;
+            totals->byteFtdEnqueues += threadStats->byteFtdEnqueues;
+            totals->byteFtdDequeues += threadStats->byteFtdDequeues;
+            totals->msgFtdDepth += threadStats->msgFtdDepth;
+            totals->byteFtdDepth += threadStats->byteFtdDepth;
+            totals->releases += threadStats->releases;
+            totals->acquires += threadStats->acquires;
+            totals->discardsNoRoute += threadStats->discardsNoRoute;
+            totals->discardsTtl += threadStats->discardsTtl;
+            totals->discardsRing += threadStats->discardsRing;
+            totals->discardsLvq += threadStats->discardsLvq;
+            totals->discardsOverflow += threadStats->discardsOverflow;
+            totals->discardsSubscriber += threadStats->discardsSubscriber;
+            totals->discardsPurge += threadStats->discardsPurge;
+            totals->reroutes += threadStats->reroutes;
+            totals->abandoned += threadStats->abandoned;
+            totals->abandonedViaAlt += threadStats->abandonedViaAlt;
+
+        }
+    }
+}
+
 
 
 uint32_t Broker::writePropertiesSize() const
@@ -486,6 +813,7 @@ uint32_t Broker::writePropertiesSize() const
     size += 2;  // maxConns
     size += 2;  // connBacklog
     size += 4;  // stagingThreshold
+    size += 1;  // mgmtPublish
     size += 2;  // mgmtPubInterval
     size += (1 + version.length());  // version
     if (presenceMask[presenceByte_dataDir] & presenceMask_dataDir) {
@@ -519,6 +847,7 @@ void Broker::readProperties (const std::string& _sBuf)
     maxConns = buf.getShort();
     connBacklog = buf.getShort();
     stagingThreshold = buf.getLong();
+    mgmtPublish = buf.getOctet()==1;
     mgmtPubInterval = buf.getShort();
     buf.getShortString(version);
     if (presenceMask[presenceByte_dataDir] & presenceMask_dataDir) {
@@ -556,6 +885,7 @@ void Broker::writeProperties (std::string& _sBuf) const
     buf.putShort(maxConns);
     buf.putShort(connBacklog);
     buf.putLong(stagingThreshold);
+    buf.putOctet(mgmtPublish?1:0);
     buf.putShort(mgmtPubInterval);
     buf.putShortString(version);
     if (presenceMask[presenceByte_dataDir] & presenceMask_dataDir) {
@@ -578,6 +908,20 @@ void Broker::writeStatistics (std::string& _sBuf, bool skipHeaders)
     Mutex::ScopedLock mutex(accessLock);
     instChanged = false;
 
+    for (int idx = 0; idx < maxThreads; idx++) {
+        struct PerThreadStats* threadStats = perThreadStatsArray[idx];
+        if (threadStats != 0) {
+        threadStats->msgDepth = (uint64_t) (threadStats->msgTotalEnqueues - threadStats->msgTotalDequeues);
+        threadStats->byteDepth = (uint64_t) (threadStats->byteTotalEnqueues - threadStats->byteTotalDequeues);
+        threadStats->msgFtdDepth = (uint64_t) (threadStats->msgFtdEnqueues - threadStats->msgFtdDequeues);
+        threadStats->byteFtdDepth = (uint64_t) (threadStats->byteFtdEnqueues - threadStats->byteFtdDequeues);
+
+        }
+    }
+
+
+    struct PerThreadStats totals;
+    aggregatePerThreadStats(&totals);
 
 
     if (!skipHeaders) {
@@ -587,6 +931,39 @@ void Broker::writeStatistics (std::string& _sBuf, bool skipHeaders)
     }
 
     buf.putLongLong(uptime);
+    buf.putLongLong(totals.queueCount);
+    buf.putLongLong(totals.msgTotalEnqueues);
+    buf.putLongLong(totals.msgTotalDequeues);
+    buf.putLongLong(totals.byteTotalEnqueues);
+    buf.putLongLong(totals.byteTotalDequeues);
+    buf.putLongLong(totals.msgDepth);
+    buf.putLongLong(totals.byteDepth);
+    buf.putLongLong(totals.msgPersistEnqueues);
+    buf.putLongLong(totals.msgPersistDequeues);
+    buf.putLongLong(totals.bytePersistEnqueues);
+    buf.putLongLong(totals.bytePersistDequeues);
+    buf.putLongLong(totals.msgTxnEnqueues);
+    buf.putLongLong(totals.msgTxnDequeues);
+    buf.putLongLong(totals.byteTxnEnqueues);
+    buf.putLongLong(totals.byteTxnDequeues);
+    buf.putLongLong(totals.msgFtdEnqueues);
+    buf.putLongLong(totals.msgFtdDequeues);
+    buf.putLongLong(totals.byteFtdEnqueues);
+    buf.putLongLong(totals.byteFtdDequeues);
+    buf.putLongLong(totals.msgFtdDepth);
+    buf.putLongLong(totals.byteFtdDepth);
+    buf.putLongLong(totals.releases);
+    buf.putLongLong(totals.acquires);
+    buf.putLongLong(totals.discardsNoRoute);
+    buf.putLongLong(totals.discardsTtl);
+    buf.putLongLong(totals.discardsRing);
+    buf.putLongLong(totals.discardsLvq);
+    buf.putLongLong(totals.discardsOverflow);
+    buf.putLongLong(totals.discardsSubscriber);
+    buf.putLongLong(totals.discardsPurge);
+    buf.putLongLong(totals.reroutes);
+    buf.putLongLong(totals.abandoned);
+    buf.putLongLong(totals.abandonedViaAlt);
 
 
     // Maintenance of hi-lo statistics
@@ -804,6 +1181,7 @@ void Broker::mapEncodeValues (::qpid::types::Variant::Map& _map,
     _map["maxConns"] = ::qpid::types::Variant(maxConns);
     _map["connBacklog"] = ::qpid::types::Variant(connBacklog);
     _map["stagingThreshold"] = ::qpid::types::Variant(stagingThreshold);
+    _map["mgmtPublish"] = ::qpid::types::Variant(mgmtPublish);
     _map["mgmtPubInterval"] = ::qpid::types::Variant(mgmtPubInterval);
     _map["version"] = ::qpid::types::Variant(version);
     if (presenceMask[presenceByte_dataDir] & presenceMask_dataDir) {
@@ -815,10 +1193,57 @@ void Broker::mapEncodeValues (::qpid::types::Variant::Map& _map,
     if (includeStatistics) {
         instChanged = false;
 
+        for (int idx = 0; idx < maxThreads; idx++) {
+            struct PerThreadStats* threadStats = perThreadStatsArray[idx];
+            if (threadStats != 0) {
+        threadStats->msgDepth = (uint64_t) (threadStats->msgTotalEnqueues - threadStats->msgTotalDequeues);
+        threadStats->byteDepth = (uint64_t) (threadStats->byteTotalEnqueues - threadStats->byteTotalDequeues);
+        threadStats->msgFtdDepth = (uint64_t) (threadStats->msgFtdEnqueues - threadStats->msgFtdDequeues);
+        threadStats->byteFtdDepth = (uint64_t) (threadStats->byteFtdEnqueues - threadStats->byteFtdDequeues);
+
+            }
+        }
+
+
+        struct PerThreadStats totals;
+        aggregatePerThreadStats(&totals);
 
 
 
     _map["uptime"] = ::qpid::types::Variant(uptime);
+    _map["queueCount"] = ::qpid::types::Variant(totals.queueCount);
+    _map["msgTotalEnqueues"] = ::qpid::types::Variant(totals.msgTotalEnqueues);
+    _map["msgTotalDequeues"] = ::qpid::types::Variant(totals.msgTotalDequeues);
+    _map["byteTotalEnqueues"] = ::qpid::types::Variant(totals.byteTotalEnqueues);
+    _map["byteTotalDequeues"] = ::qpid::types::Variant(totals.byteTotalDequeues);
+    _map["msgDepth"] = ::qpid::types::Variant(totals.msgDepth);
+    _map["byteDepth"] = ::qpid::types::Variant(totals.byteDepth);
+    _map["msgPersistEnqueues"] = ::qpid::types::Variant(totals.msgPersistEnqueues);
+    _map["msgPersistDequeues"] = ::qpid::types::Variant(totals.msgPersistDequeues);
+    _map["bytePersistEnqueues"] = ::qpid::types::Variant(totals.bytePersistEnqueues);
+    _map["bytePersistDequeues"] = ::qpid::types::Variant(totals.bytePersistDequeues);
+    _map["msgTxnEnqueues"] = ::qpid::types::Variant(totals.msgTxnEnqueues);
+    _map["msgTxnDequeues"] = ::qpid::types::Variant(totals.msgTxnDequeues);
+    _map["byteTxnEnqueues"] = ::qpid::types::Variant(totals.byteTxnEnqueues);
+    _map["byteTxnDequeues"] = ::qpid::types::Variant(totals.byteTxnDequeues);
+    _map["msgFtdEnqueues"] = ::qpid::types::Variant(totals.msgFtdEnqueues);
+    _map["msgFtdDequeues"] = ::qpid::types::Variant(totals.msgFtdDequeues);
+    _map["byteFtdEnqueues"] = ::qpid::types::Variant(totals.byteFtdEnqueues);
+    _map["byteFtdDequeues"] = ::qpid::types::Variant(totals.byteFtdDequeues);
+    _map["msgFtdDepth"] = ::qpid::types::Variant(totals.msgFtdDepth);
+    _map["byteFtdDepth"] = ::qpid::types::Variant(totals.byteFtdDepth);
+    _map["releases"] = ::qpid::types::Variant(totals.releases);
+    _map["acquires"] = ::qpid::types::Variant(totals.acquires);
+    _map["discardsNoRoute"] = ::qpid::types::Variant(totals.discardsNoRoute);
+    _map["discardsTtl"] = ::qpid::types::Variant(totals.discardsTtl);
+    _map["discardsRing"] = ::qpid::types::Variant(totals.discardsRing);
+    _map["discardsLvq"] = ::qpid::types::Variant(totals.discardsLvq);
+    _map["discardsOverflow"] = ::qpid::types::Variant(totals.discardsOverflow);
+    _map["discardsSubscriber"] = ::qpid::types::Variant(totals.discardsSubscriber);
+    _map["discardsPurge"] = ::qpid::types::Variant(totals.discardsPurge);
+    _map["reroutes"] = ::qpid::types::Variant(totals.reroutes);
+    _map["abandoned"] = ::qpid::types::Variant(totals.abandoned);
+    _map["abandonedViaAlt"] = ::qpid::types::Variant(totals.abandonedViaAlt);
 
 
     // Maintenance of hi-lo statistics
@@ -854,6 +1279,9 @@ void Broker::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
     }
     if ((_i = _map.find("stagingThreshold")) != _map.end()) {
         stagingThreshold = _i->second;
+    }
+    if ((_i = _map.find("mgmtPublish")) != _map.end()) {
+        mgmtPublish = _i->second;
     }
     if ((_i = _map.find("mgmtPubInterval")) != _map.end()) {
         mgmtPubInterval = _i->second;

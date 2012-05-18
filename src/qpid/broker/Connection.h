@@ -160,8 +160,13 @@ class Connection : public sys::ConnectionInputHandler,
     /** @return true if the initial connection negotiation is complete. */
     bool isOpen();
 
+    bool isLink() { return link; }
+
     // Used by cluster during catch-up, see cluster::OutputInterceptor
     void doIoCallbacks();
+
+    void setClientProperties(const framing::FieldTable& cp) { clientProperties = cp; }
+    const framing::FieldTable& getClientProperties() const { return clientProperties; }
 
   private:
     typedef boost::ptr_map<framing::ChannelId, SessionHandler> ChannelMap;
@@ -170,7 +175,7 @@ class Connection : public sys::ConnectionInputHandler,
     ChannelMap channels;
     qpid::sys::SecuritySettings securitySettings;
     ConnectionHandler adapter;
-    const bool isLink;
+    const bool link;
     bool mgmtClosing;
     const std::string mgmtId;
     sys::Mutex ioCallbackLock;
@@ -184,6 +189,8 @@ class Connection : public sys::ConnectionInputHandler,
     ErrorListener* errorListener;
     uint64_t objectId;
     bool shadow;
+    framing::FieldTable clientProperties;
+
     /**
      * Chained ConnectionOutputHandler that allows outgoing frames to be
      * tracked (for updating mgmt stats).
@@ -205,9 +212,10 @@ class Connection : public sys::ConnectionInputHandler,
     };
     OutboundFrameTracker outboundTracker;
 
-
     void sent(const framing::AMQFrame& f);
+
   public:
+
     qmf::org::apache::qpid::broker::Connection* getMgmtObject() { return mgmtObject; }
 };
 

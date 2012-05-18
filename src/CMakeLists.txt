@@ -46,7 +46,8 @@ MACRO (install_pdb theLibrary theComponent)
     if (MSVC)
         get_target_property(library_dll ${theLibrary} LOCATION)
         string(REPLACE .dll .pdb library_pdb ${library_dll})
-        string(REPLACE $(OutDir) \${CMAKE_INSTALL_CONFIG_NAME} library_pdb ${library_pdb})
+        string(REPLACE $(OutDir)        \${CMAKE_INSTALL_CONFIG_NAME} library_pdb ${library_pdb})
+        string(REPLACE $(Configuration) \${CMAKE_INSTALL_CONFIG_NAME} library_pdb ${library_pdb})
         string(REPLACE .pdb d.pdb libraryd_pdb ${library_pdb})
         #message(STATUS "_pdb: ${library_pdb}, ${libraryd_pdb}")
         install (PROGRAMS
@@ -206,7 +207,9 @@ execute_process(COMMAND ${RUBY_EXECUTABLE} -I ${rgen_dir} ${rgen_dir}/generate $
 
   set(mgmt_specs ${AMQP_SPEC_DIR}/management-schema.xml
                  ${CMAKE_CURRENT_SOURCE_DIR}/qpid/acl/management-schema.xml
-                 ${CMAKE_CURRENT_SOURCE_DIR}/qpid/cluster/management-schema.xml)
+                 ${CMAKE_CURRENT_SOURCE_DIR}/qpid/cluster/management-schema.xml
+                 ${CMAKE_CURRENT_SOURCE_DIR}/qpid/ha/management-schema.xml
+  )
   set(mgen_dir ${qpid-cpp_SOURCE_DIR}/managementgen)
   set(regen_mgmt OFF)
   foreach (spec_file ${mgmt_specs})
@@ -268,6 +271,12 @@ if (CMAKE_COMPILER_IS_GNUCXX)
    # -Wshadow - warns about boost headers.
    set (WARNING_FLAGS
         "-Werror -pedantic -Wall -Wextra -Wno-shadow -Wpointer-arith -Wcast-qual -Wcast-align -Wno-long-long -Wvolatile-register-var -Winvalid-pch -Wno-system-headers -Woverloaded-virtual")
+
+   set (GCC_CATCH_UNDEFINED "-Wl,--no-undefined")
+   # gcc on SunOS uses native linker whose "-z defs" is too fussy
+   if (CMAKE_SYSTEM_NAME STREQUAL SunOS)
+      set (GCC_CATCH_UNDEFINED "")
+   endif (CMAKE_SYSTEM_NAME STREQUAL SunOS)
 endif (CMAKE_COMPILER_IS_GNUCXX)
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL SunPro)
@@ -289,6 +298,14 @@ if (CMAKE_SYSTEM_NAME STREQUAL Windows)
 else (CMAKE_SYSTEM_NAME STREQUAL Windows)
   set (Boost_components filesystem program_options unit_test_framework)
 endif (CMAKE_SYSTEM_NAME STREQUAL Windows)
+
+# Visual Studio 2010 requires boost 1.45 or better.
+# The choice here is to fail demanding the user to update CMake to version N
+# where Boost 1.45 is supported, or we can just accept some versions using
+# the Additional_versions variable.
+if (NOT DEFINED Boost_ADDITIONAL_VERSIONS)
+  set (Boost_ADDITIONAL_VERSIONS "1.45" "1.45.0" "1.46" "1.46.0" "1.47" "1.47.0")
+endif (NOT DEFINED Boost_ADDITIONAL_VERSIONS)
 
 find_package(Boost 1.33 REQUIRED COMPONENTS ${Boost_components})
 if(NOT Boost_FOUND)
@@ -460,6 +477,29 @@ else (NOT CLOCK_GETTIME_IN_RT)
   set(QPID_HAS_CLOCK_GETTIME YES CACHE BOOL "Platform has clock_gettime")
 endif (NOT CLOCK_GETTIME_IN_RT)
 
+# Check for header file for dtrace static probes
+check_include_files(sys/sdt.h HAVE_SYS_SDT_H)
+if (HAVE_SYS_SDT_H)
+  set(probes_default ON)
+endif (HAVE_SYS_SDT_H)
+option(BUILD_PROBES "Build with DTrace/systemtap static probes" ${probes_default})
+if (NOT BUILD_PROBES)
+  set (HAVE_SYS_SDT_H 0)
+endif (NOT BUILD_PROBES)
+
+# Check for poll/epoll header files
+check_include_files(sys/poll.h HAVE_POLL)
+check_include_files(sys/epoll.h HAVE_EPOLL)
+
+# Set default poller implementation (check from general to specific to allow overriding)
+if (HAVE_POLL)
+  set(poller_default poll)
+endif (HAVE_POLL)
+if (HAVE_EPOLL)
+  set(poller_default epoll)
+endif (HAVE_EPOLL)
+set(POLLER ${poller_default} CACHE STRING "Poller implementation (poll/epoll)")
+
 # If not windows ensure that we have uuid library
 if (NOT CMAKE_SYSTEM_NAME STREQUAL Windows)
   CHECK_LIBRARY_EXISTS (uuid uuid_compare "" HAVE_UUID)
@@ -537,7 +577,7 @@ if (BUILD_XML)
   if (CMAKE_COMPILER_IS_GNUCXX)
     set_target_properties (xml PROPERTIES
                            PREFIX ""
-                           LINK_FLAGS -Wl,--no-undefined)
+                           LINK_FLAGS ${GCC_CATCH_UNDEFINED})
   endif (CMAKE_COMPILER_IS_GNUCXX)
   install (TARGETS xml
            DESTINATION ${QPIDD_MODULE_DIR}
@@ -572,13 +612,46 @@ if (BUILD_ACL)
     if (CMAKE_COMPILER_IS_GNUCXX)
       set_target_properties (acl PROPERTIES
                              PREFIX ""
-                             LINK_FLAGS -Wl,--no-undefined)
+                             LINK_FLAGS "${GCC_CATCH_UNDEFINED}")
     endif (CMAKE_COMPILER_IS_GNUCXX)
     install (TARGETS acl
              DESTINATION ${QPIDD_MODULE_DIR}
              COMPONENT ${QPID_COMPONENT_BROKER})
   endif (NOT CMAKE_SYSTEM_NAME STREQUAL Windows)
 endif (BUILD_ACL)
+
+set (ha_default ON)
+option(BUILD_HA "Build Active-Passive HA plugin" ${ha_default})
+if (BUILD_HA)
+    set (ha_SOURCES
+        qpid/ha/Backup.cpp
+        qpid/ha/Backup.h
+        qpid/ha/HaBroker.cpp
+        qpid/ha/HaBroker.h
+        qpid/ha/HaPlugin.cpp
+        qpid/ha/Settings.h
+        qpid/ha/QueueReplicator.h
+        qpid/ha/QueueReplicator.cpp
+        qpid/ha/ReplicatingSubscription.h
+        qpid/ha/ReplicatingSubscription.cpp
+        qpid/ha/BrokerReplicator.cpp
+        qpid/ha/BrokerReplicator.h
+        qpid/ha/ConnectionExcluder.cpp
+        qpid/ha/ConnectionExcluder.h
+    )
+
+    add_library (ha MODULE ${ha_SOURCES})
+    set_target_properties (ha PROPERTIES PREFIX "")
+    target_link_libraries (ha qpidbroker ${Boost_PROGRAM_OPTIONS_LIBRARY})
+    if (CMAKE_COMPILER_IS_GNUCXX)
+      set_target_properties (ha PROPERTIES
+                             PREFIX ""
+                             LINK_FLAGS -Wl,--no-undefined)
+    endif (CMAKE_COMPILER_IS_GNUCXX)
+    install (TARGETS ha
+             DESTINATION ${QPIDD_MODULE_DIR}
+             COMPONENT ${QPID_COMPONENT_BROKER})
+endif (BUILD_HA)
 
 # Check for optional cluster support requirements
 include (cluster.cmake)
@@ -654,6 +727,7 @@ if (CMAKE_SYSTEM_NAME STREQUAL Windows)
     qpid/sys/windows/SystemInfo.cpp
     qpid/sys/windows/Thread.cpp
     qpid/sys/windows/Time.cpp
+    qpid/sys/windows/MemStat.cpp
     qpid/client/windows/SaslFactory.cpp
     ${sslcommon_windows_SOURCES}
   )
@@ -689,30 +763,43 @@ else (CMAKE_SYSTEM_NAME STREQUAL Windows)
 
   # POSIX (Non-Windows) platforms have a lot of overlap in sources; the only
   # major difference is the poller module.
-  if (CMAKE_SYSTEM_NAME STREQUAL Linux)
+  if (POLLER STREQUAL poll)
+    set (qpid_poller_module
+      qpid/sys/posix/PosixPoller.cpp
+    )
+  elseif (POLLER STREQUAL epoll)
     set (qpid_poller_module
       qpid/sys/epoll/EpollPoller.cpp
+    )
+  endif (POLLER STREQUAL poll)
+
+  if (CMAKE_SYSTEM_NAME STREQUAL Linux)
+    set (qpid_system_module
       qpid/sys/posix/SystemInfo.cpp
     )
     add_definitions(-pthread)
     set (CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -pthread")
     if (CMAKE_COMPILER_IS_GNUCXX)
-      set (CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -Wl,--no-undefined -pthread")
+      set (CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${GCC_CATCH_UNDEFINED} -pthread")
     endif (CMAKE_COMPILER_IS_GNUCXX)
   endif (CMAKE_SYSTEM_NAME STREQUAL Linux)
 
-  if (CMAKE_SYSTEM_NAME STREQUAL SunOS)
-    set (qpid_poller_module
-      qpid/sys/solaris/ECFPoller.cpp
-      qpid/sys/solaris/SystemInfo.cpp
-    )
-  endif (CMAKE_SYSTEM_NAME STREQUAL SunOS)
-
   set (qpidtypes_platform_SOURCES)
   set (qpidtypes_platform_LIBS
-    uuid
-    ${Boost_SYSTEM_LIBRARY}
+       uuid
+       ${Boost_SYSTEM_LIBRARY}
   )
+
+  if (CMAKE_SYSTEM_NAME STREQUAL SunOS)
+    set (qpid_system_module
+      qpid/sys/solaris/SystemInfo.cpp
+    )
+#   On Sun we want -lpthread -lthread as the 2nd last and last libs passed to linker
+    set (qpidtypes_platform_LIBS ${qpidtypes_platform_LIBS}
+      pthread
+      thread
+    )
+  endif (CMAKE_SYSTEM_NAME STREQUAL SunOS)
 
   set (qpidcommon_platform_SOURCES
     qpid/sys/posix/AsynchIO.cpp
@@ -720,6 +807,7 @@ else (CMAKE_SYSTEM_NAME STREQUAL Windows)
     qpid/sys/posix/FileSysDir.cpp
     qpid/sys/posix/IOHandle.cpp
     qpid/sys/posix/LockFile.cpp
+    qpid/sys/posix/MemStat.cpp
     qpid/sys/posix/Mutex.cpp
     qpid/sys/posix/PipeHandle.cpp
     qpid/sys/posix/PollableCondition.cpp
@@ -732,6 +820,7 @@ else (CMAKE_SYSTEM_NAME STREQUAL Windows)
     qpid/sys/posix/Time.cpp
     qpid/SaslFactory.cpp
 
+    ${qpid_system_module}
     ${qpid_poller_module}
   )
   set (qpidcommon_platform_LIBS
@@ -775,6 +864,7 @@ set (qpidcommon_SOURCES
      qpid/SessionId.cpp
      qpid/StringUtils.cpp
      qpid/Url.cpp
+     qpid/UrlArray.cpp
      qpid/amqp_0_10/SessionHandler.cpp
      qpid/framing/AccumulatedAck.cpp
      qpid/framing/AMQBody.cpp
@@ -984,6 +1074,7 @@ set (qpidbroker_SOURCES
      qpid/amqp_0_10/Connection.h
      qpid/amqp_0_10/Connection.cpp
      qpid/broker/Broker.cpp
+     qpid/broker/Credit.cpp
      qpid/broker/Exchange.cpp
      qpid/broker/ExpiryPolicy.cpp
      qpid/broker/Fairshare.cpp
@@ -1307,7 +1398,7 @@ target_link_libraries (replicating_listener qpidbroker ${Boost_PROGRAM_OPTIONS_L
 set_target_properties (replicating_listener PROPERTIES PREFIX "")
 if (CMAKE_COMPILER_IS_GNUCXX)
   set_target_properties(replicating_listener PROPERTIES
-                        LINK_FLAGS -Wl,--no-undefined)
+                        LINK_FLAGS "${GCC_CATCH_UNDEFINED}")
 endif (CMAKE_COMPILER_IS_GNUCXX)
 install (TARGETS replicating_listener
          DESTINATION ${QPIDD_MODULE_DIR}
@@ -1328,7 +1419,7 @@ target_link_libraries (replication_exchange qpidbroker)
 set_target_properties (replication_exchange PROPERTIES PREFIX "")
 if (CMAKE_COMPILER_IS_GNUCXX)
   set_target_properties(replication_exchange PROPERTIES
-                        LINK_FLAGS -Wl,--no-undefined)
+                        LINK_FLAGS "${GCC_CATCH_UNDEFINED}")
 endif (CMAKE_COMPILER_IS_GNUCXX)
 install (TARGETS replication_exchange
          DESTINATION ${QPIDD_MODULE_DIR}
@@ -1353,6 +1444,13 @@ if (UNIX)
   configure_file(${CMAKE_CURRENT_SOURCE_DIR}/qpid.pc.in
                  ${CMAKE_CURRENT_BINARY_DIR}/qpid.pc)
   install (FILES ${CMAKE_CURRENT_BINARY_DIR}/qpid.pc
+           DESTINATION ${QPID_INSTALL_LIBDIR}/pkgconfig
+           COMPONENT ${QPID_COMPONENT_COMMON})
+
+  add_dependencies(pkgconfig ${CMAKE_CURRENT_BINARY_DIR}/qmf2.pc)
+  configure_file(${CMAKE_CURRENT_SOURCE_DIR}/qmf2.pc.in
+                 ${CMAKE_CURRENT_BINARY_DIR}/qmf2.pc)
+  install (FILES ${CMAKE_CURRENT_BINARY_DIR}/qmf2.pc
            DESTINATION ${QPID_INSTALL_LIBDIR}/pkgconfig
            COMPONENT ${QPID_COMPONENT_COMMON})
 endif (UNIX)

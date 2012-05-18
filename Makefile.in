@@ -54,11 +54,13 @@ build_triplet = @build@
 host_triplet = @host@
 subdir = .
 DIST_COMMON = $(am__configure_deps) $(srcdir)/Makefile.am \
-	$(srcdir)/Makefile.in $(top_srcdir)/configure INSTALL \
-	build-aux/compile build-aux/config.guess \
-	build-aux/config.rpath build-aux/config.sub build-aux/depcomp \
-	build-aux/install-sh build-aux/ltmain.sh build-aux/mdate-sh \
-	build-aux/missing build-aux/py-compile
+	$(srcdir)/Makefile.in \
+	$(top_srcdir)/bindings/qpid/perl/Makefile.PL.in \
+	$(top_srcdir)/configure INSTALL build-aux/compile \
+	build-aux/config.guess build-aux/config.rpath \
+	build-aux/config.sub build-aux/depcomp build-aux/install-sh \
+	build-aux/ltmain.sh build-aux/mdate-sh build-aux/missing \
+	build-aux/py-compile
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ac_pkg_swig.m4 \
 	$(top_srcdir)/m4/clock_time.m4 \
@@ -71,7 +73,7 @@ am__CONFIG_DISTCLEAN_FILES = config.status config.cache config.log \
  configure.lineno config.status.lineno
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/src/config.h
-CONFIG_CLEAN_FILES =
+CONFIG_CLEAN_FILES = bindings/qpid/perl/Makefile.PL
 CONFIG_CLEAN_VPATH_FILES =
 SOURCES =
 DIST_SOURCES =
@@ -197,11 +199,14 @@ PACKAGE_URL = @PACKAGE_URL@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 PERL = @PERL@
+PERL_ARCHLIB = @PERL_ARCHLIB@
 PERL_INC = @PERL_INC@
+PKG_CONFIG = @PKG_CONFIG@
+PKG_CONFIG_LIBDIR = @PKG_CONFIG_LIBDIR@
+PKG_CONFIG_PATH = @PKG_CONFIG_PATH@
 PYTHON = @PYTHON@
+PYTHON_CFLAGS = @PYTHON_CFLAGS@
 PYTHON_EXEC_PREFIX = @PYTHON_EXEC_PREFIX@
-PYTHON_INC = @PYTHON_INC@
-PYTHON_LIB = @PYTHON_LIB@
 PYTHON_LIBS = @PYTHON_LIBS@
 PYTHON_PLATFORM = @PYTHON_PLATFORM@
 PYTHON_PREFIX = @PYTHON_PREFIX@
@@ -334,6 +339,8 @@ $(top_srcdir)/configure:  $(am__configure_deps)
 $(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	$(am__cd) $(srcdir) && $(ACLOCAL) $(ACLOCAL_AMFLAGS)
 $(am__aclocal_m4_deps):
+bindings/qpid/perl/Makefile.PL: $(top_builddir)/config.status $(top_srcdir)/bindings/qpid/perl/Makefile.PL.in
+	cd $(top_builddir) && $(SHELL) ./config.status $@
 
 mostlyclean-libtool:
 	-rm -f *.lo

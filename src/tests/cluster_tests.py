@@ -114,7 +114,9 @@ class ShortTests(BrokerTest):
         sasl_config=os.path.join(self.rootdir, "sasl_config")
         acl=os.path.join(os.getcwd(), "policy.acl")
         aclf=file(acl,"w")
+        # Must allow cluster-user (zag) access to credentials exchange.
         aclf.write("""
+acl allow zag@QPID publish exchange name=qpid.cluster-credentials
 acl allow zig@QPID all all
 acl deny all all
 """)
@@ -122,7 +124,11 @@ acl deny all all
         cluster = self.cluster(1, args=["--auth", "yes",
                                         "--sasl-config", sasl_config,
                                         "--load-module", os.getenv("ACL_LIB"),
-                                        "--acl-file", acl])
+                                        "--acl-file", acl,
+                                        "--cluster-username=zag",
+                                        "--cluster-password=zag",
+                                        "--cluster-mechanism=PLAIN"
+                                        ])
 
         # Valid user/password, ensure queue is created.
         c = cluster[0].connect(username="zig", password="zig")
@@ -167,39 +173,51 @@ acl deny all all
             self.fail("Expected exception")
         except messaging.exceptions.NotFound: pass
 
-    def test_sasl_join(self):
+    def test_sasl_join_good(self):
         """Verify SASL authentication between brokers when joining a cluster."""
         sasl_config=os.path.join(self.rootdir, "sasl_config")
         # Test with a valid username/password
         cluster = self.cluster(1, args=["--auth", "yes",
                                         "--sasl-config", sasl_config,
-                                        "--load-module", os.getenv("ACL_LIB"),
                                         "--cluster-username=zig",
                                         "--cluster-password=zig",
                                         "--cluster-mechanism=PLAIN"
                                         ])
         cluster.start()
-        cluster.ready()
-        c = cluster[1].connect(username="zag", password="zag")
+        c = cluster[1].connect(username="zag", password="zag", mechanism="PLAIN")
 
-        # Test with an invalid username/password
+    def test_sasl_join_bad_password(self):
+        # Test with an invalid password
         cluster = self.cluster(1, args=["--auth", "yes",
-                                        "--sasl-config", sasl_config,
-                                        "--load-module", os.getenv("ACL_LIB"),
-                                        "--cluster-username=x",
-                                        "--cluster-password=y",
+                                        "--sasl-config", os.path.join(self.rootdir, "sasl_config"),
+                                        "--cluster-username=zig",
+                                        "--cluster-password=bad",
                                         "--cluster-mechanism=PLAIN"
                                         ])
-        try:
-            cluster.start(expect=EXPECT_EXIT_OK)
-            cluster[1].ready()
-            self.fail("Expected exception")
-        except: pass
+        cluster.start(wait=False, expect=EXPECT_EXIT_FAIL)
+        assert cluster[1].log_contains("critical Unexpected error: connection-forced: Authentication failed")
+
+    def test_sasl_join_wrong_user(self):
+        # Test with a valid user that is not the cluster user.
+        cluster = self.cluster(0, args=["--auth", "yes",
+                                        "--sasl-config", os.path.join(self.rootdir, "sasl_config")])
+        cluster.start(args=["--cluster-username=zig",
+                            "--cluster-password=zig",
+                            "--cluster-mechanism=PLAIN"
+                            ])
+
+        cluster.start(wait=False, expect=EXPECT_EXIT_FAIL,
+                      args=["--cluster-username=zag",
+                            "--cluster-password=zag",
+                            "--cluster-mechanism=PLAIN"
+                            ])
+        assert cluster[1].log_contains("critical Unexpected error: unauthorized-access: unauthorized-access: Unauthorized user zag@QPID for qpid.cluster-credentials, should be zig")
 
     def test_user_id_update(self):
         """Ensure that user-id of an open session is updated to new cluster members"""
         sasl_config=os.path.join(self.rootdir, "sasl_config")
-        cluster = self.cluster(1, args=["--auth", "yes", "--sasl-config", sasl_config,])
+        cluster = self.cluster(1, args=["--auth", "yes", "--sasl-config", sasl_config,
+                                        "--cluster-mechanism=ANONYMOUS"])
         c = cluster[0].connect(username="zig", password="zig")
         s = c.session().sender("q;{create:always}")
         s.send(Message("x", user_id="zig")) # Message sent before start new broker
@@ -223,6 +241,7 @@ acl deny all all
         retry(lambda: find_in_file("brokerLinkUp", qp.outfile("out")))
         broker1.ready()
         broker2.ready()
+        qr.wait()
 
     def test_queue_cleaner(self):
         """ Regression test to ensure that cleanup of expired messages works correctly """
@@ -258,7 +277,7 @@ acl deny all all
         QMF-based tools - regression test for BZ615300."""
         broker1 = self.cluster(1)[0]
         broker2 = self.cluster(1)[0]
-        qs = subprocess.Popen(["qpid-stat", "-e", broker1.host_port()],  stdout=subprocess.PIPE)
+        qs = subprocess.Popen(["qpid-stat", "-e", "-b", broker1.host_port()],  stdout=subprocess.PIPE)
         out = qs.communicate()[0]
         assert out.find("amq.failover") > 0
 
@@ -292,6 +311,7 @@ acl deny all all
         client was attached.
         """
         args=["--mgmt-pub-interval=1","--log-enable=trace+:management"]
+
         # First broker will be killed.
         cluster0 = self.cluster(1, args=args)
         cluster1 = self.cluster(1, args=args)
@@ -327,9 +347,11 @@ acl deny all all
 
         # Force a change of elder
         cluster0.start()
+        for b in cluster0: b.ready()
         cluster0[0].expect=EXPECT_EXIT_FAIL # About to die.
         cluster0[0].kill()
         time.sleep(2) # Allow a management interval to pass.
+        for b in cluster0[1:]: b.ready()
         # Verify logs are consistent
         cluster_test_logs.verify_logs()
 
@@ -865,16 +887,20 @@ class DtxTests(BrokerTest):
         t5.send(["1", "2"])
 
         # Accept messages in a transaction before/after join then commit
+        # Note: Message sent outside transaction, we're testing transactional acceptance.
         t6 = DtxTestFixture(self, cluster[0], "t6")
         t6.send(["a","b","c"])
         t6.start()
         self.assertEqual(t6.accept().body, "a");
+        t6.verify(sessions, ["b", "c"])
 
         # Accept messages in a transaction before/after join then roll back
+        # Note: Message sent outside transaction, we're testing transactional acceptance.
         t7 = DtxTestFixture(self, cluster[0], "t7")
         t7.send(["a","b","c"])
         t7.start()
         self.assertEqual(t7.accept().body, "a");
+        t7.verify(sessions, ["b", "c"])
 
         # Ended, suspended transactions across join.
         t8 = DtxTestFixture(self, cluster[0], "t8")
@@ -930,6 +956,7 @@ class DtxTests(BrokerTest):
 
         # Rollback t7
         self.assertEqual(t7.accept().body, "b");
+        t7.verify(sessions, ["c"])
         t7.end()
         t7.rollback()
         t7.verify(sessions, ["a", "b", "c"])
@@ -1028,8 +1055,8 @@ class LongTests(BrokerTest):
 
         # Start sender and receiver threads
         cluster[0].declare_queue("test-queue")
-        sender = NumberedSender(cluster[0], 1000) # Max queue depth
-        receiver = NumberedReceiver(cluster[0], sender)
+        sender = NumberedSender(cluster[0], max_depth=1000)
+        receiver = NumberedReceiver(cluster[0], sender=sender)
         receiver.start()
         sender.start()
         # Wait for sender & receiver to get up and running
@@ -1133,7 +1160,7 @@ class LongTests(BrokerTest):
 
         def start_mclients(broker):
             """Start management clients that make multiple connections."""
-            cmd = ["qpid-stat", "-b", "localhost:%s" %(broker.port())]
+            cmd = ["qpid-cluster", "-C", "localhost:%s" %(broker.port())]
             mclients.append(ClientLoop(broker, cmd))
 
         endtime = time.time() + self.duration()
@@ -1197,25 +1224,23 @@ class LongTests(BrokerTest):
 
         receiver = NumberedReceiver(cluster[0])
         receiver.start()
-        senders = [NumberedSender(cluster[0]) for i in range(1,3)]
-        for s in senders:
-            s.start()
+        sender = NumberedSender(cluster[0])
+        sender.start()
         # Wait for senders & receiver to get up and running
-        retry(lambda: receiver.received > 2*senders)
+        retry(lambda: receiver.received > 10)
 
         # Kill original brokers, start new ones for the duration.
         endtime = time.time() + self.duration();
         i = 0
         while time.time() < endtime:
-            for s in senders: s.sender.assert_running()
+            sender.sender.assert_running()
             receiver.receiver.assert_running()
             for b in cluster[i:]: b.ready() # Check if any broker crashed.
             cluster[i].kill()
             i += 1
             b = cluster.start(expect=EXPECT_EXIT_FAIL)
             time.sleep(5)
-        for s in senders:
-            s.stop()
+        sender.stop()
         receiver.stop()
         for i in range(i, len(cluster)): cluster[i].kill()
 

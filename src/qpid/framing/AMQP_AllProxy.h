@@ -441,7 +441,8 @@ class QPID_COMMON_CLASS_EXTERN AMQP_AllProxy:
                     const Uuid& clusterId,
                     uint8_t storeState,
                     const Uuid& shutdownId,
-                    const std::string& firstConfig);
+                    const std::string& firstConfig,
+                    const Array& urls);
         
         QPID_COMMON_EXTERN virtual void ready(const std::string& url);
         
@@ -493,7 +494,9 @@ class QPID_COMMON_CLASS_EXTERN AMQP_AllProxy:
         QPID_COMMON_EXTERN virtual void consumerState(const std::string& name,
                     bool blocked,
                     bool notifyEnabled,
-                    const SequenceNumber& position);
+                    const SequenceNumber& position,
+                    uint32_t usedMsgCredit,
+                    uint32_t usedByteCredit);
         
         QPID_COMMON_EXTERN virtual void deliveryRecord(const std::string& queue,
                     const SequenceNumber& position,

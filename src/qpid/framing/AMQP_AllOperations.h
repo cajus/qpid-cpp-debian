@@ -442,7 +442,8 @@ class AMQP_AllOperations {
     const Uuid& clusterId,
     uint8_t storeState,
     const Uuid& shutdownId,
-    const std::string& firstConfig) = 0;
+    const std::string& firstConfig,
+    const Array& urls) = 0;
     
     virtual void ready(const std::string& url) = 0;
     
@@ -496,7 +497,9 @@ class AMQP_AllOperations {
     virtual void consumerState(const std::string& name,
     bool blocked,
     bool notifyEnabled,
-    const SequenceNumber& position) = 0;
+    const SequenceNumber& position,
+    uint32_t usedMsgCredit,
+    uint32_t usedByteCredit) = 0;
     
     virtual void deliveryRecord(const std::string& queue,
     const SequenceNumber& position,

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 #
 # Licensed to the Apache Software Foundation (ASF) under one
 # or more contributor license agreements.  See the NOTICE file
@@ -20,39 +20,40 @@
 
 # Benchmark script for comparing cluster performance.
 
-# Default values
-PORT="5672"
-COUNT=10000
-FLOW=100	      # Flow control limit on queue depth for latency.
-REPEAT=10
-QUEUES=4
-CLIENTS=3
+# Default options
+MESSAGES="-m 10000"
+FLOW="--flow-control 100"	      # Flow control limit on queue depth for latency.
+REPEAT="--repeat 10"
+QUEUES="-q 6"
+SENDERS="-s 3"
+RECEIVERS="-r 3"
+BROKERS=			# Local broker
+CLIENT_HOSTS=			# No ssh, all clients are local
 
-while getopts "p:c:f:r:t:b:q:c" opt; do
+while getopts "m:f:n:b:q:s:r:c:txyv-" opt; do
     case $opt in
-	p) PORT=$OPTARG;;
-	c) COUNT=$OPTARG;;
-	f) FLOW=$OPTARG;;
-	r) REPEAT=$OPTARG;;
-	s) SCALE=$OPTARG;;
-	b) BROKERS=$OPTARG;;
-	q) QUEUES=$OPTARG;;
-	c) CLIENTS=$OPTARG;;
+	m) MESSAGES="-m $OPTARG";;
+	f) FLOW="--flow-control $OPTARG";;
+	n) REPEAT="--repeat $OPTARG";;
+	b) BROKERS="-b $OPTARG";;
+	q) QUEUES="-q $OPTARG";;
+	s) SENDERS="-s $OPTARG";;
+	r) RECEIVERS="-r $OPTARG";;
+	c) CLIENT_HOSTS="-c $OPTARG";;
+	t) TCP_NODELAY="--connection-options {tcp-nodelay:true}";;
+	x) SAVE_RECEIVED="--save-received";;
+	y) NO_DELETE="--no-delete";;
+	v) OPTS="--verbose";;
+	-) break ;;
 	*) echo "Unknown option"; exit 1;;
     esac
 done
+shift $(($OPTIND-1))
 
-BROKERS=${BROKERS:-$(echo $HOSTS | sed "s/\>/:$PORT/g;s/ /,/g")} # Broker URL list
-BROKER=`echo $BROKERS | awk -F, '{print $1}'` # First broker
-
+REPLICATE="node:{x-declare:{arguments:{'qpid.replicate':all}}}"
+BROKER=$(echo $BROKERS | sed s/,.*//)
 run_test() { echo $*; shift; "$@"; echo; echo; echo; }
 
-# Multiple pubs/subs connect via multiple brokers (active-active)
-run_test "multi-host-thruput" qpid-cpp-benchmark --repeat $REPEAT -b $BROKERS --no-timestamp --summarize -q$QUEUES -s$CLIENTS -r$CLIENTS -m $COUNT
-
-# Multiple pubs/subs connect via single broker (active-passive)
-run_test "single-host-thruput" qpid-cpp-benchmark --repeat $REPEAT -b $BROKER --no-timestamp --summarize -q$QUEUES -s$CLIENTS -r$CLIENTS -m $COUNT
-
-# Latency
-run_test "latency" qpid-cpp-benchmark --repeat $REPEAT -b $BROKER --connection-options '{tcp-nodelay:true}' -m $COUNT --flow-control $FLOW
-
+OPTS="$OPTS $REPEAT $BROKERS --summarize $QUEUES $SENDERS $RECEIVERS $MESSAGES $CLIENT_HOSTS $SAVE_RECEIVED $TCP_NODELAY $NO_DELETE"
+OPTS="$OPTS --create-option $REPLICATE"
+run_test "Benchmark:" qpid-cpp-benchmark $OPTS "$@"

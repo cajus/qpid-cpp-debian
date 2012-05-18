@@ -111,16 +111,18 @@ ManagementAgent::RemoteAgent::~RemoteAgent ()
     if (mgmtObject != 0) {
         mgmtObject->resourceDestroy();
         agent.deleteObjectNowLH(mgmtObject->getObjectId());
+        delete mgmtObject;
+        mgmtObject = 0;
     }
 }
 
 ManagementAgent::ManagementAgent (const bool qmfV1, const bool qmfV2) :
-    threadPoolSize(1), interval(10), broker(0), timer(0),
+    threadPoolSize(1), publish(true), interval(10), broker(0), timer(0),
     startTime(sys::now()),
     suppressed(false), disallowAllV1Methods(false),
     vendorNameKey(defaultVendorName), productNameKey(defaultProductName),
     qmf1Support(qmfV1), qmf2Support(qmfV2), maxReplyObjs(100),
-    msgBuffer(MA_BUFFER_SIZE)
+    msgBuffer(MA_BUFFER_SIZE), memstat(0)
 {
     nextObjectId   = 1;
     brokerBank     = 1;
@@ -130,6 +132,9 @@ ManagementAgent::ManagementAgent (const bool qmfV1, const bool qmfV2) :
     clientWasAdded = false;
     attrMap["_vendor"] = defaultVendorName;
     attrMap["_product"] = defaultProductName;
+
+    memstat = new qmf::org::apache::qpid::broker::Memory(this, 0, "amqp-broker");
+    addObject(memstat, "amqp-broker");
 }
 
 ManagementAgent::~ManagementAgent ()
@@ -146,6 +151,8 @@ ManagementAgent::~ManagementAgent ()
         v2Topic.reset();
         v2Direct.reset();
 
+        remoteAgents.clear();
+
         moveNewObjectsLH();
         for (ManagementObjectMap::iterator iter = managementObjects.begin ();
              iter != managementObjects.end ();
@@ -157,10 +164,11 @@ ManagementAgent::~ManagementAgent ()
     }
 }
 
-void ManagementAgent::configure(const string& _dataDir, uint16_t _interval,
+void ManagementAgent::configure(const string& _dataDir, bool _publish, uint16_t _interval,
                                 qpid::broker::Broker* _broker, int _threads)
 {
     dataDir        = _dataDir;
+    publish        = _publish;
     interval       = _interval;
     broker         = _broker;
     threadPoolSize = _threads;
@@ -421,16 +429,17 @@ void ManagementAgent::raiseEvent(const ManagementEvent& event, severity_t severi
 }
 
 ManagementAgent::Periodic::Periodic (ManagementAgent& _agent, uint32_t _seconds)
-    : TimerTask (sys::Duration((_seconds ? _seconds : 1) * sys::TIME_SEC),
-                 "ManagementAgent::periodicProcessing"),
+    : TimerTask(sys::Duration((_seconds ? _seconds : 1) * sys::TIME_SEC),
+                "ManagementAgent::periodicProcessing"),
       agent(_agent) {}
 
-ManagementAgent::Periodic::~Periodic () {}
+ManagementAgent::Periodic::~Periodic() {}
 
-void ManagementAgent::Periodic::fire ()
+void ManagementAgent::Periodic::fire()
 {
-    agent.timer->add (new Periodic (agent, agent.interval));
-    agent.periodicProcessing ();
+    setupNextFire();
+    agent.timer->add(this);
+    agent.periodicProcessing();
 }
 
 void ManagementAgent::clientAdded (const string& routingKey)
@@ -555,7 +564,7 @@ void ManagementAgent::sendBufferLH(Buffer&  buf,
 
         DeliverableMessage deliverable (msg);
         try {
-            exchange->route(deliverable, routingKey, 0);
+            exchange->route(deliverable);
         } catch(exception&) {}
     }
     buf.reset();
@@ -632,7 +641,7 @@ void ManagementAgent::sendBufferLH(const string& data,
 
         DeliverableMessage deliverable (msg);
         try {
-            exchange->route(deliverable, routingKey, 0);
+            exchange->route(deliverable);
         } catch(exception&) {}
     }
 }
@@ -680,7 +689,7 @@ void ManagementAgent::moveNewObjectsLH()
             ManagementObjectMap::iterator destIter = managementObjects.find(oid);
             if (destIter != managementObjects.end()) {
                 // duplicate found.  It is OK if the old object has been marked
-                // deleted...
+                // deleted, just replace the old with the new.
                 ManagementObject *oldObj = destIter->second;
                 if (oldObj->isDeleted()) {
                     DeletedObject::shared_ptr dptr(new DeletedObject(oldObj, qmf1Support, qmf2Support));
@@ -692,6 +701,10 @@ void ManagementAgent::moveNewObjectsLH()
                     // and complain loudly...
                     QPID_LOG(error, "Detected two management objects with the same identifier: " << oid);
                 }
+                // QPID-3666: be sure to replace the -index- also, as non-key members of
+                // the index object may be different for the new object!  So erase the
+                // entry, rather than []= assign here:
+                managementObjects.erase(destIter);
             }
             managementObjects[oid] = object;
         }
@@ -708,10 +721,16 @@ void ManagementAgent::periodicProcessing (void)
     string              routingKey;
     string sBuf;
 
-    uint64_t uptime = sys::Duration(startTime, sys::now());
-    static_cast<_qmf::Broker*>(broker->GetManagementObject())->set_uptime(uptime);
-
     moveNewObjectsLH();
+
+    //
+    //  If we're publishing updates, get the latest memory statistics and uptime now
+    //
+    if (publish) {
+        uint64_t uptime = sys::Duration(startTime, sys::now());
+        static_cast<_qmf::Broker*>(broker->GetManagementObject())->set_uptime(uptime);
+        qpid::sys::MemStat::loadMemInfo(memstat);
+    }
 
     //
     //  Clear the been-here flag on all objects in the map.
@@ -735,6 +754,14 @@ void ManagementAgent::periodicProcessing (void)
     // would incorrectly think the object was deleted.  See QPID-2997
     //
     bool objectsDeleted = moveDeletedObjectsLH();
+
+    //
+    // If we are not publishing updates, just clear the pending deletes.  There's no
+    // need to tell anybody.
+    //
+    if (!publish)
+        pendingDeletedObjs.clear();
+
     if (!pendingDeletedObjs.empty()) {
         // use a temporary copy of the pending deletes so dropping the lock when
         // the buffer is sent is safe.
@@ -855,7 +882,9 @@ void ManagementAgent::periodicProcessing (void)
     // sendBuffer().  This allows the managementObjects map to be altered during the
     // sendBuffer() call, so always restart the search after a sendBuffer() call
     //
-    while (1) {
+    // If publish is disabled, don't send any updates.
+    //
+    while (publish) {
         msgBuffer.reset();
         Variant::List list_;
         uint32_t pcount;
@@ -1011,10 +1040,9 @@ void ManagementAgent::periodicProcessing (void)
 
     if (objectsDeleted) deleteOrphanedAgentsLH();
 
-    // heartbeat generation
+    // heartbeat generation.  Note that heartbeats need to be sent even if publish is disabled.
 
     if (qmf1Support) {
-#define BUFSIZE   65536
         uint32_t            contentSize;
         char                msgChars[BUFSIZE];
         Buffer msgBuffer(msgChars, BUFSIZE);
@@ -1075,7 +1103,7 @@ void ManagementAgent::deleteObjectNowLH(const ObjectId& oid)
     Variant::List list_;
     stringstream v1key, v2key;
 
-    if (qmf1Support) {
+    if (publish && qmf1Support) {
         string sBuf;
 
         v1key << "console.obj.1.0." << object->getPackageName() << "." << object->getClassName();
@@ -1084,7 +1112,7 @@ void ManagementAgent::deleteObjectNowLH(const ObjectId& oid)
         msgBuffer.putRawData(sBuf);
     }
 
-    if (qmf2Support) {
+    if (publish && qmf2Support) {
         Variant::Map  map_;
         Variant::Map  values;
 
@@ -1109,14 +1137,14 @@ void ManagementAgent::deleteObjectNowLH(const ObjectId& oid)
 
     // object deleted, ok to drop lock now.
 
-    if (qmf1Support) {
+    if (publish && qmf1Support) {
         uint32_t contentSize = msgBuffer.getPosition();
         msgBuffer.reset();
         sendBufferLH(msgBuffer, contentSize, mExchange, v1key.str());
         QPID_LOG(debug, "SEND Immediate(delete) ContentInd to=" << v1key.str());
     }
 
-    if (qmf2Support) {
+    if (publish && qmf2Support) {
         Variant::Map  headers;
         headers["method"] = "indication";
         headers["qmf.opcode"] = "_data_indication";
@@ -1826,6 +1854,15 @@ void ManagementAgent::handleGetQueryLH(Buffer& inBuffer, const string& replyToKe
     string className (value->get<string>());
     std::list<ObjectId>matches;
 
+    if (className == "memory")
+        qpid::sys::MemStat::loadMemInfo(memstat);
+
+    if (className == "broker") {
+        uint64_t uptime = sys::Duration(startTime, sys::now());
+        static_cast<_qmf::Broker*>(broker->GetManagementObject())->set_uptime(uptime);
+    }
+
+
     // build up a set of all objects to be dumped
     for (ManagementObjectMap::iterator iter = managementObjects.begin();
          iter != managementObjects.end();
@@ -1938,6 +1975,13 @@ void ManagementAgent::handleGetQueryLH(const string& body, const string& rte, co
             packageName = s_iter->second.asString();
     }
 
+    if (className == "memory")
+        qpid::sys::MemStat::loadMemInfo(memstat);
+
+    if (className == "broker") {
+        uint64_t uptime = sys::Duration(startTime, sys::now());
+        static_cast<_qmf::Broker*>(broker->GetManagementObject())->set_uptime(uptime);
+    }
 
     /*
      * Unpack the _object_id element of the query if it is present.  If it is present, find that one
@@ -1960,6 +2004,7 @@ void ManagementAgent::handleGetQueryLH(const string& body, const string& rte, co
                 Variant::Map values;
                 Variant::Map oidMap;
 
+                object->writeTimestamps(map_);
                 object->mapEncodeValues(values, true, true); // write both stats and properties
                 objId.mapEncode(oidMap);
                 map_["_values"] = values;

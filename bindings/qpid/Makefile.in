@@ -54,7 +54,7 @@ build_triplet = @build@
 host_triplet = @host@
 @HAVE_RUBY_DEVEL_TRUE@@HAVE_SWIG_TRUE@am__append_1 = ruby
 @HAVE_PYTHON_DEVEL_TRUE@@HAVE_SWIG_TRUE@am__append_2 = python
-@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@am__append_3 = perl
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@am__append_3 = perl/perl.i perl/CMakeLists.txt
 subdir = bindings/qpid
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -85,7 +85,7 @@ AM_RECURSIVE_TARGETS = $(RECURSIVE_TARGETS:-recursive=) \
 	distdir
 ETAGS = etags
 CTAGS = ctags
-DIST_SUBDIRS = dotnet ruby python perl
+DIST_SUBDIRS = dotnet ruby python
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 am__relativize = \
   dir0=`pwd`; \
@@ -183,11 +183,14 @@ PACKAGE_URL = @PACKAGE_URL@
 PACKAGE_VERSION = @PACKAGE_VERSION@
 PATH_SEPARATOR = @PATH_SEPARATOR@
 PERL = @PERL@
+PERL_ARCHLIB = @PERL_ARCHLIB@
 PERL_INC = @PERL_INC@
+PKG_CONFIG = @PKG_CONFIG@
+PKG_CONFIG_LIBDIR = @PKG_CONFIG_LIBDIR@
+PKG_CONFIG_PATH = @PKG_CONFIG_PATH@
 PYTHON = @PYTHON@
+PYTHON_CFLAGS = @PYTHON_CFLAGS@
 PYTHON_EXEC_PREFIX = @PYTHON_EXEC_PREFIX@
-PYTHON_INC = @PYTHON_INC@
-PYTHON_LIB = @PYTHON_LIB@
 PYTHON_LIBS = @PYTHON_LIBS@
 PYTHON_PLATFORM = @PYTHON_PLATFORM@
 PYTHON_PREFIX = @PYTHON_PREFIX@
@@ -274,9 +277,15 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-SUBDIRS = dotnet $(am__append_1) $(am__append_2) $(am__append_3)
-@HAVE_SWIG_TRUE@EXTRA_DIST = CMakeLists.txt qpid.i
-all: all-recursive
+SUBDIRS = dotnet $(am__append_1) $(am__append_2)
+@HAVE_SWIG_TRUE@EXTRA_DIST = CMakeLists.txt qpid.i $(am__append_3)
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@INCLUDES = -I$(top_srcdir)/include -I$(top_builddir)/include -I$(top_srcdir)/src -I$(top_builddir)/src -I$(PERL_INC)
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@BUILT_SOURCES = perl/cqpid_perl.cpp
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@SWIG_FLAGS = -w362,401
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@DISTCLEANFILES = perl/Makefile.PL
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@CLEANFILES = perl/cqpid_perl.cpp perl/Makefile.old perl/cqpid_perl.pm
+all: $(BUILT_SOURCES)
+	$(MAKE) $(AM_MAKEFLAGS) all-recursive
 
 .SUFFIXES:
 $(srcdir)/Makefile.in:  $(srcdir)/Makefile.am  $(am__configure_deps)
@@ -510,11 +519,15 @@ distdir: $(DISTFILES)
 	  fi; \
 	done
 check-am: all-am
-check: check-recursive
-all-am: Makefile
+check: $(BUILT_SOURCES)
+	$(MAKE) $(AM_MAKEFLAGS) check-recursive
+@HAVE_PERL_DEVEL_FALSE@all-local:
+@HAVE_SWIG_FALSE@all-local:
+all-am: Makefile all-local
 installdirs: installdirs-recursive
 installdirs-am:
-install: install-recursive
+install: $(BUILT_SOURCES)
+	$(MAKE) $(AM_MAKEFLAGS) install-recursive
 install-exec: install-exec-recursive
 install-data: install-data-recursive
 uninstall: uninstall-recursive
@@ -531,21 +544,33 @@ install-strip:
 mostlyclean-generic:
 
 clean-generic:
+	-test -z "$(CLEANFILES)" || rm -f $(CLEANFILES)
 
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
 	-test . = "$(srcdir)" || test -z "$(CONFIG_CLEAN_VPATH_FILES)" || rm -f $(CONFIG_CLEAN_VPATH_FILES)
+	-test -z "$(DISTCLEANFILES)" || rm -f $(DISTCLEANFILES)
 
 maintainer-clean-generic:
 	@echo "This command is intended for maintainers to use"
 	@echo "it deletes files that may require special tools to rebuild."
+	-test -z "$(BUILT_SOURCES)" || rm -f $(BUILT_SOURCES)
+@HAVE_PERL_DEVEL_FALSE@distclean-local:
+@HAVE_SWIG_FALSE@distclean-local:
+@HAVE_PERL_DEVEL_FALSE@maintainer-clean-local:
+@HAVE_SWIG_FALSE@maintainer-clean-local:
+@HAVE_PERL_DEVEL_FALSE@install-exec-local:
+@HAVE_SWIG_FALSE@install-exec-local:
+@HAVE_PERL_DEVEL_FALSE@clean-local:
+@HAVE_SWIG_FALSE@clean-local:
 clean: clean-recursive
 
-clean-am: clean-generic clean-libtool mostlyclean-am
+clean-am: clean-generic clean-libtool clean-local mostlyclean-am
 
 distclean: distclean-recursive
 	-rm -f Makefile
-distclean-am: clean-am distclean-generic distclean-tags
+distclean-am: clean-am distclean-generic distclean-local \
+	distclean-tags
 
 dvi: dvi-recursive
 
@@ -565,7 +590,7 @@ install-dvi: install-dvi-recursive
 
 install-dvi-am:
 
-install-exec-am:
+install-exec-am: install-exec-local
 
 install-html: install-html-recursive
 
@@ -589,7 +614,8 @@ installcheck-am:
 
 maintainer-clean: maintainer-clean-recursive
 	-rm -f Makefile
-maintainer-clean-am: distclean-am maintainer-clean-generic
+maintainer-clean-am: distclean-am maintainer-clean-generic \
+	maintainer-clean-local
 
 mostlyclean: mostlyclean-recursive
 
@@ -605,23 +631,58 @@ ps-am:
 
 uninstall-am:
 
-.MAKE: $(RECURSIVE_CLEAN_TARGETS) $(RECURSIVE_TARGETS) ctags-recursive \
-	install-am install-strip tags-recursive
+.MAKE: $(RECURSIVE_CLEAN_TARGETS) $(RECURSIVE_TARGETS) all check \
+	ctags-recursive install install-am install-strip \
+	tags-recursive
 
 .PHONY: $(RECURSIVE_CLEAN_TARGETS) $(RECURSIVE_TARGETS) CTAGS GTAGS \
-	all all-am check check-am clean clean-generic clean-libtool \
-	ctags ctags-recursive distclean distclean-generic \
-	distclean-libtool distclean-tags distdir dvi dvi-am html \
-	html-am info info-am install install-am install-data \
-	install-data-am install-dvi install-dvi-am install-exec \
-	install-exec-am install-html install-html-am install-info \
-	install-info-am install-man install-pdf install-pdf-am \
-	install-ps install-ps-am install-strip installcheck \
-	installcheck-am installdirs installdirs-am maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-generic \
-	mostlyclean-libtool pdf pdf-am ps ps-am tags tags-recursive \
-	uninstall uninstall-am
+	all all-am all-local check check-am clean clean-generic \
+	clean-libtool clean-local ctags ctags-recursive distclean \
+	distclean-generic distclean-libtool distclean-local \
+	distclean-tags distdir dvi dvi-am html html-am info info-am \
+	install install-am install-data install-data-am install-dvi \
+	install-dvi-am install-exec install-exec-am install-exec-local \
+	install-html install-html-am install-info install-info-am \
+	install-man install-pdf install-pdf-am install-ps \
+	install-ps-am install-strip installcheck installcheck-am \
+	installdirs installdirs-am maintainer-clean \
+	maintainer-clean-generic maintainer-clean-local mostlyclean \
+	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
+	tags tags-recursive uninstall uninstall-am
 
+
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@perl/cqpid_perl.cpp: $(srcdir)/perl/perl.i $(srcdir)/qpid.i $(srcdir)/../swig_perl_typemaps.i
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@	$(SWIG) -perl -c++ $(SWIG_FLAGS) $(INCLUDES) $(QPID_CXXFLAGS) -I/usr/include -o perl/cqpid_perl.cpp $(srcdir)/perl/perl.i
+
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@perl/Makefile: perl/cqpid_perl.cpp
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@	cd perl; \
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@		$(PERL) Makefile.PL PREFIX=$(prefix) LIB=$(PERL_ARCHLIB) ; \
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@	cd ..
+
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@all-local: perl/Makefile
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@	cd perl; \
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@		$(MAKE) OPTIMIZE="$(CXXFLAGS)" ; \
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@	cd ..
+
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@install-exec-local:
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@	cd perl ; \
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@		$(MAKE) pure_install DESTDIR=$(prefix) ; \
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@	cd ..
+
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@clean-local:
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@	cd perl ; \
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@		$(MAKE) clean ; \
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@	cd ..
+
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@distclean-local:
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@	cd perl ; \
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@		$(MAKE) distclean ; \
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@	cd ..
+
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@maintainer-clean-local:
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@	cd perl ; \
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@		$(PERL) maintainer-clean ; \
+@HAVE_PERL_DEVEL_TRUE@@HAVE_SWIG_TRUE@	cd ..
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

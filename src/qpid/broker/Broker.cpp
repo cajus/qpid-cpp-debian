@@ -111,6 +111,7 @@ Broker::Options::Options(const std::string& name) :
     maxConnections(500),
     connectionBacklog(10),
     enableMgmt(1),
+    mgmtPublish(1),
     mgmtPubInterval(10),
     queueCleanInterval(60*10),//10 minutes
     auth(SaslAuthenticator::available()),
@@ -120,7 +121,6 @@ Broker::Options::Options(const std::string& name) :
     queueLimit(100*1048576/*100M default limit*/),
     tcpNoDelay(false),
     requireEncrypted(false),
-    maxSessionRate(0),
     asyncQueueEvents(false),     // Must be false in a cluster.
     qmf2Support(true),
     qmf1Support(true),
@@ -128,7 +128,8 @@ Broker::Options::Options(const std::string& name) :
     queueFlowResumeRatio(70),
     queueThresholdEventRatio(80),
     defaultMsgGroup("qpid.no-group"),
-    timestampRcvMsgs(false)     // set the 0.10 timestamp delivery property
+    timestampRcvMsgs(false),     // set the 0.10 timestamp delivery property
+    linkMaintenanceInterval(2)
 {
     int c = sys::SystemInfo::concurrency();
     workerThreads=c+1;
@@ -148,8 +149,11 @@ Broker::Options::Options(const std::string& name) :
         ("max-connections", optValue(maxConnections, "N"), "Sets the maximum allowed connections")
         ("connection-backlog", optValue(connectionBacklog, "N"), "Sets the connection backlog limit for the server socket")
         ("mgmt-enable,m", optValue(enableMgmt,"yes|no"), "Enable Management")
+        ("mgmt-publish", optValue(mgmtPublish,"yes|no"), "Enable Publish of Management Data ('no' implies query-only)")
         ("mgmt-qmf2", optValue(qmf2Support,"yes|no"), "Enable broadcast of management information over QMF v2")
         ("mgmt-qmf1", optValue(qmf1Support,"yes|no"), "Enable broadcast of management information over QMF v1")
+        // FIXME aconway 2012-02-13: consistent treatment of values in SECONDS
+        // allow sub-second intervals.
         ("mgmt-pub-interval", optValue(mgmtPubInterval, "SECONDS"), "Management Publish Interval")
         ("queue-purge-interval", optValue(queueCleanInterval, "SECONDS"),
          "Interval between attempts to purge any expired messages from queues")
@@ -160,13 +164,14 @@ Broker::Options::Options(const std::string& name) :
         ("require-encryption", optValue(requireEncrypted), "Only accept connections that are encrypted")
         ("known-hosts-url", optValue(knownHosts, "URL or 'none'"), "URL to send as 'known-hosts' to clients ('none' implies empty list)")
         ("sasl-config", optValue(saslConfigPath, "DIR"), "gets sasl config info from nonstandard location")
-        ("max-session-rate", optValue(maxSessionRate, "MESSAGES/S"), "Sets the maximum message rate per session (0=unlimited)")
         ("async-queue-events", optValue(asyncQueueEvents, "yes|no"), "Set Queue Events async, used for services like replication")
         ("default-flow-stop-threshold", optValue(queueFlowStopRatio, "PERCENT"), "Percent of queue's maximum capacity at which flow control is activated.")
         ("default-flow-resume-threshold", optValue(queueFlowResumeRatio, "PERCENT"), "Percent of queue's maximum capacity at which flow control is de-activated.")
         ("default-event-threshold-ratio", optValue(queueThresholdEventRatio, "%age of limit"), "The ratio of any specified queue limit at which an event will be raised")
         ("default-message-group", optValue(defaultMsgGroup, "GROUP-IDENTIFER"), "Group identifier to assign to messages delivered to a message group queue that do not contain an identifier.")
-        ("enable-timestamp", optValue(timestampRcvMsgs, "yes|no"), "Add current time to each received message.");
+        ("enable-timestamp", optValue(timestampRcvMsgs, "yes|no"), "Add current time to each received message.")
+        ("link-maintenace-interval", optValue(linkMaintenanceInterval, "SECONDS"))
+        ;
 }
 
 const std::string empty;
@@ -196,6 +201,7 @@ Broker::Broker(const Broker::Options& conf) :
             conf.replayFlushLimit*1024, // convert kb to bytes.
             conf.replayHardLimit*1024),
         *this),
+    mgmtObject(0),
     queueCleaner(queues, &timer),
     queueEvents(poller,!conf.asyncQueueEvents),
     recovery(true),
@@ -209,7 +215,7 @@ Broker::Broker(const Broker::Options& conf) :
     try {
     if (conf.enableMgmt) {
         QPID_LOG(info, "Management enabled");
-        managementAgent->configure(dataDir.isEnabled() ? dataDir.getPath() : string(),
+        managementAgent->configure(dataDir.isEnabled() ? dataDir.getPath() : string(), conf.mgmtPublish,
                                    conf.mgmtPubInterval, this, conf.workerThreads + 3);
         managementAgent->setName("apache.org", "qpidd");
         _qmf::Package packageInitializer(managementAgent.get());
@@ -224,6 +230,7 @@ Broker::Broker(const Broker::Options& conf) :
         mgmtObject->set_maxConns(conf.maxConnections);
         mgmtObject->set_connBacklog(conf.connectionBacklog);
         mgmtObject->set_mgmtPubInterval(conf.mgmtPubInterval);
+        mgmtObject->set_mgmtPublish(conf.mgmtPublish);
         mgmtObject->set_version(qpid::version);
         if (dataDir.isEnabled())
             mgmtObject->set_dataDir(dataDir.getPath());
@@ -337,12 +344,6 @@ Broker::Broker(const Broker::Options& conf) :
         }
     } else if (conf.knownHosts != knownHostsNone) {
         knownBrokers.push_back(Url(conf.knownHosts));
-    }
-
-    // check for and warn if deprecated features have been configured
-    if (conf.maxSessionRate) {
-        QPID_LOG(warning, "The 'max-session-rate' feature will be removed in a future release of QPID."
-                 "  Queue-based flow control should be used instead.");
     }
 
     } catch (const std::exception& /*e*/) {
@@ -911,7 +912,7 @@ std::pair<boost::shared_ptr<Queue>, bool> Broker::createQueue(
             //event instead?
             managementAgent->raiseEvent(
                 _qmf::EventQueueDeclare(connectionId, userId, name,
-                                        durable, owner, autodelete,
+                                        durable, owner, autodelete, alternateExchange,
                                         ManagementAgent::toMap(arguments),
                                         "created"));
         }

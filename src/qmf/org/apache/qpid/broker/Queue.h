@@ -1,6 +1,6 @@
 
-#ifndef _MANAGEMENT_QUEUE_
-#define _MANAGEMENT_QUEUE_
+#ifndef _MANAGEMENT_ORG_APACHE_QPID_BROKER_QUEUE_
+#define _MANAGEMENT_ORG_APACHE_QPID_BROKER_QUEUE_
 
 //
 // Licensed to the Apache Software Foundation (ASF) under one
@@ -25,6 +25,7 @@
 // Please do not edit.
 
 #include "qpid/management/ManagementObject.h"
+#include "qmf/BrokerImportExport.h"
 
 namespace qpid {
     namespace management {
@@ -39,7 +40,7 @@ namespace qpid {
 namespace broker {
 
 
-class Queue : public ::qpid::management::ManagementObject
+QPID_BROKER_CLASS_EXTERN class Queue : public ::qpid::management::ManagementObject
 {
   private:
 
@@ -76,6 +77,8 @@ class Queue : public ::qpid::management::ManagementObject
 
 
     // Per-Thread Statistics
+
+ public:    
     struct PerThreadStats {
         uint64_t  msgTotalEnqueues;
         uint64_t  msgTotalDequeues;
@@ -91,6 +94,21 @@ class Queue : public ::qpid::management::ManagementObject
         uint64_t  byteTxnDequeues;
         uint64_t  bytePersistEnqueues;
         uint64_t  bytePersistDequeues;
+        uint64_t  msgFtdEnqueues;
+        uint64_t  msgFtdDequeues;
+        uint64_t  byteFtdEnqueues;
+        uint64_t  byteFtdDequeues;
+        uint64_t  msgFtdDepth;
+        uint64_t  byteFtdDepth;
+        uint64_t  releases;
+        uint64_t  acquires;
+        uint64_t  discardsTtl;
+        uint64_t  discardsRing;
+        uint64_t  discardsLvq;
+        uint64_t  discardsOverflow;
+        uint64_t  discardsSubscriber;
+        uint64_t  discardsPurge;
+        uint64_t  reroutes;
         uint64_t  messageLatencyCount;
         uint64_t  messageLatencyTotal;
         uint64_t  messageLatencyMin;
@@ -98,6 +116,7 @@ class Queue : public ::qpid::management::ManagementObject
         uint32_t  flowStoppedCount;
 
     };
+ private:
 
     struct PerThreadStats** perThreadStatsArray;
 
@@ -121,6 +140,21 @@ class Queue : public ::qpid::management::ManagementObject
             threadStats->byteTxnDequeues = 0;
             threadStats->bytePersistEnqueues = 0;
             threadStats->bytePersistDequeues = 0;
+            threadStats->msgFtdEnqueues = 0;
+            threadStats->msgFtdDequeues = 0;
+            threadStats->byteFtdEnqueues = 0;
+            threadStats->byteFtdDequeues = 0;
+            threadStats->msgFtdDepth = 0;
+            threadStats->byteFtdDepth = 0;
+            threadStats->releases = 0;
+            threadStats->acquires = 0;
+            threadStats->discardsTtl = 0;
+            threadStats->discardsRing = 0;
+            threadStats->discardsLvq = 0;
+            threadStats->discardsOverflow = 0;
+            threadStats->discardsSubscriber = 0;
+            threadStats->discardsPurge = 0;
+            threadStats->reroutes = 0;
             threadStats->messageLatencyCount = 0;
             threadStats->messageLatencyMin   = std::numeric_limits<uint64_t>::max();
             threadStats->messageLatencyMax   = std::numeric_limits<uint64_t>::min();
@@ -134,44 +168,48 @@ class Queue : public ::qpid::management::ManagementObject
     void aggregatePerThreadStats(struct PerThreadStats*) const;
 
   public:
-    static void writeSchema(std::string& schema);
-    void mapEncodeValues(::qpid::types::Variant::Map& map,
-                         bool includeProperties=true,
-                         bool includeStatistics=true);
-    void mapDecodeValues(const ::qpid::types::Variant::Map& map);
-    void doMethod(std::string&           methodName,
-                  const ::qpid::types::Variant::Map& inMap,
-                  ::qpid::types::Variant::Map& outMap,
-                  const std::string& userId);
-    std::string getKey() const;
+    QPID_BROKER_EXTERN static void writeSchema(std::string& schema);
+    QPID_BROKER_EXTERN void mapEncodeValues(::qpid::types::Variant::Map& map,
+                                          bool includeProperties=true,
+                                          bool includeStatistics=true);
+    QPID_BROKER_EXTERN void mapDecodeValues(const ::qpid::types::Variant::Map& map);
+    QPID_BROKER_EXTERN void doMethod(std::string&           methodName,
+                                   const ::qpid::types::Variant::Map& inMap,
+                                   ::qpid::types::Variant::Map& outMap,
+                                   const std::string& userId);
+    QPID_BROKER_EXTERN std::string getKey() const;
 
-    uint32_t writePropertiesSize() const;
-    void readProperties(const std::string& buf);
-    void writeProperties(std::string& buf) const;
-    void writeStatistics(std::string& buf, bool skipHeaders = false);
-    void doMethod(std::string& methodName,
-                  const std::string& inBuf,
-                  std::string& outBuf,
-                  const std::string& userId);
+    QPID_BROKER_EXTERN uint32_t writePropertiesSize() const;
+    QPID_BROKER_EXTERN void readProperties(const std::string& buf);
+    QPID_BROKER_EXTERN void writeProperties(std::string& buf) const;
+    QPID_BROKER_EXTERN void writeStatistics(std::string& buf, bool skipHeaders = false);
+    QPID_BROKER_EXTERN void doMethod(std::string& methodName,
+                                   const std::string& inBuf,
+                                   std::string& outBuf,
+                                   const std::string& userId);
 
 
     writeSchemaCall_t getWriteSchemaCall() { return writeSchema; }
 
 
-    Queue(::qpid::management::ManagementAgent* agent,
-                            ::qpid::management::Manageable* coreObject, ::qpid::management::Manageable* _parent, const std::string& _name, bool _durable, bool _autoDelete, bool _exclusive);
-    ~Queue();
+    QPID_BROKER_EXTERN Queue(
+        ::qpid::management::ManagementAgent* agent,
+        ::qpid::management::Manageable* coreObject, ::qpid::management::Manageable* _parent, const std::string& _name, bool _durable, bool _autoDelete, bool _exclusive);
+
+    QPID_BROKER_EXTERN ~Queue();
 
     
 
-    static void registerSelf(::qpid::management::ManagementAgent* agent);
+    QPID_BROKER_EXTERN static void registerSelf(
+        ::qpid::management::ManagementAgent* agent);
+
     std::string& getPackageName() const { return packageName; }
     std::string& getClassName() const { return className; }
     uint8_t* getMd5Sum() const { return md5Sum; }
 
     // Method IDs
-    static const uint32_t METHOD_PURGE = 1;
-    static const uint32_t METHOD_REROUTE = 2;
+    QPID_BROKER_EXTERN static const uint32_t METHOD_PURGE = 1;
+    QPID_BROKER_EXTERN static const uint32_t METHOD_REROUTE = 2;
 
     // Accessor Methods
     inline void set_arguments (const ::qpid::types::Variant::Map& val) {
@@ -296,6 +334,110 @@ class Queue : public ::qpid::management::ManagementObject
         getThreadStats()->bytePersistDequeues -= by;
         instChanged = true;
     }
+    inline void inc_msgFtdEnqueues (uint64_t by = 1) {
+        getThreadStats()->msgFtdEnqueues += by;
+        instChanged = true;
+    }
+    inline void dec_msgFtdEnqueues (uint64_t by = 1) {
+        getThreadStats()->msgFtdEnqueues -= by;
+        instChanged = true;
+    }
+    inline void inc_msgFtdDequeues (uint64_t by = 1) {
+        getThreadStats()->msgFtdDequeues += by;
+        instChanged = true;
+    }
+    inline void dec_msgFtdDequeues (uint64_t by = 1) {
+        getThreadStats()->msgFtdDequeues -= by;
+        instChanged = true;
+    }
+    inline void inc_byteFtdEnqueues (uint64_t by = 1) {
+        getThreadStats()->byteFtdEnqueues += by;
+        instChanged = true;
+    }
+    inline void dec_byteFtdEnqueues (uint64_t by = 1) {
+        getThreadStats()->byteFtdEnqueues -= by;
+        instChanged = true;
+    }
+    inline void inc_byteFtdDequeues (uint64_t by = 1) {
+        getThreadStats()->byteFtdDequeues += by;
+        instChanged = true;
+    }
+    inline void dec_byteFtdDequeues (uint64_t by = 1) {
+        getThreadStats()->byteFtdDequeues -= by;
+        instChanged = true;
+    }
+    inline void inc_releases (uint64_t by = 1) {
+        getThreadStats()->releases += by;
+        instChanged = true;
+    }
+    inline void dec_releases (uint64_t by = 1) {
+        getThreadStats()->releases -= by;
+        instChanged = true;
+    }
+    inline void inc_acquires (uint64_t by = 1) {
+        getThreadStats()->acquires += by;
+        instChanged = true;
+    }
+    inline void dec_acquires (uint64_t by = 1) {
+        getThreadStats()->acquires -= by;
+        instChanged = true;
+    }
+    inline void inc_discardsTtl (uint64_t by = 1) {
+        getThreadStats()->discardsTtl += by;
+        instChanged = true;
+    }
+    inline void dec_discardsTtl (uint64_t by = 1) {
+        getThreadStats()->discardsTtl -= by;
+        instChanged = true;
+    }
+    inline void inc_discardsRing (uint64_t by = 1) {
+        getThreadStats()->discardsRing += by;
+        instChanged = true;
+    }
+    inline void dec_discardsRing (uint64_t by = 1) {
+        getThreadStats()->discardsRing -= by;
+        instChanged = true;
+    }
+    inline void inc_discardsLvq (uint64_t by = 1) {
+        getThreadStats()->discardsLvq += by;
+        instChanged = true;
+    }
+    inline void dec_discardsLvq (uint64_t by = 1) {
+        getThreadStats()->discardsLvq -= by;
+        instChanged = true;
+    }
+    inline void inc_discardsOverflow (uint64_t by = 1) {
+        getThreadStats()->discardsOverflow += by;
+        instChanged = true;
+    }
+    inline void dec_discardsOverflow (uint64_t by = 1) {
+        getThreadStats()->discardsOverflow -= by;
+        instChanged = true;
+    }
+    inline void inc_discardsSubscriber (uint64_t by = 1) {
+        getThreadStats()->discardsSubscriber += by;
+        instChanged = true;
+    }
+    inline void dec_discardsSubscriber (uint64_t by = 1) {
+        getThreadStats()->discardsSubscriber -= by;
+        instChanged = true;
+    }
+    inline void inc_discardsPurge (uint64_t by = 1) {
+        getThreadStats()->discardsPurge += by;
+        instChanged = true;
+    }
+    inline void dec_discardsPurge (uint64_t by = 1) {
+        getThreadStats()->discardsPurge -= by;
+        instChanged = true;
+    }
+    inline void inc_reroutes (uint64_t by = 1) {
+        getThreadStats()->reroutes += by;
+        instChanged = true;
+    }
+    inline void dec_reroutes (uint64_t by = 1) {
+        getThreadStats()->reroutes -= by;
+        instChanged = true;
+    }
     inline void inc_consumerCount (uint32_t by = 1) {
         ::qpid::management::Mutex::ScopedLock mutex(accessLock);
         consumerCount += by;
@@ -364,6 +506,11 @@ class Queue : public ::qpid::management::ManagementObject
         getThreadStats()->flowStoppedCount -= by;
         instChanged = true;
     }
+
+
+
+    struct PerThreadStats* getStatistics() { return getThreadStats(); }
+    void statisticsUpdated() { instChanged = true; }
 
 };
 

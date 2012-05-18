@@ -3300,6 +3300,7 @@ struct InitialStatus:
     StoreState storeState;
     Uuid shutdownId;
     Str16 firstConfig;
+    ArrayDomain<Str16>  urls;
     
     static const char* NAME;
     static const uint8_t CODE=0x5;
@@ -3311,12 +3312,13 @@ struct InitialStatus:
         const Uuid& clusterId_=Uuid(),
         const cluster::StoreState& storeState_=cluster::StoreState(),
         const Uuid& shutdownId_=Uuid(),
-        const Str16& firstConfig_=Str16()
+        const Str16& firstConfig_=Str16(),
+        const ArrayDomain<Str16> & urls_=ArrayDomain<Str16> ()
     );
     void accept(Visitor&);
     void accept(ConstVisitor&) const;
     template <class S> void serialize(S& s) {
-        s(version)(active)(clusterId)(storeState)(shutdownId)(firstConfig);
+        s(version)(active)(clusterId)(storeState)(shutdownId)(firstConfig)(urls);
     }
     
     struct Handler
@@ -3327,13 +3329,14 @@ struct InitialStatus:
             const Uuid& clusterId_,
             const cluster::StoreState& storeState_,
             const Uuid& shutdownId_,
-            const Str16& firstConfig_
+            const Str16& firstConfig_,
+            const ArrayDomain<Str16> & urls_
         );
     };
     
     template <class T> void invoke(T& target)const
     {
-        target.clusterInitialStatus(version, active, clusterId, storeState, shutdownId, firstConfig );
+        target.clusterInitialStatus(version, active, clusterId, storeState, shutdownId, firstConfig, urls );
     }
 };
 inline Packer<InitialStatus> serializable(InitialStatus& x) { return Packer<InitialStatus>(x); }
@@ -3830,6 +3833,8 @@ struct ConsumerState:
     Bit blocked;
     Bit notifyEnabled;
     SequenceNo position;
+    Uint32 usedMsgCredit;
+    Uint32 usedByteCredit;
     
     static const char* NAME;
     static const uint8_t CODE=0x10;
@@ -3839,12 +3844,14 @@ struct ConsumerState:
         const Str8& name_=Str8(),
         Bit blocked_=Bit(),
         Bit notifyEnabled_=Bit(),
-        const SequenceNo& position_=SequenceNo()
+        const SequenceNo& position_=SequenceNo(),
+        Uint32 usedMsgCredit_=Uint32(),
+        Uint32 usedByteCredit_=Uint32()
     );
     void accept(Visitor&);
     void accept(ConstVisitor&) const;
     template <class S> void serialize(S& s) {
-        s(name)(blocked)(notifyEnabled)(position);
+        s(name)(blocked)(notifyEnabled)(position)(usedMsgCredit)(usedByteCredit);
     }
     
     struct Handler
@@ -3853,13 +3860,15 @@ struct ConsumerState:
             const Str8& name_,
             Bit blocked_,
             Bit notifyEnabled_,
-            const SequenceNo& position_
+            const SequenceNo& position_,
+            Uint32 usedMsgCredit_,
+            Uint32 usedByteCredit_
         );
     };
     
     template <class T> void invoke(T& target)const
     {
-        target.clusterConnectionConsumerState(name, blocked, notifyEnabled, position );
+        target.clusterConnectionConsumerState(name, blocked, notifyEnabled, position, usedMsgCredit, usedByteCredit );
     }
 };
 inline Packer<ConsumerState> serializable(ConsumerState& x) { return Packer<ConsumerState>(x); }

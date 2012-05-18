@@ -148,3 +148,8 @@ void EventUnbind::mapEncode(::qpid::types::Variant::Map& map) const
     map["key"] = ::qpid::types::Variant(key);
 
 }
+
+bool EventUnbind::match(const std::string& evt, const std::string& pkg)
+{
+    return eventName == evt && packageName == pkg;
+}

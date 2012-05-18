@@ -128,3 +128,8 @@ void EventQueueThresholdExceeded::mapEncode(::qpid::types::Variant::Map& map) co
     map["byteDepth"] = ::qpid::types::Variant(byteDepth);
 
 }
+
+bool EventQueueThresholdExceeded::match(const std::string& evt, const std::string& pkg)
+{
+    return eventName == evt && packageName == pkg;
+}

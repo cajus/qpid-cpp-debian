@@ -95,6 +95,8 @@ Public Member Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">URL containing a single address.  <a href="#acae27deb0fa8058a2d7a71bf95683e74"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00373.html#ac45f27e6821ac88ab743f820ce4a7f93">Url</a> (const <a class="el" href="a00345.html">std::string</a> &amp;url)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse url, throw <a class="el" href="a00159.html">Invalid</a> if invalid.  <a href="#ac45f27e6821ac88ab743f820ce4a7f93"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00373.html#a80b638e267fc10c35fee13a4fdb8780d">Url</a> (const <a class="el" href="a00345.html">std::string</a> &amp;url, const <a class="el" href="a00345.html">std::string</a> &amp;defaultProtocol)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse url, throw <a class="el" href="a00159.html">Invalid</a> if invalid.  <a href="#a80b638e267fc10c35fee13a4fdb8780d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00373.html#ae144b2c7f52e1ef12dc1e2bb80f676b3">Url</a> (const char *url)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse url, throw <a class="el" href="a00159.html">Invalid</a> if invalid.  <a href="#ae144b2c7f52e1ef12dc1e2bb80f676b3"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00373.html">Url</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00373.html#ac6065b9f5fb56e04902ce87743115284">operator=</a> (const char *s)</td></tr>
@@ -110,9 +112,11 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
  <a href="#a805ce2afe48ee608e15a608e1c63e08f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00373.html#ad1507c0e1252b1b29ac3f90d7734c928">parse</a> (const char *url, const <a class="el" href="a00345.html">std::string</a> &amp;defaultProtocol)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00373.html#a76e99ee02d3012f53fc6b1a42de78186">parse</a> (const <a class="el" href="a00345.html">std::string</a> &amp;url)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00373.html#ac0e5c56ae896d479948d174595cbda5b">parseNoThrow</a> (const char *url)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace contesnts with parsed URL.  <a href="#ac0e5c56ae896d479948d174595cbda5b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00373.html#afbf2a5675a4704e9534c53f01a759d17">parseNoThrow</a> (const char *url, const <a class="el" href="a00345.html">std::string</a> &amp;defaultProtocol)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00373.html#a1232f9776e93cc339b41a2f6ad5d91e4">setUser</a> (const <a class="el" href="a00345.html">std::string</a> &amp;)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00373.html#a531aef3c7c22ece280d6fce5875e3de5">setPass</a> (const <a class="el" href="a00345.html">std::string</a> &amp;)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00373.html#a95663d240ce44d74c4b8bc88de999cef">getUser</a> () const </td></tr>
@@ -193,6 +197,39 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a80b638e267fc10c35fee13a4fdb8780d"></a><!-- doxytag: member="qpid::Url::Url" ref="a80b638e267fc10c35fee13a4fdb8780d" args="(const std::string &amp;url, const std::string &amp;defaultProtocol)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::Url::Url </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>url</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>defaultProtocol</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline, explicit]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Parse url, throw <a class="el" href="a00159.html">Invalid</a> if invalid. </p>
+
+<p>Definition at line <a class="el" href="a00570_source.html#l00056">56</a> of file <a class="el" href="a00570_source.html">Url.h</a>.</p>
+
+<p>References <a class="el" href="a00373.html#a805ce2afe48ee608e15a608e1c63e08f">parse()</a>.</p>
+
+</div>
+</div>
 <a class="anchor" id="ae144b2c7f52e1ef12dc1e2bb80f676b3"></a><!-- doxytag: member="qpid::Url::Url" ref="ae144b2c7f52e1ef12dc1e2bb80f676b3" args="(const char *url)" -->
 <div class="memitem">
 <div class="memproto">
@@ -210,7 +247,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Parse url, throw <a class="el" href="a00159.html">Invalid</a> if invalid. </p>
 
-<p>Definition at line <a class="el" href="a00570_source.html#l00057">57</a> of file <a class="el" href="a00570_source.html">Url.h</a>.</p>
+<p>Definition at line <a class="el" href="a00570_source.html#l00059">59</a> of file <a class="el" href="a00570_source.html">Url.h</a>.</p>
 
 <p>References <a class="el" href="a00373.html#a805ce2afe48ee608e15a608e1c63e08f">parse()</a>.</p>
 
@@ -322,7 +359,7 @@ Static Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00570_source.html#l00059">59</a> of file <a class="el" href="a00570_source.html">Url.h</a>.</p>
+<p>Definition at line <a class="el" href="a00570_source.html#l00061">61</a> of file <a class="el" href="a00570_source.html">Url.h</a>.</p>
 
 <p>References <a class="el" href="a00373.html#a805ce2afe48ee608e15a608e1c63e08f">parse()</a>.</p>
 
@@ -343,7 +380,7 @@ Static Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00570_source.html#l00060">60</a> of file <a class="el" href="a00570_source.html">Url.h</a>.</p>
+<p>Definition at line <a class="el" href="a00570_source.html#l00062">62</a> of file <a class="el" href="a00570_source.html">Url.h</a>.</p>
 
 <p>References <a class="el" href="a00373.html#a805ce2afe48ee608e15a608e1c63e08f">parse()</a>.</p>
 
@@ -373,7 +410,34 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 </p>
 
-<p>Referenced by <a class="el" href="a00570_source.html#l00054">Url()</a>, and <a class="el" href="a00570_source.html#l00059">operator=()</a>.</p>
+<p>Referenced by <a class="el" href="a00570_source.html#l00054">Url()</a>, and <a class="el" href="a00570_source.html#l00061">operator=()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad1507c0e1252b1b29ac3f90d7734c928"></a><!-- doxytag: member="qpid::Url::parse" ref="ad1507c0e1252b1b29ac3f90d7734c928" args="(const char *url, const std::string &amp;defaultProtocol)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::Url::parse </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>url</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>defaultProtocol</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
@@ -392,11 +456,11 @@ Static Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00570_source.html#l00069">69</a> of file <a class="el" href="a00570_source.html">Url.h</a>.</p>
+<p>Definition at line <a class="el" href="a00570_source.html#l00072">72</a> of file <a class="el" href="a00570_source.html">Url.h</a>.</p>
 
-<p>References <a class="el" href="a00570_source.html#l00069">parse()</a>.</p>
+<p>References <a class="el" href="a00570_source.html#l00072">parse()</a>.</p>
 
-<p>Referenced by <a class="el" href="a00570_source.html#l00069">parse()</a>.</p>
+<p>Referenced by <a class="el" href="a00570_source.html#l00072">parse()</a>.</p>
 
 </div>
 </div>
@@ -417,6 +481,33 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Replace contesnts with parsed URL. </p>
 <p>Replace with empty URL if invalid. </p>
+
+</div>
+</div>
+<a class="anchor" id="afbf2a5675a4704e9534c53f01a759d17"></a><!-- doxytag: member="qpid::Url::parseNoThrow" ref="afbf2a5675a4704e9534c53f01a759d17" args="(const char *url, const std::string &amp;defaultProtocol)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::Url::parseNoThrow </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>url</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>defaultProtocol</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
@@ -521,7 +612,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Wed Jan 11 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

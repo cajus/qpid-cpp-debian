@@ -201,34 +201,32 @@ fi
 AM_CONDITIONAL([HAVE_RUBY_DEVEL], [test -f $RUBY_INC/ruby.h && test -n "$SWIG"])
 
 # Python bindings: To build python wrappers, the python-devel files must be present.
-
 AM_PATH_PYTHON()
-if test -n "$PYTHON" ; then
-    AC_MSG_CHECKING([$PYTHON include dir])
-    if $PYTHON -c 'import distutils.sysconfig' 2>/dev/null ; then
-        PYTHON_INC=`$PYTHON -c 'import os,distutils.sysconfig;print(distutils.sysconfig.get_python_inc().replace(os.sep,"/"))'`
-	AC_SUBST(PYTHON_INC)
-    else
+AS_IF([test -n "$PYTHON"], [
+    PKG_CHECK_MODULES([PYTHON], [python-$PYTHON_VERSION], [have_python_dev=yes],[
+    # We didn't find pkg-config information for python-2.7 this
+    # may mean we have an earlier python version:
+    # Try to find the include and library files directly in the default
+    # location
+    AC_MSG_WARN([Didn't find Python 2.7 developer libs - looking for older version])
+    PYTHON_INC=$($PYTHON -c 'import distutils.sysconfig; print distutils.sysconfig.get_python_inc()')
+    AC_CHECK_LIB([python$PYTHON_VERSION],[Py_Initialize])
+    AC_CHECK_FILE(["$PYTHON_INC/Python.h"],[
+        PYTHON_CFLAGS="-I$PYTHON_INC"
+        PYTHON_LIBS="-lpython$PYTHON_VERSION"
+        have_python_dev=yes
+    ],[
         if test yes = "$with_python" ; then
-	    AC_MSG_ERROR([Couldn't import Python module distutils.sysconfig - you probably need to install a python-dev or python-devel package])
-	else
-	    AC_MSG_WARN([Couldn't import Python module distutils.sysconfig - you probably don't have a python-dev or python-devel package installed])
-	fi
-    fi
-    AC_MSG_RESULT([$PYTHON_INC])
-    AC_MSG_CHECKING([for directory to install python bindings in])
-    if test -z "$PYTHON_LIB" ; then
-	  PYTHON_LIB=`$PYTHON -c 'import os,distutils.sysconfig;print(distutils.sysconfig.get_python_lib(1).replace(os.sep,"/"))'`
-    fi
-    AC_MSG_RESULT([$PYTHON_LIB])
-    AC_ARG_VAR(PYTHON_LIB, [Directory to install python bindings in])
-
-    AC_MSG_CHECKING([for python libraries to link against])
-	PYTHON_LIBS=`$PYTHON -c 'import os,sys;print("-L"+os.path.join(sys.path[[3]],"config")+" -lpython"+sys.version[[:3]])'`
+            AC_MSG_ERROR([Couldn't find Python developer libs - you probably need to install a python-dev or python-devel package])
+        else
+            AC_MSG_WARN([Couldn't find Python developer libs - you probably don't have a python-dev or python-devel package installed])
+        fi
+    ])
+    ])
+    AC_SUBST(PYTHON_CFLAGS)
     AC_SUBST(PYTHON_LIBS)
-    AC_MSG_RESULT([$PYTHON_LIBS])
-fi
-AM_CONDITIONAL([HAVE_PYTHON_DEVEL], [test -f $PYTHON_INC/Python.h && test -n "$SWIG"])
+])
+AM_CONDITIONAL([HAVE_PYTHON_DEVEL], [test x$have_python_dev = xyes && test -n "$SWIG"])
 
 
 # Perl bindings:
@@ -238,7 +236,8 @@ if test -n "$PERL"; then
     PERL_ARCHLIB=`perl -MConfig -e 'print "$Config{archlib}";'`
     AC_CHECK_FILE( ["$PERL_ARCHLIB/CORE/perl.h"],
             [AC_SUBST([PERL_INC], ["$PERL_ARCHLIB/CORE"])] )
-fi 
+    AC_SUBST(PERL_ARCHLIB)
+fi
 AM_CONDITIONAL([HAVE_PERL_DEVEL], [test -n "$PERL" && test -n "$SWIG" && test -n "$PERL_INC"])
 
 specdir=`pwd`/$srcdir/../specs
@@ -462,7 +461,7 @@ AC_ARG_WITH([poller],
  [AS_HELP_STRING([--with-poller], [The low level poller implementation: poll/solaris-ecf/epoll])],
  [case ${withval} in
   poll)
-   AC_CHECK_HEADERS([sys/poll.h],[poller=no],[AC_MSG_ERROR([Can't find poll.h header file for poll])])
+   AC_CHECK_HEADERS([sys/poll.h],[poller=poll],[AC_MSG_ERROR([Can't find poll.h header file for poll])])
    ;;
   solaris-ecf)
    AC_CHECK_HEADERS([port.h],[poller=solaris-ecf],[AC_MSG_ERROR([Can't find port.h header file for solaris-ecf])])
@@ -472,14 +471,17 @@ AC_ARG_WITH([poller],
    ;;
  esac],
  [
-  AC_CHECK_HEADERS([sys/poll.h],[poller=no],)
-  AC_CHECK_HEADERS([port.h],[poller=solaris-ecf],)
+  # We check for poll first so that it is overridden
+  AC_CHECK_HEADERS([sys/poll.h],[poller=poll],)
+  # Not currently supported - WIP
+  #AC_CHECK_HEADERS([port.h],[poller=solaris-ecf],)
   AC_CHECK_HEADERS([sys/epoll.h],[poller=epoll],)
  ]
 )
 
-AM_CONDITIONAL([HAVE_ECF], [test x$poller = xsolaris-ecf])
-AM_CONDITIONAL([HAVE_EPOLL], [test x$poller = xepoll])
+AM_CONDITIONAL([USE_ECF], [test x$poller = xsolaris-ecf])
+AM_CONDITIONAL([USE_POLL], [test x$poller = xpoll])
+AM_CONDITIONAL([USE_EPOLL], [test x$poller = xepoll])
 
 #Filter not implemented or invalid mechanisms
 if test $poller = xno; then
@@ -493,6 +495,24 @@ case "$host" in
      ;;
 esac
 AM_CONDITIONAL([SUNOS], [test x$arch = xsolaris])
+
+# Check whether we've got the header for dtrace static probes
+AC_ARG_WITH([probes],
+ [AS_HELP_STRING([--with-probes], [Build with dtrace/systemtap static probes])],
+ [case ${withval} in
+  yes)
+   AC_CHECK_HEADERS([sys/sdt.h])
+   ;;
+  no)
+   ;;
+  *)
+   AC_MSG_ERROR([Bad value for --with-probes: ${withval}])
+   ;;
+  esac],
+  [
+   AC_CHECK_HEADERS([sys/sdt.h])
+  ]
+)
 
 # Check for some syslog capabilities not present in all systems
 AC_TRY_COMPILE([#include <sys/syslog.h>], 
@@ -517,8 +537,6 @@ AC_CHECK_LIB([nsl],[getipnodebyname],[NSL_LIB="-lnsl"],[NSL_LIB=""],[])
 SOCKLIBS="$SOCKET_LIB $NSL_LIB"
 AC_SUBST([SOCKLIBS])
 
-AM_PATH_PYTHON()
-
 # Used by env scripts to find libraries in cmake or autoconf builds.
 builddir_lib_suffix="/.libs"
 AC_SUBST([builddir_lib_suffix])
@@ -540,7 +558,7 @@ AC_CONFIG_FILES([
   bindings/qpid/Makefile
   bindings/qpid/ruby/Makefile
   bindings/qpid/python/Makefile
-  bindings/qpid/perl/Makefile
+  bindings/qpid/perl/Makefile.PL
   bindings/qpid/dotnet/Makefile
   bindings/qmf/Makefile
   bindings/qmf/ruby/Makefile
@@ -557,6 +575,7 @@ AC_CONFIG_FILES([
   src/tests/test_env.sh
   src/tests/install_env.sh
   src/qpid.pc
+  src/qmf2.pc
   docs/man/Makefile
   docs/api/Makefile
   docs/api/user.doxygen

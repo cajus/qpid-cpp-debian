@@ -25,6 +25,7 @@
 // Please do not edit.
 
 #include "qpid/management/ManagementAgent.h"
+#include "qmf/BrokerImportExport.h"
 
 namespace qmf {
 namespace org {
@@ -36,8 +37,8 @@ namespace acl {
 class Package
 {
   public:
-    Package (::qpid::management::ManagementAgent* agent);
-    ~Package () {}
+    QPID_BROKER_EXTERN Package (::qpid::management::ManagementAgent* agent);
+    QPID_BROKER_EXTERN ~Package () {}
 };
 
 }}}}}

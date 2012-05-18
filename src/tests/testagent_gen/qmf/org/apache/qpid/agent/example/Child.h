@@ -1,6 +1,6 @@
 
-#ifndef _MANAGEMENT_CHILD_
-#define _MANAGEMENT_CHILD_
+#ifndef _MANAGEMENT_ORG_APACHE_QPID_AGENT_EXAMPLE_CHILD_
+#define _MANAGEMENT_ORG_APACHE_QPID_AGENT_EXAMPLE_CHILD_
 
 //
 // Licensed to the Apache Software Foundation (ASF) under one
@@ -25,6 +25,7 @@
 // Please do not edit.
 
 #include "qpid/management/ManagementObject.h"
+#include "qmf/BrokerImportExport.h"
 
 namespace qpid {
     namespace management {
@@ -40,7 +41,7 @@ namespace agent {
 namespace example {
 
 
-class Child : public ::qpid::management::ManagementObject
+QPID_BROKER_CLASS_EXTERN class Child : public ::qpid::management::ManagementObject
 {
   private:
 
@@ -57,10 +58,13 @@ class Child : public ::qpid::management::ManagementObject
 
 
     // Per-Thread Statistics
+
+ public:    
     struct PerThreadStats {
         uint64_t  count;
 
     };
+ private:
 
     struct PerThreadStats** perThreadStatsArray;
 
@@ -79,34 +83,38 @@ class Child : public ::qpid::management::ManagementObject
     void aggregatePerThreadStats(struct PerThreadStats*) const;
 
   public:
-    static void writeSchema(std::string& schema);
-    void mapEncodeValues(::qpid::types::Variant::Map& map,
-                         bool includeProperties=true,
-                         bool includeStatistics=true);
-    void mapDecodeValues(const ::qpid::types::Variant::Map& map);
-    void doMethod(std::string&           methodName,
-                  const ::qpid::types::Variant::Map& inMap,
-                  ::qpid::types::Variant::Map& outMap,
-                  const std::string& userId);
-    std::string getKey() const;
+    QPID_BROKER_EXTERN static void writeSchema(std::string& schema);
+    QPID_BROKER_EXTERN void mapEncodeValues(::qpid::types::Variant::Map& map,
+                                          bool includeProperties=true,
+                                          bool includeStatistics=true);
+    QPID_BROKER_EXTERN void mapDecodeValues(const ::qpid::types::Variant::Map& map);
+    QPID_BROKER_EXTERN void doMethod(std::string&           methodName,
+                                   const ::qpid::types::Variant::Map& inMap,
+                                   ::qpid::types::Variant::Map& outMap,
+                                   const std::string& userId);
+    QPID_BROKER_EXTERN std::string getKey() const;
 
 
     writeSchemaCall_t getWriteSchemaCall() { return writeSchema; }
 
 
-    Child(::qpid::management::ManagementAgent* agent,
-                            ::qpid::management::Manageable* coreObject, ::qpid::management::Manageable* _parent, const std::string& _name);
-    ~Child();
+    QPID_BROKER_EXTERN Child(
+        ::qpid::management::ManagementAgent* agent,
+        ::qpid::management::Manageable* coreObject, ::qpid::management::Manageable* _parent, const std::string& _name);
+
+    QPID_BROKER_EXTERN ~Child();
 
     
 
-    static void registerSelf(::qpid::management::ManagementAgent* agent);
+    QPID_BROKER_EXTERN static void registerSelf(
+        ::qpid::management::ManagementAgent* agent);
+
     std::string& getPackageName() const { return packageName; }
     std::string& getClassName() const { return className; }
     uint8_t* getMd5Sum() const { return md5Sum; }
 
     // Method IDs
-    static const uint32_t METHOD_DELETE = 1;
+    QPID_BROKER_EXTERN static const uint32_t METHOD_DELETE = 1;
 
     // Accessor Methods
     inline void inc_count (uint64_t by = 1) {
@@ -117,6 +125,11 @@ class Child : public ::qpid::management::ManagementObject
         getThreadStats()->count -= by;
         instChanged = true;
     }
+
+
+
+    struct PerThreadStats* getStatistics() { return getThreadStats(); }
+    void statisticsUpdated() { instChanged = true; }
 
 };
 

@@ -1,6 +1,6 @@
 
-#ifndef _MANAGEMENT_EXCHANGE_
-#define _MANAGEMENT_EXCHANGE_
+#ifndef _MANAGEMENT_ORG_APACHE_QPID_BROKER_EXCHANGE_
+#define _MANAGEMENT_ORG_APACHE_QPID_BROKER_EXCHANGE_
 
 //
 // Licensed to the Apache Software Foundation (ASF) under one
@@ -25,6 +25,7 @@
 // Please do not edit.
 
 #include "qpid/management/ManagementObject.h"
+#include "qmf/BrokerImportExport.h"
 
 namespace qpid {
     namespace management {
@@ -39,7 +40,7 @@ namespace qpid {
 namespace broker {
 
 
-class Exchange : public ::qpid::management::ManagementObject
+QPID_BROKER_CLASS_EXTERN class Exchange : public ::qpid::management::ManagementObject
 {
   private:
 
@@ -72,6 +73,8 @@ class Exchange : public ::qpid::management::ManagementObject
 
 
     // Per-Thread Statistics
+
+ public:    
     struct PerThreadStats {
         uint64_t  msgReceives;
         uint64_t  msgDrops;
@@ -81,6 +84,7 @@ class Exchange : public ::qpid::management::ManagementObject
         uint64_t  byteRoutes;
 
     };
+ private:
 
     struct PerThreadStats** perThreadStatsArray;
 
@@ -104,37 +108,41 @@ class Exchange : public ::qpid::management::ManagementObject
     void aggregatePerThreadStats(struct PerThreadStats*) const;
 
   public:
-    static void writeSchema(std::string& schema);
-    void mapEncodeValues(::qpid::types::Variant::Map& map,
-                         bool includeProperties=true,
-                         bool includeStatistics=true);
-    void mapDecodeValues(const ::qpid::types::Variant::Map& map);
-    void doMethod(std::string&           methodName,
-                  const ::qpid::types::Variant::Map& inMap,
-                  ::qpid::types::Variant::Map& outMap,
-                  const std::string& userId);
-    std::string getKey() const;
+    QPID_BROKER_EXTERN static void writeSchema(std::string& schema);
+    QPID_BROKER_EXTERN void mapEncodeValues(::qpid::types::Variant::Map& map,
+                                          bool includeProperties=true,
+                                          bool includeStatistics=true);
+    QPID_BROKER_EXTERN void mapDecodeValues(const ::qpid::types::Variant::Map& map);
+    QPID_BROKER_EXTERN void doMethod(std::string&           methodName,
+                                   const ::qpid::types::Variant::Map& inMap,
+                                   ::qpid::types::Variant::Map& outMap,
+                                   const std::string& userId);
+    QPID_BROKER_EXTERN std::string getKey() const;
 
-    uint32_t writePropertiesSize() const;
-    void readProperties(const std::string& buf);
-    void writeProperties(std::string& buf) const;
-    void writeStatistics(std::string& buf, bool skipHeaders = false);
-    void doMethod(std::string& methodName,
-                  const std::string& inBuf,
-                  std::string& outBuf,
-                  const std::string& userId);
+    QPID_BROKER_EXTERN uint32_t writePropertiesSize() const;
+    QPID_BROKER_EXTERN void readProperties(const std::string& buf);
+    QPID_BROKER_EXTERN void writeProperties(std::string& buf) const;
+    QPID_BROKER_EXTERN void writeStatistics(std::string& buf, bool skipHeaders = false);
+    QPID_BROKER_EXTERN void doMethod(std::string& methodName,
+                                   const std::string& inBuf,
+                                   std::string& outBuf,
+                                   const std::string& userId);
 
 
     writeSchemaCall_t getWriteSchemaCall() { return writeSchema; }
 
 
-    Exchange(::qpid::management::ManagementAgent* agent,
-                            ::qpid::management::Manageable* coreObject, ::qpid::management::Manageable* _parent, const std::string& _name);
-    ~Exchange();
+    QPID_BROKER_EXTERN Exchange(
+        ::qpid::management::ManagementAgent* agent,
+        ::qpid::management::Manageable* coreObject, ::qpid::management::Manageable* _parent, const std::string& _name);
+
+    QPID_BROKER_EXTERN ~Exchange();
 
     
 
-    static void registerSelf(::qpid::management::ManagementAgent* agent);
+    QPID_BROKER_EXTERN static void registerSelf(
+        ::qpid::management::ManagementAgent* agent);
+
     std::string& getPackageName() const { return packageName; }
     std::string& getClassName() const { return className; }
     uint8_t* getMd5Sum() const { return md5Sum; }
@@ -271,6 +279,11 @@ class Exchange : public ::qpid::management::ManagementObject
         getThreadStats()->byteRoutes -= by;
         instChanged = true;
     }
+
+
+
+    struct PerThreadStats* getStatistics() { return getThreadStats(); }
+    void statisticsUpdated() { instChanged = true; }
 
 };
 

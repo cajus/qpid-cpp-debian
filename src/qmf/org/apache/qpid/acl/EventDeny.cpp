@@ -143,3 +143,8 @@ void EventDeny::mapEncode(::qpid::types::Variant::Map& map) const
     map["arguments"] = ::qpid::types::Variant(arguments);
 
 }
+
+bool EventDeny::match(const std::string& evt, const std::string& pkg)
+{
+    return eventName == evt && packageName == pkg;
+}

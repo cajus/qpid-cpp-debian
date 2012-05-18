@@ -2659,14 +2659,16 @@ InitialStatus::InitialStatus(
     const Uuid& clusterId_,
     const cluster::StoreState& storeState_,
     const Uuid& shutdownId_,
-    const Str16& firstConfig_
+    const Str16& firstConfig_,
+    const ArrayDomain<Str16> & urls_
 ) :
     version(version_),
     active(active_),
     clusterId(clusterId_),
     storeState(storeState_),
     shutdownId(shutdownId_),
-    firstConfig(firstConfig_){
+    firstConfig(firstConfig_),
+    urls(urls_){
 }
 void InitialStatus::accept(Visitor& v) {  v.visit(*this); }
 void InitialStatus::accept(ConstVisitor& v) const { v.visit(*this); }
@@ -2679,6 +2681,7 @@ std::ostream& operator << (std::ostream& o, const InitialStatus&x) {
     o << " store-state=" << x.storeState;
     o << " shutdown-id=" << x.shutdownId;
     o << " first-config=" << x.firstConfig;
+    o << " urls=" << x.urls;
     o << "]";
     return o;
 }
@@ -2688,7 +2691,8 @@ void InitialStatus::Handler::clusterInitialStatus(
     const Uuid& /*clusterId_*/,
     const cluster::StoreState& /*storeState_*/,
     const Uuid& /*shutdownId_*/,
-    const Str16& /*firstConfig_*/
+    const Str16& /*firstConfig_*/,
+    const ArrayDomain<Str16> & /*urls_*/
 )
 {
     assert(0);
@@ -3073,12 +3077,16 @@ ConsumerState::ConsumerState(
     const Str8& name_,
     Bit blocked_,
     Bit notifyEnabled_,
-    const SequenceNo& position_
+    const SequenceNo& position_,
+    Uint32 usedMsgCredit_,
+    Uint32 usedByteCredit_
 ) :
     name(name_),
     blocked(blocked_),
     notifyEnabled(notifyEnabled_),
-    position(position_){
+    position(position_),
+    usedMsgCredit(usedMsgCredit_),
+    usedByteCredit(usedByteCredit_){
 }
 void ConsumerState::accept(Visitor& v) {  v.visit(*this); }
 void ConsumerState::accept(ConstVisitor& v) const { v.visit(*this); }
@@ -3089,6 +3097,8 @@ std::ostream& operator << (std::ostream& o, const ConsumerState&x) {
     o << " blocked=" << x.blocked;
     o << " notifyEnabled=" << x.notifyEnabled;
     o << " position=" << x.position;
+    o << " used-msg-credit=" << x.usedMsgCredit;
+    o << " used-byte-credit=" << x.usedByteCredit;
     o << "]";
     return o;
 }
@@ -3096,7 +3106,9 @@ void ConsumerState::Handler::clusterConnectionConsumerState(
     const Str8& /*name_*/,
     Bit /*blocked_*/,
     Bit /*notifyEnabled_*/,
-    const SequenceNo& /*position_*/
+    const SequenceNo& /*position_*/,
+    Uint32 /*usedMsgCredit_*/,
+    Uint32 /*usedByteCredit_*/
 )
 {
     assert(0);

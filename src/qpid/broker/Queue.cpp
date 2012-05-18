@@ -88,7 +88,56 @@ const std::string qpidInsertSequenceNumbers("qpid.insert_sequence_numbers");
 
 const int ENQUEUE_ONLY=1;
 const int ENQUEUE_AND_DEQUEUE=2;
+
+inline void mgntEnqStats(const boost::intrusive_ptr<Message>& msg,
+			 _qmf::Queue* mgmtObject,
+			 _qmf::Broker* brokerMgmtObject)
+{
+    if (mgmtObject != 0) {
+        _qmf::Queue::PerThreadStats *qStats = mgmtObject->getStatistics();
+        _qmf::Broker::PerThreadStats *bStats = brokerMgmtObject->getStatistics();
+
+        uint64_t contentSize = msg->contentSize();
+        qStats->msgTotalEnqueues +=1;
+        bStats->msgTotalEnqueues += 1;
+        qStats->byteTotalEnqueues += contentSize;
+        bStats->byteTotalEnqueues += contentSize;
+        if (msg->isPersistent ()) {
+            qStats->msgPersistEnqueues += 1;
+            bStats->msgPersistEnqueues += 1;
+            qStats->bytePersistEnqueues += contentSize;
+            bStats->bytePersistEnqueues += contentSize;
+        }
+        mgmtObject->statisticsUpdated();
+        brokerMgmtObject->statisticsUpdated();
+    }
 }
+
+inline void mgntDeqStats(const boost::intrusive_ptr<Message>& msg,
+			 _qmf::Queue* mgmtObject,
+			 _qmf::Broker* brokerMgmtObject)
+{
+    if (mgmtObject != 0){
+        _qmf::Queue::PerThreadStats *qStats = mgmtObject->getStatistics();
+        _qmf::Broker::PerThreadStats *bStats = brokerMgmtObject->getStatistics();
+        uint64_t contentSize = msg->contentSize();
+
+        qStats->msgTotalDequeues += 1;
+        bStats->msgTotalDequeues += 1;
+        qStats->byteTotalDequeues += contentSize;
+        bStats->byteTotalDequeues += contentSize;
+        if (msg->isPersistent ()){
+            qStats->msgPersistDequeues += 1;
+            bStats->msgPersistDequeues += 1;
+            qStats->bytePersistDequeues += contentSize;
+            bStats->bytePersistDequeues += contentSize;
+        }
+        mgmtObject->statisticsUpdated();
+        brokerMgmtObject->statisticsUpdated();
+    }
+}
+
+} // namespace
 
 Queue::Queue(const string& _name, bool _autodelete,
              MessageStore* const _store,
@@ -109,6 +158,7 @@ Queue::Queue(const string& _name, bool _autodelete,
     persistenceId(0),
     policyExceeded(false),
     mgmtObject(0),
+    brokerMgmtObject(0),
     eventMode(0),
     insertSeqNo(0),
     broker(b),
@@ -123,14 +173,20 @@ Queue::Queue(const string& _name, bool _autodelete,
         if (agent != 0) {
             mgmtObject = new _qmf::Queue(agent, this, parent, _name, _store != 0, _autodelete, _owner != 0);
             agent->addObject(mgmtObject, 0, store != 0);
+            brokerMgmtObject = (qmf::org::apache::qpid::broker::Broker*) broker->GetManagementObject();
+            if (brokerMgmtObject)
+                brokerMgmtObject->inc_queueCount();
         }
     }
 }
 
 Queue::~Queue()
 {
-    if (mgmtObject != 0)
+    if (mgmtObject != 0) {
         mgmtObject->resourceDestroy();
+        if (brokerMgmtObject)
+            brokerMgmtObject->dec_queueCount();
+    }
 }
 
 bool isLocalTo(const OwnershipToken* token, boost::intrusive_ptr<Message>& msg)
@@ -159,7 +215,7 @@ void Queue::deliver(boost::intrusive_ptr<Message> msg){
     if (msg->isImmediate() && getConsumerCount() == 0) {
         if (alternateExchange) {
             DeliverableMessage deliverable(msg);
-            alternateExchange->route(deliverable, msg->getRoutingKey(), msg->getApplicationHeaders());
+            alternateExchange->route(deliverable);
         }
     } else if (isLocal(msg)) {
         //drop message
@@ -202,8 +258,17 @@ void Queue::recover(boost::intrusive_ptr<Message>& msg){
 void Queue::process(boost::intrusive_ptr<Message>& msg){
     push(msg);
     if (mgmtObject != 0){
-        mgmtObject->inc_msgTxnEnqueues ();
-        mgmtObject->inc_byteTxnEnqueues (msg->contentSize ());
+        _qmf::Queue::PerThreadStats *qStats = mgmtObject->getStatistics();
+        const uint64_t contentSize = msg->contentSize();
+        qStats->msgTxnEnqueues  += 1;
+        qStats->byteTxnEnqueues += contentSize;
+        mgmtObject->statisticsUpdated();
+        if (brokerMgmtObject) {
+            _qmf::Broker::PerThreadStats *bStats = brokerMgmtObject->getStatistics();
+            bStats->msgTxnEnqueues += 1;
+            bStats->byteTxnEnqueues += contentSize;
+            brokerMgmtObject->statisticsUpdated();
+        }
     }
 }
 
@@ -213,18 +278,35 @@ void Queue::requeue(const QueuedMessage& msg){
     {
         Mutex::ScopedLock locker(messageLock);
         if (!isEnqueued(msg)) return;
-        messages->reinsert(msg);
-        listeners.populate(copy);
-
-        // for persistLastNode - don't force a message twice to disk, but force it if no force before
-        if(inLastNodeFailure && persistLastNode && !msg.payload->isStoredOnQueue(shared_from_this())) {
-            msg.payload->forcePersistent();
-            if (msg.payload->isForcedPersistent() ){
-                boost::intrusive_ptr<Message> payload = msg.payload;
-            	enqueue(0, payload);
+        if (deleted) {
+            //
+            // If the queue has been deleted, requeued messages must be sent to the alternate exchange
+            // if one is configured.
+            //
+            if (alternateExchange.get()) {
+                DeliverableMessage dmsg(msg.payload);
+                alternateExchange->routeWithAlternate(dmsg);
+                if (brokerMgmtObject)
+                    brokerMgmtObject->inc_abandonedViaAlt();
+            } else {
+                if (brokerMgmtObject)
+                    brokerMgmtObject->inc_abandoned();
             }
+            mgntDeqStats(msg.payload, mgmtObject, brokerMgmtObject);
+        } else {
+            messages->release(msg);
+            listeners.populate(copy);
+
+            // for persistLastNode - don't force a message twice to disk, but force it if no force before
+            if(inLastNodeFailure && persistLastNode && !msg.payload->isStoredOnQueue(shared_from_this())) {
+                msg.payload->forcePersistent();
+                if (msg.payload->isForcedPersistent() ){
+                    boost::intrusive_ptr<Message> payload = msg.payload;
+                    enqueue(0, payload);
+                }
+            }
+            observeRequeue(msg, locker);
         }
-        observeRequeue(msg, locker);
     }
     copy.notify();
 }
@@ -278,7 +360,7 @@ void Queue::notifyListener()
 
 bool Queue::getNextMessage(QueuedMessage& m, Consumer::shared_ptr& c)
 {
-    checkNotDeleted();
+    checkNotDeleted(c);
     if (c->preAcquires()) {
         switch (consumeNextMessage(m, c)) {
           case CONSUMED:
@@ -299,43 +381,43 @@ Queue::ConsumeCode Queue::consumeNextMessage(QueuedMessage& m, Consumer::shared_
     while (true) {
         Mutex::ScopedLock locker(messageLock);
         QueuedMessage msg;
+        if (allocator->nextConsumableMessage(c, msg)) {
+            if (msg.payload->hasExpired()) {
+                QPID_LOG(debug, "Message expired from queue '" << name << "'");
+                c->setPosition(msg.position);
+                dequeue(0, msg);
+                if (mgmtObject) {
+                    mgmtObject->inc_discardsTtl();
+                    if (brokerMgmtObject)
+                        brokerMgmtObject->inc_discardsTtl();
+                }
 
-        if (!allocator->nextConsumableMessage(c, msg)) { // no next available
-            QPID_LOG(debug, "No messages available to dispatch to consumer " <<
-                     c->getName() << " on queue '" << name << "'");
-            listeners.addListener(c);
-            return NO_MESSAGES;
-        }
+                continue;
+            }
 
-        if (msg.payload->hasExpired()) {
-            QPID_LOG(debug, "Message expired from queue '" << name << "'");
-            c->position = msg.position;
-            acquire( msg.position, msg, locker);
-            dequeue( 0, msg );
-            continue;
-        }
-
-        // a message is available for this consumer - can the consumer use it?
-
-        if (c->filter(msg.payload)) {
-            if (c->accept(msg.payload)) {
-                bool ok = allocator->allocate( c->getName(), msg );  // inform allocator
-                (void) ok; assert(ok);
-                ok = acquire( msg.position, msg, locker);
-                (void) ok; assert(ok);
-                m = msg;
-                c->position = m.position;
-                return CONSUMED;
+            if (c->filter(msg.payload)) {
+                if (c->accept(msg.payload)) {
+                    bool ok = allocator->allocate( c->getName(), msg );  // inform allocator
+                    (void) ok; assert(ok);
+                    observeAcquire(msg, locker);
+                    m = msg;
+                    return CONSUMED;
+                } else {
+                    //message(s) are available but consumer hasn't got enough credit
+                    QPID_LOG(debug, "Consumer can't currently accept message from '" << name << "'");
+                    messages->release(msg);
+                    return CANT_CONSUME;
+                }
             } else {
-                //message(s) are available but consumer hasn't got enough credit
-                QPID_LOG(debug, "Consumer can't currently accept message from '" << name << "'");
+                //consumer will never want this message
+                QPID_LOG(debug, "Consumer doesn't want message from '" << name << "'");
+                messages->release(msg);
                 return CANT_CONSUME;
             }
         } else {
-            //consumer will never want this message
-            QPID_LOG(debug, "Consumer doesn't want message from '" << name << "'");
-            c->position = msg.position;
-            return CANT_CONSUME;
+            QPID_LOG(debug, "No messages to dispatch on queue '" << name << "'");
+            listeners.addListener(c);
+            return NO_MESSAGES;
         }
     }
 }
@@ -356,7 +438,7 @@ bool Queue::browseNextMessage(QueuedMessage& m, Consumer::shared_ptr& c)
         if (c->filter(msg.payload) && !msg.payload->hasExpired()) {
             if (c->accept(msg.payload)) {
                 //consumer wants the message
-                c->position = msg.position;
+                c->setPosition(msg.position);
                 m = msg;
                 return true;
             } else {
@@ -367,7 +449,7 @@ bool Queue::browseNextMessage(QueuedMessage& m, Consumer::shared_ptr& c)
         } else {
             //consumer will never want this message, continue seeking
             QPID_LOG(debug, "Browser skipping message from '" << name << "'");
-            c->position = msg.position;
+            c->setPosition(msg.position);
         }
     }
     return false;
@@ -398,7 +480,6 @@ bool Queue::dispatch(Consumer::shared_ptr c)
 }
 
 bool Queue::find(SequenceNumber pos, QueuedMessage& msg) const {
-
     Mutex::ScopedLock locker(messageLock);
     if (messages->find(pos, msg))
         return true;
@@ -460,7 +541,7 @@ void Queue::cancel(Consumer::shared_ptr c){
 QueuedMessage Queue::get(){
     Mutex::ScopedLock locker(messageLock);
     QueuedMessage msg(this);
-    if (messages->pop(msg))
+    if (messages->consume(msg))
         observeAcquire(msg, locker);
     return msg;
 }
@@ -491,6 +572,15 @@ void Queue::purgeExpired(qpid::sys::Duration lapse)
         {
             Mutex::ScopedLock locker(messageLock);
             messages->removeIf(boost::bind(&collect_if_expired, boost::ref(expired), _1));
+        }
+
+        //
+        // Report the count of discarded-by-ttl messages
+        //
+        if (mgmtObject && !expired.empty()) {
+            mgmtObject->inc_discardsTtl(expired.size());
+            if (brokerMgmtObject)
+                brokerMgmtObject->inc_discardsTtl(expired.size());
         }
 
         for (std::deque<QueuedMessage>::const_iterator i = expired.begin();
@@ -627,11 +717,25 @@ uint32_t Queue::purge(const uint32_t purge_request, boost::shared_ptr<Exchange> 
 
     Mutex::ScopedLock locker(messageLock);
     messages->removeIf( boost::bind<bool>(boost::ref(c), _1) );
+
+    if (mgmtObject && !c.matches.empty()) {
+        if (dest.get()) {
+            mgmtObject->inc_reroutes(c.matches.size());
+            if (brokerMgmtObject)
+                brokerMgmtObject->inc_reroutes(c.matches.size());
+        } else {
+            mgmtObject->inc_discardsPurge(c.matches.size());
+            if (brokerMgmtObject)
+                brokerMgmtObject->inc_discardsPurge(c.matches.size());
+        }
+    }
+
     for (std::deque<QueuedMessage>::iterator qmsg = c.matches.begin();
          qmsg != c.matches.end(); ++qmsg) {
         // Update observers and message state:
         observeAcquire(*qmsg, locker);
         dequeue(0, *qmsg);
+        QPID_LOG(debug, "Purged message at " << qmsg->position << " from " << getName());
         // now reroute if necessary
         if (dest.get()) {
             assert(qmsg->payload);
@@ -663,24 +767,11 @@ uint32_t Queue::move(const Queue::shared_ptr destq, uint32_t qty,
     return c.matches.size();
 }
 
-/** Acquire the front (oldest) message from the in-memory queue.
- * assumes messageLock held by caller
- */
-void Queue::pop(const Mutex::ScopedLock& locker)
-{
-    assertClusterSafe();
-    QueuedMessage msg;
-    if (messages->pop(msg)) {
-        observeAcquire(msg, locker);
-        ++dequeueSincePurge;
-    }
-}
-
 /** Acquire the message at the given position, return true and msg if acquire succeeds */
 bool Queue::acquire(const qpid::framing::SequenceNumber& position, QueuedMessage& msg,
                     const Mutex::ScopedLock& locker)
 {
-    if (messages->remove(position, msg)) {
+    if (messages->acquire(position, msg)) {
         observeAcquire(msg, locker);
         ++dequeueSincePurge;
         return true;
@@ -699,8 +790,14 @@ void Queue::push(boost::intrusive_ptr<Message>& msg, bool isRecovery){
         if (insertSeqNo) msg->insertCustomProperty(seqNoKey, sequence);
 
         dequeueRequired = messages->push(qm, removed);
-        if (dequeueRequired)
+        if (dequeueRequired) {
             observeAcquire(removed, locker);
+            if (mgmtObject) {
+                mgmtObject->inc_discardsLvq();
+                if (brokerMgmtObject)
+                    brokerMgmtObject->inc_discardsLvq();
+            }
+        }
         listeners.populate(copy);
         observeEnqueue(qm, locker);
     }
@@ -788,10 +885,30 @@ bool Queue::enqueue(TransactionContext* ctxt, boost::intrusive_ptr<Message>& msg
         std::deque<QueuedMessage> dequeues;
         {
             Mutex::ScopedLock locker(messageLock);
-            policy->tryEnqueue(msg);
+            try {
+                policy->tryEnqueue(msg);
+            } catch(ResourceLimitExceededException&) {
+                if (mgmtObject) {
+                    mgmtObject->inc_discardsOverflow();
+                    if (brokerMgmtObject)
+                        brokerMgmtObject->inc_discardsOverflow();
+                }
+                throw;
+            }
             policy->getPendingDequeues(dequeues);
         }
         //depending on policy, may have some dequeues that need to performed without holding the lock
+
+        //
+        // Count the dequeues as ring-discards.  We know that these aren't rejects because
+        // policy->tryEnqueue would have thrown an exception.
+        //
+        if (mgmtObject && !dequeues.empty()) {
+            mgmtObject->inc_discardsRing(dequeues.size());
+            if (brokerMgmtObject)
+                brokerMgmtObject->inc_discardsRing(dequeues.size());
+        }
+
         for_each(dequeues.begin(), dequeues.end(), boost::bind(&Queue::dequeue, this, (TransactionContext*) 0, _1));
     }
 
@@ -858,8 +975,17 @@ void Queue::dequeueCommitted(const QueuedMessage& msg)
     Mutex::ScopedLock locker(messageLock);
     observeDequeue(msg, locker);
     if (mgmtObject != 0) {
-        mgmtObject->inc_msgTxnDequeues();
-        mgmtObject->inc_byteTxnDequeues(msg.payload->contentSize());
+        _qmf::Queue::PerThreadStats *qStats = mgmtObject->getStatistics();
+        const uint64_t contentSize = msg.payload->contentSize();
+        qStats->msgTxnDequeues  += 1;
+        qStats->byteTxnDequeues += contentSize;
+        mgmtObject->statisticsUpdated();
+        if (brokerMgmtObject) {
+            _qmf::Broker::PerThreadStats *bStats = brokerMgmtObject->getStatistics();
+            bStats->msgTxnDequeues += 1;
+            bStats->byteTxnDequeues += contentSize;
+            brokerMgmtObject->statisticsUpdated();
+        }
     }
 }
 
@@ -867,12 +993,14 @@ void Queue::dequeueCommitted(const QueuedMessage& msg)
  * Removes the first (oldest) message from the in-memory delivery queue as well dequeing
  * it from the logical (and persistent if applicable) queue
  */
-void Queue::popAndDequeue(const Mutex::ScopedLock& held)
+bool Queue::popAndDequeue(QueuedMessage& msg, const Mutex::ScopedLock& locker)
 {
-    if (!messages->empty()) {
-        QueuedMessage msg = messages->front();
-        pop(held);
+    if (messages->consume(msg)) {
+        observeAcquire(msg, locker);
         dequeue(0, msg);
+        return true;
+    } else {
+        return false;
     }
 }
 
@@ -882,8 +1010,9 @@ void Queue::popAndDequeue(const Mutex::ScopedLock& held)
  */
 void Queue::observeDequeue(const QueuedMessage& msg, const Mutex::ScopedLock&)
 {
+    mgntDeqStats(msg.payload, mgmtObject, brokerMgmtObject);
     if (policy.get()) policy->dequeued(msg);
-    mgntDeqStats(msg.payload);
+    messages->deleted(msg);
     for (Observers::const_iterator i = observers.begin(); i != observers.end(); ++i) {
         try{
             (*i)->dequeued(msg);
@@ -898,6 +1027,12 @@ void Queue::observeDequeue(const QueuedMessage& msg, const Mutex::ScopedLock&)
  */
 void Queue::observeAcquire(const QueuedMessage& msg, const Mutex::ScopedLock&)
 {
+    if (mgmtObject) {
+        mgmtObject->inc_acquires();
+        if (brokerMgmtObject)
+            brokerMgmtObject->inc_acquires();
+    }
+
     for (Observers::const_iterator i = observers.begin(); i != observers.end(); ++i) {
         try{
             (*i)->acquired(msg);
@@ -912,6 +1047,12 @@ void Queue::observeAcquire(const QueuedMessage& msg, const Mutex::ScopedLock&)
  */
 void Queue::observeRequeue(const QueuedMessage& msg, const Mutex::ScopedLock&)
 {
+    if (mgmtObject) {
+        mgmtObject->inc_releases();
+        if (brokerMgmtObject)
+            brokerMgmtObject->inc_releases();
+    }
+
     for (Observers::const_iterator i = observers.begin(); i != observers.end(); ++i) {
         try{
             (*i)->requeued(msg);
@@ -1068,14 +1209,22 @@ void Queue::configureImpl(const FieldTable& _settings)
 void Queue::destroyed()
 {
     unbind(broker->getExchanges());
-    if (alternateExchange.get()) {
+    {
         Mutex::ScopedLock locker(messageLock);
-        while(!messages->empty()){
-            DeliverableMessage msg(messages->front().payload);
-            alternateExchange->routeWithAlternate(msg);
-            popAndDequeue(locker);
+        QueuedMessage m;
+        while(popAndDequeue(m, locker)) {
+            DeliverableMessage msg(m.payload);
+            if (alternateExchange.get()) {
+                if (brokerMgmtObject)
+                    brokerMgmtObject->inc_abandonedViaAlt();
+                alternateExchange->routeWithAlternate(msg);
+            } else {
+                if (brokerMgmtObject)
+                    brokerMgmtObject->inc_abandoned();
+            }
         }
-        alternateExchange->decAlternateUsers();
+        if (alternateExchange.get())
+            alternateExchange->decAlternateUsers();
     }
 
     if (store) {
@@ -1086,6 +1235,10 @@ void Queue::destroyed()
     }
     if (autoDeleteTask) autoDeleteTask = boost::intrusive_ptr<TimerTask>();
     notifyDeleted();
+    {
+        Mutex::ScopedLock locker(messageLock);
+        observers.clear();
+    }
 }
 
 void Queue::notifyDeleted()
@@ -1113,6 +1266,8 @@ void Queue::unbind(ExchangeRegistry& exchanges)
 void Queue::setPolicy(std::auto_ptr<QueuePolicy> _policy)
 {
     policy = _policy;
+    if (policy.get())
+        policy->setQueue(this);
 }
 
 const QueuePolicy* Queue::getPolicy()
@@ -1206,7 +1361,7 @@ struct AutoDeleteTask : qpid::sys::TimerTask
     Queue::shared_ptr queue;
 
     AutoDeleteTask(Broker& b, Queue::shared_ptr q, AbsTime fireTime)
-        : qpid::sys::TimerTask(fireTime, "DelayedAutoDeletion"), broker(b), queue(q) {}
+        : qpid::sys::TimerTask(fireTime, "DelayedAutoDeletion:"+q->getName()), broker(b), queue(q) {}
 
     void fire()
     {
@@ -1280,6 +1435,48 @@ void Queue::setExternalQueueStore(ExternalQueueStore* inst) {
     }
 }
 
+void Queue::countRejected() const
+{
+    if (mgmtObject) {
+        mgmtObject->inc_discardsSubscriber();
+        if (brokerMgmtObject)
+            brokerMgmtObject->inc_discardsSubscriber();
+    }
+}
+
+void Queue::countFlowedToDisk(uint64_t size) const
+{
+    if (mgmtObject) {
+        _qmf::Queue::PerThreadStats *qStats = mgmtObject->getStatistics();
+        qStats->msgFtdEnqueues += 1;
+        qStats->byteFtdEnqueues += size;
+        mgmtObject->statisticsUpdated();
+        if (brokerMgmtObject) {
+            _qmf::Broker::PerThreadStats *bStats = brokerMgmtObject->getStatistics();
+            bStats->msgFtdEnqueues += 1;
+            bStats->byteFtdEnqueues += size;
+            brokerMgmtObject->statisticsUpdated();
+        }
+    }
+}
+
+void Queue::countLoadedFromDisk(uint64_t size) const
+{
+    if (mgmtObject) {
+        _qmf::Queue::PerThreadStats *qStats = mgmtObject->getStatistics();
+        qStats->msgFtdDequeues += 1;
+        qStats->byteFtdDequeues += size;
+        mgmtObject->statisticsUpdated();
+        if (brokerMgmtObject) {
+            _qmf::Broker::PerThreadStats *bStats = brokerMgmtObject->getStatistics();
+            bStats->msgFtdDequeues += 1;
+            bStats->byteFtdDequeues += size;
+            brokerMgmtObject->statisticsUpdated();
+        }
+    }
+}
+
+
 ManagementObject* Queue::GetManagementObject (void) const
 {
     return (ManagementObject*) mgmtObject;
@@ -1336,6 +1533,7 @@ void Queue::query(qpid::types::Variant::Map& results) const
 void Queue::setPosition(SequenceNumber n) {
     Mutex::ScopedLock locker(messageLock);
     sequence = n;
+    QPID_LOG(trace, "Set position to " << sequence << " on " << getName());
 }
 
 SequenceNumber Queue::getPosition() {
@@ -1348,12 +1546,11 @@ void Queue::recoveryComplete(ExchangeRegistry& exchanges)
 {
     // set the alternate exchange
     if (!alternateExchangeName.empty()) {
-        try {
-            Exchange::shared_ptr ae = exchanges.get(alternateExchangeName);
-            setAlternateExchange(ae);
-        } catch (const NotFoundException&) {
-            QPID_LOG(warning, "Could not set alternate exchange \"" << alternateExchangeName << "\" on queue \"" << name << "\": exchange does not exist.");
-        }
+        Exchange::shared_ptr ae = exchanges.find(alternateExchangeName);
+        if (ae) setAlternateExchange(ae);
+        else QPID_LOG(warning, "Could not set alternate exchange \""
+                      << alternateExchangeName << "\" on queue \"" << name
+                      << "\": exchange does not exist.");
     }
     //process any pending dequeues
     for_each(pendingDequeues.begin(), pendingDequeues.end(), boost::bind(&Queue::dequeue, this, (TransactionContext*) 0, _1));
@@ -1382,14 +1579,15 @@ void Queue::observeEnqueue(const QueuedMessage& m, const Mutex::ScopedLock&)
     if (policy.get()) {
         policy->enqueued(m);
     }
-    mgntEnqStats(m.payload);
+    mgntEnqStats(m.payload, mgmtObject, brokerMgmtObject);
 }
 
 void Queue::updateEnqueued(const QueuedMessage& m)
 {
     if (m.payload) {
         boost::intrusive_ptr<Message> payload = m.payload;
-        enqueue ( 0, payload, true );
+        enqueue(0, payload, true);
+        messages->updateAcquired(m);
         if (policy.get()) {
             policy->recoverEnqueued(payload);
         }
@@ -1409,9 +1607,9 @@ QueueListeners& Queue::getListeners() { return listeners; }
 Messages& Queue::getMessages() { return *messages; }
 const Messages& Queue::getMessages() const { return *messages; }
 
-void Queue::checkNotDeleted()
+void Queue::checkNotDeleted(const Consumer::shared_ptr& c)
 {
-    if (deleted) {
+    if (deleted && !c->hideDeletedError()) {
         throw ResourceDeletedException(QPID_MSG("Queue " << getName() << " has been deleted."));
     }
 }
@@ -1420,6 +1618,12 @@ void Queue::addObserver(boost::shared_ptr<QueueObserver> observer)
 {
     Mutex::ScopedLock locker(messageLock);
     observers.insert(observer);
+}
+
+void Queue::removeObserver(boost::shared_ptr<QueueObserver> observer)
+{
+    Mutex::ScopedLock locker(messageLock);
+    observers.erase(observer);
 }
 
 void Queue::flush()
@@ -1444,7 +1648,7 @@ bool Queue::bind(boost::shared_ptr<Exchange> exchange, const std::string& key,
 }
 
 
-const Broker* Queue::getBroker()
+Broker* Queue::getBroker()
 {
     return broker;
 }
@@ -1453,6 +1657,29 @@ void Queue::setDequeueSincePurge(uint32_t value) {
     dequeueSincePurge = value;
 }
 
+namespace{
+class FindLowest
+{
+  public:
+    FindLowest() : init(false) {}
+    void process(const QueuedMessage& message) {
+        QPID_LOG(debug, "FindLowest processing: " << message.position);
+        if (!init || message.position < lowest) lowest = message.position;
+        init = true;
+    }
+    bool getLowest(qpid::framing::SequenceNumber& result) {
+        if (init) {
+            result = lowest;
+            return true;
+        } else {
+            return false;
+        }
+    }
+  private:
+    bool init;
+    qpid::framing::SequenceNumber lowest;
+};
+}
 
 Queue::UsageBarrier::UsageBarrier(Queue& q) : parent(q), count(0) {}
 

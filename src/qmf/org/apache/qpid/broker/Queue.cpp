@@ -44,7 +44,7 @@ using           std::string;
 string  Queue::packageName  = string ("org.apache.qpid.broker");
 string  Queue::className    = string ("queue");
 uint8_t Queue::md5Sum[MD5_LEN]   =
-    {0x3,0xf4,0xbc,0x66,0xbf,0xe,0x0,0x49,0x1d,0xa6,0x6f,0x26,0x9,0x7d,0x5b,0x95};
+    {0xea,0x2e,0x43,0xd,0xfc,0x12,0xd4,0x91,0xdd,0x53,0x74,0xda,0x3b,0xa7,0x65,0x76};
 
 Queue::Queue (ManagementAgent*, Manageable* _core, ::qpid::management::Manageable* _parent, const std::string& _name, bool _durable, bool _autoDelete, bool _exclusive) :
     ManagementObject(_core),name(_name),durable(_durable),autoDelete(_autoDelete),exclusive(_exclusive)
@@ -120,7 +120,7 @@ void Queue::writeSchema (std::string& schema)
     buf.putShortString (className);   // Class Name
     buf.putBin128      (md5Sum);      // Schema Hash
     buf.putShort       (7); // Config Element Count
-    buf.putShort       (29); // Inst Element Count
+    buf.putShort       (44); // Inst Element Count
     buf.putShort       (2); // Method Count
 
     // Properties
@@ -279,6 +279,111 @@ void Queue::writeSchema (std::string& schema)
     ft[TYPE] = TYPE_U64;
     ft[UNIT] = "octet";
     ft[DESC] = "Persistent messages dequeued";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "msgFtdEnqueues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Total message bodies released from memory and flowed-to-disk on broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "msgFtdDequeues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Total message bodies dequeued from the broker having been flowed-to-disk";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "byteFtdEnqueues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "octet";
+    ft[DESC] = "Total bytes released from memory and flowed-to-disk on broker";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "byteFtdDequeues";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "octet";
+    ft[DESC] = "Total bytes dequeued from the broker having been flowed-to-disk";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "msgFtdDepth";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Current number of messages flowed-to-disk";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "byteFtdDepth";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "octet";
+    ft[DESC] = "Current number of bytes flowed-to-disk";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "releases";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Acquired messages reinserted into the queue";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "acquires";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages acquired from the queue";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "discardsTtl";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages discarded due to TTL expiration";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "discardsRing";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages discarded due to ring-queue overflow";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "discardsLvq";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages discarded due to LVQ insert";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "discardsOverflow";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages discarded due to reject-policy overflow";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "discardsSubscriber";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages discarded due to subscriber reject";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "discardsPurge";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages discarded due to management purge";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "reroutes";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Messages dequeued to management re-route";
     buf.putMap(ft);
 
     ft.clear();
@@ -467,6 +572,21 @@ void Queue::aggregatePerThreadStats(struct PerThreadStats* totals) const
     totals->byteTxnDequeues = 0;
     totals->bytePersistEnqueues = 0;
     totals->bytePersistDequeues = 0;
+    totals->msgFtdEnqueues = 0;
+    totals->msgFtdDequeues = 0;
+    totals->byteFtdEnqueues = 0;
+    totals->byteFtdDequeues = 0;
+    totals->msgFtdDepth = 0;
+    totals->byteFtdDepth = 0;
+    totals->releases = 0;
+    totals->acquires = 0;
+    totals->discardsTtl = 0;
+    totals->discardsRing = 0;
+    totals->discardsLvq = 0;
+    totals->discardsOverflow = 0;
+    totals->discardsSubscriber = 0;
+    totals->discardsPurge = 0;
+    totals->reroutes = 0;
     totals->messageLatencyCount = 0;
     totals->messageLatencyMin   = std::numeric_limits<uint64_t>::max();
     totals->messageLatencyMax   = std::numeric_limits<uint64_t>::min();
@@ -490,6 +610,21 @@ void Queue::aggregatePerThreadStats(struct PerThreadStats* totals) const
             totals->byteTxnDequeues += threadStats->byteTxnDequeues;
             totals->bytePersistEnqueues += threadStats->bytePersistEnqueues;
             totals->bytePersistDequeues += threadStats->bytePersistDequeues;
+            totals->msgFtdEnqueues += threadStats->msgFtdEnqueues;
+            totals->msgFtdDequeues += threadStats->msgFtdDequeues;
+            totals->byteFtdEnqueues += threadStats->byteFtdEnqueues;
+            totals->byteFtdDequeues += threadStats->byteFtdDequeues;
+            totals->msgFtdDepth += threadStats->msgFtdDepth;
+            totals->byteFtdDepth += threadStats->byteFtdDepth;
+            totals->releases += threadStats->releases;
+            totals->acquires += threadStats->acquires;
+            totals->discardsTtl += threadStats->discardsTtl;
+            totals->discardsRing += threadStats->discardsRing;
+            totals->discardsLvq += threadStats->discardsLvq;
+            totals->discardsOverflow += threadStats->discardsOverflow;
+            totals->discardsSubscriber += threadStats->discardsSubscriber;
+            totals->discardsPurge += threadStats->discardsPurge;
+            totals->reroutes += threadStats->reroutes;
             totals->messageLatencyCount += threadStats->messageLatencyCount;
             if (totals->messageLatencyMin > threadStats->messageLatencyMin)
                 totals->messageLatencyMin = threadStats->messageLatencyMin;
@@ -605,6 +740,8 @@ void Queue::writeStatistics (std::string& _sBuf, bool skipHeaders)
         if (threadStats != 0) {
         threadStats->msgDepth = (uint64_t) (threadStats->msgTotalEnqueues - threadStats->msgTotalDequeues);
         threadStats->byteDepth = (uint64_t) (threadStats->byteTotalEnqueues - threadStats->byteTotalDequeues);
+        threadStats->msgFtdDepth = (uint64_t) (threadStats->msgFtdEnqueues - threadStats->msgFtdDequeues);
+        threadStats->byteFtdDepth = (uint64_t) (threadStats->byteFtdEnqueues - threadStats->byteFtdDequeues);
 
         }
     }
@@ -634,6 +771,21 @@ void Queue::writeStatistics (std::string& _sBuf, bool skipHeaders)
     buf.putLongLong(totals.byteTxnDequeues);
     buf.putLongLong(totals.bytePersistEnqueues);
     buf.putLongLong(totals.bytePersistDequeues);
+    buf.putLongLong(totals.msgFtdEnqueues);
+    buf.putLongLong(totals.msgFtdDequeues);
+    buf.putLongLong(totals.byteFtdEnqueues);
+    buf.putLongLong(totals.byteFtdDequeues);
+    buf.putLongLong(totals.msgFtdDepth);
+    buf.putLongLong(totals.byteFtdDepth);
+    buf.putLongLong(totals.releases);
+    buf.putLongLong(totals.acquires);
+    buf.putLongLong(totals.discardsTtl);
+    buf.putLongLong(totals.discardsRing);
+    buf.putLongLong(totals.discardsLvq);
+    buf.putLongLong(totals.discardsOverflow);
+    buf.putLongLong(totals.discardsSubscriber);
+    buf.putLongLong(totals.discardsPurge);
+    buf.putLongLong(totals.reroutes);
     buf.putLong(consumerCount);
     buf.putLong(consumerCountHigh);
     buf.putLong(consumerCountLow);
@@ -777,6 +929,8 @@ void Queue::mapEncodeValues (::qpid::types::Variant::Map& _map,
             if (threadStats != 0) {
         threadStats->msgDepth = (uint64_t) (threadStats->msgTotalEnqueues - threadStats->msgTotalDequeues);
         threadStats->byteDepth = (uint64_t) (threadStats->byteTotalEnqueues - threadStats->byteTotalDequeues);
+        threadStats->msgFtdDepth = (uint64_t) (threadStats->msgFtdEnqueues - threadStats->msgFtdDequeues);
+        threadStats->byteFtdDepth = (uint64_t) (threadStats->byteFtdEnqueues - threadStats->byteFtdDequeues);
 
             }
         }
@@ -801,6 +955,21 @@ void Queue::mapEncodeValues (::qpid::types::Variant::Map& _map,
     _map["byteTxnDequeues"] = ::qpid::types::Variant(totals.byteTxnDequeues);
     _map["bytePersistEnqueues"] = ::qpid::types::Variant(totals.bytePersistEnqueues);
     _map["bytePersistDequeues"] = ::qpid::types::Variant(totals.bytePersistDequeues);
+    _map["msgFtdEnqueues"] = ::qpid::types::Variant(totals.msgFtdEnqueues);
+    _map["msgFtdDequeues"] = ::qpid::types::Variant(totals.msgFtdDequeues);
+    _map["byteFtdEnqueues"] = ::qpid::types::Variant(totals.byteFtdEnqueues);
+    _map["byteFtdDequeues"] = ::qpid::types::Variant(totals.byteFtdDequeues);
+    _map["msgFtdDepth"] = ::qpid::types::Variant(totals.msgFtdDepth);
+    _map["byteFtdDepth"] = ::qpid::types::Variant(totals.byteFtdDepth);
+    _map["releases"] = ::qpid::types::Variant(totals.releases);
+    _map["acquires"] = ::qpid::types::Variant(totals.acquires);
+    _map["discardsTtl"] = ::qpid::types::Variant(totals.discardsTtl);
+    _map["discardsRing"] = ::qpid::types::Variant(totals.discardsRing);
+    _map["discardsLvq"] = ::qpid::types::Variant(totals.discardsLvq);
+    _map["discardsOverflow"] = ::qpid::types::Variant(totals.discardsOverflow);
+    _map["discardsSubscriber"] = ::qpid::types::Variant(totals.discardsSubscriber);
+    _map["discardsPurge"] = ::qpid::types::Variant(totals.discardsPurge);
+    _map["reroutes"] = ::qpid::types::Variant(totals.reroutes);
     _map["consumerCount"] = ::qpid::types::Variant(consumerCount);
     _map["consumerCountHigh"] = ::qpid::types::Variant(consumerCountHigh);
     _map["consumerCountLow"] = ::qpid::types::Variant(consumerCountLow);

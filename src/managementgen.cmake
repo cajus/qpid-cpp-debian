@@ -49,10 +49,18 @@ set(mgen_generator ${mgen_dir}/qmf-gen
     ${mgen_dir}/qmfgen/templates/Event.cpp
     ${mgen_dir}/qmfgen/templates/Package.h
     ${mgen_dir}/qmfgen/templates/Package.cpp
+    ${mgen_dir}/qmfgen/templates/Class.h
+    ${mgen_dir}/qmfgen/templates/Class.cpp
+    ${mgen_dir}/qmfgen/templates/Args.h
+    ${mgen_dir}/qmfgen/templates/Event.h
+    ${mgen_dir}/qmfgen/templates/Event.cpp
+    ${mgen_dir}/qmfgen/templates/Package.h
+    ${mgen_dir}/qmfgen/templates/Package.cpp
     ${mgen_dir}/qmfgen/templates/Makefile.mk
     ${mgen_dir}/qmfgen/templates/CMakeLists.cmake)
 
 set(mgen_broker_cpp qmf/org/apache/qpid/broker/System.cpp 
+    qmf/org/apache/qpid/broker/Memory.cpp 
     qmf/org/apache/qpid/broker/Broker.cpp 
     qmf/org/apache/qpid/broker/Agent.cpp 
     qmf/org/apache/qpid/broker/Vhost.cpp 
@@ -87,12 +95,15 @@ set(mgen_broker_cpp qmf/org/apache/qpid/broker/System.cpp
     qmf/org/apache/qpid/acl/EventFileLoadFailed.cpp 
     qmf/org/apache/qpid/acl/Package.cpp 
     qmf/org/apache/qpid/cluster/Cluster.cpp 
-    qmf/org/apache/qpid/cluster/Package.cpp)
+    qmf/org/apache/qpid/cluster/Package.cpp 
+    qmf/org/apache/qpid/ha/HaBroker.cpp 
+    qmf/org/apache/qpid/ha/Package.cpp)
 
 # Header file install rules.
 ##Come back to this later...
 #org_apache_qpid_brokerdir = $(includedir)/qmf/org/apache/qpid/broker
 #dist_org_apache_qpid_broker_HEADERS = #qmf/org/apache/qpid/broker/System.h
+    #qmf/org/apache/qpid/broker/Memory.h
     #qmf/org/apache/qpid/broker/Broker.h
     #qmf/org/apache/qpid/broker/Agent.h
     #qmf/org/apache/qpid/broker/Vhost.h
@@ -149,6 +160,15 @@ set(mgen_broker_cpp qmf/org/apache/qpid/broker/System.cpp
     #qmf/org/apache/qpid/cluster/ArgsClusterStopClusterNode.h
     #qmf/org/apache/qpid/cluster/Package.h
 
+#Come back to this later...
+#org_apache_qpid_hadir = $(includedir)/qmf/org/apache/qpid/ha
+#dist_org_apache_qpid_ha_HEADERS = #qmf/org/apache/qpid/ha/HaBroker.h
+    #qmf/org/apache/qpid/ha/ArgsHaBrokerSetBrokers.h
+    #qmf/org/apache/qpid/ha/ArgsHaBrokerSetPublicBrokers.h
+    #qmf/org/apache/qpid/ha/ArgsHaBrokerSetExpectedBackups.h
+    #qmf/org/apache/qpid/ha/ArgsHaBrokerReplicate.h
+    #qmf/org/apache/qpid/ha/Package.h
+
 
 #if GENERATE
 #$(srcdir)/managementgen.mk: $(mgen_generator)
@@ -159,6 +179,7 @@ set(mgen_broker_cpp qmf/org/apache/qpid/broker/System.cpp
 #
 
 set(qmfgen_sources qmf/org/apache/qpid/broker/System.h 
+    qmf/org/apache/qpid/broker/Memory.h 
     qmf/org/apache/qpid/broker/Broker.h 
     qmf/org/apache/qpid/broker/Agent.h 
     qmf/org/apache/qpid/broker/Vhost.h 
@@ -208,7 +229,14 @@ set(qmfgen_sources qmf/org/apache/qpid/broker/System.h
     qmf/org/apache/qpid/cluster/Cluster.h 
     qmf/org/apache/qpid/cluster/ArgsClusterStopClusterNode.h 
     qmf/org/apache/qpid/cluster/Package.h 
+    qmf/org/apache/qpid/ha/HaBroker.h 
+    qmf/org/apache/qpid/ha/ArgsHaBrokerSetBrokers.h 
+    qmf/org/apache/qpid/ha/ArgsHaBrokerSetPublicBrokers.h 
+    qmf/org/apache/qpid/ha/ArgsHaBrokerSetExpectedBackups.h 
+    qmf/org/apache/qpid/ha/ArgsHaBrokerReplicate.h 
+    qmf/org/apache/qpid/ha/Package.h 
     qmf/org/apache/qpid/broker/System.cpp 
+    qmf/org/apache/qpid/broker/Memory.cpp 
     qmf/org/apache/qpid/broker/Broker.cpp 
     qmf/org/apache/qpid/broker/Agent.cpp 
     qmf/org/apache/qpid/broker/Vhost.cpp 
@@ -243,4 +271,6 @@ set(qmfgen_sources qmf/org/apache/qpid/broker/System.h
     qmf/org/apache/qpid/acl/EventFileLoadFailed.cpp 
     qmf/org/apache/qpid/acl/Package.cpp 
     qmf/org/apache/qpid/cluster/Cluster.cpp 
-    qmf/org/apache/qpid/cluster/Package.cpp)
+    qmf/org/apache/qpid/cluster/Package.cpp 
+    qmf/org/apache/qpid/ha/HaBroker.cpp 
+    qmf/org/apache/qpid/ha/Package.cpp)

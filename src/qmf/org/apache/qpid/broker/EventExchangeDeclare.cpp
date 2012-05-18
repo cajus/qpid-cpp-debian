@@ -188,3 +188,8 @@ void EventExchangeDeclare::mapEncode(::qpid::types::Variant::Map& map) const
     map["disp"] = ::qpid::types::Variant(disp);
 
 }
+
+bool EventExchangeDeclare::match(const std::string& evt, const std::string& pkg)
+{
+    return eventName == evt && packageName == pkg;
+}

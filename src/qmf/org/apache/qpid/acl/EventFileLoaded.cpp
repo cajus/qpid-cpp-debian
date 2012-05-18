@@ -107,3 +107,8 @@ void EventFileLoaded::mapEncode(::qpid::types::Variant::Map& map) const
     map["userId"] = ::qpid::types::Variant(userId);
 
 }
+
+bool EventFileLoaded::match(const std::string& evt, const std::string& pkg)
+{
+    return eventName == evt && packageName == pkg;
+}

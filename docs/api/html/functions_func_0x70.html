@@ -114,7 +114,7 @@
 : <a class="el" href="a00385.html#afe8749ffa406f413549399a02b378b45">qpid::types::Variant</a>
 , <a class="el" href="a00373.html#a805ce2afe48ee608e15a608e1c63e08f">qpid::Url</a>
 , <a class="el" href="a00240.html#a9ab9ee7e214162e52a022c9ae92b0a6c">qpid::Options</a>
-, <a class="el" href="a00373.html#a76e99ee02d3012f53fc6b1a42de78186">qpid::Url</a>
+, <a class="el" href="a00373.html#ad1507c0e1252b1b29ac3f90d7734c928">qpid::Url</a>
 </li>
 <li>parseNoThrow()
 : <a class="el" href="a00373.html#ac0e5c56ae896d479948d174595cbda5b">qpid::Url</a>
@@ -134,10 +134,10 @@
 , <a class="el" href="a00189.html#ab18b8f3bf0d793f44038929f54018e1a">qpid::framing::List</a>
 </li>
 <li>popEvent()
-: <a class="el" href="a00067.html#a32748ea5ff196ac60251ce0741367281">qmf::engine::Console</a>
-, <a class="el" href="a00277.html#ad90bd2c5323770ba3be6da32905b8aee">qmf::engine::ResilientConnection</a>
-, <a class="el" href="a00005.html#a85425603a2456369632069399a29f5fc">qmf::engine::Agent</a>
+: <a class="el" href="a00005.html#a85425603a2456369632069399a29f5fc">qmf::engine::Agent</a>
 , <a class="el" href="a00044.html#aed55b57f7b5e46afa1252fc0a6afa25d">qmf::engine::BrokerProxy</a>
+, <a class="el" href="a00067.html#a32748ea5ff196ac60251ce0741367281">qmf::engine::Console</a>
+, <a class="el" href="a00277.html#ad90bd2c5323770ba3be6da32905b8aee">qmf::engine::ResilientConnection</a>
 </li>
 <li>popXmt()
 : <a class="el" href="a00005.html#aafcde4dd6ea395e5b9f8200310c6d03b">qmf::engine::Agent</a>
@@ -150,7 +150,9 @@
 : <a class="el" href="a00253.html#a700d6e70dc224a1cf92e0ad2cccf632e">qpid::framing::PreconditionFailedException</a>
 </li>
 <li>print()
-: <a class="el" href="a00105.html#aecb5b3350b60f2489e2ba1d7be7a8338">qpid::framing::EncodedValue</a>
+: <a class="el" href="a00129.html#a3bb19b84df5303931b60c7c4feb72d17">qpid::framing::FixedWidthValue&lt; 0 &gt;</a>
+, <a class="el" href="a00384.html#a2c535ff254bee45ce8ff5d83d7d49e6f">qpid::framing::VariableWidthValue</a>
+, <a class="el" href="a00105.html#aecb5b3350b60f2489e2ba1d7be7a8338">qpid::framing::EncodedValue</a>
 , <a class="el" href="a00127.html#a5e58a7df125a84e4fadca70afa52776d">qpid::framing::FileProperties</a>
 , <a class="el" href="a00133.html#abda418016eeda71a1254764212f9c32b">qpid::framing::FragmentProperties</a>
 , <a class="el" href="a00142.html#aec067fcde0ad2820f506fa0122c3e358">qpid::framing::Header</a>
@@ -170,8 +172,6 @@
 , <a class="el" href="a00093.html#a7e87bea834cd5be55a8b8b3d527a7d10">qpid::framing::FieldValue::Data</a>
 , <a class="el" href="a00125.html#ad5c51d404ce77bec34caa72673fefcad">qpid::framing::FieldValue</a>
 , <a class="el" href="a00128.html#a7d1bac971dca37730a1827318cf51831">qpid::framing::FixedWidthValue</a>
-, <a class="el" href="a00129.html#a3bb19b84df5303931b60c7c4feb72d17">qpid::framing::FixedWidthValue&lt; 0 &gt;</a>
-, <a class="el" href="a00384.html#a2c535ff254bee45ce8ff5d83d7d49e6f">qpid::framing::VariableWidthValue</a>
 </li>
 <li>ProtocolVersion()
 : <a class="el" href="a00255.html#aec4487f8a14f7a75278d290fe4171df3">qpid::framing::ProtocolVersion</a>
@@ -184,20 +184,20 @@
 : <a class="el" href="a00045.html#a03ede5b37dd5cf7879baa144c90eeeae">qpid::framing::Buffer</a>
 </li>
 <li>putBin128()
-: <a class="el" href="a00045.html#a39a477bdeb0395d04a1c9dfe5007af09">qpid::framing::Buffer</a>
-, <a class="el" href="a00046.html#aa226a987247da1452ab7b7447c9355c8">qpid::management::Buffer</a>
+: <a class="el" href="a00046.html#aa226a987247da1452ab7b7447c9355c8">qpid::management::Buffer</a>
+, <a class="el" href="a00045.html#a39a477bdeb0395d04a1c9dfe5007af09">qpid::framing::Buffer</a>
 </li>
 <li>putDouble()
 : <a class="el" href="a00046.html#a506cdab4542eef522a636fc3b047ad69">qpid::management::Buffer</a>
 , <a class="el" href="a00045.html#a3b9df2f4a7cdb8b4bd282e2d5ecf11e2">qpid::framing::Buffer</a>
 </li>
 <li>putFloat()
-: <a class="el" href="a00046.html#a4950086de02d74500f39757dfbc395f4">qpid::management::Buffer</a>
-, <a class="el" href="a00045.html#aa1779a8b66d61c52d8bc9799aa55e1cf">qpid::framing::Buffer</a>
+: <a class="el" href="a00045.html#aa1779a8b66d61c52d8bc9799aa55e1cf">qpid::framing::Buffer</a>
+, <a class="el" href="a00046.html#a4950086de02d74500f39757dfbc395f4">qpid::management::Buffer</a>
 </li>
 <li>putInt16()
-: <a class="el" href="a00045.html#aecbc08dea2afe3aa3df60e022be0a253">qpid::framing::Buffer</a>
-, <a class="el" href="a00046.html#aaae6d3ca57a5cd7c216489db26a0077a">qpid::management::Buffer</a>
+: <a class="el" href="a00046.html#aaae6d3ca57a5cd7c216489db26a0077a">qpid::management::Buffer</a>
+, <a class="el" href="a00045.html#aecbc08dea2afe3aa3df60e022be0a253">qpid::framing::Buffer</a>
 </li>
 <li>putInt32()
 : <a class="el" href="a00046.html#a856ea174b2f889dbe482e1b432b74bd3">qpid::management::Buffer</a>
@@ -208,19 +208,19 @@
 , <a class="el" href="a00045.html#a0aa237806c078d4a50db5f127c3475b5">qpid::framing::Buffer</a>
 </li>
 <li>putInt8()
-: <a class="el" href="a00046.html#a3ae43a77e241357e6004300d3ada5041">qpid::management::Buffer</a>
-, <a class="el" href="a00045.html#ac4e0d661b18dc284458ffd6686881361">qpid::framing::Buffer</a>
+: <a class="el" href="a00045.html#ac4e0d661b18dc284458ffd6686881361">qpid::framing::Buffer</a>
+, <a class="el" href="a00046.html#a3ae43a77e241357e6004300d3ada5041">qpid::management::Buffer</a>
 </li>
 <li>putList()
 : <a class="el" href="a00046.html#af217a29dcbe4c7872c2fa5a981b7f154">qpid::management::Buffer</a>
 </li>
 <li>putLong()
-: <a class="el" href="a00046.html#a861817e9197aa72ccf764f883bd4693e">qpid::management::Buffer</a>
-, <a class="el" href="a00045.html#a6101601253b26c79f2bea4d8b45abfbb">qpid::framing::Buffer</a>
+: <a class="el" href="a00045.html#a6101601253b26c79f2bea4d8b45abfbb">qpid::framing::Buffer</a>
+, <a class="el" href="a00046.html#a861817e9197aa72ccf764f883bd4693e">qpid::management::Buffer</a>
 </li>
 <li>putLongLong()
-: <a class="el" href="a00045.html#a04a7c0d683350291072bbdce3789c3ab">qpid::framing::Buffer</a>
-, <a class="el" href="a00046.html#a98fff81756f5de5562b4220eaf17e9d4">qpid::management::Buffer</a>
+: <a class="el" href="a00046.html#a98fff81756f5de5562b4220eaf17e9d4">qpid::management::Buffer</a>
+, <a class="el" href="a00045.html#a04a7c0d683350291072bbdce3789c3ab">qpid::framing::Buffer</a>
 </li>
 <li>putLongString()
 : <a class="el" href="a00045.html#aea8f35b334904d728ff8164d4409dc09">qpid::framing::Buffer</a>
@@ -234,20 +234,21 @@
 , <a class="el" href="a00046.html#ab2afe7620180f1cf687722e144038104">qpid::management::Buffer</a>
 </li>
 <li>putOctet()
-: <a class="el" href="a00046.html#a0a909f0edc2c9f565ad4be2eba1fc2a3">qpid::management::Buffer</a>
-, <a class="el" href="a00045.html#a4896e00df1b364dd115abb9d012d37c8">qpid::framing::Buffer</a>
+: <a class="el" href="a00045.html#a4896e00df1b364dd115abb9d012d37c8">qpid::framing::Buffer</a>
+, <a class="el" href="a00046.html#a0a909f0edc2c9f565ad4be2eba1fc2a3">qpid::management::Buffer</a>
 </li>
 <li>putRawData()
-: <a class="el" href="a00046.html#a0d732feaa650eb72e9aeb350d6b3c630">qpid::management::Buffer</a>
-, <a class="el" href="a00045.html#a10d17a79a7a31a30030c051c064ed3b9">qpid::framing::Buffer</a>
+: <a class="el" href="a00045.html#a10d17a79a7a31a30030c051c064ed3b9">qpid::framing::Buffer</a>
+, <a class="el" href="a00046.html#a78662530ce958ac4c721b3ca612568d1">qpid::management::Buffer</a>
+, <a class="el" href="a00045.html#aa0a51e2faf24506b0c31a96e24573fc9">qpid::framing::Buffer</a>
 </li>
 <li>putShort()
-: <a class="el" href="a00045.html#a14f36dbf812ebe377dae97c65155b8e2">qpid::framing::Buffer</a>
-, <a class="el" href="a00046.html#ac57a309b2cb2654de6b5721b52a43f80">qpid::management::Buffer</a>
+: <a class="el" href="a00046.html#ac57a309b2cb2654de6b5721b52a43f80">qpid::management::Buffer</a>
+, <a class="el" href="a00045.html#a14f36dbf812ebe377dae97c65155b8e2">qpid::framing::Buffer</a>
 </li>
 <li>putShortString()
-: <a class="el" href="a00045.html#adb352023bb58a85ab1fa2248e87555ec">qpid::framing::Buffer</a>
-, <a class="el" href="a00046.html#ae489b622492701f19dd9661894990f97">qpid::management::Buffer</a>
+: <a class="el" href="a00046.html#ae489b622492701f19dd9661894990f97">qpid::management::Buffer</a>
+, <a class="el" href="a00045.html#adb352023bb58a85ab1fa2248e87555ec">qpid::framing::Buffer</a>
 </li>
 <li>putUInt()
 : <a class="el" href="a00045.html#a18971ab3df27ac3c4f676da615f476f9">qpid::framing::Buffer</a>
@@ -281,7 +282,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Wed Jan 11 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>
