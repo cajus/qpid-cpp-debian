@@ -40875,3 +40875,13 @@
  LIBS=$gl_saved_libs
  
  gl_CLOCK_TIME
+--- a/src/tests/Makefile.am
++++ b/src/tests/Makefile.am
+@@ -318,7 +318,6 @@
+   topictest								\
+   run_header_test							\
+   header_test.py							\
+-  ssl_test								\
+   config.null								\
+   ais_check								\
+   run_federation_tests							\

@@ -1,3 +1,9 @@
+qpid-cpp (0.16-2) unstable; urgency=low
+
+  * Disabled ssl test, because of locking problems on some autobuilders.
+
+ -- Cajus Pollmeier <cajus@debian.org>  Sat, 19 May 2012 14:45:47 +0200
+
 qpid-cpp (0.16-1) unstable; urgency=low
 
   * New upstream release.
