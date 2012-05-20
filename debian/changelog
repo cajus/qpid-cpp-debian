@@ -1,3 +1,9 @@
+qpid-cpp (0.16-3) unstable; urgency=low
+
+  * Sorry. Really disabled ssl test.
+
+ -- Cajus Pollmeier <cajus@debian.org>  Sun, 20 May 2012 12:59:25 +0200
+
 qpid-cpp (0.16-2) unstable; urgency=low
 
   * Disabled ssl test, because of locking problems on some autobuilders.
