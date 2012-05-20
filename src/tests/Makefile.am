@@ -143,9 +143,9 @@ test_store_la_LDFLAGS = -module
 
 include cluster.mk
 include sasl.mk
-#if SSL
-#include ssl.mk
-#endif
+if SSL
+include ssl.mk
+endif
 
 # Test programs that are installed and therefore built as part of make, not make check
 
@@ -318,6 +318,7 @@ EXTRA_DIST +=								\
   topictest								\
   run_header_test							\
   header_test.py							\
+  ssl_test								\
   config.null								\
   ais_check								\
   run_federation_tests							\
