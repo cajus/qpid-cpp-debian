@@ -19,5 +19,8 @@ export LDFLAGS=-L$(CURDIR)/src/.libs
 override_dh_auto_configure:
 	dh_auto_configure -- --with-sasl --with-xml --with-rdma --with-ssl --with-cpg --with-swig --libexecdir='/usr/lib'
 
+override_dh_auto_test:
+	# Disable tests on buildd machines for the moment
+
 %:
 	dh  $@ --with python2 --with autoreconf

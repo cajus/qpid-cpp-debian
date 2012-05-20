@@ -3,6 +3,7 @@ autotools.patch
 fix-explicit-link.patch
 fix-c11.patch
 disable-ha-tests.patch
+disable-perl.patch
 module-location.patch
 fix-armel-compilation.patch
 sasldb-location.patch
