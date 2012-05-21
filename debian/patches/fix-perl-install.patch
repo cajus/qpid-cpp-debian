@@ -1,0 +1,11 @@
+--- a/bindings/qpid/Makefile.am
++++ b/bindings/qpid/Makefile.am
+@@ -54,7 +54,7 @@
+ 
+ install-exec-local:
+ 	cd perl ; \
+-		$(MAKE) pure_install DESTDIR=$(prefix) ; \
++		$(MAKE) pure_install DESTDIR=$(DESTDIR)$(prefix) ; \
+ 	cd ..
+ 
+ clean-local:
