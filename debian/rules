@@ -11,14 +11,15 @@
 
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 CXXFLAGS = $(shell dpkg-buildflags --get CXXFLAGS) -Wno-error=cast-qual
+CPPFLAGS = $(shell dpkg-buildflags --get CPPFLAGS) -Wno-error=cast-qual
+LDFLAGS = $(shell dpkg-buildflags --get LDFLAGS) -L$(CURDIR)/src/.libs
 
 # Set install ruby locations for configure
 export RUBY_LIB = $(shell ruby1.8 -r rbconfig -e 'print Config::CONFIG["rubylibdir"]' | sed 's,/ruby/,/ruby/vendor_ruby/,')
 export RUBY_LIB_ARCH = $(shell ruby1.8 -r rbconfig -e 'print Config::CONFIG["archdir"]' | sed 's,/ruby/,/ruby/vendor_ruby/,')
-export LDFLAGS=-L$(CURDIR)/src/.libs
 
 override_dh_auto_configure:
-	CXXFLAGS="$(CXXFLAGS)" dh_auto_configure -- --with-sasl --with-xml --with-rdma --with-ssl --with-cpg --with-swig --libexecdir='/usr/lib'
+	LDFLAGS="$(LDFLAGS)" CXXFLAGS="$(CXXFLAGS)" CPPFLAGS=$(CPPFLAGS)" dh_auto_configure -- --with-sasl --with-xml --with-rdma --with-ssl --with-cpg --with-swig --libexecdir='/usr/lib'
 
 override_dh_auto_test:
 	# Disable tests on buildd machines for the moment
