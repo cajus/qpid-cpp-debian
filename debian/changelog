@@ -1,6 +1,8 @@
 qpid-cpp (0.16-3) unstable; urgency=low
 
   * Completely disabled tests to make the autobuilders proceed.
+  * Added missing '-Wno-error=cast-qual' to allow build for armel and ia64
+  * Added perl packages
 
  -- Cajus Pollmeier <cajus@debian.org>  Sun, 20 May 2012 12:59:25 +0200
 
