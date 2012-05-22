@@ -421,14 +421,14 @@ Description: Transitional package for ruby-qpid
  This is a transitional package for libqpid-ruby1.8, and can be safely removed
  after the installation is complete.
 
-Package: libqpid-perl
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}
-Section: perl
-Description: enterprise messaging system - Perl bindings
- Apache Qpid is a cross-platform enterprise messaging system which implements
- the Advanced Message Queuing Protocol (AMQP), providing message brokers
- written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
- and Ruby.
- .
- This package provides the Apache Qpid Perl bindings.
+#Package: libqpid-perl
+#Architecture: any
+#Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}
+#Section: perl
+#Description: enterprise messaging system - Perl bindings
+# Apache Qpid is a cross-platform enterprise messaging system which implements
+# the Advanced Message Queuing Protocol (AMQP), providing message brokers
+# written in C++ and Java, along with clients for C++, Java JMS, .Net, Python,
+# and Ruby.
+# .
+# This package provides the Apache Qpid Perl bindings.
