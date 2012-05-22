@@ -15,7 +15,6 @@ DPKG_EXPORT_BUILDFLAGS = 1
 include /usr/share/dpkg/buildflags.mk
 CXXFLAGS += -Wno-error=cast-qual
 LDFLAGS += -L$(CURDIR)/src/.libs
-
 export LDFLAGS CXXFLAGS CFLAGS CPPFLAGS
 
 # Set install ruby locations for configure
@@ -23,7 +22,6 @@ export RUBY_LIB = $(shell ruby1.8 -r rbconfig -e 'print Config::CONFIG["rubylibd
 export RUBY_LIB_ARCH = $(shell ruby1.8 -r rbconfig -e 'print Config::CONFIG["archdir"]' | sed 's,/ruby/,/ruby/vendor_ruby/,')
 
 override_dh_auto_configure:
-	#LDFLAGS="$(LDFLAGS)" CXXFLAGS="$(CXXFLAGS)" dh_auto_configure -- --with-sasl --with-xml --with-rdma --with-ssl --with-cpg --with-swig --libexecdir='/usr/lib'
 	dh_auto_configure -- --with-sasl --with-xml --with-rdma --with-ssl --with-cpg --with-swig --libexecdir='/usr/lib' --enable-fast-install
 
 override_dh_auto_test:
