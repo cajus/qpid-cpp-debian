@@ -9,8 +9,8 @@
 +
 +# Use temporary directory if $HOME does not exist
 +if [ ! -e "$HOME" ]; then
-+    export QPID_DATA_DIR=/tmp/qpid
-+    export QPID_PID_DIR=/tmp/qpid
++    export QPID_DATA_DIR=./run
++    export QPID_PID_DIR=./run
 +fi
  
  # Options for boost test framework
@@ -34,8 +34,8 @@
 +
 +# Use temporary directory if $HOME does not exist
 +if [ ! -e "$HOME" ]; then
-+    QPID_DATA_DIR=/tmp/qpid
-+    QPID_PID_DIR=/tmp/qpid
++    QPID_DATA_DIR=./run
++    QPID_PID_DIR=./run
 +fi
 +
 +export QPID_DATA_DIR QPID_NO_MODULE_DIR QPID_PID_DIR
@@ -56,8 +56,8 @@
  
 +# Use temporary directory if $HOME does not exist
 +if ! test -e "$HOME"; then
-+    export QPID_DATA_DIR=/tmp/qpid
-+    export QPID_PID_DIR=/tmp/qpid
++    export QPID_DATA_DIR=./run
++    export QPID_PID_DIR=./run
 +fi
 +
  trap "$qpidd -q" exit

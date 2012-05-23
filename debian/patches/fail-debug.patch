@@ -1,0 +1,11 @@
+--- a/src/tests/ssl_test
++++ b/src/tests/ssl_test
+@@ -31,7 +31,7 @@
+ 
+ trap cleanup EXIT
+ 
+-error() { echo $*; exit 1; }
++error() { echo $*; echo "DEBUG>>>>>>>>"; [ -f qpidd.log ] && cat qpidd.log; echo "<<<<<<<DEBUG"; exit 1; }
+ 
+ create_certs() {
+     #create certificate and key databases with single, simple, self-signed certificate in it
