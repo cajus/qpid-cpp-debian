@@ -14,9 +14,8 @@ DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 DPKG_EXPORT_BUILDFLAGS = 1
 include /usr/share/dpkg/buildflags.mk
 CXXFLAGS += -Wno-error=cast-qual -Wno-error=cast-align
-#LDFLAGS += -L$(CURDIR)/src/.libs
-#export LDFLAGS CXXFLAGS CFLAGS CPPFLAGS
-export CXXFLAGS
+LDFLAGS += -L$(CURDIR)/src/.libs
+export LDFLAGS CXXFLAGS
 
 # Set install ruby locations for configure
 export RUBY_LIB = $(shell ruby1.8 -r rbconfig -e 'print Config::CONFIG["rubylibdir"]' | sed 's,/ruby/,/ruby/vendor_ruby/,')
