@@ -1,4 +1,4 @@
-fail-debug.patch
+disable-ssl-test.patch
 CVE-2012-2145.patch
 autotools.patch
 fix-explicit-link.patch

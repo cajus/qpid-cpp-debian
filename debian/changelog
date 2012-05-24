@@ -1,3 +1,9 @@
+qpid-cpp (0.16-5) unstable; urgency=low
+
+  * Disabled ssl test. Does not run on buildd.
+
+ -- Cajus Pollmeier <cajus@debian.org>  Thu, 24 May 2012 13:08:11 +0200
+
 qpid-cpp (0.16-4) unstable; urgency=low
 
   * This is a test build to get information about the failing ssl_test.
