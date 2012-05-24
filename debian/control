@@ -403,8 +403,8 @@ Architecture: any
 Section: ruby
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Provides: libqpid-ruby1.8
-Replaces: libqpid-ruby1.8
-Breaks: libqpid-ruby1.8
+Replaces: libqpid-ruby1.8 (<< 0.16-1~)
+Breaks: libqpid-ruby1.8 (<< 0.16-1~)
 Description: enterprise messaging system - Ruby bindings
  Apache Qpid is a cross-platform enterprise messaging system which implements
  the Advanced Message Queuing Protocol (AMQP), providing message brokers

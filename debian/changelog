@@ -3,6 +3,7 @@ qpid-cpp (0.16-4) unstable; urgency=low
   * This is a test build to get information about the failing ssl_test.
   * Added '-Wno-error=cast-align' to make it ignore a couple of
     reinterpret_cast statements.
+  * Added versioned depends to transitional package. Closes: #674241.
 
  -- Cajus Pollmeier <cajus@debian.org>  Wed, 23 May 2012 07:42:50 +0200
 
