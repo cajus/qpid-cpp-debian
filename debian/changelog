@@ -4,6 +4,8 @@ qpid-cpp (0.16-4) unstable; urgency=low
   * Added '-Wno-error=cast-align' to make it ignore a couple of
     reinterpret_cast statements.
   * Added versioned depends to transitional package. Closes: #674241.
+  * Removed -Wformat-security from optimize flags of perl bindings
+    because the swig generated code won't compile elseways.
 
  -- Cajus Pollmeier <cajus@debian.org>  Wed, 23 May 2012 07:42:50 +0200
 

@@ -11,7 +11,7 @@
  all-local: perl/Makefile
  	cd perl; \
 -		$(MAKE) OPTIMIZE="$(CXXFLAGS)" ; \
-+		$(MAKE) OPTIMIZE="$(CXXFLAGS) $(CPPFLAGS)" ; \
++		$(MAKE) OPTIMIZE="$(CXXFLAGS) $(CPPFLAGS) -Wno-error=format-security" ; \
 +		find -name '*.so' -exec chrpath -d "{}" \; ; \
  	cd ..
  
