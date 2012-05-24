@@ -1,1 +1,10 @@
 qpid-cpp source: package-needs-versioned-debhelper-build-depends 9
+qpid-client: hardening-no-fortify-functions usr/lib/qpid/client/*.so
+qpidd: hardening-no-fortify-functions usr/lib/qpid/daemon/*.so
+libqpidmessaging2: hardening-no-fortify-functions usr/lib/x86_64-linux-gnu/libqpidmessaging.so.2.0.0
+libqmf2-1: hardening-no-fortify-functions usr/lib/x86_64-linux-gnu/libqmf2.so.1.0.0
+libqmf1: hardening-no-fortify-functions usr/lib/x86_64-linux-gnu/libqmf.so.1.0.0
+librdmawrap2: hardening-no-fortify-functions usr/lib/x86_64-linux-gnu/librdmawrap.so.2.0.0
+libqmfengine1: hardening-no-fortify-functions usr/lib/x86_64-linux-gnu/libqmfengine.so.1.0.1
+libsslcommon2: hardening-no-fortify-functions usr/lib/x86_64-linux-gnu/libsslcommon.so.2.0.0
+libqpidclient2: hardening-no-fortify-functions usr/lib/x86_64-linux-gnu/libqpidclient.so.2.0.0
