@@ -17,3 +17,4 @@ usr/include/qmf/SchemaTypes.h
 usr/include/qmf/Subscription.h
 usr/include/qmf/org
 usr/lib/*/libqmf2.so
+../../src/qmf/*.h usr/include/qmf
