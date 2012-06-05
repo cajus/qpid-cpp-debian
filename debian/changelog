@@ -1,7 +1,7 @@
 qpid-cpp (0.16-6) unstable; urgency=low
 
   * Included a few additional headers to make the rhmessaging
-    module build seperately.
+    module build separately.
   * Move dependencies to ruby 1.8 instead of the automatic 1.9.x
     series. Closes: #676085.
   * Included perl bindings in build.
