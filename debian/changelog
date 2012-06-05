@@ -5,6 +5,7 @@ qpid-cpp (0.16-6) unstable; urgency=low
   * Move dependencies to ruby 1.8 instead of the automatic 1.9.x
     series. Closes: #676085.
   * Included perl bindings in build.
+  * Added lintian overrides for FORTIFY_SOURCE false positives.
 
  -- Cajus Pollmeier <cajus@debian.org>  Wed, 30 May 2012 17:00:02 +0200
 
