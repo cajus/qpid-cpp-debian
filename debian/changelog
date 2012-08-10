@@ -1,3 +1,10 @@
+qpid-cpp (0.16-7) unstable; urgency=low
+
+  * Fixes security issue CVE-2012-3467 which may allow bypassing the
+    broker authentication mechanism. Closes: #684456.
+
+ -- Cajus Pollmeier <cajus@debian.org>  Fri, 10 Aug 2012 20:39:06 +0200
+
 qpid-cpp (0.16-6) unstable; urgency=low
 
   * Included a few additional headers to make the rhmessaging
