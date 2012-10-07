@@ -26,7 +26,7 @@
 
 
 #include "qpid/framing/ConnectionStartOkBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
@@ -45,6 +45,7 @@ void ConnectionStartOkBody::clearClientPropertiesFlag() { flags &= ~(1 << 8); }
 void ConnectionStartOkBody::setMechanism(const std::string& _mechanism) {
     mechanism = _mechanism;
     flags |= (1 << 9);
+    if (mechanism.size() >= 256) throw IllegalArgumentException("Value for mechanism is too large");
 }
 const std::string& ConnectionStartOkBody::getMechanism() const { return mechanism; }
 bool ConnectionStartOkBody::hasMechanism() const { return flags & (1 << 9); }
@@ -61,6 +62,7 @@ void ConnectionStartOkBody::clearResponseFlag() { flags &= ~(1 << 10); }
 void ConnectionStartOkBody::setLocale(const std::string& _locale) {
     locale = _locale;
     flags |= (1 << 11);
+    if (locale.size() >= 256) throw IllegalArgumentException("Value for locale is too large");
 }
 const std::string& ConnectionStartOkBody::getLocale() const { return locale; }
 bool ConnectionStartOkBody::hasLocale() const { return flags & (1 << 11); }

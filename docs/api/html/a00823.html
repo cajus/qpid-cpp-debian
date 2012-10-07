@@ -60,22 +60,27 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00589.html">log</a>      </li>
-      <li class="navelem"><a class="el" href="a00187.html">LevelTraits</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00591.html">log</a>      </li>
+      <li class="navelem"><a class="el" href="a00339.html">SinkOptions</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid::log::LevelTraits Member List</div>  </div>
+<div class="title">qpid::log::SinkOptions Member List</div>  </div>
 </div>
 <div class="contents">
-This is the complete list of members for <a class="el" href="a00187.html">qpid::log::LevelTraits</a>, including all inherited members.<table>
-  <tr class="memlist"><td><a class="el" href="a00187.html#a05a84a43bf04ab7e742f097e5cc21ebb">COUNT</a></td><td><a class="el" href="a00187.html">qpid::log::LevelTraits</a></td><td><code> [static]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00187.html#ac4a85ecb731eedf58be6effaf0dcb718">level</a>(const char *name)</td><td><a class="el" href="a00187.html">qpid::log::LevelTraits</a></td><td><code> [static]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00187.html#a2775cd1dd4ed0c9f210a1cad22024417">level</a>(const std::string &amp;name)</td><td><a class="el" href="a00187.html">qpid::log::LevelTraits</a></td><td><code> [inline, static]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00187.html#ad43fb56409318f9727b56a76539d39b8">name</a>(Level)</td><td><a class="el" href="a00187.html">qpid::log::LevelTraits</a></td><td><code> [static]</code></td></tr>
+This is the complete list of members for <a class="el" href="a00339.html">qpid::log::SinkOptions</a>, including all inherited members.<table>
+  <tr class="memlist"><td><a class="el" href="a00241.html#a9ee2ebed980f7a1dcf3a5781555a5b70">addOptions</a>()</td><td><a class="el" href="a00241.html">qpid::Options</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00339.html#a9eefbfc0d1ece5d8d53fcef95e72b90a">create</a>(const std::string &amp;argv0=std::string())</td><td><a class="el" href="a00339.html">qpid::log::SinkOptions</a></td><td><code> [static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00339.html#a7a3815c79cd179602b125d9f9fbbcd31">detached</a>(void)=0</td><td><a class="el" href="a00339.html">qpid::log::SinkOptions</a></td><td><code> [pure virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00339.html#a91b85a7abf24adb0b0af4ea970cda80b">operator=</a>(const SinkOptions &amp;)=0</td><td><a class="el" href="a00339.html">qpid::log::SinkOptions</a></td><td><code> [pure virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00241.html#a9fd5f68ddce6bb8b8172777e45c42564">Options</a>(const std::string &amp;name=std::string())</td><td><a class="el" href="a00241.html">qpid::Options</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00241.html#a9ab9ee7e214162e52a022c9ae92b0a6c">parse</a>(int argc, char const *const *argv, const std::string &amp;configfile=std::string(), bool allowUnknown=false)</td><td><a class="el" href="a00241.html">qpid::Options</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00339.html#a6d8bd9645f137b40f875a8f027625ed6">setup</a>(Logger *logger)=0</td><td><a class="el" href="a00339.html">qpid::log::SinkOptions</a></td><td><code> [pure virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00339.html#a9eb7d1a347b38405e88037503ac47a11">SinkOptions</a>(const std::string &amp;name=&quot;Logging sink options&quot;)</td><td><a class="el" href="a00339.html">qpid::log::SinkOptions</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00339.html#ab992a43633f57d3bce7c05f424275faa">~SinkOptions</a>()</td><td><a class="el" href="a00339.html">qpid::log::SinkOptions</a></td><td><code> [inline, virtual]</code></td></tr>
 </table></div>
 <!--
  
@@ -104,7 +109,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

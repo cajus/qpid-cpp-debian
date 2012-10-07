@@ -169,6 +169,7 @@ class QPID_COMMON_CLASS_EXTERN MethodBodyDefaultVisitor:
     QPID_COMMON_EXTERN virtual void visit(const ClusterConnectionQueueObserverStateBody&);
     QPID_COMMON_EXTERN virtual void visit(const ClusterConnectionClockBody&);
     QPID_COMMON_EXTERN virtual void visit(const ClusterConnectionQueueDequeueSincePurgeStateBody&);
+    QPID_COMMON_EXTERN virtual void visit(const ClusterConnectionInternalStateBody&);
 };
 
 }} // namespace qpid::framing

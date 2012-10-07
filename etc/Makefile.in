@@ -15,6 +15,7 @@
 
 @SET_MAKE@
 
+
 VPATH = @srcdir@
 pkgdatadir = $(datadir)/@PACKAGE@
 pkgincludedir = $(includedir)/@PACKAGE@
@@ -51,8 +52,6 @@ mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/src/config.h
 CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
-SOURCES =
-DIST_SOURCES =
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
     $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
@@ -74,7 +73,11 @@ am__nobase_list = $(am__nobase_strip_setup); \
 am__base_list = \
   sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
   sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
-am__installdirs = "$(DESTDIR)$(confdir)" "$(DESTDIR)$(sysconfdir)"
+am__installdirs = "$(DESTDIR)$(initddir)" "$(DESTDIR)$(confdir)" \
+	"$(DESTDIR)$(sysconfdir)"
+SCRIPTS = $(nobase_initd_SCRIPTS)
+SOURCES =
+DIST_SOURCES =
 DATA = $(nobase_conf_DATA) $(nobase_sysconf_DATA)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
 ACLOCAL = @ACLOCAL@
@@ -181,6 +184,7 @@ SUNCC_RUNTIME_LIBS = @SUNCC_RUNTIME_LIBS@
 SWIG = @SWIG@
 SWIG_LIB = @SWIG_LIB@
 URL = @URL@
+USE_CPG = @USE_CPG@
 VALGRIND = @VALGRIND@
 VERSION = @VERSION@
 WARNING_CFLAGS = @WARNING_CFLAGS@
@@ -264,13 +268,24 @@ top_srcdir = @top_srcdir@
 SASL_CONF = sasl2/qpidd.conf
 EXTRA_DIST = \
 	$(SASL_CONF) \
-	qpidd qpidd.conf qpidc.conf CMakeLists.txt
+	qpidd.in qpidd-primary.in qpidd.conf qpidc.conf CMakeLists.txt \
+	cluster.conf-example.xml.in
 
 confdir = $(sysconfdir)/qpid
 nobase_conf_DATA = \
 	qpidc.conf
 
 nobase_sysconf_DATA = qpidd.conf $(am__append_1)
+
+# Substitute values for directories in init scripts.
+#
+# We can't use autoconf substitution directly because it leaves
+#  ${prefix} and ${exec_prefix} unexpanded. Substitute with sed
+#  scripts.
+SUBST = "s|!!sysconfdir!!|${sysconfdir}|;s|!!sbindir!!|${sbindir}|;s|!!bindir!!|${bindir}|"
+CLEANFILES = qpidd qpidd-primary cluster.conf-example.xml
+initddir = $(sysconfdir)/init.d
+nobase_initd_SCRIPTS = qpidd qpidd-primary
 all: all-am
 
 .SUFFIXES:
@@ -304,6 +319,47 @@ $(top_srcdir)/configure:  $(am__configure_deps)
 $(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(am__aclocal_m4_deps):
+install-nobase_initdSCRIPTS: $(nobase_initd_SCRIPTS)
+	@$(NORMAL_INSTALL)
+	test -z "$(initddir)" || $(MKDIR_P) "$(DESTDIR)$(initddir)"
+	@list='$(nobase_initd_SCRIPTS)'; test -n "$(initddir)" || list=; \
+	$(am__nobase_strip_setup); \
+	for p in $$list; do \
+	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+	  if test -f "$$d$$p"; then echo "$$d$$p"; echo "$$p"; else :; fi; \
+	done | \
+	sed -e 'p;s,.*/,,;n' \
+	    -e "s|$$srcdirstrip/||" -e 'h;s|[^/]*$$||; s|^$$|.|' \
+	    -e 'p;x;s,.*/,,;$(transform)' | sed 'N;N;N;s,\n, ,g' | \
+	$(AWK) 'BEGIN { files["."] = ""; dirs["."] = 1; } \
+	  { d=$$3; if (dirs[d] != 1) { print "d", d; dirs[d] = 1 } \
+	    if ($$2 == $$4) { files[d] = files[d] " " $$1; \
+	      if (++n[d] == $(am__install_max)) { \
+		print "f", d, files[d]; n[d] = 0; files[d] = "" } } \
+	    else { print "f", d "/" $$4, $$1 } } \
+	  END { for (d in files) print "f", d, files[d] }' | \
+	while read type dir files; do \
+	  case $$type in \
+	  d) echo " $(MKDIR_P) '$(DESTDIR)$(initddir)/$$dir'"; \
+	     $(MKDIR_P) "$(DESTDIR)$(initddir)/$$dir" || exit $$?;; \
+	  f) \
+	     if test "$$dir" = .; then dir=; else dir=/$$dir; fi; \
+	     test -z "$$files" || { \
+	       echo " $(INSTALL_SCRIPT) $$files '$(DESTDIR)$(initddir)$$dir'"; \
+	       $(INSTALL_SCRIPT) $$files "$(DESTDIR)$(initddir)$$dir" || exit $$?; \
+	     } \
+	  ;; esac \
+	; done
+
+uninstall-nobase_initdSCRIPTS:
+	@$(NORMAL_UNINSTALL)
+	@list='$(nobase_initd_SCRIPTS)'; test -n "$(initddir)" || exit 0; \
+	$(am__nobase_strip_setup); \
+	files=`$(am__nobase_strip) \
+	       -e 'h;s,.*/,,;$(transform);x;s|[^/]*$$||;G;s,\n,,'`; \
+	test -n "$$list" || exit 0; \
+	echo " ( cd '$(DESTDIR)$(initddir)' && rm -f" $$files ")"; \
+	cd "$(DESTDIR)$(initddir)" && rm -f $$files
 
 mostlyclean-libtool:
 	-rm -f *.lo
@@ -395,9 +451,9 @@ distdir: $(DISTFILES)
 	done
 check-am: all-am
 check: check-am
-all-am: Makefile $(DATA)
+all-am: Makefile $(SCRIPTS) $(DATA)
 installdirs:
-	for dir in "$(DESTDIR)$(confdir)" "$(DESTDIR)$(sysconfdir)"; do \
+	for dir in "$(DESTDIR)$(initddir)" "$(DESTDIR)$(confdir)" "$(DESTDIR)$(sysconfdir)"; do \
 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
 	done
 install: install-am
@@ -417,6 +473,7 @@ install-strip:
 mostlyclean-generic:
 
 clean-generic:
+	-test -z "$(CLEANFILES)" || rm -f $(CLEANFILES)
 
 distclean-generic:
 	-test -z "$(CONFIG_CLEAN_FILES)" || rm -f $(CONFIG_CLEAN_FILES)
@@ -445,7 +502,7 @@ info: info-am
 
 info-am:
 
-install-data-am: install-nobase_confDATA
+install-data-am: install-nobase_confDATA install-nobase_initdSCRIPTS
 
 install-dvi: install-dvi-am
 
@@ -489,7 +546,8 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am: uninstall-nobase_confDATA uninstall-nobase_sysconfDATA
+uninstall-am: uninstall-nobase_confDATA uninstall-nobase_initdSCRIPTS \
+	uninstall-nobase_sysconfDATA
 
 .MAKE: install-am install-strip
 
@@ -499,13 +557,21 @@ uninstall-am: uninstall-nobase_confDATA uninstall-nobase_sysconfDATA
 	install-data install-data-am install-dvi install-dvi-am \
 	install-exec install-exec-am install-html install-html-am \
 	install-info install-info-am install-man \
-	install-nobase_confDATA install-nobase_sysconfDATA install-pdf \
-	install-pdf-am install-ps install-ps-am install-strip \
-	installcheck installcheck-am installdirs maintainer-clean \
+	install-nobase_confDATA install-nobase_initdSCRIPTS \
+	install-nobase_sysconfDATA install-pdf install-pdf-am \
+	install-ps install-ps-am install-strip installcheck \
+	installcheck-am installdirs maintainer-clean \
 	maintainer-clean-generic mostlyclean mostlyclean-generic \
 	mostlyclean-libtool pdf pdf-am ps ps-am uninstall uninstall-am \
-	uninstall-nobase_confDATA uninstall-nobase_sysconfDATA
+	uninstall-nobase_confDATA uninstall-nobase_initdSCRIPTS \
+	uninstall-nobase_sysconfDATA
 
+qpidd: qpidd.in
+	sed $(SUBST) $< > $@
+qpidd-primary: qpidd-primary.in
+	sed $(SUBST) $< > $@
+cluster.conf-example.xml: cluster.conf-example.xml.in
+	sed $(SUBST) $< > $@
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

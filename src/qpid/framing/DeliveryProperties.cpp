@@ -26,7 +26,7 @@
 
 
 #include "qpid/framing/DeliveryProperties.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
@@ -91,6 +91,7 @@ void DeliveryProperties::clearExpirationFlag() { flags &= ~(1 << 15); }
 void DeliveryProperties::setExchange(const std::string& _exchange) {
     exchange = _exchange;
     flags |= (1 << 0);
+    if (exchange.size() >= 256) throw IllegalArgumentException("Value for exchange is too large");
 }
 const std::string& DeliveryProperties::getExchange() const { return exchange; }
 bool DeliveryProperties::hasExchange() const { return flags & (1 << 0); }
@@ -99,6 +100,7 @@ void DeliveryProperties::clearExchangeFlag() { flags &= ~(1 << 0); }
 void DeliveryProperties::setRoutingKey(const std::string& _routingKey) {
     routingKey = _routingKey;
     flags |= (1 << 1);
+    if (routingKey.size() >= 256) throw IllegalArgumentException("Value for routingKey is too large");
 }
 const std::string& DeliveryProperties::getRoutingKey() const { return routingKey; }
 bool DeliveryProperties::hasRoutingKey() const { return flags & (1 << 1); }
@@ -107,6 +109,7 @@ void DeliveryProperties::clearRoutingKeyFlag() { flags &= ~(1 << 1); }
 void DeliveryProperties::setResumeId(const std::string& _resumeId) {
     resumeId = _resumeId;
     flags |= (1 << 2);
+    if (resumeId.size() >= 65536) throw IllegalArgumentException("Value for resumeId is too large");
 }
 const std::string& DeliveryProperties::getResumeId() const { return resumeId; }
 bool DeliveryProperties::hasResumeId() const { return flags & (1 << 2); }

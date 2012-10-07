@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/FileConsumeOkBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void FileConsumeOkBody::setConsumerTag(const std::string& _consumerTag) {
     consumerTag = _consumerTag;
     flags |= (1 << 8);
+    if (consumerTag.size() >= 256) throw IllegalArgumentException("Value for consumerTag is too large");
 }
 const std::string& FileConsumeOkBody::getConsumerTag() const { return consumerTag; }
 bool FileConsumeOkBody::hasConsumerTag() const { return flags & (1 << 8); }

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/framing/amqp_structs.h Source File</title>
+    <title>qpid/Exception.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,51 +58,93 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/framing/amqp_structs.h</div>  </div>
+<div class="title">qpid/Exception.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00492.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_FRAMING_AMQP_STRUCTS_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_FRAMING_AMQP_STRUCTS_H</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="comment">/*</span>
-<a name="l00004"></a>00004 <span class="comment"> *</span>
-<a name="l00005"></a>00005 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
-<a name="l00006"></a>00006 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
-<a name="l00007"></a>00007 <span class="comment"> * distributed with this work for additional information</span>
-<a name="l00008"></a>00008 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
-<a name="l00009"></a>00009 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
-<a name="l00010"></a>00010 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
-<a name="l00011"></a>00011 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
-<a name="l00012"></a>00012 <span class="comment"> *</span>
-<a name="l00013"></a>00013 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
-<a name="l00014"></a>00014 <span class="comment"> *</span>
-<a name="l00015"></a>00015 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
-<a name="l00016"></a>00016 <span class="comment"> * software distributed under the License is distributed on an</span>
-<a name="l00017"></a>00017 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
-<a name="l00018"></a>00018 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
-<a name="l00019"></a>00019 <span class="comment"> * specific language governing permissions and limitations</span>
-<a name="l00020"></a>00020 <span class="comment"> * under the License.</span>
-<a name="l00021"></a>00021 <span class="comment"> *</span>
-<a name="l00022"></a>00022 <span class="comment"> */</span>
-<a name="l00023"></a>00023 
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 <span class="preprocessor">#include &quot;<a class="code" href="a00509.html">qpid/framing/Header.h</a>&quot;</span>
-<a name="l00031"></a>00031 <span class="preprocessor">#include &quot;<a class="code" href="a00499.html">qpid/framing/DeliveryProperties.h</a>&quot;</span>
-<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="a00508.html">qpid/framing/FragmentProperties.h</a>&quot;</span>
-<a name="l00033"></a>00033 <span class="preprocessor">#include &quot;<a class="code" href="a00517.html">qpid/framing/ReplyTo.h</a>&quot;</span>
-<a name="l00034"></a>00034 <span class="preprocessor">#include &quot;<a class="code" href="a00512.html">qpid/framing/MessageProperties.h</a>&quot;</span>
-<a name="l00035"></a>00035 <span class="preprocessor">#include &quot;<a class="code" href="a00511.html">qpid/framing/MessageAcquireResult.h</a>&quot;</span>
-<a name="l00036"></a>00036 <span class="preprocessor">#include &quot;<a class="code" href="a00513.html">qpid/framing/MessageResumeResult.h</a>&quot;</span>
-<a name="l00037"></a>00037 <span class="preprocessor">#include &quot;<a class="code" href="a00525.html">qpid/framing/XaResult.h</a>&quot;</span>
-<a name="l00038"></a>00038 <span class="preprocessor">#include &quot;<a class="code" href="a00526.html">qpid/framing/Xid.h</a>&quot;</span>
-<a name="l00039"></a>00039 <span class="preprocessor">#include &quot;<a class="code" href="a00500.html">qpid/framing/DtxGetTimeoutResult.h</a>&quot;</span>
-<a name="l00040"></a>00040 <span class="preprocessor">#include &quot;<a class="code" href="a00501.html">qpid/framing/DtxRecoverResult.h</a>&quot;</span>
-<a name="l00041"></a>00041 <span class="preprocessor">#include &quot;<a class="code" href="a00504.html">qpid/framing/ExchangeQueryResult.h</a>&quot;</span>
-<a name="l00042"></a>00042 <span class="preprocessor">#include &quot;<a class="code" href="a00503.html">qpid/framing/ExchangeBoundResult.h</a>&quot;</span>
-<a name="l00043"></a>00043 <span class="preprocessor">#include &quot;<a class="code" href="a00515.html">qpid/framing/QueueQueryResult.h</a>&quot;</span>
-<a name="l00044"></a>00044 <span class="preprocessor">#include &quot;<a class="code" href="a00507.html">qpid/framing/FileProperties.h</a>&quot;</span>
-<a name="l00045"></a>00045 <span class="preprocessor">#include &quot;<a class="code" href="a00520.html">qpid/framing/StreamProperties.h</a>&quot;</span>
-<a name="l00046"></a>00046 <span class="preprocessor">#endif  </span>
+<a href="a00492.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _Exception_</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _Exception_</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="comment">/*</span>
+<a name="l00005"></a>00005 <span class="comment"> *</span>
+<a name="l00006"></a>00006 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
+<a name="l00007"></a>00007 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
+<a name="l00008"></a>00008 <span class="comment"> * distributed with this work for additional information</span>
+<a name="l00009"></a>00009 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
+<a name="l00010"></a>00010 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
+<a name="l00011"></a>00011 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
+<a name="l00012"></a>00012 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
+<a name="l00013"></a>00013 <span class="comment"> *</span>
+<a name="l00014"></a>00014 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
+<a name="l00015"></a>00015 <span class="comment"> *</span>
+<a name="l00016"></a>00016 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
+<a name="l00017"></a>00017 <span class="comment"> * software distributed under the License is distributed on an</span>
+<a name="l00018"></a>00018 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<a name="l00019"></a>00019 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
+<a name="l00020"></a>00020 <span class="comment"> * specific language governing permissions and limitations</span>
+<a name="l00021"></a>00021 <span class="comment"> * under the License.</span>
+<a name="l00022"></a>00022 <span class="comment"> *</span>
+<a name="l00023"></a>00023 <span class="comment"> */</span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00495.html" title="Definitions and forward declarations of all types used in AMQP messages.">qpid/framing/amqp_types.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00500.html">qpid/framing/constants.h</a>&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00504.html">qpid/framing/enum.h</a>&quot;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="a00568.html">qpid/sys/StrError.h</a>&quot;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="a00484.html">qpid/CommonImportExport.h</a>&quot;</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#include &lt;errno.h&gt;</span>
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 <span class="keyword">namespace </span>qpid
+<a name="l00034"></a>00034 {
+<a name="l00035"></a>00035 
+<a name="l00039"></a>00039 <span class="keyword">class </span><a class="code" href="a00484.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> Exception : <span class="keyword">public</span> std::exception
+<a name="l00040"></a>00040 {
+<a name="l00041"></a>00041   <span class="keyword">public</span>:
+<a name="l00042"></a>00042     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">explicit</span> Exception(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; message=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) throw();
+<a name="l00043"></a>00043     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> virtual ~Exception() throw();
+<a name="l00044"></a>00044     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> virtual const <span class="keywordtype">char</span>* what() const throw(); <span class="comment">// prefix: message</span>
+<a name="l00045"></a>00045     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> virtual std::<span class="keywordtype">string</span> getMessage() const; <span class="comment">// Unprefixed message</span>
+<a name="l00046"></a>00046     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> virtual std::<span class="keywordtype">string</span> getPrefix() const;  <span class="comment">// Prefix</span>
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048   private:
+<a name="l00049"></a>00049     std::<span class="keywordtype">string</span> message;
+<a name="l00050"></a>00050     mutable std::<span class="keywordtype">string</span> whatStr;
+<a name="l00051"></a>00051 };
+<a name="l00052"></a>00052 
+<a name="l00054"></a>00054 struct <a class="code" href="a00484.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> ErrnoException : public Exception {
+<a name="l00055"></a><a class="code" href="a00109.html#afcc11b95749f774645ec35c4ef1932bf">00055</a>     <a class="code" href="a00109.html#afcc11b95749f774645ec35c4ef1932bf">ErrnoException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg, <span class="keywordtype">int</span> err) : Exception(msg+<span class="stringliteral">&quot;: &quot;</span>+qpid::sys::<a class="code" href="a00594.html#a1e3d2be68bf02484b76148068d7818ac" title="Get the error message for a system number err, e.g.">strError</a>(err)) {}
+<a name="l00056"></a><a class="code" href="a00109.html#af64e7d2674962b16b1c061b21d06dc47">00056</a>     <a class="code" href="a00109.html#af64e7d2674962b16b1c061b21d06dc47">ErrnoException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg) : Exception(msg+<span class="stringliteral">&quot;: &quot;</span>+qpid::sys::<a class="code" href="a00594.html#a1e3d2be68bf02484b76148068d7818ac" title="Get the error message for a system number err, e.g.">strError</a>(errno)) {}
+<a name="l00057"></a>00057 };
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059 <span class="keyword">struct </span><a class="code" href="a00484.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> SessionException : <span class="keyword">public</span> Exception {
+<a name="l00060"></a><a class="code" href="a00332.html#ac6ca6f797da33e069db68ab50da18615">00060</a>     <span class="keyword">const</span> framing<a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18">::execution::ErrorCode</a> <a class="code" href="a00332.html#ac6ca6f797da33e069db68ab50da18615">code</a>;
+<a name="l00061"></a><a class="code" href="a00332.html#aee9b56e155fa773a760ef1522d2c4cf5">00061</a>     <a class="code" href="a00332.html">SessionException</a>(<a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18">framing::execution::ErrorCode</a> code_, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; message)
+<a name="l00062"></a>00062         : <a class="code" href="a00116.html" title="Base class for Qpid runtime exceptions.">Exception</a>(message), code(code_) {}
+<a name="l00063"></a>00063 };
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065 <span class="keyword">struct </span><a class="code" href="a00484.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> ChannelException : <span class="keyword">public</span> Exception {
+<a name="l00066"></a><a class="code" href="a00050.html#a724642b9759e6fb28468b3f659d20a54">00066</a>     <span class="keyword">const</span> framing<a class="code" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540">::session::DetachCode</a> <a class="code" href="a00050.html#a724642b9759e6fb28468b3f659d20a54">code</a>;
+<a name="l00067"></a><a class="code" href="a00050.html#ad71c72c7812e670a32d7026cde6f5ec4">00067</a>     <a class="code" href="a00050.html">ChannelException</a>(<a class="code" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540">framing::session::DetachCode</a> _code, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; message)
+<a name="l00068"></a>00068         : <a class="code" href="a00116.html" title="Base class for Qpid runtime exceptions.">Exception</a>(message), code(_code) {}
+<a name="l00069"></a>00069 };
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 <span class="keyword">struct </span><a class="code" href="a00484.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> ConnectionException : <span class="keyword">public</span> Exception {
+<a name="l00072"></a><a class="code" href="a00063.html#aec86be26e0790ef11c0fbd5d2bcf04bd">00072</a>     <span class="keyword">const</span> framing<a class="code" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4">::connection::CloseCode</a> <a class="code" href="a00063.html#aec86be26e0790ef11c0fbd5d2bcf04bd">code</a>;
+<a name="l00073"></a><a class="code" href="a00063.html#af4acfd1969d2e5c0bd775ffc53e7043f">00073</a>     <a class="code" href="a00063.html">ConnectionException</a>(<a class="code" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4">framing::connection::CloseCode</a> _code, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; message)
+<a name="l00074"></a>00074         : <a class="code" href="a00116.html" title="Base class for Qpid runtime exceptions.">Exception</a>(message), code(_code) {}
+<a name="l00075"></a>00075 };
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077 <span class="keyword">struct </span><a class="code" href="a00484.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> ClosedException : <span class="keyword">public</span> Exception {
+<a name="l00078"></a>00078     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> ClosedException(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>());
+<a name="l00079"></a>00079     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> std::string getPrefix() <span class="keyword">const</span>;
+<a name="l00080"></a>00080 };
+<a name="l00081"></a>00081 
+<a name="l00085"></a>00085 <span class="keyword">struct </span>TransportFailure : <span class="keyword">public</span> Exception {
+<a name="l00086"></a><a class="code" href="a00362.html#a6d319408bb42891fae2368e2ae274ce9">00086</a>     <a class="code" href="a00362.html#a6d319408bb42891fae2368e2ae274ce9">TransportFailure</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00116.html" title="Base class for Qpid runtime exceptions.">Exception</a>(msg) {}
+<a name="l00087"></a>00087 };
+<a name="l00088"></a>00088 
+<a name="l00089"></a>00089 } <span class="comment">// namespace qpid</span>
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -132,7 +174,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/console/ObjectId.h File Reference</title>
+    <title>qpid/console/Object.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -63,30 +63,37 @@
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/console/ObjectId.h File Reference</div>  </div>
+<div class="title">qpid/console/Object.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br/>
-<code>#include &quot;<a class="el" href="a00485_source.html">qpid/console/ConsoleImportExport.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00554_source.html">qpid/sys/IntegerTypes.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00487_source.html">qpid/console/ConsoleImportExport.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00426_source.html">qpid/console/ObjectId.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00525_source.html">qpid/framing/Uuid.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00507_source.html">qpid/framing/FieldTable.h</a>&quot;</code><br/>
+<code>#include &lt;boost/shared_ptr.hpp&gt;</code><br/>
+<code>#include &lt;map&gt;</code><br/>
+<code>#include &lt;set&gt;</code><br/>
+<code>#include &lt;vector&gt;</code><br/>
 </div>
 <p><a href="a00424_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00235.html">qpid::console::ObjectId</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00216.html">qpid::console::MethodResponse</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00235.html">qpid::console::Object</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00021.html">qpid::console::Object::AttributeMap</a></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html">qpid</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
 <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00580.html">qpid::framing</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00582.html">qpid::framing</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>The framing namespace contains classes that are used to create, send and receive the basic packets from which AMQP is built. </p>
 <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00579.html">qpid::console</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00581.html">qpid::console</a></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00579.html#a235bc7af485170033855dab2b0d359ef">qpid::console::operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;o, const ObjectId &amp;id)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00581.html#a248c29ecc1012559daa8a52569d43fbc">qpid::console::operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;o, const Object &amp;object)</td></tr>
 </table>
 </div>
 <!--
@@ -116,7 +123,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

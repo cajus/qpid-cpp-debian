@@ -33,6 +33,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -51,6 +52,7 @@ public:
         flags(0){
         setForce(_force);
         flags |= (1 << 8);
+        if (name.size() >= 65536) throw IllegalArgumentException("Value for name is too large");
     }
     SessionAttachBody(ProtocolVersion=ProtocolVersion())  : flags(0) {}
     

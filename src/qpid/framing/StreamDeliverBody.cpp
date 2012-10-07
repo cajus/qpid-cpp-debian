@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/StreamDeliverBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void StreamDeliverBody::setConsumerTag(const std::string& _consumerTag) {
     consumerTag = _consumerTag;
     flags |= (1 << 8);
+    if (consumerTag.size() >= 256) throw IllegalArgumentException("Value for consumerTag is too large");
 }
 const std::string& StreamDeliverBody::getConsumerTag() const { return consumerTag; }
 bool StreamDeliverBody::hasConsumerTag() const { return flags & (1 << 8); }
@@ -49,6 +50,7 @@ void StreamDeliverBody::clearDeliveryTagFlag() { flags &= ~(1 << 9); }
 void StreamDeliverBody::setExchange(const std::string& _exchange) {
     exchange = _exchange;
     flags |= (1 << 10);
+    if (exchange.size() >= 256) throw IllegalArgumentException("Value for exchange is too large");
 }
 const std::string& StreamDeliverBody::getExchange() const { return exchange; }
 bool StreamDeliverBody::hasExchange() const { return flags & (1 << 10); }
@@ -57,6 +59,7 @@ void StreamDeliverBody::clearExchangeFlag() { flags &= ~(1 << 10); }
 void StreamDeliverBody::setQueue(const std::string& _queue) {
     queue = _queue;
     flags |= (1 << 11);
+    if (queue.size() >= 256) throw IllegalArgumentException("Value for queue is too large");
 }
 const std::string& StreamDeliverBody::getQueue() const { return queue; }
 bool StreamDeliverBody::hasQueue() const { return flags & (1 << 11); }

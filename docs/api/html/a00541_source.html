@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/sys/posix/Mutex.h Source File</title>
+    <title>qpid/management/Mutex.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,15 +58,15 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/sys/posix/Mutex.h</div>  </div>
+<div class="title">qpid/management/Mutex.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00541.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _sys_posix_Mutex_h</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _sys_posix_Mutex_h</span>
+<a href="a00541.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _management_Mutex_h</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _management_Mutex_h</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="comment">/*</span>
 <a name="l00005"></a>00005 <span class="comment"> *</span>
-<a name="l00006"></a>00006 <span class="comment"> * Copyright (c) 2006 The Apache Software Foundation</span>
+<a name="l00006"></a>00006 <span class="comment"> * Copyright (c) 2008 The Apache Software Foundation</span>
 <a name="l00007"></a>00007 <span class="comment"> *</span>
 <a name="l00008"></a>00008 <span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
 <a name="l00009"></a>00009 <span class="comment"> * you may not use this file except in compliance with the License.</span>
@@ -82,133 +82,48 @@
 <a name="l00019"></a>00019 <span class="comment"> *</span>
 <a name="l00020"></a>00020 <span class="comment"> */</span>
 <a name="l00021"></a>00021 
-<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="a00559.html">qpid/sys/posix/check.h</a>&quot;</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="a00484.html">qpid/CommonImportExport.h</a>&quot;</span>
 <a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;pthread.h&gt;</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &lt;boost/noncopyable.hpp&gt;</span>
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 <span class="keyword">namespace </span>qpid {
-<a name="l00028"></a>00028 <span class="keyword">namespace </span>sys {
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 <span class="keyword">class </span>Condition;
-<a name="l00031"></a>00031 
-<a name="l00035"></a>00035 <span class="keyword">class </span>Mutex : <span class="keyword">private</span> boost::noncopyable {
-<a name="l00036"></a><a class="code" href="a00220.html#ab6d907c41d48048e1eb203e15f2fc9a8">00036</a>     <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a00056.html" title="A condition variable for thread synchronization.">Condition</a>;
-<a name="l00037"></a>00037     <span class="keyword">static</span> <span class="keyword">const</span> pthread_mutexattr_t* getAttribute();
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039 <span class="keyword">public</span>:
-<a name="l00040"></a><a class="code" href="a00220.html#a173572e73b28c52e4b0841634a8f75b9">00040</a>     <span class="keyword">typedef</span> <a class="code" href="a00312.html" title="Scoped lock template: calls lock() in ctor, unlock() in dtor.">::qpid::sys::ScopedLock&lt;Mutex&gt;</a> <a class="code" href="a00220.html#a173572e73b28c52e4b0841634a8f75b9">ScopedLock</a>;
-<a name="l00041"></a><a class="code" href="a00220.html#a01fdb72e06ec6cd4b2d02258fbe19470">00041</a>     <span class="keyword">typedef</span> <a class="code" href="a00315.html">::qpid::sys::ScopedUnlock&lt;Mutex&gt;</a> <a class="code" href="a00220.html#a01fdb72e06ec6cd4b2d02258fbe19470">ScopedUnlock</a>;
+<a name="l00024"></a>00024 <span class="keyword">namespace </span>qpid {
+<a name="l00025"></a>00025     <span class="keyword">namespace </span>sys {
+<a name="l00026"></a>00026         <span class="keyword">class </span>Mutex;
+<a name="l00027"></a>00027     }
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029     <span class="keyword">namespace </span><a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca819da084b6e5d2f6fea2e9189ad658ea">management</a> {
+<a name="l00030"></a>00030 
+<a name="l00035"></a>00035         <span class="keyword">template</span> &lt;<span class="keyword">class</span> L&gt; <span class="keyword">class </span>ScopedLockTemplate {
+<a name="l00036"></a>00036         <span class="keyword">public</span>:
+<a name="l00037"></a><a class="code" href="a00314.html#adb9afa5e40c31da3c111c92c268f6367">00037</a>             <a class="code" href="a00314.html#adb9afa5e40c31da3c111c92c268f6367">ScopedLockTemplate</a>(L&amp; l) : mutex(l) { mutex.lock(); }
+<a name="l00038"></a><a class="code" href="a00314.html#ac8598a35236a606160306aff04a7a505">00038</a>             <a class="code" href="a00314.html#ac8598a35236a606160306aff04a7a505">~ScopedLockTemplate</a>() { mutex.unlock(); }
+<a name="l00039"></a>00039         <span class="keyword">private</span>:
+<a name="l00040"></a>00040             L&amp; mutex;
+<a name="l00041"></a>00041         };
 <a name="l00042"></a>00042 
-<a name="l00043"></a>00043     <span class="keyword">inline</span> <a class="code" href="a00220.html#a0b765f0ddd4a743cc62bfbe706c0e24e">Mutex</a>();
-<a name="l00044"></a>00044     <span class="keyword">inline</span> <a class="code" href="a00220.html#afb48c9bf070468afd6290baf4bed3f06">~Mutex</a>();
-<a name="l00045"></a>00045     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00220.html#a915aa25a7544637b727f256af589d9b6">lock</a>();
-<a name="l00046"></a>00046     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00220.html#aab850ae6eb425b1c40e307d4a4fe4eca">unlock</a>();
-<a name="l00047"></a>00047     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="a00220.html#af0ff34c2c5b755c232817874818948d5">trylock</a>();
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 <span class="keyword">protected</span>:
-<a name="l00051"></a><a class="code" href="a00220.html#afa07a7a4341670aadc1e887a53153d24">00051</a>     pthread_mutex_t <a class="code" href="a00220.html#afa07a7a4341670aadc1e887a53153d24">mutex</a>;
-<a name="l00052"></a>00052 };
-<a name="l00053"></a>00053 
-<a name="l00057"></a>00057 <span class="keyword">class </span><a class="code" href="a00295.html" title="RW lock.">RWlock</a> : <span class="keyword">private</span> boost::noncopyable {
-<a name="l00058"></a><a class="code" href="a00295.html#ab6d907c41d48048e1eb203e15f2fc9a8">00058</a>     <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a00056.html" title="A condition variable for thread synchronization.">Condition</a>;
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060 <span class="keyword">public</span>:
-<a name="l00061"></a><a class="code" href="a00295.html#a07b2376ee17fef2d8cf50606805d1d38">00061</a>     <span class="keyword">typedef</span> <a class="code" href="a00314.html">::qpid::sys::ScopedRlock&lt;RWlock&gt;</a> <a class="code" href="a00295.html#a07b2376ee17fef2d8cf50606805d1d38">ScopedRlock</a>;
-<a name="l00062"></a><a class="code" href="a00295.html#aecbfbba3d6eb73f00bb30bef34556124">00062</a>     <span class="keyword">typedef</span> <a class="code" href="a00317.html">::qpid::sys::ScopedWlock&lt;RWlock&gt;</a> <a class="code" href="a00295.html#aecbfbba3d6eb73f00bb30bef34556124">ScopedWlock</a>;
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064     <span class="keyword">inline</span> <a class="code" href="a00295.html#aa6fa88fc8debe5d24e1710938ab53ad7">RWlock</a>();
-<a name="l00065"></a>00065     <span class="keyword">inline</span> <a class="code" href="a00295.html#af3b5d29ea15322a291588c4ec9b86307">~RWlock</a>();
-<a name="l00066"></a>00066     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00295.html#ae6a0e0f9bd8fb353d8ae269beb184b8b">wlock</a>();  <span class="comment">// will write-lock</span>
-<a name="l00067"></a>00067     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00295.html#abf8700d293ecaecbab313f56e91fac13">rlock</a>();  <span class="comment">// will read-lock</span>
-<a name="l00068"></a>00068     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00295.html#aac75a58d42e0c9c37a9f9767c1e36d4a">unlock</a>();
-<a name="l00069"></a>00069     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00295.html#a866ce893519e2bd330976d582f8a60f8">trywlock</a>();  <span class="comment">// will write-try</span>
-<a name="l00070"></a>00070     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00295.html#a2f7b1f6ff9bdef23f99112912b9152a6">tryrlock</a>();  <span class="comment">// will read-try</span>
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072 <span class="keyword">protected</span>:
-<a name="l00073"></a><a class="code" href="a00295.html#a9d71190070867420bcd5d98c58b5c4f6">00073</a>     pthread_rwlock_t <a class="code" href="a00295.html#a9d71190070867420bcd5d98c58b5c4f6">rwlock</a>;
-<a name="l00074"></a>00074 };
-<a name="l00075"></a>00075 
-<a name="l00076"></a>00076 
-<a name="l00081"></a>00081 <span class="keyword">struct </span><a class="code" href="a00251.html" title="PODMutex is a POD, can be static-initialized with PODMutex m = QPID_PODMUTEX_INITIALIZER.">PODMutex</a>
-<a name="l00082"></a>00082 {
-<a name="l00083"></a><a class="code" href="a00251.html#a436946942ad64d8ea6fd0feb029d536c">00083</a>     <span class="keyword">typedef</span> <a class="code" href="a00312.html" title="Scoped lock template: calls lock() in ctor, unlock() in dtor.">::qpid::sys::ScopedLock&lt;PODMutex&gt;</a> <a class="code" href="a00251.html#a436946942ad64d8ea6fd0feb029d536c">ScopedLock</a>;
-<a name="l00084"></a>00084 
-<a name="l00085"></a>00085     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00251.html#a6857ea472fb260d636c87bc9391cf32d">lock</a>();
-<a name="l00086"></a>00086     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00251.html#a411fd8bd5d5fb84ac7bbfe4a05727980">unlock</a>();
-<a name="l00087"></a>00087     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="a00251.html#afea652d1a3e343d5f6915b98d2f123d0">trylock</a>();
-<a name="l00088"></a>00088 
-<a name="l00089"></a>00089     <span class="comment">// Must be public to be a POD:</span>
-<a name="l00090"></a><a class="code" href="a00251.html#a150d30fb56b5ea06f90f14f05dfd4aa5">00090</a>     pthread_mutex_t <a class="code" href="a00251.html#a150d30fb56b5ea06f90f14f05dfd4aa5">mutex</a>;
-<a name="l00091"></a>00091 };
-<a name="l00092"></a>00092 
-<a name="l00093"></a><a class="code" href="a00541.html#a3e841ff24a5edd2e46ea476ac90ddaba">00093</a> <span class="preprocessor">#define QPID_MUTEX_INITIALIZER { PTHREAD_MUTEX_INITIALIZER }</span>
-<a name="l00094"></a>00094 <span class="preprocessor"></span>
-<a name="l00095"></a><a class="code" href="a00251.html#a6857ea472fb260d636c87bc9391cf32d">00095</a> <span class="keywordtype">void</span> <a class="code" href="a00251.html#a6857ea472fb260d636c87bc9391cf32d">PODMutex::lock</a>() {
-<a name="l00096"></a>00096     <a class="code" href="a00559.html#a5385ea16e751a4fc1d19bb8df9c8067e" title="Same as _THROW_IF in a release build, but abort a debug build.">QPID_POSIX_ASSERT_THROW_IF</a>(pthread_mutex_lock(&amp;<a class="code" href="a00251.html#a150d30fb56b5ea06f90f14f05dfd4aa5">mutex</a>));
-<a name="l00097"></a>00097 }
-<a name="l00098"></a>00098 
-<a name="l00099"></a><a class="code" href="a00251.html#a411fd8bd5d5fb84ac7bbfe4a05727980">00099</a> <span class="keywordtype">void</span> <a class="code" href="a00251.html#a411fd8bd5d5fb84ac7bbfe4a05727980">PODMutex::unlock</a>() {
-<a name="l00100"></a>00100     <a class="code" href="a00559.html#a5385ea16e751a4fc1d19bb8df9c8067e" title="Same as _THROW_IF in a release build, but abort a debug build.">QPID_POSIX_ASSERT_THROW_IF</a>(pthread_mutex_unlock(&amp;<a class="code" href="a00251.html#a150d30fb56b5ea06f90f14f05dfd4aa5">mutex</a>));
-<a name="l00101"></a>00101 }
-<a name="l00102"></a>00102 
-<a name="l00103"></a><a class="code" href="a00251.html#afea652d1a3e343d5f6915b98d2f123d0">00103</a> <span class="keywordtype">bool</span> <a class="code" href="a00251.html#afea652d1a3e343d5f6915b98d2f123d0">PODMutex::trylock</a>() {
-<a name="l00104"></a>00104     <span class="keywordflow">return</span> pthread_mutex_trylock(&amp;<a class="code" href="a00251.html#a150d30fb56b5ea06f90f14f05dfd4aa5">mutex</a>) == 0;
-<a name="l00105"></a>00105 }
-<a name="l00106"></a>00106 
-<a name="l00107"></a><a class="code" href="a00220.html#a0b765f0ddd4a743cc62bfbe706c0e24e">00107</a> <a class="code" href="a00220.html#a0b765f0ddd4a743cc62bfbe706c0e24e">Mutex::Mutex</a>() {
-<a name="l00108"></a>00108     <a class="code" href="a00559.html#a5385ea16e751a4fc1d19bb8df9c8067e" title="Same as _THROW_IF in a release build, but abort a debug build.">QPID_POSIX_ASSERT_THROW_IF</a>(pthread_mutex_init(&amp;<a class="code" href="a00220.html#afa07a7a4341670aadc1e887a53153d24">mutex</a>, getAttribute()));
-<a name="l00109"></a>00109 }
-<a name="l00110"></a>00110 
-<a name="l00111"></a><a class="code" href="a00220.html#afb48c9bf070468afd6290baf4bed3f06">00111</a> <a class="code" href="a00220.html#afb48c9bf070468afd6290baf4bed3f06">Mutex::~Mutex</a>(){
-<a name="l00112"></a>00112     <a class="code" href="a00559.html#ac288618eb63f4455fbd6b6931a1a31b2">QPID_POSIX_ABORT_IF</a>(pthread_mutex_destroy(&amp;<a class="code" href="a00220.html#afa07a7a4341670aadc1e887a53153d24">mutex</a>));
-<a name="l00113"></a>00113 }
-<a name="l00114"></a>00114 
-<a name="l00115"></a><a class="code" href="a00220.html#a915aa25a7544637b727f256af589d9b6">00115</a> <span class="keywordtype">void</span> <a class="code" href="a00220.html#a915aa25a7544637b727f256af589d9b6">Mutex::lock</a>() {
-<a name="l00116"></a>00116     <a class="code" href="a00559.html#a5385ea16e751a4fc1d19bb8df9c8067e" title="Same as _THROW_IF in a release build, but abort a debug build.">QPID_POSIX_ASSERT_THROW_IF</a>(pthread_mutex_lock(&amp;<a class="code" href="a00220.html#afa07a7a4341670aadc1e887a53153d24">mutex</a>));
-<a name="l00117"></a>00117 }
-<a name="l00118"></a>00118 
-<a name="l00119"></a><a class="code" href="a00220.html#aab850ae6eb425b1c40e307d4a4fe4eca">00119</a> <span class="keywordtype">void</span> <a class="code" href="a00220.html#aab850ae6eb425b1c40e307d4a4fe4eca">Mutex::unlock</a>() {
-<a name="l00120"></a>00120     <a class="code" href="a00559.html#a5385ea16e751a4fc1d19bb8df9c8067e" title="Same as _THROW_IF in a release build, but abort a debug build.">QPID_POSIX_ASSERT_THROW_IF</a>(pthread_mutex_unlock(&amp;<a class="code" href="a00220.html#afa07a7a4341670aadc1e887a53153d24">mutex</a>));
-<a name="l00121"></a>00121 }
-<a name="l00122"></a>00122 
-<a name="l00123"></a><a class="code" href="a00220.html#af0ff34c2c5b755c232817874818948d5">00123</a> <span class="keywordtype">bool</span> <a class="code" href="a00220.html#af0ff34c2c5b755c232817874818948d5">Mutex::trylock</a>() {
-<a name="l00124"></a>00124     <span class="keywordflow">return</span> pthread_mutex_trylock(&amp;<a class="code" href="a00220.html#afa07a7a4341670aadc1e887a53153d24">mutex</a>) == 0;
-<a name="l00125"></a>00125 }
-<a name="l00126"></a>00126 
-<a name="l00127"></a>00127 
-<a name="l00128"></a><a class="code" href="a00295.html#aa6fa88fc8debe5d24e1710938ab53ad7">00128</a> <a class="code" href="a00295.html#aa6fa88fc8debe5d24e1710938ab53ad7">RWlock::RWlock</a>() {
-<a name="l00129"></a>00129     <a class="code" href="a00559.html#a5385ea16e751a4fc1d19bb8df9c8067e" title="Same as _THROW_IF in a release build, but abort a debug build.">QPID_POSIX_ASSERT_THROW_IF</a>(pthread_rwlock_init(&amp;<a class="code" href="a00295.html#a9d71190070867420bcd5d98c58b5c4f6">rwlock</a>, NULL));
-<a name="l00130"></a>00130 }
-<a name="l00131"></a>00131 
-<a name="l00132"></a><a class="code" href="a00295.html#af3b5d29ea15322a291588c4ec9b86307">00132</a> <a class="code" href="a00295.html#af3b5d29ea15322a291588c4ec9b86307">RWlock::~RWlock</a>(){
-<a name="l00133"></a>00133     <a class="code" href="a00559.html#ac288618eb63f4455fbd6b6931a1a31b2">QPID_POSIX_ABORT_IF</a>(pthread_rwlock_destroy(&amp;<a class="code" href="a00295.html#a9d71190070867420bcd5d98c58b5c4f6">rwlock</a>));
-<a name="l00134"></a>00134 }
-<a name="l00135"></a>00135 
-<a name="l00136"></a><a class="code" href="a00295.html#ae6a0e0f9bd8fb353d8ae269beb184b8b">00136</a> <span class="keywordtype">void</span> <a class="code" href="a00295.html#ae6a0e0f9bd8fb353d8ae269beb184b8b">RWlock::wlock</a>() {
-<a name="l00137"></a>00137     <a class="code" href="a00559.html#a5385ea16e751a4fc1d19bb8df9c8067e" title="Same as _THROW_IF in a release build, but abort a debug build.">QPID_POSIX_ASSERT_THROW_IF</a>(pthread_rwlock_wrlock(&amp;<a class="code" href="a00295.html#a9d71190070867420bcd5d98c58b5c4f6">rwlock</a>));
-<a name="l00138"></a>00138 }
-<a name="l00139"></a>00139 
-<a name="l00140"></a><a class="code" href="a00295.html#abf8700d293ecaecbab313f56e91fac13">00140</a> <span class="keywordtype">void</span> <a class="code" href="a00295.html#abf8700d293ecaecbab313f56e91fac13">RWlock::rlock</a>() {
-<a name="l00141"></a>00141     <a class="code" href="a00559.html#a5385ea16e751a4fc1d19bb8df9c8067e" title="Same as _THROW_IF in a release build, but abort a debug build.">QPID_POSIX_ASSERT_THROW_IF</a>(pthread_rwlock_rdlock(&amp;<a class="code" href="a00295.html#a9d71190070867420bcd5d98c58b5c4f6">rwlock</a>));
-<a name="l00142"></a>00142 }
-<a name="l00143"></a>00143 
-<a name="l00144"></a><a class="code" href="a00295.html#aac75a58d42e0c9c37a9f9767c1e36d4a">00144</a> <span class="keywordtype">void</span> <a class="code" href="a00295.html#aac75a58d42e0c9c37a9f9767c1e36d4a">RWlock::unlock</a>() {
-<a name="l00145"></a>00145     <a class="code" href="a00559.html#a5385ea16e751a4fc1d19bb8df9c8067e" title="Same as _THROW_IF in a release build, but abort a debug build.">QPID_POSIX_ASSERT_THROW_IF</a>(pthread_rwlock_unlock(&amp;<a class="code" href="a00295.html#a9d71190070867420bcd5d98c58b5c4f6">rwlock</a>));
-<a name="l00146"></a>00146 }
-<a name="l00147"></a>00147 
-<a name="l00148"></a><a class="code" href="a00295.html#a866ce893519e2bd330976d582f8a60f8">00148</a> <span class="keywordtype">void</span> <a class="code" href="a00295.html#a866ce893519e2bd330976d582f8a60f8">RWlock::trywlock</a>() {
-<a name="l00149"></a>00149     <a class="code" href="a00559.html#a5385ea16e751a4fc1d19bb8df9c8067e" title="Same as _THROW_IF in a release build, but abort a debug build.">QPID_POSIX_ASSERT_THROW_IF</a>(pthread_rwlock_trywrlock(&amp;<a class="code" href="a00295.html#a9d71190070867420bcd5d98c58b5c4f6">rwlock</a>));
-<a name="l00150"></a>00150 }
-<a name="l00151"></a>00151 
-<a name="l00152"></a><a class="code" href="a00295.html#a2f7b1f6ff9bdef23f99112912b9152a6">00152</a> <span class="keywordtype">void</span> <a class="code" href="a00295.html#a2f7b1f6ff9bdef23f99112912b9152a6">RWlock::tryrlock</a>() {
-<a name="l00153"></a>00153     <a class="code" href="a00559.html#a5385ea16e751a4fc1d19bb8df9c8067e" title="Same as _THROW_IF in a release build, but abort a debug build.">QPID_POSIX_ASSERT_THROW_IF</a>(pthread_rwlock_tryrdlock(&amp;<a class="code" href="a00295.html#a9d71190070867420bcd5d98c58b5c4f6">rwlock</a>));
-<a name="l00154"></a>00154 }
-<a name="l00155"></a>00155 
-<a name="l00156"></a>00156 
-<a name="l00157"></a>00157 }}
-<a name="l00158"></a>00158 <span class="preprocessor">#endif  </span>
+<a name="l00043"></a>00043         <span class="keyword">template</span> &lt;<span class="keyword">class</span> L&gt; <span class="keyword">class </span>ScopedUnlockTemplate {
+<a name="l00044"></a>00044         <span class="keyword">public</span>:
+<a name="l00045"></a><a class="code" href="a00317.html#a078c06464e1bee22a3ccf076cb502d7b">00045</a>             <a class="code" href="a00317.html#a078c06464e1bee22a3ccf076cb502d7b">ScopedUnlockTemplate</a>(L&amp; l) : mutex(l) { mutex.unlock(); }
+<a name="l00046"></a><a class="code" href="a00317.html#a3da741c8a113f3c0f62fc3bc6ebe9573">00046</a>             <a class="code" href="a00317.html#a3da741c8a113f3c0f62fc3bc6ebe9573">~ScopedUnlockTemplate</a>() { mutex.lock(); }
+<a name="l00047"></a>00047         <span class="keyword">private</span>:
+<a name="l00048"></a>00048             L&amp; mutex;
+<a name="l00049"></a>00049         };
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051         <span class="keyword">class </span>Mutex {
+<a name="l00052"></a>00052         <span class="keyword">public</span>:
+<a name="l00053"></a><a class="code" href="a00222.html#a8cfba91482b4729689466412c5074c1a">00053</a>             <span class="keyword">typedef</span> <a class="code" href="a00314.html" title="Scoped lock template: calls lock() in ctor, unlock() in dtor.">ScopedLockTemplate&lt;Mutex&gt;</a> <a class="code" href="a00222.html#a8cfba91482b4729689466412c5074c1a">ScopedLock</a>;
+<a name="l00054"></a><a class="code" href="a00222.html#aec57578543abf9548b0b16e33970e4b0">00054</a>             <span class="keyword">typedef</span> <a class="code" href="a00317.html">ScopedUnlockTemplate&lt;Mutex&gt;</a> <a class="code" href="a00222.html#aec57578543abf9548b0b16e33970e4b0">ScopedUnlock</a>;
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056             <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00222.html#aff6e82313d36306893ab8261af0a8e16">Mutex</a>();
+<a name="l00057"></a>00057             <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00222.html#a3221e20cede10eb16c882795aed28b9d">~Mutex</a>();
+<a name="l00058"></a>00058             <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00222.html#aed82fb410b9aa3e829d6888ad609a0e3">lock</a>();
+<a name="l00059"></a>00059             <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00222.html#ab452542951470b6dad9510088193c74c">unlock</a>();
+<a name="l00060"></a>00060         <span class="keyword">private</span>:
+<a name="l00061"></a>00061             sys<a class="code" href="a00222.html">::Mutex</a>* impl;
+<a name="l00062"></a>00062         };
+<a name="l00063"></a>00063     }
+<a name="l00064"></a>00064 }
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 <span class="preprocessor">#endif</span>
+<a name="l00067"></a>00067 <span class="preprocessor"></span>
 </pre></div></div>
 </div>
 <!--
@@ -238,7 +153,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

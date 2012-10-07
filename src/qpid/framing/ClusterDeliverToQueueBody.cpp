@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ClusterDeliverToQueueBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ClusterDeliverToQueueBody::setQueue(const std::string& _queue) {
     queue = _queue;
     flags |= (1 << 8);
+    if (queue.size() >= 65536) throw IllegalArgumentException("Value for queue is too large");
 }
 const std::string& ClusterDeliverToQueueBody::getQueue() const { return queue; }
 bool ClusterDeliverToQueueBody::hasQueue() const { return flags & (1 << 8); }

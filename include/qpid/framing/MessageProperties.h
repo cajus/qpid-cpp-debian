@@ -31,6 +31,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -78,6 +79,11 @@ public:
         flags |= (1 << 14);
         flags |= (1 << 15);
         flags |= (1 << 0);
+        if (correlationId.size() >= 65536) throw IllegalArgumentException("Value for correlationId is too large");
+        if (contentType.size() >= 256) throw IllegalArgumentException("Value for contentType is too large");
+        if (contentEncoding.size() >= 256) throw IllegalArgumentException("Value for contentEncoding is too large");
+        if (userId.size() >= 65536) throw IllegalArgumentException("Value for userId is too large");
+        if (appId.size() >= 65536) throw IllegalArgumentException("Value for appId is too large");
     }
     MessageProperties()  : contentLength(0), flags(0) {}
     

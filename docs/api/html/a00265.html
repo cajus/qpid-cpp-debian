@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::framing::QueueQueryResult Class Reference</title>
+    <title>qpid::client::QueueOptions Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,165 +60,265 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00580.html">framing</a>      </li>
-      <li class="navelem"><a class="el" href="a00265.html">QueueQueryResult</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00265.html">QueueOptions</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="#friends">Friends</a>  </div>
+<a href="#pub-static-attribs">Static Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::framing::QueueQueryResult Class Reference</div>  </div>
+<div class="title">qpid::client::QueueOptions Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::framing::QueueQueryResult" -->
-<p><code>#include &lt;<a class="el" href="a00515_source.html">qpid/framing/QueueQueryResult.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::client::QueueOptions" --><!-- doxytag: inherits="qpid::framing::FieldTable" -->
+<p>A help class to set options on the Queue.  
+ <a href="a00265.html#details">More...</a></p>
 
-<p><a href="a00788.html">List of all members.</a></p>
+<p><code>#include &lt;<a class="el" href="a00477_source.html">qpid/client/QueueOptions.h</a>&gt;</code></p>
+
+<p><a href="a00697.html">List of all members.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef boost::shared_ptr<br class="typebreak"/>
+&lt; FieldValue &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a2f69733cb826157da8aa2834ca1e758e">ValuePtr</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00203.html">std::map</a>&lt; <a class="el" href="a00346.html">std::string</a>, <br class="typebreak"/>
+<a class="el" href="a00125.html#a2f69733cb826157da8aa2834ca1e758e">ValuePtr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a666baa1140ff94893847071e5b3445b4">ValueMap</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef ValueMap::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a4903cc6da9fcd1217a810f737be98d41">iterator</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef ValueMap::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a43c762c0054ddcb23690c1d82d3fd856">const_iterator</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef ValueMap::const_reference&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a10fc54b97d822637870c6eb9d4c0d2c7">const_reference</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef ValueMap::reference&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a0c4a679b98ebde3d4c5314f3c42b21b9">reference</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef ValueMap::value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ac5775b5a0b85d439a5892eb69723e5c9">value_type</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a627e38597ff5d3cde9e5285f3ce301e8">QueueQueryResult</a> (const <a class="el" href="a00345.html">std::string</a> &amp;_queue, const <a class="el" href="a00345.html">std::string</a> &amp;_alternateExchange, bool _durable, bool _exclusive, bool _autoDelete, const <a class="el" href="a00123.html">FieldTable</a> &amp;_arguments, <a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> _messageCount, <a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> _subscriberCount)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a1176f38f4790886dac7393095d628edf">QueueQueryResult</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a76cbd219ed5acf59ab63be845289771c">setQueue</a> (const <a class="el" href="a00345.html">std::string</a> &amp;_queue)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a6e00f0ced9c3abbb1c1c0c47301afd32">getQueue</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#af775311548a35af337e12c6e4e853140">hasQueue</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#af354430697d38d32783ee36357e4fa3b">clearQueueFlag</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a035f31777327d8b19716b82b24dd63a3">setAlternateExchange</a> (const <a class="el" href="a00345.html">std::string</a> &amp;_alternateExchange)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#ae58c4cb74ab1ce8c3c0cfeffbc97faf1">getAlternateExchange</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#ad574a3cd788f368781af96e479e358df">hasAlternateExchange</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a16922497b0ef04e73fab53b1be4bbaa3">clearAlternateExchangeFlag</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#aad5d41db53643c11bd59dce46d7eb6e0">setDurable</a> (bool _durable)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#ad3433b94ba557217b386972d172b0669">getDurable</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a405ced6cad1866702c0585ce5846719f">setExclusive</a> (bool _exclusive)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#ac917081b2c7e8c1f2302a62a11dd5592">getExclusive</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#af17a36ef384b44b43a0edb1d3ddc8e6e">setAutoDelete</a> (bool _autoDelete)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a6aa5827c7b0b6a59b7a6f4993fd8f6de">getAutoDelete</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#ab026b1eb4ea040ff0a394eb60a91d664">setArguments</a> (const <a class="el" href="a00123.html">FieldTable</a> &amp;_arguments)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00123.html">FieldTable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#ace676d5a1409c663e0729d34bba8e2c1">getArguments</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00123.html">FieldTable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#ae1e6b1f13cdee271c02c5ddafce71316">getArguments</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a0d194bedaa5f6331368df473ac201c24">hasArguments</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#af2bcf039168cfb8bd36d7d898dd5afc5">clearArgumentsFlag</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#ac2c92c63a9b682f2c73af6de6bb15266">setMessageCount</a> (<a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> _messageCount)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a8c24acd8bd657acf54f241a1f7894ccc">getMessageCount</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a792cba275c9f53e99f821b7988757765">hasMessageCount</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a439a5df4fbbe80c37e2d8fde49cc2c4f">clearMessageCountFlag</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a57caf92d3b758ca8039d9edc85f0c784">setSubscriberCount</a> (<a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> _subscriberCount)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a594ac4b9e372efb0dcdb8ef6f69b06f4">getSubscriberCount</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a031c243d5924e8ce5beb5e7ed085da9a">hasSubscriberCount</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#ac3b44e232692de5ce7a4fb9141447b0b">clearSubscriberCountFlag</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#acd5d0f82a92ae332bbbccd6a54f1c694">encode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#ae4cef443cbe43cb61952ea77be08c77d">decode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;, <a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#af7b1dcd998df9674979a4cb9d2a7a6f0">encodeStructBody</a> (<a class="el" href="a00045.html">Buffer</a> &amp;) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#ac194ca0bbe9b13632f5555770f2b0ce7">decodeStructBody</a> (<a class="el" href="a00045.html">Buffer</a> &amp;, <a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a53e23076db2ddfcee222c77b179b46b4">encodedSize</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a0091888972d6708bf15cbf4da7c46211">bodySize</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a68df771abccdcfc0d3904d66f6529191">print</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;out) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a82dff325a65cb94ba0a667de29c133c2">QueueOptions</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#ae67406ceea13ac5561626f4395200634">~QueueOptions</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#ae37c129ff536edec71f1db99e302954b">setSizePolicy</a> (<a class="el" href="a00578.html#ae7fd80e6bdbd10200de7758e81249d36">QueueSizePolicy</a> sp, uint64_t maxSize, <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> maxCount)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the queue sizing policy.  <a href="#ae37c129ff536edec71f1db99e302954b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#ab87f67bdb86e5999ae33601ebefd51d5">setPersistLastNode</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the persisting of a queue to the store module when a cluster fails down to it's last node.  <a href="#ab87f67bdb86e5999ae33601ebefd51d5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a6fdc191566f456052604c095f9cd7638">setOrdering</a> (<a class="el" href="a00578.html#a2e9fe250b86fe9c17ecb08826b732c67">QueueOrderingPolicy</a> op)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the odering policy on the Queue, default ordering is FIFO.  <a href="#a6fdc191566f456052604c095f9cd7638"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a04f4b3e8f998c6a81c077cf614d4f543">clearSizePolicy</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Use broker defualt sizing ploicy.  <a href="#a04f4b3e8f998c6a81c077cf614d4f543"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#acc19f67eeaa82d5a0fd10b29e3e33dc2">clearPersistLastNode</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear Persist Last Node Policy.  <a href="#acc19f67eeaa82d5a0fd10b29e3e33dc2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#aabbcf9c62afcc6b953b009045da15659">getLVQKey</a> (<a class="el" href="a00346.html">std::string</a> &amp;key)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">get the key used match LVQ in args for message transfer  <a href="#aabbcf9c62afcc6b953b009045da15659"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#abd0214a28b32097b05e06b301e5879b3">clearOrdering</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Use default odering policy.  <a href="#abd0214a28b32097b05e06b301e5879b3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#acf7c7c97f88c417da4cf836cdea0ab45">enableQueueEvents</a> (bool enqueueOnly)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns on event generation for this queue (either enqueue only or for enqueue and dequeue events); the events can then be processed by a regsitered broker plugin.  <a href="#acf7c7c97f88c417da4cf836cdea0ab45"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ac574fcc56c2aeced89f2bf1c5d2357aa">encodedSize</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ae81cf3f05b604f6e6258bfc0dfff6814">encode</a> (Buffer &amp;buffer) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a2e1aae38c4f1893687c2a73dee4942a4">decode</a> (Buffer &amp;buffer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#aaf100cff522722ad56b280c647031e2e">count</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ab8bf1d719562100373f2971113c45486">size</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a69bc8d165e61524db283991d98d5b137">empty</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ac7db53b737db0e5d76a9b677f4834d3c">set</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name, const <a class="el" href="a00125.html#a2f69733cb826157da8aa2834ca1e758e">ValuePtr</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00125.html#a2f69733cb826157da8aa2834ca1e758e">ValuePtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a5f9b5aefde2d188a779371d6451a770b">get</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ad2e1f165060dafde29b4f1075b63f539">isSet</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ab54839b4caa292ee04bf56a159f61188">setString</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name, const <a class="el" href="a00346.html">std::string</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a8917bed86ad77e915b1810fb99741ba5">setInt</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name, const int value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ada6dcdb16e732afbd147e9681cb3c765">setInt64</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name, const int64_t value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ad4ffa7639ea597f3528ed4689e37740d">setTimestamp</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name, const uint64_t value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#acc0811239fc91f6f576525f8bac718e2">setUInt64</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name, const uint64_t value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ab6af469f47d72051232436828cf42a43">setTable</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name, const <a class="el" href="a00125.html">FieldTable</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a62744e53e317ec4ee67d5ca4e6d4ed8b">setArray</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name, const Array &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a4291722ce7195fff36bf52bfe2c41275">setFloat</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name, const float value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#afe944eaa8bbe4435b400bbde7f7c50cc">setDouble</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name, const double value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a14c7c5842dd4756bad6c8211b1350dd9">getAsInt</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#af1ad3c70c5624073db4a9b51acc06e00">getAsUInt64</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ab23cf7b90b758116625d7ced06bb4a1d">getAsInt64</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a3e76e2a685173682fc2214972849afd6">getAsString</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#aa19a30fada351efc1cf3d1c862d2fa28">getTable</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name, <a class="el" href="a00125.html">FieldTable</a> &amp;value) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a3b7d1c100e25edebf93152fb77fbf89c">getArray</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name, Array &amp;value) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a07d73d78b4bd661e1050b8c60447ec27">getFloat</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name, float &amp;value) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a591dcc6dcaec3a95cf983520d5991b45">getDouble</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name, double &amp;value) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#aca7061dbb712178aab90a24083468a11">erase</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a141302936862c23aab3aa7813899f481">operator==</a> (const <a class="el" href="a00125.html">FieldTable</a> &amp;other) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">ValueMap::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#af5bad005811cb4013515244a96a52c71">begin</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">ValueMap::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#aaa2d847aa63913eedd9ef3268bd3bf2c">begin</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">ValueMap::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a7ff39d621e62039b46d4c20e2d3c7e21">end</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">ValueMap::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ad10d34c3d1b7e26e43a8219985272225">end</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">ValueMap::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ae8b6d641b7344f9c6ed04710eb7366e2">find</a> (const <a class="el" href="a00346.html">std::string</a> &amp;s) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">ValueMap::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a7f11e551e724ae2765dbece138bb513c">find</a> (const <a class="el" href="a00346.html">std::string</a> &amp;s)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::pair&lt; ValueMap::iterator, <br class="typebreak"/>
+bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ab8c702a456b4051f3f3e928d42f68e04">insert</a> (const ValueMap::value_type &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">ValueMap::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ae8839202f510f8a9f274b1dcc9daf6ad">insert</a> (ValueMap::iterator, const ValueMap::value_type &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ae4f9483a1243120e63d6db94a4fd2626">clear</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a2d653ff12143242514a4f64597470714">TYPE</a> = 2049</td></tr>
-<tr><td colspan="2"><h2><a name="friends"></a>
-Friends</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a6db3243cfdcf034282868ecbc9eefa33">operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;, const <a class="el" href="a00265.html">QueueQueryResult</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#aeef0f83a1eb6b1b6f14d5619240b3961">strMaxCountKey</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#ae05d1fe686d4bca9828529f4e36b677a">strMaxSizeKey</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a526312de4f5c920548f7dad843ee7cb5">strTypeKey</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a63baf77269b26ce18ca28413a2db4df0">strREJECT</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a894ed65efefceba9df08f5f4537e3c1d">strFLOW_TO_DISK</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#adc9531ddd5712a5f20e9934ac72b8935">strRING</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a8206ae8da1ac8e748f5cb46d5d3938b2">strRING_STRICT</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#aaf093e8a1d50435561ac2df43324cb5b">strLastValueQueue</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#a19399a0da7213dafd131cb0d311727cc">strPersistLastNode</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#aad96328bd176e99ba20bf4592880d6f5">strLVQMatchProperty</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#ab9e9446bafa01f7a57551501064599b3">strLastValueQueueNoBrowse</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html#ab90ff1293386eada23550869392b800f">strQueueEventMode</a></td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a627e38597ff5d3cde9e5285f3ce301e8"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::QueueQueryResult" ref="a627e38597ff5d3cde9e5285f3ce301e8" args="(const std::string &amp;_queue, const std::string &amp;_alternateExchange, bool _durable, bool _exclusive, bool _autoDelete, const FieldTable &amp;_arguments, uint32_t _messageCount, uint32_t _subscriberCount)" -->
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>A help class to set options on the Queue. </p>
+<p>Create a configured args while still allowing any custom configuration via the FieldTable base class </p>
+</div><hr/><h2>Member Typedef Documentation</h2>
+<a class="anchor" id="a43c762c0054ddcb23690c1d82d3fd856"></a><!-- doxytag: member="qpid::client::QueueOptions::const_iterator" ref="a43c762c0054ddcb23690c1d82d3fd856" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::framing::QueueQueryResult::QueueQueryResult </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>_queue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>_alternateExchange</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>_durable</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>_exclusive</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>_autoDelete</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00123.html">FieldTable</a> &amp;&#160;</td>
-          <td class="paramname"><em>_arguments</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"><em>_messageCount</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"><em>_subscriberCount</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inline]</code></td>
+          <td class="memname">typedef ValueMap::const_iterator <a class="el" href="a00125.html#a43c762c0054ddcb23690c1d82d3fd856">qpid::framing::FieldTable::const_iterator</a><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00515_source.html#l00047">47</a> of file <a class="el" href="a00515_source.html">QueueQueryResult.h</a>.</p>
+<p>Definition at line <a class="el" href="a00507_source.html#l00059">59</a> of file <a class="el" href="a00507_source.html">FieldTable.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1176f38f4790886dac7393095d628edf"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::QueueQueryResult" ref="a1176f38f4790886dac7393095d628edf" args="()" -->
+<a class="anchor" id="a10fc54b97d822637870c6eb9d4c0d2c7"></a><!-- doxytag: member="qpid::client::QueueOptions::const_reference" ref="a10fc54b97d822637870c6eb9d4c0d2c7" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::framing::QueueQueryResult::QueueQueryResult </td>
+          <td class="memname">typedef ValueMap::const_reference <a class="el" href="a00125.html#a10fc54b97d822637870c6eb9d4c0d2c7">qpid::framing::FieldTable::const_reference</a><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00507_source.html#l00060">60</a> of file <a class="el" href="a00507_source.html">FieldTable.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4903cc6da9fcd1217a810f737be98d41"></a><!-- doxytag: member="qpid::client::QueueOptions::iterator" ref="a4903cc6da9fcd1217a810f737be98d41" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef ValueMap::iterator <a class="el" href="a00125.html#a4903cc6da9fcd1217a810f737be98d41">qpid::framing::FieldTable::iterator</a><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00507_source.html#l00058">58</a> of file <a class="el" href="a00507_source.html">FieldTable.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0c4a679b98ebde3d4c5314f3c42b21b9"></a><!-- doxytag: member="qpid::client::QueueOptions::reference" ref="a0c4a679b98ebde3d4c5314f3c42b21b9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef ValueMap::reference <a class="el" href="a00125.html#a0c4a679b98ebde3d4c5314f3c42b21b9">qpid::framing::FieldTable::reference</a><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00507_source.html#l00061">61</a> of file <a class="el" href="a00507_source.html">FieldTable.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac5775b5a0b85d439a5892eb69723e5c9"></a><!-- doxytag: member="qpid::client::QueueOptions::value_type" ref="ac5775b5a0b85d439a5892eb69723e5c9" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef ValueMap::value_type <a class="el" href="a00125.html#ac5775b5a0b85d439a5892eb69723e5c9">qpid::framing::FieldTable::value_type</a><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00507_source.html#l00062">62</a> of file <a class="el" href="a00507_source.html">FieldTable.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a666baa1140ff94893847071e5b3445b4"></a><!-- doxytag: member="qpid::client::QueueOptions::ValueMap" ref="a666baa1140ff94893847071e5b3445b4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a00203.html">std::map</a>&lt;<a class="el" href="a00346.html">std::string</a>, <a class="el" href="a00125.html#a2f69733cb826157da8aa2834ca1e758e">ValuePtr</a>&gt; <a class="el" href="a00125.html#a666baa1140ff94893847071e5b3445b4">qpid::framing::FieldTable::ValueMap</a><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00507_source.html#l00057">57</a> of file <a class="el" href="a00507_source.html">FieldTable.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2f69733cb826157da8aa2834ca1e758e"></a><!-- doxytag: member="qpid::client::QueueOptions::ValuePtr" ref="a2f69733cb826157da8aa2834ca1e758e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef boost::shared_ptr&lt;FieldValue&gt; <a class="el" href="a00125.html#a2f69733cb826157da8aa2834ca1e758e">qpid::framing::FieldTable::ValuePtr</a><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00507_source.html#l00056">56</a> of file <a class="el" href="a00507_source.html">FieldTable.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a82dff325a65cb94ba0a667de29c133c2"></a><!-- doxytag: member="qpid::client::QueueOptions::QueueOptions" ref="a82dff325a65cb94ba0a667de29c133c2" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::client::QueueOptions::QueueOptions </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00515_source.html#l00071">71</a> of file <a class="el" href="a00515_source.html">QueueQueryResult.h</a>.</p>
+</div>
+</div>
+<a class="anchor" id="ae67406ceea13ac5561626f4395200634"></a><!-- doxytag: member="qpid::client::QueueOptions::~QueueOptions" ref="ae67406ceea13ac5561626f4395200634" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual qpid::client::QueueOptions::~QueueOptions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a0091888972d6708bf15cbf4da7c46211"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::bodySize" ref="a0091888972d6708bf15cbf4da7c46211" args="() const " -->
+<a class="anchor" id="af5bad005811cb4013515244a96a52c71"></a><!-- doxytag: member="qpid::client::QueueOptions::begin" ref="af5bad005811cb4013515244a96a52c71" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::QueueQueryResult::bodySize </td>
+          <td class="memname">ValueMap::const_iterator qpid::framing::FieldTable::begin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -226,15 +326,15 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a16922497b0ef04e73fab53b1be4bbaa3"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::clearAlternateExchangeFlag" ref="a16922497b0ef04e73fab53b1be4bbaa3" args="()" -->
+<a class="anchor" id="aaa2d847aa63913eedd9ef3268bd3bf2c"></a><!-- doxytag: member="qpid::client::QueueOptions::begin" ref="aaa2d847aa63913eedd9ef3268bd3bf2c" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::QueueQueryResult::clearAlternateExchangeFlag </td>
+          <td class="memname">ValueMap::iterator qpid::framing::FieldTable::begin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -242,15 +342,15 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af2bcf039168cfb8bd36d7d898dd5afc5"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::clearArgumentsFlag" ref="af2bcf039168cfb8bd36d7d898dd5afc5" args="()" -->
+<a class="anchor" id="ae4f9483a1243120e63d6db94a4fd2626"></a><!-- doxytag: member="qpid::client::QueueOptions::clear" ref="ae4f9483a1243120e63d6db94a4fd2626" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::QueueQueryResult::clearArgumentsFlag </td>
+          <td class="memname">void qpid::framing::FieldTable::clear </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -258,28 +358,12 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a439a5df4fbbe80c37e2d8fde49cc2c4f"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::clearMessageCountFlag" ref="a439a5df4fbbe80c37e2d8fde49cc2c4f" args="()" -->
+<a class="anchor" id="abd0214a28b32097b05e06b301e5879b3"></a><!-- doxytag: member="qpid::client::QueueOptions::clearOrdering" ref="abd0214a28b32097b05e06b301e5879b3" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::QueueQueryResult::clearMessageCountFlag </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af354430697d38d32783ee36357e4fa3b"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::clearQueueFlag" ref="af354430697d38d32783ee36357e4fa3b" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::QueueQueryResult::clearQueueFlag </td>
+          <td class="memname">void qpid::client::QueueOptions::clearOrdering </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -288,14 +372,16 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Use default odering policy. </p>
+
 </div>
 </div>
-<a class="anchor" id="ac3b44e232692de5ce7a4fb9141447b0b"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::clearSubscriberCountFlag" ref="ac3b44e232692de5ce7a4fb9141447b0b" args="()" -->
+<a class="anchor" id="acc19f67eeaa82d5a0fd10b29e3e33dc2"></a><!-- doxytag: member="qpid::client::QueueOptions::clearPersistLastNode" ref="acc19f67eeaa82d5a0fd10b29e3e33dc2" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::QueueQueryResult::clearSubscriberCountFlag </td>
+          <td class="memname">void qpid::client::QueueOptions::clearPersistLastNode </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -304,28 +390,259 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Clear Persist Last Node Policy. </p>
+
 </div>
 </div>
-<a class="anchor" id="ae4cef443cbe43cb61952ea77be08c77d"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::decode" ref="ae4cef443cbe43cb61952ea77be08c77d" args="(Buffer &amp;, uint32_t=0)" -->
+<a class="anchor" id="a04f4b3e8f998c6a81c077cf614d4f543"></a><!-- doxytag: member="qpid::client::QueueOptions::clearSizePolicy" ref="a04f4b3e8f998c6a81c077cf614d4f543" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::QueueQueryResult::decode </td>
+          <td class="memname">void qpid::client::QueueOptions::clearSizePolicy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Use broker defualt sizing ploicy. </p>
+
+</div>
+</div>
+<a class="anchor" id="aaf100cff522722ad56b280c647031e2e"></a><!-- doxytag: member="qpid::client::QueueOptions::count" ref="aaf100cff522722ad56b280c647031e2e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int qpid::framing::FieldTable::count </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2e1aae38c4f1893687c2a73dee4942a4"></a><!-- doxytag: member="qpid::client::QueueOptions::decode" ref="a2e1aae38c4f1893687c2a73dee4942a4" args="(Buffer &amp;buffer)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FieldTable::decode </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a69bc8d165e61524db283991d98d5b137"></a><!-- doxytag: member="qpid::client::QueueOptions::empty" ref="a69bc8d165e61524db283991d98d5b137" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_COMMON_INLINE_EXTERN bool qpid::framing::FieldTable::empty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00507_source.html#l00074">74</a> of file <a class="el" href="a00507_source.html">FieldTable.h</a>.</p>
+
+<p>References <a class="el" href="a00507_source.html#l00073">qpid::framing::FieldTable::size()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acf7c7c97f88c417da4cf836cdea0ab45"></a><!-- doxytag: member="qpid::client::QueueOptions::enableQueueEvents" ref="acf7c7c97f88c417da4cf836cdea0ab45" args="(bool enqueueOnly)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::QueueOptions::enableQueueEvents </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enqueueOnly</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Turns on event generation for this queue (either enqueue only or for enqueue and dequeue events); the events can then be processed by a regsitered broker plugin. </p>
+<p>DEPRECATED</p>
+<p>This is confusing to anyone who sees only the function call and not the variable name / doxygen. Consider the following call:</p>
+<p>options.enableQueueEvents(false);</p>
+<p>It looks like it disables queue events, but what it really does is enable both enqueue and dequeue events.</p>
+<p>Use <a class="el" href="a00125.html#a8917bed86ad77e915b1810fb99741ba5">setInt()</a> instead:</p>
+<p>options.setInt("qpid.queue_event_generation", 2); </p>
+
+</div>
+</div>
+<a class="anchor" id="ae81cf3f05b604f6e6258bfc0dfff6814"></a><!-- doxytag: member="qpid::client::QueueOptions::encode" ref="ae81cf3f05b604f6e6258bfc0dfff6814" args="(Buffer &amp;buffer) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FieldTable::encode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac574fcc56c2aeced89f2bf1c5d2357aa"></a><!-- doxytag: member="qpid::client::QueueOptions::encodedSize" ref="ac574fcc56c2aeced89f2bf1c5d2357aa" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::FieldTable::encodedSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7ff39d621e62039b46d4c20e2d3c7e21"></a><!-- doxytag: member="qpid::client::QueueOptions::end" ref="a7ff39d621e62039b46d4c20e2d3c7e21" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ValueMap::const_iterator qpid::framing::FieldTable::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad10d34c3d1b7e26e43a8219985272225"></a><!-- doxytag: member="qpid::client::QueueOptions::end" ref="ad10d34c3d1b7e26e43a8219985272225" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ValueMap::iterator qpid::framing::FieldTable::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aca7061dbb712178aab90a24083468a11"></a><!-- doxytag: member="qpid::client::QueueOptions::erase" ref="aca7061dbb712178aab90a24083468a11" args="(const std::string &amp;name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FieldTable::erase </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae8b6d641b7344f9c6ed04710eb7366e2"></a><!-- doxytag: member="qpid::client::QueueOptions::find" ref="ae8b6d641b7344f9c6ed04710eb7366e2" args="(const std::string &amp;s) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ValueMap::const_iterator qpid::framing::FieldTable::find </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7f11e551e724ae2765dbece138bb513c"></a><!-- doxytag: member="qpid::client::QueueOptions::find" ref="a7f11e551e724ae2765dbece138bb513c" args="(const std::string &amp;s)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ValueMap::iterator qpid::framing::FieldTable::find </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5f9b5aefde2d188a779371d6451a770b"></a><!-- doxytag: member="qpid::client::QueueOptions::get" ref="a5f9b5aefde2d188a779371d6451a770b" args="(const std::string &amp;name) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00125.html#a2f69733cb826157da8aa2834ca1e758e">ValuePtr</a> qpid::framing::FieldTable::get </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3b7d1c100e25edebf93152fb77fbf89c"></a><!-- doxytag: member="qpid::client::QueueOptions::getArray" ref="a3b7d1c100e25edebf93152fb77fbf89c" args="(const std::string &amp;name, Array &amp;value) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::FieldTable::getArray </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"> = <code>0</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00016.html">Array</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const<code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -333,26 +650,94 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ac194ca0bbe9b13632f5555770f2b0ce7"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::decodeStructBody" ref="ac194ca0bbe9b13632f5555770f2b0ce7" args="(Buffer &amp;, uint32_t=0)" -->
+<a class="anchor" id="a14c7c5842dd4756bad6c8211b1350dd9"></a><!-- doxytag: member="qpid::client::QueueOptions::getAsInt" ref="a14c7c5842dd4756bad6c8211b1350dd9" args="(const std::string &amp;name) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::QueueQueryResult::decodeStructBody </td>
+          <td class="memname">int qpid::framing::FieldTable::getAsInt </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab23cf7b90b758116625d7ced06bb4a1d"></a><!-- doxytag: member="qpid::client::QueueOptions::getAsInt64" ref="ab23cf7b90b758116625d7ced06bb4a1d" args="(const std::string &amp;name) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int64_t qpid::framing::FieldTable::getAsInt64 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3e76e2a685173682fc2214972849afd6"></a><!-- doxytag: member="qpid::client::QueueOptions::getAsString" ref="a3e76e2a685173682fc2214972849afd6" args="(const std::string &amp;name) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::framing::FieldTable::getAsString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af1ad3c70c5624073db4a9b51acc06e00"></a><!-- doxytag: member="qpid::client::QueueOptions::getAsUInt64" ref="af1ad3c70c5624073db4a9b51acc06e00" args="(const std::string &amp;name) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t qpid::framing::FieldTable::getAsUInt64 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a591dcc6dcaec3a95cf983520d5991b45"></a><!-- doxytag: member="qpid::client::QueueOptions::getDouble" ref="a591dcc6dcaec3a95cf983520d5991b45" args="(const std::string &amp;name, double &amp;value) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::FieldTable::getDouble </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"> = <code>0</code>&#160;</td>
+          <td class="paramtype">double &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const<code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -360,16 +745,26 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="acd5d0f82a92ae332bbbccd6a54f1c694"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::encode" ref="acd5d0f82a92ae332bbbccd6a54f1c694" args="(Buffer &amp;) const " -->
+<a class="anchor" id="a07d73d78b4bd661e1050b8c60447ec27"></a><!-- doxytag: member="qpid::client::QueueOptions::getFloat" ref="a07d73d78b4bd661e1050b8c60447ec27" args="(const std::string &amp;name, float &amp;value) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::QueueQueryResult::encode </td>
+          <td class="memname">bool qpid::framing::FieldTable::getFloat </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -377,307 +772,45 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a53e23076db2ddfcee222c77b179b46b4"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::encodedSize" ref="a53e23076db2ddfcee222c77b179b46b4" args="() const " -->
+<a class="anchor" id="aabbcf9c62afcc6b953b009045da15659"></a><!-- doxytag: member="qpid::client::QueueOptions::getLVQKey" ref="aabbcf9c62afcc6b953b009045da15659" args="(std::string &amp;key)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::QueueQueryResult::encodedSize </td>
+          <td class="memname">void qpid::client::QueueOptions::getLVQKey </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af7b1dcd998df9674979a4cb9d2a7a6f0"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::encodeStructBody" ref="af7b1dcd998df9674979a4cb9d2a7a6f0" args="(Buffer &amp;) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::QueueQueryResult::encodeStructBody </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae58c4cb74ab1ce8c3c0cfeffbc97faf1"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::getAlternateExchange" ref="ae58c4cb74ab1ce8c3c0cfeffbc97faf1" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a>&amp; qpid::framing::QueueQueryResult::getAlternateExchange </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ace676d5a1409c663e0729d34bba8e2c1"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::getArguments" ref="ace676d5a1409c663e0729d34bba8e2c1" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00123.html">FieldTable</a>&amp; qpid::framing::QueueQueryResult::getArguments </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae1e6b1f13cdee271c02c5ddafce71316"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::getArguments" ref="ae1e6b1f13cdee271c02c5ddafce71316" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00123.html">FieldTable</a>&amp; qpid::framing::QueueQueryResult::getArguments </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="a6aa5827c7b0b6a59b7a6f4993fd8f6de"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::getAutoDelete" ref="a6aa5827c7b0b6a59b7a6f4993fd8f6de" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::QueueQueryResult::getAutoDelete </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>get the key used match LVQ in args for message transfer </p>
 
 </div>
 </div>
-<a class="anchor" id="ad3433b94ba557217b386972d172b0669"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::getDurable" ref="ad3433b94ba557217b386972d172b0669" args="() const " -->
+<a class="anchor" id="aa19a30fada351efc1cf3d1c862d2fa28"></a><!-- doxytag: member="qpid::client::QueueOptions::getTable" ref="aa19a30fada351efc1cf3d1c862d2fa28" args="(const std::string &amp;name, FieldTable &amp;value) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool qpid::framing::QueueQueryResult::getDurable </td>
+          <td class="memname">bool qpid::framing::FieldTable::getTable </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
         </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac917081b2c7e8c1f2302a62a11dd5592"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::getExclusive" ref="ac917081b2c7e8c1f2302a62a11dd5592" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">bool qpid::framing::QueueQueryResult::getExclusive </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8c24acd8bd657acf54f241a1f7894ccc"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::getMessageCount" ref="a8c24acd8bd657acf54f241a1f7894ccc" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::QueueQueryResult::getMessageCount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6e00f0ced9c3abbb1c1c0c47301afd32"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::getQueue" ref="a6e00f0ced9c3abbb1c1c0c47301afd32" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a>&amp; qpid::framing::QueueQueryResult::getQueue </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a594ac4b9e372efb0dcdb8ef6f69b06f4"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::getSubscriberCount" ref="a594ac4b9e372efb0dcdb8ef6f69b06f4" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::QueueQueryResult::getSubscriberCount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad574a3cd788f368781af96e479e358df"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::hasAlternateExchange" ref="ad574a3cd788f368781af96e479e358df" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::QueueQueryResult::hasAlternateExchange </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0d194bedaa5f6331368df473ac201c24"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::hasArguments" ref="a0d194bedaa5f6331368df473ac201c24" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::QueueQueryResult::hasArguments </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a792cba275c9f53e99f821b7988757765"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::hasMessageCount" ref="a792cba275c9f53e99f821b7988757765" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::QueueQueryResult::hasMessageCount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af775311548a35af337e12c6e4e853140"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::hasQueue" ref="af775311548a35af337e12c6e4e853140" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::QueueQueryResult::hasQueue </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a031c243d5924e8ce5beb5e7ed085da9a"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::hasSubscriberCount" ref="a031c243d5924e8ce5beb5e7ed085da9a" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::QueueQueryResult::hasSubscriberCount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a68df771abccdcfc0d3904d66f6529191"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::print" ref="a68df771abccdcfc0d3904d66f6529191" args="(std::ostream &amp;out) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::QueueQueryResult::print </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a035f31777327d8b19716b82b24dd63a3"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::setAlternateExchange" ref="a035f31777327d8b19716b82b24dd63a3" args="(const std::string &amp;_alternateExchange)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::QueueQueryResult::setAlternateExchange </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>_alternateExchange</em></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="a00125.html">FieldTable</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
         </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab026b1eb4ea040ff0a394eb60a91d664"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::setArguments" ref="ab026b1eb4ea040ff0a394eb60a91d664" args="(const FieldTable &amp;_arguments)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::QueueQueryResult::setArguments </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00123.html">FieldTable</a> &amp;&#160;</td>
-          <td class="paramname"><em>_arguments</em></td><td>)</td>
           <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -685,16 +818,16 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af17a36ef384b44b43a0edb1d3ddc8e6e"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::setAutoDelete" ref="af17a36ef384b44b43a0edb1d3ddc8e6e" args="(bool _autoDelete)" -->
+<a class="anchor" id="ab8c702a456b4051f3f3e928d42f68e04"></a><!-- doxytag: member="qpid::client::QueueOptions::insert" ref="ab8c702a456b4051f3f3e928d42f68e04" args="(const ValueMap::value_type &amp;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::QueueQueryResult::setAutoDelete </td>
+          <td class="memname">std::pair&lt;ValueMap::iterator, bool&gt; qpid::framing::FieldTable::insert </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>_autoDelete</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">const ValueMap::value_type &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -702,112 +835,26 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aad5d41db53643c11bd59dce46d7eb6e0"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::setDurable" ref="aad5d41db53643c11bd59dce46d7eb6e0" args="(bool _durable)" -->
+<a class="anchor" id="ae8839202f510f8a9f274b1dcc9daf6ad"></a><!-- doxytag: member="qpid::client::QueueOptions::insert" ref="ae8839202f510f8a9f274b1dcc9daf6ad" args="(ValueMap::iterator, const ValueMap::value_type &amp;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::QueueQueryResult::setDurable </td>
+          <td class="memname">ValueMap::iterator qpid::framing::FieldTable::insert </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>_durable</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a405ced6cad1866702c0585ce5846719f"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::setExclusive" ref="a405ced6cad1866702c0585ce5846719f" args="(bool _exclusive)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::QueueQueryResult::setExclusive </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>_exclusive</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac2c92c63a9b682f2c73af6de6bb15266"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::setMessageCount" ref="ac2c92c63a9b682f2c73af6de6bb15266" args="(uint32_t _messageCount)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::QueueQueryResult::setMessageCount </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"><em>_messageCount</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a76cbd219ed5acf59ab63be845289771c"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::setQueue" ref="a76cbd219ed5acf59ab63be845289771c" args="(const std::string &amp;_queue)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::QueueQueryResult::setQueue </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>_queue</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a57caf92d3b758ca8039d9edc85f0c784"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::setSubscriberCount" ref="a57caf92d3b758ca8039d9edc85f0c784" args="(uint32_t _subscriberCount)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::QueueQueryResult::setSubscriberCount </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"><em>_subscriberCount</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/><h2>Friends And Related Function Documentation</h2>
-<a class="anchor" id="a6db3243cfdcf034282868ecbc9eefa33"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::operator&lt;&lt;" ref="a6db3243cfdcf034282868ecbc9eefa33" args="(std::ostream &amp;, const QueueQueryResult &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00243.html">std::ostream</a>&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramtype">ValueMap::iterator&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00265.html">QueueQueryResult</a> &amp;&#160;</td>
+          <td class="paramtype">const ValueMap::value_type &amp;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td><code> [friend]</code></td>
+          <td></td><td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -815,24 +862,596 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a2d653ff12143242514a4f64597470714"></a><!-- doxytag: member="qpid::framing::QueueQueryResult::TYPE" ref="a2d653ff12143242514a4f64597470714" args="" -->
+<a class="anchor" id="ad2e1f165060dafde29b4f1075b63f539"></a><!-- doxytag: member="qpid::client::QueueOptions::isSet" ref="ad2e1f165060dafde29b4f1075b63f539" args="(const std::string &amp;name) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="el" href="a00265.html#a2d653ff12143242514a4f64597470714">qpid::framing::QueueQueryResult::TYPE</a> = 2049<code> [static]</code></td>
+          <td class="memname">QPID_COMMON_INLINE_EXTERN bool qpid::framing::FieldTable::isSet </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00515_source.html#l00046">46</a> of file <a class="el" href="a00515_source.html">QueueQueryResult.h</a>.</p>
+<p>Definition at line <a class="el" href="a00507_source.html#l00077">77</a> of file <a class="el" href="a00507_source.html">FieldTable.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a141302936862c23aab3aa7813899f481"></a><!-- doxytag: member="qpid::client::QueueOptions::operator==" ref="a141302936862c23aab3aa7813899f481" args="(const FieldTable &amp;other) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::FieldTable::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00125.html">FieldTable</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac7db53b737db0e5d76a9b677f4834d3c"></a><!-- doxytag: member="qpid::client::QueueOptions::set" ref="ac7db53b737db0e5d76a9b677f4834d3c" args="(const std::string &amp;name, const ValuePtr &amp;value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FieldTable::set </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00125.html#a2f69733cb826157da8aa2834ca1e758e">ValuePtr</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a62744e53e317ec4ee67d5ca4e6d4ed8b"></a><!-- doxytag: member="qpid::client::QueueOptions::setArray" ref="a62744e53e317ec4ee67d5ca4e6d4ed8b" args="(const std::string &amp;name, const Array &amp;value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FieldTable::setArray </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00016.html">Array</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afe944eaa8bbe4435b400bbde7f7c50cc"></a><!-- doxytag: member="qpid::client::QueueOptions::setDouble" ref="afe944eaa8bbe4435b400bbde7f7c50cc" args="(const std::string &amp;name, const double value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FieldTable::setDouble </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4291722ce7195fff36bf52bfe2c41275"></a><!-- doxytag: member="qpid::client::QueueOptions::setFloat" ref="a4291722ce7195fff36bf52bfe2c41275" args="(const std::string &amp;name, const float value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FieldTable::setFloat </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8917bed86ad77e915b1810fb99741ba5"></a><!-- doxytag: member="qpid::client::QueueOptions::setInt" ref="a8917bed86ad77e915b1810fb99741ba5" args="(const std::string &amp;name, const int value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FieldTable::setInt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ada6dcdb16e732afbd147e9681cb3c765"></a><!-- doxytag: member="qpid::client::QueueOptions::setInt64" ref="ada6dcdb16e732afbd147e9681cb3c765" args="(const std::string &amp;name, const int64_t value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FieldTable::setInt64 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int64_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6fdc191566f456052604c095f9cd7638"></a><!-- doxytag: member="qpid::client::QueueOptions::setOrdering" ref="a6fdc191566f456052604c095f9cd7638" args="(QueueOrderingPolicy op)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::QueueOptions::setOrdering </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00578.html#a2e9fe250b86fe9c17ecb08826b732c67">QueueOrderingPolicy</a>&#160;</td>
+          <td class="paramname"><em>op</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Sets the odering policy on the Queue, default ordering is FIFO. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab87f67bdb86e5999ae33601ebefd51d5"></a><!-- doxytag: member="qpid::client::QueueOptions::setPersistLastNode" ref="ab87f67bdb86e5999ae33601ebefd51d5" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::QueueOptions::setPersistLastNode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Enables the persisting of a queue to the store module when a cluster fails down to it's last node. </p>
+<p>Does so optimistically. Will start persisting when cluster count &gt;1 again. </p>
+
+</div>
+</div>
+<a class="anchor" id="ae37c129ff536edec71f1db99e302954b"></a><!-- doxytag: member="qpid::client::QueueOptions::setSizePolicy" ref="ae37c129ff536edec71f1db99e302954b" args="(QueueSizePolicy sp, uint64_t maxSize, uint32_t maxCount)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::QueueOptions::setSizePolicy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00578.html#ae7fd80e6bdbd10200de7758e81249d36">QueueSizePolicy</a>&#160;</td>
+          <td class="paramname"><em>sp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>maxSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>maxCount</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Sets the queue sizing policy. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sp</td><td>SizePolicy REJECT - reject if queue greater than size/count FLOW_TO_DISK - page messages to disk from this point is greater than size/count RING - limit the queue to size/count and over-write old messages round a ring RING_STRICT - limit the queue to size/count and reject is head == tail NONE - Use default broker sizing policy </td></tr>
+    <tr><td class="paramname">maxSize</td><td>Set the max number of bytes for the sizing policies </td></tr>
+    <tr><td class="paramname">setMaxCount</td><td>Set the max number of messages for the sizing policies </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ab54839b4caa292ee04bf56a159f61188"></a><!-- doxytag: member="qpid::client::QueueOptions::setString" ref="ab54839b4caa292ee04bf56a159f61188" args="(const std::string &amp;name, const std::string &amp;value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FieldTable::setString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab6af469f47d72051232436828cf42a43"></a><!-- doxytag: member="qpid::client::QueueOptions::setTable" ref="ab6af469f47d72051232436828cf42a43" args="(const std::string &amp;name, const FieldTable &amp;value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FieldTable::setTable </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00125.html">FieldTable</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad4ffa7639ea597f3528ed4689e37740d"></a><!-- doxytag: member="qpid::client::QueueOptions::setTimestamp" ref="ad4ffa7639ea597f3528ed4689e37740d" args="(const std::string &amp;name, const uint64_t value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FieldTable::setTimestamp </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint64_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="acc0811239fc91f6f576525f8bac718e2"></a><!-- doxytag: member="qpid::client::QueueOptions::setUInt64" ref="acc0811239fc91f6f576525f8bac718e2" args="(const std::string &amp;name, const uint64_t value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FieldTable::setUInt64 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint64_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab8bf1d719562100373f2971113c45486"></a><!-- doxytag: member="qpid::client::QueueOptions::size" ref="ab8bf1d719562100373f2971113c45486" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_COMMON_INLINE_EXTERN size_t qpid::framing::FieldTable::size </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00507_source.html#l00073">73</a> of file <a class="el" href="a00507_source.html">FieldTable.h</a>.</p>
+
+<p>Referenced by <a class="el" href="a00507_source.html#l00074">qpid::framing::FieldTable::empty()</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a894ed65efefceba9df08f5f4537e3c1d"></a><!-- doxytag: member="qpid::client::QueueOptions::strFLOW_TO_DISK" ref="a894ed65efefceba9df08f5f4537e3c1d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a> <a class="el" href="a00265.html#a894ed65efefceba9df08f5f4537e3c1d">qpid::client::QueueOptions::strFLOW_TO_DISK</a><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00477_source.html#l00115">115</a> of file <a class="el" href="a00477_source.html">QueueOptions.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaf093e8a1d50435561ac2df43324cb5b"></a><!-- doxytag: member="qpid::client::QueueOptions::strLastValueQueue" ref="aaf093e8a1d50435561ac2df43324cb5b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a> <a class="el" href="a00265.html#aaf093e8a1d50435561ac2df43324cb5b">qpid::client::QueueOptions::strLastValueQueue</a><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00477_source.html#l00118">118</a> of file <a class="el" href="a00477_source.html">QueueOptions.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab9e9446bafa01f7a57551501064599b3"></a><!-- doxytag: member="qpid::client::QueueOptions::strLastValueQueueNoBrowse" ref="ab9e9446bafa01f7a57551501064599b3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a> <a class="el" href="a00265.html#ab9e9446bafa01f7a57551501064599b3">qpid::client::QueueOptions::strLastValueQueueNoBrowse</a><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00477_source.html#l00121">121</a> of file <a class="el" href="a00477_source.html">QueueOptions.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aad96328bd176e99ba20bf4592880d6f5"></a><!-- doxytag: member="qpid::client::QueueOptions::strLVQMatchProperty" ref="aad96328bd176e99ba20bf4592880d6f5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a> <a class="el" href="a00265.html#aad96328bd176e99ba20bf4592880d6f5">qpid::client::QueueOptions::strLVQMatchProperty</a><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00477_source.html#l00120">120</a> of file <a class="el" href="a00477_source.html">QueueOptions.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aeef0f83a1eb6b1b6f14d5619240b3961"></a><!-- doxytag: member="qpid::client::QueueOptions::strMaxCountKey" ref="aeef0f83a1eb6b1b6f14d5619240b3961" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a> <a class="el" href="a00265.html#aeef0f83a1eb6b1b6f14d5619240b3961">qpid::client::QueueOptions::strMaxCountKey</a><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00477_source.html#l00111">111</a> of file <a class="el" href="a00477_source.html">QueueOptions.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae05d1fe686d4bca9828529f4e36b677a"></a><!-- doxytag: member="qpid::client::QueueOptions::strMaxSizeKey" ref="ae05d1fe686d4bca9828529f4e36b677a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a> <a class="el" href="a00265.html#ae05d1fe686d4bca9828529f4e36b677a">qpid::client::QueueOptions::strMaxSizeKey</a><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00477_source.html#l00112">112</a> of file <a class="el" href="a00477_source.html">QueueOptions.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a19399a0da7213dafd131cb0d311727cc"></a><!-- doxytag: member="qpid::client::QueueOptions::strPersistLastNode" ref="a19399a0da7213dafd131cb0d311727cc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a> <a class="el" href="a00265.html#a19399a0da7213dafd131cb0d311727cc">qpid::client::QueueOptions::strPersistLastNode</a><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00477_source.html#l00119">119</a> of file <a class="el" href="a00477_source.html">QueueOptions.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab90ff1293386eada23550869392b800f"></a><!-- doxytag: member="qpid::client::QueueOptions::strQueueEventMode" ref="ab90ff1293386eada23550869392b800f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a> <a class="el" href="a00265.html#ab90ff1293386eada23550869392b800f">qpid::client::QueueOptions::strQueueEventMode</a><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00477_source.html#l00122">122</a> of file <a class="el" href="a00477_source.html">QueueOptions.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a63baf77269b26ce18ca28413a2db4df0"></a><!-- doxytag: member="qpid::client::QueueOptions::strREJECT" ref="a63baf77269b26ce18ca28413a2db4df0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a> <a class="el" href="a00265.html#a63baf77269b26ce18ca28413a2db4df0">qpid::client::QueueOptions::strREJECT</a><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00477_source.html#l00114">114</a> of file <a class="el" href="a00477_source.html">QueueOptions.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adc9531ddd5712a5f20e9934ac72b8935"></a><!-- doxytag: member="qpid::client::QueueOptions::strRING" ref="adc9531ddd5712a5f20e9934ac72b8935" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a> <a class="el" href="a00265.html#adc9531ddd5712a5f20e9934ac72b8935">qpid::client::QueueOptions::strRING</a><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00477_source.html#l00116">116</a> of file <a class="el" href="a00477_source.html">QueueOptions.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8206ae8da1ac8e748f5cb46d5d3938b2"></a><!-- doxytag: member="qpid::client::QueueOptions::strRING_STRICT" ref="a8206ae8da1ac8e748f5cb46d5d3938b2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a> <a class="el" href="a00265.html#a8206ae8da1ac8e748f5cb46d5d3938b2">qpid::client::QueueOptions::strRING_STRICT</a><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00477_source.html#l00117">117</a> of file <a class="el" href="a00477_source.html">QueueOptions.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a526312de4f5c920548f7dad843ee7cb5"></a><!-- doxytag: member="qpid::client::QueueOptions::strTypeKey" ref="a526312de4f5c920548f7dad843ee7cb5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a> <a class="el" href="a00265.html#a526312de4f5c920548f7dad843ee7cb5">qpid::client::QueueOptions::strTypeKey</a><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00477_source.html#l00113">113</a> of file <a class="el" href="a00477_source.html">QueueOptions.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/framing/<a class="el" href="a00515_source.html">QueueQueryResult.h</a></li>
+<li>qpid/client/<a class="el" href="a00477_source.html">QueueOptions.h</a></li>
 </ul>
 </div>
 <!--
@@ -862,7 +1481,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

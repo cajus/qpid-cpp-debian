@@ -34,6 +34,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -72,6 +73,7 @@ public:
         flags |= (1 << 12);
         flags |= (1 << 13);
         flags |= (1 << 14);
+        if (firstConfig.size() >= 65536) throw IllegalArgumentException("Value for firstConfig is too large");
     }
     ClusterInitialStatusBody(ProtocolVersion=ProtocolVersion())  : version(0), storeState(0), flags(0) {}
     

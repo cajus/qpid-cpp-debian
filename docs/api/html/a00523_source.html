@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/framing/Uuid.h Source File</title>
+    <title>qpid/framing/StructHelper.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,82 +58,66 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/framing/Uuid.h</div>  </div>
+<div class="title">qpid/framing/StructHelper.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00523.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_FRAMING_UUID_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_FRAMING_UUID_H</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="comment">/*</span>
-<a name="l00005"></a>00005 <span class="comment"> *</span>
-<a name="l00006"></a>00006 <span class="comment"> * Copyright (c) 2006 The Apache Software Foundation</span>
-<a name="l00007"></a>00007 <span class="comment"> *</span>
-<a name="l00008"></a>00008 <span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
-<a name="l00009"></a>00009 <span class="comment"> * you may not use this file except in compliance with the License.</span>
-<a name="l00010"></a>00010 <span class="comment"> * You may obtain a copy of the License at</span>
-<a name="l00011"></a>00011 <span class="comment"> *</span>
-<a name="l00012"></a>00012 <span class="comment"> *    http://www.apache.org/licenses/LICENSE-2.0</span>
-<a name="l00013"></a>00013 <span class="comment"> *</span>
-<a name="l00014"></a>00014 <span class="comment"> * Unless required by applicable law or agreed to in writing, software</span>
-<a name="l00015"></a>00015 <span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
-<a name="l00016"></a>00016 <span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
-<a name="l00017"></a>00017 <span class="comment"> * See the License for the specific language governing permissions and</span>
-<a name="l00018"></a>00018 <span class="comment"> * limitations under the License.</span>
+<a href="a00523.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> *</span>
+<a name="l00003"></a>00003 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
+<a name="l00004"></a>00004 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
+<a name="l00005"></a>00005 <span class="comment"> * distributed with this work for additional information</span>
+<a name="l00006"></a>00006 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
+<a name="l00007"></a>00007 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
+<a name="l00008"></a>00008 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
+<a name="l00009"></a>00009 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
+<a name="l00010"></a>00010 <span class="comment"> *</span>
+<a name="l00011"></a>00011 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
+<a name="l00012"></a>00012 <span class="comment"> *</span>
+<a name="l00013"></a>00013 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
+<a name="l00014"></a>00014 <span class="comment"> * software distributed under the License is distributed on an</span>
+<a name="l00015"></a>00015 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<a name="l00016"></a>00016 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
+<a name="l00017"></a>00017 <span class="comment"> * specific language governing permissions and limitations</span>
+<a name="l00018"></a>00018 <span class="comment"> * under the License.</span>
 <a name="l00019"></a>00019 <span class="comment"> *</span>
 <a name="l00020"></a>00020 <span class="comment"> */</span>
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="a00482.html">qpid/CommonImportExport.h</a>&quot;</span>
-<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;<a class="code" href="a00554.html">qpid/sys/IntegerTypes.h</a>&quot;</span>
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="preprocessor">#include &lt;boost/array.hpp&gt;</span>
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 <span class="preprocessor">#include &lt;ostream&gt;</span>
-<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;istream&gt;</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#ifndef _StructHelper_</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define _StructHelper_</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="a00492.html">qpid/Exception.h</a>&quot;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00484.html">qpid/CommonImportExport.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00498.html">qpid/framing/Buffer.h</a>&quot;</span>
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;stdlib.h&gt;</span> <span class="comment">// For alloca</span>
 <a name="l00029"></a>00029 
 <a name="l00030"></a>00030 <span class="keyword">namespace </span>qpid {
 <a name="l00031"></a>00031 <span class="keyword">namespace </span>framing {
 <a name="l00032"></a>00032 
-<a name="l00033"></a>00033 <span class="keyword">class </span>Buffer;
-<a name="l00034"></a>00034 
-<a name="l00044"></a>00044 <span class="keyword">struct </span>Uuid : <span class="keyword">public</span> boost::array&lt;uint8_t, 16&gt; {
-<a name="l00046"></a>00046     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00374.html#ac622bac5c6cf8c5ecb8c1e7c186f9928" title="If unique is true, generate a unique ID else a null ID.">Uuid</a>(<span class="keywordtype">bool</span> unique=<span class="keyword">false</span>);
-<a name="l00047"></a>00047 
-<a name="l00049"></a>00049     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00374.html#ac622bac5c6cf8c5ecb8c1e7c186f9928" title="If unique is true, generate a unique ID else a null ID.">Uuid</a>(<span class="keyword">const</span> <a class="code" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* data);
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051     <span class="comment">// Default op= and copy ctor are fine.</span>
-<a name="l00052"></a>00052     <span class="comment">// boost::array gives us ==, &lt; etc.</span>
-<a name="l00053"></a>00053 
-<a name="l00055"></a>00055     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00374.html#a364c6496407e8ff8b98512734493fc37" title="Copy from 16 bytes of data.">assign</a>(<span class="keyword">const</span> <a class="code" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* data);
-<a name="l00056"></a>00056 
-<a name="l00058"></a>00058     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00374.html#a755bdc9ff962ee503fa56b46f51e7b3b" title="Set to a new unique identifier.">generate</a>();
-<a name="l00059"></a>00059 
-<a name="l00061"></a>00061     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00374.html#a3f2c38c6779ef8eb4654569a3070fc11" title="Set to all zeros.">clear</a>();
-<a name="l00062"></a>00062 
-<a name="l00064"></a>00064     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> <a class="code" href="a00374.html#a4db874e04ad413e953d114b3bdbd75c2" title="Test for null (all zeros).">isNull</a>() <span class="keyword">const</span>;
-<a name="l00065"></a><a class="code" href="a00374.html#a5b19e576389cd63cda51a643b4048177">00065</a>     <a class="code" href="a00482.html#a22b814cc5ef605d90a1295eae41f4ee4">QPID_COMMON_INLINE_EXTERN</a> <a class="code" href="a00374.html#a5b19e576389cd63cda51a643b4048177">operator bool</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> !<a class="code" href="a00374.html#a4db874e04ad413e953d114b3bdbd75c2" title="Test for null (all zeros).">isNull</a>(); }
-<a name="l00066"></a><a class="code" href="a00374.html#a5bb1757be7a031f057aa90b40d56afbf">00066</a>     <a class="code" href="a00482.html#a22b814cc5ef605d90a1295eae41f4ee4">QPID_COMMON_INLINE_EXTERN</a> <span class="keywordtype">bool</span> <a class="code" href="a00374.html#a5bb1757be7a031f057aa90b40d56afbf">operator!</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a00374.html#a4db874e04ad413e953d114b3bdbd75c2" title="Test for null (all zeros).">isNull</a>(); }
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00374.html#aee5d6e50f1c557714376beb1cebdcd7b">encode</a>(<a class="code" href="a00045.html">framing::Buffer</a>&amp; buf) <span class="keyword">const</span>;
-<a name="l00069"></a>00069     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00374.html#ad2c1f4b7c81cad86f04c101b7b36d4e2">decode</a>(<a class="code" href="a00045.html">framing::Buffer</a>&amp; buf);
-<a name="l00070"></a><a class="code" href="a00374.html#a600bdbc7003300b1aebf8612a6713ed3">00070</a>     <a class="code" href="a00482.html#a22b814cc5ef605d90a1295eae41f4ee4">QPID_COMMON_INLINE_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00374.html#a600bdbc7003300b1aebf8612a6713ed3">encodedSize</a>()<span class="keyword"> const</span>
-<a name="l00071"></a>00071 <span class="keyword">        </span>{ <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a><span class="keyword">&gt;</span>(size()); }
-<a name="l00072"></a>00072 
-<a name="l00074"></a>00074     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> std<a class="code" href="a00345.html" title="STL class.">::string</a> <a class="code" href="a00374.html#a74fbe835b16d8d801d98aac8d366ff18" title="String value in format 1b4e28ba-2fa1-11d2-883f-b9a761bde3fb.">str</a>() <span class="keyword">const</span>;
-<a name="l00075"></a>00075 
-<a name="l00076"></a><a class="code" href="a00374.html#aa08916354dac37e9bc4e314cbc31fe84">00076</a>     <span class="keyword">template</span> &lt;<span class="keyword">class</span> S&gt; <span class="keywordtype">void</span> <a class="code" href="a00374.html#aa08916354dac37e9bc4e314cbc31fe84">serialize</a>(S&amp; s) {
-<a name="l00077"></a>00077         s.raw(begin(), size());
-<a name="l00078"></a>00078     }
-<a name="l00079"></a>00079 };
-<a name="l00080"></a>00080 
-<a name="l00082"></a>00082 <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> std::ostream&amp; <a class="code" href="a00580.html#a26b5aa4aa3e48e044e86832a401304b7">operator&lt;&lt;</a>(<a class="code" href="a00243.html" title="STL class.">std::ostream</a>&amp;, Uuid);
-<a name="l00083"></a>00083 
-<a name="l00085"></a>00085 <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> std::istream&amp; <a class="code" href="a00580.html#ade2cb5f386342566654b4e144bb73237" title="Read from format 1b4e28ba-2fa1-11d2-883f-b9a761bde3fb.">operator&gt;&gt;</a>(<a class="code" href="a00170.html" title="STL class.">std::istream</a>&amp;, Uuid&amp;);
-<a name="l00086"></a>00086 
-<a name="l00087"></a>00087 }} <span class="comment">// namespace qpid::framing</span>
-<a name="l00088"></a>00088 
-<a name="l00089"></a>00089 
-<a name="l00090"></a>00090 
-<a name="l00091"></a>00091 <span class="preprocessor">#endif  </span>
+<a name="l00033"></a>00033 <span class="keyword">class </span><a class="code" href="a00484.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> StructHelper
+<a name="l00034"></a>00034 {
+<a name="l00035"></a>00035 <span class="keyword">public</span>:
+<a name="l00036"></a>00036 
+<a name="l00037"></a><a class="code" href="a00350.html#adacc48f8f34b47622fe1d9a705cd1c31">00037</a>     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="a00350.html#adacc48f8f34b47622fe1d9a705cd1c31">encode</a>(<span class="keyword">const</span> T&amp; t, <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; data) {
+<a name="l00038"></a>00038         <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> size = t.bodySize() + 2<span class="comment">/*type*/</span>;
+<a name="l00039"></a>00039         data.resize(size);
+<a name="l00040"></a>00040         <a class="code" href="a00045.html">Buffer</a> wbuffer(const_cast&lt;char*&gt;(data.data()), size);
+<a name="l00041"></a>00041         wbuffer.<a class="code" href="a00045.html#a14f36dbf812ebe377dae97c65155b8e2">putShort</a>(T::TYPE);
+<a name="l00042"></a>00042         t.encodeStructBody(wbuffer);
+<a name="l00043"></a>00043     }
+<a name="l00044"></a>00044 
+<a name="l00045"></a><a class="code" href="a00350.html#a98131849d179db1ff9766307fbb142a8">00045</a>     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="a00350.html#a98131849d179db1ff9766307fbb142a8">decode</a>(T&amp; t, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; data) {
+<a name="l00046"></a>00046         <a class="code" href="a00045.html">Buffer</a> rbuffer(const_cast&lt;char*&gt;(data.data()), data.length());
+<a name="l00047"></a>00047         <a class="code" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> type = rbuffer.<a class="code" href="a00045.html#a998b60e3c056f12841ae2b96b176c73d">getShort</a>();
+<a name="l00048"></a>00048         <span class="keywordflow">if</span> (type == T::TYPE) {
+<a name="l00049"></a>00049             t.decodeStructBody(rbuffer);
+<a name="l00050"></a>00050         } <span class="keywordflow">else</span> {
+<a name="l00051"></a>00051             <span class="keywordflow">throw</span> <a class="code" href="a00116.html" title="Base class for Qpid runtime exceptions.">Exception</a>(<span class="stringliteral">&quot;Type code does not match&quot;</span>);
+<a name="l00052"></a>00052         }
+<a name="l00053"></a>00053     }
+<a name="l00054"></a>00054 };
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 }}
+<a name="l00057"></a>00057 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--
@@ -163,7 +147,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

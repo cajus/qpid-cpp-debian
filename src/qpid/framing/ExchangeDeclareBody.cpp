@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ExchangeDeclareBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ExchangeDeclareBody::setExchange(const std::string& _exchange) {
     exchange = _exchange;
     flags |= (1 << 8);
+    if (exchange.size() >= 256) throw IllegalArgumentException("Value for exchange is too large");
 }
 const std::string& ExchangeDeclareBody::getExchange() const { return exchange; }
 bool ExchangeDeclareBody::hasExchange() const { return flags & (1 << 8); }
@@ -41,6 +42,7 @@ void ExchangeDeclareBody::clearExchangeFlag() { flags &= ~(1 << 8); }
 void ExchangeDeclareBody::setType(const std::string& _type) {
     type = _type;
     flags |= (1 << 9);
+    if (type.size() >= 256) throw IllegalArgumentException("Value for type is too large");
 }
 const std::string& ExchangeDeclareBody::getType() const { return type; }
 bool ExchangeDeclareBody::hasType() const { return flags & (1 << 9); }
@@ -49,6 +51,7 @@ void ExchangeDeclareBody::clearTypeFlag() { flags &= ~(1 << 9); }
 void ExchangeDeclareBody::setAlternateExchange(const std::string& _alternateExchange) {
     alternateExchange = _alternateExchange;
     flags |= (1 << 10);
+    if (alternateExchange.size() >= 256) throw IllegalArgumentException("Value for alternateExchange is too large");
 }
 const std::string& ExchangeDeclareBody::getAlternateExchange() const { return alternateExchange; }
 bool ExchangeDeclareBody::hasAlternateExchange() const { return flags & (1 << 10); }

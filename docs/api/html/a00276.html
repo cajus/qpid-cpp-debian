@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::framing::ReplyTo Class Reference</title>
+    <title>qpid::client::MessageReplayTracker::ReplayRecord Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,119 +60,70 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00580.html">framing</a>      </li>
-      <li class="navelem"><a class="el" href="a00276.html">ReplyTo</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00212.html">MessageReplayTracker</a>      </li>
+      <li class="navelem"><a class="el" href="a00276.html">ReplayRecord</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#friends">Friends</a>  </div>
+<a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::framing::ReplyTo Class Reference</div>  </div>
+<div class="title">qpid::client::MessageReplayTracker::ReplayRecord Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::framing::ReplyTo" -->
-<p><code>#include &lt;<a class="el" href="a00517_source.html">qpid/framing/ReplyTo.h</a>&gt;</code></p>
-
-<p><a href="a00809.html">List of all members.</a></p>
+<!-- doxytag: class="qpid::client::MessageReplayTracker::ReplayRecord" -->
+<p><a href="a00696.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#aca6a28db051adf902bc86de1827c09cd">ReplyTo</a> (const <a class="el" href="a00345.html">std::string</a> &amp;_exchange, const <a class="el" href="a00345.html">std::string</a> &amp;_routingKey)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#a44f0ec195c6abf34b9a288454095a3e2">ReplyTo</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#a19143939f11da0fc2d88a8bde1e92f00">setExchange</a> (const <a class="el" href="a00345.html">std::string</a> &amp;_exchange)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#a7ff20f57b3b395c9eb2c3b6c5734a872">getExchange</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#a0c62399b540efe7b9380de42a1369949">hasExchange</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#af50d8f2bf2b0f009d1fea8819289e37a">clearExchangeFlag</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#ac27a79cc883ba9cfa829a700dc1fdd39">setRoutingKey</a> (const <a class="el" href="a00345.html">std::string</a> &amp;_routingKey)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#a38b1b558099b3c95406436a79060251a">getRoutingKey</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#a810958c822ce5559181349b86d1f94d3">hasRoutingKey</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#acadffd975abd3922d9b06f49f9f22b5c">clearRoutingKeyFlag</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#a75f5b0699d315e11d10f87029d070add">encode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#af4033e7cff367ad0332a4d5338422209">decode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;, <a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#a3118e5b135e4ef9a1af27213e1b7a41f">encodeStructBody</a> (<a class="el" href="a00045.html">Buffer</a> &amp;) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#af3c7e8318077c042a1b89595ec3d7a02">decodeStructBody</a> (<a class="el" href="a00045.html">Buffer</a> &amp;, <a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#a4ed321313f67c80b5a2ecb346e77c0f0">encodedSize</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#a157d6810135b44e3019b3c048fa8f7ff">bodySize</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#a5c8127c8ad19ea7d05e80afd330ee54a">print</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;out) const </td></tr>
-<tr><td colspan="2"><h2><a name="friends"></a>
-Friends</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#af56ad0d75ed6be5b8dbc595522f9f02c">operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;, const <a class="el" href="a00276.html">ReplyTo</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#a114de9c80d141bbef1e880e9c98aecd8">ReplayRecord</a> (const <a class="el" href="a00208.html">Message</a> &amp;<a class="el" href="a00276.html#aa5ca9e04c64f4a8d6ae840234d446238">message</a>, const <a class="el" href="a00346.html">std::string</a> &amp;<a class="el" href="a00276.html#a2e3cb37596ab33a5a9d94222d3b27ab6">destination</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#a88ffc4aa7d28f267cb00607c1ae1c070">send</a> (<a class="el" href="a00212.html">MessageReplayTracker</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#a0406b655819a390448e6ed6a4ea5b268">isComplete</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00056.html">Completion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#ad80983e6b29c2984a1ec7ce8ac90ba16">status</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00208.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#aa5ca9e04c64f4a8d6ae840234d446238">message</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00276.html#a2e3cb37596ab33a5a9d94222d3b27ab6">destination</a></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aca6a28db051adf902bc86de1827c09cd"></a><!-- doxytag: member="qpid::framing::ReplyTo::ReplyTo" ref="aca6a28db051adf902bc86de1827c09cd" args="(const std::string &amp;_exchange, const std::string &amp;_routingKey)" -->
+<a class="anchor" id="a114de9c80d141bbef1e880e9c98aecd8"></a><!-- doxytag: member="qpid::client::MessageReplayTracker::ReplayRecord::ReplayRecord" ref="a114de9c80d141bbef1e880e9c98aecd8" args="(const Message &amp;message, const std::string &amp;destination)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::framing::ReplyTo::ReplyTo </td>
+          <td class="memname">qpid::client::MessageReplayTracker::ReplayRecord::ReplayRecord </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>_exchange</em>, </td>
+          <td class="paramtype">const <a class="el" href="a00208.html">Message</a> &amp;&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>_routingKey</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>destination</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td><code> [inline]</code></td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00517_source.html#l00043">43</a> of file <a class="el" href="a00517_source.html">ReplyTo.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a44f0ec195c6abf34b9a288454095a3e2"></a><!-- doxytag: member="qpid::framing::ReplyTo::ReplyTo" ref="a44f0ec195c6abf34b9a288454095a3e2" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::framing::ReplyTo::ReplyTo </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00517_source.html#l00052">52</a> of file <a class="el" href="a00517_source.html">ReplyTo.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a157d6810135b44e3019b3c048fa8f7ff"></a><!-- doxytag: member="qpid::framing::ReplyTo::bodySize" ref="a157d6810135b44e3019b3c048fa8f7ff" args="() const " -->
+<a class="anchor" id="a0406b655819a390448e6ed6a4ea5b268"></a><!-- doxytag: member="qpid::client::MessageReplayTracker::ReplayRecord::isComplete" ref="a0406b655819a390448e6ed6a4ea5b268" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::ReplyTo::bodySize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af50d8f2bf2b0f009d1fea8819289e37a"></a><!-- doxytag: member="qpid::framing::ReplyTo::clearExchangeFlag" ref="af50d8f2bf2b0f009d1fea8819289e37a" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::ReplyTo::clearExchangeFlag </td>
+          <td class="memname">bool qpid::client::MessageReplayTracker::ReplayRecord::isComplete </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -183,13 +134,14 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="acadffd975abd3922d9b06f49f9f22b5c"></a><!-- doxytag: member="qpid::framing::ReplyTo::clearRoutingKeyFlag" ref="acadffd975abd3922d9b06f49f9f22b5c" args="()" -->
+<a class="anchor" id="a88ffc4aa7d28f267cb00607c1ae1c070"></a><!-- doxytag: member="qpid::client::MessageReplayTracker::ReplayRecord::send" ref="a88ffc4aa7d28f267cb00607c1ae1c070" args="(MessageReplayTracker &amp;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::ReplyTo::clearRoutingKeyFlag </td>
+          <td class="memname">void qpid::client::MessageReplayTracker::ReplayRecord::send </td>
           <td>(</td>
+          <td class="paramtype"><a class="el" href="a00212.html">MessageReplayTracker</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -199,255 +151,54 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af4033e7cff367ad0332a4d5338422209"></a><!-- doxytag: member="qpid::framing::ReplyTo::decode" ref="af4033e7cff367ad0332a4d5338422209" args="(Buffer &amp;, uint32_t=0)" -->
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a2e3cb37596ab33a5a9d94222d3b27ab6"></a><!-- doxytag: member="qpid::client::MessageReplayTracker::ReplayRecord::destination" ref="a2e3cb37596ab33a5a9d94222d3b27ab6" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::ReplyTo::decode </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> <a class="el" href="a00276.html#a2e3cb37596ab33a5a9d94222d3b27ab6">qpid::client::MessageReplayTracker::ReplayRecord::destination</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Definition at line <a class="el" href="a00474_source.html#l00059">59</a> of file <a class="el" href="a00474_source.html">MessageReplayTracker.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="af3c7e8318077c042a1b89595ec3d7a02"></a><!-- doxytag: member="qpid::framing::ReplyTo::decodeStructBody" ref="af3c7e8318077c042a1b89595ec3d7a02" args="(Buffer &amp;, uint32_t=0)" -->
+<a class="anchor" id="aa5ca9e04c64f4a8d6ae840234d446238"></a><!-- doxytag: member="qpid::client::MessageReplayTracker::ReplayRecord::message" ref="aa5ca9e04c64f4a8d6ae840234d446238" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::ReplyTo::decodeStructBody </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname"><a class="el" href="a00208.html">Message</a> <a class="el" href="a00276.html#aa5ca9e04c64f4a8d6ae840234d446238">qpid::client::MessageReplayTracker::ReplayRecord::message</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Definition at line <a class="el" href="a00474_source.html#l00058">58</a> of file <a class="el" href="a00474_source.html">MessageReplayTracker.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a75f5b0699d315e11d10f87029d070add"></a><!-- doxytag: member="qpid::framing::ReplyTo::encode" ref="a75f5b0699d315e11d10f87029d070add" args="(Buffer &amp;) const " -->
+<a class="anchor" id="ad80983e6b29c2984a1ec7ce8ac90ba16"></a><!-- doxytag: member="qpid::client::MessageReplayTracker::ReplayRecord::status" ref="ad80983e6b29c2984a1ec7ce8ac90ba16" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::ReplyTo::encode </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="memname"><a class="el" href="a00056.html">Completion</a> <a class="el" href="a00276.html#ad80983e6b29c2984a1ec7ce8ac90ba16">qpid::client::MessageReplayTracker::ReplayRecord::status</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="a4ed321313f67c80b5a2ecb346e77c0f0"></a><!-- doxytag: member="qpid::framing::ReplyTo::encodedSize" ref="a4ed321313f67c80b5a2ecb346e77c0f0" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::ReplyTo::encodedSize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Definition at line <a class="el" href="a00474_source.html#l00057">57</a> of file <a class="el" href="a00474_source.html">MessageReplayTracker.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3118e5b135e4ef9a1af27213e1b7a41f"></a><!-- doxytag: member="qpid::framing::ReplyTo::encodeStructBody" ref="a3118e5b135e4ef9a1af27213e1b7a41f" args="(Buffer &amp;) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::ReplyTo::encodeStructBody </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7ff20f57b3b395c9eb2c3b6c5734a872"></a><!-- doxytag: member="qpid::framing::ReplyTo::getExchange" ref="a7ff20f57b3b395c9eb2c3b6c5734a872" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a>&amp; qpid::framing::ReplyTo::getExchange </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a38b1b558099b3c95406436a79060251a"></a><!-- doxytag: member="qpid::framing::ReplyTo::getRoutingKey" ref="a38b1b558099b3c95406436a79060251a" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a>&amp; qpid::framing::ReplyTo::getRoutingKey </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0c62399b540efe7b9380de42a1369949"></a><!-- doxytag: member="qpid::framing::ReplyTo::hasExchange" ref="a0c62399b540efe7b9380de42a1369949" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::ReplyTo::hasExchange </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a810958c822ce5559181349b86d1f94d3"></a><!-- doxytag: member="qpid::framing::ReplyTo::hasRoutingKey" ref="a810958c822ce5559181349b86d1f94d3" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::ReplyTo::hasRoutingKey </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5c8127c8ad19ea7d05e80afd330ee54a"></a><!-- doxytag: member="qpid::framing::ReplyTo::print" ref="a5c8127c8ad19ea7d05e80afd330ee54a" args="(std::ostream &amp;out) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::ReplyTo::print </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a19143939f11da0fc2d88a8bde1e92f00"></a><!-- doxytag: member="qpid::framing::ReplyTo::setExchange" ref="a19143939f11da0fc2d88a8bde1e92f00" args="(const std::string &amp;_exchange)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::ReplyTo::setExchange </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>_exchange</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac27a79cc883ba9cfa829a700dc1fdd39"></a><!-- doxytag: member="qpid::framing::ReplyTo::setRoutingKey" ref="ac27a79cc883ba9cfa829a700dc1fdd39" args="(const std::string &amp;_routingKey)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::ReplyTo::setRoutingKey </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>_routingKey</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/><h2>Friends And Related Function Documentation</h2>
-<a class="anchor" id="af56ad0d75ed6be5b8dbc595522f9f02c"></a><!-- doxytag: member="qpid::framing::ReplyTo::operator&lt;&lt;" ref="af56ad0d75ed6be5b8dbc595522f9f02c" args="(std::ostream &amp;, const ReplyTo &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00243.html">std::ostream</a>&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00276.html">ReplyTo</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/framing/<a class="el" href="a00517_source.html">ReplyTo.h</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>qpid/client/<a class="el" href="a00474_source.html">MessageReplayTracker.h</a></li>
 </ul>
 </div>
 <!--
@@ -477,7 +228,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

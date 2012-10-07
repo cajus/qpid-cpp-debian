@@ -26,7 +26,7 @@
 
 
 #include "qpid/framing/FileAckBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 

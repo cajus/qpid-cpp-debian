@@ -1,6 +1,6 @@
 
-#ifndef _ARGS_HABROKERSETPUBLICBROKERS_
-#define _ARGS_HABROKERSETPUBLICBROKERS_
+#ifndef _ARGS_ACLLOOKUPPUBLISH_
+#define _ARGS_ACLLOOKUPPUBLISH_
 
 //
 // Licensed to the Apache Software Foundation (ASF) under one
@@ -31,16 +31,19 @@ namespace qmf {
 namespace org {
 namespace apache {
 namespace qpid {
-namespace ha {
+namespace acl {
 
 
-    class ArgsHaBrokerSetPublicBrokers : public ::qpid::management::Args
+    class ArgsAclLookupPublish : public ::qpid::management::Args
 {
   public:
-    std::string i_url;
+    std::string i_userId;
+    std::string i_exchangeName;
+    std::string i_routingKey;
+    std::string o_result;
 
 };
 
 }}}}}
 
-#endif  /*!_ARGS_HABROKERSETPUBLICBROKERS_*/
+#endif  /*!_ARGS_ACLLOOKUPPUBLISH_*/

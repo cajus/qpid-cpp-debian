@@ -26,7 +26,7 @@
 
 
 #include "qpid/framing/ClusterConnectionShadowReadyBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
@@ -49,6 +49,7 @@ void ClusterConnectionShadowReadyBody::clearConnectionIdFlag() { flags &= ~(1 <<
 void ClusterConnectionShadowReadyBody::setManagementId(const std::string& _managementId) {
     managementId = _managementId;
     flags |= (1 << 10);
+    if (managementId.size() >= 65536) throw IllegalArgumentException("Value for managementId is too large");
 }
 const std::string& ClusterConnectionShadowReadyBody::getManagementId() const { return managementId; }
 bool ClusterConnectionShadowReadyBody::hasManagementId() const { return flags & (1 << 10); }
@@ -57,6 +58,7 @@ void ClusterConnectionShadowReadyBody::clearManagementIdFlag() { flags &= ~(1 <<
 void ClusterConnectionShadowReadyBody::setUserName(const std::string& _userName) {
     userName = _userName;
     flags |= (1 << 11);
+    if (userName.size() >= 256) throw IllegalArgumentException("Value for userName is too large");
 }
 const std::string& ClusterConnectionShadowReadyBody::getUserName() const { return userName; }
 bool ClusterConnectionShadowReadyBody::hasUserName() const { return flags & (1 << 11); }

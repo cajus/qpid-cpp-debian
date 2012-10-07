@@ -166,6 +166,7 @@ class QPID_COMMON_CLASS_EXTERN AMQP_AllOperations::Invoker:
     QPID_COMMON_EXTERN void visit(const ClusterConnectionQueueObserverStateBody& body);
     QPID_COMMON_EXTERN void visit(const ClusterConnectionClockBody& body);
     QPID_COMMON_EXTERN void visit(const ClusterConnectionQueueDequeueSincePurgeStateBody& body);
+    QPID_COMMON_EXTERN void visit(const ClusterConnectionInternalStateBody& body);
 };
 
 class QPID_COMMON_CLASS_EXTERN AMQP_AllOperations::ConnectionHandler::Invoker:
@@ -398,6 +399,7 @@ class QPID_COMMON_CLASS_EXTERN AMQP_AllOperations::ClusterConnectionHandler::Inv
     QPID_COMMON_EXTERN void visit(const ClusterConnectionQueueObserverStateBody& body);
     QPID_COMMON_EXTERN void visit(const ClusterConnectionClockBody& body);
     QPID_COMMON_EXTERN void visit(const ClusterConnectionQueueDequeueSincePurgeStateBody& body);
+    QPID_COMMON_EXTERN void visit(const ClusterConnectionInternalStateBody& body);
 };
 
 }} // namespace qpid::framing

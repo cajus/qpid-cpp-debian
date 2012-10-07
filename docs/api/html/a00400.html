@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::framing::XaResult Class Reference</title>
+    <title>std::wstringstream Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,337 +60,22 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00580.html">framing</a>      </li>
-      <li class="navelem"><a class="el" href="a00400.html">XaResult</a>      </li>
+      <li class="navelem"><b>std</b>      </li>
+      <li class="navelem"><a class="el" href="a00400.html">wstringstream</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="#friends">Friends</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::framing::XaResult Class Reference</div>  </div>
+<div class="title">std::wstringstream Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::framing::XaResult" -->
-<p><code>#include &lt;<a class="el" href="a00525_source.html">qpid/framing/XaResult.h</a>&gt;</code></p>
-
-<p><a href="a00816.html">List of all members.</a></p>
-<table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#adda9e19c2e70266269bcf1ed617ea591">XaResult</a> (<a class="el" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> _status)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#a4dfe33d04258c90fdef805b52529156a">XaResult</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#ac9bd7f91c871db546cee1e7cb57c071f">setStatus</a> (<a class="el" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> _status)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#a7d20138c4d9d3247107aca7af519779c">getStatus</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#a987c2713e1c883382811b614044168e1">hasStatus</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#a85406149c8f03179aaf58edb8338f10b">clearStatusFlag</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#ae4d29cc0c07122c4523881e5160a6f5b">encode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#a1acacdf449c922cac1c815a357960a07">decode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;, <a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#a663f2eb59a49a93b8c58c5a20bc0af4b">encodeStructBody</a> (<a class="el" href="a00045.html">Buffer</a> &amp;) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#a04f9e0a91924513411192bc4709a7547">decodeStructBody</a> (<a class="el" href="a00045.html">Buffer</a> &amp;, <a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#affe2b5aab98ac0ae332b01171e20328e">encodedSize</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#a52ed24bf0d2e86cb2d9e53158d061e6d">bodySize</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#ae6d45b0dba4146faeb2aa44ddd2d6828">print</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;out) const </td></tr>
-<tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#ac86e28d64c47865d95954af722d96c71">TYPE</a> = 1537</td></tr>
-<tr><td colspan="2"><h2><a name="friends"></a>
-Friends</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00400.html#a96db821aa892b4804967317e38acda44">operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;, const <a class="el" href="a00400.html">XaResult</a> &amp;)</td></tr>
-</table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="adda9e19c2e70266269bcf1ed617ea591"></a><!-- doxytag: member="qpid::framing::XaResult::XaResult" ref="adda9e19c2e70266269bcf1ed617ea591" args="(uint16_t _status)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::framing::XaResult::XaResult </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td>
-          <td class="paramname"><em>_status</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00525_source.html#l00043">43</a> of file <a class="el" href="a00525_source.html">XaResult.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4dfe33d04258c90fdef805b52529156a"></a><!-- doxytag: member="qpid::framing::XaResult::XaResult" ref="a4dfe33d04258c90fdef805b52529156a" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::framing::XaResult::XaResult </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00525_source.html#l00049">49</a> of file <a class="el" href="a00525_source.html">XaResult.h</a>.</p>
-
-</div>
-</div>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a52ed24bf0d2e86cb2d9e53158d061e6d"></a><!-- doxytag: member="qpid::framing::XaResult::bodySize" ref="a52ed24bf0d2e86cb2d9e53158d061e6d" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::XaResult::bodySize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a85406149c8f03179aaf58edb8338f10b"></a><!-- doxytag: member="qpid::framing::XaResult::clearStatusFlag" ref="a85406149c8f03179aaf58edb8338f10b" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::XaResult::clearStatusFlag </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1acacdf449c922cac1c815a357960a07"></a><!-- doxytag: member="qpid::framing::XaResult::decode" ref="a1acacdf449c922cac1c815a357960a07" args="(Buffer &amp;, uint32_t=0)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::XaResult::decode </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a04f9e0a91924513411192bc4709a7547"></a><!-- doxytag: member="qpid::framing::XaResult::decodeStructBody" ref="a04f9e0a91924513411192bc4709a7547" args="(Buffer &amp;, uint32_t=0)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::XaResult::decodeStructBody </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae4d29cc0c07122c4523881e5160a6f5b"></a><!-- doxytag: member="qpid::framing::XaResult::encode" ref="ae4d29cc0c07122c4523881e5160a6f5b" args="(Buffer &amp;) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::XaResult::encode </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="affe2b5aab98ac0ae332b01171e20328e"></a><!-- doxytag: member="qpid::framing::XaResult::encodedSize" ref="affe2b5aab98ac0ae332b01171e20328e" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::XaResult::encodedSize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a663f2eb59a49a93b8c58c5a20bc0af4b"></a><!-- doxytag: member="qpid::framing::XaResult::encodeStructBody" ref="a663f2eb59a49a93b8c58c5a20bc0af4b" args="(Buffer &amp;) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::XaResult::encodeStructBody </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7d20138c4d9d3247107aca7af519779c"></a><!-- doxytag: member="qpid::framing::XaResult::getStatus" ref="a7d20138c4d9d3247107aca7af519779c" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> qpid::framing::XaResult::getStatus </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a987c2713e1c883382811b614044168e1"></a><!-- doxytag: member="qpid::framing::XaResult::hasStatus" ref="a987c2713e1c883382811b614044168e1" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::XaResult::hasStatus </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae6d45b0dba4146faeb2aa44ddd2d6828"></a><!-- doxytag: member="qpid::framing::XaResult::print" ref="ae6d45b0dba4146faeb2aa44ddd2d6828" args="(std::ostream &amp;out) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::XaResult::print </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac9bd7f91c871db546cee1e7cb57c071f"></a><!-- doxytag: member="qpid::framing::XaResult::setStatus" ref="ac9bd7f91c871db546cee1e7cb57c071f" args="(uint16_t _status)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::XaResult::setStatus </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td>
-          <td class="paramname"><em>_status</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/><h2>Friends And Related Function Documentation</h2>
-<a class="anchor" id="a96db821aa892b4804967317e38acda44"></a><!-- doxytag: member="qpid::framing::XaResult::operator&lt;&lt;" ref="a96db821aa892b4804967317e38acda44" args="(std::ostream &amp;, const XaResult &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00243.html">std::ostream</a>&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00400.html">XaResult</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="ac86e28d64c47865d95954af722d96c71"></a><!-- doxytag: member="qpid::framing::XaResult::TYPE" ref="ac86e28d64c47865d95954af722d96c71" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="el" href="a00400.html#ac86e28d64c47865d95954af722d96c71">qpid::framing::XaResult::TYPE</a> = 1537<code> [static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00525_source.html#l00042">42</a> of file <a class="el" href="a00525_source.html">XaResult.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/framing/<a class="el" href="a00525_source.html">XaResult.h</a></li>
-</ul>
-</div>
+<!-- doxytag: class="std::wstringstream" --><!-- doxytag: inherits="basic_stringstream&lt; wchar_t &gt;" -->
+<p>STL class.  
+ <a href="a00400.html#details">More...</a></p>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>STL class. </p>
+</div><hr/>The documentation for this class was generated from the following file:</div>
 <!--
  
  Licensed to the Apache Software Foundation (ASF) under one
@@ -418,7 +103,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

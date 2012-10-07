@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::messaging::TargetCapacityExceeded Struct Reference</title>
+    <title>qpid::client::SubscriptionSettings Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,9 +60,9 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00591.html">messaging</a>      </li>
-      <li class="navelem"><a class="el" href="a00354.html">TargetCapacityExceeded</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00354.html">SubscriptionSettings</a>      </li>
     </ul>
   </div>
 </div>
@@ -71,81 +71,197 @@
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::messaging::TargetCapacityExceeded Struct Reference</div>  </div>
+<div class="title">qpid::client::SubscriptionSettings Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::messaging::TargetCapacityExceeded" --><!-- doxytag: inherits="qpid::messaging::SendError" -->
-<p>Thrown to indicate that the sender attempted to send a message that would result in the target node on the peer exceeding a preconfigured capacity.  
+<!-- doxytag: class="qpid::client::SubscriptionSettings" -->
+<p>Settings for a subscription.  
  <a href="a00354.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00436_source.html">qpid/messaging/exceptions.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00482_source.html">qpid/client/SubscriptionSettings.h</a>&gt;</code></p>
 
-<p><a href="a00860.html">List of all members.</a></p>
+<p><a href="a00703.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00354.html#afcb03e217b9db89cdbe20fcacea7172f">TargetCapacityExceeded</a> (const <a class="el" href="a00345.html">std::string</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual QPID_TYPES_EXTERN <br class="typebreak"/>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00112.html#a96ddb3fe10a2b9d059cb78832a64751d">what</a> () const   throw ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00354.html#a980c973a01509fa5e7a1e5ef8e658dfb">SubscriptionSettings</a> (<a class="el" href="a00134.html">FlowControl</a> flow=FlowControl::unlimited(), AcceptMode accept=ACCEPT_MODE_EXPLICIT, AcquireMode acquire=ACQUIRE_MODE_PRE_ACQUIRED, unsigned int autoAck_=1, <a class="el" href="a00578.html#a42369ab37a91cfa7cd1702713dd211c8">CompletionMode</a> completion=COMPLETE_ON_DELIVERY)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#ad2a0464e06d10b0ba61a4520bac1cfa7">detail</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00134.html">FlowControl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00354.html#a66b49dcd06ffd6edce7d131b2dcc8c26">flowControl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">AcceptMode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00354.html#a4b0f5918418310aa290e55acd7791db0">acceptMode</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Flow control settings.  <a href="#a4b0f5918418310aa290e55acd7791db0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">AcquireMode&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00354.html#a17a595e878e283a7cd53d7f7133928f7">acquireMode</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; ACCEPT_MODE_EXPLICIT or ACCEPT_MODE_NONE  <a href="#a17a595e878e283a7cd53d7f7133928f7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00354.html#abd5ab65d583da00e88a26d99e29a04bc">autoAck</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; ACQUIRE_MODE_PRE_ACQUIRED or ACQUIRE_MODE_NOT_ACQUIRED  <a href="#abd5ab65d583da00e88a26d99e29a04bc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00578.html#a42369ab37a91cfa7cd1702713dd211c8">CompletionMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00354.html#a17c7f3ad2e7d1cfd9b215659c9eab282">completionMode</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In windowing mode, completion of a message will cause the credit used up by that message to be reallocated.  <a href="#a17c7f3ad2e7d1cfd9b215659c9eab282"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00354.html#a22c04055189b60293c371d9ef7496222">exclusive</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">If set, requests that no other subscriber be allowed to access the queue while this subscription is active.  <a href="#a22c04055189b60293c371d9ef7496222"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Thrown to indicate that the sender attempted to send a message that would result in the target node on the peer exceeding a preconfigured capacity. </p>
+<div class="textblock"><p>Settings for a subscription. </p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="afcb03e217b9db89cdbe20fcacea7172f"></a><!-- doxytag: member="qpid::messaging::TargetCapacityExceeded::TargetCapacityExceeded" ref="afcb03e217b9db89cdbe20fcacea7172f" args="(const std::string &amp;)" -->
+<a class="anchor" id="a980c973a01509fa5e7a1e5ef8e658dfb"></a><!-- doxytag: member="qpid::client::SubscriptionSettings::SubscriptionSettings" ref="a980c973a01509fa5e7a1e5ef8e658dfb" args="(FlowControl flow=FlowControl::unlimited(), AcceptMode accept=ACCEPT_MODE_EXPLICIT, AcquireMode acquire=ACQUIRE_MODE_PRE_ACQUIRED, unsigned int autoAck_=1, CompletionMode completion=COMPLETE_ON_DELIVERY)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::messaging::TargetCapacityExceeded::TargetCapacityExceeded </td>
+          <td class="memname">qpid::client::SubscriptionSettings::SubscriptionSettings </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00134.html">FlowControl</a>&#160;</td>
+          <td class="paramname"><em>flow</em> = <code>FlowControl::unlimited()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">AcceptMode&#160;</td>
+          <td class="paramname"><em>accept</em> = <code>ACCEPT_MODE_EXPLICIT</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">AcquireMode&#160;</td>
+          <td class="paramname"><em>acquire</em> = <code>ACQUIRE_MODE_PRE_ACQUIRED</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>autoAck_</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00578.html#a42369ab37a91cfa7cd1702713dd211c8">CompletionMode</a>&#160;</td>
+          <td class="paramname"><em>completion</em> = <code>COMPLETE_ON_DELIVERY</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a96ddb3fe10a2b9d059cb78832a64751d"></a><!-- doxytag: member="qpid::messaging::TargetCapacityExceeded::what" ref="a96ddb3fe10a2b9d059cb78832a64751d" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual QPID_TYPES_EXTERN const char* qpid::types::Exception::what </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const  throw ()<code> [virtual, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Definition at line <a class="el" href="a00482_source.html#l00055">55</a> of file <a class="el" href="a00482_source.html">SubscriptionSettings.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="ad2a0464e06d10b0ba61a4520bac1cfa7"></a><!-- doxytag: member="qpid::messaging::TargetCapacityExceeded::detail" ref="ad2a0464e06d10b0ba61a4520bac1cfa7" args="" -->
+<a class="anchor" id="a4b0f5918418310aa290e55acd7791db0"></a><!-- doxytag: member="qpid::client::SubscriptionSettings::acceptMode" ref="a4b0f5918418310aa290e55acd7791db0" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> <a class="el" href="a00213.html#ad2a0464e06d10b0ba61a4520bac1cfa7">qpid::messaging::MessagingException::detail</a><code> [inherited]</code></td>
+          <td class="memname">AcceptMode <a class="el" href="a00354.html#a4b0f5918418310aa290e55acd7791db0">qpid::client::SubscriptionSettings::acceptMode</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00436_source.html#l00044">44</a> of file <a class="el" href="a00436_source.html">exceptions.h</a>.</p>
+<p>&lt; Flow control settings. </p>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="a00134.html" title="Flow control works by associating a finite amount of &quot;credit&quot; with a subscription.">FlowControl</a> The <a class="el" href="a00354.html#a4b0f5918418310aa290e55acd7791db0" title="&lt; Flow control settings.">acceptMode</a> determines whether the broker should expect delivery of messages to be acknowledged by the <a class="el" href="a00578.html">client</a> indicating that it accepts them. A value of ACCEPT_MODE_EXPLICIT means that messages must be accepted (note: this may be done automatically by the library - see <a class="el" href="a00354.html#abd5ab65d583da00e88a26d99e29a04bc" title="&lt; ACQUIRE_MODE_PRE_ACQUIRED or ACQUIRE_MODE_NOT_ACQUIRED">autoAck</a> - or through an explicit call be the application - see <a class="el" href="a00351.html#ab432864f349dc55c2f49eebc20e134c4" title="Accept messageIds and remove them from the unaccepted set.">Subscription::accept()</a>) before they can be dequeued. A value of ACCEPT_MODE_NONE means that the broker can dequeue a message as soon as it is acquired. </dd></dl>
+
+<p>Definition at line <a class="el" href="a00482_source.html#l00075">75</a> of file <a class="el" href="a00482_source.html">SubscriptionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a17a595e878e283a7cd53d7f7133928f7"></a><!-- doxytag: member="qpid::client::SubscriptionSettings::acquireMode" ref="a17a595e878e283a7cd53d7f7133928f7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">AcquireMode <a class="el" href="a00354.html#a17a595e878e283a7cd53d7f7133928f7">qpid::client::SubscriptionSettings::acquireMode</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>&lt; ACCEPT_MODE_EXPLICIT or ACCEPT_MODE_NONE </p>
+<p>The acquireMode determines whether messages are locked for the subscriber when delivered, and thus are not delivered to any other subscriber unless this subscriber releases them.</p>
+<p>The default is ACQUIRE_MODE_PRE_ACQUIRED meaning that the subscriber expects to have been given that message exclusively (i.e. the message will not be given to any other subscriber unless released explicitly or by this subscribers session failing without having accepted the message).</p>
+<p>Delivery of message in ACQUIRE_MODE_NOT_ACQUIRED mode means the message will still be available for other subscribers to receive. The application can if desired acquire a (set of) messages through an explicit acquire call - see <a class="el" href="a00351.html#ae876d4b0b942d0873d17d64655d683f4" title="Acquire messageIds and remove them from the unacquired set.">Subscription::acquire()</a>. </p>
+
+<p>Definition at line <a class="el" href="a00482_source.html#l00093">93</a> of file <a class="el" href="a00482_source.html">SubscriptionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd5ab65d583da00e88a26d99e29a04bc"></a><!-- doxytag: member="qpid::client::SubscriptionSettings::autoAck" ref="abd5ab65d583da00e88a26d99e29a04bc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="a00354.html#abd5ab65d583da00e88a26d99e29a04bc">qpid::client::SubscriptionSettings::autoAck</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>&lt; ACQUIRE_MODE_PRE_ACQUIRED or ACQUIRE_MODE_NOT_ACQUIRED </p>
+<p>Configures the frequency at which messages are automatically accepted (e.g. a value of 5 means that messages are accepted in batches of 5). A value of 0 means no automatic acknowledgement will occur and the application will itself be responsible for accepting messages. </p>
+
+<p>Definition at line <a class="el" href="a00482_source.html#l00102">102</a> of file <a class="el" href="a00482_source.html">SubscriptionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a17c7f3ad2e7d1cfd9b215659c9eab282"></a><!-- doxytag: member="qpid::client::SubscriptionSettings::completionMode" ref="a17c7f3ad2e7d1cfd9b215659c9eab282" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00578.html#a42369ab37a91cfa7cd1702713dd211c8">CompletionMode</a> <a class="el" href="a00354.html#a17c7f3ad2e7d1cfd9b215659c9eab282">qpid::client::SubscriptionSettings::completionMode</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>In windowing mode, completion of a message will cause the credit used up by that message to be reallocated. </p>
+<p>The subscriptions completion mode controls how completion is managed.</p>
+<p>If set to COMPLETE_ON_DELIVERY (which is the default), messages will be marked as completed once they have been received. The server will be explicitly notified of all completed messages for the session when the next accept is sent through the subscription (either explictly or through autAck). However the server may also periodically request information on the completed messages.</p>
+<p>If set to COMPLETE_ON_ACCEPT, messages will be marked as completed once they are accepted (via the <a class="el" href="a00351.html" title="A handle to an active subscription.">Subscription</a> class) and the server will also be notified of all completed messages for the session.</p>
+<p>If set to MANUAL_COMPLETION the application is responsible for completing messages (</p>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="a00329.html#a71b6f8e5c01c5ab1d8dba353f0c2dc6e">Session::markCompleted()</a>). </dd></dl>
+
+<p>Definition at line <a class="el" href="a00482_source.html#l00125">125</a> of file <a class="el" href="a00482_source.html">SubscriptionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a22c04055189b60293c371d9ef7496222"></a><!-- doxytag: member="qpid::client::SubscriptionSettings::exclusive" ref="a22c04055189b60293c371d9ef7496222" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a00354.html#a22c04055189b60293c371d9ef7496222">qpid::client::SubscriptionSettings::exclusive</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>If set, requests that no other subscriber be allowed to access the queue while this subscription is active. </p>
+
+<p>Definition at line <a class="el" href="a00482_source.html#l00130">130</a> of file <a class="el" href="a00482_source.html">SubscriptionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a66b49dcd06ffd6edce7d131b2dcc8c26"></a><!-- doxytag: member="qpid::client::SubscriptionSettings::flowControl" ref="a66b49dcd06ffd6edce7d131b2dcc8c26" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00134.html">FlowControl</a> <a class="el" href="a00354.html#a66b49dcd06ffd6edce7d131b2dcc8c26">qpid::client::SubscriptionSettings::flowControl</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00482_source.html#l00063">63</a> of file <a class="el" href="a00482_source.html">SubscriptionSettings.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/messaging/<a class="el" href="a00436_source.html">exceptions.h</a></li>
+<li>qpid/client/<a class="el" href="a00482_source.html">SubscriptionSettings.h</a></li>
 </ul>
 </div>
 <!--
@@ -175,7 +291,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

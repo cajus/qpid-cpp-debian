@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ClusterConnectionShadowPrepareBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ClusterConnectionShadowPrepareBody::setManagementId(const std::string& _managementId) {
     managementId = _managementId;
     flags |= (1 << 8);
+    if (managementId.size() >= 65536) throw IllegalArgumentException("Value for managementId is too large");
 }
 const std::string& ClusterConnectionShadowPrepareBody::getManagementId() const { return managementId; }
 bool ClusterConnectionShadowPrepareBody::hasManagementId() const { return flags & (1 << 8); }

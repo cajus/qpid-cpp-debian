@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::framing::SequenceNumber Class Reference</title>
+    <title>qpid::console::SequenceManager Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,78 +60,79 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00580.html">framing</a>      </li>
-      <li class="navelem"><a class="el" href="a00323.html">SequenceNumber</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00581.html">console</a>      </li>
+      <li class="navelem"><a class="el" href="a00323.html">SequenceManager</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#friends">Friends</a>  </div>
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::framing::SequenceNumber Class Reference</div>  </div>
+<div class="title">qpid::console::SequenceManager Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::framing::SequenceNumber" -->
-<p>4-byte sequence number that 'wraps around'.  
- <a href="a00323.html#details">More...</a></p>
+<!-- doxytag: class="qpid::console::SequenceManager" -->
+<p><code>#include &lt;<a class="el" href="a00490_source.html">qpid/console/SequenceManager.h</a>&gt;</code></p>
 
-<p><code>#include &lt;<a class="el" href="a00518_source.html">qpid/framing/SequenceNumber.h</a>&gt;</code></p>
-
-<p><a href="a00810.html">List of all members.</a></p>
+<p><a href="a00725.html">List of all members.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00336.html">std::set</a>&lt; <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html#acc9772b064acf69654e122c9fcdb664b">set</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html#a0cdec3cfd375c267c59540640b32ddb0">SequenceNumber</a> (<a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> v=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00323.html">SequenceNumber</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html#ac02c581a5bd0ef423d250b40a0c8768c">operator++</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00323.html">SequenceNumber</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html#ae9e38468ab49e3e6e4f37cab8e98fc8b">operator--</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html#a849b2de79b2f8890bb1e00fa049c813d">operator==</a> (const <a class="el" href="a00323.html">SequenceNumber</a> &amp;other) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html#ade995b8e29557278b8d8765084d197af">operator&lt;</a> (const <a class="el" href="a00323.html">SequenceNumber</a> &amp;other) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html#aa371122849be6b4bc7f0ddc54f7f777a">getValue</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html#ab90c707b20e6054575ef7e5019e28534">operator uint32_t</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html#a0c1dabd84a8f77aac00cc1d83dfdc32d">encode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;buffer) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html#a53a269317cccaa538cbc0ab73018dbd7">decode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;buffer)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html#a9529a7c0ad76a540855e7f29d6e8497a">encodedSize</a> () const </td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;class S &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00323.html#a3d51c80829b79b3c2ecc49f599d5901c">serialize</a> (S &amp;s)</td></tr>
-<tr><td colspan="2"><h2><a name="friends"></a>
-Friends</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html#a7b186c72efede5be9011bf42b0031b90">operator-</a> (const <a class="el" href="a00323.html">SequenceNumber</a> &amp;a, const <a class="el" href="a00323.html">SequenceNumber</a> &amp;b)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html#a8e4dc1229064d1b842cf7e472d39433f">SequenceManager</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html#a069df5495231102a9501708ca1a14a73">reserve</a> (const <a class="el" href="a00346.html">std::string</a> &amp;context=&quot;&quot;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html#a4139701785e9a6e517c0681ebc18649d">release</a> (<a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> seq)</td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>4-byte sequence number that 'wraps around'. </p>
-</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a0cdec3cfd375c267c59540640b32ddb0"></a><!-- doxytag: member="qpid::framing::SequenceNumber::SequenceNumber" ref="a0cdec3cfd375c267c59540640b32ddb0" args="(uint32_t v=0)" -->
+<hr/><h2>Member Typedef Documentation</h2>
+<a class="anchor" id="acc9772b064acf69654e122c9fcdb664b"></a><!-- doxytag: member="qpid::console::SequenceManager::set" ref="acc9772b064acf69654e122c9fcdb664b" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::framing::SequenceNumber::SequenceNumber </td>
+          <td class="memname">typedef <a class="el" href="a00336.html">std::set</a>&lt;<a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&gt; <a class="el" href="a00323.html#acc9772b064acf69654e122c9fcdb664b">qpid::console::SequenceManager::set</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00490_source.html#l00039">39</a> of file <a class="el" href="a00490_source.html">SequenceManager.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a8e4dc1229064d1b842cf7e472d39433f"></a><!-- doxytag: member="qpid::console::SequenceManager::SequenceManager" ref="a8e4dc1229064d1b842cf7e472d39433f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::console::SequenceManager::SequenceManager </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"><em>v</em> = <code>0</code></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00518_source.html#l00046">46</a> of file <a class="el" href="a00518_source.html">SequenceNumber.h</a>.</p>
+<p>Definition at line <a class="el" href="a00490_source.html#l00041">41</a> of file <a class="el" href="a00490_source.html">SequenceManager.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a53a269317cccaa538cbc0ab73018dbd7"></a><!-- doxytag: member="qpid::framing::SequenceNumber::decode" ref="a53a269317cccaa538cbc0ab73018dbd7" args="(Buffer &amp;buffer)" -->
+<a class="anchor" id="a4139701785e9a6e517c0681ebc18649d"></a><!-- doxytag: member="qpid::console::SequenceManager::release" ref="a4139701785e9a6e517c0681ebc18649d" args="(uint32_t seq)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::SequenceNumber::decode </td>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::console::SequenceManager::release </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>seq</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -140,202 +141,25 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a0c1dabd84a8f77aac00cc1d83dfdc32d"></a><!-- doxytag: member="qpid::framing::SequenceNumber::encode" ref="a0c1dabd84a8f77aac00cc1d83dfdc32d" args="(Buffer &amp;buffer) const " -->
+<a class="anchor" id="a069df5495231102a9501708ca1a14a73"></a><!-- doxytag: member="qpid::console::SequenceManager::reserve" ref="a069df5495231102a9501708ca1a14a73" args="(const std::string &amp;context=&quot;&quot;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::SequenceNumber::encode </td>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::console::SequenceManager::reserve </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a9529a7c0ad76a540855e7f29d6e8497a"></a><!-- doxytag: member="qpid::framing::SequenceNumber::encodedSize" ref="a9529a7c0ad76a540855e7f29d6e8497a" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::SequenceNumber::encodedSize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa371122849be6b4bc7f0ddc54f7f777a"></a><!-- doxytag: member="qpid::framing::SequenceNumber::getValue" ref="aa371122849be6b4bc7f0ddc54f7f777a" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::SequenceNumber::getValue </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00518_source.html#l00052">52</a> of file <a class="el" href="a00518_source.html">SequenceNumber.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab90c707b20e6054575ef7e5019e28534"></a><!-- doxytag: member="qpid::framing::SequenceNumber::operator uint32_t" ref="ab90c707b20e6054575ef7e5019e28534" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::framing::SequenceNumber::operator <a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00518_source.html#l00053">53</a> of file <a class="el" href="a00518_source.html">SequenceNumber.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac02c581a5bd0ef423d250b40a0c8768c"></a><!-- doxytag: member="qpid::framing::SequenceNumber::operator++" ref="ac02c581a5bd0ef423d250b40a0c8768c" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00323.html">SequenceNumber</a>&amp; qpid::framing::SequenceNumber::operator++ </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00518_source.html#l00048">48</a> of file <a class="el" href="a00518_source.html">SequenceNumber.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae9e38468ab49e3e6e4f37cab8e98fc8b"></a><!-- doxytag: member="qpid::framing::SequenceNumber::operator&#45;&#45;" ref="ae9e38468ab49e3e6e4f37cab8e98fc8b" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00323.html">SequenceNumber</a>&amp; qpid::framing::SequenceNumber::operator-- </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00518_source.html#l00049">49</a> of file <a class="el" href="a00518_source.html">SequenceNumber.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ade995b8e29557278b8d8765084d197af"></a><!-- doxytag: member="qpid::framing::SequenceNumber::operator&lt;" ref="ade995b8e29557278b8d8765084d197af" args="(const SequenceNumber &amp;other) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::SequenceNumber::operator&lt; </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00323.html">SequenceNumber</a> &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00518_source.html#l00051">51</a> of file <a class="el" href="a00518_source.html">SequenceNumber.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a849b2de79b2f8890bb1e00fa049c813d"></a><!-- doxytag: member="qpid::framing::SequenceNumber::operator==" ref="a849b2de79b2f8890bb1e00fa049c813d" args="(const SequenceNumber &amp;other) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::SequenceNumber::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00323.html">SequenceNumber</a> &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00518_source.html#l00050">50</a> of file <a class="el" href="a00518_source.html">SequenceNumber.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3d51c80829b79b3c2ecc49f599d5901c"></a><!-- doxytag: member="qpid::framing::SequenceNumber::serialize" ref="a3d51c80829b79b3c2ecc49f599d5901c" args="(S &amp;s)" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class S &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::SequenceNumber::serialize </td>
-          <td>(</td>
-          <td class="paramtype">S &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00518_source.html#l00059">59</a> of file <a class="el" href="a00518_source.html">SequenceNumber.h</a>.</p>
-
-</div>
-</div>
-<hr/><h2>Friends And Related Function Documentation</h2>
-<a class="anchor" id="a7b186c72efede5be9011bf42b0031b90"></a><!-- doxytag: member="qpid::framing::SequenceNumber::operator&#45;" ref="a7b186c72efede5be9011bf42b0031b90" args="(const SequenceNumber &amp;a, const SequenceNumber &amp;b)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a> operator- </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00323.html">SequenceNumber</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>context</em> = <code>&quot;&quot;</code></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00323.html">SequenceNumber</a> &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00518_source.html#l00064">64</a> of file <a class="el" href="a00518_source.html">SequenceNumber.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/framing/<a class="el" href="a00518_source.html">SequenceNumber.h</a></li>
+<li>qpid/console/<a class="el" href="a00490_source.html">SequenceManager.h</a></li>
 </ul>
 </div>
 <!--
@@ -365,7 +189,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

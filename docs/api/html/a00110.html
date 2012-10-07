@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf::posix::EventNotifier Class Reference</title>
+    <title>qmf::engine::Event Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,75 +60,42 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00571.html">qmf</a>      </li>
-      <li class="navelem"><a class="el" href="a00573.html">posix</a>      </li>
-      <li class="navelem"><a class="el" href="a00110.html">EventNotifier</a>      </li>
+      <li class="navelem"><a class="el" href="a00573.html">qmf</a>      </li>
+      <li class="navelem"><a class="el" href="a00574.html">engine</a>      </li>
+      <li class="navelem"><a class="el" href="a00110.html">Event</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-types">Protected Types</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qmf::posix::EventNotifier Class Reference</div>  </div>
+<div class="title">qmf::engine::Event Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qmf::posix::EventNotifier" --><!-- doxytag: inherits="Handle&lt; qmf::PosixEventNotifierImpl &gt;" -->
-<p><code>#include &lt;<a class="el" href="a00444_source.html">qmf/posix/EventNotifier.h</a>&gt;</code></p>
+<!-- doxytag: class="qmf::engine::Event" -->
+<p><code>#include &lt;<a class="el" href="a00418_source.html">qmf/engine/Event.h</a>&gt;</code></p>
 
-<p><a href="a00648.html">List of all members.</a></p>
+<p><a href="a00631.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#ac891770c7e76f035ff2215de40255c14">EventNotifier</a> (PosixEventNotifierImpl *<a class="el" href="a00141.html#a0effa7fbf9c8ae45a927102af0b25679">impl</a>=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#af264935e0f3bedb3f7ccbb70e729b36a">EventNotifier</a> (::<a class="el" href="a00012.html">qmf::AgentSession</a> &amp;agentSession)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#afe46656871493e360c323b44b7c8cada">EventNotifier</a> (::<a class="el" href="a00071.html">qmf::ConsoleSession</a> &amp;consoleSession)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#a5148b6481087a863efb7770d7141a908">EventNotifier</a> (const <a class="el" href="a00110.html">EventNotifier</a> &amp;that)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#af8ddf0920c3c66e5ecf8c720dbd1a9c1">~EventNotifier</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00110.html">EventNotifier</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#aa85cb70021e02cb3770cdda1026f76f7">operator=</a> (const <a class="el" href="a00110.html">EventNotifier</a> &amp;that)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#a1291a097dfcb8b5f095441949750645f">getHandle</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#a39749de38a4fc07f8401696d497a0d3c">isValid</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#a015fea48a0cd370654102196b8972b0c">isNull</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#ac1b6422c4626a1a630ac5cc13b41ad9a">operator bool</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to bool supports idiom if (handle) { handle-&gt;...  <a href="#ac1b6422c4626a1a630ac5cc13b41ad9a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#a5f7fe4689daf51182ceb8db1c5a7b85f">operator!</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }.  <a href="#a5f7fe4689daf51182ceb8db1c5a7b85f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#aa5de6b64fd036c74cbc332ac2c5d1377">swap</a> (<a class="el" href="a00141.html">Handle</a>&lt; T &gt; &amp;h)</td></tr>
-<tr><td colspan="2"><h2><a name="pro-types"></a>
-Protected Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#a15c17b50788ef3057bf2c7a99e7c39b2">Impl</a></td></tr>
-<tr><td colspan="2"><h2><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00141.html#a15c17b50788ef3057bf2c7a99e7c39b2">Impl</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#a0effa7fbf9c8ae45a927102af0b25679">impl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#a13ab62852ede7ae179b754bfc0e422d4">Event</a> (const <a class="el" href="a00302.html">SchemaEventClass</a> *type)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#acfb6bfcf6af82a7c135647bd83476b6c">Event</a> (const <a class="el" href="a00110.html">Event</a> &amp;from)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#a9beb8f6dbc3d7a730359073db96b23a7">~Event</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00302.html">SchemaEventClass</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#ac0041cc4dd9be54bc2391ddb0c4591de">getClass</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00381.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00110.html#adbcc50937ed977ec89da10cee0ea62db">getValue</a> (const char *key) const </td></tr>
 </table>
-<hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="a15c17b50788ef3057bf2c7a99e7c39b2"></a><!-- doxytag: member="qmf::posix::EventNotifier::Impl" ref="a15c17b50788ef3057bf2c7a99e7c39b2" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef T <a class="el" href="a00141.html#a15c17b50788ef3057bf2c7a99e7c39b2">qmf::Handle::Impl</a><code> [protected, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00437_source.html#l00056">56</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ac891770c7e76f035ff2215de40255c14"></a><!-- doxytag: member="qmf::posix::EventNotifier::EventNotifier" ref="ac891770c7e76f035ff2215de40255c14" args="(PosixEventNotifierImpl *impl=0)" -->
+<a class="anchor" id="a13ab62852ede7ae179b754bfc0e422d4"></a><!-- doxytag: member="qmf::engine::Event::Event" ref="a13ab62852ede7ae179b754bfc0e422d4" args="(const SchemaEventClass *type)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qmf::posix::EventNotifier::EventNotifier </td>
+          <td class="memname">qmf::engine::Event::Event </td>
           <td>(</td>
-          <td class="paramtype">PosixEventNotifierImpl *&#160;</td>
-          <td class="paramname"><em>impl</em> = <code>0</code></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00302.html">SchemaEventClass</a> *&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -137,15 +104,15 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af264935e0f3bedb3f7ccbb70e729b36a"></a><!-- doxytag: member="qmf::posix::EventNotifier::EventNotifier" ref="af264935e0f3bedb3f7ccbb70e729b36a" args="(::qmf::AgentSession &amp;agentSession)" -->
+<a class="anchor" id="acfb6bfcf6af82a7c135647bd83476b6c"></a><!-- doxytag: member="qmf::engine::Event::Event" ref="acfb6bfcf6af82a7c135647bd83476b6c" args="(const Event &amp;from)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qmf::posix::EventNotifier::EventNotifier </td>
+          <td class="memname">qmf::engine::Event::Event </td>
           <td>(</td>
-          <td class="paramtype">::<a class="el" href="a00012.html">qmf::AgentSession</a> &amp;&#160;</td>
-          <td class="paramname"><em>agentSession</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00110.html">Event</a> &amp;&#160;</td>
+          <td class="paramname"><em>from</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -154,46 +121,12 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="afe46656871493e360c323b44b7c8cada"></a><!-- doxytag: member="qmf::posix::EventNotifier::EventNotifier" ref="afe46656871493e360c323b44b7c8cada" args="(::qmf::ConsoleSession &amp;consoleSession)" -->
+<a class="anchor" id="a9beb8f6dbc3d7a730359073db96b23a7"></a><!-- doxytag: member="qmf::engine::Event::~Event" ref="a9beb8f6dbc3d7a730359073db96b23a7" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qmf::posix::EventNotifier::EventNotifier </td>
-          <td>(</td>
-          <td class="paramtype">::<a class="el" href="a00071.html">qmf::ConsoleSession</a> &amp;&#160;</td>
-          <td class="paramname"><em>consoleSession</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5148b6481087a863efb7770d7141a908"></a><!-- doxytag: member="qmf::posix::EventNotifier::EventNotifier" ref="a5148b6481087a863efb7770d7141a908" args="(const EventNotifier &amp;that)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qmf::posix::EventNotifier::EventNotifier </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00110.html">EventNotifier</a> &amp;&#160;</td>
-          <td class="paramname"><em>that</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af8ddf0920c3c66e5ecf8c720dbd1a9c1"></a><!-- doxytag: member="qmf::posix::EventNotifier::~EventNotifier" ref="af8ddf0920c3c66e5ecf8c720dbd1a9c1" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qmf::posix::EventNotifier::~EventNotifier </td>
+          <td class="memname">qmf::engine::Event::~Event </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -205,12 +138,12 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a1291a097dfcb8b5f095441949750645f"></a><!-- doxytag: member="qmf::posix::EventNotifier::getHandle" ref="a1291a097dfcb8b5f095441949750645f" args="() const " -->
+<a class="anchor" id="ac0041cc4dd9be54bc2391ddb0c4591de"></a><!-- doxytag: member="qmf::engine::Event::getClass" ref="ac0041cc4dd9be54bc2391ddb0c4591de" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int qmf::posix::EventNotifier::getHandle </td>
+          <td class="memname">const <a class="el" href="a00302.html">SchemaEventClass</a>* qmf::engine::Event::getClass </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -221,139 +154,25 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a015fea48a0cd370654102196b8972b0c"></a><!-- doxytag: member="qmf::posix::EventNotifier::isNull" ref="a015fea48a0cd370654102196b8972b0c" args="() const " -->
+<a class="anchor" id="adbcc50937ed977ec89da10cee0ea62db"></a><!-- doxytag: member="qmf::engine::Event::getValue" ref="adbcc50937ed977ec89da10cee0ea62db" args="(const char *key) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QMF_INLINE_EXTERN bool qmf::Handle::isNull </td>
+          <td class="memname"><a class="el" href="a00381.html">Value</a>* qmf::engine::Event::getValue </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is null. It is an error to call any function on a null handle. </dd></dl>
-
-<p>Definition at line <a class="el" href="a00437_source.html#l00045">45</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a39749de38a4fc07f8401696d497a0d3c"></a><!-- doxytag: member="qmf::posix::EventNotifier::isValid" ref="a39749de38a4fc07f8401696d497a0d3c" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QMF_INLINE_EXTERN bool qmf::Handle::isValid </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is valid, i.e. not null. </dd></dl>
-
-<p>Definition at line <a class="el" href="a00437_source.html#l00042">42</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac1b6422c4626a1a630ac5cc13b41ad9a"></a><!-- doxytag: member="qmf::posix::EventNotifier::operator bool" ref="ac1b6422c4626a1a630ac5cc13b41ad9a" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QMF_INLINE_EXTERN qmf::Handle::operator bool </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Conversion to bool supports idiom if (handle) { handle-&gt;... </p>
-<p>} </p>
-
-<p>Definition at line <a class="el" href="a00437_source.html#l00048">48</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5f7fe4689daf51182ceb8db1c5a7b85f"></a><!-- doxytag: member="qmf::posix::EventNotifier::operator!" ref="a5f7fe4689daf51182ceb8db1c5a7b85f" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QMF_INLINE_EXTERN bool qmf::Handle::operator! </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }. </p>
-
-<p>Definition at line <a class="el" href="a00437_source.html#l00051">51</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa85cb70021e02cb3770cdda1026f76f7"></a><!-- doxytag: member="qmf::posix::EventNotifier::operator=" ref="aa85cb70021e02cb3770cdda1026f76f7" args="(const EventNotifier &amp;that)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00110.html">EventNotifier</a>&amp; qmf::posix::EventNotifier::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00110.html">EventNotifier</a> &amp;&#160;</td>
-          <td class="paramname"><em>that</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa5de6b64fd036c74cbc332ac2c5d1377"></a><!-- doxytag: member="qmf::posix::EventNotifier::swap" ref="aa5de6b64fd036c74cbc332ac2c5d1377" args="(Handle&lt; T &gt; &amp;h)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qmf::Handle::swap </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00141.html">Handle</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>h</em></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00437_source.html#l00053">53</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a0effa7fbf9c8ae45a927102af0b25679"></a><!-- doxytag: member="qmf::posix::EventNotifier::impl" ref="a0effa7fbf9c8ae45a927102af0b25679" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00141.html#a15c17b50788ef3057bf2c7a99e7c39b2">Impl</a>* <a class="el" href="a00141.html#a0effa7fbf9c8ae45a927102af0b25679">qmf::Handle::impl</a><code> [protected, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00437_source.html#l00063">63</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qmf/posix/<a class="el" href="a00444_source.html">EventNotifier.h</a></li>
+<li>qmf/engine/<a class="el" href="a00418_source.html">Event.h</a></li>
 </ul>
 </div>
 <!--
@@ -383,7 +202,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

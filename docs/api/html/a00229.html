@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::management::Notifyable Class Reference</title>
+    <title>qpid::framing::NotFoundException Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,58 +60,70 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00590.html">management</a>      </li>
-      <li class="navelem"><a class="el" href="a00229.html">Notifyable</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00582.html">framing</a>      </li>
+      <li class="navelem"><a class="el" href="a00229.html">NotFoundException</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::management::Notifyable Class Reference</div>  </div>
+<div class="title">qpid::framing::NotFoundException Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::management::Notifyable" -->
-<p><code>#include &lt;<a class="el" href="a00453_source.html">qpid/agent/ManagementAgent.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::framing::NotFoundException" --><!-- doxytag: inherits="qpid::SessionException" -->
+<p>The client attempted to work with a server entity that does not exist.  
+ <a href="a00229.html#details">More...</a></p>
 
-<p><a href="a00826.html">List of all members.</a></p>
+<p><code>#include &lt;<a class="el" href="a00518_source.html">qpid/framing/reply_exceptions.h</a>&gt;</code></p>
+
+<p><a href="a00791.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00229.html#ab6e89deea0fe4269411f359e0cfbefdf">~Notifyable</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00229.html#acc7ac7b4f30b6dcc8ff5fcee6deb311c">notify</a> ()=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00229.html#a3183173cc8af2c9f13a76bedb1dec855">getPrefix</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00229.html#acacd8ab4b48db462061bdf584d07c02d">NotFoundException</a> (const <a class="el" href="a00346.html">std::string</a> &amp;msg=<a class="el" href="a00346.html">std::string</a>())</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html#a1319c2877b78e71fb5ded050298be31a">what</a> () const   throw ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html#a5fd1b7dd26ec0e2742c54b2b7da6c6b0">getMessage</a> () const </td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18">framing::execution::ErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#ac6ca6f797da33e069db68ab50da18615">code</a></td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ab6e89deea0fe4269411f359e0cfbefdf"></a><!-- doxytag: member="qpid::management::Notifyable::~Notifyable" ref="ab6e89deea0fe4269411f359e0cfbefdf" args="()" -->
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>The client attempted to work with a server entity that does not exist. </p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="acacd8ab4b48db462061bdf584d07c02d"></a><!-- doxytag: member="qpid::framing::NotFoundException::NotFoundException" ref="acacd8ab4b48db462061bdf584d07c02d" args="(const std::string &amp;msg=std::string())" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual qpid::management::Notifyable::~Notifyable </td>
+          <td class="memname">qpid::framing::NotFoundException::NotFoundException </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>msg</em> = <code><a class="el" href="a00346.html">std::string</a>()</code></td><td>)</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00453_source.html#l00034">34</a> of file <a class="el" href="a00453_source.html">ManagementAgent.h</a>.</p>
+<p>Definition at line <a class="el" href="a00518_source.html#l00061">61</a> of file <a class="el" href="a00518_source.html">reply_exceptions.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="acc7ac7b4f30b6dcc8ff5fcee6deb311c"></a><!-- doxytag: member="qpid::management::Notifyable::notify" ref="acc7ac7b4f30b6dcc8ff5fcee6deb311c" args="()=0" -->
+<a class="anchor" id="a5fd1b7dd26ec0e2742c54b2b7da6c6b0"></a><!-- doxytag: member="qpid::framing::NotFoundException::getMessage" ref="a5fd1b7dd26ec0e2742c54b2b7da6c6b0" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void qpid::management::Notifyable::notify </td>
+          <td class="memname">virtual <a class="el" href="a00346.html">std::string</a> qpid::Exception::getMessage </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [pure virtual]</code></td>
+          <td> const<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -119,8 +131,60 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/agent/<a class="el" href="a00453_source.html">ManagementAgent.h</a></li>
+<a class="anchor" id="a3183173cc8af2c9f13a76bedb1dec855"></a><!-- doxytag: member="qpid::framing::NotFoundException::getPrefix" ref="a3183173cc8af2c9f13a76bedb1dec855" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::framing::NotFoundException::getPrefix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="a00116.html#a8680803b228ba1036624fd5cee183d36">qpid::Exception</a>.</p>
+
+<p>Definition at line <a class="el" href="a00518_source.html#l00060">60</a> of file <a class="el" href="a00518_source.html">reply_exceptions.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1319c2877b78e71fb5ded050298be31a"></a><!-- doxytag: member="qpid::framing::NotFoundException::what" ref="a1319c2877b78e71fb5ded050298be31a" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const char* qpid::Exception::what </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const  throw ()<code> [virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="ac6ca6f797da33e069db68ab50da18615"></a><!-- doxytag: member="qpid::framing::NotFoundException::code" ref="ac6ca6f797da33e069db68ab50da18615" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18">framing::execution::ErrorCode</a> <a class="el" href="a00332.html#ac6ca6f797da33e069db68ab50da18615">qpid::SessionException::code</a><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00492_source.html#l00060">60</a> of file <a class="el" href="a00492_source.html">Exception.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>qpid/framing/<a class="el" href="a00518_source.html">reply_exceptions.h</a></li>
 </ul>
 </div>
 <!--
@@ -150,7 +214,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

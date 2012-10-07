@@ -32,6 +32,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
 
 using namespace qmf::org::apache::qpid::broker;
 using           qpid::management::ManagementAgent;
@@ -44,7 +45,7 @@ using           std::string;
 string  Queue::packageName  = string ("org.apache.qpid.broker");
 string  Queue::className    = string ("queue");
 uint8_t Queue::md5Sum[MD5_LEN]   =
-    {0xea,0x2e,0x43,0xd,0xfc,0x12,0xd4,0x91,0xdd,0x53,0x74,0xda,0x3b,0xa7,0x65,0x76};
+    {0x6b,0xbb,0x97,0x15,0x29,0xa3,0xc,0x7c,0x22,0xc2,0x39,0xa1,0xc8,0xf6,0x88,0x22};
 
 Queue::Queue (ManagementAgent*, Manageable* _core, ::qpid::management::Manageable* _parent, const std::string& _name, bool _durable, bool _autoDelete, bool _exclusive) :
     ManagementObject(_core),name(_name),durable(_durable),autoDelete(_autoDelete),exclusive(_exclusive)
@@ -61,7 +62,7 @@ Queue::Queue (ManagementAgent*, Manageable* _core, ::qpid::management::Manageabl
     unackedMessages = 0;
     unackedMessagesHigh = 0;
     unackedMessagesLow  = 0;
-    flowStopped = 0;
+    flowStopped = false;
 
 
     // Optional properties start out not-present
@@ -508,7 +509,6 @@ void Queue::writeSchema (std::string& schema)
     ft[NAME] = "filter";
     ft[TYPE] = TYPE_FTABLE;
     ft[DIR] = "I";
-    ft[DEFAULT] = "{}";
     ft[DESC] = "if specified, purge only those messages matching this filter";
     buf.putMap(ft);
 
@@ -543,7 +543,6 @@ void Queue::writeSchema (std::string& schema)
     ft[NAME] = "filter";
     ft[TYPE] = TYPE_FTABLE;
     ft[DIR] = "I";
-    ft[DEFAULT] = "{}";
     ft[DESC] = "if specified, reroute only those messages matching this filter";
     buf.putMap(ft);
 
@@ -1019,26 +1018,40 @@ void Queue::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
 
     if ((_i = _map.find("vhostRef")) != _map.end()) {
         vhostRef = _i->second;
+    } else {
+        vhostRef = ::qpid::management::ObjectId();
     }
     if ((_i = _map.find("name")) != _map.end()) {
         name = (_i->second).getString();
+    } else {
+        name = "";
     }
     if ((_i = _map.find("durable")) != _map.end()) {
         durable = _i->second;
+    } else {
+        durable = false;
     }
     if ((_i = _map.find("autoDelete")) != _map.end()) {
         autoDelete = _i->second;
+    } else {
+        autoDelete = false;
     }
     if ((_i = _map.find("exclusive")) != _map.end()) {
         exclusive = _i->second;
+    } else {
+        exclusive = false;
     }
     if ((_i = _map.find("arguments")) != _map.end()) {
         arguments = (_i->second).asMap();
+    } else {
+        arguments = ::qpid::types::Variant::Map();
     }
     _found = false;
     if ((_i = _map.find("altExchange")) != _map.end()) {
         altExchange = _i->second;
         _found = true;
+    } else {
+        altExchange = ::qpid::management::ObjectId();
     }
     if (_found) {
         presenceMask[presenceByte_altExchange] |= presenceMask_altExchange;
@@ -1057,9 +1070,13 @@ void Queue::doMethod (string& methodName, const ::qpid::types::Variant::Map& inM
         ::qpid::types::Variant::Map::const_iterator _i;
         if ((_i = inMap.find("request")) != inMap.end()) {
             ioArgs.i_request = _i->second;
+        } else {
+            ioArgs.i_request = 0;
         }
         if ((_i = inMap.find("filter")) != inMap.end()) {
             ioArgs.i_filter = (_i->second).asMap();
+        } else {
+            ioArgs.i_filter = ::qpid::types::Variant::Map();
         }
         bool allow = coreObject->AuthorizeMethod(METHOD_PURGE, ioArgs, userId);
         if (allow)
@@ -1076,15 +1093,23 @@ void Queue::doMethod (string& methodName, const ::qpid::types::Variant::Map& inM
         ::qpid::types::Variant::Map::const_iterator _i;
         if ((_i = inMap.find("request")) != inMap.end()) {
             ioArgs.i_request = _i->second;
+        } else {
+            ioArgs.i_request = 0;
         }
         if ((_i = inMap.find("useAltExchange")) != inMap.end()) {
             ioArgs.i_useAltExchange = _i->second;
+        } else {
+            ioArgs.i_useAltExchange = false;
         }
         if ((_i = inMap.find("exchange")) != inMap.end()) {
             ioArgs.i_exchange = (_i->second).getString();
+        } else {
+            ioArgs.i_exchange = "";
         }
         if ((_i = inMap.find("filter")) != inMap.end()) {
             ioArgs.i_filter = (_i->second).asMap();
+        } else {
+            ioArgs.i_filter = ::qpid::types::Variant::Map();
         }
         bool allow = coreObject->AuthorizeMethod(METHOD_REROUTE, ioArgs, userId);
         if (allow)

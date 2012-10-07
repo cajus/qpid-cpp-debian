@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/sys/posix/PrivatePosix.h Source File</title>
+    <title>qpid/sys/posix/check.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,11 +58,11 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/sys/posix/PrivatePosix.h</div>  </div>
+<div class="title">qpid/sys/posix/check.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00561.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _sys_posix_PrivatePosix_h</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _sys_posix_PrivatePosix_h</span>
+<a href="a00561.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _posix_check_h</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _posix_check_h</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="comment">/*</span>
 <a name="l00005"></a>00005 <span class="comment"> *</span>
@@ -85,59 +85,32 @@
 <a name="l00022"></a>00022 <span class="comment"> *</span>
 <a name="l00023"></a>00023 <span class="comment"> */</span>
 <a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00563.html">qpid/sys/Time.h</a>&quot;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00557.html">qpid/sys/IOHandle.h</a>&quot;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00492.html">qpid/Exception.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00549.html">qpid/Msg.h</a>&quot;</span>
 <a name="l00027"></a>00027 
-<a name="l00028"></a>00028 <span class="keyword">struct </span>timespec;
-<a name="l00029"></a>00029 <span class="keyword">struct </span>timeval;
-<a name="l00030"></a>00030 <span class="keyword">struct </span>addrinfo;
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032 <span class="keyword">namespace </span>qpid {
-<a name="l00033"></a>00033 <span class="keyword">namespace </span>sys {
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035 <span class="comment">// Private Time related implementation details</span>
-<a name="l00036"></a>00036 <span class="keyword">struct </span>timespec&amp; <a class="code" href="a00592.html#a65e4ddcfe78c70b4cb1aa1aa91bbda18">toTimespec</a>(<span class="keyword">struct</span> timespec&amp; ts, <span class="keyword">const</span> Duration&amp; t);
-<a name="l00037"></a>00037 <span class="keyword">struct </span>timeval&amp; <a class="code" href="a00592.html#ae58ac2f33f1743f8cf5bb96708e1f872">toTimeval</a>(<span class="keyword">struct</span> timeval&amp; tv, <span class="keyword">const</span> Duration&amp; t);
-<a name="l00038"></a>00038 Duration <a class="code" href="a00592.html#a6dd40543b6150ca7fd13ee73ca546e69">toTime</a>(<span class="keyword">const</span> <span class="keyword">struct</span> timespec&amp; ts);
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040 <span class="comment">// Private SocketAddress details</span>
-<a name="l00041"></a>00041 <span class="keyword">class </span>SocketAddress;
-<a name="l00042"></a>00042 <span class="keyword">const</span> <span class="keyword">struct </span>addrinfo&amp; <a class="code" href="a00592.html#afa16e67cd3622db2fd4515a5ea21d50d">getAddrInfo</a>(<span class="keyword">const</span> SocketAddress&amp;);
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044 <span class="comment">// Private fd related implementation details</span>
-<a name="l00045"></a>00045 <span class="keyword">class </span>IOHandlePrivate {
-<a name="l00046"></a>00046 <span class="keyword">public</span>:
-<a name="l00047"></a><a class="code" href="a00167.html#a708665163a99a9fe87ac96abaf26490f">00047</a>     <a class="code" href="a00167.html#a708665163a99a9fe87ac96abaf26490f">IOHandlePrivate</a>(<span class="keywordtype">int</span> f = -1) :
-<a name="l00048"></a>00048             <a class="code" href="a00167.html#a1f04f7fa310f499c3aeb43070375a754">fd</a>(f)
-<a name="l00049"></a>00049     {}
-<a name="l00050"></a>00050 
-<a name="l00051"></a><a class="code" href="a00167.html#a1f04f7fa310f499c3aeb43070375a754">00051</a>     <span class="keywordtype">int</span> <a class="code" href="a00167.html#a1f04f7fa310f499c3aeb43070375a754">fd</a>;
-<a name="l00052"></a>00052 };
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 <span class="keywordtype">int</span> <a class="code" href="a00592.html#a4f380e3eca371bcaa90a2040a6b4f00c">toFd</a>(<span class="keyword">const</span> <a class="code" href="a00167.html">IOHandlePrivate</a>* h);
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056 <span class="comment">// Posix fd as an IOHandle</span>
-<a name="l00057"></a>00057 <span class="keyword">class </span><a class="code" href="a00252.html">PosixIOHandle</a> : <span class="keyword">public</span> <a class="code" href="a00166.html">IOHandle</a> {
-<a name="l00058"></a>00058 <span class="keyword">public</span>:
-<a name="l00059"></a><a class="code" href="a00252.html#a44a362af6c0a10ac6b24b781c0d05687">00059</a>     <a class="code" href="a00252.html#a44a362af6c0a10ac6b24b781c0d05687">PosixIOHandle</a>(<span class="keywordtype">int</span> fd) :
-<a name="l00060"></a>00060         <a class="code" href="a00166.html">IOHandle</a>(new <a class="code" href="a00167.html">IOHandlePrivate</a>(fd))
-<a name="l00061"></a>00061     {}
-<a name="l00062"></a>00062 };
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064 <span class="comment">// Dummy IOHandle for places it&#39;s required in the API</span>
-<a name="l00065"></a>00065 <span class="comment">// but we promise not to actually try to do any operations on the IOHandle</span>
-<a name="l00066"></a>00066 <span class="keyword">class </span>NullIOHandle : <span class="keyword">public</span> IOHandle {
-<a name="l00067"></a>00067 <span class="keyword">public</span>:
-<a name="l00068"></a><a class="code" href="a00231.html#a53cdd9df2c881dbb636bb2c63633f536">00068</a>     <a class="code" href="a00231.html#a53cdd9df2c881dbb636bb2c63633f536">NullIOHandle</a>() :
-<a name="l00069"></a>00069         <a class="code" href="a00166.html">IOHandle</a>(new <a class="code" href="a00167.html">IOHandlePrivate</a>)
-<a name="l00070"></a>00070     {}
-<a name="l00071"></a>00071 };
-<a name="l00072"></a>00072 
-<a name="l00073"></a>00073 <span class="keyword">extern</span> NullIOHandle <a class="code" href="a00592.html#a0b49411d127328a82bbcfc3bcd0ad6be">DummyIOHandle</a>;
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075 }}
-<a name="l00076"></a>00076 
-<a name="l00077"></a>00077 <span class="preprocessor">#endif  </span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;cerrno&gt;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;assert.h&gt;</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &lt;stdio.h&gt;</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#include &lt;stdlib.h&gt;</span>
+<a name="l00032"></a>00032 
+<a name="l00033"></a><a class="code" href="a00561.html#adc37f70aa897a4fe66fb37a5bda227cc">00033</a> <span class="preprocessor">#define QPID_POSIX_ERROR(ERRNO) qpid::Exception(QPID_MSG(qpid::sys::strError(ERRNO)))</span>
+<a name="l00034"></a>00034 <span class="preprocessor"></span>
+<a name="l00036"></a><a class="code" href="a00561.html#abcb90fa18fcbc427585bf4fb26ae673a">00036</a> <span class="preprocessor">#define QPID_POSIX_CHECK(RESULT)                        \</span>
+<a name="l00037"></a>00037 <span class="preprocessor">    if ((RESULT) &lt; 0) throw QPID_POSIX_ERROR((errno))</span>
+<a name="l00038"></a>00038 <span class="preprocessor"></span>
+<a name="l00040"></a><a class="code" href="a00561.html#a5cacab9218ff39667831123a0e0581c6">00040</a> <span class="preprocessor">#define QPID_POSIX_THROW_IF(ERRNO)              \</span>
+<a name="l00041"></a>00041 <span class="preprocessor">    do { int e=(ERRNO); if (e) throw QPID_POSIX_ERROR(e); } while(0)</span>
+<a name="l00042"></a>00042 <span class="preprocessor"></span>
+<a name="l00044"></a>00044 <span class="preprocessor">#ifdef NDEBUG</span>
+<a name="l00045"></a>00045 <span class="preprocessor"></span><span class="preprocessor">#define QPID_POSIX_ASSERT_THROW_IF(ERRNO) QPID_POSIX_THROW_IF(ERRNO)</span>
+<a name="l00046"></a>00046 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00047"></a><a class="code" href="a00561.html#a5385ea16e751a4fc1d19bb8df9c8067e">00047</a> <span class="preprocessor"></span><span class="preprocessor">#define QPID_POSIX_ASSERT_THROW_IF(ERRNO)                               \</span>
+<a name="l00048"></a>00048 <span class="preprocessor">    do { int e=(ERRNO); if (e) { errno=e; ::perror(0); assert(0); } } while(0)</span>
+<a name="l00049"></a>00049 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00050"></a>00050 <span class="preprocessor"></span>
+<a name="l00051"></a><a class="code" href="a00561.html#ac288618eb63f4455fbd6b6931a1a31b2">00051</a> <span class="preprocessor">#define QPID_POSIX_ABORT_IF(ERRNO) if ((int) ERRNO) { errno=ERRNO; ::perror(0); abort(); }</span>
+<a name="l00052"></a>00052 <span class="preprocessor"></span>
+<a name="l00053"></a>00053 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -167,7 +140,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::client::TypedResult Class Reference</title>
+    <title>qpid::TransportFailure Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,131 +60,99 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00576.html">client</a>      </li>
-      <li class="navelem"><a class="el" href="a00362.html">TypedResult</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00362.html">TransportFailure</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::client::TypedResult Class Reference</div>  </div>
+<div class="title">qpid::TransportFailure Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::client::TypedResult" --><!-- doxytag: inherits="qpid::client::Completion" -->
-<p>Returned by asynchronous commands that return a result.  
+<!-- doxytag: class="qpid::TransportFailure" --><!-- doxytag: inherits="qpid::Exception" -->
+<p><a class="el" href="a00116.html" title="Base class for Qpid runtime exceptions.">Exception</a> representing transport failure.  
  <a href="a00362.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00481_source.html">qpid/client/TypedResult.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00492_source.html">qpid/Exception.h</a>&gt;</code></p>
 
-<p><a href="a00702.html">List of all members.</a></p>
+<p><a href="a00658.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00362.html#ae3a1cd41220e4ae581f7b0ffbd419f2d">TypedResult</a> (const <a class="el" href="a00054.html">Completion</a> &amp;c)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00362.html#ae335966f43aca94baca30483328b798e">get</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for the asynchronous command that returned this <a class="el" href="a00362.html" title="Returned by asynchronous commands that return a result.">TypedResult</a> to complete and return its result.  <a href="#ae335966f43aca94baca30483328b798e"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00054.html#acf2eb9af9fd75c88e23c2745fc331faf">wait</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for the asynchronous command that returned this <a class="el" href="a00054.html" title="Asynchronous commands that do not return a result will return a Completion.">Completion</a> to complete.  <a href="#acf2eb9af9fd75c88e23c2745fc331faf"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00054.html#a6152b1d7a55b256ddd94a1ea7f69762c">isComplete</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#a57379e651d725b0f73edcb714e9efbc7">isValid</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#ae6f5dd2c23bdf3016f4afcd32057b9c5">isNull</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#a00461424a31faee8e158a6502a014c3d">operator bool</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to bool supports idiom if (handle) { handle-&gt;...  <a href="#a00461424a31faee8e158a6502a014c3d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#a6e69e13fa5ed709abebdbf6868b5eff4">operator!</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }.  <a href="#a6e69e13fa5ed709abebdbf6868b5eff4"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#a5092920190f6ad01c851996395cf33b5">swap</a> (<a class="el" href="a00140.html">Handle</a>&lt; T &gt; &amp;h)</td></tr>
-<tr><td colspan="2"><h2><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00054.html#aa01e729ae28c04425d7218bdc798c52c">getResult</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">Impl *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#adf6d72d2a888cabcd0b60178419aad59">impl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00362.html#a6d319408bb42891fae2368e2ae274ce9">TransportFailure</a> (const <a class="el" href="a00346.html">std::string</a> &amp;msg=<a class="el" href="a00346.html">std::string</a>())</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html#a1319c2877b78e71fb5ded050298be31a">what</a> () const   throw ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html#a5fd1b7dd26ec0e2742c54b2b7da6c6b0">getMessage</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html#a8680803b228ba1036624fd5cee183d36">getPrefix</a> () const </td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Returned by asynchronous commands that return a result. </p>
-<p>You can use <a class="el" href="a00362.html#ae335966f43aca94baca30483328b798e" title="Wait for the asynchronous command that returned this TypedResult to complete and return its result...">get()</a> to wait for completion and get the result value. </p>
+<div class="textblock"><p><a class="el" href="a00116.html" title="Base class for Qpid runtime exceptions.">Exception</a> representing transport failure. </p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ae3a1cd41220e4ae581f7b0ffbd419f2d"></a><!-- doxytag: member="qpid::client::TypedResult::TypedResult" ref="ae3a1cd41220e4ae581f7b0ffbd419f2d" args="(const Completion &amp;c)" -->
+<a class="anchor" id="a6d319408bb42891fae2368e2ae274ce9"></a><!-- doxytag: member="qpid::TransportFailure::TransportFailure" ref="a6d319408bb42891fae2368e2ae274ce9" args="(const std::string &amp;msg=std::string())" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::client::TypedResult::TypedResult </td>
+          <td class="memname">qpid::TransportFailure::TransportFailure </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00054.html">Completion</a> &amp;&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>msg</em> = <code><a class="el" href="a00346.html">std::string</a>()</code></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00481_source.html#l00043">43</a> of file <a class="el" href="a00481_source.html">TypedResult.h</a>.</p>
+<p>Definition at line <a class="el" href="a00492_source.html#l00086">86</a> of file <a class="el" href="a00492_source.html">Exception.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ae335966f43aca94baca30483328b798e"></a><!-- doxytag: member="qpid::client::TypedResult::get" ref="ae335966f43aca94baca30483328b798e" args="()" -->
+<a class="anchor" id="a5fd1b7dd26ec0e2742c54b2b7da6c6b0"></a><!-- doxytag: member="qpid::TransportFailure::getMessage" ref="a5fd1b7dd26ec0e2742c54b2b7da6c6b0" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">T&amp; qpid::client::TypedResult::get </td>
+          <td class="memname">virtual <a class="el" href="a00346.html">std::string</a> qpid::Exception::getMessage </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td> const<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Wait for the asynchronous command that returned this <a class="el" href="a00362.html" title="Returned by asynchronous commands that return a result.">TypedResult</a> to complete and return its result. </p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The result returned by the command. </dd></dl>
-<dl><dt><b>Exceptions:</b></dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">If</td><td>the command returns an error, <a class="el" href="a00362.html#ae335966f43aca94baca30483328b798e" title="Wait for the asynchronous command that returned this TypedResult to complete and return its result...">get()</a> throws an exception. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00481_source.html#l00053">53</a> of file <a class="el" href="a00481_source.html">TypedResult.h</a>.</p>
-
-<p>References <a class="el" href="a00521_source.html#l00045">qpid::framing::StructHelper::decode()</a>, and <a class="el" href="a00054.html#aa01e729ae28c04425d7218bdc798c52c">qpid::client::Completion::getResult()</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="aa01e729ae28c04425d7218bdc798c52c"></a><!-- doxytag: member="qpid::client::TypedResult::getResult" ref="aa01e729ae28c04425d7218bdc798c52c" args="()" -->
+<a class="anchor" id="a8680803b228ba1036624fd5cee183d36"></a><!-- doxytag: member="qpid::TransportFailure::getPrefix" ref="a8680803b228ba1036624fd5cee183d36" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> qpid::client::Completion::getResult </td>
+          <td class="memname">virtual <a class="el" href="a00346.html">std::string</a> qpid::Exception::getPrefix </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [protected, inherited]</code></td>
+          <td> const<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Referenced by <a class="el" href="a00481_source.html#l00053">get()</a>.</p>
+<p>Reimplemented in <a class="el" href="a00369.html#a2b396d56db865b062fd1971fb203ea79">qpid::framing::UnknownIdsException</a>, <a class="el" href="a00227.html#a74a6fa53c98ada3d89397b5befe23704">qpid::framing::NotAttachedException</a>, <a class="el" href="a00360.html#a0b3a8d5112a65cd06d0ba4e057df852b">qpid::framing::TransportBusyException</a>, <a class="el" href="a00330.html#a276d6be7f637e2983a0f81d1a471ce58">qpid::framing::SessionBusyException</a>, <a class="el" href="a00136.html#ad2d071fded654f988803a78f0d10c606">qpid::framing::FramingErrorException</a>, <a class="el" href="a00167.html#a4c7d1b105617c905e70b93be1d3344d5">qpid::framing::InvalidPathException</a>, <a class="el" href="a00064.html#a8908ed76d6ee75405e54a0c9ec05fdc2">qpid::framing::ConnectionForcedException</a>, <a class="el" href="a00163.html#a64a5f314238c65a88cbf40a5167802dd">qpid::framing::InvalidArgumentException</a>, <a class="el" href="a00159.html#a7abb408867ff45af4d52d98f40a7255f">qpid::framing::InternalErrorException</a>, <a class="el" href="a00231.html#a6b04f2753b351971edbb842f7b0cfab5">qpid::framing::NotImplementedException</a>, <a class="el" href="a00146.html#a3fe0033d91b8067780110c202066b117">qpid::framing::IllegalArgumentException</a>, <a class="el" href="a00226.html#adc44ba31830bd0327d1a977a24de0112">qpid::framing::NotAllowedException</a>, <a class="el" href="a00282.html#a82adefb368554e09b2e5c9432f98336e">qpid::framing::ResourceLimitExceededException</a>, <a class="el" href="a00054.html#ae0f4432e4b8a2e42e2c5808e6d3ad5d2">qpid::framing::CommandInvalidException</a>, <a class="el" href="a00147.html#a58c3f099ba425ccf96223676ad8a0f59">qpid::framing::IllegalStateException</a>, <a class="el" href="a00281.html#ac2fdd5327c3696d9ad3e2bea65cc39ee">qpid::framing::ResourceDeletedException</a>, <a class="el" href="a00254.html#a2540228a5234ec04e85a63cf6441b10a">qpid::framing::PreconditionFailedException</a>, <a class="el" href="a00052.html#ad7fc8034f1f05ac512e2e505da93e0f1">qpid::ClosedException</a>, <a class="el" href="a00283.html#a074ad096de110ad2e2f9a6e819ac1304">qpid::framing::ResourceLockedException</a>, <a class="el" href="a00229.html#a3183173cc8af2c9f13a76bedb1dec855">qpid::framing::NotFoundException</a>, and <a class="el" href="a00367.html#a3d960f4967e25321280d70daeb95e38b">qpid::framing::UnauthorizedAccessException</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6152b1d7a55b256ddd94a1ea7f69762c"></a><!-- doxytag: member="qpid::client::TypedResult::isComplete" ref="a6152b1d7a55b256ddd94a1ea7f69762c" args="()" -->
+<a class="anchor" id="a1319c2877b78e71fb5ded050298be31a"></a><!-- doxytag: member="qpid::TransportFailure::what" ref="a1319c2877b78e71fb5ded050298be31a" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool qpid::client::Completion::isComplete </td>
+          <td class="memname">virtual const char* qpid::Exception::what </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inherited]</code></td>
+          <td> const  throw ()<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -192,146 +160,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae6f5dd2c23bdf3016f4afcd32057b9c5"></a><!-- doxytag: member="qpid::client::TypedResult::isNull" ref="ae6f5dd2c23bdf3016f4afcd32057b9c5" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_CLIENT_INLINE_EXTERN bool qpid::client::Handle::isNull </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is null. It is an error to call any function on a null handle. </dd></dl>
-
-<p>Definition at line <a class="el" href="a00438_source.html#l00046">46</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a57379e651d725b0f73edcb714e9efbc7"></a><!-- doxytag: member="qpid::client::TypedResult::isValid" ref="a57379e651d725b0f73edcb714e9efbc7" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_CLIENT_INLINE_EXTERN bool qpid::client::Handle::isValid </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is valid, i.e. not null. </dd></dl>
-
-<p>Definition at line <a class="el" href="a00438_source.html#l00043">43</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a00461424a31faee8e158a6502a014c3d"></a><!-- doxytag: member="qpid::client::TypedResult::operator bool" ref="a00461424a31faee8e158a6502a014c3d" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_CLIENT_INLINE_EXTERN qpid::client::Handle::operator bool </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Conversion to bool supports idiom if (handle) { handle-&gt;... </p>
-<p>} </p>
-
-<p>Definition at line <a class="el" href="a00438_source.html#l00049">49</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6e69e13fa5ed709abebdbf6868b5eff4"></a><!-- doxytag: member="qpid::client::TypedResult::operator!" ref="a6e69e13fa5ed709abebdbf6868b5eff4" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_CLIENT_INLINE_EXTERN bool qpid::client::Handle::operator! </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }. </p>
-
-<p>Definition at line <a class="el" href="a00438_source.html#l00052">52</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5092920190f6ad01c851996395cf33b5"></a><!-- doxytag: member="qpid::client::TypedResult::swap" ref="a5092920190f6ad01c851996395cf33b5" args="(Handle&lt; T &gt; &amp;h)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::client::Handle::swap </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00140.html">Handle</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>h</em></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00438_source.html#l00054">54</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="acf2eb9af9fd75c88e23c2745fc331faf"></a><!-- doxytag: member="qpid::client::TypedResult::wait" ref="acf2eb9af9fd75c88e23c2745fc331faf" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::client::Completion::wait </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Wait for the asynchronous command that returned this <a class="el" href="a00054.html" title="Asynchronous commands that do not return a result will return a Completion.">Completion</a> to complete. </p>
-<dl><dt><b>Exceptions:</b></dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">If</td><td>the command returns an error. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="adf6d72d2a888cabcd0b60178419aad59"></a><!-- doxytag: member="qpid::client::TypedResult::impl" ref="adf6d72d2a888cabcd0b60178419aad59" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">Impl* <a class="el" href="a00140.html#adf6d72d2a888cabcd0b60178419aad59">qpid::client::Handle::impl</a><code> [protected, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00438_source.html#l00064">64</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/client/<a class="el" href="a00481_source.html">TypedResult.h</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>qpid/<a class="el" href="a00492_source.html">Exception.h</a></li>
 </ul>
 </div>
 <!--
@@ -361,7 +191,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/StreamProperties.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void StreamProperties::setContentType(const std::string& _contentType) {
     contentType = _contentType;
     flags |= (1 << 8);
+    if (contentType.size() >= 256) throw IllegalArgumentException("Value for contentType is too large");
 }
 const std::string& StreamProperties::getContentType() const { return contentType; }
 bool StreamProperties::hasContentType() const { return flags & (1 << 8); }
@@ -41,6 +42,7 @@ void StreamProperties::clearContentTypeFlag() { flags &= ~(1 << 8); }
 void StreamProperties::setContentEncoding(const std::string& _contentEncoding) {
     contentEncoding = _contentEncoding;
     flags |= (1 << 9);
+    if (contentEncoding.size() >= 256) throw IllegalArgumentException("Value for contentEncoding is too large");
 }
 const std::string& StreamProperties::getContentEncoding() const { return contentEncoding; }
 bool StreamProperties::hasContentEncoding() const { return flags & (1 << 9); }

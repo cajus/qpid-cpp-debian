@@ -26,7 +26,7 @@
 
 
 #include "qpid/framing/MessageRejectBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
@@ -49,6 +49,7 @@ void MessageRejectBody::clearCodeFlag() { flags &= ~(1 << 9); }
 void MessageRejectBody::setText(const std::string& _text) {
     text = _text;
     flags |= (1 << 10);
+    if (text.size() >= 256) throw IllegalArgumentException("Value for text is too large");
 }
 const std::string& MessageRejectBody::getText() const { return text; }
 bool MessageRejectBody::hasText() const { return flags & (1 << 10); }

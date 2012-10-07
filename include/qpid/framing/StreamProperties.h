@@ -30,6 +30,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -61,6 +62,8 @@ public:
         flags |= (1 << 10);
         flags |= (1 << 11);
         flags |= (1 << 12);
+        if (contentType.size() >= 256) throw IllegalArgumentException("Value for contentType is too large");
+        if (contentEncoding.size() >= 256) throw IllegalArgumentException("Value for contentEncoding is too large");
     }
     StreamProperties()  : priority(0), timestamp(0), flags(0) {}
     

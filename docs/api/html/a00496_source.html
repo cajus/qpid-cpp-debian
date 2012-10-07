@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/framing/Buffer.h Source File</title>
+    <title>qpid/framing/amqp_types_full.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,142 +58,37 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/framing/Buffer.h</div>  </div>
+<div class="title">qpid/framing/amqp_types_full.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00496.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
-<a name="l00002"></a>00002 <span class="comment"> *</span>
-<a name="l00003"></a>00003 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
-<a name="l00004"></a>00004 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
-<a name="l00005"></a>00005 <span class="comment"> * distributed with this work for additional information</span>
-<a name="l00006"></a>00006 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
-<a name="l00007"></a>00007 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
-<a name="l00008"></a>00008 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
-<a name="l00009"></a>00009 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
-<a name="l00010"></a>00010 <span class="comment"> *</span>
-<a name="l00011"></a>00011 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
-<a name="l00012"></a>00012 <span class="comment"> *</span>
-<a name="l00013"></a>00013 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
-<a name="l00014"></a>00014 <span class="comment"> * software distributed under the License is distributed on an</span>
-<a name="l00015"></a>00015 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
-<a name="l00016"></a>00016 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
-<a name="l00017"></a>00017 <span class="comment"> * specific language governing permissions and limitations</span>
-<a name="l00018"></a>00018 <span class="comment"> * under the License.</span>
+<a href="a00496.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _framing_amqp_types_decl_h</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _framing_amqp_types_decl_h</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="comment">/*</span>
+<a name="l00005"></a>00005 <span class="comment"> *</span>
+<a name="l00006"></a>00006 <span class="comment"> * Copyright (c) 2006 The Apache Software Foundation</span>
+<a name="l00007"></a>00007 <span class="comment"> *</span>
+<a name="l00008"></a>00008 <span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<a name="l00009"></a>00009 <span class="comment"> * you may not use this file except in compliance with the License.</span>
+<a name="l00010"></a>00010 <span class="comment"> * You may obtain a copy of the License at</span>
+<a name="l00011"></a>00011 <span class="comment"> *</span>
+<a name="l00012"></a>00012 <span class="comment"> *    http://www.apache.org/licenses/LICENSE-2.0</span>
+<a name="l00013"></a>00013 <span class="comment"> *</span>
+<a name="l00014"></a>00014 <span class="comment"> * Unless required by applicable law or agreed to in writing, software</span>
+<a name="l00015"></a>00015 <span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<a name="l00016"></a>00016 <span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<a name="l00017"></a>00017 <span class="comment"> * See the License for the specific language governing permissions and</span>
+<a name="l00018"></a>00018 <span class="comment"> * limitations under the License.</span>
 <a name="l00019"></a>00019 <span class="comment"> *</span>
 <a name="l00020"></a>00020 <span class="comment"> */</span>
-<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;<a class="code" href="a00493.html" title="Definitions and forward declarations of all types used in AMQP messages.">qpid/framing/amqp_types.h</a>&quot;</span>
-<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="a00490.html">qpid/Exception.h</a>&quot;</span>
-<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;<a class="code" href="a00482.html">qpid/CommonImportExport.h</a>&quot;</span>
-<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;boost/iterator/iterator_facade.hpp&gt;</span>
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026 <span class="preprocessor">#ifndef _Buffer_</span>
-<a name="l00027"></a>00027 <span class="preprocessor"></span><span class="preprocessor">#define _Buffer_</span>
-<a name="l00028"></a>00028 <span class="preprocessor"></span>
-<a name="l00029"></a>00029 <span class="keyword">namespace </span>qpid {
-<a name="l00030"></a>00030 <span class="keyword">namespace </span>framing {
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032 <span class="keyword">struct </span><a class="code" href="a00482.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> OutOfBounds : qpid::Exception {
-<a name="l00033"></a><a class="code" href="a00246.html#a285e97ba64ec76cca5aeac8f55ff25cb">00033</a>     <a class="code" href="a00246.html#a285e97ba64ec76cca5aeac8f55ff25cb">OutOfBounds</a>() : qpid::<a class="code" href="a00114.html" title="Base class for Qpid runtime exceptions.">Exception</a>(std::<a class="code" href="a00345.html" title="STL class.">string</a>(<span class="stringliteral">&quot;Out of Bounds&quot;</span>)) {}
-<a name="l00034"></a>00034 };
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036 <span class="keyword">class </span>Content;
-<a name="l00037"></a>00037 <span class="keyword">class </span>FieldTable;
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039 <span class="keyword">class </span><a class="code" href="a00482.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> Buffer
-<a name="l00040"></a>00040 {
-<a name="l00041"></a>00041     <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> size;
-<a name="l00042"></a>00042     <span class="keywordtype">char</span>* data;
-<a name="l00043"></a>00043     <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> position;
-<a name="l00044"></a>00044     <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> r_position;
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046   <span class="keyword">public</span>:
-<a name="l00047"></a><a class="code" href="a00045.html#a8bf51454c2f7f3ed77f6b39bea7d8bf6">00047</a>     <span class="keywordtype">void</span> <a class="code" href="a00045.html#a8bf51454c2f7f3ed77f6b39bea7d8bf6">checkAvailable</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> count) { <span class="keywordflow">if</span> (position + count &gt; size) <span class="keywordflow">throw</span> <a class="code" href="a00246.html">OutOfBounds</a>(); }
-<a name="l00048"></a>00048 
-<a name="l00052"></a>00052     <span class="keyword">class </span>Iterator  : <span class="keyword">public</span> boost::iterator_facade&lt;
-<a name="l00053"></a>00053       Iterator, char, boost::random_access_traversal_tag&gt;
-<a name="l00054"></a>00054     {
-<a name="l00055"></a>00055       <span class="keyword">public</span>:
-<a name="l00056"></a><a class="code" href="a00172.html#a62ab1695807bc75fde8294729f102fc1">00056</a>         <a class="code" href="a00172.html#a62ab1695807bc75fde8294729f102fc1">Iterator</a>(<a class="code" href="a00045.html">Buffer</a>&amp; b) : buffer(&amp;b) {}
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058       <span class="keyword">private</span>:
-<a name="l00059"></a><a class="code" href="a00172.html#ac09f73e325921cc50ebcd96bed0f8096">00059</a>       <span class="keyword">friend</span> <span class="keyword">class </span>boost::iterator_core_access;
-<a name="l00060"></a>00060         <span class="keywordtype">char</span>&amp; dereference()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> buffer-&gt;data[buffer-&gt;position]; }
-<a name="l00061"></a>00061         <span class="keywordtype">void</span> increment() { ++buffer-&gt;position; }
-<a name="l00062"></a>00062         <span class="keywordtype">bool</span> equal(<span class="keyword">const</span> Iterator&amp; x)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> buffer == x.buffer; }
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064         Buffer* buffer;
-<a name="l00065"></a>00065     };
-<a name="l00066"></a>00066 
-<a name="l00067"></a><a class="code" href="a00045.html#a9830fc407400559db7e7783cc10a9394">00067</a>   <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a00172.html" title="Buffer input/output iterator.">Iterator</a>;
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00045.html">Buffer</a>(<span class="keywordtype">char</span>* data=0, <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> size=0);
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> record();
-<a name="l00072"></a>00072     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> restore(<span class="keywordtype">bool</span> reRecord = <span class="keyword">false</span>);
-<a name="l00073"></a>00073     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> reset();
-<a name="l00074"></a>00074 
-<a name="l00075"></a><a class="code" href="a00045.html#a025e510922ecb581db35839ba24f1787">00075</a>     <a class="code" href="a00482.html#a22b814cc5ef605d90a1295eae41f4ee4">QPID_COMMON_INLINE_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00045.html#a025e510922ecb581db35839ba24f1787">available</a>() { <span class="keywordflow">return</span> size - position; }
-<a name="l00076"></a><a class="code" href="a00045.html#a8910a8e316bcc06fe3cd4c788cb43d36">00076</a>     <a class="code" href="a00482.html#a22b814cc5ef605d90a1295eae41f4ee4">QPID_COMMON_INLINE_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00045.html#a8910a8e316bcc06fe3cd4c788cb43d36">getSize</a>() { <span class="keywordflow">return</span> size; }
-<a name="l00077"></a><a class="code" href="a00045.html#ae3dd6e2b65191322c96bc16ab94d1f70">00077</a>     <a class="code" href="a00482.html#a22b814cc5ef605d90a1295eae41f4ee4">QPID_COMMON_INLINE_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00045.html#ae3dd6e2b65191322c96bc16ab94d1f70">getPosition</a>() { <span class="keywordflow">return</span> position; }
-<a name="l00078"></a><a class="code" href="a00045.html#ae2730beda750a8960179041b9330ce22">00078</a>     <a class="code" href="a00482.html#a22b814cc5ef605d90a1295eae41f4ee4">QPID_COMMON_INLINE_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00045.html#ae2730beda750a8960179041b9330ce22">setPosition</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> p) { position = p; }
-<a name="l00079"></a><a class="code" href="a00045.html#a1cf9fa95c6c76b736faf7ea1f03adfac">00079</a>     <a class="code" href="a00482.html#a22b814cc5ef605d90a1295eae41f4ee4">QPID_COMMON_INLINE_EXTERN</a> <a class="code" href="a00172.html" title="Buffer input/output iterator.">Iterator</a> <a class="code" href="a00045.html#a1cf9fa95c6c76b736faf7ea1f03adfac">getIterator</a>() { <span class="keywordflow">return</span> <a class="code" href="a00172.html" title="Buffer input/output iterator.">Iterator</a>(*<span class="keyword">this</span>); }
-<a name="l00080"></a><a class="code" href="a00045.html#a0a451c64bf6f08c6ab0f48dc13fce148">00080</a>     <a class="code" href="a00482.html#a22b814cc5ef605d90a1295eae41f4ee4">QPID_COMMON_INLINE_EXTERN</a> <span class="keywordtype">char</span>* <a class="code" href="a00045.html#a0a451c64bf6f08c6ab0f48dc13fce148">getPointer</a>() { <span class="keywordflow">return</span> data; }
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> putOctet(<a class="code" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> i);
-<a name="l00083"></a>00083     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> putShort(<a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> i);
-<a name="l00084"></a>00084     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> putLong(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> i);
-<a name="l00085"></a>00085     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> putLongLong(uint64_t i);
-<a name="l00086"></a>00086     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> putInt8(int8_t i);
-<a name="l00087"></a>00087     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> putInt16(<a class="code" href="a00556.html#aa343fa3b3d06292b959ffdd4c4703b06">int16_t</a> i);
-<a name="l00088"></a>00088     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> putInt32(<a class="code" href="a00556.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a> i);
-<a name="l00089"></a>00089     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> putInt64(int64_t i);
-<a name="l00090"></a>00090     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> putFloat(<span class="keywordtype">float</span> f);
-<a name="l00091"></a>00091     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> putDouble(<span class="keywordtype">double</span> f);
-<a name="l00092"></a>00092     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> putBin128(<span class="keyword">const</span> <a class="code" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* b);
-<a name="l00093"></a>00093 
-<a name="l00094"></a>00094     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>  getOctet();
-<a name="l00095"></a>00095     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> getShort();
-<a name="l00096"></a>00096     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> getLong();
-<a name="l00097"></a>00097     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> uint64_t getLongLong();
-<a name="l00098"></a>00098     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> int8_t   getInt8();
-<a name="l00099"></a>00099     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00556.html#aa343fa3b3d06292b959ffdd4c4703b06">int16_t</a>  getInt16();
-<a name="l00100"></a>00100     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00556.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a>  getInt32();
-<a name="l00101"></a>00101     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> int64_t  getInt64();
-<a name="l00102"></a>00102     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">float</span>    getFloat();
-<a name="l00103"></a>00103     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">double</span>   getDouble();
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105     <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> n&gt;
-<a name="l00106"></a>00106     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> uint64_t getUInt();
-<a name="l00107"></a>00107 
-<a name="l00108"></a>00108     <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> n&gt;
-<a name="l00109"></a>00109     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> putUInt(uint64_t);
-<a name="l00110"></a>00110 
-<a name="l00111"></a>00111     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> putShortString(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; s);
-<a name="l00112"></a>00112     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> putMediumString(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; s);
-<a name="l00113"></a>00113     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> putLongString(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; s);
-<a name="l00114"></a>00114     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> getShortString(<span class="keywordtype">string</span>&amp; s);
-<a name="l00115"></a>00115     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> getMediumString(<span class="keywordtype">string</span>&amp; s);
-<a name="l00116"></a>00116     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> getLongString(<span class="keywordtype">string</span>&amp; s);
-<a name="l00117"></a>00117     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> getBin128(<a class="code" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* b);
-<a name="l00118"></a>00118 
-<a name="l00119"></a>00119     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> putRawData(<span class="keyword">const</span> <span class="keywordtype">string</span>&amp; s);
-<a name="l00120"></a>00120     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> getRawData(<span class="keywordtype">string</span>&amp; s, <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> size);
-<a name="l00121"></a>00121 
-<a name="l00122"></a>00122     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> putRawData(<span class="keyword">const</span> <a class="code" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* data, <span class="keywordtype">size_t</span> size);
-<a name="l00123"></a>00123     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> getRawData(<a class="code" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* data, <span class="keywordtype">size_t</span> size);
-<a name="l00124"></a>00124 
-<a name="l00125"></a><a class="code" href="a00045.html#a03ede5b37dd5cf7879baa144c90eeeae">00125</a>     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="a00045.html#a03ede5b37dd5cf7879baa144c90eeeae">put</a>(<span class="keyword">const</span> T&amp; data) { data.encode(*<span class="keyword">this</span>); }
-<a name="l00126"></a><a class="code" href="a00045.html#ad0e8da9b35efb8b0ec9eb0dfb0df1a46">00126</a>     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <span class="keyword">get</span>(T&amp; data) { data.decode(*<span class="keyword">this</span>); }
-<a name="l00127"></a>00127 
-<a name="l00128"></a>00128     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> dump(<a class="code" href="a00243.html" title="STL class.">std::ostream</a>&amp;) <span class="keyword">const</span>;
-<a name="l00129"></a>00129 };
-<a name="l00130"></a>00130 
-<a name="l00131"></a>00131 std::ostream&amp; <a class="code" href="a00580.html#a26b5aa4aa3e48e044e86832a401304b7">operator&lt;&lt;</a>(<a class="code" href="a00243.html" title="STL class.">std::ostream</a>&amp;, <span class="keyword">const</span> Buffer&amp;);
-<a name="l00132"></a>00132 
-<a name="l00133"></a>00133 }} <span class="comment">// namespace qpid::framing</span>
-<a name="l00134"></a>00134 
-<a name="l00135"></a>00135 
-<a name="l00136"></a>00136 <span class="preprocessor">#endif</span>
+<a name="l00021"></a>00021 
+<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="a00495.html" title="Definitions and forward declarations of all types used in AMQP messages.">qpid/framing/amqp_types.h</a>&quot;</span>
+<a name="l00033"></a>00033 <span class="preprocessor">#include &quot;<a class="code" href="a00497.html">qpid/framing/Array.h</a>&quot;</span>
+<a name="l00034"></a>00034 <span class="preprocessor">#include &quot;<a class="code" href="a00507.html">qpid/framing/FieldTable.h</a>&quot;</span>
+<a name="l00035"></a>00035 <span class="preprocessor">#include &quot;<a class="code" href="a00521.html">qpid/framing/SequenceSet.h</a>&quot;</span>
+<a name="l00036"></a>00036 <span class="preprocessor">#include &quot;<a class="code" href="a00525.html">qpid/framing/Uuid.h</a>&quot;</span>
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -223,7 +118,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

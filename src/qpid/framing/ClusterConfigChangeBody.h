@@ -34,6 +34,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -58,6 +59,9 @@ public:
         flags |= (1 << 8);
         flags |= (1 << 9);
         flags |= (1 << 10);
+        if (members.size() >= 65536) throw IllegalArgumentException("Value for members is too large");
+        if (joined.size() >= 65536) throw IllegalArgumentException("Value for joined is too large");
+        if (left.size() >= 65536) throw IllegalArgumentException("Value for left is too large");
     }
     ClusterConfigChangeBody(ProtocolVersion=ProtocolVersion())  : flags(0) {}
     

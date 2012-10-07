@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::messaging::ConnectionError Struct Reference</title>
+    <title>qpid::client::Connection Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,44 +60,414 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00591.html">messaging</a>      </li>
-      <li class="navelem"><a class="el" href="a00060.html">ConnectionError</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00060.html">Connection</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a>  </div>
+<a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::messaging::ConnectionError Struct Reference</div>  </div>
+<div class="title">qpid::client::Connection Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::messaging::ConnectionError" --><!-- doxytag: inherits="qpid::messaging::MessagingException" -->
-<p><code>#include &lt;<a class="el" href="a00436_source.html">qpid/messaging/exceptions.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::client::Connection" -->
+<p>Represents a connection to an AMQP broker.  
+ <a href="a00060.html#details">More...</a></p>
 
-<p><a href="a00865.html">List of all members.</a></p>
+<p><code>#include &lt;<a class="el" href="a00464_source.html">qpid/client/Connection.h</a>&gt;</code></p>
+
+<p><a href="a00680.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00060.html#a525a882c8ef4a98c47f7ce35e0da2017">ConnectionError</a> (const <a class="el" href="a00345.html">std::string</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual QPID_TYPES_EXTERN <br class="typebreak"/>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00112.html#a96ddb3fe10a2b9d059cb78832a64751d">what</a> () const   throw ()</td></tr>
-<tr><td colspan="2"><h2><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#ad2a0464e06d10b0ba61a4520bac1cfa7">detail</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00060.html#aeb63c0b8163dbdd2261e8b0ba8f93bf8">Connection</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a <a class="el" href="a00060.html" title="Represents a connection to an AMQP broker.">Connection</a> object, but does not open the connection.  <a href="#aeb63c0b8163dbdd2261e8b0ba8f93bf8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00060.html#ac26788d92d97cd8f588337b59461b636">~Connection</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys a <a class="el" href="a00060.html" title="Represents a connection to an AMQP broker.">Connection</a> object but does not close the connection if it was open.  <a href="#ac26788d92d97cd8f588337b59461b636"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00060.html#a452b2601c2c69aff8eb8d5ffbdd796a7">open</a> (const <a class="el" href="a00346.html">std::string</a> &amp;host, int port=5672, const <a class="el" href="a00346.html">std::string</a> &amp;uid=&quot;&quot;, const <a class="el" href="a00346.html">std::string</a> &amp;pwd=&quot;&quot;, const <a class="el" href="a00346.html">std::string</a> &amp;virtualhost=&quot;/&quot;, <a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> maxFrameSize=65535)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a connection to a broker.  <a href="#a452b2601c2c69aff8eb8d5ffbdd796a7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00060.html#ac91ebd9f480df875611d99f62786dd0d">open</a> (const <a class="el" href="a00374.html">Url</a> &amp;url, const <a class="el" href="a00346.html">std::string</a> &amp;uid=&quot;&quot;, const <a class="el" href="a00346.html">std::string</a> &amp;pwd=&quot;&quot;, const <a class="el" href="a00346.html">std::string</a> &amp;virtualhost=&quot;/&quot;, <a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> maxFrameSize=65535)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a connection to a broker using a URL.  <a href="#ac91ebd9f480df875611d99f62786dd0d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00060.html#a7970fb2ce8f726611a680f0f3679c482">open</a> (const <a class="el" href="a00374.html">Url</a> &amp;url, const <a class="el" href="a00067.html">ConnectionSettings</a> &amp;settings)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a connection to a broker using a URL.  <a href="#a7970fb2ce8f726611a680f0f3679c482"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00060.html#a2f84de4cffe33719112928f76499dac8">open</a> (const <a class="el" href="a00067.html">ConnectionSettings</a> &amp;settings)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens a connection to a broker.  <a href="#a2f84de4cffe33719112928f76499dac8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00060.html#ac9a4e6f3bd3d211485ded041d496beb0">close</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the connection.  <a href="#ac9a4e6f3bd3d211485ded041d496beb0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00578.html#aa15500ce0ba4cea17f4226bebe584a67">Session</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00060.html#ad6034d5dc2dc5d556523fc7e3b3dd3c2">newSession</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name=<a class="el" href="a00346.html">std::string</a>(), <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> timeoutSeconds=0)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new session on this connection.  <a href="#ad6034d5dc2dc5d556523fc7e3b3dd3c2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00060.html#ae73debd72b4b2742a521c3ef87183a8c">resume</a> (<a class="el" href="a00578.html#aa15500ce0ba4cea17f4226bebe584a67">Session</a> &amp;session)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Resume a suspended session.  <a href="#ae73debd72b4b2742a521c3ef87183a8c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00060.html#acaa3a536f76df0ea7b816e82fa9adaab">isOpen</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00387.html">std::vector</a>&lt; <a class="el" href="a00374.html">Url</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00060.html#a71da3a028dab692000f60995888e61de">getInitialBrokers</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In a cluster, returns the initial set of known broker URLs at the time of connection.  <a href="#a71da3a028dab692000f60995888e61de"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00060.html#ab044f297d8e236c8c253e7a8d14c050f">registerFailureCallback</a> (boost::function&lt; void()&gt; fn)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00067.html">ConnectionSettings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00060.html#a0d63e6aa8f889c0617dfa51762d18bab">getNegotiatedSettings</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the set of client negotiated settings.  <a href="#a0d63e6aa8f889c0617dfa51762d18bab"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">boost::shared_ptr&lt; ConnectionImpl &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00060.html#a22f98c94ca727ab34557471c1e4b8d63">impl</a></td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a525a882c8ef4a98c47f7ce35e0da2017"></a><!-- doxytag: member="qpid::messaging::ConnectionError::ConnectionError" ref="a525a882c8ef4a98c47f7ce35e0da2017" args="(const std::string &amp;)" -->
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Represents a connection to an AMQP broker. </p>
+<p>All communication is initiated by establishing a connection, then creating one or more Session objects using the connection. </p>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="a00060.html#ad6034d5dc2dc5d556523fc7e3b3dd3c2" title="Create a new session on this connection.">newSession()</a></dd></dl>
+<p>Some methods use an AMQP 0-10 URL to specify connection parameters. This is defined in the AMQP 0-10 specification (<a href="http://jira.amqp.org/confluence/display/AMQP/AMQP+Specification">http://jira.amqp.org/confluence/display/AMQP/AMQP+Specification</a>).</p>
+<p>amqp_url = "amqp:" prot_addr_list prot_addr_list = [prot_addr ","]* prot_addr prot_addr = tcp_prot_addr | tls_prot_addr</p>
+<p>tcp_prot_addr = tcp_id tcp_addr tcp_id = "tcp:" | "" tcp_addr = [host [":" port] ] host = &lt;as per <a href="http://www.ietf.org/rfc/rfc3986.txt">http://www.ietf.org/rfc/rfc3986.txt</a>&gt; port = number]]&gt; </p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aeb63c0b8163dbdd2261e8b0ba8f93bf8"></a><!-- doxytag: member="qpid::client::Connection::Connection" ref="aeb63c0b8163dbdd2261e8b0ba8f93bf8" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::messaging::ConnectionError::ConnectionError </td>
+          <td class="memname">qpid::client::Connection::Connection </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Creates a <a class="el" href="a00060.html" title="Represents a connection to an AMQP broker.">Connection</a> object, but does not open the connection. </p>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="a00060.html#a452b2601c2c69aff8eb8d5ffbdd796a7" title="Opens a connection to a broker.">open()</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ac26788d92d97cd8f588337b59461b636"></a><!-- doxytag: member="qpid::client::Connection::~Connection" ref="ac26788d92d97cd8f588337b59461b636" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::client::Connection::~Connection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Destroys a <a class="el" href="a00060.html" title="Represents a connection to an AMQP broker.">Connection</a> object but does not close the connection if it was open. </p>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="a00060.html#ac9a4e6f3bd3d211485ded041d496beb0" title="Close the connection.">close()</a> </dd></dl>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ac9a4e6f3bd3d211485ded041d496beb0"></a><!-- doxytag: member="qpid::client::Connection::close" ref="ac9a4e6f3bd3d211485ded041d496beb0" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::Connection::close </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Close the connection. </p>
+<p>Any further use of this connection (without reopening it) will not succeed. </p>
+
+</div>
+</div>
+<a class="anchor" id="a71da3a028dab692000f60995888e61de"></a><!-- doxytag: member="qpid::client::Connection::getInitialBrokers" ref="a71da3a028dab692000f60995888e61de" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00387.html">std::vector</a>&lt;<a class="el" href="a00374.html">Url</a>&gt; qpid::client::Connection::getInitialBrokers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>In a cluster, returns the initial set of known broker URLs at the time of connection. </p>
+
+</div>
+</div>
+<a class="anchor" id="a0d63e6aa8f889c0617dfa51762d18bab"></a><!-- doxytag: member="qpid::client::Connection::getNegotiatedSettings" ref="a0d63e6aa8f889c0617dfa51762d18bab" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00067.html">ConnectionSettings</a>&amp; qpid::client::Connection::getNegotiatedSettings </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Return the set of client negotiated settings. </p>
+
+</div>
+</div>
+<a class="anchor" id="acaa3a536f76df0ea7b816e82fa9adaab"></a><!-- doxytag: member="qpid::client::Connection::isOpen" ref="acaa3a536f76df0ea7b816e82fa9adaab" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::client::Connection::isOpen </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad6034d5dc2dc5d556523fc7e3b3dd3c2"></a><!-- doxytag: member="qpid::client::Connection::newSession" ref="ad6034d5dc2dc5d556523fc7e3b3dd3c2" args="(const std::string &amp;name=std::string(), uint32_t timeoutSeconds=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00578.html#aa15500ce0ba4cea17f4226bebe584a67">Session</a> qpid::client::Connection::newSession </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>timeoutSeconds</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Create a new session on this connection. </p>
+<p>Sessions allow multiple streams of work to be multiplexed over the same connection. The returned Session provides functions to send commands to the broker.</p>
+<p>Session functions are synchronous. In other words, a Session function will send a command to the broker and does not return until it receives the broker's response confirming the command was executed.</p>
+<p>AsyncSession provides asynchronous versions of the same functions. These functions send a command to the broker but do not wait for a response.</p>
+<p>You can convert a Session s into an AsyncSession as follows: </p>
+<div class="fragment"><pre class="fragment"><span class="preprocessor">  #include &lt;<a class="code" href="a00459.html">qpid/client/AsyncSession.h</a>&gt;</span>
+  <a class="code" href="a00578.html#aaa363d2dd092eb7f790126a8f9333c8c" title="AsyncSession is an alias for Session_0_10.">AsyncSession</a> as = <a class="code" href="a00578.html#aa25c80caf55dd39a2e1d5141916866e7" title="Conversion to AsyncSession_0_10 from another session type.">async</a>(s);
+</pre></div><p>You can execute a single command asynchronously will a Session s like ths: </p>
+<div class="fragment"><pre class="fragment">  <a class="code" href="a00578.html#aa25c80caf55dd39a2e1d5141916866e7" title="Conversion to AsyncSession_0_10 from another session type.">async</a>(s).messageTransfer(...);
+</pre></div><p>Using an AsyncSession is faster for sending large numbers of commands, since each command is sent as soon as possible without waiting for the previous command to be confirmed.</p>
+<p>However with AsyncSession you cannot assume that a command has completed until you explicitly synchronize. The simplest way to do this is to call <a class="el" href="a00329.html#a198880ec0840c18b0d8a9140d38db699" title="Synchronize the session: sync() waits until all commands issued on this session so far have been comp...">Session::sync()</a> or <a class="el" href="a00329.html#a198880ec0840c18b0d8a9140d38db699" title="Synchronize the session: sync() waits until all commands issued on this session so far have been comp...">AsyncSession::sync()</a>. Both of these functions wait for the broker to confirm all commands issued so far on the session.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name,:</td><td>A name to identify the session. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="a00334.html" title="Identifier for a session.">qpid::SessionId</a> If the name is empty (the default) then a unique name will be chosen using a Universally-unique identifier (UUID) algorithm. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a452b2601c2c69aff8eb8d5ffbdd796a7"></a><!-- doxytag: member="qpid::client::Connection::open" ref="a452b2601c2c69aff8eb8d5ffbdd796a7" args="(const std::string &amp;host, int port=5672, const std::string &amp;uid=&quot;&quot;, const std::string &amp;pwd=&quot;&quot;, const std::string &amp;virtualhost=&quot;/&quot;, uint16_t maxFrameSize=65535)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::Connection::open </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>host</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>port</em> = <code>5672</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>uid</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>pwd</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>virtualhost</em> = <code>&quot;/&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td>
+          <td class="paramname"><em>maxFrameSize</em> = <code>65535</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Opens a connection to a broker. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">host</td><td>the host on which the broker is running.</td></tr>
+    <tr><td class="paramname">port</td><td>the port on the which the broker is listening.</td></tr>
+    <tr><td class="paramname">uid</td><td>the userid to connect with.</td></tr>
+    <tr><td class="paramname">pwd</td><td>the password to connect with (currently SASL PLAIN is the only authentication method supported so this is sent in clear text).</td></tr>
+    <tr><td class="paramname">virtualhost</td><td>the AMQP virtual host to use (virtual hosts, where implemented(!), provide namespace partitioning within a single broker). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ac91ebd9f480df875611d99f62786dd0d"></a><!-- doxytag: member="qpid::client::Connection::open" ref="ac91ebd9f480df875611d99f62786dd0d" args="(const Url &amp;url, const std::string &amp;uid=&quot;&quot;, const std::string &amp;pwd=&quot;&quot;, const std::string &amp;virtualhost=&quot;/&quot;, uint16_t maxFrameSize=65535)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::Connection::open </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00374.html">Url</a> &amp;&#160;</td>
+          <td class="paramname"><em>url</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>uid</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>pwd</em> = <code>&quot;&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>virtualhost</em> = <code>&quot;/&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td>
+          <td class="paramname"><em>maxFrameSize</em> = <code>65535</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Opens a connection to a broker using a URL. </p>
+<p>If the URL contains multiple addresses, try each in turn till connection is successful.</p>
+<p>address of the broker to connect to.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uid</td><td>the userid to connect with.</td></tr>
+    <tr><td class="paramname">pwd</td><td>the password to connect with (currently SASL PLAIN is the only authentication method supported so this is sent in clear text).</td></tr>
+    <tr><td class="paramname">virtualhost</td><td>the AMQP virtual host to use (virtual hosts, where implemented(!), provide namespace partitioning within a single broker). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a7970fb2ce8f726611a680f0f3679c482"></a><!-- doxytag: member="qpid::client::Connection::open" ref="a7970fb2ce8f726611a680f0f3679c482" args="(const Url &amp;url, const ConnectionSettings &amp;settings)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::Connection::open </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00374.html">Url</a> &amp;&#160;</td>
+          <td class="paramname"><em>url</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00067.html">ConnectionSettings</a> &amp;&#160;</td>
+          <td class="paramname"><em>settings</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Opens a connection to a broker using a URL. </p>
+<p>If the URL contains multiple addresses, try each in turn till connection is successful.</p>
+<p>address of the broker to connect to.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">settings</td><td>used for any settings not provided by the URL. Settings provided by the url (e.g. host, port) are ignored. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a2f84de4cffe33719112928f76499dac8"></a><!-- doxytag: member="qpid::client::Connection::open" ref="a2f84de4cffe33719112928f76499dac8" args="(const ConnectionSettings &amp;settings)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::Connection::open </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00067.html">ConnectionSettings</a> &amp;&#160;</td>
+          <td class="paramname"><em>settings</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Opens a connection to a broker. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">the</td><td>settings to use (host, port etc). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="a00067.html" title="Settings for a Connection.">ConnectionSettings</a>. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ab044f297d8e236c8c253e7a8d14c050f"></a><!-- doxytag: member="qpid::client::Connection::registerFailureCallback" ref="ab044f297d8e236c8c253e7a8d14c050f" args="(boost::function&lt; void()&gt; fn)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::Connection::registerFailureCallback </td>
+          <td>(</td>
+          <td class="paramtype">boost::function&lt; void()&gt;&#160;</td>
+          <td class="paramname"><em>fn</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -106,41 +476,44 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a96ddb3fe10a2b9d059cb78832a64751d"></a><!-- doxytag: member="qpid::messaging::ConnectionError::what" ref="a96ddb3fe10a2b9d059cb78832a64751d" args="() const " -->
+<a class="anchor" id="ae73debd72b4b2742a521c3ef87183a8c"></a><!-- doxytag: member="qpid::client::Connection::resume" ref="ae73debd72b4b2742a521c3ef87183a8c" args="(Session &amp;session)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual QPID_TYPES_EXTERN const char* qpid::types::Exception::what </td>
+          <td class="memname">void qpid::client::Connection::resume </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const  throw ()<code> [virtual, inherited]</code></td>
+          <td class="paramtype"><a class="el" href="a00578.html#aa15500ce0ba4cea17f4226bebe584a67">Session</a> &amp;&#160;</td>
+          <td class="paramname"><em>session</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Resume a suspended session. </p>
+<p>A session may be resumed on a different connection to the one that created it. </p>
 
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="ad2a0464e06d10b0ba61a4520bac1cfa7"></a><!-- doxytag: member="qpid::messaging::ConnectionError::detail" ref="ad2a0464e06d10b0ba61a4520bac1cfa7" args="" -->
+<a class="anchor" id="a22f98c94ca727ab34557471c1e4b8d63"></a><!-- doxytag: member="qpid::client::Connection::impl" ref="a22f98c94ca727ab34557471c1e4b8d63" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> <a class="el" href="a00213.html#ad2a0464e06d10b0ba61a4520bac1cfa7">qpid::messaging::MessagingException::detail</a><code> [inherited]</code></td>
+          <td class="memname">boost::shared_ptr&lt;ConnectionImpl&gt; <a class="el" href="a00060.html#a22f98c94ca727ab34557471c1e4b8d63">qpid::client::Connection::impl</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00436_source.html#l00044">44</a> of file <a class="el" href="a00436_source.html">exceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="a00464_source.html#l00071">71</a> of file <a class="el" href="a00464_source.html">Connection.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/messaging/<a class="el" href="a00436_source.html">exceptions.h</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qpid/client/<a class="el" href="a00464_source.html">Connection.h</a></li>
 </ul>
 </div>
 <!--
@@ -170,7 +543,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

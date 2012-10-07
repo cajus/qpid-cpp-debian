@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::client Namespace Reference</title>
+    <title>qpid Namespace Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -56,296 +56,502 @@
       <li><a href="namespacemembers.html"><span>Namespace&#160;Members</span></a></li>
     </ul>
   </div>
-  <div id="nav-path" class="navpath">
-    <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00576.html">client</a>      </li>
-    </ul>
-  </div>
 </div>
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::client Namespace Reference</div>  </div>
+<div class="title">qpid Namespace Reference</div>  </div>
 </div>
 <div class="contents">
+
+<p>This file was automatically generated from the AMQP specification.  
+<a href="#details">More...</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00577.html">arg</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00578.html">no_keyword</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00577.html">amqp_0_10</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00578.html">client</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00581.html">console</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00582.html">framing</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>The framing namespace contains classes that are used to create, send and receive the basic packets from which AMQP is built. </p>
+<br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html">log</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html">management</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html">messaging</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html">sys</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00596.html">types</a></td></tr>
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00020.html">AsyncSession_0_10</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">AMQP 0-10 session API with keyword arguments.  <a href="a00020.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00054.html">Completion</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Asynchronous commands that do not return a result will return a <a class="el" href="a00054.html" title="Asynchronous commands that do not return a result will return a Completion.">Completion</a>.  <a href="a00054.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00058.html">Connection</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a connection to an AMQP broker.  <a href="a00058.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00065.html">ConnectionSettings</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Settings for a <a class="el" href="a00058.html" title="Represents a connection to an AMQP broker.">Connection</a>.  <a href="a00065.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html">FailoverListener</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Listen for updates from the amq.failover exchange.  <a href="a00118.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00047.html">CannotConnectException</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00119.html">FailoverManager</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility to manage failover.  <a href="a00119.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html">FlowControl</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Flow control works by associating a finite amount of "credit" with a subscription.  <a href="a00132.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00136.html">Future</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html">FutureCompletion</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00138.html">FutureResult</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html">Handle</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A handle is like a pointer: refers to an underlying implementation object.  <a href="a00140.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html">LocalQueue</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A local queue to collect messages retrieved from a remote broker queue.  <a href="a00193.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00206.html">Message</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A message sent to or received from the broker.  <a href="a00206.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00209.html">MessageListener</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Implement a subclass of <a class="el" href="a00209.html" title="Implement a subclass of MessageListener and subscribe it using the SubscriptionManager to receive mes...">MessageListener</a> and subscribe it using the <a class="el" href="a00352.html" title="A class to help create and manage subscriptions.">SubscriptionManager</a> to receive messages.  <a href="a00209.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00211.html">MessageReplayTracker</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility to track messages sent asynchronously, allowing those that are indoubt to be replayed over a new session.  <a href="a00211.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00264.html">QueueOptions</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A help class to set options on the Queue.  <a href="a00264.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00327.html">Session_0_10</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">AMQP 0-10 session API with keyword arguments.  <a href="a00327.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html">SessionBase_0_10</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for handles to an AMQP session.  <a href="a00328.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html">Subscription</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A handle to an active subscription.  <a href="a00351.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00352.html">SubscriptionManager</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A class to help create and manage subscriptions.  <a href="a00352.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html">AutoCancel</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00023.html" title="AutoCancel cancels a subscription in its destructor.">AutoCancel</a> cancels a subscription in its destructor.  <a href="a00023.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html">SubscriptionSettings</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Settings for a subscription.  <a href="a00353.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00362.html">TypedResult</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returned by asynchronous commands that return a result.  <a href="a00362.html#details">More...</a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00020.html">AsyncSession_0_10</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#aaa363d2dd092eb7f790126a8f9333c8c">AsyncSession</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">AsyncSession is an alias for <a class="el" href="a00327.html" title="AMQP 0-10 session API with keyword arguments.">Session_0_10</a>.  <a href="#aaa363d2dd092eb7f790126a8f9333c8c"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00327.html">Session_0_10</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#aa15500ce0ba4cea17f4226bebe584a67">Session</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Session is an alias for <a class="el" href="a00327.html" title="AMQP 0-10 session API with keyword arguments.">Session_0_10</a>.  <a href="#aa15500ce0ba4cea17f4226bebe584a67"></a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#ae7fd80e6bdbd10200de7758e81249d36">QueueSizePolicy</a> { <br/>
-&#160;&#160;<a class="el" href="a00576.html#ae7fd80e6bdbd10200de7758e81249d36aeea885b1c46bbbb7a16e5b9939c1ad1d">NONE</a>, 
-<a class="el" href="a00576.html#ae7fd80e6bdbd10200de7758e81249d36aa7aecfa6b8dae92f343863ae38f0aeab">REJECT</a>, 
-<a class="el" href="a00576.html#ae7fd80e6bdbd10200de7758e81249d36a51e3fdeb4cc463ab99694e0bd9e37806">FLOW_TO_DISK</a>, 
-<a class="el" href="a00576.html#ae7fd80e6bdbd10200de7758e81249d36ae27b3edb8d2ea4d00a4e09b5cd948605">RING</a>, 
-<br/>
-&#160;&#160;<a class="el" href="a00576.html#ae7fd80e6bdbd10200de7758e81249d36a66a6b0ed3f7fd6a425c930f4090261a0">RING_STRICT</a>
-<br/>
- }</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#a2e9fe250b86fe9c17ecb08826b732c67">QueueOrderingPolicy</a> { <a class="el" href="a00576.html#a2e9fe250b86fe9c17ecb08826b732c67a700f86c2d47bb85c8ec3abd81334c8c3">FIFO</a>, 
-<a class="el" href="a00576.html#a2e9fe250b86fe9c17ecb08826b732c67a5370d3e5d04ace5e86c74da54b9ab622">LVQ</a>, 
-<a class="el" href="a00576.html#a2e9fe250b86fe9c17ecb08826b732c67a752bb595893607867850689d11cf6b58">LVQ_NO_BROWSE</a>
- }</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#aea75244fd77ea602193ebe93713d76b9">CreditUnit</a> { <a class="el" href="a00576.html#aea75244fd77ea602193ebe93713d76b9a2e132222108dca761365208d76754e56">MESSAGE_CREDIT</a> = 0, 
-<a class="el" href="a00576.html#aea75244fd77ea602193ebe93713d76b9a2c713c2a701cf60895f0d6dedab27095">BYTE_CREDIT</a> = 1, 
-<a class="el" href="a00576.html#aea75244fd77ea602193ebe93713d76b9a2c6d9050f766f9b635d392259dff6c2e">UNLIMITED_CREDIT</a> = 0xFFFFFFFF
- }</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unit of message credit: messages or bytes.  <a href="a00576.html#aea75244fd77ea602193ebe93713d76b9">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8">CompletionMode</a> { <a class="el" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8a5b271da5858f056db87fd00012fcac67">MANUAL_COMPLETION</a> =  0, 
-<a class="el" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8a7484fcf320e489fd971883456384e9cb">COMPLETE_ON_DELIVERY</a> =  1, 
-<a class="el" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8af5159dbb296bb4dd4f80461582651abd">COMPLETE_ON_ACCEPT</a> =  2
- }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00002.html">Address</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains the protocol address of an AMQP broker.  <a href="a00002.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html">Exception</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for Qpid runtime exceptions.  <a href="a00116.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html">ErrnoException</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00116.html" title="Base class for Qpid runtime exceptions.">Exception</a> that includes an errno message.  <a href="a00109.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html">SessionException</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00050.html">ChannelException</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00063.html">ConnectionException</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00052.html">ClosedException</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00362.html">TransportFailure</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00116.html" title="Base class for Qpid runtime exceptions.">Exception</a> representing transport failure.  <a href="a00362.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00150.html">InlineAllocator</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">An allocator that has inline storage for up to Max objects of type BaseAllocator::value_type.  <a href="a00150.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00151.html">InlineRebind</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00152.html">InlineRebind&lt; T, T, BaseAllocator, Max &gt;</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00153.html">InlineVector</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A vector that stores up to Max elements in inline storage, otherwise uses normal vector allocation.  <a href="a00153.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html">Msg</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple wrapper for <a class="el" href="a00245.html" title="STL class.">std::ostringstream</a> that allows in place construction of a message and automatic conversion to string.  <a href="a00218.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00243.html">OptionValue</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00241.html">Options</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for options.  <a href="a00241.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00055.html">CommonOptions</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard options for configuration.  <a href="a00055.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00268.html">Range</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A range of values, used in <a class="el" href="a00270.html" title="A set implemented as a list of [begin, end) ranges.">RangeSet</a>.  <a href="a00268.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00270.html">RangeSet</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A set implemented as a list of [begin, end) ranges.  <a href="a00270.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html">SessionId</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifier for a session.  <a href="a00334.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00374.html">Url</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">An AMQP URL contains a list of addresses.  <a href="a00374.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00020.html">AsyncSession_0_10</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#aa25c80caf55dd39a2e1d5141916866e7">async</a> (const <a class="el" href="a00328.html">SessionBase_0_10</a> &amp;other)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to <a class="el" href="a00020.html" title="AMQP 0-10 session API with keyword arguments.">AsyncSession_0_10</a> from another session type.  <a href="#aa25c80caf55dd39a2e1d5141916866e7"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00327.html">Session_0_10</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#a15a5d12c365f54c47e6d5f910760b6c0">sync</a> (const <a class="el" href="a00328.html">SessionBase_0_10</a> &amp;other)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to <a class="el" href="a00327.html" title="AMQP 0-10 session API with keyword arguments.">Session_0_10</a> from another session type.  <a href="#a15a5d12c365f54c47e6d5f910760b6c0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#a365c9037931e1445c06e0e66ec94f615">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;os, const <a class="el" href="a00002.html">Address</a> &amp;addr)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#aacf454d1ba7d16ccf9ecd4037c4c47f3">operator==</a> (const <a class="el" href="a00002.html">Address</a> &amp;x, const <a class="el" href="a00002.html">Address</a> &amp;y)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#a6b4ca4bfc4efedb85d1d0be2005d179a">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;o, const <a class="el" href="a00218.html">Msg</a> &amp;m)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#aa82987134f1b58966a77bca596e25d9f">prettyArg</a> (const <a class="el" href="a00346.html">std::string</a> &amp;, const <a class="el" href="a00346.html">std::string</a> &amp;)</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">po::value_semantic *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00576.html#a8528c6a24f1a699f1cad39814cc34880">optValue</a> (T &amp;value, const char *name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an option value.  <a href="#a8528c6a24f1a699f1cad39814cc34880"></a><br/></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">po::value_semantic *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00576.html#afcd1a6083d6ac7b47e213a67035fb998">optValue</a> (<a class="el" href="a00387.html">std::vector</a>&lt; T &gt; &amp;value, const char *name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a vector value.  <a href="#afcd1a6083d6ac7b47e213a67035fb998"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">po::value_semantic *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#a2a4f0c2a95d060596552187971260c09">optValue</a> (bool &amp;value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a boolean switch value.  <a href="#a2a4f0c2a95d060596552187971260c09"></a><br/></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00576.html#a53bb24052c793e02e1108425660a5d07">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;o, const <a class="el" href="a00268.html">Range</a>&lt; T &gt; &amp;r)</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00576.html#a731c4149da588e385686fd7437e4a5c0">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;o, const <a class="el" href="a00270.html">RangeSet</a>&lt; T &gt; &amp;rs)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#a62a73b8a9bbaa8ffd9d3dd9a20a76565">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;, const <a class="el" href="a00334.html">SessionId</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#a6cf8340fdd0d05446805d6f400b9f4a7">operator==</a> (const <a class="el" href="a00374.html">Url</a> &amp;a, const <a class="el" href="a00374.html">Url</a> &amp;b)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#a1b3b4dbc3b3be36961da443d48c02dd4">operator!=</a> (const <a class="el" href="a00374.html">Url</a> &amp;a, const <a class="el" href="a00374.html">Url</a> &amp;b)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#a462111b3c167e2887250e401d9372dfc">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;os, const <a class="el" href="a00374.html">Url</a> &amp;url)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00172.html">std::istream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#a35bb1cee76de54197517fb8989801d22">operator&gt;&gt;</a> (<a class="el" href="a00172.html">std::istream</a> &amp;is, <a class="el" href="a00374.html">Url</a> &amp;url)</td></tr>
 </table>
-<hr/><h2>Typedef Documentation</h2>
-<a class="anchor" id="aaa363d2dd092eb7f790126a8f9333c8c"></a><!-- doxytag: member="qpid::client::AsyncSession" ref="aaa363d2dd092eb7f790126a8f9333c8c" args="" -->
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>This file was automatically generated from the AMQP specification. </p>
+<p>Do not edit. </p>
+</div><hr/><h2>Function Documentation</h2>
+<a class="anchor" id="a1b3b4dbc3b3be36961da443d48c02dd4"></a><!-- doxytag: member="qpid::operator!=" ref="a1b3b4dbc3b3be36961da443d48c02dd4" args="(const Url &amp;a, const Url &amp;b)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a00020.html">AsyncSession_0_10</a> <a class="el" href="a00576.html#aaa363d2dd092eb7f790126a8f9333c8c">qpid::client::AsyncSession</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>AsyncSession is an alias for <a class="el" href="a00327.html" title="AMQP 0-10 session API with keyword arguments.">Session_0_10</a>. </p>
-
-<p>Definition at line <a class="el" href="a00457_source.html#l00034">34</a> of file <a class="el" href="a00457_source.html">AsyncSession.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa15500ce0ba4cea17f4226bebe584a67"></a><!-- doxytag: member="qpid::client::Session" ref="aa15500ce0ba4cea17f4226bebe584a67" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a00327.html">Session_0_10</a> <a class="el" href="a00576.html#aa15500ce0ba4cea17f4226bebe584a67">qpid::client::Session</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Session is an alias for <a class="el" href="a00327.html" title="AMQP 0-10 session API with keyword arguments.">Session_0_10</a>. </p>
-
-<p>Definition at line <a class="el" href="a00476_source.html#l00034">34</a> of file <a class="el" href="a00476_source.html">Session.h</a>.</p>
-
-</div>
-</div>
-<hr/><h2>Enumeration Type Documentation</h2>
-<a class="anchor" id="a42369ab37a91cfa7cd1702713dd211c8"></a><!-- doxytag: member="qpid::client::CompletionMode" ref="a42369ab37a91cfa7cd1702713dd211c8" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8">qpid::client::CompletionMode</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="a42369ab37a91cfa7cd1702713dd211c8a5b271da5858f056db87fd00012fcac67"></a><!-- doxytag: member="MANUAL_COMPLETION" ref="a42369ab37a91cfa7cd1702713dd211c8a5b271da5858f056db87fd00012fcac67" args="" -->MANUAL_COMPLETION</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a42369ab37a91cfa7cd1702713dd211c8a7484fcf320e489fd971883456384e9cb"></a><!-- doxytag: member="COMPLETE_ON_DELIVERY" ref="a42369ab37a91cfa7cd1702713dd211c8a7484fcf320e489fd971883456384e9cb" args="" -->COMPLETE_ON_DELIVERY</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a42369ab37a91cfa7cd1702713dd211c8af5159dbb296bb4dd4f80461582651abd"></a><!-- doxytag: member="COMPLETE_ON_ACCEPT" ref="a42369ab37a91cfa7cd1702713dd211c8af5159dbb296bb4dd4f80461582651abd" args="" -->COMPLETE_ON_ACCEPT</em>&nbsp;</td><td>
-</td></tr>
-</table>
-</dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00480_source.html#l00033">33</a> of file <a class="el" href="a00480_source.html">SubscriptionSettings.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aea75244fd77ea602193ebe93713d76b9"></a><!-- doxytag: member="qpid::client::CreditUnit" ref="aea75244fd77ea602193ebe93713d76b9" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00576.html#aea75244fd77ea602193ebe93713d76b9">qpid::client::CreditUnit</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Unit of message credit: messages or bytes. </p>
-<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="aea75244fd77ea602193ebe93713d76b9a2e132222108dca761365208d76754e56"></a><!-- doxytag: member="MESSAGE_CREDIT" ref="aea75244fd77ea602193ebe93713d76b9a2e132222108dca761365208d76754e56" args="" -->MESSAGE_CREDIT</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aea75244fd77ea602193ebe93713d76b9a2c713c2a701cf60895f0d6dedab27095"></a><!-- doxytag: member="BYTE_CREDIT" ref="aea75244fd77ea602193ebe93713d76b9a2c713c2a701cf60895f0d6dedab27095" args="" -->BYTE_CREDIT</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aea75244fd77ea602193ebe93713d76b9a2c6d9050f766f9b635d392259dff6c2e"></a><!-- doxytag: member="UNLIMITED_CREDIT" ref="aea75244fd77ea602193ebe93713d76b9a2c6d9050f766f9b635d392259dff6c2e" args="" -->UNLIMITED_CREDIT</em>&nbsp;</td><td>
-</td></tr>
-</table>
-</dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00478_source.html#l00049">49</a> of file <a class="el" href="a00478_source.html">SessionBase_0_10.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2e9fe250b86fe9c17ecb08826b732c67"></a><!-- doxytag: member="qpid::client::QueueOrderingPolicy" ref="a2e9fe250b86fe9c17ecb08826b732c67" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00576.html#a2e9fe250b86fe9c17ecb08826b732c67">qpid::client::QueueOrderingPolicy</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="a2e9fe250b86fe9c17ecb08826b732c67a700f86c2d47bb85c8ec3abd81334c8c3"></a><!-- doxytag: member="FIFO" ref="a2e9fe250b86fe9c17ecb08826b732c67a700f86c2d47bb85c8ec3abd81334c8c3" args="" -->FIFO</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a2e9fe250b86fe9c17ecb08826b732c67a5370d3e5d04ace5e86c74da54b9ab622"></a><!-- doxytag: member="LVQ" ref="a2e9fe250b86fe9c17ecb08826b732c67a5370d3e5d04ace5e86c74da54b9ab622" args="" -->LVQ</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a2e9fe250b86fe9c17ecb08826b732c67a752bb595893607867850689d11cf6b58"></a><!-- doxytag: member="LVQ_NO_BROWSE" ref="a2e9fe250b86fe9c17ecb08826b732c67a752bb595893607867850689d11cf6b58" args="" -->LVQ_NO_BROWSE</em>&nbsp;</td><td>
-</td></tr>
-</table>
-</dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00475_source.html#l00032">32</a> of file <a class="el" href="a00475_source.html">QueueOptions.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae7fd80e6bdbd10200de7758e81249d36"></a><!-- doxytag: member="qpid::client::QueueSizePolicy" ref="ae7fd80e6bdbd10200de7758e81249d36" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00576.html#ae7fd80e6bdbd10200de7758e81249d36">qpid::client::QueueSizePolicy</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="ae7fd80e6bdbd10200de7758e81249d36aeea885b1c46bbbb7a16e5b9939c1ad1d"></a><!-- doxytag: member="NONE" ref="ae7fd80e6bdbd10200de7758e81249d36aeea885b1c46bbbb7a16e5b9939c1ad1d" args="" -->NONE</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="ae7fd80e6bdbd10200de7758e81249d36aa7aecfa6b8dae92f343863ae38f0aeab"></a><!-- doxytag: member="REJECT" ref="ae7fd80e6bdbd10200de7758e81249d36aa7aecfa6b8dae92f343863ae38f0aeab" args="" -->REJECT</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="ae7fd80e6bdbd10200de7758e81249d36a51e3fdeb4cc463ab99694e0bd9e37806"></a><!-- doxytag: member="FLOW_TO_DISK" ref="ae7fd80e6bdbd10200de7758e81249d36a51e3fdeb4cc463ab99694e0bd9e37806" args="" -->FLOW_TO_DISK</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="ae7fd80e6bdbd10200de7758e81249d36ae27b3edb8d2ea4d00a4e09b5cd948605"></a><!-- doxytag: member="RING" ref="ae7fd80e6bdbd10200de7758e81249d36ae27b3edb8d2ea4d00a4e09b5cd948605" args="" -->RING</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="ae7fd80e6bdbd10200de7758e81249d36a66a6b0ed3f7fd6a425c930f4090261a0"></a><!-- doxytag: member="RING_STRICT" ref="ae7fd80e6bdbd10200de7758e81249d36a66a6b0ed3f7fd6a425c930f4090261a0" args="" -->RING_STRICT</em>&nbsp;</td><td>
-</td></tr>
-</table>
-</dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00475_source.html#l00031">31</a> of file <a class="el" href="a00475_source.html">QueueOptions.h</a>.</p>
-
-</div>
-</div>
-<hr/><h2>Function Documentation</h2>
-<a class="anchor" id="aa25c80caf55dd39a2e1d5141916866e7"></a><!-- doxytag: member="qpid::client::async" ref="aa25c80caf55dd39a2e1d5141916866e7" args="(const SessionBase_0_10 &amp;other)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00020.html">AsyncSession_0_10</a> qpid::client::async </td>
+          <td class="memname">bool qpid::operator!= </td>
           <td>(</td>
-          <td class="paramtype">const SessionBase_0_10 &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
+          <td class="paramtype">const Url &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Url &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00572_source.html#l00096">96</a> of file <a class="el" href="a00572_source.html">Url.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a365c9037931e1445c06e0e66ec94f615"></a><!-- doxytag: member="qpid::operator&lt;&lt;" ref="a365c9037931e1445c06e0e66ec94f615" args="(std::ostream &amp;os, const Address &amp;addr)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; qpid::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Address &amp;&#160;</td>
+          <td class="paramname"><em>addr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a62a73b8a9bbaa8ffd9d3dd9a20a76565"></a><!-- doxytag: member="qpid::operator&lt;&lt;" ref="a62a73b8a9bbaa8ffd9d3dd9a20a76565" args="(std::ostream &amp;, const SessionId &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; qpid::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const SessionId &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6b4ca4bfc4efedb85d1d0be2005d179a"></a><!-- doxytag: member="qpid::operator&lt;&lt;" ref="a6b4ca4bfc4efedb85d1d0be2005d179a" args="(std::ostream &amp;o, const Msg &amp;m)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; qpid::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>o</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Msg &amp;&#160;</td>
+          <td class="paramname"><em>m</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00068">68</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a462111b3c167e2887250e401d9372dfc"></a><!-- doxytag: member="qpid::operator&lt;&lt;" ref="a462111b3c167e2887250e401d9372dfc" args="(std::ostream &amp;os, const Url &amp;url)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; qpid::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Url &amp;&#160;</td>
+          <td class="paramname"><em>url</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a53bb24052c793e02e1108425660a5d07"></a><!-- doxytag: member="qpid::operator&lt;&lt;" ref="a53bb24052c793e02e1108425660a5d07" args="(std::ostream &amp;o, const Range&lt; T &gt; &amp;r)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; qpid::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>o</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Range&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>r</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00550_source.html#l00199">199</a> of file <a class="el" href="a00550_source.html">RangeSet.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a731c4149da588e385686fd7437e4a5c0"></a><!-- doxytag: member="qpid::operator&lt;&lt;" ref="a731c4149da588e385686fd7437e4a5c0" args="(std::ostream &amp;o, const RangeSet&lt; T &gt; &amp;rs)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; qpid::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>o</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const RangeSet&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00550_source.html#l00204">204</a> of file <a class="el" href="a00550_source.html">RangeSet.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aacf454d1ba7d16ccf9ecd4037c4c47f3"></a><!-- doxytag: member="qpid::operator==" ref="aacf454d1ba7d16ccf9ecd4037c4c47f3" args="(const Address &amp;x, const Address &amp;y)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const Address &amp;&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Address &amp;&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6cf8340fdd0d05446805d6f400b9f4a7"></a><!-- doxytag: member="qpid::operator==" ref="a6cf8340fdd0d05446805d6f400b9f4a7" args="(const Url &amp;a, const Url &amp;b)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const Url &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Url &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00572_source.html#l00095">95</a> of file <a class="el" href="a00572_source.html">Url.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a35bb1cee76de54197517fb8989801d22"></a><!-- doxytag: member="qpid::operator&gt;&gt;" ref="a35bb1cee76de54197517fb8989801d22" args="(std::istream &amp;is, Url &amp;url)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00172.html">std::istream</a>&amp; qpid::operator&gt;&gt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00172.html">std::istream</a> &amp;&#160;</td>
+          <td class="paramname"><em>is</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Url &amp;&#160;</td>
+          <td class="paramname"><em>url</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8528c6a24f1a699f1cad39814cc34880"></a><!-- doxytag: member="qpid::optValue" ref="a8528c6a24f1a699f1cad39814cc34880" args="(T &amp;value, const char *name)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">po::value_semantic* qpid::optValue </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Create an option value. </p>
+<p>name, value appear after the option name in help like this: &lt;name&gt; (=</p>
+<p>) T must support operator &lt;&lt;. </p>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="a00241.html" title="Base class for options.">Options</a> for example of use. </dd></dl>
+
+<p>Definition at line <a class="el" href="a00533_source.html#l00074">74</a> of file <a class="el" href="a00533_source.html">Options.h</a>.</p>
+
+<p>References <a class="el" href="a00576.html#aa82987134f1b58966a77bca596e25d9f">prettyArg()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afcd1a6083d6ac7b47e213a67035fb998"></a><!-- doxytag: member="qpid::optValue" ref="afcd1a6083d6ac7b47e213a67035fb998" args="(std::vector&lt; T &gt; &amp;value, const char *name)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">po::value_semantic* qpid::optValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00387.html">std::vector</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Create a vector value. </p>
+<p>Multiple occurences of the option are accumulated into the vector </p>
+
+<p>Definition at line <a class="el" href="a00533_source.html#l00083">83</a> of file <a class="el" href="a00533_source.html">Options.h</a>.</p>
+
+<p>References <a class="el" href="a00576.html#aa82987134f1b58966a77bca596e25d9f">prettyArg()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2a4f0c2a95d060596552187971260c09"></a><!-- doxytag: member="qpid::optValue" ref="a2a4f0c2a95d060596552187971260c09" args="(bool &amp;value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">po::value_semantic* qpid::optValue </td>
+          <td>(</td>
+          <td class="paramtype">bool &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Conversion to <a class="el" href="a00020.html" title="AMQP 0-10 session API with keyword arguments.">AsyncSession_0_10</a> from another session type. </p>
+<p>Create a boolean switch value. </p>
+<p>Presence of the option sets the value. </p>
 
-<p>Definition at line <a class="el" href="a00458_source.html#l00553">553</a> of file <a class="el" href="a00458_source.html">AsyncSession_0_10.h</a>.</p>
+<p>Definition at line <a class="el" href="a00533_source.html#l00093">93</a> of file <a class="el" href="a00533_source.html">Options.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a15a5d12c365f54c47e6d5f910760b6c0"></a><!-- doxytag: member="qpid::client::sync" ref="a15a5d12c365f54c47e6d5f910760b6c0" args="(const SessionBase_0_10 &amp;other)" -->
+<a class="anchor" id="aa82987134f1b58966a77bca596e25d9f"></a><!-- doxytag: member="qpid::prettyArg" ref="aa82987134f1b58966a77bca596e25d9f" args="(const std::string &amp;, const std::string &amp;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00327.html">Session_0_10</a> qpid::client::sync </td>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::prettyArg </td>
           <td>(</td>
-          <td class="paramtype">const SessionBase_0_10 &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Conversion to <a class="el" href="a00327.html" title="AMQP 0-10 session API with keyword arguments.">Session_0_10</a> from another session type. </p>
-
-<p>Definition at line <a class="el" href="a00474_source.html#l00553">553</a> of file <a class="el" href="a00474_source.html">Session_0_10.h</a>.</p>
-
-<p>Referenced by <a class="el" href="a00458_source.html#l00276">qpid::client::AsyncSession_0_10::BOOST_PARAMETER_MEMFUN()</a>, and <a class="el" href="a00474_source.html#l00276">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+<p>Referenced by <a class="el" href="a00533_source.html#l00074">optValue()</a>.</p>
 
 </div>
 </div>
@@ -377,7 +583,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

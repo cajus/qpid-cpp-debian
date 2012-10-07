@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/framing/StreamProperties.h File Reference</title>
+    <title>qpid/framing/SequenceNumber.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,28 +60,38 @@
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/framing/StreamProperties.h File Reference</div>  </div>
+<div class="title">qpid/framing/SequenceNumber.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &lt;ostream&gt;</code><br/>
-<code>#include &quot;<a class="el" href="a00494_source.html">qpid/framing/amqp_types_full.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00482_source.html">qpid/CommonImportExport.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00495_source.html">qpid/framing/amqp_types.h</a>&quot;</code><br/>
+<code>#include &lt;boost/operators.hpp&gt;</code><br/>
+<code>#include &lt;iosfwd&gt;</code><br/>
+<code>#include &quot;<a class="el" href="a00484_source.html">qpid/CommonImportExport.h</a>&quot;</code><br/>
 </div>
 <p><a href="a00520_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00344.html">qpid::framing::StreamProperties</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00324.html">qpid::framing::SequenceNumber</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">4-byte sequence number that 'wraps around'.  <a href="a00324.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00391.html">qpid::framing::Window</a></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html">qpid</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
 <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00580.html">qpid::framing</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00582.html">qpid::framing</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>The framing namespace contains classes that are used to create, send and receive the basic packets from which AMQP is built. </p>
 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00582.html#aa7d527eb2a07781a2a2d1f9d72a310c6">qpid::framing::operator-</a> (const SequenceNumber &amp;a, const SequenceNumber &amp;b)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">SequenceNumber&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00582.html#a8df3fb5dea134b18c5f33276c962b8f7">qpid::framing::operator+</a> (const SequenceNumber &amp;a, <a class="el" href="a00558.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a> n)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">SequenceNumber&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00582.html#ae8f46428a572b183f7f2e3381fe5ae05">qpid::framing::operator-</a> (const SequenceNumber &amp;a, <a class="el" href="a00558.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a> n)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00582.html#a3c6b6751bb02f6e540108f58296cd89a">qpid::framing::operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;o, const SequenceNumber &amp;n)</td></tr>
 </table>
 </div>
 <!--
@@ -111,7 +121,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

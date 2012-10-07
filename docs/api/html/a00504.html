@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/framing/ExchangeQueryResult.h File Reference</title>
+    <title>qpid/framing/enum.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -59,29 +59,137 @@
 </div>
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/framing/ExchangeQueryResult.h File Reference</div>  </div>
+<div class="title">qpid/framing/enum.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &lt;ostream&gt;</code><br/>
-<code>#include &quot;<a class="el" href="a00494_source.html">qpid/framing/amqp_types_full.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00482_source.html">qpid/CommonImportExport.h</a>&quot;</code><br/>
-</div>
+
 <p><a href="a00504_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html">qpid::framing::ExchangeQueryResult</a></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html">qpid</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
 <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00580.html">qpid::framing</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00582.html">qpid::framing</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>The framing namespace contains classes that are used to create, send and receive the basic packets from which AMQP is built. </p>
 <br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00584.html">qpid::framing::connection</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00589.html">qpid::framing::session</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00586.html">qpid::framing::execution</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00588.html">qpid::framing::message</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00585.html">qpid::framing::dtx</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00587.html">qpid::framing::file</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00590.html">qpid::framing::stream</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00583.html">qpid::framing::cluster</a></td></tr>
+<tr><td colspan="2"><h2><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00582.html#ac31aaf2077ae429687cb0736c5ff1485">qpid::framing::SegmentType</a> { <a class="el" href="a00582.html#ac31aaf2077ae429687cb0736c5ff1485a10da7e53eb6c63d398d6bc00f8316fd9">qpid::framing::SEGMENT_TYPE_CONTROL</a> = 0, 
+<a class="el" href="a00582.html#ac31aaf2077ae429687cb0736c5ff1485af0f5ba077a7b73cb891ff8af6e6de0b7">qpid::framing::SEGMENT_TYPE_COMMAND</a> = 1, 
+<a class="el" href="a00582.html#ac31aaf2077ae429687cb0736c5ff1485a9d5a4ceca62933e7f29a8d3882197df1">qpid::framing::SEGMENT_TYPE_HEADER</a> = 2, 
+<a class="el" href="a00582.html#ac31aaf2077ae429687cb0736c5ff1485a4565bfe023e91e6fb94b2bb243c32712">qpid::framing::SEGMENT_TYPE_BODY</a> = 3
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00582.html#a078c3212966c7fcf685163f41e580fb4">qpid::framing::Track</a> { <a class="el" href="a00582.html#a078c3212966c7fcf685163f41e580fb4a34d25fe1849455e69fdf7ba143d54c7e">qpid::framing::TRACK_CONTROL</a> = 0, 
+<a class="el" href="a00582.html#a078c3212966c7fcf685163f41e580fb4a16d811fda8fead2951b87af2d18bd71f">qpid::framing::TRACK_COMMAND</a> = 1
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4">qpid::framing::connection::CloseCode</a> { <a class="el" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4ad68462c77833631c223f7f416ff1c878">qpid::framing::connection::CLOSE_CODE_NORMAL</a> = 200, 
+<a class="el" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4ae2866192665d2637d25a7a4c3b3677f7">qpid::framing::connection::CLOSE_CODE_CONNECTION_FORCED</a> = 320, 
+<a class="el" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4a975c0002da29ebb4a042295f5d450ab7">qpid::framing::connection::CLOSE_CODE_INVALID_PATH</a> = 402, 
+<a class="el" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4a9638d7bf712ad146adebafcb7efe72a0">qpid::framing::connection::CLOSE_CODE_FRAMING_ERROR</a> = 501
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540">qpid::framing::session::DetachCode</a> { <br/>
+&#160;&#160;<a class="el" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540a0b5ac5eec3a6d192ccba5e9212cfbb47">qpid::framing::session::DETACH_CODE_NORMAL</a> = 0, 
+<a class="el" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540aee5045fa3748a8dcf899288de457741c">qpid::framing::session::DETACH_CODE_SESSION_BUSY</a> = 1, 
+<a class="el" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540ab660f691aa9683149ba04e0175351a41">qpid::framing::session::DETACH_CODE_TRANSPORT_BUSY</a> = 2, 
+<a class="el" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540ad49c675a24dc8474110f6d567bbb3283">qpid::framing::session::DETACH_CODE_NOT_ATTACHED</a> = 3, 
+<br/>
+&#160;&#160;<a class="el" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540aecc25c880105bad2f8e9e15e2548f3a5">qpid::framing::session::DETACH_CODE_UNKNOWN_IDS</a> = 4
+<br/>
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18">qpid::framing::execution::ErrorCode</a> { <br/>
+&#160;&#160;<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18ad05a0982952c914662bc03e28c47f2ca">qpid::framing::execution::ERROR_CODE_UNAUTHORIZED_ACCESS</a> = 403, 
+<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18ac840d86bba1f18657e470d772ee413e7">qpid::framing::execution::ERROR_CODE_NOT_FOUND</a> = 404, 
+<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a320e69337b5a92b1098c212c9705c3fb">qpid::framing::execution::ERROR_CODE_RESOURCE_LOCKED</a> = 405, 
+<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a796aa6dd0dd827060f15aafb9d0efee0">qpid::framing::execution::ERROR_CODE_PRECONDITION_FAILED</a> = 406, 
+<br/>
+&#160;&#160;<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a501baa9a8a83954a1b11010f53c484fb">qpid::framing::execution::ERROR_CODE_RESOURCE_DELETED</a> = 408, 
+<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a9adbcda0445b885c53e5922d210556c2">qpid::framing::execution::ERROR_CODE_ILLEGAL_STATE</a> = 409, 
+<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18af2aad1b70109e91adc2096e66b03c3b7">qpid::framing::execution::ERROR_CODE_COMMAND_INVALID</a> = 503, 
+<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a0f3ee74a9bac88519f0c820a485552ac">qpid::framing::execution::ERROR_CODE_RESOURCE_LIMIT_EXCEEDED</a> = 506, 
+<br/>
+&#160;&#160;<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18aeeb980808996116f4527048e5bc6b9ab">qpid::framing::execution::ERROR_CODE_NOT_ALLOWED</a> = 530, 
+<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a22540476656c4aa523a0b0f291a9fcd2">qpid::framing::execution::ERROR_CODE_ILLEGAL_ARGUMENT</a> = 531, 
+<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a3d7c576df0fedf94f7f154ce2cebc98f">qpid::framing::execution::ERROR_CODE_NOT_IMPLEMENTED</a> = 540, 
+<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a111f1958e93db2688277cbfd63d1b9b0">qpid::framing::execution::ERROR_CODE_INTERNAL_ERROR</a> = 541, 
+<br/>
+&#160;&#160;<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a7305d771865e3222f669f3ce786b08aa">qpid::framing::execution::ERROR_CODE_INVALID_ARGUMENT</a> = 542
+<br/>
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00588.html#a8d6ab87d62f2c2f1136e10f0a200f436">qpid::framing::message::AcceptMode</a> { <a class="el" href="a00588.html#a8d6ab87d62f2c2f1136e10f0a200f436ad133238eeb72b988b8098eacbe380b40">qpid::framing::message::ACCEPT_MODE_EXPLICIT</a> = 0, 
+<a class="el" href="a00588.html#a8d6ab87d62f2c2f1136e10f0a200f436a7b917c100c6da6e48f3051f1082b0c20">qpid::framing::message::ACCEPT_MODE_NONE</a> = 1
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00588.html#ad010ae646e0187e26e02b829e77213d8">qpid::framing::message::AcquireMode</a> { <a class="el" href="a00588.html#ad010ae646e0187e26e02b829e77213d8adcf58c7c09c0324895876616551e1ace">qpid::framing::message::ACQUIRE_MODE_PRE_ACQUIRED</a> = 0, 
+<a class="el" href="a00588.html#ad010ae646e0187e26e02b829e77213d8a31d1c85563e99e1b7c30d1e8a2b51938">qpid::framing::message::ACQUIRE_MODE_NOT_ACQUIRED</a> = 1
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00588.html#a6f9618f6d3e47d90daf18c3f9edcfc89">qpid::framing::message::RejectCode</a> { <a class="el" href="a00588.html#a6f9618f6d3e47d90daf18c3f9edcfc89a9836cbe1a80a07979b40808f1b62cdf3">qpid::framing::message::REJECT_CODE_UNSPECIFIED</a> = 0, 
+<a class="el" href="a00588.html#a6f9618f6d3e47d90daf18c3f9edcfc89ab3b39966c6e4d0b443d7c5d09a618b3e">qpid::framing::message::REJECT_CODE_UNROUTABLE</a> = 1, 
+<a class="el" href="a00588.html#a6f9618f6d3e47d90daf18c3f9edcfc89aebcdcabdc0398519a07c7c0fa0bdb85b">qpid::framing::message::REJECT_CODE_IMMEDIATE</a> = 2
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00588.html#a34c0f78da277cb71d84994c5e143e331">qpid::framing::message::DeliveryMode</a> { <a class="el" href="a00588.html#a34c0f78da277cb71d84994c5e143e331a51c532f78ac8dc742c6876693a14f2ac">qpid::framing::message::DELIVERY_MODE_NON_PERSISTENT</a> = 1, 
+<a class="el" href="a00588.html#a34c0f78da277cb71d84994c5e143e331a5d19604c0b0d11e5d19db2b4b54d4c62">qpid::framing::message::DELIVERY_MODE_PERSISTENT</a> = 2
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3">qpid::framing::message::DeliveryPriority</a> { <br/>
+&#160;&#160;<a class="el" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3ae66ac28c235ff8ec37d3cfc8825a7c18">qpid::framing::message::DELIVERY_PRIORITY_LOWEST</a> = 0, 
+<a class="el" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3af85c1a29dda5926c2a63f396b998a1c8">qpid::framing::message::DELIVERY_PRIORITY_LOWER</a> = 1, 
+<a class="el" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3a0b8d0e3c54fb0ae0789d1da634b0d5d1">qpid::framing::message::DELIVERY_PRIORITY_LOW</a> = 2, 
+<a class="el" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3ab43176c1a4cc94dc56ec0ef374afd352">qpid::framing::message::DELIVERY_PRIORITY_BELOW_AVERAGE</a> = 3, 
+<br/>
+&#160;&#160;<a class="el" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3a7bb2a422086bd083edb9ac979df58c06">qpid::framing::message::DELIVERY_PRIORITY_MEDIUM</a> = 4, 
+<a class="el" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3a97ccd94d78f8420cd00f3a8f865fc4e2">qpid::framing::message::DELIVERY_PRIORITY_ABOVE_AVERAGE</a> = 5, 
+<a class="el" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3ac71fbae09a4b9f4e0d55962fe0d3a853">qpid::framing::message::DELIVERY_PRIORITY_HIGH</a> = 6, 
+<a class="el" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3a329b94a4b7351414c9a134bc2e3e6d82">qpid::framing::message::DELIVERY_PRIORITY_HIGHER</a> = 7, 
+<br/>
+&#160;&#160;<a class="el" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3a0c369ad56da6b6c6bb36c78dfc69dc27">qpid::framing::message::DELIVERY_PRIORITY_VERY_HIGH</a> = 8, 
+<a class="el" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3ae992840cb3e56ab31a4b09b9e0a6083f">qpid::framing::message::DELIVERY_PRIORITY_HIGHEST</a> = 9
+<br/>
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00588.html#ae79c43439857b8ed0acbfeb48bdb263e">qpid::framing::message::FlowMode</a> { <a class="el" href="a00588.html#ae79c43439857b8ed0acbfeb48bdb263eabe519ad4034dc15d0fac0ce655001d1f">qpid::framing::message::FLOW_MODE_CREDIT</a> = 0, 
+<a class="el" href="a00588.html#ae79c43439857b8ed0acbfeb48bdb263ead50321e89017cbccbec44daacf805c96">qpid::framing::message::FLOW_MODE_WINDOW</a> = 1
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00588.html#a7551ef2b50bfcc4513fd83fd0ca412d4">qpid::framing::message::CreditUnit</a> { <a class="el" href="a00588.html#a7551ef2b50bfcc4513fd83fd0ca412d4ad54499c6f023b5d59ae9fee267be733b">qpid::framing::message::CREDIT_UNIT_MESSAGE</a> = 0, 
+<a class="el" href="a00588.html#a7551ef2b50bfcc4513fd83fd0ca412d4a8ba8a0473260228700df23d74e8a8645">qpid::framing::message::CREDIT_UNIT_BYTE</a> = 1
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106">qpid::framing::dtx::XaStatus</a> { <br/>
+&#160;&#160;<a class="el" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106ab1bfa28507ea90a04c510643912c5a77">qpid::framing::dtx::XA_STATUS_XA_OK</a> = 0, 
+<a class="el" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106a9b243cde1c4b8a43b083043e2461ea92">qpid::framing::dtx::XA_STATUS_XA_RBROLLBACK</a> = 1, 
+<a class="el" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106a61831d30b4dde298330186f7803ed6bd">qpid::framing::dtx::XA_STATUS_XA_RBTIMEOUT</a> = 2, 
+<a class="el" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106a43d175dfcec0c27e69bf763176fa9718">qpid::framing::dtx::XA_STATUS_XA_HEURHAZ</a> = 3, 
+<br/>
+&#160;&#160;<a class="el" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106aefaedcec538994a97f7bbe58721fa6b6">qpid::framing::dtx::XA_STATUS_XA_HEURCOM</a> = 4, 
+<a class="el" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106a6f1cb0f46b55d72d1f48a79f199a89c5">qpid::framing::dtx::XA_STATUS_XA_HEURRB</a> = 5, 
+<a class="el" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106ab46635e4385092bdce867d5a84ad4e14">qpid::framing::dtx::XA_STATUS_XA_HEURMIX</a> = 6, 
+<a class="el" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106a914a388ca583a00f54159cdf05d31f38">qpid::framing::dtx::XA_STATUS_XA_RDONLY</a> = 7
+<br/>
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00587.html#af93e0aa19b21742f9c4a9e2c3a37454e">qpid::framing::file::ReturnCode</a> { <a class="el" href="a00587.html#af93e0aa19b21742f9c4a9e2c3a37454ea821e09f2bee9786b613c2f14243e9073">qpid::framing::file::RETURN_CODE_CONTENT_TOO_LARGE</a> = 311, 
+<a class="el" href="a00587.html#af93e0aa19b21742f9c4a9e2c3a37454ea7e0275964855671439006b4a481e2f19">qpid::framing::file::RETURN_CODE_NO_ROUTE</a> = 312, 
+<a class="el" href="a00587.html#af93e0aa19b21742f9c4a9e2c3a37454eabbdc86842b396d40be46a065f349d093">qpid::framing::file::RETURN_CODE_NO_CONSUMERS</a> = 313
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00590.html#ab476f23cc8d99d32c50e6c683f1ecd80">qpid::framing::stream::ReturnCode</a> { <a class="el" href="a00590.html#ab476f23cc8d99d32c50e6c683f1ecd80afde120cb77e4abd7aba1c1ff7e0d7867">qpid::framing::stream::RETURN_CODE_CONTENT_TOO_LARGE</a> = 311, 
+<a class="el" href="a00590.html#ab476f23cc8d99d32c50e6c683f1ecd80a02077590d23f8eca9d4b162865c20fc4">qpid::framing::stream::RETURN_CODE_NO_ROUTE</a> = 312, 
+<a class="el" href="a00590.html#ab476f23cc8d99d32c50e6c683f1ecd80a0eeaaabb6bb6b29f95914c3b7a0d032a">qpid::framing::stream::RETURN_CODE_NO_CONSUMERS</a> = 313
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7">qpid::framing::cluster::StoreState</a> { <a class="el" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7aa3eb6571aa48877729a0f367509a70c4">qpid::framing::cluster::STORE_STATE_NO_STORE</a> = 0, 
+<a class="el" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7a20f56190d72e28ffa08382a852df3a12">qpid::framing::cluster::STORE_STATE_EMPTY_STORE</a> = 1, 
+<a class="el" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7a9d4ed02a67fd5628db255baa90da85e1">qpid::framing::cluster::STORE_STATE_CLEAN_STORE</a> = 2, 
+<a class="el" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7a5516eb694b7d73feda7028fab75f6ec3">qpid::framing::cluster::STORE_STATE_DIRTY_STORE</a> = 3
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00583.html#a1f0c00f95b3402b5ffdafd94f1bda53a">qpid::framing::cluster::ErrorType</a> { <a class="el" href="a00583.html#a1f0c00f95b3402b5ffdafd94f1bda53aa2c7e16fbd015d7cab61b0e325a2a674b">qpid::framing::cluster::ERROR_TYPE_NONE</a> = 0, 
+<a class="el" href="a00583.html#a1f0c00f95b3402b5ffdafd94f1bda53aa63975e6bfe458123e7a8ef72f19e75aa">qpid::framing::cluster::ERROR_TYPE_SESSION</a> = 1, 
+<a class="el" href="a00583.html#a1f0c00f95b3402b5ffdafd94f1bda53aabdcdbcc564d022a7927d10a07f268eee">qpid::framing::cluster::ERROR_TYPE_CONNECTION</a> = 2
+ }</td></tr>
 </table>
 </div>
 <!--
@@ -111,7 +219,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

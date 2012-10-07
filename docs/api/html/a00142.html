@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::framing::Header Class Reference</title>
+    <title>qpid::client::Handle Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,210 +60,197 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00580.html">framing</a>      </li>
-      <li class="navelem"><a class="el" href="a00142.html">Header</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00142.html">Handle</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#friends">Friends</a>  </div>
+<a href="#pro-types">Protected Types</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::framing::Header Class Reference</div>  </div>
+<div class="title">qpid::client::Handle Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::framing::Header" -->
-<p><code>#include &lt;<a class="el" href="a00509_source.html">qpid/framing/Header.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::client::Handle" -->
+<p>A handle is like a pointer: refers to an underlying implementation object.  
+ <a href="a00142.html#details">More...</a></p>
 
-<p><a href="a00782.html">List of all members.</a></p>
+<p><code>#include &lt;<a class="el" href="a00440_source.html">qpid/client/Handle.h</a>&gt;</code></p>
+
+<p><a href="a00691.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a5a31ec9b8e82df61ecb3869a7ce7bae8">Header</a> (bool _sync)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a560f6aa07edce0369f913927ccd885b5">Header</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a9049e0a6ad7fe13013f3341133178dc9">setSync</a> (bool _sync)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a032676e6f0471db6008a9ebb8ba4f860">getSync</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a1373b45cb795b123cc815c8740cb9b08">encode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#aacd6fd55f61566befc8d19f5be5b6529">decode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;, <a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#af3dd070cc61b89ec531922a7ed629cab">encodeStructBody</a> (<a class="el" href="a00045.html">Buffer</a> &amp;) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a772f0b8891412552bcef9a75cbe04645">decodeStructBody</a> (<a class="el" href="a00045.html">Buffer</a> &amp;, <a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a941da09d8979f06b7109eb29ab46f62d">encodedSize</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a629058d2738f99297ae98243d047569b">bodySize</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#aec067fcde0ad2820f506fa0122c3e358">print</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;out) const </td></tr>
-<tr><td colspan="2"><h2><a name="friends"></a>
-Friends</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#aec83ef0512ca739573b9918db8beadd5">operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;, const <a class="el" href="a00142.html">Header</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a57379e651d725b0f73edcb714e9efbc7">isValid</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#ae6f5dd2c23bdf3016f4afcd32057b9c5">isNull</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a00461424a31faee8e158a6502a014c3d">operator bool</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to bool supports idiom if (handle) { handle-&gt;...  <a href="#a00461424a31faee8e158a6502a014c3d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a6e69e13fa5ed709abebdbf6868b5eff4">operator!</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }.  <a href="#a6e69e13fa5ed709abebdbf6868b5eff4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a5092920190f6ad01c851996395cf33b5">swap</a> (<a class="el" href="a00142.html">Handle</a>&lt; T &gt; &amp;h)</td></tr>
+<tr><td colspan="2"><h2><a name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a48cdef2174f1512c6948d5cfb9488949">Impl</a></td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#add6e2725d8c7ca34f6074b29a9c36a8b">Handle</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#aaa9352cde81826de87fee6c211147619">Handle</a> (const <a class="el" href="a00142.html">Handle</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00142.html">Handle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#ae2f820d7bd70d717cb7db70ccbe22f47">operator=</a> (const <a class="el" href="a00142.html">Handle</a> &amp;)</td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00142.html#a48cdef2174f1512c6948d5cfb9488949">Impl</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#adf6d72d2a888cabcd0b60178419aad59">impl</a></td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a5a31ec9b8e82df61ecb3869a7ce7bae8"></a><!-- doxytag: member="qpid::framing::Header::Header" ref="a5a31ec9b8e82df61ecb3869a7ce7bae8" args="(bool _sync)" -->
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>A handle is like a pointer: refers to an underlying implementation object. </p>
+<p>Copying the handle does not copy the object.</p>
+<p>Handles can be null, like a 0 pointer. Use <a class="el" href="a00142.html#a57379e651d725b0f73edcb714e9efbc7">isValid()</a>, <a class="el" href="a00142.html#ae6f5dd2c23bdf3016f4afcd32057b9c5">isNull()</a> or the conversion to bool to test for a null handle. </p>
+</div><hr/><h2>Member Typedef Documentation</h2>
+<a class="anchor" id="a48cdef2174f1512c6948d5cfb9488949"></a><!-- doxytag: member="qpid::client::Handle::Impl" ref="a48cdef2174f1512c6948d5cfb9488949" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::framing::Header::Header </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>_sync</em></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td class="memname">typedef T <a class="el" href="a00142.html#a48cdef2174f1512c6948d5cfb9488949">qpid::client::Handle::Impl</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00509_source.html#l00041">41</a> of file <a class="el" href="a00509_source.html">Header.h</a>.</p>
+<p>Definition at line <a class="el" href="a00440_source.html#l00057">57</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a560f6aa07edce0369f913927ccd885b5"></a><!-- doxytag: member="qpid::framing::Header::Header" ref="a560f6aa07edce0369f913927ccd885b5" args="()" -->
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="add6e2725d8c7ca34f6074b29a9c36a8b"></a><!-- doxytag: member="qpid::client::Handle::Handle" ref="add6e2725d8c7ca34f6074b29a9c36a8b" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::framing::Header::Header </td>
+          <td class="memname">QPID_CLIENT_INLINE_EXTERN qpid::client::Handle::Handle </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td><code> [inline, protected]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00509_source.html#l00046">46</a> of file <a class="el" href="a00509_source.html">Header.h</a>.</p>
+<p>Definition at line <a class="el" href="a00440_source.html#l00058">58</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aaa9352cde81826de87fee6c211147619"></a><!-- doxytag: member="qpid::client::Handle::Handle" ref="aaa9352cde81826de87fee6c211147619" args="(const Handle &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::client::Handle::Handle </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00142.html">Handle</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a629058d2738f99297ae98243d047569b"></a><!-- doxytag: member="qpid::framing::Header::bodySize" ref="a629058d2738f99297ae98243d047569b" args="() const " -->
+<a class="anchor" id="ae6f5dd2c23bdf3016f4afcd32057b9c5"></a><!-- doxytag: member="qpid::client::Handle::isNull" ref="ae6f5dd2c23bdf3016f4afcd32057b9c5" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::Header::bodySize </td>
+          <td class="memname">QPID_CLIENT_INLINE_EXTERN bool qpid::client::Handle::isNull </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is null. It is an error to call any function on a null handle. </dd></dl>
+
+<p>Definition at line <a class="el" href="a00440_source.html#l00046">46</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aacd6fd55f61566befc8d19f5be5b6529"></a><!-- doxytag: member="qpid::framing::Header::decode" ref="aacd6fd55f61566befc8d19f5be5b6529" args="(Buffer &amp;, uint32_t=0)" -->
+<a class="anchor" id="a57379e651d725b0f73edcb714e9efbc7"></a><!-- doxytag: member="qpid::client::Handle::isValid" ref="a57379e651d725b0f73edcb714e9efbc7" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::Header::decode </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a772f0b8891412552bcef9a75cbe04645"></a><!-- doxytag: member="qpid::framing::Header::decodeStructBody" ref="a772f0b8891412552bcef9a75cbe04645" args="(Buffer &amp;, uint32_t=0)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::Header::decodeStructBody </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1373b45cb795b123cc815c8740cb9b08"></a><!-- doxytag: member="qpid::framing::Header::encode" ref="a1373b45cb795b123cc815c8740cb9b08" args="(Buffer &amp;) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::Header::encode </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a941da09d8979f06b7109eb29ab46f62d"></a><!-- doxytag: member="qpid::framing::Header::encodedSize" ref="a941da09d8979f06b7109eb29ab46f62d" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::Header::encodedSize </td>
+          <td class="memname">QPID_CLIENT_INLINE_EXTERN bool qpid::client::Handle::isValid </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is valid, i.e. not null. </dd></dl>
+
+<p>Definition at line <a class="el" href="a00440_source.html#l00043">43</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af3dd070cc61b89ec531922a7ed629cab"></a><!-- doxytag: member="qpid::framing::Header::encodeStructBody" ref="af3dd070cc61b89ec531922a7ed629cab" args="(Buffer &amp;) const " -->
+<a class="anchor" id="a00461424a31faee8e158a6502a014c3d"></a><!-- doxytag: member="qpid::client::Handle::operator bool" ref="a00461424a31faee8e158a6502a014c3d" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::Header::encodeStructBody </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a032676e6f0471db6008a9ebb8ba4f860"></a><!-- doxytag: member="qpid::framing::Header::getSync" ref="a032676e6f0471db6008a9ebb8ba4f860" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::Header::getSync </td>
+          <td class="memname">QPID_CLIENT_INLINE_EXTERN qpid::client::Handle::operator bool </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Conversion to bool supports idiom if (handle) { handle-&gt;... </p>
+<p>} </p>
+
+<p>Definition at line <a class="el" href="a00440_source.html#l00049">49</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6e69e13fa5ed709abebdbf6868b5eff4"></a><!-- doxytag: member="qpid::client::Handle::operator!" ref="a6e69e13fa5ed709abebdbf6868b5eff4" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_CLIENT_INLINE_EXTERN bool qpid::client::Handle::operator! </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }. </p>
+
+<p>Definition at line <a class="el" href="a00440_source.html#l00052">52</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae2f820d7bd70d717cb7db70ccbe22f47"></a><!-- doxytag: member="qpid::client::Handle::operator=" ref="ae2f820d7bd70d717cb7db70ccbe22f47" args="(const Handle &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00142.html">Handle</a>&amp; qpid::client::Handle::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00142.html">Handle</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [protected]</code></td>
         </tr>
       </table>
 </div>
@@ -271,70 +258,45 @@ Friends</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aec067fcde0ad2820f506fa0122c3e358"></a><!-- doxytag: member="qpid::framing::Header::print" ref="aec067fcde0ad2820f506fa0122c3e358" args="(std::ostream &amp;out) const " -->
+<a class="anchor" id="a5092920190f6ad01c851996395cf33b5"></a><!-- doxytag: member="qpid::client::Handle::swap" ref="a5092920190f6ad01c851996395cf33b5" args="(Handle&lt; T &gt; &amp;h)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::Header::print </td>
+          <td class="memname">void qpid::client::Handle::swap </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="el" href="a00142.html">Handle</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>h</em></td><td>)</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Definition at line <a class="el" href="a00440_source.html#l00054">54</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a9049e0a6ad7fe13013f3341133178dc9"></a><!-- doxytag: member="qpid::framing::Header::setSync" ref="a9049e0a6ad7fe13013f3341133178dc9" args="(bool _sync)" -->
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="adf6d72d2a888cabcd0b60178419aad59"></a><!-- doxytag: member="qpid::client::Handle::impl" ref="adf6d72d2a888cabcd0b60178419aad59" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::Header::setSync </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>_sync</em></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="a00142.html#a48cdef2174f1512c6948d5cfb9488949">Impl</a>* <a class="el" href="a00142.html#adf6d72d2a888cabcd0b60178419aad59">qpid::client::Handle::impl</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<hr/><h2>Friends And Related Function Documentation</h2>
-<a class="anchor" id="aec83ef0512ca739573b9918db8beadd5"></a><!-- doxytag: member="qpid::framing::Header::operator&lt;&lt;" ref="aec83ef0512ca739573b9918db8beadd5" args="(std::ostream &amp;, const Header &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00243.html">std::ostream</a>&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00142.html">Header</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Definition at line <a class="el" href="a00440_source.html#l00064">64</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
+
+<p>Referenced by <a class="el" href="a00440_source.html#l00043">qpid::client::Handle&lt; SubscriptionImpl &gt;::isValid()</a>, <a class="el" href="a00440_source.html#l00046">qpid::client::Handle&lt; SubscriptionImpl &gt;::isNull()</a>, <a class="el" href="a00440_source.html#l00049">qpid::client::Handle&lt; SubscriptionImpl &gt;::operator bool()</a>, <a class="el" href="a00440_source.html#l00052">qpid::client::Handle&lt; SubscriptionImpl &gt;::operator!()</a>, and <a class="el" href="a00440_source.html#l00054">qpid::client::Handle&lt; SubscriptionImpl &gt;::swap()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/framing/<a class="el" href="a00509_source.html">Header.h</a></li>
+<li>qpid/client/<a class="el" href="a00440_source.html">Handle.h</a></li>
 </ul>
 </div>
 <!--
@@ -364,7 +326,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

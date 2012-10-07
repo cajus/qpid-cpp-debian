@@ -150,6 +150,7 @@
 #include "qpid/framing/ClusterConnectionQueueObserverStateBody.h"
 #include "qpid/framing/ClusterConnectionClockBody.h"
 #include "qpid/framing/ClusterConnectionQueueDequeueSincePurgeStateBody.h"
+#include "qpid/framing/ClusterConnectionInternalStateBody.h"
 
 namespace qpid {
 namespace framing {
@@ -774,6 +775,11 @@ void AMQP_AllOperations::Invoker::visit(const ClusterConnectionQueueDequeueSince
     body.accept(invoker);
     result=invoker.getResult();
 }
+void AMQP_AllOperations::Invoker::visit(const ClusterConnectionInternalStateBody& body) {
+    AMQP_AllOperations::ClusterConnectionHandler::Invoker invoker(*target.getClusterConnectionHandler());
+    body.accept(invoker);
+    result=invoker.getResult();
+}
 void AMQP_AllOperations::ConnectionHandler::Invoker::visit(const ConnectionStartBody& body) {
     body.invoke(target);
     result.handled=true;
@@ -1267,6 +1273,10 @@ void AMQP_AllOperations::ClusterConnectionHandler::Invoker::visit(const ClusterC
     result.handled=true;
 }
 void AMQP_AllOperations::ClusterConnectionHandler::Invoker::visit(const ClusterConnectionQueueDequeueSincePurgeStateBody& body) {
+    body.invoke(target);
+    result.handled=true;
+}
+void AMQP_AllOperations::ClusterConnectionHandler::Invoker::visit(const ClusterConnectionInternalStateBody& body) {
     body.invoke(target);
     result.handled=true;
 }

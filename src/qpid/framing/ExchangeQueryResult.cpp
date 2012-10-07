@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ExchangeQueryResult.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ExchangeQueryResult::setType(const std::string& _type) {
     type = _type;
     flags |= (1 << 8);
+    if (type.size() >= 256) throw IllegalArgumentException("Value for type is too large");
 }
 const std::string& ExchangeQueryResult::getType() const { return type; }
 bool ExchangeQueryResult::hasType() const { return flags & (1 << 8); }

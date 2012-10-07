@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::console::ClassKey Class Reference</title>
+    <title>qpid::log::CategoryTraits Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,302 +60,160 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00579.html">console</a>      </li>
-      <li class="navelem"><a class="el" href="a00049.html">ClassKey</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00591.html">log</a>      </li>
+      <li class="navelem"><a class="el" href="a00049.html">CategoryTraits</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::console::ClassKey Class Reference</div>  </div>
+<div class="title">qpid::log::CategoryTraits Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::console::ClassKey" -->
-<p><code>#include &lt;<a class="el" href="a00484_source.html">qpid/console/ClassKey.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::log::CategoryTraits" -->
+<p><code>#include &lt;<a class="el" href="a00536_source.html">qpid/log/Statement.h</a>&gt;</code></p>
 
-<p><a href="a00708.html">List of all members.</a></p>
+<p><a href="a00825.html">List of all members.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#a6640af01bcafc8cfc624740f6457f94a">ClassKey</a> (const <a class="el" href="a00345.html">std::string</a> &amp;package, const <a class="el" href="a00345.html">std::string</a> &amp;name, const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *hash)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#aae80fb0c5e4ca38e31e65cd314c344f5">getPackageName</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#a0429d05f04548540778784b6ef7f75e5">getClassName</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#a7e849d2bbb64d46237c5eab2fd7956a9">getHash</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#a2a7f5b5ec67260dd8064f234d3e80f40">getHashString</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#af9fdba425d05ca080d6c96f262225256">str</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#abb510606e0491b2f9df4466fb00598e4">operator==</a> (const <a class="el" href="a00049.html">ClassKey</a> &amp;other) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#a409c7bb5133d048f17a45476969e2e9c">operator!=</a> (const <a class="el" href="a00049.html">ClassKey</a> &amp;other) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#a7103b2e489dfc12a047db7213dc5e66c">operator&lt;</a> (const <a class="el" href="a00049.html">ClassKey</a> &amp;other) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#a7c1094f5d1df5374d40cb0f77e62e1bf">operator&gt;</a> (const <a class="el" href="a00049.html">ClassKey</a> &amp;other) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#a0d880f4321802fbce4495c7ebdd19663">operator&lt;=</a> (const <a class="el" href="a00049.html">ClassKey</a> &amp;other) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#a500377b41cd399ecb7e86d5858f27126">operator&gt;=</a> (const <a class="el" href="a00049.html">ClassKey</a> &amp;other) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#a80d83215a868776ac0a0b7ef2ab596b3">encode</a> (<a class="el" href="a00045.html">framing::Buffer</a> &amp;buffer) const </td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#a8cf32ed2810fe397b03e7b4f58fa2c2b">isCategory</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Test if given name is a Category name.  <a href="#a8cf32ed2810fe397b03e7b4f58fa2c2b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fc">Category</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#a8e97d015668c30a4931d7bf6fdb48d63">category</a> (const char *name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get category from string name </p>
+<dl><dt><b>Exceptions:</b></dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">if</td><td>name invalid. </td></tr>
+  </table>
+  </dd>
+</dl>
+ <a href="#a8e97d015668c30a4931d7bf6fdb48d63"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fc">Category</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#a7fc495e48c45c19057ff0b14f8595468">category</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get category from string name.  <a href="#a7fc495e48c45c19057ff0b14f8595468"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#a358b641300a77a9515b2e7d393a5cf67">name</a> (<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fc">Category</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">String name of category.  <a href="#a358b641300a77a9515b2e7d393a5cf67"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#ae9f192fde471325fd8216e75d27b6fc3">HASH_SIZE</a> = 16</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html#a2257bd52ccbd89772d075865d88084cf">COUNT</a> = unspecified+1</td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a6640af01bcafc8cfc624740f6457f94a"></a><!-- doxytag: member="qpid::console::ClassKey::ClassKey" ref="a6640af01bcafc8cfc624740f6457f94a" args="(const std::string &amp;package, const std::string &amp;name, const uint8_t *hash)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::console::ClassKey::ClassKey </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>package</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *&#160;</td>
-          <td class="paramname"><em>hash</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a80d83215a868776ac0a0b7ef2ab596b3"></a><!-- doxytag: member="qpid::console::ClassKey::encode" ref="a80d83215a868776ac0a0b7ef2ab596b3" args="(framing::Buffer &amp;buffer) const " -->
+<a class="anchor" id="a8e97d015668c30a4931d7bf6fdb48d63"></a><!-- doxytag: member="qpid::log::CategoryTraits::category" ref="a8e97d015668c30a4931d7bf6fdb48d63" args="(const char *name)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::console::ClassKey::encode </td>
+          <td class="memname">static <a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fc">Category</a> qpid::log::CategoryTraits::category </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">framing::Buffer</a> &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td><code> [static]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Get category from string name </p>
+<dl><dt><b>Exceptions:</b></dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">if</td><td>name invalid. </td></tr>
+  </table>
+  </dd>
+</dl>
+</p>
+
+<p>Referenced by <a class="el" href="a00536_source.html#l00094">category()</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a0429d05f04548540778784b6ef7f75e5"></a><!-- doxytag: member="qpid::console::ClassKey::getClassName" ref="a0429d05f04548540778784b6ef7f75e5" args="() const " -->
+<a class="anchor" id="a7fc495e48c45c19057ff0b14f8595468"></a><!-- doxytag: member="qpid::log::CategoryTraits::category" ref="a7fc495e48c45c19057ff0b14f8595468" args="(const std::string &amp;name)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a>&amp; qpid::console::ClassKey::getClassName </td>
+          <td class="memname">static <a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fc">Category</a> qpid::log::CategoryTraits::category </td>
           <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td><code> [inline, static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get category from string name. </p>
+<dl><dt><b>Exceptions:</b></dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">if</td><td>name invalid. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00536_source.html#l00094">94</a> of file <a class="el" href="a00536_source.html">Statement.h</a>.</p>
+
+<p>References <a class="el" href="a00049.html#a8e97d015668c30a4931d7bf6fdb48d63">category()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8cf32ed2810fe397b03e7b4f58fa2c2b"></a><!-- doxytag: member="qpid::log::CategoryTraits::isCategory" ref="a8cf32ed2810fe397b03e7b4f58fa2c2b" args="(const std::string &amp;name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool qpid::log::CategoryTraits::isCategory </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Test if given name is a Category name. </p>
+
+</div>
+</div>
+<a class="anchor" id="a358b641300a77a9515b2e7d393a5cf67"></a><!-- doxytag: member="qpid::log::CategoryTraits::name" ref="a358b641300a77a9515b2e7d393a5cf67" args="(Category)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static const char* qpid::log::CategoryTraits::name </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fc">Category</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td><code> [static]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00484_source.html#l00043">43</a> of file <a class="el" href="a00484_source.html">ClassKey.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7e849d2bbb64d46237c5eab2fd7956a9"></a><!-- doxytag: member="qpid::console::ClassKey::getHash" ref="a7e849d2bbb64d46237c5eab2fd7956a9" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* qpid::console::ClassKey::getHash </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00484_source.html#l00044">44</a> of file <a class="el" href="a00484_source.html">ClassKey.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2a7f5b5ec67260dd8064f234d3e80f40"></a><!-- doxytag: member="qpid::console::ClassKey::getHashString" ref="a2a7f5b5ec67260dd8064f234d3e80f40" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> qpid::console::ClassKey::getHashString </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aae80fb0c5e4ca38e31e65cd314c344f5"></a><!-- doxytag: member="qpid::console::ClassKey::getPackageName" ref="aae80fb0c5e4ca38e31e65cd314c344f5" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a>&amp; qpid::console::ClassKey::getPackageName </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00484_source.html#l00042">42</a> of file <a class="el" href="a00484_source.html">ClassKey.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a409c7bb5133d048f17a45476969e2e9c"></a><!-- doxytag: member="qpid::console::ClassKey::operator!=" ref="a409c7bb5133d048f17a45476969e2e9c" args="(const ClassKey &amp;other) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::console::ClassKey::operator!= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00049.html">ClassKey</a> &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7103b2e489dfc12a047db7213dc5e66c"></a><!-- doxytag: member="qpid::console::ClassKey::operator&lt;" ref="a7103b2e489dfc12a047db7213dc5e66c" args="(const ClassKey &amp;other) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::console::ClassKey::operator&lt; </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00049.html">ClassKey</a> &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0d880f4321802fbce4495c7ebdd19663"></a><!-- doxytag: member="qpid::console::ClassKey::operator&lt;=" ref="a0d880f4321802fbce4495c7ebdd19663" args="(const ClassKey &amp;other) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::console::ClassKey::operator&lt;= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00049.html">ClassKey</a> &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="abb510606e0491b2f9df4466fb00598e4"></a><!-- doxytag: member="qpid::console::ClassKey::operator==" ref="abb510606e0491b2f9df4466fb00598e4" args="(const ClassKey &amp;other) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::console::ClassKey::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00049.html">ClassKey</a> &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7c1094f5d1df5374d40cb0f77e62e1bf"></a><!-- doxytag: member="qpid::console::ClassKey::operator&gt;" ref="a7c1094f5d1df5374d40cb0f77e62e1bf" args="(const ClassKey &amp;other) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::console::ClassKey::operator&gt; </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00049.html">ClassKey</a> &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a500377b41cd399ecb7e86d5858f27126"></a><!-- doxytag: member="qpid::console::ClassKey::operator&gt;=" ref="a500377b41cd399ecb7e86d5858f27126" args="(const ClassKey &amp;other) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::console::ClassKey::operator&gt;= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00049.html">ClassKey</a> &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af9fdba425d05ca080d6c96f262225256"></a><!-- doxytag: member="qpid::console::ClassKey::str" ref="af9fdba425d05ca080d6c96f262225256" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> qpid::console::ClassKey::str </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>String name of category. </p>
 
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="ae9f192fde471325fd8216e75d27b6fc3"></a><!-- doxytag: member="qpid::console::ClassKey::HASH_SIZE" ref="ae9f192fde471325fd8216e75d27b6fc3" args="" -->
+<a class="anchor" id="a2257bd52ccbd89772d075865d88084cf"></a><!-- doxytag: member="qpid::log::CategoryTraits::COUNT" ref="a2257bd52ccbd89772d075865d88084cf" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const int <a class="el" href="a00049.html#ae9f192fde471325fd8216e75d27b6fc3">qpid::console::ClassKey::HASH_SIZE</a> = 16<code> [static]</code></td>
+          <td class="memname">const int <a class="el" href="a00049.html#a2257bd52ccbd89772d075865d88084cf">qpid::log::CategoryTraits::COUNT</a> = unspecified+1<code> [static]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00484_source.html#l00038">38</a> of file <a class="el" href="a00484_source.html">ClassKey.h</a>.</p>
+<p>Definition at line <a class="el" href="a00536_source.html#l00080">80</a> of file <a class="el" href="a00536_source.html">Statement.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/console/<a class="el" href="a00484_source.html">ClassKey.h</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>qpid/log/<a class="el" href="a00536_source.html">Statement.h</a></li>
 </ul>
 </div>
 <!--
@@ -385,7 +243,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

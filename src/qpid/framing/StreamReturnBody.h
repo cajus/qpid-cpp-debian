@@ -34,6 +34,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -62,6 +63,9 @@ public:
         flags |= (1 << 9);
         flags |= (1 << 10);
         flags |= (1 << 11);
+        if (replyText.size() >= 256) throw IllegalArgumentException("Value for replyText is too large");
+        if (exchange.size() >= 256) throw IllegalArgumentException("Value for exchange is too large");
+        if (routingKey.size() >= 256) throw IllegalArgumentException("Value for routingKey is too large");
     }
     StreamReturnBody(ProtocolVersion=ProtocolVersion())  : replyCode(0), flags(0) {}
     

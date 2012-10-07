@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf/SchemaTypes.h File Reference</title>
+    <title>qmf/SchemaMethod.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -59,44 +59,26 @@
 </div>
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">qmf/SchemaTypes.h File Reference</div>  </div>
+<div class="title">qmf/SchemaMethod.h File Reference</div>  </div>
 </div>
 <div class="contents">
-
+<div class="textblock"><code>#include &quot;<a class="el" href="a00442_source.html">qmf/ImportExport.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00556_source.html">qpid/sys/IntegerTypes.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00439_source.html">qmf/Handle.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00450_source.html">qmf/SchemaTypes.h</a>&quot;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
+</div>
 <p><a href="a00448_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00305.html">qmf::SchemaMethod</a></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html">qmf</a></td></tr>
-<tr><td colspan="2"><h2><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a7bc0753568876f79410e0258882bdca7">qmf::SCHEMA_TYPE_DATA</a> = 1</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a22cecaca81c117b1f209f14b3bb9bbf7">qmf::SCHEMA_TYPE_EVENT</a> = 2</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a69c059168156ee2c08840535d7b5ff41">qmf::SCHEMA_DATA_VOID</a> = 1</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#add7602ba6ed6667127337795ee315d74">qmf::SCHEMA_DATA_BOOL</a> = 2</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a8de1ebee7feeae46be31a2013c41affb">qmf::SCHEMA_DATA_INT</a> = 3</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a78e7231084327c2ca6cf80927db4a477">qmf::SCHEMA_DATA_FLOAT</a> = 4</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#aeeebf6f0c00aee3492dc461ed48de8fa">qmf::SCHEMA_DATA_STRING</a> = 5</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#af62de76f475645f16eebe626e96d482b">qmf::SCHEMA_DATA_MAP</a> = 6</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a447abee58fae6deb31355b270d4c939b">qmf::SCHEMA_DATA_LIST</a> = 7</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#acd8edde6860cdf274095e690cc16ea72">qmf::SCHEMA_DATA_UUID</a> = 8</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a021fae76f0ef042f51edc5b127f133a7">qmf::ACCESS_READ_CREATE</a> = 1</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a39e3edaa95b06b977f4e541720b6e47b">qmf::ACCESS_READ_WRITE</a> = 2</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#ad157b4e4579d5f19288fefc15598fa17">qmf::ACCESS_READ_ONLY</a> = 3</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a2c95ea55a3513091d2bd53bcb870c031">qmf::DIR_IN</a> = 1</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a5b1ba62a6a940210fbd758ce2a1706ca">qmf::DIR_OUT</a> = 2</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a0561afe6481858306c2ad3081bd18db3">qmf::DIR_IN_OUT</a> = 3</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a814bcc730522dbf076f6ac8b3fcfe626">qmf::SEV_EMERG</a> = 0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a39ada71c7d5b1a480c0933a5262a3970">qmf::SEV_ALERT</a> = 1</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a2e4f814f86acc7b4cb89cdfa8c6f5a84">qmf::SEV_CRIT</a> = 2</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a63051e7470c912bbb5dbbed77cf72abc">qmf::SEV_ERROR</a> = 3</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a0c434f8abd2d66ebf4868f6a1e231040">qmf::SEV_WARN</a> = 4</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a44d2ec2f20f1d3a8f655c4de456a7914">qmf::SEV_NOTICE</a> = 5</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a040bfa544c7329406ab4177fae3a21d6">qmf::SEV_INFORM</a> = 6</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#a5e78372e8c52ce57112ba163ce5161d9">qmf::SEV_DEBUG</a> = 7</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00573.html">qmf</a></td></tr>
 </table>
 </div>
 <!--
@@ -126,7 +108,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

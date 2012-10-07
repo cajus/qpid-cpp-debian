@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/client/SessionBase_0_10.h Source File</title>
+    <title>qpid/client/Session.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,11 +58,11 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/client/SessionBase_0_10.h</div>  </div>
+<div class="title">qpid/client/Session.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00478.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_CLIENT_SESSIONBASE_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_CLIENT_SESSIONBASE_H</span>
+<a href="a00478.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_CLIENT_SESSION_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_CLIENT_SESSION_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="comment">/*</span>
 <a name="l00005"></a>00005 <span class="comment"> *</span>
@@ -84,68 +84,17 @@
 <a name="l00021"></a>00021 <span class="comment"> * under the License.</span>
 <a name="l00022"></a>00022 <span class="comment"> *</span>
 <a name="l00023"></a>00023 <span class="comment"> */</span>
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00549.html">qpid/SessionId.h</a>&quot;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00492.html">qpid/framing/amqp_structs.h</a>&quot;</span>
-<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00419.html">qpid/client/Message.h</a>&quot;</span>
-<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="a00461.html">qpid/client/Completion.h</a>&quot;</span>
-<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="a00481.html">qpid/client/TypedResult.h</a>&quot;</span>
-<a name="l00030"></a>00030 <span class="preprocessor">#include &quot;<a class="code" href="a00460.html">qpid/client/ClientImportExport.h</a>&quot;</span>
-<a name="l00031"></a>00031 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033 <span class="keyword">namespace </span>qpid {
-<a name="l00034"></a>00034 <span class="keyword">namespace </span>client {
+<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="a00476.html">qpid/client/Session_0_10.h</a>&quot;</span>
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <span class="keyword">namespace </span>qpid {
+<a name="l00027"></a>00027 <span class="keyword">namespace </span><a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca8a6e04ce91f4d365de37ccc1a4ef0dc9">client</a> {
+<a name="l00028"></a>00028 
+<a name="l00034"></a><a class="code" href="a00578.html#aa15500ce0ba4cea17f4226bebe584a67">00034</a> <span class="keyword">typedef</span> <a class="code" href="a00327.html" title="AMQP 0-10 session API with keyword arguments.">Session_0_10</a> <a class="code" href="a00578.html#aa15500ce0ba4cea17f4226bebe584a67" title="Session is an alias for Session_0_10.">Session</a>;
 <a name="l00035"></a>00035 
-<a name="l00036"></a>00036 <span class="keyword">class </span>Connection;
-<a name="l00037"></a>00037 <span class="keyword">class </span>SessionImpl;
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 }} <span class="comment">// namespace qpid::client</span>
 <a name="l00038"></a>00038 
-<a name="l00039"></a>00039 <span class="keyword">using</span> std::string;
-<a name="l00040"></a>00040 <span class="keyword">using</span> framing::Content;
-<a name="l00041"></a>00041 <span class="keyword">using</span> framing::FieldTable;
-<a name="l00042"></a>00042 <span class="keyword">using</span> framing::SequenceNumber;
-<a name="l00043"></a>00043 <span class="keyword">using</span> framing::SequenceSet;
-<a name="l00044"></a>00044 <span class="keyword">using</span> framing::SequenceNumberSet;
-<a name="l00045"></a>00045 <span class="keyword">using</span> qpid::SessionId;
-<a name="l00046"></a>00046 <span class="keyword">using</span> framing::Xid;
-<a name="l00047"></a>00047 
-<a name="l00049"></a><a class="code" href="a00576.html#aea75244fd77ea602193ebe93713d76b9a2c6d9050f766f9b635d392259dff6c2e">00049</a> <span class="keyword">enum</span> <a class="code" href="a00576.html#aea75244fd77ea602193ebe93713d76b9" title="Unit of message credit: messages or bytes.">CreditUnit</a> { <a class="code" href="a00576.html#aea75244fd77ea602193ebe93713d76b9a2e132222108dca761365208d76754e56">MESSAGE_CREDIT</a>=0, <a class="code" href="a00576.html#aea75244fd77ea602193ebe93713d76b9a2c713c2a701cf60895f0d6dedab27095">BYTE_CREDIT</a>=1, <a class="code" href="a00576.html#aea75244fd77ea602193ebe93713d76b9a2c6d9050f766f9b635d392259dff6c2e">UNLIMITED_CREDIT</a>=0xFFFFFFFF };
-<a name="l00050"></a>00050 
-<a name="l00057"></a>00057 <span class="keyword">class </span><a class="code" href="a00460.html#a79998e3c253eb090fed36f2f89ca2e91">QPID_CLIENT_CLASS_EXTERN</a> SessionBase_0_10 {
-<a name="l00058"></a>00058   <span class="keyword">public</span>:
-<a name="l00059"></a>00059 
-<a name="l00061"></a>00061     <a class="code" href="a00460.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> SessionBase_0_10();
-<a name="l00062"></a>00062     <a class="code" href="a00460.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> ~SessionBase_0_10();
-<a name="l00063"></a>00063 
-<a name="l00065"></a>00065     <a class="code" href="a00460.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <a class="code" href="a00333.html" title="Identifier for a session.">SessionId</a> getId() <span class="keyword">const</span>;
-<a name="l00066"></a>00066 
-<a name="l00070"></a>00070     <a class="code" href="a00460.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> close();
-<a name="l00071"></a>00071 
-<a name="l00081"></a>00081     <a class="code" href="a00460.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00576.html#a15a5d12c365f54c47e6d5f910760b6c0" title="Conversion to Session_0_10 from another session type.">sync</a>();
-<a name="l00082"></a>00082 
-<a name="l00084"></a>00084     <a class="code" href="a00460.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> timeout(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> seconds);
-<a name="l00085"></a>00085 
-<a name="l00087"></a>00087     <a class="code" href="a00460.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> suspend();
-<a name="l00088"></a>00088 
-<a name="l00090"></a>00090     <a class="code" href="a00460.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> resume(Connection);
-<a name="l00091"></a>00091 
-<a name="l00093"></a>00093     <a class="code" href="a00460.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> getChannel() <span class="keyword">const</span>;
-<a name="l00094"></a>00094 
-<a name="l00095"></a>00095     <a class="code" href="a00460.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> flush();
-<a name="l00096"></a>00096     <a class="code" href="a00460.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> markCompleted(<span class="keyword">const</span> <a class="code" href="a00324.html">framing::SequenceSet</a>&amp; ids, <span class="keywordtype">bool</span> notifyPeer);
-<a name="l00097"></a>00097     <a class="code" href="a00460.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> markCompleted(<span class="keyword">const</span> <a class="code" href="a00323.html" title="4-byte sequence number that &#39;wraps around&#39;.">framing::SequenceNumber</a>&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> cumulative, <span class="keywordtype">bool</span> notifyPeer);
-<a name="l00098"></a>00098     <a class="code" href="a00460.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> sendCompletion();
-<a name="l00099"></a>00099 
-<a name="l00100"></a>00100     <a class="code" href="a00460.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">bool</span> isValid() <span class="keyword">const</span>;
-<a name="l00101"></a>00101 
-<a name="l00102"></a>00102     <a class="code" href="a00460.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> Connection getConnection();
-<a name="l00103"></a>00103   <span class="keyword">protected</span>:
-<a name="l00104"></a><a class="code" href="a00328.html#a72d171e291fab3cd457bf04276970904">00104</a>     boost::shared_ptr&lt;SessionImpl&gt; <a class="code" href="a00328.html#a72d171e291fab3cd457bf04276970904">impl</a>;
-<a name="l00105"></a><a class="code" href="a00328.html#aecae61510b6db41798294c354ca55dd5">00105</a>   <span class="keyword">friend</span> <span class="keyword">class </span>SessionBase_0_10Access;
-<a name="l00106"></a>00106 };
-<a name="l00107"></a>00107 
-<a name="l00108"></a>00108 }} <span class="comment">// namespace qpid::client</span>
-<a name="l00109"></a>00109 
-<a name="l00110"></a>00110 <span class="preprocessor">#endif  </span>
+<a name="l00039"></a>00039 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -175,7 +124,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

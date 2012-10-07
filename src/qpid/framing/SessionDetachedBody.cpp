@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/SessionDetachedBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void SessionDetachedBody::setName(const std::string& _name) {
     name = _name;
     flags |= (1 << 8);
+    if (name.size() >= 65536) throw IllegalArgumentException("Value for name is too large");
 }
 const std::string& SessionDetachedBody::getName() const { return name; }
 bool SessionDetachedBody::hasName() const { return flags & (1 << 8); }

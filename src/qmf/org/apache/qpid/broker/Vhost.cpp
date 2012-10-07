@@ -30,6 +30,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
 
 using namespace qmf::org::apache::qpid::broker;
 using           qpid::management::ManagementAgent;
@@ -298,12 +299,18 @@ void Vhost::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
 
     if ((_i = _map.find("brokerRef")) != _map.end()) {
         brokerRef = _i->second;
+    } else {
+        brokerRef = ::qpid::management::ObjectId();
     }
     if ((_i = _map.find("name")) != _map.end()) {
         name = (_i->second).getString();
+    } else {
+        name = "";
     }
     if ((_i = _map.find("federationTag")) != _map.end()) {
         federationTag = (_i->second).getString();
+    } else {
+        federationTag = "";
     }
 
 }

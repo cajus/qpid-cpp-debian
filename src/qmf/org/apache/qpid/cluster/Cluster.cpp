@@ -31,6 +31,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
 
 using namespace qmf::org::apache::qpid::cluster;
 using           qpid::management::ManagementAgent;
@@ -430,30 +431,48 @@ void Cluster::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
 
     if ((_i = _map.find("brokerRef")) != _map.end()) {
         brokerRef = _i->second;
+    } else {
+        brokerRef = ::qpid::management::ObjectId();
     }
     if ((_i = _map.find("clusterName")) != _map.end()) {
         clusterName = (_i->second).getString();
+    } else {
+        clusterName = "";
     }
     if ((_i = _map.find("clusterID")) != _map.end()) {
         clusterID = (_i->second).getString();
+    } else {
+        clusterID = "";
     }
     if ((_i = _map.find("memberID")) != _map.end()) {
         memberID = (_i->second).getString();
+    } else {
+        memberID = "";
     }
     if ((_i = _map.find("publishedURL")) != _map.end()) {
         publishedURL = (_i->second).getString();
+    } else {
+        publishedURL = "";
     }
     if ((_i = _map.find("clusterSize")) != _map.end()) {
         clusterSize = _i->second;
+    } else {
+        clusterSize = 0;
     }
     if ((_i = _map.find("status")) != _map.end()) {
         status = (_i->second).getString();
+    } else {
+        status = "";
     }
     if ((_i = _map.find("members")) != _map.end()) {
         members = (_i->second).getString();
+    } else {
+        members = "";
     }
     if ((_i = _map.find("memberIDs")) != _map.end()) {
         memberIDs = (_i->second).getString();
+    } else {
+        memberIDs = "";
     }
 
 }
@@ -469,6 +488,8 @@ void Cluster::doMethod (string& methodName, const ::qpid::types::Variant::Map& i
         ::qpid::types::Variant::Map::const_iterator _i;
         if ((_i = inMap.find("brokerId")) != inMap.end()) {
             ioArgs.i_brokerId = (_i->second).getString();
+        } else {
+            ioArgs.i_brokerId = "";
         }
         bool allow = coreObject->AuthorizeMethod(METHOD_STOPCLUSTERNODE, ioArgs, userId);
         if (allow)

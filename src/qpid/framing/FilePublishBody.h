@@ -34,6 +34,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -62,6 +63,9 @@ public:
         flags |= (1 << 8);
         flags |= (1 << 9);
         flags |= (1 << 12);
+        if (exchange.size() >= 256) throw IllegalArgumentException("Value for exchange is too large");
+        if (routingKey.size() >= 256) throw IllegalArgumentException("Value for routingKey is too large");
+        if (identifier.size() >= 256) throw IllegalArgumentException("Value for identifier is too large");
     }
     FilePublishBody(ProtocolVersion=ProtocolVersion())  : flags(0) {}
     

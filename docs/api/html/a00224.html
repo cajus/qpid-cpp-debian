@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::messaging::NoMessageAvailable Struct Reference</title>
+    <title>qpid::console::Package::NameHashComp Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,91 +60,61 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00591.html">messaging</a>      </li>
-      <li class="navelem"><a class="el" href="a00224.html">NoMessageAvailable</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00581.html">console</a>      </li>
+      <li class="navelem"><a class="el" href="a00251.html">Package</a>      </li>
+      <li class="navelem"><a class="el" href="a00224.html">NameHashComp</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a>  </div>
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::messaging::NoMessageAvailable Struct Reference</div>  </div>
+<div class="title">qpid::console::Package::NameHashComp Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::messaging::NoMessageAvailable" --><!-- doxytag: inherits="qpid::messaging::FetchError" -->
-<p>Thrown by <a class="el" href="a00271.html#ac0819f612dfc58de03cbc95a39420925" title="Retrieves a message for this receivers subscription or waits for up to the specified timeout for one ...">Receiver::fetch()</a>, <a class="el" href="a00271.html#a1d708f9763a9b1f5aefb41002e7446e6" title="Retrieves a message from this receivers local queue, or waits for upto the specified timeout for a me...">Receiver::get()</a> and <a class="el" href="a00325.html#af633ded76d86d312c4114efa8480d3df" title="Retrieves the receiver for the next available message.">Session::nextReceiver()</a> to indicate that there no message was available before the timeout specified.  
- <a href="a00224.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00436_source.html">qpid/messaging/exceptions.h</a>&gt;</code></p>
-
-<p><a href="a00857.html">List of all members.</a></p>
+<!-- doxytag: class="qpid::console::Package::NameHashComp" -->
+<p><a href="a00719.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00224.html#a6f6224501c800a5413524cd72a4d3a9c">NoMessageAvailable</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual QPID_TYPES_EXTERN <br class="typebreak"/>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00112.html#a96ddb3fe10a2b9d059cb78832a64751d">what</a> () const   throw ()</td></tr>
-<tr><td colspan="2"><h2><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#ad2a0464e06d10b0ba61a4520bac1cfa7">detail</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00224.html#abe4330e84ca38fd169316159896ede48">operator()</a> (const <a class="el" href="a00223.html">NameHash</a> &amp;lhs, const <a class="el" href="a00223.html">NameHash</a> &amp;rhs) const </td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Thrown by <a class="el" href="a00271.html#ac0819f612dfc58de03cbc95a39420925" title="Retrieves a message for this receivers subscription or waits for up to the specified timeout for one ...">Receiver::fetch()</a>, <a class="el" href="a00271.html#a1d708f9763a9b1f5aefb41002e7446e6" title="Retrieves a message from this receivers local queue, or waits for upto the specified timeout for a me...">Receiver::get()</a> and <a class="el" href="a00325.html#af633ded76d86d312c4114efa8480d3df" title="Retrieves the receiver for the next available message.">Session::nextReceiver()</a> to indicate that there no message was available before the timeout specified. </p>
-</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a6f6224501c800a5413524cd72a4d3a9c"></a><!-- doxytag: member="qpid::messaging::NoMessageAvailable::NoMessageAvailable" ref="a6f6224501c800a5413524cd72a4d3a9c" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::messaging::NoMessageAvailable::NoMessageAvailable </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a96ddb3fe10a2b9d059cb78832a64751d"></a><!-- doxytag: member="qpid::messaging::NoMessageAvailable::what" ref="a96ddb3fe10a2b9d059cb78832a64751d" args="() const " -->
+<a class="anchor" id="abe4330e84ca38fd169316159896ede48"></a><!-- doxytag: member="qpid::console::Package::NameHashComp::operator()" ref="abe4330e84ca38fd169316159896ede48" args="(const NameHash &amp;lhs, const NameHash &amp;rhs) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual QPID_TYPES_EXTERN const char* qpid::types::Exception::what </td>
+          <td class="memname">bool qpid::console::Package::NameHashComp::operator() </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const  throw ()<code> [virtual, inherited]</code></td>
+          <td class="paramtype">const <a class="el" href="a00223.html">NameHash</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
         </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="ad2a0464e06d10b0ba61a4520bac1cfa7"></a><!-- doxytag: member="qpid::messaging::NoMessageAvailable::detail" ref="ad2a0464e06d10b0ba61a4520bac1cfa7" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> <a class="el" href="a00213.html#ad2a0464e06d10b0ba61a4520bac1cfa7">qpid::messaging::MessagingException::detail</a><code> [inherited]</code></td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00223.html">NameHash</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00436_source.html#l00044">44</a> of file <a class="el" href="a00436_source.html">exceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="a00489_source.html#l00054">54</a> of file <a class="el" href="a00489_source.html">Package.h</a>.</p>
+
+<p>References <a class="el" href="a00489_source.html#l00045">qpid::console::Package::NameHash::name</a>, and <a class="el" href="a00489_source.html#l00046">qpid::console::Package::NameHash::hash</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/messaging/<a class="el" href="a00436_source.html">exceptions.h</a></li>
+<li>qpid/console/<a class="el" href="a00489_source.html">Package.h</a></li>
 </ul>
 </div>
 <!--
@@ -174,7 +144,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

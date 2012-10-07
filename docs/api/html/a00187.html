@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::log::LevelTraits Struct Reference</title>
+    <title>std::length_error Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,133 +60,22 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00589.html">log</a>      </li>
-      <li class="navelem"><a class="el" href="a00187.html">LevelTraits</a>      </li>
+      <li class="navelem"><b>std</b>      </li>
+      <li class="navelem"><a class="el" href="a00187.html">length_error</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
-  <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::log::LevelTraits Struct Reference</div>  </div>
+<div class="title">std::length_error Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::log::LevelTraits" -->
-<p><code>#include &lt;<a class="el" href="a00534_source.html">qpid/log/Statement.h</a>&gt;</code></p>
-
-<p><a href="a00823.html">List of all members.</a></p>
-<table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587e">Level</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00187.html#ac4a85ecb731eedf58be6effaf0dcb718">level</a> (const char *name)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get level from string name.  <a href="#ac4a85ecb731eedf58be6effaf0dcb718"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587e">Level</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00187.html#a2775cd1dd4ed0c9f210a1cad22024417">level</a> (const <a class="el" href="a00345.html">std::string</a> &amp;name)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get level from string name.  <a href="#a2775cd1dd4ed0c9f210a1cad22024417"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00187.html#ad43fb56409318f9727b56a76539d39b8">name</a> (<a class="el" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587e">Level</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">String name of level.  <a href="#ad43fb56409318f9727b56a76539d39b8"></a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00187.html#a05a84a43bf04ab7e742f097e5cc21ebb">COUNT</a> = critical+1</td></tr>
-</table>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ac4a85ecb731eedf58be6effaf0dcb718"></a><!-- doxytag: member="qpid::log::LevelTraits::level" ref="ac4a85ecb731eedf58be6effaf0dcb718" args="(const char *name)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587e">Level</a> qpid::log::LevelTraits::level </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
-          <td><code> [static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Get level from string name. </p>
-<dl><dt><b>Exceptions:</b></dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">if</td><td>name invalid. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Referenced by <a class="el" href="a00534_source.html#l00050">level()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2775cd1dd4ed0c9f210a1cad22024417"></a><!-- doxytag: member="qpid::log::LevelTraits::level" ref="a2775cd1dd4ed0c9f210a1cad22024417" args="(const std::string &amp;name)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587e">Level</a> qpid::log::LevelTraits::level </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
-          <td><code> [inline, static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Get level from string name. </p>
-<dl><dt><b>Exceptions:</b></dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">if</td><td>name invalid. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00534_source.html#l00050">50</a> of file <a class="el" href="a00534_source.html">Statement.h</a>.</p>
-
-<p>References <a class="el" href="a00187.html#ac4a85ecb731eedf58be6effaf0dcb718">level()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad43fb56409318f9727b56a76539d39b8"></a><!-- doxytag: member="qpid::log::LevelTraits::name" ref="ad43fb56409318f9727b56a76539d39b8" args="(Level)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static const char* qpid::log::LevelTraits::name </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587e">Level</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>String name of level. </p>
-
-</div>
-</div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a05a84a43bf04ab7e742f097e5cc21ebb"></a><!-- doxytag: member="qpid::log::LevelTraits::COUNT" ref="a05a84a43bf04ab7e742f097e5cc21ebb" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int <a class="el" href="a00187.html#a05a84a43bf04ab7e742f097e5cc21ebb">qpid::log::LevelTraits::COUNT</a> = critical+1<code> [static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00534_source.html#l00040">40</a> of file <a class="el" href="a00534_source.html">Statement.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/log/<a class="el" href="a00534_source.html">Statement.h</a></li>
-</ul>
-</div>
+<!-- doxytag: class="std::length_error" --><!-- doxytag: inherits="std::logic_error" -->
+<p>STL class.  
+ <a href="a00187.html#details">More...</a></p>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>STL class. </p>
+</div><hr/>The documentation for this class was generated from the following file:</div>
 <!--
  
  Licensed to the Apache Software Foundation (ASF) under one
@@ -214,7 +103,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

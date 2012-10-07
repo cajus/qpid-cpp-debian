@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/FileProperties.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void FileProperties::setContentType(const std::string& _contentType) {
     contentType = _contentType;
     flags |= (1 << 8);
+    if (contentType.size() >= 256) throw IllegalArgumentException("Value for contentType is too large");
 }
 const std::string& FileProperties::getContentType() const { return contentType; }
 bool FileProperties::hasContentType() const { return flags & (1 << 8); }
@@ -41,6 +42,7 @@ void FileProperties::clearContentTypeFlag() { flags &= ~(1 << 8); }
 void FileProperties::setContentEncoding(const std::string& _contentEncoding) {
     contentEncoding = _contentEncoding;
     flags |= (1 << 9);
+    if (contentEncoding.size() >= 256) throw IllegalArgumentException("Value for contentEncoding is too large");
 }
 const std::string& FileProperties::getContentEncoding() const { return contentEncoding; }
 bool FileProperties::hasContentEncoding() const { return flags & (1 << 9); }
@@ -69,6 +71,7 @@ void FileProperties::clearPriorityFlag() { flags &= ~(1 << 11); }
 void FileProperties::setReplyTo(const std::string& _replyTo) {
     replyTo = _replyTo;
     flags |= (1 << 12);
+    if (replyTo.size() >= 256) throw IllegalArgumentException("Value for replyTo is too large");
 }
 const std::string& FileProperties::getReplyTo() const { return replyTo; }
 bool FileProperties::hasReplyTo() const { return flags & (1 << 12); }
@@ -77,6 +80,7 @@ void FileProperties::clearReplyToFlag() { flags &= ~(1 << 12); }
 void FileProperties::setMessageId(const std::string& _messageId) {
     messageId = _messageId;
     flags |= (1 << 13);
+    if (messageId.size() >= 256) throw IllegalArgumentException("Value for messageId is too large");
 }
 const std::string& FileProperties::getMessageId() const { return messageId; }
 bool FileProperties::hasMessageId() const { return flags & (1 << 13); }
@@ -85,6 +89,7 @@ void FileProperties::clearMessageIdFlag() { flags &= ~(1 << 13); }
 void FileProperties::setFilename(const std::string& _filename) {
     filename = _filename;
     flags |= (1 << 14);
+    if (filename.size() >= 256) throw IllegalArgumentException("Value for filename is too large");
 }
 const std::string& FileProperties::getFilename() const { return filename; }
 bool FileProperties::hasFilename() const { return flags & (1 << 14); }
@@ -101,6 +106,7 @@ void FileProperties::clearTimestampFlag() { flags &= ~(1 << 15); }
 void FileProperties::setClusterId(const std::string& _clusterId) {
     clusterId = _clusterId;
     flags |= (1 << 0);
+    if (clusterId.size() >= 256) throw IllegalArgumentException("Value for clusterId is too large");
 }
 const std::string& FileProperties::getClusterId() const { return clusterId; }
 bool FileProperties::hasClusterId() const { return flags & (1 << 0); }

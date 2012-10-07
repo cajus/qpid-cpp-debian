@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::sys::Thread Class Reference</title>
+    <title>qpid::messaging::TargetCapacityExceeded Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,84 +60,50 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00592.html">sys</a>      </li>
-      <li class="navelem"><a class="el" href="a00355.html">Thread</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00593.html">messaging</a>      </li>
+      <li class="navelem"><a class="el" href="a00355.html">TargetCapacityExceeded</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a>  </div>
+<a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::sys::Thread Class Reference</div>  </div>
+<div class="title">qpid::messaging::TargetCapacityExceeded Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::sys::Thread" -->
-<p><code>#include &lt;<a class="el" href="a00568_source.html">qpid/sys/Thread.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::messaging::TargetCapacityExceeded" --><!-- doxytag: inherits="qpid::messaging::SendError" -->
+<p>Thrown to indicate that the sender attempted to send a message that would result in the target node on the peer exceeding a preconfigured capacity.  
+ <a href="a00355.html#details">More...</a></p>
 
-<p><a href="a00892.html">List of all members.</a></p>
+<p><code>#include &lt;<a class="el" href="a00438_source.html">qpid/messaging/exceptions.h</a>&gt;</code></p>
+
+<p><a href="a00863.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00355.html#a0f89717f5372353ad431e4b061dd6288">Thread</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00355.html#ab060222c79e3d17f7dd69ef3c0a3b4fe">Thread</a> (<a class="el" href="a00293.html">qpid::sys::Runnable</a> *)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00355.html#a4db7d5687a2cef657f593812d3a35d6e">Thread</a> (<a class="el" href="a00293.html">qpid::sys::Runnable</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00355.html#a7b6b4d36bbe13b32b5c5a51522f550d5">operator bool</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00355.html#a9526ed65191221f41e42bc521bc947d8">operator==</a> (const <a class="el" href="a00355.html">Thread</a> &amp;) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00355.html#a837c039d59eee9308f90432fd7a5b680">operator!=</a> (const <a class="el" href="a00355.html">Thread</a> &amp;) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00355.html#abfd7db7931a80d416fe29bea4f9acdb3">join</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00355.html">Thread</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00355.html#aab7ad4f92d67051dbba4880c58968903">current</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00355.html#af795bc09bab9f9017df2634de4023580">logId</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">ID of current thread for logging.  <a href="#af795bc09bab9f9017df2634de4023580"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00355.html#afcb03e217b9db89cdbe20fcacea7172f">TargetCapacityExceeded</a> (const <a class="el" href="a00346.html">std::string</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QPID_TYPES_EXTERN <br class="typebreak"/>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00114.html#a96ddb3fe10a2b9d059cb78832a64751d">what</a> () const   throw ()</td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00214.html#ad2a0464e06d10b0ba61a4520bac1cfa7">detail</a></td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a0f89717f5372353ad431e4b061dd6288"></a><!-- doxytag: member="qpid::sys::Thread::Thread" ref="a0f89717f5372353ad431e4b061dd6288" args="()" -->
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Thrown to indicate that the sender attempted to send a message that would result in the target node on the peer exceeding a preconfigured capacity. </p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="afcb03e217b9db89cdbe20fcacea7172f"></a><!-- doxytag: member="qpid::messaging::TargetCapacityExceeded::TargetCapacityExceeded" ref="afcb03e217b9db89cdbe20fcacea7172f" args="(const std::string &amp;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::sys::Thread::Thread </td>
+          <td class="memname">qpid::messaging::TargetCapacityExceeded::TargetCapacityExceeded </td>
           <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab060222c79e3d17f7dd69ef3c0a3b4fe"></a><!-- doxytag: member="qpid::sys::Thread::Thread" ref="ab060222c79e3d17f7dd69ef3c0a3b4fe" args="(qpid::sys::Runnable *)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::sys::Thread::Thread </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00293.html">qpid::sys::Runnable</a> *&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [explicit]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a4db7d5687a2cef657f593812d3a35d6e"></a><!-- doxytag: member="qpid::sys::Thread::Thread" ref="a4db7d5687a2cef657f593812d3a35d6e" args="(qpid::sys::Runnable &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::sys::Thread::Thread </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00293.html">qpid::sys::Runnable</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [explicit]</code></td>
         </tr>
       </table>
 </div>
@@ -146,15 +112,15 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="aab7ad4f92d67051dbba4880c58968903"></a><!-- doxytag: member="qpid::sys::Thread::current" ref="aab7ad4f92d67051dbba4880c58968903" args="()" -->
+<a class="anchor" id="a96ddb3fe10a2b9d059cb78832a64751d"></a><!-- doxytag: member="qpid::messaging::TargetCapacityExceeded::what" ref="a96ddb3fe10a2b9d059cb78832a64751d" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="a00355.html">Thread</a> qpid::sys::Thread::current </td>
+          <td class="memname">virtual QPID_TYPES_EXTERN const char* qpid::types::Exception::what </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [static]</code></td>
+          <td> const  throw ()<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -162,93 +128,24 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="abfd7db7931a80d416fe29bea4f9acdb3"></a><!-- doxytag: member="qpid::sys::Thread::join" ref="abfd7db7931a80d416fe29bea4f9acdb3" args="()" -->
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="ad2a0464e06d10b0ba61a4520bac1cfa7"></a><!-- doxytag: member="qpid::messaging::TargetCapacityExceeded::detail" ref="ad2a0464e06d10b0ba61a4520bac1cfa7" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::sys::Thread::join </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname"><a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> <a class="el" href="a00214.html#ad2a0464e06d10b0ba61a4520bac1cfa7">qpid::messaging::MessagingException::detail</a><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="af795bc09bab9f9017df2634de4023580"></a><!-- doxytag: member="qpid::sys::Thread::logId" ref="af795bc09bab9f9017df2634de4023580" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static unsigned long qpid::sys::Thread::logId </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>ID of current thread for logging. </p>
-<p>Workaround for broken <a class="el" href="a00355.html#aab7ad4f92d67051dbba4880c58968903">Thread::current()</a> in APR </p>
+<p>Definition at line <a class="el" href="a00438_source.html#l00044">44</a> of file <a class="el" href="a00438_source.html">exceptions.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a7b6b4d36bbe13b32b5c5a51522f550d5"></a><!-- doxytag: member="qpid::sys::Thread::operator bool" ref="a7b6b4d36bbe13b32b5c5a51522f550d5" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::sys::Thread::operator bool </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a837c039d59eee9308f90432fd7a5b680"></a><!-- doxytag: member="qpid::sys::Thread::operator!=" ref="a837c039d59eee9308f90432fd7a5b680" args="(const Thread &amp;) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::sys::Thread::operator!= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00355.html">Thread</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a9526ed65191221f41e42bc521bc947d8"></a><!-- doxytag: member="qpid::sys::Thread::operator==" ref="a9526ed65191221f41e42bc521bc947d8" args="(const Thread &amp;) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::sys::Thread::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00355.html">Thread</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/sys/<a class="el" href="a00568_source.html">Thread.h</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>qpid/messaging/<a class="el" href="a00438_source.html">exceptions.h</a></li>
 </ul>
 </div>
 <!--
@@ -278,7 +175,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

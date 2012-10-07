@@ -161,6 +161,7 @@ void MethodBodyDefaultVisitor::visit(const ClusterConnectionQueueFairshareStateB
 void MethodBodyDefaultVisitor::visit(const ClusterConnectionQueueObserverStateBody& b) { defaultVisit(b); }
 void MethodBodyDefaultVisitor::visit(const ClusterConnectionClockBody& b) { defaultVisit(b); }
 void MethodBodyDefaultVisitor::visit(const ClusterConnectionQueueDequeueSincePurgeStateBody& b) { defaultVisit(b); }
+void MethodBodyDefaultVisitor::visit(const ClusterConnectionInternalStateBody& b) { defaultVisit(b); }
 
 }} // namespace qpid::framing
 

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/management/ConnectionSettings.h Source File</title>
+    <title>qmf/engine/ConnectionSettings.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,13 +58,13 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/management/ConnectionSettings.h</div>  </div>
+<div class="title">qmf/engine/ConnectionSettings.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00414.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _management_ConnectionSettings_h</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _management_ConnectionSettings_h</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="comment">/*</span>
-<a name="l00004"></a>00004 <span class="comment"> *</span>
+<a href="a00414.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _QmfEngineConnectionSettings_</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _QmfEngineConnectionSettings_</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="comment">/*</span>
 <a name="l00005"></a>00005 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
 <a name="l00006"></a>00006 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
 <a name="l00007"></a>00007 <span class="comment"> * distributed with this work for additional information</span>
@@ -72,54 +72,62 @@
 <a name="l00009"></a>00009 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
 <a name="l00010"></a>00010 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
 <a name="l00011"></a>00011 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
-<a name="l00012"></a>00012 <span class="comment"> *</span>
+<a name="l00012"></a>00012 <span class="comment"> * </span>
 <a name="l00013"></a>00013 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
-<a name="l00014"></a>00014 <span class="comment"> *</span>
+<a name="l00014"></a>00014 <span class="comment"> * </span>
 <a name="l00015"></a>00015 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
 <a name="l00016"></a>00016 <span class="comment"> * software distributed under the License is distributed on an</span>
 <a name="l00017"></a>00017 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
 <a name="l00018"></a>00018 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
 <a name="l00019"></a>00019 <span class="comment"> * specific language governing permissions and limitations</span>
 <a name="l00020"></a>00020 <span class="comment"> * under the License.</span>
-<a name="l00021"></a>00021 <span class="comment"> *</span>
-<a name="l00022"></a>00022 <span class="comment"> */</span>
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="a00482.html">qpid/CommonImportExport.h</a>&quot;</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00569.html">qpid/types/Variant.h</a>&quot;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028 <span class="keyword">namespace </span>qpid {
-<a name="l00029"></a>00029 <span class="keyword">namespace </span>management {
-<a name="l00030"></a>00030 
-<a name="l00034"></a>00034 <span class="keyword">struct </span>ConnectionSettings {
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00064.html#a873c4f31951affd606edc2b3d1a0550e">ConnectionSettings</a>();
-<a name="l00037"></a>00037     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">virtual</span> <a class="code" href="a00064.html#a66109c82859b3d68f399b52ff41f995f">~ConnectionSettings</a>();
-<a name="l00038"></a>00038 
-<a name="l00042"></a><a class="code" href="a00064.html#a3450961a8cb0f5c85bb795448355b16f">00042</a>     std::string <a class="code" href="a00064.html#a3450961a8cb0f5c85bb795448355b16f" title="The protocol used for the connection (defaults to &#39;tcp&#39;)">protocol</a>;
-<a name="l00043"></a>00043 
-<a name="l00047"></a><a class="code" href="a00064.html#a179362ac80606cd99e4b76ba7858f663">00047</a>     std::string <a class="code" href="a00064.html#a179362ac80606cd99e4b76ba7858f663" title="The host (or ip address) to connect to (defaults to &#39;localhost&#39;).">host</a>;
-<a name="l00051"></a><a class="code" href="a00064.html#a08cdfe1f64da9555107b323d45584a57">00051</a>     <a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code" href="a00064.html#a08cdfe1f64da9555107b323d45584a57" title="The port to connect to (defaults to 5672).">port</a>;
-<a name="l00056"></a><a class="code" href="a00064.html#a783f9d910fe0a0259d4317cad6285ec9">00056</a>     std::string <a class="code" href="a00064.html#a783f9d910fe0a0259d4317cad6285ec9" title="Allows an AMQP &#39;virtual host&#39; to be specified for the connection.">virtualhost</a>;
-<a name="l00057"></a>00057 
-<a name="l00062"></a><a class="code" href="a00064.html#ad701176b4a9c9c7ceff6678320494b04">00062</a>     std::string <a class="code" href="a00064.html#ad701176b4a9c9c7ceff6678320494b04" title="The username to use when authenticating the connection.">username</a>;
-<a name="l00066"></a><a class="code" href="a00064.html#aeae10ebbb1afbd8aecf8b9db52d9ab9a">00066</a>     std::string <a class="code" href="a00064.html#aeae10ebbb1afbd8aecf8b9db52d9ab9a" title="The password to use when authenticating the connection.">password</a>;
-<a name="l00071"></a><a class="code" href="a00064.html#afe68de7d64e8eb48f872a07ff9fc59f1">00071</a>     std::string <a class="code" href="a00064.html#afe68de7d64e8eb48f872a07ff9fc59f1" title="The SASL mechanism to use when authenticating the connection; the options are currently PLAIN or ANON...">mechanism</a>;
-<a name="l00075"></a><a class="code" href="a00064.html#a6bcf72e44add901cdb6697aee440968e">00075</a>     std::string <a class="code" href="a00064.html#a6bcf72e44add901cdb6697aee440968e" title="Allows a locale to be specified for the connection.">locale</a>;
-<a name="l00079"></a><a class="code" href="a00064.html#ab4b81131e82b2bb48c1e17a630bfc7ac">00079</a>     <a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code" href="a00064.html#ab4b81131e82b2bb48c1e17a630bfc7ac" title="Allows a heartbeat frequency to be specified.">heartbeat</a>;
-<a name="l00084"></a><a class="code" href="a00064.html#ab9c85fb405a8a390188eb4cf0347166f">00084</a>     <a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code" href="a00064.html#ab9c85fb405a8a390188eb4cf0347166f" title="The maximum number of channels that the client will request for use on this connection.">maxChannels</a>;
-<a name="l00089"></a><a class="code" href="a00064.html#af940005847828761087ba1ede3dbb136">00089</a>     <a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code" href="a00064.html#af940005847828761087ba1ede3dbb136" title="The maximum frame size that the client will request for this connection.">maxFrameSize</a>;
-<a name="l00094"></a><a class="code" href="a00064.html#a441dba63096f831670db8a988f0fd68f">00094</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="a00064.html#a441dba63096f831670db8a988f0fd68f" title="Limit the size of the connections send buffer .">bounds</a>;
-<a name="l00098"></a><a class="code" href="a00064.html#a4e936c9b72ce178eb9b0db0272e893f5">00098</a>     <span class="keywordtype">bool</span> <a class="code" href="a00064.html#a4e936c9b72ce178eb9b0db0272e893f5" title="If true, TCP_NODELAY will be set for the connection.">tcpNoDelay</a>;
-<a name="l00102"></a><a class="code" href="a00064.html#a3409374df431aa757793770da28dea1c">00102</a>     std::string <a class="code" href="a00064.html#a3409374df431aa757793770da28dea1c" title="SASL service name.">service</a>;
-<a name="l00107"></a><a class="code" href="a00064.html#a7ba2707d068c5bf0ae11869e1e53876d">00107</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="a00064.html#a7ba2707d068c5bf0ae11869e1e53876d" title="Minimum acceptable strength of any SASL negotiated security layer.">minSsf</a>;
-<a name="l00112"></a><a class="code" href="a00064.html#a4c308ce685eaa7175ca07071e0a357f7">00112</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="a00064.html#a4c308ce685eaa7175ca07071e0a357f7" title="Maximum acceptable strength of any SASL negotiated security layer.">maxSsf</a>;
-<a name="l00113"></a>00113 };
-<a name="l00114"></a>00114 
-<a name="l00115"></a>00115 }}
-<a name="l00116"></a>00116 
-<a name="l00117"></a>00117 <span class="preprocessor">#endif</span>
-<a name="l00118"></a>00118 <span class="preprocessor"></span>
+<a name="l00021"></a>00021 <span class="comment"> */</span>
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;<a class="code" href="a00427.html">qmf/engine/QmfEngineImportExport.h</a>&quot;</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="a00556.html">qpid/sys/IntegerTypes.h</a>&quot;</span>
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <span class="keyword">namespace </span>qmf {
+<a name="l00027"></a>00027 <span class="keyword">namespace </span>engine {
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029     <span class="keyword">class </span>ConnectionSettingsImpl;
+<a name="l00030"></a>00030     <span class="keyword">class </span>Value;
+<a name="l00031"></a>00031 
+<a name="l00037"></a>00037     <span class="keyword">class </span>ConnectionSettings {
+<a name="l00038"></a>00038     <span class="keyword">public</span>:
+<a name="l00039"></a>00039 
+<a name="l00048"></a>00048         <a class="code" href="a00427.html#a5ab5a445e239724bb34af4da7b85de3f">QMFE_EXTERN</a> <a class="code" href="a00065.html#aea78e918e8dda307c5c9fd8b3b04d3fb" title="Create a set of default connection settings.">ConnectionSettings</a>();
+<a name="l00049"></a>00049 
+<a name="l00063"></a>00063         <a class="code" href="a00427.html#a5ab5a445e239724bb34af4da7b85de3f">QMFE_EXTERN</a> <a class="code" href="a00065.html#aea78e918e8dda307c5c9fd8b3b04d3fb" title="Create a set of default connection settings.">ConnectionSettings</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* url);
+<a name="l00064"></a>00064 
+<a name="l00068"></a>00068         <a class="code" href="a00065.html#aea78e918e8dda307c5c9fd8b3b04d3fb" title="Create a set of default connection settings.">ConnectionSettings</a>(<span class="keyword">const</span> <a class="code" href="a00065.html#aea78e918e8dda307c5c9fd8b3b04d3fb" title="Create a set of default connection settings.">ConnectionSettings</a>&amp; from);
+<a name="l00069"></a>00069 
+<a name="l00073"></a>00073         <a class="code" href="a00427.html#a5ab5a445e239724bb34af4da7b85de3f">QMFE_EXTERN</a> <a class="code" href="a00065.html#a5a5920938a19f8625edd7487cf56b664" title="Destroy the connection settings object.">~ConnectionSettings</a>();
+<a name="l00074"></a>00074 
+<a name="l00085"></a>00085         <a class="code" href="a00427.html#a5ab5a445e239724bb34af4da7b85de3f">QMFE_EXTERN</a> <span class="keywordtype">bool</span> <a class="code" href="a00065.html#a1090b956ae91747aac5da112f3a46c40" title="Set an attribute to control connection setup.">setAttr</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key, <span class="keyword">const</span> Value&amp; value);
+<a name="l00086"></a>00086 
+<a name="l00094"></a>00094         <a class="code" href="a00427.html#a5ab5a445e239724bb34af4da7b85de3f">QMFE_EXTERN</a> Value <a class="code" href="a00065.html#a9e2145d574800034c45359b42db4e912" title="Get the value of an attribute.">getAttr</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key) <span class="keyword">const</span>;
+<a name="l00095"></a>00095 
+<a name="l00103"></a>00103         <a class="code" href="a00427.html#a5ab5a445e239724bb34af4da7b85de3f">QMFE_EXTERN</a> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="a00065.html#af4dec6d5a34d2726e01fc37ed7a790ea" title="Get the attribute string (the portion of the URL following the &#39;?&#39;) for the settings.">getAttrString</a>() <span class="keyword">const</span>;
+<a name="l00104"></a>00104 
+<a name="l00110"></a>00110         <a class="code" href="a00427.html#a5ab5a445e239724bb34af4da7b85de3f">QMFE_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00065.html#ae3191fdbbe68f189f6ff357706448cf6" title="Shortcuts for setting the transport for the connection.">transportTcp</a>(<a class="code" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> port = 5672);
+<a name="l00111"></a>00111         <a class="code" href="a00427.html#a5ab5a445e239724bb34af4da7b85de3f">QMFE_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00065.html#a2e4eab15b2a4107948f3b998b5fbd9ac">transportSsl</a>(<a class="code" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> port = 5671);
+<a name="l00112"></a>00112         <a class="code" href="a00427.html#a5ab5a445e239724bb34af4da7b85de3f">QMFE_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00065.html#a9490ed2471e89f58ae02a86ae6131288">transportRdma</a>(<a class="code" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> port = 5672);
+<a name="l00113"></a>00113 
+<a name="l00127"></a>00127         <a class="code" href="a00427.html#a5ab5a445e239724bb34af4da7b85de3f">QMFE_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00065.html#a856e023a0b6049e1062715f8c489e883" title="Shortcuts for setting authentication mechanisms.">authAnonymous</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* username = 0);
+<a name="l00128"></a>00128         <a class="code" href="a00427.html#a5ab5a445e239724bb34af4da7b85de3f">QMFE_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00065.html#addc2670c8c817ea5b3e79a3655b05325">authPlain</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* username = 0, <span class="keyword">const</span> <span class="keywordtype">char</span>* password = 0);
+<a name="l00129"></a>00129         <a class="code" href="a00427.html#a5ab5a445e239724bb34af4da7b85de3f">QMFE_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00065.html#a605d147ce87dea1e28606aeb1e90c92a">authGssapi</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* serviceName, <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> minSsf = 0, <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> maxSsf = 256);
+<a name="l00130"></a>00130 
+<a name="l00140"></a>00140         <a class="code" href="a00427.html#a5ab5a445e239724bb34af4da7b85de3f">QMFE_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00065.html#ac61a76357e2112e633f34e39b2099e6a" title="Shortcut for setting connection retry attributes.">setRetry</a>(<span class="keywordtype">int</span> delayMin = 1, <span class="keywordtype">int</span> delayMax = 128, <span class="keywordtype">int</span> delayFactor = 2);
+<a name="l00141"></a>00141 
+<a name="l00142"></a>00142     <span class="keyword">private</span>:
+<a name="l00143"></a><a class="code" href="a00065.html#ab79267f98ba45409d7f010745884f072">00143</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a00065.html#ab79267f98ba45409d7f010745884f072">ResilientConnectionImpl</a>;
+<a name="l00144"></a>00144         ConnectionSettingsImpl* impl;
+<a name="l00145"></a>00145     };
+<a name="l00146"></a>00146 
+<a name="l00147"></a>00147 }
+<a name="l00148"></a>00148 }
+<a name="l00149"></a>00149 
+<a name="l00150"></a>00150 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--
@@ -149,7 +157,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -26,7 +26,7 @@
 
 
 #include "qpid/framing/ClusterInitialStatusBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
@@ -71,6 +71,7 @@ void ClusterInitialStatusBody::clearShutdownIdFlag() { flags &= ~(1 << 12); }
 void ClusterInitialStatusBody::setFirstConfig(const std::string& _firstConfig) {
     firstConfig = _firstConfig;
     flags |= (1 << 13);
+    if (firstConfig.size() >= 65536) throw IllegalArgumentException("Value for firstConfig is too large");
 }
 const std::string& ClusterInitialStatusBody::getFirstConfig() const { return firstConfig; }
 bool ClusterInitialStatusBody::hasFirstConfig() const { return flags & (1 << 13); }

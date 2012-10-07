@@ -51,6 +51,7 @@ QPID_BROKER_CLASS_EXTERN class Bridge : public ::qpid::management::ManagementObj
 
     // Properties
     ::qpid::management::ObjectId linkRef;
+    std::string name;
     uint16_t channelId;
     bool durable;
     std::string src;
@@ -97,7 +98,7 @@ QPID_BROKER_CLASS_EXTERN class Bridge : public ::qpid::management::ManagementObj
 
     QPID_BROKER_EXTERN Bridge(
         ::qpid::management::ManagementAgent* agent,
-        ::qpid::management::Manageable* coreObject, ::qpid::management::Manageable* _parent, uint16_t _channelId, bool _durable, const std::string& _src, const std::string& _dest, const std::string& _key, bool _srcIsQueue, bool _srcIsLocal, const std::string& _tag, const std::string& _excludes, bool _dynamic, uint16_t _sync);
+        ::qpid::management::Manageable* coreObject, ::qpid::management::Manageable* _parent, const std::string& _name, bool _durable, const std::string& _src, const std::string& _dest, const std::string& _key, bool _srcIsQueue, bool _srcIsLocal, const std::string& _tag, const std::string& _excludes, bool _dynamic, uint16_t _sync);
 
     QPID_BROKER_EXTERN ~Bridge();
 
@@ -114,6 +115,15 @@ QPID_BROKER_CLASS_EXTERN class Bridge : public ::qpid::management::ManagementObj
     QPID_BROKER_EXTERN static const uint32_t METHOD_CLOSE = 1;
 
     // Accessor Methods
+    inline void set_channelId (uint16_t val) {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        channelId = val;
+        configChanged = true;
+    }
+    inline uint16_t get_channelId() {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        return channelId;
+    }
 
 
 

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::messaging::FailoverUpdates Class Reference</title>
+    <title>qpid::client::FailoverListener Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,58 +60,122 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00591.html">messaging</a>      </li>
-      <li class="navelem"><a class="el" href="a00120.html">FailoverUpdates</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00120.html">FailoverListener</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
+<a href="#pri-methods">Private Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::messaging::FailoverUpdates Class Reference</div>  </div>
+<div class="title">qpid::client::FailoverListener Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::messaging::FailoverUpdates" -->
-<p>A utility to listen for updates on cluster membership and update the list of known urls for a connection accordingly.  
+<!-- doxytag: class="qpid::client::FailoverListener" --><!-- doxytag: inherits="qpid::client::MessageListener,qpid::sys::Runnable" -->
+<p>Listen for updates from the amq.failover exchange.  
  <a href="a00120.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00544_source.html">qpid/messaging/FailoverUpdates.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00466_source.html">qpid/client/FailoverListener.h</a>&gt;</code></p>
 
-<p><a href="a00867.html">List of all members.</a></p>
+<p><a href="a00682.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00120.html#a27cc8cc53dbfbe2b68482124224d6003">FailoverUpdates</a> (<a class="el" href="a00059.html">Connection</a> &amp;connection)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00120.html#a345ea3ed45b3d44b24c9bead49ff9701">~FailoverUpdates</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00120.html#a68b519623a0a4d3b17cae8261164980d">FailoverListener</a> (<a class="el" href="a00060.html">Connection</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribe to amq.failover exchange.  <a href="#a68b519623a0a4d3b17cae8261164980d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00120.html#a99ee8bbe5c3d95a7ff7e633f25824832">FailoverListener</a> (<a class="el" href="a00060.html">Connection</a>, bool useInitial)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribe to amq.failover exchange.  <a href="#a99ee8bbe5c3d95a7ff7e633f25824832"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00120.html#ae1ab635dbb52e5db8c230d8f6d683ae8">~FailoverListener</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00387.html">std::vector</a>&lt; <a class="el" href="a00374.html">Url</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00120.html#ab02a17be815ff38783b0f539f3cc16b4">getKnownBrokers</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the latest list of known broker URLs.  <a href="#ab02a17be815ff38783b0f539f3cc16b4"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00387.html">std::vector</a>&lt; <a class="el" href="a00374.html">Url</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00120.html#a882650870f3aef8515fb79116fd4183e">getKnownBrokers</a> (const <a class="el" href="a00208.html">Message</a> &amp;m)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the broker list from a failover exchange message.  <a href="#a882650870f3aef8515fb79116fd4183e"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00120.html#ae7881f50027f0f303b9b3ff070bc5728">AMQ_FAILOVER</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the standard failover exchange amq.failover.  <a href="#ae7881f50027f0f303b9b3ff070bc5728"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef boost::function0&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00294.html#ae6dd30caad64962b36e826fb505cc626">Functor</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Type to represent a runnable as a Functor.  <a href="#ae6dd30caad64962b36e826fb505cc626"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00294.html#ae6dd30caad64962b36e826fb505cc626">Functor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00294.html#ac0af11e62e346d8295ddb9ee40620eb0">functor</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a functor object that will call this-&gt;<a class="el" href="a00294.html#a8c8296f61a69c142ad7afecca2578ea1" title="Derived classes override run().">run()</a>.  <a href="#ac0af11e62e346d8295ddb9ee40620eb0"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>A utility to listen for updates on cluster membership and update the list of known urls for a connection accordingly. </p>
+<div class="textblock"><p>Listen for updates from the amq.failover exchange. </p>
+<p>In a cluster, the amq.failover exchange provides updates whenever the cluster membership changes. This class subscribes to the failover exchange and providees the latest list of known brokers.</p>
+<p>You can also subscribe to amq.failover yourself and use FailoverListener::decode to extract a list of broker URLs from a failover exchange message. </p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a27cc8cc53dbfbe2b68482124224d6003"></a><!-- doxytag: member="qpid::messaging::FailoverUpdates::FailoverUpdates" ref="a27cc8cc53dbfbe2b68482124224d6003" args="(Connection &amp;connection)" -->
+<a class="anchor" id="a68b519623a0a4d3b17cae8261164980d"></a><!-- doxytag: member="qpid::client::FailoverListener::FailoverListener" ref="a68b519623a0a4d3b17cae8261164980d" args="(Connection)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::messaging::FailoverUpdates::FailoverUpdates </td>
+          <td class="memname">qpid::client::FailoverListener::FailoverListener </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00059.html">Connection</a> &amp;&#160;</td>
-          <td class="paramname"><em>connection</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00060.html">Connection</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Subscribe to amq.failover exchange. </p>
+
 </div>
 </div>
-<a class="anchor" id="a345ea3ed45b3d44b24c9bead49ff9701"></a><!-- doxytag: member="qpid::messaging::FailoverUpdates::~FailoverUpdates" ref="a345ea3ed45b3d44b24c9bead49ff9701" args="()" -->
+<a class="anchor" id="a99ee8bbe5c3d95a7ff7e633f25824832"></a><!-- doxytag: member="qpid::client::FailoverListener::FailoverListener" ref="a99ee8bbe5c3d95a7ff7e633f25824832" args="(Connection, bool useInitial)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::messaging::FailoverUpdates::~FailoverUpdates </td>
+          <td class="memname">qpid::client::FailoverListener::FailoverListener </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00060.html">Connection</a>&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>useInitial</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Subscribe to amq.failover exchange. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">useInitial</td><td>If true use the connection's initial brokers as the initial value of getKnownBrokers </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ae1ab635dbb52e5db8c230d8f6d683ae8"></a><!-- doxytag: member="qpid::client::FailoverListener::~FailoverListener" ref="ae1ab635dbb52e5db8c230d8f6d683ae8" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::client::FailoverListener::~FailoverListener </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -122,8 +186,64 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a882650870f3aef8515fb79116fd4183e"></a><!-- doxytag: member="qpid::client::FailoverListener::getKnownBrokers" ref="a882650870f3aef8515fb79116fd4183e" args="(const Message &amp;m)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00387.html">std::vector</a>&lt;<a class="el" href="a00374.html">Url</a>&gt; qpid::client::FailoverListener::getKnownBrokers </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00208.html">Message</a> &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Extract the broker list from a failover exchange message. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab02a17be815ff38783b0f539f3cc16b4"></a><!-- doxytag: member="qpid::client::FailoverListener::getKnownBrokers" ref="ab02a17be815ff38783b0f539f3cc16b4" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00387.html">std::vector</a>&lt;<a class="el" href="a00374.html">Url</a>&gt; qpid::client::FailoverListener::getKnownBrokers </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Returns the latest list of known broker URLs. </p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="ae7881f50027f0f303b9b3ff070bc5728"></a><!-- doxytag: member="qpid::client::FailoverListener::AMQ_FAILOVER" ref="ae7881f50027f0f303b9b3ff070bc5728" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a> <a class="el" href="a00120.html#ae7881f50027f0f303b9b3ff070bc5728">qpid::client::FailoverListener::AMQ_FAILOVER</a><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The name of the standard failover exchange amq.failover. </p>
+
+<p>Definition at line <a class="el" href="a00466_source.html#l00055">55</a> of file <a class="el" href="a00466_source.html">FailoverListener.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/messaging/<a class="el" href="a00544_source.html">FailoverUpdates.h</a></li>
+<li>qpid/client/<a class="el" href="a00466_source.html">FailoverListener.h</a></li>
 </ul>
 </div>
 <!--
@@ -153,7 +273,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

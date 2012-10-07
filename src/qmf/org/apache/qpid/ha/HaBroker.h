@@ -52,9 +52,11 @@ QPID_BROKER_CLASS_EXTERN class HaBroker : public ::qpid::management::ManagementO
     // Properties
     std::string name;
     std::string status;
-    std::string brokers;
-    std::string publicBrokers;
-    uint16_t expectedBackups;
+    std::string brokersUrl;
+    std::string publicUrl;
+    std::string replicateDefault;
+    ::qpid::types::Variant::List members;
+    ::qpid::types::Uuid systemId;
 
     // Statistics
 
@@ -105,10 +107,9 @@ QPID_BROKER_CLASS_EXTERN class HaBroker : public ::qpid::management::ManagementO
 
     // Method IDs
     QPID_BROKER_EXTERN static const uint32_t METHOD_PROMOTE = 1;
-    QPID_BROKER_EXTERN static const uint32_t METHOD_SETBROKERS = 2;
-    QPID_BROKER_EXTERN static const uint32_t METHOD_SETPUBLICBROKERS = 3;
-    QPID_BROKER_EXTERN static const uint32_t METHOD_SETEXPECTEDBACKUPS = 4;
-    QPID_BROKER_EXTERN static const uint32_t METHOD_REPLICATE = 5;
+    QPID_BROKER_EXTERN static const uint32_t METHOD_SETBROKERSURL = 2;
+    QPID_BROKER_EXTERN static const uint32_t METHOD_SETPUBLICURL = 3;
+    QPID_BROKER_EXTERN static const uint32_t METHOD_REPLICATE = 4;
 
     // Accessor Methods
     inline void set_status (const std::string& val) {
@@ -120,32 +121,50 @@ QPID_BROKER_CLASS_EXTERN class HaBroker : public ::qpid::management::ManagementO
         ::qpid::management::Mutex::ScopedLock mutex(accessLock);
         return status;
     }
-    inline void set_brokers (const std::string& val) {
+    inline void set_brokersUrl (const std::string& val) {
         ::qpid::management::Mutex::ScopedLock mutex(accessLock);
-        brokers = val;
+        brokersUrl = val;
         configChanged = true;
     }
-    inline const std::string& get_brokers() {
+    inline const std::string& get_brokersUrl() {
         ::qpid::management::Mutex::ScopedLock mutex(accessLock);
-        return brokers;
+        return brokersUrl;
     }
-    inline void set_publicBrokers (const std::string& val) {
+    inline void set_publicUrl (const std::string& val) {
         ::qpid::management::Mutex::ScopedLock mutex(accessLock);
-        publicBrokers = val;
+        publicUrl = val;
         configChanged = true;
     }
-    inline const std::string& get_publicBrokers() {
+    inline const std::string& get_publicUrl() {
         ::qpid::management::Mutex::ScopedLock mutex(accessLock);
-        return publicBrokers;
+        return publicUrl;
     }
-    inline void set_expectedBackups (uint16_t val) {
+    inline void set_replicateDefault (const std::string& val) {
         ::qpid::management::Mutex::ScopedLock mutex(accessLock);
-        expectedBackups = val;
+        replicateDefault = val;
         configChanged = true;
     }
-    inline uint16_t get_expectedBackups() {
+    inline const std::string& get_replicateDefault() {
         ::qpid::management::Mutex::ScopedLock mutex(accessLock);
-        return expectedBackups;
+        return replicateDefault;
+    }
+    inline void set_members (const ::qpid::types::Variant::List& val) {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        members = val;
+        configChanged = true;
+    }
+    inline const ::qpid::types::Variant::List& get_members() {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        return members;
+    }
+    inline void set_systemId (const ::qpid::types::Uuid& val) {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        systemId = val;
+        configChanged = true;
+    }
+    inline const ::qpid::types::Uuid& get_systemId() {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        return systemId;
     }
 
 

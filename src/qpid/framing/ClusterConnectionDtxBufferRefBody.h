@@ -34,6 +34,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -56,6 +57,7 @@ public:
         setSuspended(_suspended);
         flags |= (1 << 8);
         flags |= (1 << 9);
+        if (xid.size() >= 65536) throw IllegalArgumentException("Value for xid is too large");
     }
     ClusterConnectionDtxBufferRefBody(ProtocolVersion=ProtocolVersion())  : index(0), flags(0) {}
     

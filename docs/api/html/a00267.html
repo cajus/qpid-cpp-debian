@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::Range Class Reference</title>
+    <title>qpid::sys::Raisable Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,524 +60,88 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00267.html">Range</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00594.html">sys</a>      </li>
+      <li class="navelem"><a class="el" href="a00267.html">Raisable</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::Range Class Reference</div>  </div>
+<div class="title">qpid::sys::Raisable Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::Range" -->
-<p>A range of values, used in <a class="el" href="a00269.html" title="A set implemented as a list of [begin, end) ranges.">RangeSet</a>.  
- <a href="a00267.html#details">More...</a></p>
+<!-- doxytag: class="qpid::sys::Raisable" -->
+<p><code>#include &lt;<a class="el" href="a00555_source.html">qpid/sys/ExceptionHolder.h</a>&gt;</code></p>
 
-<p><code>#include &lt;<a class="el" href="a00548_source.html">qpid/RangeSet.h</a>&gt;</code></p>
-
-<p><a href="a00668.html">List of all members.</a></p>
+<p><a href="a00877.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#a5519595ba5f1bc551ff7299188774718">Range</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#a597143eca6cb7aa24744a0986d111cc6">Range</a> (const T &amp;t)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#a9e7b042a7562dab27caf5758ba146c9a">Range</a> (const T &amp;b, const T &amp;e)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#a0a077c9ebfcd09d9c597ad38e32e2626">begin</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#ad5cddcac7a1ae006d1c8ad0143cd967f">end</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">End of _open_ range, i.e.  <a href="#ad5cddcac7a1ae006d1c8ad0143cd967f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#a4c5737144ff7b90a84ad61a005789eae">first</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#ae83ef914c82a39d4c904cacc7eb6a098">last</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Last in closed range, i.e.  <a href="#ae83ef914c82a39d4c904cacc7eb6a098"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#a1d137f912e223d058894719c241ae3fa">begin</a> (const T &amp;t)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#a672899318dea8eba4413a7d31233fa6d">end</a> (const T &amp;t)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#ab316bde8f2ba31652d1b6b5de5125532">size</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#af44f9c08e4385b817f18420b355532ce">empty</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#af8406197041463af2f877e8781b61d24">contains</a> (const T &amp;x) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#a3d28f48937798ed4fad4ea003f7312a4">contains</a> (const <a class="el" href="a00267.html">Range</a> &amp;r) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#af820cb62ae7ee89e10a530f3fa3e57f3">strictContains</a> (const <a class="el" href="a00267.html">Range</a> &amp;r) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#a937d2b7349b77ee37317fae2ca111c7d">operator==</a> (const <a class="el" href="a00267.html">Range</a> &amp;x)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#ac4ee7733c18de559d61559948eae77d7">operator&lt;</a> (const T &amp;t) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#aa5ca5a16e0ccec25463769caa0b82bac">operator&lt;</a> (const <a class="el" href="a00267.html">Range</a>&lt; T &gt; &amp;r) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#a689f4289ec040d06e74c2010db46fa34">touching</a> (const <a class="el" href="a00267.html">Range</a> &amp;r) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">touching ranges can be merged into a single range.  <a href="#a689f4289ec040d06e74c2010db46fa34"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#abed70423a5349572199713be16a0e449">merge</a> (const <a class="el" href="a00267.html">Range</a> &amp;r)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#a36dccf4411f22b6494ba4e295ae35b26">operator bool</a> () const </td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;class S &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00267.html#a22ab06b6bbdfe5def8fecefe3471cbe3">serialize</a> (S &amp;s)</td></tr>
-<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00267.html">Range</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#ace1bf6189190391528b2fe3568bab047">makeClosed</a> (const T &amp;first, T last)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#a2d620f4660e961d67e8317bd507b14be">~Raisable</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#a1b085255823be94934e9c8314b859d9e">raise</a> () const =0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html#af8b358e28789ca81734afd0b8b6474ee">what</a> () const =0</td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>A range of values, used in <a class="el" href="a00269.html" title="A set implemented as a list of [begin, end) ranges.">RangeSet</a>. </p>
-<p>Range(begin, end) includes begin but excludes end. Range::makeClosed(first,last) includes both first and last. </p>
-</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a5519595ba5f1bc551ff7299188774718"></a><!-- doxytag: member="qpid::Range::Range" ref="a5519595ba5f1bc551ff7299188774718" args="()" -->
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a2d620f4660e961d67e8317bd507b14be"></a><!-- doxytag: member="qpid::sys::Raisable::~Raisable" ref="a2d620f4660e961d67e8317bd507b14be" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::Range::Range </td>
+          <td class="memname">virtual qpid::sys::Raisable::~Raisable </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td><code> [inline, virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00548_source.html#l00043">43</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-<p>Referenced by <a class="el" href="a00548_source.html#l00041">makeClosed()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a597143eca6cb7aa24744a0986d111cc6"></a><!-- doxytag: member="qpid::Range::Range" ref="a597143eca6cb7aa24744a0986d111cc6" args="(const T &amp;t)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::Range::Range </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
-          <td><code> [inline, explicit]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00044">44</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9e7b042a7562dab27caf5758ba146c9a"></a><!-- doxytag: member="qpid::Range::Range" ref="a9e7b042a7562dab27caf5758ba146c9a" args="(const T &amp;b, const T &amp;e)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::Range::Range </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>b</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>e</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00045">45</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
+<p>Definition at line <a class="el" href="a00555_source.html#l00032">32</a> of file <a class="el" href="a00555_source.html">ExceptionHolder.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a0a077c9ebfcd09d9c597ad38e32e2626"></a><!-- doxytag: member="qpid::Range::begin" ref="a0a077c9ebfcd09d9c597ad38e32e2626" args="() const " -->
+<a class="anchor" id="a1b085255823be94934e9c8314b859d9e"></a><!-- doxytag: member="qpid::sys::Raisable::raise" ref="a1b085255823be94934e9c8314b859d9e" args="() const =0" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">T qpid::Range::begin </td>
+          <td class="memname">virtual void qpid::sys::Raisable::raise </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td> const<code> [pure virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00548_source.html#l00047">47</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
+<p>Implemented in <a class="el" href="a00398.html#a29a6ca80f517db87ceb53ef601974b73">qpid::sys::ExceptionHolder::Wrapper</a>, and <a class="el" href="a00117.html#afa5405fea078f64f1ea61632bfcc53c2">qpid::sys::ExceptionHolder</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1d137f912e223d058894719c241ae3fa"></a><!-- doxytag: member="qpid::Range::begin" ref="a1d137f912e223d058894719c241ae3fa" args="(const T &amp;t)" -->
+<a class="anchor" id="af8b358e28789ca81734afd0b8b6474ee"></a><!-- doxytag: member="qpid::sys::Raisable::what" ref="af8b358e28789ca81734afd0b8b6474ee" args="() const =0" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::Range::begin </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00055">55</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af8406197041463af2f877e8781b61d24"></a><!-- doxytag: member="qpid::Range::contains" ref="af8406197041463af2f877e8781b61d24" args="(const T &amp;x) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::Range::contains </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00060">60</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3d28f48937798ed4fad4ea003f7312a4"></a><!-- doxytag: member="qpid::Range::contains" ref="a3d28f48937798ed4fad4ea003f7312a4" args="(const Range &amp;r) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::Range::contains </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00267.html">Range</a> &amp;&#160;</td>
-          <td class="paramname"><em>r</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00061">61</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af44f9c08e4385b817f18420b355532ce"></a><!-- doxytag: member="qpid::Range::empty" ref="af44f9c08e4385b817f18420b355532ce" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::Range::empty </td>
+          <td class="memname">virtual <a class="el" href="a00346.html">std::string</a> qpid::sys::Raisable::what </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td> const<code> [pure virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00548_source.html#l00058">58</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-<p>Referenced by <a class="el" href="a00548_source.html#l00051">first()</a>, <a class="el" href="a00548_source.html#l00053">last()</a>, and <a class="el" href="a00548_source.html#l00081">operator bool()</a>.</p>
+<p>Implemented in <a class="el" href="a00398.html#a2e41ef97ebd591592024fb0c982b93d6">qpid::sys::ExceptionHolder::Wrapper</a>, and <a class="el" href="a00117.html#a5ea9f8c2e5ec8d9d4753d293e0b5947b">qpid::sys::ExceptionHolder</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad5cddcac7a1ae006d1c8ad0143cd967f"></a><!-- doxytag: member="qpid::Range::end" ref="ad5cddcac7a1ae006d1c8ad0143cd967f" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">T qpid::Range::end </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>End of _open_ range, i.e. </p>
-<p>!contains(<a class="el" href="a00267.html#ad5cddcac7a1ae006d1c8ad0143cd967f" title="End of _open_ range, i.e.">end()</a>) </p>
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00049">49</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-<p>Referenced by <a class="el" href="a00548_source.html#l00248">qpid::RangeSet::removeRange()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a672899318dea8eba4413a7d31233fa6d"></a><!-- doxytag: member="qpid::Range::end" ref="a672899318dea8eba4413a7d31233fa6d" args="(const T &amp;t)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::Range::end </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00056">56</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4c5737144ff7b90a84ad61a005789eae"></a><!-- doxytag: member="qpid::Range::first" ref="a4c5737144ff7b90a84ad61a005789eae" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">T qpid::Range::first </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00051">51</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-<p>References <a class="el" href="a00548_source.html#l00058">empty()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae83ef914c82a39d4c904cacc7eb6a098"></a><!-- doxytag: member="qpid::Range::last" ref="ae83ef914c82a39d4c904cacc7eb6a098" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">T qpid::Range::last </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Last in closed range, i.e. </p>
-<p>contains(<a class="el" href="a00267.html#ad5cddcac7a1ae006d1c8ad0143cd967f" title="End of _open_ range, i.e.">end()</a>) </p>
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00053">53</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-<p>References <a class="el" href="a00548_source.html#l00058">empty()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ace1bf6189190391528b2fe3568bab047"></a><!-- doxytag: member="qpid::Range::makeClosed" ref="ace1bf6189190391528b2fe3568bab047" args="(const T &amp;first, T last)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="a00267.html">Range</a> qpid::Range::makeClosed </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>first</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>last</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inline, static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00041">41</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-<p>References <a class="el" href="a00548_source.html#l00043">Range()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abed70423a5349572199713be16a0e449"></a><!-- doxytag: member="qpid::Range::merge" ref="abed70423a5349572199713be16a0e449" args="(const Range &amp;r)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::Range::merge </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00267.html">Range</a> &amp;&#160;</td>
-          <td class="paramname"><em>r</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="pre"><dt><b>Precondition:</b></dt><dd>touching </dd></dl>
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00075">75</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-<p>References <a class="el" href="a00548_source.html#l00070">touching()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a36dccf4411f22b6494ba4e295ae35b26"></a><!-- doxytag: member="qpid::Range::operator bool" ref="a36dccf4411f22b6494ba4e295ae35b26" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::Range::operator bool </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00081">81</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-<p>References <a class="el" href="a00548_source.html#l00058">empty()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac4ee7733c18de559d61559948eae77d7"></a><!-- doxytag: member="qpid::Range::operator&lt;" ref="ac4ee7733c18de559d61559948eae77d7" args="(const T &amp;t) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::Range::operator&lt; </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00066">66</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa5ca5a16e0ccec25463769caa0b82bac"></a><!-- doxytag: member="qpid::Range::operator&lt;" ref="aa5ca5a16e0ccec25463769caa0b82bac" args="(const Range&lt; T &gt; &amp;r) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::Range::operator&lt; </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00267.html">Range</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>r</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00067">67</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a937d2b7349b77ee37317fae2ca111c7d"></a><!-- doxytag: member="qpid::Range::operator==" ref="a937d2b7349b77ee37317fae2ca111c7d" args="(const Range &amp;x)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::Range::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00267.html">Range</a> &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00064">64</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a22ab06b6bbdfe5def8fecefe3471cbe3"></a><!-- doxytag: member="qpid::Range::serialize" ref="a22ab06b6bbdfe5def8fecefe3471cbe3" args="(S &amp;s)" -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class S &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::Range::serialize </td>
-          <td>(</td>
-          <td class="paramtype">S &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00083">83</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab316bde8f2ba31652d1b6b5de5125532"></a><!-- doxytag: member="qpid::Range::size" ref="ab316bde8f2ba31652d1b6b5de5125532" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t qpid::Range::size </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00057">57</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af820cb62ae7ee89e10a530f3fa3e57f3"></a><!-- doxytag: member="qpid::Range::strictContains" ref="af820cb62ae7ee89e10a530f3fa3e57f3" args="(const Range &amp;r) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::Range::strictContains </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00267.html">Range</a> &amp;&#160;</td>
-          <td class="paramname"><em>r</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00062">62</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a689f4289ec040d06e74c2010db46fa34"></a><!-- doxytag: member="qpid::Range::touching" ref="a689f4289ec040d06e74c2010db46fa34" args="(const Range &amp;r) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::Range::touching </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00267.html">Range</a> &amp;&#160;</td>
-          <td class="paramname"><em>r</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>touching ranges can be merged into a single range. </p>
-
-<p>Definition at line <a class="el" href="a00548_source.html#l00070">70</a> of file <a class="el" href="a00548_source.html">RangeSet.h</a>.</p>
-
-<p>Referenced by <a class="el" href="a00548_source.html#l00075">merge()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/<a class="el" href="a00548_source.html">RangeSet.h</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>qpid/sys/<a class="el" href="a00555_source.html">ExceptionHolder.h</a></li>
 </ul>
 </div>
 <!--
@@ -607,7 +171,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

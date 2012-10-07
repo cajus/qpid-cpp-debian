@@ -1,6 +1,6 @@
 
-#ifndef _ARGS_HABROKERSETEXPECTEDBACKUPS_
-#define _ARGS_HABROKERSETEXPECTEDBACKUPS_
+#ifndef _ARGS_ACLLOOKUP_
+#define _ARGS_ACLLOOKUP_
 
 //
 // Licensed to the Apache Software Foundation (ASF) under one
@@ -31,16 +31,21 @@ namespace qmf {
 namespace org {
 namespace apache {
 namespace qpid {
-namespace ha {
+namespace acl {
 
 
-    class ArgsHaBrokerSetExpectedBackups : public ::qpid::management::Args
+    class ArgsAclLookup : public ::qpid::management::Args
 {
   public:
-    uint16_t i_expectedBackups;
+    std::string i_userId;
+    std::string i_action;
+    std::string i_object;
+    std::string i_objectName;
+    ::qpid::types::Variant::Map i_propertyMap;
+    std::string o_result;
 
 };
 
 }}}}}
 
-#endif  /*!_ARGS_HABROKERSETEXPECTEDBACKUPS_*/
+#endif  /*!_ARGS_ACLLOOKUP_*/

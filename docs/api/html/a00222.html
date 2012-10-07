@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::console::Package::NameHash Struct Reference</title>
+    <title>qpid::management::Mutex Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,101 +60,136 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00579.html">console</a>      </li>
-      <li class="navelem"><a class="el" href="a00250.html">Package</a>      </li>
-      <li class="navelem"><a class="el" href="a00222.html">NameHash</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00592.html">management</a>      </li>
+      <li class="navelem"><a class="el" href="a00222.html">Mutex</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a>  </div>
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::console::Package::NameHash Struct Reference</div>  </div>
+<div class="title">qpid::management::Mutex Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::console::Package::NameHash" -->
-<p><a href="a00716.html">List of all members.</a></p>
+<!-- doxytag: class="qpid::management::Mutex" -->
+<p><code>#include &lt;<a class="el" href="a00541_source.html">qpid/management/Mutex.h</a>&gt;</code></p>
+
+<p><a href="a00845.html">List of all members.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00314.html">ScopedLockTemplate</a>&lt; <a class="el" href="a00222.html">Mutex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00222.html#a8cfba91482b4729689466412c5074c1a">ScopedLock</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00317.html">ScopedUnlockTemplate</a><br class="typebreak"/>
+&lt; <a class="el" href="a00222.html">Mutex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00222.html#aec57578543abf9548b0b16e33970e4b0">ScopedUnlock</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00222.html#a0bab19afdab64902433d559cedab3030">NameHash</a> (const <a class="el" href="a00345.html">std::string</a> &amp;n, const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *h)</td></tr>
-<tr><td colspan="2"><h2><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00222.html#aeb119a84fbe47847c8394ae9163a15cc">name</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00222.html#ab7a4e377682e757d6f96c06bfa7ede9b">hash</a> [16]</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00222.html#aff6e82313d36306893ab8261af0a8e16">Mutex</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00222.html#a3221e20cede10eb16c882795aed28b9d">~Mutex</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00222.html#aed82fb410b9aa3e829d6888ad609a0e3">lock</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00222.html#ab452542951470b6dad9510088193c74c">unlock</a> ()</td></tr>
 </table>
+<hr/><h2>Member Typedef Documentation</h2>
+<a class="anchor" id="a8cfba91482b4729689466412c5074c1a"></a><!-- doxytag: member="qpid::management::Mutex::ScopedLock" ref="a8cfba91482b4729689466412c5074c1a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a00314.html">ScopedLockTemplate</a>&lt;<a class="el" href="a00222.html">Mutex</a>&gt; <a class="el" href="a00222.html#a8cfba91482b4729689466412c5074c1a">qpid::management::Mutex::ScopedLock</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00541_source.html#l00053">53</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aec57578543abf9548b0b16e33970e4b0"></a><!-- doxytag: member="qpid::management::Mutex::ScopedUnlock" ref="aec57578543abf9548b0b16e33970e4b0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a00317.html">ScopedUnlockTemplate</a>&lt;<a class="el" href="a00222.html">Mutex</a>&gt; <a class="el" href="a00222.html#aec57578543abf9548b0b16e33970e4b0">qpid::management::Mutex::ScopedUnlock</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00541_source.html#l00054">54</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
+
+</div>
+</div>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a0bab19afdab64902433d559cedab3030"></a><!-- doxytag: member="qpid::console::Package::NameHash::NameHash" ref="a0bab19afdab64902433d559cedab3030" args="(const std::string &amp;n, const uint8_t *h)" -->
+<a class="anchor" id="aff6e82313d36306893ab8261af0a8e16"></a><!-- doxytag: member="qpid::management::Mutex::Mutex" ref="aff6e82313d36306893ab8261af0a8e16" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::console::Package::NameHash::NameHash </td>
+          <td class="memname">qpid::management::Mutex::Mutex </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *&#160;</td>
-          <td class="paramname"><em>h</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00487_source.html#l00047">47</a> of file <a class="el" href="a00487_source.html">Package.h</a>.</p>
-
-<p>References <a class="el" href="a00487_source.html#l00046">hash</a>.</p>
-
 </div>
 </div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="ab7a4e377682e757d6f96c06bfa7ede9b"></a><!-- doxytag: member="qpid::console::Package::NameHash::hash" ref="ab7a4e377682e757d6f96c06bfa7ede9b" args="[16]" -->
+<a class="anchor" id="a3221e20cede10eb16c882795aed28b9d"></a><!-- doxytag: member="qpid::management::Mutex::~Mutex" ref="a3221e20cede10eb16c882795aed28b9d" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00222.html#ab7a4e377682e757d6f96c06bfa7ede9b">qpid::console::Package::NameHash::hash</a>[16]</td>
+          <td class="memname">qpid::management::Mutex::~Mutex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00487_source.html#l00046">46</a> of file <a class="el" href="a00487_source.html">Package.h</a>.</p>
-
-<p>Referenced by <a class="el" href="a00487_source.html#l00047">NameHash()</a>, and <a class="el" href="a00487_source.html#l00054">qpid::console::Package::NameHashComp::operator()()</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="aeb119a84fbe47847c8394ae9163a15cc"></a><!-- doxytag: member="qpid::console::Package::NameHash::name" ref="aeb119a84fbe47847c8394ae9163a15cc" args="" -->
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="aed82fb410b9aa3e829d6888ad609a0e3"></a><!-- doxytag: member="qpid::management::Mutex::lock" ref="aed82fb410b9aa3e829d6888ad609a0e3" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> <a class="el" href="a00222.html#aeb119a84fbe47847c8394ae9163a15cc">qpid::console::Package::NameHash::name</a></td>
+          <td class="memname">void qpid::management::Mutex::lock </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00487_source.html#l00045">45</a> of file <a class="el" href="a00487_source.html">Package.h</a>.</p>
-
-<p>Referenced by <a class="el" href="a00487_source.html#l00054">qpid::console::Package::NameHashComp::operator()()</a>.</p>
+</div>
+</div>
+<a class="anchor" id="ab452542951470b6dad9510088193c74c"></a><!-- doxytag: member="qpid::management::Mutex::unlock" ref="ab452542951470b6dad9510088193c74c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::management::Mutex::unlock </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/console/<a class="el" href="a00487_source.html">Package.h</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qpid/management/<a class="el" href="a00541_source.html">Mutex.h</a></li>
 </ul>
 </div>
 <!--
@@ -184,7 +219,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/QueuePurgeBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void QueuePurgeBody::setQueue(const std::string& _queue) {
     queue = _queue;
     flags |= (1 << 8);
+    if (queue.size() >= 256) throw IllegalArgumentException("Value for queue is too large");
 }
 const std::string& QueuePurgeBody::getQueue() const { return queue; }
 bool QueuePurgeBody::hasQueue() const { return flags & (1 << 8); }

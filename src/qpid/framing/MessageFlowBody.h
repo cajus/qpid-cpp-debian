@@ -34,6 +34,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -58,6 +59,7 @@ public:
         flags |= (1 << 8);
         flags |= (1 << 9);
         flags |= (1 << 10);
+        if (destination.size() >= 256) throw IllegalArgumentException("Value for destination is too large");
     }
     MessageFlowBody(ProtocolVersion=ProtocolVersion())  : unit(0), value(0), flags(0) {}
     

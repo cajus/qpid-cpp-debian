@@ -34,6 +34,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -50,6 +51,7 @@ public:
         consumerTag(_consumerTag),
         flags(0){
         flags |= (1 << 8);
+        if (consumerTag.size() >= 256) throw IllegalArgumentException("Value for consumerTag is too large");
     }
     FileConsumeOkBody(ProtocolVersion=ProtocolVersion())  : flags(0) {}
     

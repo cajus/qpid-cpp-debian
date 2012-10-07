@@ -1,6 +1,6 @@
 
-#ifndef _ARGS_HABROKERSETBROKERS_
-#define _ARGS_HABROKERSETBROKERS_
+#ifndef _ARGS_HABROKERSETPUBLICURL_
+#define _ARGS_HABROKERSETPUBLICURL_
 
 //
 // Licensed to the Apache Software Foundation (ASF) under one
@@ -34,7 +34,7 @@ namespace qpid {
 namespace ha {
 
 
-    class ArgsHaBrokerSetBrokers : public ::qpid::management::Args
+    class ArgsHaBrokerSetPublicUrl : public ::qpid::management::Args
 {
   public:
     std::string i_url;
@@ -43,4 +43,4 @@ namespace ha {
 
 }}}}}
 
-#endif  /*!_ARGS_HABROKERSETBROKERS_*/
+#endif  /*!_ARGS_HABROKERSETPUBLICURL_*/

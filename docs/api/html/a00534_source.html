@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/log/Statement.h Source File</title>
+    <title>qpid/log/Selector.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,11 +58,11 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/log/Statement.h</div>  </div>
+<div class="title">qpid/log/Selector.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00534.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef STATEMENT_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define STATEMENT_H</span>
+<a href="a00534.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef SELECTOR_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define SELECTOR_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="comment">/*</span>
 <a name="l00005"></a>00005 <span class="comment"> *</span>
@@ -82,69 +82,61 @@
 <a name="l00019"></a>00019 <span class="comment"> *</span>
 <a name="l00020"></a>00020 <span class="comment"> */</span>
 <a name="l00021"></a>00021 
-<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="a00547.html">qpid/Msg.h</a>&quot;</span>
-<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;<a class="code" href="a00482.html">qpid/CommonImportExport.h</a>&quot;</span>
-<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;boost/current_function.hpp&gt;</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="a00536.html">qpid/log/Statement.h</a>&quot;</span>
+<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;<a class="code" href="a00484.html">qpid/CommonImportExport.h</a>&quot;</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;vector&gt;</span>
 <a name="l00025"></a>00025 
 <a name="l00026"></a>00026 <span class="keyword">namespace </span>qpid {
 <a name="l00027"></a>00027 <span class="keyword">namespace </span>log {
-<a name="l00028"></a>00028 
-<a name="l00038"></a><a class="code" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587ea9fbc1fd8e080b35db485d0a7b5894a05">00038</a> <span class="keyword">enum</span> <a class="code" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587e" title="Debugging severity levels.">Level</a> { <a class="code" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587ead112aed39622ff72d2129fbe9011e807">trace</a>, <a class="code" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587eaed32fb0ecec461827baa7352bcc5742e">debug</a>, <a class="code" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587eacea94907e695feb2e619d0985a98990f">info</a>, <a class="code" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587ea2d9db56e94bfa85cd3d10389ff32ba14">notice</a>, <a class="code" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587ea9fbc1fd8e080b35db485d0a7b5894a05">warning</a>, <a class="code" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587ea3b827b7f174d3318795eaab4e3a3616a">error</a>, <a class="code" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587ea08e0eee29ce0eadc035a2e5605f58ef5">critical</a> };
-<a name="l00039"></a>00039 <span class="keyword">struct </span>LevelTraits {
-<a name="l00040"></a><a class="code" href="a00187.html#a05a84a43bf04ab7e742f097e5cc21ebb">00040</a>     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="a00187.html#a05a84a43bf04ab7e742f097e5cc21ebb">COUNT</a>=<a class="code" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587ea08e0eee29ce0eadc035a2e5605f58ef5">critical</a>+1;
+<a name="l00028"></a>00028 <span class="keyword">struct </span>Options;
+<a name="l00029"></a>00029 
+<a name="l00035"></a>00035 <span class="keyword">class </span>Selector {
+<a name="l00036"></a>00036   <span class="keyword">public</span>:
+<a name="l00038"></a><a class="code" href="a00319.html#ab27181f8056e93322f4eb2b55973fddc">00038</a>     <a class="code" href="a00319.html#ab27181f8056e93322f4eb2b55973fddc" title="Empty selector selects nothing.">Selector</a>() {
+<a name="l00039"></a>00039         <a class="code" href="a00319.html#ada424e6f0c1346d6a8adcc99cae3fb51" title="Reset the category enable flags.">reset</a>();
+<a name="l00040"></a>00040     }
 <a name="l00041"></a>00041 
-<a name="l00045"></a>00045     <span class="keyword">static</span> <a class="code" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587e" title="Debugging severity levels.">Level</a> <a class="code" href="a00187.html#ac4a85ecb731eedf58be6effaf0dcb718" title="Get level from string name.">level</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="a00187.html#ad43fb56409318f9727b56a76539d39b8" title="String name of level.">name</a>);
-<a name="l00046"></a>00046 
-<a name="l00050"></a><a class="code" href="a00187.html#a2775cd1dd4ed0c9f210a1cad22024417">00050</a>     <span class="keyword">static</span>  <a class="code" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587e" title="Debugging severity levels.">Level</a> <a class="code" href="a00187.html#a2775cd1dd4ed0c9f210a1cad22024417" title="Get level from string name.">level</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; <a class="code" href="a00187.html#ad43fb56409318f9727b56a76539d39b8" title="String name of level.">name</a>) {
-<a name="l00051"></a>00051         <span class="keywordflow">return</span> <a class="code" href="a00187.html#ac4a85ecb731eedf58be6effaf0dcb718" title="Get level from string name.">level</a>(name.c_str());
-<a name="l00052"></a>00052     }
-<a name="l00053"></a>00053 
-<a name="l00055"></a>00055     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="a00187.html#ad43fb56409318f9727b56a76539d39b8" title="String name of level.">name</a>(<a class="code" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587e" title="Debugging severity levels.">Level</a>);
-<a name="l00056"></a>00056 };
-<a name="l00057"></a>00057 
-<a name="l00059"></a>00059 <span class="keyword">struct </span>Statement {
-<a name="l00060"></a><a class="code" href="a00340.html#af5952853189769404724b5b5a04d91d6">00060</a>     <span class="keywordtype">bool</span> <a class="code" href="a00340.html#af5952853189769404724b5b5a04d91d6">enabled</a>;
-<a name="l00061"></a><a class="code" href="a00340.html#a94f3961edc2b84b1bf1458d3e5fee295">00061</a>     <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="a00340.html#a94f3961edc2b84b1bf1458d3e5fee295">file</a>;
-<a name="l00062"></a><a class="code" href="a00340.html#a246ba9a6e1da30177a189ad7161b463c">00062</a>     <span class="keywordtype">int</span> <a class="code" href="a00340.html#a246ba9a6e1da30177a189ad7161b463c">line</a>;
-<a name="l00063"></a><a class="code" href="a00340.html#afc6c53cf7acfc486b38baaf6833ee61c">00063</a>     <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">function</span>;
-<a name="l00064"></a><a class="code" href="a00340.html#a03f5f50dc6f42470bdef1f830ee1e197">00064</a>     <a class="code" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587e" title="Debugging severity levels.">Level</a> <a class="code" href="a00340.html#a03f5f50dc6f42470bdef1f830ee1e197">level</a>;
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00340.html#a15286d686172451b736b4a287ff1b085">log</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; message);
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068     <span class="keyword">struct </span><a class="code" href="a00147.html">Initializer</a> {
-<a name="l00069"></a>00069         <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00147.html#ae3b56902e0db678aff2d235dc14c27c9">Initializer</a>(<a class="code" href="a00340.html" title="POD struct representing a logging statement in source code.">Statement</a>&amp; s);
-<a name="l00070"></a><a class="code" href="a00147.html#a7bdf329e2e285f66a6fb828a4f087a33">00070</a>         <a class="code" href="a00340.html" title="POD struct representing a logging statement in source code.">Statement</a>&amp; <a class="code" href="a00147.html#a7bdf329e2e285f66a6fb828a4f087a33">statement</a>;
-<a name="l00071"></a>00071     };
-<a name="l00072"></a>00072 };
+<a name="l00043"></a>00043     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00319.html#ab27181f8056e93322f4eb2b55973fddc" title="Empty selector selects nothing.">Selector</a>(<span class="keyword">const</span> <a class="code" href="a00242.html" title="Logging options for config parser.">Options</a>&amp;);
+<a name="l00044"></a>00044 
+<a name="l00046"></a><a class="code" href="a00319.html#a1e0b4421ece78acb33914d785488b6a0">00046</a>     <a class="code" href="a00319.html#a1e0b4421ece78acb33914d785488b6a0" title="Equavlient to: Selector s; s.enable(l, s)">Selector</a>(<a class="code" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e" title="Debugging severity levels.">Level</a> l, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; s=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) {
+<a name="l00047"></a>00047         <a class="code" href="a00319.html#ada424e6f0c1346d6a8adcc99cae3fb51" title="Reset the category enable flags.">reset</a>();
+<a name="l00048"></a>00048         <a class="code" href="a00319.html#a274daac39a640bd34dbad96f67c9f66f" title="Enable messages with level in levels where the file name contains substring.">enable</a>(l,s);
+<a name="l00049"></a>00049     }
+<a name="l00050"></a>00050 
+<a name="l00051"></a><a class="code" href="a00319.html#a1bc403dc2646ceb846116dbe75c8dc53">00051</a>     <a class="code" href="a00319.html#a1bc403dc2646ceb846116dbe75c8dc53">Selector</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; enableStr) {
+<a name="l00052"></a>00052         <a class="code" href="a00319.html#ada424e6f0c1346d6a8adcc99cae3fb51" title="Reset the category enable flags.">reset</a>();
+<a name="l00053"></a>00053         <a class="code" href="a00319.html#a274daac39a640bd34dbad96f67c9f66f" title="Enable messages with level in levels where the file name contains substring.">enable</a>(enableStr);
+<a name="l00054"></a>00054     }
+<a name="l00055"></a>00055 
+<a name="l00060"></a><a class="code" href="a00319.html#a274daac39a640bd34dbad96f67c9f66f">00060</a>     <span class="keywordtype">void</span> <a class="code" href="a00319.html#a274daac39a640bd34dbad96f67c9f66f" title="Enable messages with level in levels where the file name contains substring.">enable</a>(<a class="code" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e" title="Debugging severity levels.">Level</a> level, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; substring=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) {
+<a name="l00061"></a>00061         substrings[level].push_back(substring);
+<a name="l00062"></a>00062     }
+<a name="l00063"></a>00063 
+<a name="l00067"></a><a class="code" href="a00319.html#a2654b8146371125a8a99bd5138f53213">00067</a>     <span class="keywordtype">void</span> <a class="code" href="a00319.html#a2654b8146371125a8a99bd5138f53213" title="Enable messages at this level for this category.">enable</a>(<a class="code" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e" title="Debugging severity levels.">Level</a> level, <a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fc" title="Formal message categories https://issues.apache.org/jira/browse/QPID-3902.">Category</a> category) {
+<a name="l00068"></a>00068         catFlags[level][category] = <span class="keyword">true</span>;
+<a name="l00069"></a>00069     }
+<a name="l00070"></a>00070 
+<a name="l00072"></a>00072     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00319.html#a274daac39a640bd34dbad96f67c9f66f" title="Enable messages with level in levels where the file name contains substring.">enable</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; enableStr);
 <a name="l00073"></a>00073 
-<a name="l00075"></a><a class="code" href="a00534.html#ac2a350e273301676e1b13bd78a4f75fc">00075</a> <span class="preprocessor">#define QPID_LOG_STATEMENT_INIT(level) \</span>
-<a name="l00076"></a>00076 <span class="preprocessor">    { 0, __FILE__, __LINE__,  BOOST_CURRENT_FUNCTION, (::qpid::log::level) }</span>
-<a name="l00077"></a>00077 <span class="preprocessor"></span>
-<a name="l00089"></a><a class="code" href="a00534.html#a38824641a781842d2b17baf27faf91e9">00089</a> <span class="preprocessor">#define QPID_LOG_IF(LEVEL, TEST, MESSAGE)                       \</span>
-<a name="l00090"></a>00090 <span class="preprocessor">    do {                                                        \</span>
-<a name="l00091"></a>00091 <span class="preprocessor">        using ::qpid::log::Statement;                           \</span>
-<a name="l00092"></a>00092 <span class="preprocessor">        static Statement stmt_= QPID_LOG_STATEMENT_INIT(LEVEL); \</span>
-<a name="l00093"></a>00093 <span class="preprocessor">        static Statement::Initializer init_(stmt_);             \</span>
-<a name="l00094"></a>00094 <span class="preprocessor">        if (stmt_.enabled &amp;&amp; (TEST))                            \</span>
-<a name="l00095"></a>00095 <span class="preprocessor">            stmt_.log(::qpid::Msg() &lt;&lt; MESSAGE);                \</span>
-<a name="l00096"></a>00096 <span class="preprocessor">    } while(0)</span>
-<a name="l00097"></a>00097 <span class="preprocessor"></span>
-<a name="l00108"></a><a class="code" href="a00534.html#ad7c54d4c5531f99e00df4011e36e12ec">00108</a> <span class="preprocessor">#define QPID_LOG_TEST(LEVEL, FLAG)                              \</span>
-<a name="l00109"></a>00109 <span class="preprocessor">    do {                                                        \</span>
-<a name="l00110"></a>00110 <span class="preprocessor">        using ::qpid::log::Statement;                           \</span>
-<a name="l00111"></a>00111 <span class="preprocessor">        static Statement stmt_= QPID_LOG_STATEMENT_INIT(LEVEL); \</span>
-<a name="l00112"></a>00112 <span class="preprocessor">        static Statement::Initializer init_(stmt_);             \</span>
-<a name="l00113"></a>00113 <span class="preprocessor">        FLAG = stmt_.enabled;                                   \</span>
-<a name="l00114"></a>00114 <span class="preprocessor">    } while(0)</span>
-<a name="l00115"></a>00115 <span class="preprocessor"></span>
-<a name="l00131"></a><a class="code" href="a00534.html#aaea824f90880b957ef12b97c7f3573ce">00131</a> <span class="preprocessor">#define QPID_LOG(LEVEL, MESSAGE) QPID_LOG_IF(LEVEL, true, MESSAGE);</span>
-<a name="l00132"></a>00132 <span class="preprocessor"></span>
-<a name="l00133"></a>00133 }} <span class="comment">// namespace qpid::log</span>
-<a name="l00134"></a>00134 
-<a name="l00135"></a>00135 
-<a name="l00136"></a>00136 
-<a name="l00137"></a>00137 
-<a name="l00138"></a>00138 <span class="preprocessor">#endif  </span>
+<a name="l00075"></a>00075     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> <a class="code" href="a00319.html#afbe33086dd6c8ad558e8387db23f00ba" title="True if level is enabled for file.">isEnabled</a>(<a class="code" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e" title="Debugging severity levels.">Level</a> level, <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">function</span>);
+<a name="l00076"></a>00076     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> <a class="code" href="a00319.html#afbe33086dd6c8ad558e8387db23f00ba" title="True if level is enabled for file.">isEnabled</a>(<a class="code" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e" title="Debugging severity levels.">Level</a> level, <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">function</span>, <a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fc" title="Formal message categories https://issues.apache.org/jira/browse/QPID-3902.">Category</a> category);
+<a name="l00077"></a>00077 
+<a name="l00079"></a><a class="code" href="a00319.html#ada424e6f0c1346d6a8adcc99cae3fb51">00079</a>     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00319.html#ada424e6f0c1346d6a8adcc99cae3fb51" title="Reset the category enable flags.">reset</a>() {
+<a name="l00080"></a>00080         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> lt = 0; lt &lt; <a class="code" href="a00188.html">LevelTraits</a>::COUNT; ++lt)
+<a name="l00081"></a>00081             <span class="keywordflow">for</span> (<span class="keywordtype">int</span> ct = 0; ct &lt; <a class="code" href="a00049.html">CategoryTraits</a>::COUNT; ++ct)
+<a name="l00082"></a>00082                 catFlags[lt][ct] = <span class="keyword">false</span>;
+<a name="l00083"></a>00083     }
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085   <span class="keyword">private</span>:
+<a name="l00086"></a>00086     std::vector&lt;std::string&gt; substrings[<a class="code" href="a00188.html">LevelTraits</a>::COUNT];
+<a name="l00087"></a>00087     <span class="keywordtype">bool</span> catFlags[<a class="code" href="a00188.html">LevelTraits</a>::COUNT][<a class="code" href="a00049.html">CategoryTraits</a>::COUNT];
+<a name="l00088"></a>00088 };
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090 
+<a name="l00091"></a>00091 }} <span class="comment">// namespace qpid::log</span>
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -174,7 +166,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

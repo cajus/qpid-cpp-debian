@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/QueueDeclareBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void QueueDeclareBody::setQueue(const std::string& _queue) {
     queue = _queue;
     flags |= (1 << 8);
+    if (queue.size() >= 256) throw IllegalArgumentException("Value for queue is too large");
 }
 const std::string& QueueDeclareBody::getQueue() const { return queue; }
 bool QueueDeclareBody::hasQueue() const { return flags & (1 << 8); }
@@ -41,6 +42,7 @@ void QueueDeclareBody::clearQueueFlag() { flags &= ~(1 << 8); }
 void QueueDeclareBody::setAlternateExchange(const std::string& _alternateExchange) {
     alternateExchange = _alternateExchange;
     flags |= (1 << 9);
+    if (alternateExchange.size() >= 256) throw IllegalArgumentException("Value for alternateExchange is too large");
 }
 const std::string& QueueDeclareBody::getAlternateExchange() const { return alternateExchange; }
 bool QueueDeclareBody::hasAlternateExchange() const { return flags & (1 << 9); }

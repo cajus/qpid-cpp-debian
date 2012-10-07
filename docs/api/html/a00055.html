@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>std::complex Class Reference</title>
+    <title>qpid::CommonOptions Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,22 +60,202 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><b>std</b>      </li>
-      <li class="navelem"><a class="el" href="a00055.html">complex</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00055.html">CommonOptions</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">std::complex Class Reference</div>  </div>
+<div class="title">qpid::CommonOptions Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="std::complex" -->
-<p>STL class.  
+<!-- doxytag: class="qpid::CommonOptions" --><!-- doxytag: inherits="qpid::Options" -->
+<p>Standard options for configuration.  
  <a href="a00055.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00533_source.html">qpid/Options.h</a>&gt;</code></p>
+
+<p><a href="a00669.html">List of all members.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00055.html#a4cebfaedaa27c1b3fb03e287ac91f9f0">CommonOptions</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name=<a class="el" href="a00346.html">std::string</a>(), const <a class="el" href="a00346.html">std::string</a> &amp;configfile=<a class="el" href="a00346.html">std::string</a>(), const <a class="el" href="a00346.html">std::string</a> &amp;clientConfigFile=<a class="el" href="a00346.html">std::string</a>())</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00241.html#a9ab9ee7e214162e52a022c9ae92b0a6c">parse</a> (int argc, char const *const *argv, const <a class="el" href="a00346.html">std::string</a> &amp;configfile=<a class="el" href="a00346.html">std::string</a>(), bool allowUnknown=false)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses options from argc/argv, environment variables and config file.  <a href="#a9ab9ee7e214162e52a022c9ae92b0a6c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">boost::program_options::options_description_easy_init&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00241.html#a9ee2ebed980f7a1dcf3a5781555a5b70">addOptions</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00055.html#a4da9117bc413eabac211f5f145d5624a">help</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00055.html#ab2848d96982519b109fd726564808a02">version</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00055.html#ac8367c1bcefda933b41d28a35862f34f">config</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00055.html#a64b3b1b1dc5e92d38bf828e26bcdab48">clientConfig</a></td></tr>
+</table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>STL class. </p>
-</div><hr/>The documentation for this class was generated from the following file:</div>
+<div class="textblock"><p>Standard options for configuration. </p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a4cebfaedaa27c1b3fb03e287ac91f9f0"></a><!-- doxytag: member="qpid::CommonOptions::CommonOptions" ref="a4cebfaedaa27c1b3fb03e287ac91f9f0" args="(const std::string &amp;name=std::string(), const std::string &amp;configfile=std::string(), const std::string &amp;clientConfigFile=std::string())" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::CommonOptions::CommonOptions </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>configfile</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>clientConfigFile</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a9ee2ebed980f7a1dcf3a5781555a5b70"></a><!-- doxytag: member="qpid::CommonOptions::addOptions" ref="a9ee2ebed980f7a1dcf3a5781555a5b70" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::program_options::options_description_easy_init qpid::Options::addOptions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00533_source.html#l00153">153</a> of file <a class="el" href="a00533_source.html">Options.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9ab9ee7e214162e52a022c9ae92b0a6c"></a><!-- doxytag: member="qpid::CommonOptions::parse" ref="a9ab9ee7e214162e52a022c9ae92b0a6c" args="(int argc, char const *const *argv, const std::string &amp;configfile=std::string(), bool allowUnknown=false)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::Options::parse </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char const *const *&#160;</td>
+          <td class="paramname"><em>argv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>configfile</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>allowUnknown</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Parses options from argc/argv, environment variables and config file. </p>
+<p>Note the filename argument can reference an options variable that is updated by argc/argv or environment variable parsing. </p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a64b3b1b1dc5e92d38bf828e26bcdab48"></a><!-- doxytag: member="qpid::CommonOptions::clientConfig" ref="a64b3b1b1dc5e92d38bf828e26bcdab48" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> <a class="el" href="a00055.html#a64b3b1b1dc5e92d38bf828e26bcdab48">qpid::CommonOptions::clientConfig</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00533_source.html#l00170">170</a> of file <a class="el" href="a00533_source.html">Options.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac8367c1bcefda933b41d28a35862f34f"></a><!-- doxytag: member="qpid::CommonOptions::config" ref="ac8367c1bcefda933b41d28a35862f34f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> <a class="el" href="a00055.html#ac8367c1bcefda933b41d28a35862f34f">qpid::CommonOptions::config</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00533_source.html#l00169">169</a> of file <a class="el" href="a00533_source.html">Options.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4da9117bc413eabac211f5f145d5624a"></a><!-- doxytag: member="qpid::CommonOptions::help" ref="a4da9117bc413eabac211f5f145d5624a" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a00055.html#a4da9117bc413eabac211f5f145d5624a">qpid::CommonOptions::help</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00533_source.html#l00167">167</a> of file <a class="el" href="a00533_source.html">Options.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab2848d96982519b109fd726564808a02"></a><!-- doxytag: member="qpid::CommonOptions::version" ref="ab2848d96982519b109fd726564808a02" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a00055.html#ab2848d96982519b109fd726564808a02">qpid::CommonOptions::version</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00533_source.html#l00168">168</a> of file <a class="el" href="a00533_source.html">Options.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>qpid/<a class="el" href="a00533_source.html">Options.h</a></li>
+</ul>
+</div>
 <!--
  
  Licensed to the Apache Software Foundation (ASF) under one
@@ -103,7 +283,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

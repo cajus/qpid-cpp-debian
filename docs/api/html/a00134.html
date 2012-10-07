@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::framing::FramingErrorException Struct Reference</title>
+    <title>qpid::client::FlowControl Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,132 +60,322 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00580.html">framing</a>      </li>
-      <li class="navelem"><a class="el" href="a00134.html">FramingErrorException</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00134.html">FlowControl</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::framing::FramingErrorException Struct Reference</div>  </div>
+<div class="title">qpid::client::FlowControl Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::framing::FramingErrorException" --><!-- doxytag: inherits="qpid::ConnectionException" -->
-<p>A valid frame header cannot be formed from the incoming byte stream.  
+<!-- doxytag: class="qpid::client::FlowControl" -->
+<p>Flow control works by associating a finite amount of "credit" with a subscription.  
  <a href="a00134.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00516_source.html">qpid/framing/reply_exceptions.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00468_source.html">qpid/client/FlowControl.h</a>&gt;</code></p>
 
-<p><a href="a00804.html">List of all members.</a></p>
+<p><a href="a00687.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#ad2d071fded654f988803a78f0d10c606">getPrefix</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#aa8887977f8c41c6e8303f6a8c852163f">FramingErrorException</a> (const <a class="el" href="a00345.html">std::string</a> &amp;msg=<a class="el" href="a00345.html">std::string</a>())</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00114.html#a1319c2877b78e71fb5ded050298be31a">what</a> () const   throw ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00114.html#a5fd1b7dd26ec0e2742c54b2b7da6c6b0">getMessage</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#a70a9cd61b9e475c3d1978a3d15742863">FlowControl</a> (<a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> messages_=0, <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> bytes_=0, bool window_=false)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#a9faa2fcf29b06be1a3230108b0c4aa97">operator==</a> (const <a class="el" href="a00134.html">FlowControl</a> &amp;x)</td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00134.html">FlowControl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#ad70c11ee99f9c3e2d98ff96acb011efc">messageCredit</a> (<a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> messages_)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00134.html">FlowControl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#a9e79a3b0299c43718010b35009016678">messageWindow</a> (<a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> messages_)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00134.html">FlowControl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#a121aeaaac832c22255af480795f04b66">byteCredit</a> (<a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> bytes_)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00134.html">FlowControl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#a071925adc0dfffe2497a1897493343b3">byteWindow</a> (<a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> bytes_)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00134.html">FlowControl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#a4e07036ab42cf4a593fcb578edd4b7bd">unlimited</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00134.html">FlowControl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#a2ca4cadfaee543ab80bab25f6176f784">zero</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <br class="typebreak"/>
-<a class="el" href="a00582.html#a55823c03444bbbbb1c9671dfc713aad4">framing::connection::CloseCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00061.html#aec86be26e0790ef11c0fbd5d2bcf04bd">code</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#a6d69bece2668a3781975501fe4275404">messages</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00208.html" title="A message sent to or received from the broker.">Message</a> credit: subscription can accept up to this many messages.  <a href="#a6d69bece2668a3781975501fe4275404"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#a91155edfa05bff8c5b186d40ffdd1445">bytes</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Byte credit: subscription can accept up to this many bytes of message content.  <a href="#a91155edfa05bff8c5b186d40ffdd1445"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#a6b85045fe5866ac8f66a738401d05768">window</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Window mode.  <a href="#a6b85045fe5866ac8f66a738401d05768"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#afee588b945f5edbf4a6108dfd3fe3a70">UNLIMITED</a> = 0xFFFFFFFF</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>A valid frame header cannot be formed from the incoming byte stream. </p>
+<div class="textblock"><p>Flow control works by associating a finite amount of "credit" with a subscription. </p>
+<p>Credit includes a message count and a byte count. Each message received decreases the message count by one, and the byte count by the size of the message. Either count can have the special value UNLIMITED which is never decreased.</p>
+<p>A subscription's credit is exhausted when the message count is 0 or the byte count is too small for the next available message. The subscription will not receive any further messages until is credit is renewed.</p>
+<p>In "window mode" credit is automatically renewed when a message is completed (which by default happens when it is accepted). In non-window mode credit is not automatically renewed, it must be explicitly re-set (</p>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="a00351.html" title="A handle to an active subscription.">Subscription</a>) </dd></dl>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aa8887977f8c41c6e8303f6a8c852163f"></a><!-- doxytag: member="qpid::framing::FramingErrorException::FramingErrorException" ref="aa8887977f8c41c6e8303f6a8c852163f" args="(const std::string &amp;msg=std::string())" -->
+<a class="anchor" id="a70a9cd61b9e475c3d1978a3d15742863"></a><!-- doxytag: member="qpid::client::FlowControl::FlowControl" ref="a70a9cd61b9e475c3d1978a3d15742863" args="(uint32_t messages_=0, uint32_t bytes_=0, bool window_=false)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::framing::FramingErrorException::FramingErrorException </td>
+          <td class="memname">qpid::client::FlowControl::FlowControl </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>msg</em> = <code><a class="el" href="a00345.html">std::string</a>()</code></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>messages_</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>bytes_</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>window_</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00468_source.html#l00051">51</a> of file <a class="el" href="a00468_source.html">FlowControl.h</a>.</p>
+
+<p>Referenced by <a class="el" href="a00468_source.html#l00054">messageCredit()</a>, <a class="el" href="a00468_source.html#l00055">messageWindow()</a>, <a class="el" href="a00468_source.html#l00056">byteCredit()</a>, <a class="el" href="a00468_source.html#l00057">byteWindow()</a>, <a class="el" href="a00468_source.html#l00058">unlimited()</a>, and <a class="el" href="a00468_source.html#l00059">zero()</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a121aeaaac832c22255af480795f04b66"></a><!-- doxytag: member="qpid::client::FlowControl::byteCredit" ref="a121aeaaac832c22255af480795f04b66" args="(uint32_t bytes_)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00134.html">FlowControl</a> qpid::client::FlowControl::byteCredit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>bytes_</em></td><td>)</td>
+          <td><code> [inline, static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00468_source.html#l00056">56</a> of file <a class="el" href="a00468_source.html">FlowControl.h</a>.</p>
+
+<p>References <a class="el" href="a00468_source.html#l00051">FlowControl()</a>, and <a class="el" href="a00468_source.html#l00050">UNLIMITED</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a071925adc0dfffe2497a1897493343b3"></a><!-- doxytag: member="qpid::client::FlowControl::byteWindow" ref="a071925adc0dfffe2497a1897493343b3" args="(uint32_t bytes_)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00134.html">FlowControl</a> qpid::client::FlowControl::byteWindow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>bytes_</em></td><td>)</td>
+          <td><code> [inline, static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00468_source.html#l00057">57</a> of file <a class="el" href="a00468_source.html">FlowControl.h</a>.</p>
+
+<p>References <a class="el" href="a00468_source.html#l00051">FlowControl()</a>, and <a class="el" href="a00468_source.html#l00050">UNLIMITED</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad70c11ee99f9c3e2d98ff96acb011efc"></a><!-- doxytag: member="qpid::client::FlowControl::messageCredit" ref="ad70c11ee99f9c3e2d98ff96acb011efc" args="(uint32_t messages_)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00134.html">FlowControl</a> qpid::client::FlowControl::messageCredit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>messages_</em></td><td>)</td>
+          <td><code> [inline, static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00468_source.html#l00054">54</a> of file <a class="el" href="a00468_source.html">FlowControl.h</a>.</p>
+
+<p>References <a class="el" href="a00468_source.html#l00051">FlowControl()</a>, and <a class="el" href="a00468_source.html#l00050">UNLIMITED</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9e79a3b0299c43718010b35009016678"></a><!-- doxytag: member="qpid::client::FlowControl::messageWindow" ref="a9e79a3b0299c43718010b35009016678" args="(uint32_t messages_)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00134.html">FlowControl</a> qpid::client::FlowControl::messageWindow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>messages_</em></td><td>)</td>
+          <td><code> [inline, static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00468_source.html#l00055">55</a> of file <a class="el" href="a00468_source.html">FlowControl.h</a>.</p>
+
+<p>References <a class="el" href="a00468_source.html#l00051">FlowControl()</a>, and <a class="el" href="a00468_source.html#l00050">UNLIMITED</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9faa2fcf29b06be1a3230108b0c4aa97"></a><!-- doxytag: member="qpid::client::FlowControl::operator==" ref="a9faa2fcf29b06be1a3230108b0c4aa97" args="(const FlowControl &amp;x)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::client::FlowControl::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00134.html">FlowControl</a> &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00516_source.html#l00239">239</a> of file <a class="el" href="a00516_source.html">reply_exceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="a00468_source.html#l00068">68</a> of file <a class="el" href="a00468_source.html">FlowControl.h</a>.</p>
+
+<p>References <a class="el" href="a00468_source.html#l00062">messages</a>, <a class="el" href="a00468_source.html#l00064">bytes</a>, and <a class="el" href="a00468_source.html#l00066">window</a>.</p>
 
 </div>
 </div>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a5fd1b7dd26ec0e2742c54b2b7da6c6b0"></a><!-- doxytag: member="qpid::framing::FramingErrorException::getMessage" ref="a5fd1b7dd26ec0e2742c54b2b7da6c6b0" args="() const " -->
+<a class="anchor" id="a4e07036ab42cf4a593fcb578edd4b7bd"></a><!-- doxytag: member="qpid::client::FlowControl::unlimited" ref="a4e07036ab42cf4a593fcb578edd4b7bd" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a00345.html">std::string</a> qpid::Exception::getMessage </td>
+          <td class="memname">static <a class="el" href="a00134.html">FlowControl</a> qpid::client::FlowControl::unlimited </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [virtual, inherited]</code></td>
+          <td><code> [inline, static]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Definition at line <a class="el" href="a00468_source.html#l00058">58</a> of file <a class="el" href="a00468_source.html">FlowControl.h</a>.</p>
+
+<p>References <a class="el" href="a00468_source.html#l00051">FlowControl()</a>, and <a class="el" href="a00468_source.html#l00050">UNLIMITED</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="ad2d071fded654f988803a78f0d10c606"></a><!-- doxytag: member="qpid::framing::FramingErrorException::getPrefix" ref="ad2d071fded654f988803a78f0d10c606" args="() const " -->
+<a class="anchor" id="a2ca4cadfaee543ab80bab25f6176f784"></a><!-- doxytag: member="qpid::client::FlowControl::zero" ref="a2ca4cadfaee543ab80bab25f6176f784" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> qpid::framing::FramingErrorException::getPrefix </td>
+          <td class="memname">static <a class="el" href="a00134.html">FlowControl</a> qpid::client::FlowControl::zero </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, virtual]</code></td>
+          <td><code> [inline, static]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="a00114.html#a8680803b228ba1036624fd5cee183d36">qpid::Exception</a>.</p>
+<p>Definition at line <a class="el" href="a00468_source.html#l00059">59</a> of file <a class="el" href="a00468_source.html">FlowControl.h</a>.</p>
 
-<p>Definition at line <a class="el" href="a00516_source.html#l00238">238</a> of file <a class="el" href="a00516_source.html">reply_exceptions.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1319c2877b78e71fb5ded050298be31a"></a><!-- doxytag: member="qpid::framing::FramingErrorException::what" ref="a1319c2877b78e71fb5ded050298be31a" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual const char* qpid::Exception::what </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const  throw ()<code> [virtual, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>References <a class="el" href="a00468_source.html#l00051">FlowControl()</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="aec86be26e0790ef11c0fbd5d2bcf04bd"></a><!-- doxytag: member="qpid::framing::FramingErrorException::code" ref="aec86be26e0790ef11c0fbd5d2bcf04bd" args="" -->
+<a class="anchor" id="a91155edfa05bff8c5b186d40ffdd1445"></a><!-- doxytag: member="qpid::client::FlowControl::bytes" ref="a91155edfa05bff8c5b186d40ffdd1445" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00582.html#a55823c03444bbbbb1c9671dfc713aad4">framing::connection::CloseCode</a> <a class="el" href="a00061.html#aec86be26e0790ef11c0fbd5d2bcf04bd">qpid::ConnectionException::code</a><code> [inherited]</code></td>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="el" href="a00134.html#a91155edfa05bff8c5b186d40ffdd1445">qpid::client::FlowControl::bytes</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00490_source.html#l00072">72</a> of file <a class="el" href="a00490_source.html">Exception.h</a>.</p>
+<p>Byte credit: subscription can accept up to this many bytes of message content. </p>
+
+<p>Definition at line <a class="el" href="a00468_source.html#l00064">64</a> of file <a class="el" href="a00468_source.html">FlowControl.h</a>.</p>
+
+<p>Referenced by <a class="el" href="a00468_source.html#l00068">operator==()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6d69bece2668a3781975501fe4275404"></a><!-- doxytag: member="qpid::client::FlowControl::messages" ref="a6d69bece2668a3781975501fe4275404" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="el" href="a00134.html#a6d69bece2668a3781975501fe4275404">qpid::client::FlowControl::messages</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p><a class="el" href="a00208.html" title="A message sent to or received from the broker.">Message</a> credit: subscription can accept up to this many messages. </p>
+
+<p>Definition at line <a class="el" href="a00468_source.html#l00062">62</a> of file <a class="el" href="a00468_source.html">FlowControl.h</a>.</p>
+
+<p>Referenced by <a class="el" href="a00468_source.html#l00068">operator==()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afee588b945f5edbf4a6108dfd3fe3a70"></a><!-- doxytag: member="qpid::client::FlowControl::UNLIMITED" ref="afee588b945f5edbf4a6108dfd3fe3a70" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="el" href="a00134.html#afee588b945f5edbf4a6108dfd3fe3a70">qpid::client::FlowControl::UNLIMITED</a> = 0xFFFFFFFF<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00468_source.html#l00050">50</a> of file <a class="el" href="a00468_source.html">FlowControl.h</a>.</p>
+
+<p>Referenced by <a class="el" href="a00468_source.html#l00054">messageCredit()</a>, <a class="el" href="a00468_source.html#l00055">messageWindow()</a>, <a class="el" href="a00468_source.html#l00056">byteCredit()</a>, <a class="el" href="a00468_source.html#l00057">byteWindow()</a>, and <a class="el" href="a00468_source.html#l00058">unlimited()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6b85045fe5866ac8f66a738401d05768"></a><!-- doxytag: member="qpid::client::FlowControl::window" ref="a6b85045fe5866ac8f66a738401d05768" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a00134.html#a6b85045fe5866ac8f66a738401d05768">qpid::client::FlowControl::window</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Window mode. </p>
+<p>If true credit is automatically renewed as messages are acknowledged. </p>
+
+<p>Definition at line <a class="el" href="a00468_source.html#l00066">66</a> of file <a class="el" href="a00468_source.html">FlowControl.h</a>.</p>
+
+<p>Referenced by <a class="el" href="a00468_source.html#l00068">operator==()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/framing/<a class="el" href="a00516_source.html">reply_exceptions.h</a></li>
+<li>qpid/client/<a class="el" href="a00468_source.html">FlowControl.h</a></li>
 </ul>
 </div>
 <!--
@@ -215,7 +405,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -1,3 +1,6 @@
+#ifndef QPID_HA_BACKUPCONNECTIONEXCLUDER_H
+#define QPID_HA_BACKUPCONNECTIONEXCLUDER_H
+
 /*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -19,22 +22,27 @@
  *
  */
 
-#include "ConnectionExcluder.h"
+#include "qpid/broker/ConnectionObserver.h"
 #include "qpid/broker/Connection.h"
-#include <boost/function.hpp>
-#include <sstream>
+#include "qpid/log/Statement.h"
 
 namespace qpid {
 namespace ha {
 
-ConnectionExcluder::ConnectionExcluder() {}
+/**
+ * Exclude connections to a backup broker.
+ */
+class BackupConnectionExcluder : public broker::ConnectionObserver
+{
+  public:
+    void opened(broker::Connection& connection) {
+        QPID_LOG(debug, "Backup: Rejected connection "+connection.getMgmtId());
+        connection.abort();
+    }
 
-void ConnectionExcluder::opened(broker::Connection& connection) {
-    if (!connection.isLink() && !connection.getClientProperties().isSet(ADMIN_TAG))
-        throw Exception(
-            QPID_MSG("HA: Backup broker rejected connection " << connection.getMgmtId()));
-}
-
-const std::string ConnectionExcluder::ADMIN_TAG="qpid.ha-admin";
+    void closed(broker::Connection&) {}
+};
 
 }} // namespace qpid::ha
+
+#endif  /*!QPID_HA_BACKUPCONNECTIONEXCLUDER_H*/

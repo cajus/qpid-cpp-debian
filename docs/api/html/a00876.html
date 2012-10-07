@@ -60,24 +60,54 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00592.html">sys</a>      </li>
-      <li class="navelem"><a class="el" href="a00115.html">ExceptionHolder</a>      </li>
-      <li class="navelem"><a class="el" href="a00397.html">Wrapper</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00593.html">messaging</a>      </li>
+      <li class="navelem"><a class="el" href="a00326.html">Session</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid::sys::ExceptionHolder::Wrapper Member List</div>  </div>
+<div class="title">qpid::messaging::Session Member List</div>  </div>
 </div>
 <div class="contents">
-This is the complete list of members for <a class="el" href="a00397.html">qpid::sys::ExceptionHolder::Wrapper</a>, including all inherited members.<table>
-  <tr class="memlist"><td><a class="el" href="a00397.html#a675b47160b1927caf406e255bb4efa66">exception</a></td><td><a class="el" href="a00397.html">qpid::sys::ExceptionHolder::Wrapper</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00397.html#a29a6ca80f517db87ceb53ef601974b73">raise</a>() const </td><td><a class="el" href="a00397.html">qpid::sys::ExceptionHolder::Wrapper</a></td><td><code> [inline, virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00397.html#a2e41ef97ebd591592024fb0c982b93d6">what</a>() const </td><td><a class="el" href="a00397.html">qpid::sys::ExceptionHolder::Wrapper</a></td><td><code> [inline, virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00397.html#aab584b75ce4ff10b2c32d30d832c02d8">Wrapper</a>(Ex *ptr)</td><td><a class="el" href="a00397.html">qpid::sys::ExceptionHolder::Wrapper</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00266.html#a2d620f4660e961d67e8317bd507b14be">~Raisable</a>()</td><td><a class="el" href="a00266.html">qpid::sys::Raisable</a></td><td><code> [inline, virtual]</code></td></tr>
+This is the complete list of members for <a class="el" href="a00326.html">qpid::messaging::Session</a>, including all inherited members.<table>
+  <tr class="memlist"><td><a class="el" href="a00326.html#ac45dd3e4950a9d08e0be26c21af307d5">acknowledge</a>(bool sync=false)</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#a191c4cf261e01b6d8bfe3d938b17c24c">acknowledge</a>(Message &amp;, bool sync=false)</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#a597def862bb71816ab6bc2c28f5a481b">acknowledgeUpTo</a>(Message &amp;, bool sync=false)</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#a30c234c1d30fb653b7d793ecddf0325a">checkError</a>()</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#a61ea560cf02b626074766673f0ec3631">close</a>()</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#ad1135088120d995954e782dd5c8889c7">commit</a>()</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#aeac86a66c7be0af30e7c86fac8d94a4f">createReceiver</a>(const Address &amp;address)</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#acfcd15132c48517fb8137290e20695e1">createReceiver</a>(const std::string &amp;address)</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#a80aafbf67cc91d075c3d4ef06c7d7566">createSender</a>(const Address &amp;address)</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#a5172ced9f0d77e64a8bb0c6f7b0be068">createSender</a>(const std::string &amp;address)</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#aac159c9e742c38174af3a3f092922adc">getConnection</a>() const </td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#ac396c77d1eecab3390261adeb9f73f32">getReceivable</a>()</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#ad8b97d55f8733d3c66d3a771b8b45514">getReceiver</a>(const std::string &amp;name) const </td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#a40fcd998822669e95c0e3acde78fc669">getSender</a>(const std::string &amp;name) const </td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#a1fa7ca27a12d180ec60a657d1b663724">getUnsettledAcks</a>()</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00141.html#a2a3cadf498233f8e11d2b145b57ca118">Handle</a>()</td><td><a class="el" href="a00141.html">qpid::messaging::Handle&lt; SessionImpl &gt;</a></td><td><code> [inline, protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00141.html#a459a939d728d29ca3a2d2eb980267a2d">Handle</a>(const Handle &amp;)</td><td><a class="el" href="a00141.html">qpid::messaging::Handle&lt; SessionImpl &gt;</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#abac267837164db11fa0d4b3041d66114">hasError</a>()</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00141.html#aa4b861c288ed3546405a0e334a2c7ae9">impl</a></td><td><a class="el" href="a00141.html">qpid::messaging::Handle&lt; SessionImpl &gt;</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00141.html#a51b69551a689a063cd575ae3f81c9775">Impl</a> typedef</td><td><a class="el" href="a00141.html">qpid::messaging::Handle&lt; SessionImpl &gt;</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00141.html#a1f4f3033223421f914db98fbb7ac1704">isNull</a>() const </td><td><a class="el" href="a00141.html">qpid::messaging::Handle&lt; SessionImpl &gt;</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00141.html#a96a040ee9deb2b6534f6ac03fe60ffa4">isValid</a>() const </td><td><a class="el" href="a00141.html">qpid::messaging::Handle&lt; SessionImpl &gt;</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#af633ded76d86d312c4114efa8480d3df">nextReceiver</a>(Receiver &amp;, Duration timeout=Duration::FOREVER)</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#af11910bf6cc23664ecd7d8c94208f7b1">nextReceiver</a>(Duration timeout=Duration::FOREVER)</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00141.html#a35cfc26f8be13a312dd9de7cf475a962">operator bool</a>() const </td><td><a class="el" href="a00141.html">qpid::messaging::Handle&lt; SessionImpl &gt;</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00141.html#a0bf2de9ff2609eb03d4a350ef5179156">operator!</a>() const </td><td><a class="el" href="a00141.html">qpid::messaging::Handle&lt; SessionImpl &gt;</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#a1b3b91940e11d3e984584a1e9cb4eed2">operator=</a>(const Session &amp;)</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00141.html#a15b8c5403a16651e90f078ed8ffba807">Handle&lt; SessionImpl &gt;::operator=</a>(const Handle &amp;)</td><td><a class="el" href="a00141.html">qpid::messaging::Handle&lt; SessionImpl &gt;</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#a6b5a28d683d68628fd2d436cc5982f11">reject</a>(Message &amp;)</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#a305fa96f24660aa8aceea4c26a2db259">release</a>(Message &amp;)</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#aeb08e52b43398b93e6a0eb1fb62d9801">rollback</a>()</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#a61f31bd8a2fda066520f19b61e3fe70d">Session</a>(SessionImpl *impl=0)</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#a06d6ab4129c5e146231c236f10d93deb">Session</a>(const Session &amp;)</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00141.html#a9eb61a86144e01a2683da2ad36137c54">swap</a>(Handle&lt; T &gt; &amp;h)</td><td><a class="el" href="a00141.html">qpid::messaging::Handle&lt; SessionImpl &gt;</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#a6b6831b8e74419015a61607a96592987">sync</a>(bool block=true)</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00326.html#a7fe6be9125cc1d2e69f0bb07bed7a44f">~Session</a>()</td><td><a class="el" href="a00326.html">qpid::messaging::Session</a></td><td></td></tr>
 </table></div>
 <!--
  
@@ -106,7 +136,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

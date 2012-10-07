@@ -34,6 +34,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -54,6 +55,7 @@ public:
         setIfUnused(_ifUnused);
         setIfEmpty(_ifEmpty);
         flags |= (1 << 8);
+        if (queue.size() >= 256) throw IllegalArgumentException("Value for queue is too large");
     }
     QueueDeleteBody(ProtocolVersion=ProtocolVersion())  : flags(0) {}
     

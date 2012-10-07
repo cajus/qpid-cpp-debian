@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf/engine/Query.h File Reference</title>
+    <title>qpid/console/ObjectId.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -61,48 +61,32 @@
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qmf/engine/Query.h File Reference</div>  </div>
+<div class="title">qpid/console/ObjectId.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="a00423_source.html">qmf/engine/ObjectId.h</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="a00433_source.html">qmf/engine/Value.h</a>&gt;</code><br/>
+<div class="textblock"><code>#include &lt;iostream&gt;</code><br/>
+<code>#include &quot;<a class="el" href="a00487_source.html">qpid/console/ConsoleImportExport.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00556_source.html">qpid/sys/IntegerTypes.h</a>&quot;</code><br/>
 </div>
 <p><a href="a00426_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00261.html">qmf::engine::QueryOperand</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00259.html">qmf::engine::QueryElement</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00260.html">qmf::engine::QueryExpression</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00258.html">qmf::engine::Query</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00237.html">qpid::console::ObjectId</a></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html">qmf</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00572.html">qmf::engine</a></td></tr>
-<tr><td colspan="2"><h2><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00572.html#a8866b1c92089872d8b418105687b8b4d">qmf::engine::ValueOper</a> { <br/>
-&#160;&#160;<a class="el" href="a00572.html#a8866b1c92089872d8b418105687b8b4da91c07f3d25054266750e0f1e9ddc2898">qmf::engine::O_EQ</a> =  1, 
-<a class="el" href="a00572.html#a8866b1c92089872d8b418105687b8b4daa3832c1c6abfac3f14f135afb0d1564a">qmf::engine::O_NE</a> =  2, 
-<a class="el" href="a00572.html#a8866b1c92089872d8b418105687b8b4dab1892dfa5ac3e5dede4eee5a69ec20fa">qmf::engine::O_LT</a> =  3, 
-<a class="el" href="a00572.html#a8866b1c92089872d8b418105687b8b4da66832c22c555d1ab7174112c07328970">qmf::engine::O_LE</a> =  4, 
-<br/>
-&#160;&#160;<a class="el" href="a00572.html#a8866b1c92089872d8b418105687b8b4da8e565405707fecefa69628ebe6eee2d5">qmf::engine::O_GT</a> =  5, 
-<a class="el" href="a00572.html#a8866b1c92089872d8b418105687b8b4dafe73b3c7048ef180c9a13a49316ae0ec">qmf::engine::O_GE</a> =  6, 
-<a class="el" href="a00572.html#a8866b1c92089872d8b418105687b8b4da9a386c6ea7741bb9eadb3e136f3b27dc">qmf::engine::O_RE_MATCH</a> =  7, 
-<a class="el" href="a00572.html#a8866b1c92089872d8b418105687b8b4daeb8acb79bb18f4569f48ec4ada0821f3">qmf::engine::O_RE_NOMATCH</a> =  8, 
-<br/>
-&#160;&#160;<a class="el" href="a00572.html#a8866b1c92089872d8b418105687b8b4da8e60ba482cd95b5158ec2977b81f001a">qmf::engine::O_PRESENT</a> =  9, 
-<a class="el" href="a00572.html#a8866b1c92089872d8b418105687b8b4da04401081e0910198e6068f6b4e807229">qmf::engine::O_NOT_PRESENT</a> =  10
-<br/>
- }</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00572.html#a1ceb9b4335b824a50ac067c37c19eedc">qmf::engine::ExprOper</a> { <a class="el" href="a00572.html#a1ceb9b4335b824a50ac067c37c19eedcae7490559c1da8c220a7e0895f3aca454">qmf::engine::E_NOT</a> =  1, 
-<a class="el" href="a00572.html#a1ceb9b4335b824a50ac067c37c19eedca78fe0097deeb87a9c33daa1b23af49fc">qmf::engine::E_AND</a> =  2, 
-<a class="el" href="a00572.html#a1ceb9b4335b824a50ac067c37c19eedca5cf5e54493ca72eebde728c7440968d4">qmf::engine::E_OR</a> =  3, 
-<a class="el" href="a00572.html#a1ceb9b4335b824a50ac067c37c19eedcab3f4608274a6f6ed625c7c194feb29f9">qmf::engine::E_XOR</a> =  4
- }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
+<br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00582.html">qpid::framing</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>The framing namespace contains classes that are used to create, send and receive the basic packets from which AMQP is built. </p>
+<br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00581.html">qpid::console</a></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00581.html#a235bc7af485170033855dab2b0d359ef">qpid::console::operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;o, const ObjectId &amp;id)</td></tr>
 </table>
 </div>
 <!--
@@ -132,7 +116,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

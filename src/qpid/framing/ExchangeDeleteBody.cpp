@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ExchangeDeleteBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ExchangeDeleteBody::setExchange(const std::string& _exchange) {
     exchange = _exchange;
     flags |= (1 << 8);
+    if (exchange.size() >= 256) throw IllegalArgumentException("Value for exchange is too large");
 }
 const std::string& ExchangeDeleteBody::getExchange() const { return exchange; }
 bool ExchangeDeleteBody::hasExchange() const { return flags & (1 << 8); }

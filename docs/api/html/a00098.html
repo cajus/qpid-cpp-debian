@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>std::domain_error Class Reference</title>
+    <title>qpid::framing::DeliveryProperties Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,22 +60,1064 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><b>std</b>      </li>
-      <li class="navelem"><a class="el" href="a00098.html">domain_error</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00582.html">framing</a>      </li>
+      <li class="navelem"><a class="el" href="a00098.html">DeliveryProperties</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#friends">Friends</a>  </div>
   <div class="headertitle">
-<div class="title">std::domain_error Class Reference</div>  </div>
+<div class="title">qpid::framing::DeliveryProperties Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="std::domain_error" --><!-- doxytag: inherits="std::logic_error" -->
-<p>STL class.  
- <a href="a00098.html#details">More...</a></p>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>STL class. </p>
-</div><hr/>The documentation for this class was generated from the following file:</div>
+<!-- doxytag: class="qpid::framing::DeliveryProperties" -->
+<p><code>#include &lt;<a class="el" href="a00501_source.html">qpid/framing/DeliveryProperties.h</a>&gt;</code></p>
+
+<p><a href="a00745.html">List of all members.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a2419230da60cbcdf1af08dd71e51d314">DeliveryProperties</a> (bool _discardUnroutable, bool _immediate, bool _redelivered, <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> _priority, <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> _deliveryMode, uint64_t _ttl, uint64_t _timestamp, uint64_t _expiration, const <a class="el" href="a00346.html">std::string</a> &amp;_exchange, const <a class="el" href="a00346.html">std::string</a> &amp;_routingKey, const <a class="el" href="a00346.html">std::string</a> &amp;_resumeId, uint64_t _resumeTtl)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#acc14d32f6dbd5380c1a1ce6dc3405fa9">DeliveryProperties</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#ae0ce53d8840f12035958f20779af474e">setDiscardUnroutable</a> (bool _discardUnroutable)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#ab33f4e8bcf52a0b4cc712ce9e43f4cac">getDiscardUnroutable</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a8437efa3a4419ceab543e1d5e6cfcd2a">setImmediate</a> (bool _immediate)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a1b20dec14d21bd05f6ae82c747a35f36">getImmediate</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a7690def7f18eac7a10b050d6356e8203">setRedelivered</a> (bool _redelivered)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a110b30df22386727ca3320f79297b01d">getRedelivered</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a8d267c360b8ed868fb90cf2684bf6155">setPriority</a> (<a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> _priority)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a72f53c75ac0c45ce2c737375489be059">getPriority</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#ae2cf1954bfc7e57a8370315aae8417cf">hasPriority</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a7fc751b03d8939e9ac7d912ef4949937">clearPriorityFlag</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#aa6382811f69842db28cce2fe7fb4ca9c">setDeliveryMode</a> (<a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> _deliveryMode)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#ae6e70e4f5041ef10cf1fe24929b68467">getDeliveryMode</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a3e9c3097e4247533eb70425c9fa855c0">hasDeliveryMode</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#abc9ce88aa63bd209fd33b494a2931b36">clearDeliveryModeFlag</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#ade723a7a0360966e9adc7818c9b504a5">setTtl</a> (uint64_t _ttl)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#ae30a6986fae27d1143c9a5152b6358a8">getTtl</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#aa4c57acb5810cc04d17280d3c4e63126">hasTtl</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#ab32abb1b7d6f2c40c8517e57022c9339">clearTtlFlag</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a6308aa15f3a290cdf032d28df2b836d0">setTimestamp</a> (uint64_t _timestamp)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a44ae42a7a1cfbc3d6b5d05f58ee98ece">getTimestamp</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a2ca14bf9f390a9d0590f52353e57e655">hasTimestamp</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#afbbeb3f47496406c6f9ed7517ca9b095">clearTimestampFlag</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#aa1aef97e20e70e2d9dbeefd6d785067c">setExpiration</a> (uint64_t _expiration)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a286294d3116192c45440e9ff86e8ec49">getExpiration</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a5afc16c85d6f763bd84c3a6e8c886db2">hasExpiration</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a319784230bc33823fa4e7241e6ace346">clearExpirationFlag</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a69d8df6b62bd9b520a5d708a32b767f1">setExchange</a> (const <a class="el" href="a00346.html">std::string</a> &amp;_exchange)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a6e2c67574f0d9fc9341f89e30f24af25">getExchange</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a015a4057e053d6092b7c0203c2ce0271">hasExchange</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#afd8b205a53a4eb589288e9a14d4fec02">clearExchangeFlag</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a2d86479ef5227cb5468f02c32051ae16">setRoutingKey</a> (const <a class="el" href="a00346.html">std::string</a> &amp;_routingKey)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#ab28e9ad5035e73fa7750e018de75207a">getRoutingKey</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a1a3c7c0318ee15e0cf2186cf02ee6f85">hasRoutingKey</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#acc1ca8f79b3f0cdfb91e1d4fe916980e">clearRoutingKeyFlag</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a23048a22fedc71af7ccff6dd38a580e7">setResumeId</a> (const <a class="el" href="a00346.html">std::string</a> &amp;_resumeId)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#aa4ba18910a1a4d8f0ef496802a62ea60">getResumeId</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a49097ac8275a0a36b0ad528397af0787">hasResumeId</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a621d17c86387405dedf99cc5fa7222da">clearResumeIdFlag</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#aabccf1042653538264d347b71fbdf0a6">setResumeTtl</a> (uint64_t _resumeTtl)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#ac8bcb47330eb6762bd12ca04580e5634">getResumeTtl</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#aa67d1c94cd9b1e0f9a84723968e9d60b">hasResumeTtl</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#ac3906fdc653bbf582c72c41ef69ebf8a">clearResumeTtlFlag</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a3df9d4cf7227573151c69f9f585a745d">encode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a4fa547d74450d588bce51b0991379831">decode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;, <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#aa66762db56c204476a067ff0a391bfbb">encodeStructBody</a> (<a class="el" href="a00045.html">Buffer</a> &amp;) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#ad52e1bbac68681114136cccef4171fa6">decodeStructBody</a> (<a class="el" href="a00045.html">Buffer</a> &amp;, <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#ac230cca343ab046b850cc731e1602c59">encodedSize</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a3a866c00a49b9d77aadd4ab70ac33b4c">bodySize</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#afc12f2dec234da3802883960820e1ff3">print</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;out) const </td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a754658e00fc12335f6cbd9f12214a97f">TYPE</a> = 1025</td></tr>
+<tr><td colspan="2"><h2><a name="friends"></a>
+Friends</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00098.html#a99263b24489eb2a69b4a1e0fc6c1d9e2">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;, const <a class="el" href="a00098.html">DeliveryProperties</a> &amp;)</td></tr>
+</table>
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a2419230da60cbcdf1af08dd71e51d314"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::DeliveryProperties" ref="a2419230da60cbcdf1af08dd71e51d314" args="(bool _discardUnroutable, bool _immediate, bool _redelivered, uint8_t _priority, uint8_t _deliveryMode, uint64_t _ttl, uint64_t _timestamp, uint64_t _expiration, const std::string &amp;_exchange, const std::string &amp;_routingKey, const std::string &amp;_resumeId, uint64_t _resumeTtl)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::framing::DeliveryProperties::DeliveryProperties </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_discardUnroutable</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_immediate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_redelivered</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"><em>_priority</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"><em>_deliveryMode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>_ttl</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>_timestamp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>_expiration</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>_exchange</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>_routingKey</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>_resumeId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>_resumeTtl</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00501_source.html#l00052">52</a> of file <a class="el" href="a00501_source.html">DeliveryProperties.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acc14d32f6dbd5380c1a1ce6dc3405fa9"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::DeliveryProperties" ref="acc14d32f6dbd5380c1a1ce6dc3405fa9" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::framing::DeliveryProperties::DeliveryProperties </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00501_source.html#l00091">91</a> of file <a class="el" href="a00501_source.html">DeliveryProperties.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a3a866c00a49b9d77aadd4ab70ac33b4c"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::bodySize" ref="a3a866c00a49b9d77aadd4ab70ac33b4c" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::DeliveryProperties::bodySize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abc9ce88aa63bd209fd33b494a2931b36"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::clearDeliveryModeFlag" ref="abc9ce88aa63bd209fd33b494a2931b36" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::clearDeliveryModeFlag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afd8b205a53a4eb589288e9a14d4fec02"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::clearExchangeFlag" ref="afd8b205a53a4eb589288e9a14d4fec02" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::clearExchangeFlag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a319784230bc33823fa4e7241e6ace346"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::clearExpirationFlag" ref="a319784230bc33823fa4e7241e6ace346" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::clearExpirationFlag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7fc751b03d8939e9ac7d912ef4949937"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::clearPriorityFlag" ref="a7fc751b03d8939e9ac7d912ef4949937" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::clearPriorityFlag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a621d17c86387405dedf99cc5fa7222da"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::clearResumeIdFlag" ref="a621d17c86387405dedf99cc5fa7222da" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::clearResumeIdFlag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac3906fdc653bbf582c72c41ef69ebf8a"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::clearResumeTtlFlag" ref="ac3906fdc653bbf582c72c41ef69ebf8a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::clearResumeTtlFlag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="acc1ca8f79b3f0cdfb91e1d4fe916980e"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::clearRoutingKeyFlag" ref="acc1ca8f79b3f0cdfb91e1d4fe916980e" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::clearRoutingKeyFlag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afbbeb3f47496406c6f9ed7517ca9b095"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::clearTimestampFlag" ref="afbbeb3f47496406c6f9ed7517ca9b095" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::clearTimestampFlag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab32abb1b7d6f2c40c8517e57022c9339"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::clearTtlFlag" ref="ab32abb1b7d6f2c40c8517e57022c9339" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::clearTtlFlag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4fa547d74450d588bce51b0991379831"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::decode" ref="a4fa547d74450d588bce51b0991379831" args="(Buffer &amp;, uint32_t=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::decode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad52e1bbac68681114136cccef4171fa6"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::decodeStructBody" ref="ad52e1bbac68681114136cccef4171fa6" args="(Buffer &amp;, uint32_t=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::decodeStructBody </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3df9d4cf7227573151c69f9f585a745d"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::encode" ref="a3df9d4cf7227573151c69f9f585a745d" args="(Buffer &amp;) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::encode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac230cca343ab046b850cc731e1602c59"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::encodedSize" ref="ac230cca343ab046b850cc731e1602c59" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::DeliveryProperties::encodedSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa66762db56c204476a067ff0a391bfbb"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::encodeStructBody" ref="aa66762db56c204476a067ff0a391bfbb" args="(Buffer &amp;) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::encodeStructBody </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae6e70e4f5041ef10cf1fe24929b68467"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::getDeliveryMode" ref="ae6e70e4f5041ef10cf1fe24929b68467" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> qpid::framing::DeliveryProperties::getDeliveryMode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab33f4e8bcf52a0b4cc712ce9e43f4cac"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::getDiscardUnroutable" ref="ab33f4e8bcf52a0b4cc712ce9e43f4cac" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::DeliveryProperties::getDiscardUnroutable </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6e2c67574f0d9fc9341f89e30f24af25"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::getExchange" ref="a6e2c67574f0d9fc9341f89e30f24af25" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a>&amp; qpid::framing::DeliveryProperties::getExchange </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a286294d3116192c45440e9ff86e8ec49"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::getExpiration" ref="a286294d3116192c45440e9ff86e8ec49" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t qpid::framing::DeliveryProperties::getExpiration </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1b20dec14d21bd05f6ae82c747a35f36"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::getImmediate" ref="a1b20dec14d21bd05f6ae82c747a35f36" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::DeliveryProperties::getImmediate </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a72f53c75ac0c45ce2c737375489be059"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::getPriority" ref="a72f53c75ac0c45ce2c737375489be059" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> qpid::framing::DeliveryProperties::getPriority </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a110b30df22386727ca3320f79297b01d"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::getRedelivered" ref="a110b30df22386727ca3320f79297b01d" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::DeliveryProperties::getRedelivered </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa4ba18910a1a4d8f0ef496802a62ea60"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::getResumeId" ref="aa4ba18910a1a4d8f0ef496802a62ea60" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a>&amp; qpid::framing::DeliveryProperties::getResumeId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac8bcb47330eb6762bd12ca04580e5634"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::getResumeTtl" ref="ac8bcb47330eb6762bd12ca04580e5634" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t qpid::framing::DeliveryProperties::getResumeTtl </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab28e9ad5035e73fa7750e018de75207a"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::getRoutingKey" ref="ab28e9ad5035e73fa7750e018de75207a" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a>&amp; qpid::framing::DeliveryProperties::getRoutingKey </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a44ae42a7a1cfbc3d6b5d05f58ee98ece"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::getTimestamp" ref="a44ae42a7a1cfbc3d6b5d05f58ee98ece" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t qpid::framing::DeliveryProperties::getTimestamp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae30a6986fae27d1143c9a5152b6358a8"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::getTtl" ref="ae30a6986fae27d1143c9a5152b6358a8" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t qpid::framing::DeliveryProperties::getTtl </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3e9c3097e4247533eb70425c9fa855c0"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::hasDeliveryMode" ref="a3e9c3097e4247533eb70425c9fa855c0" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::DeliveryProperties::hasDeliveryMode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a015a4057e053d6092b7c0203c2ce0271"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::hasExchange" ref="a015a4057e053d6092b7c0203c2ce0271" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::DeliveryProperties::hasExchange </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5afc16c85d6f763bd84c3a6e8c886db2"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::hasExpiration" ref="a5afc16c85d6f763bd84c3a6e8c886db2" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::DeliveryProperties::hasExpiration </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae2cf1954bfc7e57a8370315aae8417cf"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::hasPriority" ref="ae2cf1954bfc7e57a8370315aae8417cf" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::DeliveryProperties::hasPriority </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a49097ac8275a0a36b0ad528397af0787"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::hasResumeId" ref="a49097ac8275a0a36b0ad528397af0787" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::DeliveryProperties::hasResumeId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa67d1c94cd9b1e0f9a84723968e9d60b"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::hasResumeTtl" ref="aa67d1c94cd9b1e0f9a84723968e9d60b" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::DeliveryProperties::hasResumeTtl </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1a3c7c0318ee15e0cf2186cf02ee6f85"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::hasRoutingKey" ref="a1a3c7c0318ee15e0cf2186cf02ee6f85" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::DeliveryProperties::hasRoutingKey </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2ca14bf9f390a9d0590f52353e57e655"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::hasTimestamp" ref="a2ca14bf9f390a9d0590f52353e57e655" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::DeliveryProperties::hasTimestamp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa4c57acb5810cc04d17280d3c4e63126"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::hasTtl" ref="aa4c57acb5810cc04d17280d3c4e63126" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::DeliveryProperties::hasTtl </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afc12f2dec234da3802883960820e1ff3"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::print" ref="afc12f2dec234da3802883960820e1ff3" args="(std::ostream &amp;out) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::print </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>out</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa6382811f69842db28cce2fe7fb4ca9c"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::setDeliveryMode" ref="aa6382811f69842db28cce2fe7fb4ca9c" args="(uint8_t _deliveryMode)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::setDeliveryMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"><em>_deliveryMode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae0ce53d8840f12035958f20779af474e"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::setDiscardUnroutable" ref="ae0ce53d8840f12035958f20779af474e" args="(bool _discardUnroutable)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::setDiscardUnroutable </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_discardUnroutable</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a69d8df6b62bd9b520a5d708a32b767f1"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::setExchange" ref="a69d8df6b62bd9b520a5d708a32b767f1" args="(const std::string &amp;_exchange)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::setExchange </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>_exchange</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa1aef97e20e70e2d9dbeefd6d785067c"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::setExpiration" ref="aa1aef97e20e70e2d9dbeefd6d785067c" args="(uint64_t _expiration)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::setExpiration </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>_expiration</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8437efa3a4419ceab543e1d5e6cfcd2a"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::setImmediate" ref="a8437efa3a4419ceab543e1d5e6cfcd2a" args="(bool _immediate)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::setImmediate </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_immediate</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8d267c360b8ed868fb90cf2684bf6155"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::setPriority" ref="a8d267c360b8ed868fb90cf2684bf6155" args="(uint8_t _priority)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::setPriority </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"><em>_priority</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7690def7f18eac7a10b050d6356e8203"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::setRedelivered" ref="a7690def7f18eac7a10b050d6356e8203" args="(bool _redelivered)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::setRedelivered </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_redelivered</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a23048a22fedc71af7ccff6dd38a580e7"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::setResumeId" ref="a23048a22fedc71af7ccff6dd38a580e7" args="(const std::string &amp;_resumeId)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::setResumeId </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>_resumeId</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aabccf1042653538264d347b71fbdf0a6"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::setResumeTtl" ref="aabccf1042653538264d347b71fbdf0a6" args="(uint64_t _resumeTtl)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::setResumeTtl </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>_resumeTtl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2d86479ef5227cb5468f02c32051ae16"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::setRoutingKey" ref="a2d86479ef5227cb5468f02c32051ae16" args="(const std::string &amp;_routingKey)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::setRoutingKey </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>_routingKey</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6308aa15f3a290cdf032d28df2b836d0"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::setTimestamp" ref="a6308aa15f3a290cdf032d28df2b836d0" args="(uint64_t _timestamp)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::setTimestamp </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>_timestamp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ade723a7a0360966e9adc7818c9b504a5"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::setTtl" ref="ade723a7a0360966e9adc7818c9b504a5" args="(uint64_t _ttl)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::DeliveryProperties::setTtl </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>_ttl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Friends And Related Function Documentation</h2>
+<a class="anchor" id="a99263b24489eb2a69b4a1e0fc6c1d9e2"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::operator&lt;&lt;" ref="a99263b24489eb2a69b4a1e0fc6c1d9e2" args="(std::ostream &amp;, const DeliveryProperties &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00098.html">DeliveryProperties</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [friend]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a754658e00fc12335f6cbd9f12214a97f"></a><!-- doxytag: member="qpid::framing::DeliveryProperties::TYPE" ref="a754658e00fc12335f6cbd9f12214a97f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="el" href="a00098.html#a754658e00fc12335f6cbd9f12214a97f">qpid::framing::DeliveryProperties::TYPE</a> = 1025<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00501_source.html#l00051">51</a> of file <a class="el" href="a00501_source.html">DeliveryProperties.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qpid/framing/<a class="el" href="a00501_source.html">DeliveryProperties.h</a></li>
+</ul>
+</div>
 <!--
  
  Licensed to the Apache Software Foundation (ASF) under one
@@ -103,7 +1145,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

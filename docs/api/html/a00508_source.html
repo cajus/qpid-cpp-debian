@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/framing/FragmentProperties.h Source File</title>
+    <title>qpid/framing/FieldValue.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,11 +58,11 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/framing/FragmentProperties.h</div>  </div>
+<div class="title">qpid/framing/FieldValue.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00508.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_FRAMING_FRAGMENTPROPERTIES_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_FRAMING_FRAGMENTPROPERTIES_H</span>
+<a href="a00508.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _framing_FieldValue_h</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _framing_FieldValue_h</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span><span class="comment">/*</span>
 <a name="l00004"></a>00004 <span class="comment"> *</span>
 <a name="l00005"></a>00005 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
@@ -84,53 +84,438 @@
 <a name="l00021"></a>00021 <span class="comment"> *</span>
 <a name="l00022"></a>00022 <span class="comment"> */</span>
 <a name="l00023"></a>00023 
-<a name="l00028"></a>00028 
+<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="a00492.html">qpid/Exception.h</a>&quot;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00495.html" title="Definitions and forward declarations of all types used in AMQP messages.">qpid/framing/amqp_types.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00498.html">qpid/framing/Buffer.h</a>&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00507.html">qpid/framing/FieldTable.h</a>&quot;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="a00484.html">qpid/CommonImportExport.h</a>&quot;</span>
 <a name="l00029"></a>00029 
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="preprocessor">#include &lt;ostream&gt;</span>
-<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="a00494.html" title="Definitions and full declarations of all types used in AMQP messages.">qpid/framing/amqp_types_full.h</a>&quot;</span>
-<a name="l00033"></a>00033 <span class="preprocessor">#include &quot;<a class="code" href="a00482.html">qpid/CommonImportExport.h</a>&quot;</span>
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035 <span class="keyword">namespace </span>qpid {
-<a name="l00036"></a>00036 <span class="keyword">namespace </span>framing {
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038 <span class="keyword">class </span><a class="code" href="a00482.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> FragmentProperties  {
-<a name="l00039"></a>00039     uint64_t fragmentSize;
-<a name="l00040"></a>00040     <a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> flags;
-<a name="l00041"></a>00041 <span class="keyword">public</span>:
-<a name="l00042"></a><a class="code" href="a00133.html#ae7a452d9a2023519888abefa3f45bd56">00042</a>     <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> TYPE = 1026;
-<a name="l00043"></a><a class="code" href="a00133.html#a6df03e17b3d204dc339bf3a49ac67cde">00043</a>     <a class="code" href="a00133.html">FragmentProperties</a>(
-<a name="l00044"></a>00044         <span class="keywordtype">bool</span> _first,
-<a name="l00045"></a>00045         <span class="keywordtype">bool</span> _last,
-<a name="l00046"></a>00046         uint64_t _fragmentSize) : 
-<a name="l00047"></a>00047         fragmentSize(_fragmentSize),
-<a name="l00048"></a>00048         flags(0){
-<a name="l00049"></a>00049         setFirst(_first);
-<a name="l00050"></a>00050         setLast(_last);
-<a name="l00051"></a>00051         flags |= (1 &lt;&lt; 10);
-<a name="l00052"></a>00052     }
-<a name="l00053"></a><a class="code" href="a00133.html#a20cee5783cf16c1972634ba6c1aef5c0">00053</a>     <a class="code" href="a00133.html#a20cee5783cf16c1972634ba6c1aef5c0">FragmentProperties</a>()  : fragmentSize(0), flags(0) {}
-<a name="l00054"></a>00054     
-<a name="l00055"></a>00055     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setFirst(<span class="keywordtype">bool</span> _first);
-<a name="l00056"></a>00056     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> getFirst() <span class="keyword">const</span>;
-<a name="l00057"></a>00057     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setLast(<span class="keywordtype">bool</span> _last);
-<a name="l00058"></a>00058     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> getLast() <span class="keyword">const</span>;
-<a name="l00059"></a>00059     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setFragmentSize(uint64_t _fragmentSize);
-<a name="l00060"></a>00060     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> uint64_t getFragmentSize() <span class="keyword">const</span>;
-<a name="l00061"></a>00061     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasFragmentSize() <span class="keyword">const</span>;
-<a name="l00062"></a>00062     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearFragmentSizeFlag();
-<a name="l00063"></a>00063     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="a00580.html#a26b5aa4aa3e48e044e86832a401304b7">operator&lt;&lt;</a>(<a class="code" href="a00243.html" title="STL class.">std::ostream</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00133.html">FragmentProperties</a>&amp;);
-<a name="l00064"></a>00064     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00591.html#afefbffac1ba55c37a1f7ab3a85ca753b" title="Encodes a Variant::Map into a message.">encode</a>(<a class="code" href="a00045.html">Buffer</a>&amp;) <span class="keyword">const</span>;
-<a name="l00065"></a>00065     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00591.html#ad37dfc262612bfde8fdc73e3a85ddf95" title="Decodes message content into a Variant::Map.">decode</a>(<a class="code" href="a00045.html">Buffer</a>&amp;, <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0);
-<a name="l00066"></a>00066     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> encodeStructBody(<a class="code" href="a00045.html">Buffer</a>&amp;) <span class="keyword">const</span>;
-<a name="l00067"></a>00067     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> decodeStructBody(<a class="code" href="a00045.html">Buffer</a>&amp;, <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0);
-<a name="l00068"></a>00068     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> encodedSize() <span class="keyword">const</span>;
-<a name="l00069"></a>00069     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> bodySize() <span class="keyword">const</span>;
-<a name="l00070"></a>00070     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> print(<a class="code" href="a00243.html" title="STL class.">std::ostream</a>&amp; out) <span class="keyword">const</span>;
-<a name="l00071"></a>00071 }; <span class="comment">/* class FragmentProperties */</span>
-<a name="l00072"></a>00072 
-<a name="l00073"></a>00073 }}
-<a name="l00074"></a>00074 <span class="preprocessor">#endif  </span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#include &lt;memory&gt;</span>
+<a name="l00032"></a>00032 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 <span class="preprocessor">#include &lt;assert.h&gt;</span>
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 <span class="keyword">namespace </span>qpid {
+<a name="l00037"></a>00037 <span class="keyword">namespace </span>framing {
+<a name="l00038"></a>00038 
+<a name="l00044"></a>00044 <span class="keyword">class </span><a class="code" href="a00484.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> FieldValueException : <span class="keyword">public</span> qpid::Exception {};
+<a name="l00045"></a>00045 
+<a name="l00051"></a>00051 <span class="keyword">struct </span><a class="code" href="a00484.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> InvalidConversionException : <span class="keyword">public</span> FieldValueException {
+<a name="l00052"></a><a class="code" href="a00165.html#a16a1a8998d729b435e3deda68eadf0e2">00052</a>     <a class="code" href="a00165.html#a16a1a8998d729b435e3deda68eadf0e2">InvalidConversionException</a>() {}
+<a name="l00053"></a>00053 };
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 <span class="keyword">class </span>List;
+<a name="l00056"></a>00056 
+<a name="l00062"></a>00062 <span class="keyword">class </span><a class="code" href="a00484.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> FieldValue {
+<a name="l00063"></a>00063   <span class="keyword">public</span>:
+<a name="l00064"></a>00064     <span class="comment">/*</span>
+<a name="l00065"></a>00065 <span class="comment">     * Abstract type for content of different types</span>
+<a name="l00066"></a>00066 <span class="comment">     */</span>
+<a name="l00067"></a>00067     <span class="keyword">class </span>Data {
+<a name="l00068"></a>00068       <span class="keyword">public</span>:
+<a name="l00069"></a><a class="code" href="a00095.html#a6254d8b024a7642f422d03b6ca768b77">00069</a>         <span class="keyword">virtual</span> <a class="code" href="a00095.html#a6254d8b024a7642f422d03b6ca768b77">~Data</a>() {};
+<a name="l00070"></a>00070         <span class="keyword">virtual</span> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> encodedSize() <span class="keyword">const</span> = 0;
+<a name="l00071"></a>00071         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00593.html#afefbffac1ba55c37a1f7ab3a85ca753b" title="Encodes a Variant::Map into a message.">encode</a>(<a class="code" href="a00045.html">Buffer</a>&amp; buffer) = 0;
+<a name="l00072"></a>00072         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00593.html#ad37dfc262612bfde8fdc73e3a85ddf95" title="Decodes message content into a Variant::Map.">decode</a>(<a class="code" href="a00045.html">Buffer</a>&amp; buffer) = 0;
+<a name="l00073"></a>00073         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="a00576.html#aacf454d1ba7d16ccf9ecd4037c4c47f3">operator==</a>(<span class="keyword">const</span> <a class="code" href="a00095.html">Data</a>&amp;) <span class="keyword">const</span> = 0;
+<a name="l00074"></a>00074 
+<a name="l00075"></a><a class="code" href="a00095.html#abb5d08280b70316f1436794288b61064">00075</a>         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="a00095.html#abb5d08280b70316f1436794288b61064">convertsToInt</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }
+<a name="l00076"></a><a class="code" href="a00095.html#ad3a689467bb1a0bdd2f87770002cdd24">00076</a>         <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="a00095.html#ad3a689467bb1a0bdd2f87770002cdd24">convertsToString</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }
+<a name="l00077"></a><a class="code" href="a00095.html#acc9e6fbe00b767c6924c485619f547df">00077</a>         <span class="keyword">virtual</span> int64_t <a class="code" href="a00095.html#acc9e6fbe00b767c6924c485619f547df">getInt</a>()<span class="keyword"> const </span>{ <span class="keywordflow">throw</span> <a class="code" href="a00165.html" title="Exception thrown when we can&#39;t perform requested conversion.">InvalidConversionException</a>();}
+<a name="l00078"></a><a class="code" href="a00095.html#ae56f9ff6c3c6260b42de28132d6e0720">00078</a>         <span class="keyword">virtual</span> std::string <a class="code" href="a00095.html#ae56f9ff6c3c6260b42de28132d6e0720">getString</a>()<span class="keyword"> const </span>{ <span class="keywordflow">throw</span> <a class="code" href="a00165.html" title="Exception thrown when we can&#39;t perform requested conversion.">InvalidConversionException</a>(); }
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080         <span class="keyword">virtual</span> <span class="keywordtype">void</span> print(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp; out) <span class="keyword">const</span> = 0;
+<a name="l00081"></a>00081     };
+<a name="l00082"></a>00082 
+<a name="l00083"></a><a class="code" href="a00127.html#aecf9a956f5e4c037dece7151dbb92354">00083</a>     <a class="code" href="a00127.html#aecf9a956f5e4c037dece7151dbb92354">FieldValue</a>(): data(0) {};
+<a name="l00084"></a>00084     <span class="comment">// Default assignment operator is fine</span>
+<a name="l00085"></a>00085     <span class="keywordtype">void</span> setType(<a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> type);
+<a name="l00086"></a>00086     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> getType() <span class="keyword">const</span>;
+<a name="l00087"></a><a class="code" href="a00127.html#a2b86b28664416550394345eaad87c27a">00087</a>     <a class="code" href="a00095.html">Data</a>&amp; <a class="code" href="a00127.html#a2b86b28664416550394345eaad87c27a">getData</a>() { <span class="keywordflow">return</span> *data; }
+<a name="l00088"></a><a class="code" href="a00127.html#ac3c945b063162e969a83696e58faa940">00088</a>     <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00127.html#ac3c945b063162e969a83696e58faa940">encodedSize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 1 + data-&gt;encodedSize(); };
+<a name="l00089"></a><a class="code" href="a00127.html#a01492e48a30259f9a01fe68c2a797a55">00089</a>     <span class="keywordtype">bool</span> <a class="code" href="a00127.html#a01492e48a30259f9a01fe68c2a797a55">empty</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> data.get() == 0; }
+<a name="l00090"></a>00090     <span class="keywordtype">void</span> <a class="code" href="a00593.html#afefbffac1ba55c37a1f7ab3a85ca753b" title="Encodes a Variant::Map into a message.">encode</a>(<a class="code" href="a00045.html">Buffer</a>&amp; buffer);
+<a name="l00091"></a>00091     <span class="keywordtype">void</span> <a class="code" href="a00593.html#ad37dfc262612bfde8fdc73e3a85ddf95" title="Decodes message content into a Variant::Map.">decode</a>(<a class="code" href="a00045.html">Buffer</a>&amp; buffer);
+<a name="l00092"></a>00092     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> <a class="code" href="a00576.html#aacf454d1ba7d16ccf9ecd4037c4c47f3">operator==</a>(<span class="keyword">const</span> <a class="code" href="a00127.html" title="Value that can appear in an AMQP field table.">FieldValue</a>&amp;) <span class="keyword">const</span>;
+<a name="l00093"></a><a class="code" href="a00127.html#affd3877cde74370c5c3a1d3f9ddbd164">00093</a>     <a class="code" href="a00484.html#a22b814cc5ef605d90a1295eae41f4ee4">QPID_COMMON_INLINE_EXTERN</a> <span class="keywordtype">bool</span> <a class="code" href="a00127.html#affd3877cde74370c5c3a1d3f9ddbd164">operator!=</a>(<span class="keyword">const</span> <a class="code" href="a00127.html" title="Value that can appear in an AMQP field table.">FieldValue</a>&amp; v)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == v); }
+<a name="l00094"></a>00094 
+<a name="l00095"></a>00095     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> print(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp; out) <span class="keyword">const</span>;
+<a name="l00096"></a>00096 
+<a name="l00097"></a><a class="code" href="a00127.html#abacc2b0d7a0514fd8d0de7cb71c0f786">00097</a>     <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keywordtype">bool</span> <a class="code" href="a00127.html#abacc2b0d7a0514fd8d0de7cb71c0f786">convertsTo</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }
+<a name="l00098"></a><a class="code" href="a00127.html#aeff9f97cc00e08c176abd5787ab57d46">00098</a>     <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; T <span class="keyword">get</span>() <span class="keyword">const</span> { <span class="keywordflow">throw</span> <a class="code" href="a00165.html" title="Exception thrown when we can&#39;t perform requested conversion.">InvalidConversionException</a>(); }
+<a name="l00099"></a>00099 
+<a name="l00100"></a>00100     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> W&gt; T getIntegerValue() <span class="keyword">const</span>;
+<a name="l00101"></a>00101     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; T getIntegerValue() <span class="keyword">const</span>;
+<a name="l00102"></a>00102     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> W&gt; T getFloatingPointValue() <span class="keyword">const</span>;
+<a name="l00103"></a>00103     <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> W&gt; <span class="keywordtype">void</span> getFixedWidthValue(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*) <span class="keyword">const</span>;
+<a name="l00104"></a>00104     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">bool</span> <span class="keyword">get</span>(T&amp;) <span class="keyword">const</span>;
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106   <span class="keyword">protected</span>:
+<a name="l00107"></a><a class="code" href="a00127.html#aa2f17b0edcf166bcb848b3310b38f5c0">00107</a>     <a class="code" href="a00127.html#aa2f17b0edcf166bcb848b3310b38f5c0">FieldValue</a>(<a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> t, <a class="code" href="a00095.html">Data</a>* d): typeOctet(t), data(d) {}
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">static</span> <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* convertIfRequired(<a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* <span class="keyword">const</span> octets, <span class="keywordtype">int</span> width);
+<a name="l00110"></a>00110 
+<a name="l00111"></a>00111   <span class="keyword">private</span>:
+<a name="l00112"></a>00112     <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> typeOctet;
+<a name="l00113"></a>00113     std::auto_ptr&lt;Data&gt; data;
+<a name="l00114"></a>00114 
+<a name="l00115"></a>00115 };
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117 <span class="keyword">template</span> &lt;&gt;
+<a name="l00118"></a>00118 <span class="keyword">inline</span> <span class="keywordtype">bool</span> FieldValue::convertsTo&lt;int&gt;() <span class="keyword">const</span> { <span class="keywordflow">return</span> data-&gt;convertsToInt(); }
+<a name="l00119"></a>00119 
+<a name="l00120"></a>00120 <span class="keyword">template</span> &lt;&gt;
+<a name="l00121"></a>00121 <span class="keyword">inline</span> <span class="keywordtype">bool</span> FieldValue::convertsTo&lt;int64_t&gt;() <span class="keyword">const</span> { <span class="keywordflow">return</span> data-&gt;convertsToInt(); }
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123 <span class="keyword">template</span> &lt;&gt;
+<a name="l00124"></a><a class="code" href="a00582.html#a8df25383fed189a988aab850114d7f1e">00124</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="a00127.html" title="Value that can appear in an AMQP field table.">FieldValue</a>::convertsTo&lt;std::string&gt;() <span class="keyword">const</span> { <span class="keywordflow">return</span> data-&gt;convertsToString(); }
+<a name="l00125"></a>00125 
+<a name="l00126"></a>00126 <span class="keyword">template</span> &lt;&gt;
+<a name="l00127"></a>00127 <span class="keyword">inline</span> <span class="keywordtype">int</span> FieldValue::get&lt;int&gt;() <span class="keyword">const</span> { <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(data-&gt;getInt()); }
+<a name="l00128"></a>00128 
+<a name="l00129"></a>00129 <span class="keyword">template</span> &lt;&gt;
+<a name="l00130"></a>00130 <span class="keyword">inline</span> int64_t FieldValue::get&lt;int64_t&gt;() <span class="keyword">const</span> { <span class="keywordflow">return</span> data-&gt;getInt(); }
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132 <span class="keyword">template</span> &lt;&gt;
+<a name="l00133"></a><a class="code" href="a00582.html#afde80d14e4bca8ef2535455fb9fd4062">00133</a> <span class="keyword">inline</span> std::string <a class="code" href="a00127.html" title="Value that can appear in an AMQP field table.">FieldValue</a>::get&lt;std::string&gt;() <span class="keyword">const</span> { <span class="keywordflow">return</span> data-&gt;getString(); }
+<a name="l00134"></a>00134 
+<a name="l00135"></a><a class="code" href="a00582.html#ab8ea9b7b61e5332a88308c36754cda47">00135</a> <span class="keyword">inline</span> std::ostream&amp; <a class="code" href="a00582.html#a26b5aa4aa3e48e044e86832a401304b7">operator&lt;&lt;</a>(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp; out, <span class="keyword">const</span> <a class="code" href="a00127.html" title="Value that can appear in an AMQP field table.">FieldValue</a>&amp; v) {
+<a name="l00136"></a>00136     v.<a class="code" href="a00127.html#ad5c51d404ce77bec34caa72673fefcad">print</a>(out);
+<a name="l00137"></a>00137     <span class="keywordflow">return</span> out;
+<a name="l00138"></a>00138 }
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140 <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> w<span class="keywordtype">id</span>th&gt;
+<a name="l00141"></a>00141 <span class="keyword">class </span>FixedWidthValue : <span class="keyword">public</span> FieldValue::Data {
+<a name="l00142"></a>00142     <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> octets[width];
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144   <span class="keyword">public</span>:
+<a name="l00145"></a><a class="code" href="a00130.html#a29d4cc387e8e2e199237997c32093ec2">00145</a>     <a class="code" href="a00130.html#a29d4cc387e8e2e199237997c32093ec2">FixedWidthValue</a>() {}
+<a name="l00146"></a><a class="code" href="a00130.html#ae252eab97e7be84e8a566cf1c87307db">00146</a>     <a class="code" href="a00130.html#ae252eab97e7be84e8a566cf1c87307db">FixedWidthValue</a>(<span class="keyword">const</span> <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> (&amp;data)[width]) : octets(data) {}
+<a name="l00147"></a><a class="code" href="a00130.html#a8895a8d9ae6e689f022531ea2afd4502">00147</a>     <a class="code" href="a00130.html#a29d4cc387e8e2e199237997c32093ec2">FixedWidthValue</a>(<span class="keyword">const</span> <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* <span class="keyword">const</span> data)
+<a name="l00148"></a>00148     {
+<a name="l00149"></a>00149         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; width; i++) octets[i] = data[i];
+<a name="l00150"></a>00150     }
+<a name="l00151"></a><a class="code" href="a00130.html#a77bde2038629851c413b94ed09fbf115">00151</a>     <a class="code" href="a00130.html#a29d4cc387e8e2e199237997c32093ec2">FixedWidthValue</a>(uint64_t v)
+<a name="l00152"></a>00152     {
+<a name="l00153"></a>00153         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = width; i &gt; 1; --i) {
+<a name="l00154"></a>00154             octets[i-1] = (<a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>) (0xFF &amp; v); v &gt;&gt;= 8;
+<a name="l00155"></a>00155         }
+<a name="l00156"></a>00156         octets[0] = (<a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>) (0xFF &amp; v);
+<a name="l00157"></a>00157     }
+<a name="l00158"></a><a class="code" href="a00130.html#a231e6317d77c0af143d74e50a8835866">00158</a>     <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00130.html#a231e6317d77c0af143d74e50a8835866">encodedSize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> width; }
+<a name="l00159"></a><a class="code" href="a00130.html#a0965a57670a3eee3ab9d801b355e4673">00159</a>     <span class="keywordtype">void</span> <a class="code" href="a00130.html#a0965a57670a3eee3ab9d801b355e4673">encode</a>(<a class="code" href="a00045.html">Buffer</a>&amp; buffer) { buffer.<a class="code" href="a00045.html#a4dc07113b0aec668e18c18be5f7d40bc">putRawData</a>(octets, width); }
+<a name="l00160"></a><a class="code" href="a00130.html#ac3758cf21f57c45a02d8fa22209b719b">00160</a>     <span class="keywordtype">void</span> <a class="code" href="a00130.html#ac3758cf21f57c45a02d8fa22209b719b">decode</a>(<a class="code" href="a00045.html">Buffer</a>&amp; buffer) { buffer.<a class="code" href="a00045.html#a3d5127eb73bb82dadf9b17b9b10c650c">getRawData</a>(octets, width); }
+<a name="l00161"></a><a class="code" href="a00130.html#a03d65f7860c92f0b44986dabbd2a790a">00161</a>     <span class="keywordtype">bool</span> <a class="code" href="a00130.html#a03d65f7860c92f0b44986dabbd2a790a">operator==</a>(<span class="keyword">const</span> Data&amp; d)<span class="keyword"> const </span>{
+<a name="l00162"></a>00162         <span class="keyword">const</span> <a class="code" href="a00130.html">FixedWidthValue&lt;width&gt;</a>* rhs = <span class="keyword">dynamic_cast&lt;</span> <span class="keyword">const </span><a class="code" href="a00130.html">FixedWidthValue&lt;width&gt;</a>* <span class="keyword">&gt;</span>(&amp;d);
+<a name="l00163"></a>00163         <span class="keywordflow">if</span> (rhs == 0) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00164"></a>00164         <span class="keywordflow">else</span> <span class="keywordflow">return</span> std::equal(&amp;octets[0], &amp;octets[width], &amp;rhs-&gt;octets[0]);
+<a name="l00165"></a>00165     }
+<a name="l00166"></a>00166 
+<a name="l00167"></a><a class="code" href="a00130.html#af0d7e7818a7dd01ceb4257272e12a0c6">00167</a>     <span class="keywordtype">bool</span> <a class="code" href="a00130.html#af0d7e7818a7dd01ceb4257272e12a0c6">convertsToInt</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }
+<a name="l00168"></a><a class="code" href="a00130.html#a934eaa6a8072e176f78ddee8222e1132">00168</a>     int64_t <a class="code" href="a00130.html#a934eaa6a8072e176f78ddee8222e1132">getInt</a>()<span class="keyword"> const</span>
+<a name="l00169"></a>00169 <span class="keyword">    </span>{
+<a name="l00170"></a>00170         int64_t v = 0;
+<a name="l00171"></a>00171         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; width-1; ++i) {
+<a name="l00172"></a>00172             v |= octets[i]; v &lt;&lt;= 8;
+<a name="l00173"></a>00173         }
+<a name="l00174"></a>00174         v |= octets[width-1];
+<a name="l00175"></a>00175         <span class="keywordflow">return</span> v;
+<a name="l00176"></a>00176     }
+<a name="l00177"></a><a class="code" href="a00130.html#ac50914f2af68aefd99772fa639ce2851">00177</a>     <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* <a class="code" href="a00130.html#ac50914f2af68aefd99772fa639ce2851">rawOctets</a>() { <span class="keywordflow">return</span> octets; }
+<a name="l00178"></a><a class="code" href="a00130.html#a6afb9dda0d164b275fcb3bd8f4361983">00178</a>     <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* <a class="code" href="a00130.html#a6afb9dda0d164b275fcb3bd8f4361983">rawOctets</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> octets; }
+<a name="l00179"></a>00179 
+<a name="l00180"></a><a class="code" href="a00130.html#a7d1bac971dca37730a1827318cf51831">00180</a>     <span class="keywordtype">void</span> <a class="code" href="a00130.html#a7d1bac971dca37730a1827318cf51831">print</a>(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp; o)<span class="keyword"> const </span>{ o &lt;&lt; <span class="stringliteral">&quot;F&quot;</span> &lt;&lt; width &lt;&lt; <span class="stringliteral">&quot;:&quot;</span>; };
+<a name="l00181"></a>00181 };
+<a name="l00182"></a>00182 
+<a name="l00183"></a>00183 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> W&gt;
+<a name="l00184"></a><a class="code" href="a00127.html#a694aa76d11fb72c08e14d784387f964f">00184</a> <span class="keyword">inline</span> T <a class="code" href="a00127.html#a694aa76d11fb72c08e14d784387f964f">FieldValue::getIntegerValue</a>()<span class="keyword"> const</span>
+<a name="l00185"></a>00185 <span class="keyword"></span>{
+<a name="l00186"></a>00186     <a class="code" href="a00130.html">FixedWidthValue&lt;W&gt;</a>* <span class="keyword">const</span> fwv = <span class="keyword">dynamic_cast&lt;</span> <a class="code" href="a00130.html">FixedWidthValue&lt;W&gt;</a>* const<span class="keyword">&gt;</span>(data.get());
+<a name="l00187"></a>00187     <span class="keywordflow">if</span> (fwv) {
+<a name="l00188"></a>00188         <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* octets = fwv-&gt;rawOctets();
+<a name="l00189"></a>00189         T v = 0;
+<a name="l00190"></a>00190         <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; W-1; ++i) {
+<a name="l00191"></a>00191             v |= octets[i]; v &lt;&lt;= 8;
+<a name="l00192"></a>00192         }
+<a name="l00193"></a>00193         v |= octets[W-1];
+<a name="l00194"></a>00194         <span class="keywordflow">return</span> v;
+<a name="l00195"></a>00195     } <span class="keywordflow">else</span> {
+<a name="l00196"></a>00196         <span class="keywordflow">throw</span> <a class="code" href="a00165.html" title="Exception thrown when we can&#39;t perform requested conversion.">InvalidConversionException</a>();
+<a name="l00197"></a>00197     }
+<a name="l00198"></a>00198 }
+<a name="l00199"></a>00199 
+<a name="l00200"></a>00200 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00201"></a>00201 <span class="keyword">inline</span> T <a class="code" href="a00127.html#a694aa76d11fb72c08e14d784387f964f">FieldValue::getIntegerValue</a>()<span class="keyword"> const</span>
+<a name="l00202"></a>00202 <span class="keyword"></span>{
+<a name="l00203"></a>00203     <a class="code" href="a00130.html">FixedWidthValue&lt;1&gt;</a>* <span class="keyword">const</span> fwv = <span class="keyword">dynamic_cast&lt;</span> <a class="code" href="a00130.html">FixedWidthValue&lt;1&gt;</a>* const<span class="keyword">&gt;</span>(data.get());
+<a name="l00204"></a>00204     <span class="keywordflow">if</span> (fwv) {
+<a name="l00205"></a>00205         <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* octets = fwv-&gt;rawOctets();
+<a name="l00206"></a>00206         <span class="keywordflow">return</span> octets[0];
+<a name="l00207"></a>00207     } <span class="keywordflow">else</span> {
+<a name="l00208"></a>00208         <span class="keywordflow">throw</span> InvalidConversionException();
+<a name="l00209"></a>00209     }
+<a name="l00210"></a>00210 }
+<a name="l00211"></a>00211 
+<a name="l00212"></a>00212 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T, <span class="keywordtype">int</span> W&gt;
+<a name="l00213"></a><a class="code" href="a00127.html#ae1e2adfd64967f7599ff08bac240f0d6">00213</a> <span class="keyword">inline</span> T <a class="code" href="a00127.html#ae1e2adfd64967f7599ff08bac240f0d6">FieldValue::getFloatingPointValue</a>()<span class="keyword"> const </span>{
+<a name="l00214"></a>00214     <a class="code" href="a00130.html">FixedWidthValue&lt;W&gt;</a>* <span class="keyword">const</span> fwv = <span class="keyword">dynamic_cast&lt;</span> <a class="code" href="a00130.html">FixedWidthValue&lt;W&gt;</a>* const<span class="keyword">&gt;</span>(data.get());
+<a name="l00215"></a>00215     <span class="keywordflow">if</span> (fwv) {
+<a name="l00216"></a>00216         T value;
+<a name="l00217"></a>00217         <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* <span class="keyword">const</span> octets = <a class="code" href="a00127.html#a74c8b51fa57fa8e0707defd20cf8975f">convertIfRequired</a>(fwv-&gt;rawOctets(), W);
+<a name="l00218"></a>00218         <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* <span class="keyword">const</span> target = <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>*<span class="keyword">&gt;</span>(&amp;value);
+<a name="l00219"></a>00219         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; W; ++i) target[i] = octets[i];
+<a name="l00220"></a>00220         <span class="keywordflow">return</span> value;
+<a name="l00221"></a>00221     } <span class="keywordflow">else</span> {
+<a name="l00222"></a>00222         <span class="keywordflow">throw</span> <a class="code" href="a00165.html" title="Exception thrown when we can&#39;t perform requested conversion.">InvalidConversionException</a>();
+<a name="l00223"></a>00223     }
+<a name="l00224"></a>00224 }
+<a name="l00225"></a>00225 
+<a name="l00226"></a><a class="code" href="a00127.html#a0c9ff7e35026d5b05b1aa66ceaaf233c">00226</a> <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> W&gt; <span class="keywordtype">void</span> <a class="code" href="a00127.html#a0c9ff7e35026d5b05b1aa66ceaaf233c">FieldValue::getFixedWidthValue</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* value)<span class="keyword"> const</span>
+<a name="l00227"></a>00227 <span class="keyword"></span>{
+<a name="l00228"></a>00228     <a class="code" href="a00130.html">FixedWidthValue&lt;W&gt;</a>* <span class="keyword">const</span> fwv = <span class="keyword">dynamic_cast&lt;</span> <a class="code" href="a00130.html">FixedWidthValue&lt;W&gt;</a>* const<span class="keyword">&gt;</span>(data.get());
+<a name="l00229"></a>00229     <span class="keywordflow">if</span> (fwv) {
+<a name="l00230"></a>00230         <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; W; ++i) value[i] = fwv-&gt;rawOctets()[i];
+<a name="l00231"></a>00231     } <span class="keywordflow">else</span> {
+<a name="l00232"></a>00232         <span class="keywordflow">throw</span> <a class="code" href="a00165.html" title="Exception thrown when we can&#39;t perform requested conversion.">InvalidConversionException</a>();
+<a name="l00233"></a>00233     }
+<a name="l00234"></a>00234 }
+<a name="l00235"></a>00235 
+<a name="l00236"></a>00236 <span class="keyword">template</span> &lt;&gt;
+<a name="l00237"></a>00237 <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="a00127.html" title="Value that can appear in an AMQP field table.">FieldValue</a>::get&lt;float&gt;() <span class="keyword">const</span> {
+<a name="l00238"></a>00238     <span class="keywordflow">return</span> getFloatingPointValue&lt;float, 4&gt;();
+<a name="l00239"></a>00239 }
+<a name="l00240"></a>00240 
+<a name="l00241"></a>00241 <span class="keyword">template</span> &lt;&gt;
+<a name="l00242"></a>00242 <span class="keyword">inline</span> <span class="keywordtype">double</span> FieldValue::get&lt;double&gt;() <span class="keyword">const</span> {
+<a name="l00243"></a>00243     <span class="keywordflow">return</span> getFloatingPointValue&lt;double, 8&gt;();
+<a name="l00244"></a>00244 }
+<a name="l00245"></a>00245 
+<a name="l00246"></a>00246 <span class="keyword">template</span> &lt;&gt;
+<a name="l00247"></a>00247 <span class="keyword">class </span>FixedWidthValue&lt;0&gt; : <span class="keyword">public</span> FieldValue::Data {
+<a name="l00248"></a>00248   <span class="keyword">public</span>:
+<a name="l00249"></a>00249     <span class="comment">// Implicit default constructor is fine</span>
+<a name="l00250"></a><a class="code" href="a00131.html#ad6816d7aa70d41d3687f6dd1b51fdec9">00250</a>     <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00131.html#ad6816d7aa70d41d3687f6dd1b51fdec9">encodedSize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 0; }
+<a name="l00251"></a><a class="code" href="a00131.html#ae0e0652dc4378d78fc1a2291d3576125">00251</a>     <span class="keywordtype">void</span> <a class="code" href="a00131.html#ae0e0652dc4378d78fc1a2291d3576125">encode</a>(<a class="code" href="a00045.html">Buffer</a>&amp;) {};
+<a name="l00252"></a><a class="code" href="a00131.html#a3b0b3ae18bcf38340aca2bc7290752dd">00252</a>     <span class="keywordtype">void</span> <a class="code" href="a00131.html#a3b0b3ae18bcf38340aca2bc7290752dd">decode</a>(<a class="code" href="a00045.html">Buffer</a>&amp;) {};
+<a name="l00253"></a><a class="code" href="a00131.html#a1f7fbfffb06706ee8f62a7d246ca0c2e">00253</a>     <span class="keywordtype">bool</span> <a class="code" href="a00131.html#a1f7fbfffb06706ee8f62a7d246ca0c2e">operator==</a>(<span class="keyword">const</span> Data&amp; d)<span class="keyword"> const </span>{
+<a name="l00254"></a>00254         <span class="keyword">const</span> <a class="code" href="a00131.html">FixedWidthValue&lt;0&gt;</a>* rhs = <span class="keyword">dynamic_cast&lt;</span> <span class="keyword">const </span><a class="code" href="a00131.html">FixedWidthValue&lt;0&gt;</a>* <span class="keyword">&gt;</span>(&amp;d);
+<a name="l00255"></a>00255         <span class="keywordflow">return</span> rhs != 0;
+<a name="l00256"></a>00256     }
+<a name="l00257"></a><a class="code" href="a00131.html#a3bb19b84df5303931b60c7c4feb72d17">00257</a>     <span class="keywordtype">void</span> <a class="code" href="a00131.html#a3bb19b84df5303931b60c7c4feb72d17">print</a>(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp; o)<span class="keyword"> const </span>{ o &lt;&lt; <span class="stringliteral">&quot;F0&quot;</span>; };
+<a name="l00258"></a>00258 };
+<a name="l00259"></a>00259 
+<a name="l00260"></a>00260 <span class="keyword">template</span> &lt;<span class="keywordtype">int</span> lenw<span class="keywordtype">id</span>th&gt;
+<a name="l00261"></a>00261 <span class="keyword">class </span>VariableWidthValue : <span class="keyword">public</span> FieldValue::Data {
+<a name="l00262"></a>00262     std::vector&lt;uint8_t&gt; octets;
+<a name="l00263"></a>00263 
+<a name="l00264"></a>00264   <span class="keyword">public</span>:
+<a name="l00265"></a><a class="code" href="a00385.html#aa4feb12707bbcde5078e6505f29f92da">00265</a>     <a class="code" href="a00385.html#aa4feb12707bbcde5078e6505f29f92da">VariableWidthValue</a>() {}
+<a name="l00266"></a><a class="code" href="a00385.html#a2af2327939407147b9e3c63480fb6028">00266</a>     <a class="code" href="a00385.html#a2af2327939407147b9e3c63480fb6028">VariableWidthValue</a>(<span class="keyword">const</span> <a class="code" href="a00387.html">std::vector&lt;uint8_t&gt;</a>&amp; data) : octets(data) {}
+<a name="l00267"></a><a class="code" href="a00385.html#a70c99e5469784ade097fe2d3b16054b4">00267</a>     <a class="code" href="a00385.html#a70c99e5469784ade097fe2d3b16054b4">VariableWidthValue</a>(<span class="keyword">const</span> <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* start, <span class="keyword">const</span> <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* end) : octets(start, end) {}
+<a name="l00268"></a><a class="code" href="a00385.html#ae6dc6a4f0e5528b7673d09949d5b2692">00268</a>     <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00385.html#ae6dc6a4f0e5528b7673d09949d5b2692">encodedSize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> lenwidth + octets.size(); }
+<a name="l00269"></a><a class="code" href="a00385.html#af7c9ad14a1d34998c6a29445c4e56182">00269</a>     <span class="keywordtype">void</span> <a class="code" href="a00385.html#af7c9ad14a1d34998c6a29445c4e56182">encode</a>(<a class="code" href="a00045.html">Buffer</a>&amp; buffer) {
+<a name="l00270"></a>00270         buffer.<a class="code" href="a00045.html#a18971ab3df27ac3c4f676da615f476f9">putUInt</a>&lt;lenwidth&gt;(octets.size());
+<a name="l00271"></a>00271         <span class="keywordflow">if</span> (octets.size() &gt; 0)
+<a name="l00272"></a>00272             buffer.<a class="code" href="a00045.html#a4dc07113b0aec668e18c18be5f7d40bc">putRawData</a>(&amp;octets[0], octets.size());
+<a name="l00273"></a>00273     };
+<a name="l00274"></a><a class="code" href="a00385.html#aa04e7378ebb74902ffcb87025001afc7">00274</a>     <span class="keywordtype">void</span> <a class="code" href="a00385.html#aa04e7378ebb74902ffcb87025001afc7">decode</a>(<a class="code" href="a00045.html">Buffer</a>&amp; buffer) {
+<a name="l00275"></a>00275         <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> len = buffer.<a class="code" href="a00045.html#a35c20ba042f44f6e7cc3542b271f10dc">getUInt</a>&lt;lenwidth&gt;();
+<a name="l00276"></a>00276         octets.resize(len);
+<a name="l00277"></a>00277         <span class="keywordflow">if</span> (len &gt; 0)
+<a name="l00278"></a>00278             buffer.<a class="code" href="a00045.html#a3d5127eb73bb82dadf9b17b9b10c650c">getRawData</a>(&amp;octets[0], len);
+<a name="l00279"></a>00279     }
+<a name="l00280"></a><a class="code" href="a00385.html#ab4c1d366cda75830980b36393167ed3a">00280</a>     <span class="keywordtype">bool</span> <a class="code" href="a00385.html#ab4c1d366cda75830980b36393167ed3a">operator==</a>(<span class="keyword">const</span> Data&amp; d)<span class="keyword"> const </span>{
+<a name="l00281"></a>00281         <span class="keyword">const</span> <a class="code" href="a00385.html">VariableWidthValue&lt;lenwidth&gt;</a>* rhs = <span class="keyword">dynamic_cast&lt;</span> <span class="keyword">const </span><a class="code" href="a00385.html">VariableWidthValue&lt;lenwidth&gt;</a>* <span class="keyword">&gt;</span>(&amp;d);
+<a name="l00282"></a>00282         <span class="keywordflow">if</span> (rhs == 0) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00283"></a>00283         <span class="keywordflow">else</span> <span class="keywordflow">return</span> octets==rhs-&gt;octets;
+<a name="l00284"></a>00284     }
+<a name="l00285"></a>00285 
+<a name="l00286"></a><a class="code" href="a00385.html#adf79e896afbe2be10c04cd2030eb1efb">00286</a>     <span class="keywordtype">bool</span> <a class="code" href="a00385.html#adf79e896afbe2be10c04cd2030eb1efb">convertsToString</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">true</span>; }
+<a name="l00287"></a><a class="code" href="a00385.html#af38a70b3af1b9b1bda144dadd5cea1d3">00287</a>     std::string <a class="code" href="a00385.html#af38a70b3af1b9b1bda144dadd5cea1d3">getString</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>(octets.begin(), octets.end()); }
+<a name="l00288"></a>00288 
+<a name="l00289"></a><a class="code" href="a00385.html#a2c535ff254bee45ce8ff5d83d7d49e6f">00289</a>     <span class="keywordtype">void</span> <a class="code" href="a00385.html#a2c535ff254bee45ce8ff5d83d7d49e6f">print</a>(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp; o)<span class="keyword"> const </span>{ o &lt;&lt; <span class="stringliteral">&quot;V&quot;</span> &lt;&lt; lenwidth &lt;&lt; <span class="stringliteral">&quot;:&quot;</span> &lt;&lt; octets.size() &lt;&lt; <span class="stringliteral">&quot;:&quot;</span>; };
+<a name="l00290"></a>00290 };
+<a name="l00291"></a>00291 
+<a name="l00292"></a>00292 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00293"></a>00293 <span class="keyword">class </span>EncodedValue : <span class="keyword">public</span> FieldValue::Data {
+<a name="l00294"></a>00294     T value;
+<a name="l00295"></a>00295   <span class="keyword">public</span>:
+<a name="l00296"></a>00296 
+<a name="l00297"></a><a class="code" href="a00107.html#abea45f119f0de49df91bea17bc445197">00297</a>     <a class="code" href="a00107.html#abea45f119f0de49df91bea17bc445197">EncodedValue</a>() {}
+<a name="l00298"></a><a class="code" href="a00107.html#a677a66cdcac0665ff27767dbf2bc14ce">00298</a>     <a class="code" href="a00107.html#a677a66cdcac0665ff27767dbf2bc14ce">EncodedValue</a>(<span class="keyword">const</span> T&amp; v) : value(v) {}
+<a name="l00299"></a>00299 
+<a name="l00300"></a><a class="code" href="a00107.html#a3a17267d063743a490f6f9a7e31e7084">00300</a>     T&amp; <a class="code" href="a00107.html#a3a17267d063743a490f6f9a7e31e7084">getValue</a>() { <span class="keywordflow">return</span> value; }
+<a name="l00301"></a><a class="code" href="a00107.html#adb2239f151e0529d4f7bad8ff1c60220">00301</a>     <span class="keyword">const</span> T&amp; <a class="code" href="a00107.html#adb2239f151e0529d4f7bad8ff1c60220">getValue</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> value; }
+<a name="l00302"></a>00302 
+<a name="l00303"></a><a class="code" href="a00107.html#a90533a55744d798dbae401f1cdc306e5">00303</a>     <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00107.html#a90533a55744d798dbae401f1cdc306e5">encodedSize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> value.encodedSize(); }
+<a name="l00304"></a>00304 
+<a name="l00305"></a><a class="code" href="a00107.html#a418de4d67d3f702c5f5b729b498a4b08">00305</a>     <span class="keywordtype">void</span> <a class="code" href="a00107.html#a418de4d67d3f702c5f5b729b498a4b08">encode</a>(<a class="code" href="a00045.html">Buffer</a>&amp; buffer) {
+<a name="l00306"></a>00306         value.encode(buffer);
+<a name="l00307"></a>00307     };
+<a name="l00308"></a><a class="code" href="a00107.html#a5d27f5f35d648686bbd44069eadaf28e">00308</a>     <span class="keywordtype">void</span> <a class="code" href="a00107.html#a5d27f5f35d648686bbd44069eadaf28e">decode</a>(<a class="code" href="a00045.html">Buffer</a>&amp; buffer) {
+<a name="l00309"></a>00309         value.decode(buffer);
+<a name="l00310"></a>00310     }
+<a name="l00311"></a><a class="code" href="a00107.html#ad01f0c25d7bd31493d71f55a5c9f87dd">00311</a>     <span class="keywordtype">bool</span> <a class="code" href="a00107.html#ad01f0c25d7bd31493d71f55a5c9f87dd">operator==</a>(<span class="keyword">const</span> Data&amp; d)<span class="keyword"> const </span>{
+<a name="l00312"></a>00312         <span class="keyword">const</span> <a class="code" href="a00107.html">EncodedValue&lt;T&gt;</a>* rhs = <span class="keyword">dynamic_cast&lt;</span> <span class="keyword">const </span><a class="code" href="a00107.html">EncodedValue&lt;T&gt;</a>* <span class="keyword">&gt;</span>(&amp;d);
+<a name="l00313"></a>00313         <span class="keywordflow">if</span> (rhs == 0) <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00314"></a>00314         <span class="keywordflow">else</span> <span class="keywordflow">return</span> value==rhs-&gt;value;
+<a name="l00315"></a>00315     }
+<a name="l00316"></a>00316 
+<a name="l00317"></a><a class="code" href="a00107.html#aecb5b3350b60f2489e2ba1d7be7a8338">00317</a>     <span class="keywordtype">void</span> <a class="code" href="a00107.html#aecb5b3350b60f2489e2ba1d7be7a8338">print</a>(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp; o)<span class="keyword"> const </span>{ o &lt;&lt; <span class="stringliteral">&quot;[&quot;</span> &lt;&lt; value &lt;&lt; <span class="stringliteral">&quot;]&quot;</span>; };
+<a name="l00318"></a>00318 };
+<a name="l00319"></a>00319 
+<a name="l00324"></a>00324 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00325"></a><a class="code" href="a00127.html#a21f6bd8d2f902aeebd72a6eef8dc6089">00325</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="a00127.html#aeff9f97cc00e08c176abd5787ab57d46">FieldValue::get</a>(T&amp; t)<span class="keyword"> const</span>
+<a name="l00326"></a>00326 <span class="keyword"></span>{
+<a name="l00327"></a>00327     <span class="keyword">const</span> <a class="code" href="a00107.html">EncodedValue&lt;T&gt;</a>* v = <span class="keyword">dynamic_cast&lt;</span> <a class="code" href="a00107.html">EncodedValue&lt;T&gt;</a>* <span class="keyword">&gt;</span>(data.get());    
+<a name="l00328"></a>00328     <span class="keywordflow">if</span> (v != 0) {
+<a name="l00329"></a>00329         t = v-&gt;getValue();
+<a name="l00330"></a>00330         <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00331"></a>00331     } <span class="keywordflow">else</span> {
+<a name="l00332"></a>00332         <span class="keywordflow">try</span> {
+<a name="l00333"></a>00333             t = get&lt;T&gt;();
+<a name="l00334"></a>00334             <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00335"></a>00335         } <span class="keywordflow">catch</span> (<span class="keyword">const</span> <a class="code" href="a00165.html" title="Exception thrown when we can&#39;t perform requested conversion.">InvalidConversionException</a>&amp;) {
+<a name="l00336"></a>00336             <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00337"></a>00337         }
+<a name="l00338"></a>00338     }
+<a name="l00339"></a>00339 }
+<a name="l00340"></a>00340 
+<a name="l00341"></a>00341 <span class="keyword">class </span><a class="code" href="a00344.html">Str8Value</a> : <span class="keyword">public</span> <a class="code" href="a00127.html" title="Value that can appear in an AMQP field table.">FieldValue</a> {
+<a name="l00342"></a>00342   <span class="keyword">public</span>:
+<a name="l00343"></a>00343     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00344.html#a5e659681c8702b86b06bf129d6e01b74">Str8Value</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; v);
+<a name="l00344"></a>00344 };
+<a name="l00345"></a>00345 
+<a name="l00346"></a>00346 <span class="keyword">class </span>Str16Value : <span class="keyword">public</span> FieldValue {
+<a name="l00347"></a>00347   <span class="keyword">public</span>:
+<a name="l00348"></a>00348     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00343.html#a8267f5e284dd35657388937588a6178d">Str16Value</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; v);
+<a name="l00349"></a>00349 };
+<a name="l00350"></a>00350 
+<a name="l00351"></a>00351 <span class="keyword">class </span>Var16Value : <span class="keyword">public</span> FieldValue {
+<a name="l00352"></a>00352   <span class="keyword">public</span>:
+<a name="l00353"></a>00353     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00383.html#a2de2fded227041d9a9e9cf2dbdbc5b9a">Var16Value</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; v, <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> code);
+<a name="l00354"></a>00354 };
+<a name="l00355"></a>00355 
+<a name="l00356"></a>00356 <span class="keyword">class </span>Var32Value : <span class="keyword">public</span> FieldValue {
+<a name="l00357"></a>00357   <span class="keyword">public</span>:
+<a name="l00358"></a>00358     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00384.html#afe208c61ca9de6e2d69b0d50a98ab476">Var32Value</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; v, <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> code);
+<a name="l00359"></a>00359 };
+<a name="l00360"></a>00360 
+<a name="l00361"></a>00361 <span class="keyword">class </span>Struct32Value : <span class="keyword">public</span> FieldValue {
+<a name="l00362"></a>00362   <span class="keyword">public</span>:
+<a name="l00363"></a>00363     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00349.html#a2f9cf0c34c6d9cca81a59028eef13a55">Struct32Value</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; v);
+<a name="l00364"></a>00364 };
+<a name="l00365"></a>00365 
+<a name="l00366"></a>00366 <span class="keyword">class </span>FloatValue : <span class="keyword">public</span> FieldValue
+<a name="l00367"></a>00367 {
+<a name="l00368"></a>00368   <span class="keyword">public</span>:
+<a name="l00369"></a>00369     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00132.html#a2438fd74cc6bd0ced7961439ec84659d">FloatValue</a>(<span class="keywordtype">float</span> f);
+<a name="l00370"></a>00370 };
+<a name="l00371"></a>00371 <span class="keyword">class </span>DoubleValue : <span class="keyword">public</span> FieldValue
+<a name="l00372"></a>00372 {
+<a name="l00373"></a>00373   <span class="keyword">public</span>:
+<a name="l00374"></a>00374     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00101.html#a9024a9b279faad08d534c9976c731660">DoubleValue</a>(<span class="keywordtype">double</span> f);
+<a name="l00375"></a>00375 };
+<a name="l00376"></a>00376 
+<a name="l00377"></a>00377 <span class="comment">/*</span>
+<a name="l00378"></a>00378 <span class="comment"> * Basic integer value encodes as signed 32 bit</span>
+<a name="l00379"></a>00379 <span class="comment"> */</span>
+<a name="l00380"></a>00380 <span class="keyword">class </span>IntegerValue : <span class="keyword">public</span> FieldValue {
+<a name="l00381"></a>00381   <span class="keyword">public</span>:
+<a name="l00382"></a>00382     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00158.html#a4a086878c77acf5ca31ec246d71b27a8">IntegerValue</a>(<span class="keywordtype">int</span> v);
+<a name="l00383"></a>00383 };
+<a name="l00384"></a>00384 
+<a name="l00385"></a>00385 <span class="keyword">class </span>TimeValue : <span class="keyword">public</span> FieldValue {
+<a name="l00386"></a>00386   <span class="keyword">public</span>:
+<a name="l00387"></a>00387     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00357.html#a059e51507f2136f9b4b1f058962b2224">TimeValue</a>(uint64_t v);
+<a name="l00388"></a>00388 };
+<a name="l00389"></a>00389 
+<a name="l00390"></a>00390 <span class="keyword">class </span>Integer64Value : <span class="keyword">public</span> FieldValue {
+<a name="l00391"></a>00391   <span class="keyword">public</span>:
+<a name="l00392"></a>00392     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00156.html#a091a53564a829612b786269d6b4c4883">Integer64Value</a>(int64_t v);
+<a name="l00393"></a>00393 };
+<a name="l00394"></a>00394 
+<a name="l00395"></a>00395 <span class="keyword">class </span>Unsigned64Value : <span class="keyword">public</span> FieldValue {
+<a name="l00396"></a>00396   <span class="keyword">public</span>:
+<a name="l00397"></a>00397     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00372.html#a6a004f54ca23dbfb88b85d30485241b1">Unsigned64Value</a>(uint64_t v);
+<a name="l00398"></a>00398 };
+<a name="l00399"></a>00399 
+<a name="l00400"></a>00400 <span class="keyword">class </span>FieldTableValue : <span class="keyword">public</span> FieldValue {
+<a name="l00401"></a>00401   <span class="keyword">public</span>:
+<a name="l00402"></a><a class="code" href="a00126.html#a7d1a3a45a528300b8fa1347b79db140a">00402</a>     <span class="keyword">typedef</span> <a class="code" href="a00125.html" title="A set of name-value pairs.">FieldTable</a> <a class="code" href="a00126.html#a7d1a3a45a528300b8fa1347b79db140a">ValueType</a>;
+<a name="l00403"></a>00403     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00126.html#afa12e555828ea9b86232df638fb2fc09">FieldTableValue</a>(<span class="keyword">const</span> <a class="code" href="a00125.html" title="A set of name-value pairs.">FieldTable</a>&amp;);
+<a name="l00404"></a>00404 };
+<a name="l00405"></a>00405 
+<a name="l00406"></a>00406 <span class="keyword">class </span><a class="code" href="a00017.html">ArrayValue</a> : <span class="keyword">public</span> <a class="code" href="a00127.html" title="Value that can appear in an AMQP field table.">FieldValue</a> {
+<a name="l00407"></a>00407   <span class="keyword">public</span>:
+<a name="l00408"></a>00408     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00017.html#ad2ba08e613453b99dfd35827ed139502">ArrayValue</a>(<span class="keyword">const</span> <a class="code" href="a00016.html">Array</a>&amp;);
+<a name="l00409"></a>00409 };
+<a name="l00410"></a>00410 
+<a name="l00411"></a>00411 <span class="keyword">class </span>VoidValue : <span class="keyword">public</span> FieldValue {
+<a name="l00412"></a>00412   <span class="keyword">public</span>:
+<a name="l00413"></a>00413     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00388.html#a5a6a1a31598f2768265b4755b130525b">VoidValue</a>();
+<a name="l00414"></a>00414 };
+<a name="l00415"></a>00415 
+<a name="l00416"></a>00416 <span class="keyword">class </span>BoolValue : <span class="keyword">public</span> FieldValue {
+<a name="l00417"></a>00417   <span class="keyword">public</span>:
+<a name="l00418"></a>00418     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00040.html#a8c0e45cae1b55ebfdcc866cef948e1f4">BoolValue</a>(<span class="keywordtype">bool</span>);
+<a name="l00419"></a>00419 };
+<a name="l00420"></a>00420 
+<a name="l00421"></a>00421 <span class="keyword">class </span>Unsigned8Value : <span class="keyword">public</span> FieldValue {
+<a name="l00422"></a>00422   <span class="keyword">public</span>:
+<a name="l00423"></a>00423     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00373.html#a867f799d6e4545e82663c4076eb0b523">Unsigned8Value</a>(<a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>);
+<a name="l00424"></a>00424 };
+<a name="l00425"></a>00425 
+<a name="l00426"></a>00426 <span class="keyword">class </span>Unsigned16Value : <span class="keyword">public</span> FieldValue {
+<a name="l00427"></a>00427   <span class="keyword">public</span>:
+<a name="l00428"></a>00428     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00370.html#aa0f387225ee0b01ff34f1b03736546bb">Unsigned16Value</a>(<a class="code" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>);
+<a name="l00429"></a>00429 };
+<a name="l00430"></a>00430 
+<a name="l00431"></a>00431 <span class="keyword">class </span>Unsigned32Value : <span class="keyword">public</span> FieldValue {
+<a name="l00432"></a>00432   <span class="keyword">public</span>:
+<a name="l00433"></a>00433     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00371.html#a39b0e4705aa6badb40adf3a4e0ec3f63">Unsigned32Value</a>(<a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>);
+<a name="l00434"></a>00434 };
+<a name="l00435"></a>00435 
+<a name="l00436"></a>00436 <span class="keyword">class </span>Integer8Value : <span class="keyword">public</span> FieldValue {
+<a name="l00437"></a>00437   <span class="keyword">public</span>:
+<a name="l00438"></a>00438     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00157.html#a581816ac48ef5d9cadad8bf33fa548eb">Integer8Value</a>(int8_t);
+<a name="l00439"></a>00439 };
+<a name="l00440"></a>00440 
+<a name="l00441"></a>00441 <span class="keyword">class </span>Integer16Value : <span class="keyword">public</span> FieldValue {
+<a name="l00442"></a>00442   <span class="keyword">public</span>:
+<a name="l00443"></a>00443     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00155.html#ad5bbc06b06a95d2fb0348ccb43665c96">Integer16Value</a>(<a class="code" href="a00558.html#aa343fa3b3d06292b959ffdd4c4703b06">int16_t</a>);
+<a name="l00444"></a>00444 };
+<a name="l00445"></a>00445 
+<a name="l00446"></a><a class="code" href="a00582.html#ab834c97eddc486a5bda79c50bcd7f91a">00446</a> <span class="keyword">typedef</span> <a class="code" href="a00158.html">IntegerValue</a> <a class="code" href="a00582.html#ab834c97eddc486a5bda79c50bcd7f91a">Integer32Value</a>;
+<a name="l00447"></a>00447 
+<a name="l00448"></a>00448 <span class="keyword">class </span><a class="code" href="a00193.html">ListValue</a> : <span class="keyword">public</span> <a class="code" href="a00127.html" title="Value that can appear in an AMQP field table.">FieldValue</a> {
+<a name="l00449"></a>00449   <span class="keyword">public</span>:
+<a name="l00450"></a><a class="code" href="a00193.html#af14940981c8ae3e5ade6e0e591cf8d83">00450</a>     <span class="keyword">typedef</span> <a class="code" href="a00190.html" title="Representation of an AMQP 0-10 list.">List</a> <a class="code" href="a00193.html#af14940981c8ae3e5ade6e0e591cf8d83">ValueType</a>;
+<a name="l00451"></a>00451     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00193.html#a8a6d603b0920f7d879727736495314db">ListValue</a>(<span class="keyword">const</span> <a class="code" href="a00190.html" title="Representation of an AMQP 0-10 list.">List</a>&amp;);
+<a name="l00452"></a>00452 };
+<a name="l00453"></a>00453 
+<a name="l00454"></a>00454 <span class="keyword">class </span><a class="code" href="a00378.html">UuidValue</a> : <span class="keyword">public</span> <a class="code" href="a00127.html" title="Value that can appear in an AMQP field table.">FieldValue</a> {
+<a name="l00455"></a>00455   <span class="keyword">public</span>:
+<a name="l00456"></a>00456     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00378.html#aa976eff340e505d0e7c86702fcfeaf36">UuidValue</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*);
+<a name="l00457"></a>00457 };
+<a name="l00458"></a>00458 
+<a name="l00459"></a>00459 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
+<a name="l00460"></a><a class="code" href="a00582.html#a85beb917b78ebf6c75cf431e2e4c4908">00460</a> <span class="keywordtype">bool</span> <a class="code" href="a00582.html#a85beb917b78ebf6c75cf431e2e4c4908">getEncodedValue</a>(<a class="code" href="a00125.html#a2f69733cb826157da8aa2834ca1e758e">FieldTable::ValuePtr</a> vptr, T&amp; value)
+<a name="l00461"></a>00461 {
+<a name="l00462"></a>00462     <span class="keywordflow">if</span> (vptr) {
+<a name="l00463"></a>00463         <span class="keyword">const</span> <a class="code" href="a00107.html">EncodedValue&lt;T&gt;</a>* ev = <span class="keyword">dynamic_cast&lt;</span> <a class="code" href="a00107.html">EncodedValue&lt;T&gt;</a>* <span class="keyword">&gt;</span>(&amp;(vptr-&gt;getData()));
+<a name="l00464"></a>00464         <span class="keywordflow">if</span> (ev != 0) {
+<a name="l00465"></a>00465             value = ev-&gt;getValue();
+<a name="l00466"></a>00466             <span class="keywordflow">return</span> <span class="keyword">true</span>;
+<a name="l00467"></a>00467         }
+<a name="l00468"></a>00468     }
+<a name="l00469"></a>00469     <span class="keywordflow">return</span> <span class="keyword">false</span>;
+<a name="l00470"></a>00470 }
+<a name="l00471"></a>00471 
+<a name="l00472"></a>00472 }} <span class="comment">// qpid::framing</span>
+<a name="l00473"></a>00473 
+<a name="l00474"></a>00474 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--
@@ -160,7 +545,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ClusterConnectionShadowSetUserBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ClusterConnectionShadowSetUserBody::setUserId(const std::string& _userId) {
     userId = _userId;
     flags |= (1 << 8);
+    if (userId.size() >= 65536) throw IllegalArgumentException("Value for userId is too large");
 }
 const std::string& ClusterConnectionShadowSetUserBody::getUserId() const { return userId; }
 bool ClusterConnectionShadowSetUserBody::hasUserId() const { return flags & (1 << 8); }

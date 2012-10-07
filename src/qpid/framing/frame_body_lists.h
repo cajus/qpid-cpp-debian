@@ -160,7 +160,8 @@
     (ClusterConnectionQueueFairshareStateBody) \
     (ClusterConnectionQueueObserverStateBody) \
     (ClusterConnectionClockBody) \
-    (ClusterConnectionQueueDequeueSincePurgeStateBody) 
+    (ClusterConnectionQueueDequeueSincePurgeStateBody) \
+    (ClusterConnectionInternalStateBody) 
 
 #define OTHER_BODIES() (AMQContentBody)(AMQHeaderBody)(AMQHeartbeatBody))
 

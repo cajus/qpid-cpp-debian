@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/messaging/Session.h File Reference</title>
+    <title>qpid/client/QueueOptions.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,29 +60,42 @@
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/messaging/Session.h File Reference</div>  </div>
+<div class="title">qpid/client/QueueOptions.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00442_source.html">qpid/messaging/ImportExport.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00436_source.html">qpid/messaging/exceptions.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00543_source.html">qpid/messaging/Duration.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00439_source.html">qpid/messaging/Handle.h</a>&quot;</code><br/>
-<code>#include &lt;string&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00462_source.html">qpid/client/ClientImportExport.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00507_source.html">qpid/framing/FieldTable.h</a>&quot;</code><br/>
 </div>
 <p><a href="a00477_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00325.html">qpid::messaging::Session</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A session represents a distinct 'conversation' which can involve sending and receiving messages to and from different addresses.  <a href="a00325.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00265.html">qpid::client::QueueOptions</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A help class to set options on the Queue.  <a href="a00265.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html">qpid</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
 <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html">qpid::messaging</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00578.html">qpid::client</a></td></tr>
+<tr><td colspan="2"><h2><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00578.html#ae7fd80e6bdbd10200de7758e81249d36">qpid::client::QueueSizePolicy</a> { <br/>
+&#160;&#160;<a class="el" href="a00578.html#ae7fd80e6bdbd10200de7758e81249d36aeea885b1c46bbbb7a16e5b9939c1ad1d">qpid::client::NONE</a>, 
+<a class="el" href="a00578.html#ae7fd80e6bdbd10200de7758e81249d36aa7aecfa6b8dae92f343863ae38f0aeab">qpid::client::REJECT</a>, 
+<a class="el" href="a00578.html#ae7fd80e6bdbd10200de7758e81249d36a51e3fdeb4cc463ab99694e0bd9e37806">qpid::client::FLOW_TO_DISK</a>, 
+<a class="el" href="a00578.html#ae7fd80e6bdbd10200de7758e81249d36ae27b3edb8d2ea4d00a4e09b5cd948605">qpid::client::RING</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00578.html#ae7fd80e6bdbd10200de7758e81249d36a66a6b0ed3f7fd6a425c930f4090261a0">qpid::client::RING_STRICT</a>
+<br/>
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00578.html#a2e9fe250b86fe9c17ecb08826b732c67">qpid::client::QueueOrderingPolicy</a> { <a class="el" href="a00578.html#a2e9fe250b86fe9c17ecb08826b732c67a700f86c2d47bb85c8ec3abd81334c8c3">qpid::client::FIFO</a>, 
+<a class="el" href="a00578.html#a2e9fe250b86fe9c17ecb08826b732c67a5370d3e5d04ace5e86c74da54b9ab622">qpid::client::LVQ</a>, 
+<a class="el" href="a00578.html#a2e9fe250b86fe9c17ecb08826b732c67a752bb595893607867850689d11cf6b58">qpid::client::LVQ_NO_BROWSE</a>
+ }</td></tr>
 </table>
 </div>
 <!--
@@ -112,7 +125,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

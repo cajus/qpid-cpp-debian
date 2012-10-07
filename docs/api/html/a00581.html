@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::framing::cluster Namespace Reference</title>
+    <title>qpid::console Namespace Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,82 +58,222 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00580.html">framing</a>      </li>
-      <li class="navelem"><a class="el" href="a00581.html">cluster</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00581.html">console</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::framing::cluster Namespace Reference</div>  </div>
+<div class="title">qpid::console Namespace Reference</div>  </div>
 </div>
 <div class="contents">
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00581.html#a53f12298fdcef1b60abb5275bb9907b7">StoreState</a> { <a class="el" href="a00581.html#a53f12298fdcef1b60abb5275bb9907b7aa3eb6571aa48877729a0f367509a70c4">STORE_STATE_NO_STORE</a> = 0, 
-<a class="el" href="a00581.html#a53f12298fdcef1b60abb5275bb9907b7a20f56190d72e28ffa08382a852df3a12">STORE_STATE_EMPTY_STORE</a> = 1, 
-<a class="el" href="a00581.html#a53f12298fdcef1b60abb5275bb9907b7a9d4ed02a67fd5628db255baa90da85e1">STORE_STATE_CLEAN_STORE</a> = 2, 
-<a class="el" href="a00581.html#a53f12298fdcef1b60abb5275bb9907b7a5516eb694b7d73feda7028fab75f6ec3">STORE_STATE_DIRTY_STORE</a> = 3
- }</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00581.html#a1f0c00f95b3402b5ffdafd94f1bda53a">ErrorType</a> { <a class="el" href="a00581.html#a1f0c00f95b3402b5ffdafd94f1bda53aa2c7e16fbd015d7cab61b0e325a2a674b">ERROR_TYPE_NONE</a> = 0, 
-<a class="el" href="a00581.html#a1f0c00f95b3402b5ffdafd94f1bda53aa63975e6bfe458123e7a8ef72f19e75aa">ERROR_TYPE_SESSION</a> = 1, 
-<a class="el" href="a00581.html#a1f0c00f95b3402b5ffdafd94f1bda53aabdcdbcc564d022a7927d10a07f268eee">ERROR_TYPE_CONNECTION</a> = 2
- }</td></tr>
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00006.html">Agent</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00042.html">Broker</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00051.html">ClassKey</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00072.html">ConsoleListener</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Implement a subclass of <a class="el" href="a00072.html" title="Implement a subclass of ConsoleListener and subscribe it using the SessionManager to receive indicati...">ConsoleListener</a> and subscribe it using the <a class="el" href="a00335.html">SessionManager</a> to receive indications.  <a href="a00072.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html">Event</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00216.html">MethodResponse</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00235.html">Object</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00237.html">ObjectId</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html">Package</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00298.html">SchemaArgument</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00310.html">SchemaProperty</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00312.html">SchemaStatistic</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00304.html">SchemaMethod</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00300.html">SchemaClass</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00323.html">SequenceManager</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00335.html">SessionManager</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html">Value</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00233.html">NullValue</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00275.html">RefValue</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00365.html">UintValue</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00160.html">IntValue</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00364.html">Uint64Value</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00154.html">Int64Value</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00348.html">StringValue</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00041.html">BoolValue</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00133.html">FloatValue</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00102.html">DoubleValue</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00377.html">UuidValue</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html">MapValue</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00382.html">ValueFactory</a></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00581.html#a763bc9be304a9da97f6446b8ff47eef5">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;o, const <a class="el" href="a00006.html">Agent</a> &amp;agent)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00581.html#a428ae2235a31d7e36f1f72468bfd8ec6">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;o, const <a class="el" href="a00042.html">Broker</a> &amp;k)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00581.html#a97bd77d23a92cff69dad26727e941c66">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;o, const <a class="el" href="a00051.html">ClassKey</a> &amp;k)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00581.html#a8b57a1a60816e221de03345a4dd0c547">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;o, const <a class="el" href="a00111.html">Event</a> &amp;event)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00581.html#a248c29ecc1012559daa8a52569d43fbc">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;o, const <a class="el" href="a00235.html">Object</a> &amp;object)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00581.html#a235bc7af485170033855dab2b0d359ef">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;o, const <a class="el" href="a00237.html">ObjectId</a> &amp;id)</td></tr>
 </table>
-<hr/><h2>Enumeration Type Documentation</h2>
-<a class="anchor" id="a1f0c00f95b3402b5ffdafd94f1bda53a"></a><!-- doxytag: member="qpid::framing::cluster::ErrorType" ref="a1f0c00f95b3402b5ffdafd94f1bda53a" args="" -->
+<hr/><h2>Function Documentation</h2>
+<a class="anchor" id="a763bc9be304a9da97f6446b8ff47eef5"></a><!-- doxytag: member="qpid::console::operator&lt;&lt;" ref="a763bc9be304a9da97f6446b8ff47eef5" args="(std::ostream &amp;o, const Agent &amp;agent)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00581.html#a1f0c00f95b3402b5ffdafd94f1bda53a">qpid::framing::cluster::ErrorType</a></td>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; qpid::console::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>o</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Agent &amp;&#160;</td>
+          <td class="paramname"><em>agent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="a1f0c00f95b3402b5ffdafd94f1bda53aa2c7e16fbd015d7cab61b0e325a2a674b"></a><!-- doxytag: member="ERROR_TYPE_NONE" ref="a1f0c00f95b3402b5ffdafd94f1bda53aa2c7e16fbd015d7cab61b0e325a2a674b" args="" -->ERROR_TYPE_NONE</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a1f0c00f95b3402b5ffdafd94f1bda53aa63975e6bfe458123e7a8ef72f19e75aa"></a><!-- doxytag: member="ERROR_TYPE_SESSION" ref="a1f0c00f95b3402b5ffdafd94f1bda53aa63975e6bfe458123e7a8ef72f19e75aa" args="" -->ERROR_TYPE_SESSION</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a1f0c00f95b3402b5ffdafd94f1bda53aabdcdbcc564d022a7927d10a07f268eee"></a><!-- doxytag: member="ERROR_TYPE_CONNECTION" ref="a1f0c00f95b3402b5ffdafd94f1bda53aabdcdbcc564d022a7927d10a07f268eee" args="" -->ERROR_TYPE_CONNECTION</em>&nbsp;</td><td>
-</td></tr>
-</table>
-</dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00502_source.html#l00180">180</a> of file <a class="el" href="a00502_source.html">enum.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a53f12298fdcef1b60abb5275bb9907b7"></a><!-- doxytag: member="qpid::framing::cluster::StoreState" ref="a53f12298fdcef1b60abb5275bb9907b7" args="" -->
+<a class="anchor" id="a97bd77d23a92cff69dad26727e941c66"></a><!-- doxytag: member="qpid::console::operator&lt;&lt;" ref="a97bd77d23a92cff69dad26727e941c66" args="(std::ostream &amp;o, const ClassKey &amp;k)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00581.html#a53f12298fdcef1b60abb5275bb9907b7">qpid::framing::cluster::StoreState</a></td>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; qpid::console::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>o</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ClassKey &amp;&#160;</td>
+          <td class="paramname"><em>k</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="a53f12298fdcef1b60abb5275bb9907b7aa3eb6571aa48877729a0f367509a70c4"></a><!-- doxytag: member="STORE_STATE_NO_STORE" ref="a53f12298fdcef1b60abb5275bb9907b7aa3eb6571aa48877729a0f367509a70c4" args="" -->STORE_STATE_NO_STORE</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a53f12298fdcef1b60abb5275bb9907b7a20f56190d72e28ffa08382a852df3a12"></a><!-- doxytag: member="STORE_STATE_EMPTY_STORE" ref="a53f12298fdcef1b60abb5275bb9907b7a20f56190d72e28ffa08382a852df3a12" args="" -->STORE_STATE_EMPTY_STORE</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a53f12298fdcef1b60abb5275bb9907b7a9d4ed02a67fd5628db255baa90da85e1"></a><!-- doxytag: member="STORE_STATE_CLEAN_STORE" ref="a53f12298fdcef1b60abb5275bb9907b7a9d4ed02a67fd5628db255baa90da85e1" args="" -->STORE_STATE_CLEAN_STORE</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a53f12298fdcef1b60abb5275bb9907b7a5516eb694b7d73feda7028fab75f6ec3"></a><!-- doxytag: member="STORE_STATE_DIRTY_STORE" ref="a53f12298fdcef1b60abb5275bb9907b7a5516eb694b7d73feda7028fab75f6ec3" args="" -->STORE_STATE_DIRTY_STORE</em>&nbsp;</td><td>
-</td></tr>
-</table>
-</dd>
-</dl>
 
-<p>Definition at line <a class="el" href="a00502_source.html#l00174">174</a> of file <a class="el" href="a00502_source.html">enum.h</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a235bc7af485170033855dab2b0d359ef"></a><!-- doxytag: member="qpid::console::operator&lt;&lt;" ref="a235bc7af485170033855dab2b0d359ef" args="(std::ostream &amp;o, const ObjectId &amp;id)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; qpid::console::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>o</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const ObjectId &amp;&#160;</td>
+          <td class="paramname"><em>id</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8b57a1a60816e221de03345a4dd0c547"></a><!-- doxytag: member="qpid::console::operator&lt;&lt;" ref="a8b57a1a60816e221de03345a4dd0c547" args="(std::ostream &amp;o, const Event &amp;event)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; qpid::console::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>o</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Event &amp;&#160;</td>
+          <td class="paramname"><em>event</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a248c29ecc1012559daa8a52569d43fbc"></a><!-- doxytag: member="qpid::console::operator&lt;&lt;" ref="a248c29ecc1012559daa8a52569d43fbc" args="(std::ostream &amp;o, const Object &amp;object)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; qpid::console::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>o</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Object &amp;&#160;</td>
+          <td class="paramname"><em>object</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a428ae2235a31d7e36f1f72468bfd8ec6"></a><!-- doxytag: member="qpid::console::operator&lt;&lt;" ref="a428ae2235a31d7e36f1f72468bfd8ec6" args="(std::ostream &amp;o, const Broker &amp;k)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; qpid::console::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>o</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Broker &amp;&#160;</td>
+          <td class="paramname"><em>k</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
@@ -165,7 +305,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

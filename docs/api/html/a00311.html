@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::console::SchemaStatistic Struct Reference</title>
+    <title>qmf::engine::SchemaStatistic Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,46 +60,89 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00579.html">console</a>      </li>
+      <li class="navelem"><a class="el" href="a00573.html">qmf</a>      </li>
+      <li class="navelem"><a class="el" href="a00574.html">engine</a>      </li>
       <li class="navelem"><a class="el" href="a00311.html">SchemaStatistic</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a>  </div>
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::console::SchemaStatistic Struct Reference</div>  </div>
+<div class="title">qmf::engine::SchemaStatistic Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::console::SchemaStatistic" -->
-<p><code>#include &lt;<a class="el" href="a00431_source.html">qpid/console/Schema.h</a>&gt;</code></p>
+<!-- doxytag: class="qmf::engine::SchemaStatistic" -->
+<p><code>#include &lt;<a class="el" href="a00431_source.html">qmf/engine/Schema.h</a>&gt;</code></p>
 
-<p><a href="a00720.html">List of all members.</a></p>
+<p><a href="a00645.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a4b620aca83e18982e7208beff8bad936">SchemaStatistic</a> (<a class="el" href="a00045.html">framing::Buffer</a> &amp;buffer)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">boost::shared_ptr&lt; <a class="el" href="a00380.html">Value</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a3003ff3cf979647642d1a90380f968f0">decodeValue</a> (<a class="el" href="a00045.html">framing::Buffer</a> &amp;buffer)</td></tr>
-<tr><td colspan="2"><h2><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a9a28778b6f7f578b31ab7a95ef7795ce">name</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#aae0d4e6de7ff981f53964abe4fbd2fc7">typeCode</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a684baae2c9719d258be2aeab18c96c7e">unit</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a3e5f7131a52b868f5e708dca74744241">desc</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a32e890923e6cc2f4c0ca832a77db38a0">SchemaStatistic</a> (const char *name, <a class="el" href="a00574.html#abc957f805da7e264caa8f71145adc4c9">Typecode</a> typecode)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a343a2cf8529b1eeac1304324a0df3b4b">SchemaStatistic</a> (const <a class="el" href="a00311.html">SchemaStatistic</a> &amp;from)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a81c363839b888c51a3e0332dbc87a3f9">~SchemaStatistic</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#aa00e2a36bea2b0af5432221f576491e9">setUnit</a> (const char *val)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#aaef2e64f1af34deb5c7e4e36918d99dd">setDesc</a> (const char *desc)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a13356c8b551633e044f652aa4522f18e">getName</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00574.html#abc957f805da7e264caa8f71145adc4c9">Typecode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a0bb97f4f62532ac2d14d2b1d19644dd3">getType</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a05f07b147f4486f64632a1036d2ff34b">getUnit</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#ab21e8c4f45eb1a7f3d06ac6c6d0777a6">getDesc</a> () const </td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a4b620aca83e18982e7208beff8bad936"></a><!-- doxytag: member="qpid::console::SchemaStatistic::SchemaStatistic" ref="a4b620aca83e18982e7208beff8bad936" args="(framing::Buffer &amp;buffer)" -->
+<a class="anchor" id="a32e890923e6cc2f4c0ca832a77db38a0"></a><!-- doxytag: member="qmf::engine::SchemaStatistic::SchemaStatistic" ref="a32e890923e6cc2f4c0ca832a77db38a0" args="(const char *name, Typecode typecode)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::console::SchemaStatistic::SchemaStatistic </td>
+          <td class="memname">qmf::engine::SchemaStatistic::SchemaStatistic </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">framing::Buffer</a> &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00574.html#abc957f805da7e264caa8f71145adc4c9">Typecode</a>&#160;</td>
+          <td class="paramname"><em>typecode</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a343a2cf8529b1eeac1304324a0df3b4b"></a><!-- doxytag: member="qmf::engine::SchemaStatistic::SchemaStatistic" ref="a343a2cf8529b1eeac1304324a0df3b4b" args="(const SchemaStatistic &amp;from)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qmf::engine::SchemaStatistic::SchemaStatistic </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00311.html">SchemaStatistic</a> &amp;&#160;</td>
+          <td class="paramname"><em>from</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a81c363839b888c51a3e0332dbc87a3f9"></a><!-- doxytag: member="qmf::engine::SchemaStatistic::~SchemaStatistic" ref="a81c363839b888c51a3e0332dbc87a3f9" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qmf::engine::SchemaStatistic::~SchemaStatistic </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -109,15 +152,79 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a3003ff3cf979647642d1a90380f968f0"></a><!-- doxytag: member="qpid::console::SchemaStatistic::decodeValue" ref="a3003ff3cf979647642d1a90380f968f0" args="(framing::Buffer &amp;buffer)" -->
+<a class="anchor" id="ab21e8c4f45eb1a7f3d06ac6c6d0777a6"></a><!-- doxytag: member="qmf::engine::SchemaStatistic::getDesc" ref="ab21e8c4f45eb1a7f3d06ac6c6d0777a6" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">boost::shared_ptr&lt;<a class="el" href="a00380.html">Value</a>&gt; qpid::console::SchemaStatistic::decodeValue </td>
+          <td class="memname">const char* qmf::engine::SchemaStatistic::getDesc </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">framing::Buffer</a> &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a13356c8b551633e044f652aa4522f18e"></a><!-- doxytag: member="qmf::engine::SchemaStatistic::getName" ref="a13356c8b551633e044f652aa4522f18e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* qmf::engine::SchemaStatistic::getName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0bb97f4f62532ac2d14d2b1d19644dd3"></a><!-- doxytag: member="qmf::engine::SchemaStatistic::getType" ref="a0bb97f4f62532ac2d14d2b1d19644dd3" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00574.html#abc957f805da7e264caa8f71145adc4c9">Typecode</a> qmf::engine::SchemaStatistic::getType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a05f07b147f4486f64632a1036d2ff34b"></a><!-- doxytag: member="qmf::engine::SchemaStatistic::getUnit" ref="a05f07b147f4486f64632a1036d2ff34b" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* qmf::engine::SchemaStatistic::getUnit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aaef2e64f1af34deb5c7e4e36918d99dd"></a><!-- doxytag: member="qmf::engine::SchemaStatistic::setDesc" ref="aaef2e64f1af34deb5c7e4e36918d99dd" args="(const char *desc)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qmf::engine::SchemaStatistic::setDesc </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>desc</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -126,69 +233,25 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a3e5f7131a52b868f5e708dca74744241"></a><!-- doxytag: member="qpid::console::SchemaStatistic::desc" ref="a3e5f7131a52b868f5e708dca74744241" args="" -->
+<a class="anchor" id="aa00e2a36bea2b0af5432221f576491e9"></a><!-- doxytag: member="qmf::engine::SchemaStatistic::setUnit" ref="aa00e2a36bea2b0af5432221f576491e9" args="(const char *val)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> <a class="el" href="a00311.html#a3e5f7131a52b868f5e708dca74744241">qpid::console::SchemaStatistic::desc</a></td>
+          <td class="memname">void qmf::engine::SchemaStatistic::setUnit </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>val</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00431_source.html#l00074">74</a> of file <a class="el" href="a00431_source.html">Schema.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a9a28778b6f7f578b31ab7a95ef7795ce"></a><!-- doxytag: member="qpid::console::SchemaStatistic::name" ref="a9a28778b6f7f578b31ab7a95ef7795ce" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> <a class="el" href="a00311.html#a9a28778b6f7f578b31ab7a95ef7795ce">qpid::console::SchemaStatistic::name</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00431_source.html#l00071">71</a> of file <a class="el" href="a00431_source.html">Schema.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aae0d4e6de7ff981f53964abe4fbd2fc7"></a><!-- doxytag: member="qpid::console::SchemaStatistic::typeCode" ref="aae0d4e6de7ff981f53964abe4fbd2fc7" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00311.html#aae0d4e6de7ff981f53964abe4fbd2fc7">qpid::console::SchemaStatistic::typeCode</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00431_source.html#l00072">72</a> of file <a class="el" href="a00431_source.html">Schema.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a684baae2c9719d258be2aeab18c96c7e"></a><!-- doxytag: member="qpid::console::SchemaStatistic::unit" ref="a684baae2c9719d258be2aeab18c96c7e" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> <a class="el" href="a00311.html#a684baae2c9719d258be2aeab18c96c7e">qpid::console::SchemaStatistic::unit</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00431_source.html#l00073">73</a> of file <a class="el" href="a00431_source.html">Schema.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/console/<a class="el" href="a00431_source.html">Schema.h</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qmf/engine/<a class="el" href="a00431_source.html">Schema.h</a></li>
 </ul>
 </div>
 <!--
@@ -218,7 +281,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

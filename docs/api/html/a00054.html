@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::client::Completion Class Reference</title>
+    <title>qpid::framing::CommandInvalidException Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,299 +60,131 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00576.html">client</a>      </li>
-      <li class="navelem"><a class="el" href="a00054.html">Completion</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00582.html">framing</a>      </li>
+      <li class="navelem"><a class="el" href="a00054.html">CommandInvalidException</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::client::Completion Class Reference</div>  </div>
+<div class="title">qpid::framing::CommandInvalidException Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::client::Completion" --><!-- doxytag: inherits="Handle&lt; CompletionImpl &gt;" -->
-<p>Asynchronous commands that do not return a result will return a <a class="el" href="a00054.html" title="Asynchronous commands that do not return a result will return a Completion.">Completion</a>.  
+<!-- doxytag: class="qpid::framing::CommandInvalidException" --><!-- doxytag: inherits="qpid::SessionException" -->
+<p>The command segments could not be decoded.  
  <a href="a00054.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00461_source.html">qpid/client/Completion.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00518_source.html">qpid/framing/reply_exceptions.h</a>&gt;</code></p>
 
-<p><a href="a00677.html">List of all members.</a></p>
+<p><a href="a00796.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00054.html#a6b1400aeaa07893648d4a88326a3018f">Completion</a> (CompletionImpl *=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00054.html#ac76534b04b0b71baa48d5d7411d5febf">Completion</a> (const <a class="el" href="a00054.html">Completion</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00054.html#a494deeed79048cda95904e40e2684bf6">~Completion</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00054.html">Completion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00054.html#a58ce1830a0e6c831fdfb76b1c2a17569">operator=</a> (const <a class="el" href="a00054.html">Completion</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00054.html#acf2eb9af9fd75c88e23c2745fc331faf">wait</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for the asynchronous command that returned this <a class="el" href="a00054.html" title="Asynchronous commands that do not return a result will return a Completion.">Completion</a> to complete.  <a href="#acf2eb9af9fd75c88e23c2745fc331faf"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00054.html#a6152b1d7a55b256ddd94a1ea7f69762c">isComplete</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#a57379e651d725b0f73edcb714e9efbc7">isValid</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#ae6f5dd2c23bdf3016f4afcd32057b9c5">isNull</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#a00461424a31faee8e158a6502a014c3d">operator bool</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to bool supports idiom if (handle) { handle-&gt;...  <a href="#a00461424a31faee8e158a6502a014c3d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#a6e69e13fa5ed709abebdbf6868b5eff4">operator!</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }.  <a href="#a6e69e13fa5ed709abebdbf6868b5eff4"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#a5092920190f6ad01c851996395cf33b5">swap</a> (<a class="el" href="a00140.html">Handle</a>&lt; T &gt; &amp;h)</td></tr>
-<tr><td colspan="2"><h2><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00054.html#aa01e729ae28c04425d7218bdc798c52c">getResult</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">Impl *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#adf6d72d2a888cabcd0b60178419aad59">impl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00054.html#ae0f4432e4b8a2e42e2c5808e6d3ad5d2">getPrefix</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00054.html#a0699346f447490e62be53d58d0e1fea4">CommandInvalidException</a> (const <a class="el" href="a00346.html">std::string</a> &amp;msg=<a class="el" href="a00346.html">std::string</a>())</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html#a1319c2877b78e71fb5ded050298be31a">what</a> () const   throw ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html#a5fd1b7dd26ec0e2742c54b2b7da6c6b0">getMessage</a> () const </td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18">framing::execution::ErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#ac6ca6f797da33e069db68ab50da18615">code</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Asynchronous commands that do not return a result will return a <a class="el" href="a00054.html" title="Asynchronous commands that do not return a result will return a Completion.">Completion</a>. </p>
-<p>You can use the completion to wait for that specific command to complete.</p>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="a00362.html" title="Returned by asynchronous commands that return a result.">TypedResult</a> </dd></dl>
+<div class="textblock"><p>The command segments could not be decoded. </p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a6b1400aeaa07893648d4a88326a3018f"></a><!-- doxytag: member="qpid::client::Completion::Completion" ref="a6b1400aeaa07893648d4a88326a3018f" args="(CompletionImpl *=0)" -->
+<a class="anchor" id="a0699346f447490e62be53d58d0e1fea4"></a><!-- doxytag: member="qpid::framing::CommandInvalidException::CommandInvalidException" ref="a0699346f447490e62be53d58d0e1fea4" args="(const std::string &amp;msg=std::string())" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::client::Completion::Completion </td>
+          <td class="memname">qpid::framing::CommandInvalidException::CommandInvalidException </td>
           <td>(</td>
-          <td class="paramtype">CompletionImpl *&#160;</td>
-          <td class="paramname"> = <code>0</code></td><td>)</td>
-          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>msg</em> = <code><a class="el" href="a00346.html">std::string</a>()</code></td><td>)</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="ac76534b04b0b71baa48d5d7411d5febf"></a><!-- doxytag: member="qpid::client::Completion::Completion" ref="ac76534b04b0b71baa48d5d7411d5febf" args="(const Completion &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::client::Completion::Completion </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00054.html">Completion</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a494deeed79048cda95904e40e2684bf6"></a><!-- doxytag: member="qpid::client::Completion::~Completion" ref="a494deeed79048cda95904e40e2684bf6" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::client::Completion::~Completion </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Definition at line <a class="el" href="a00518_source.html#l00122">122</a> of file <a class="el" href="a00518_source.html">reply_exceptions.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="aa01e729ae28c04425d7218bdc798c52c"></a><!-- doxytag: member="qpid::client::Completion::getResult" ref="aa01e729ae28c04425d7218bdc798c52c" args="()" -->
+<a class="anchor" id="a5fd1b7dd26ec0e2742c54b2b7da6c6b0"></a><!-- doxytag: member="qpid::framing::CommandInvalidException::getMessage" ref="a5fd1b7dd26ec0e2742c54b2b7da6c6b0" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> qpid::client::Completion::getResult </td>
+          <td class="memname">virtual <a class="el" href="a00346.html">std::string</a> qpid::Exception::getMessage </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [protected]</code></td>
+          <td> const<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Referenced by <a class="el" href="a00481_source.html#l00053">qpid::client::TypedResult::get()</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a6152b1d7a55b256ddd94a1ea7f69762c"></a><!-- doxytag: member="qpid::client::Completion::isComplete" ref="a6152b1d7a55b256ddd94a1ea7f69762c" args="()" -->
+<a class="anchor" id="ae0f4432e4b8a2e42e2c5808e6d3ad5d2"></a><!-- doxytag: member="qpid::framing::CommandInvalidException::getPrefix" ref="ae0f4432e4b8a2e42e2c5808e6d3ad5d2" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool qpid::client::Completion::isComplete </td>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::framing::CommandInvalidException::getPrefix </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const<code> [inline, virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Reimplemented from <a class="el" href="a00116.html#a8680803b228ba1036624fd5cee183d36">qpid::Exception</a>.</p>
+
+<p>Definition at line <a class="el" href="a00518_source.html#l00121">121</a> of file <a class="el" href="a00518_source.html">reply_exceptions.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="ae6f5dd2c23bdf3016f4afcd32057b9c5"></a><!-- doxytag: member="qpid::client::Completion::isNull" ref="ae6f5dd2c23bdf3016f4afcd32057b9c5" args="() const " -->
+<a class="anchor" id="a1319c2877b78e71fb5ded050298be31a"></a><!-- doxytag: member="qpid::framing::CommandInvalidException::what" ref="a1319c2877b78e71fb5ded050298be31a" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QPID_CLIENT_INLINE_EXTERN bool qpid::client::Handle::isNull </td>
+          <td class="memname">virtual const char* qpid::Exception::what </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
+          <td> const  throw ()<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is null. It is an error to call any function on a null handle. </dd></dl>
-
-<p>Definition at line <a class="el" href="a00438_source.html#l00046">46</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a57379e651d725b0f73edcb714e9efbc7"></a><!-- doxytag: member="qpid::client::Completion::isValid" ref="a57379e651d725b0f73edcb714e9efbc7" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_CLIENT_INLINE_EXTERN bool qpid::client::Handle::isValid </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is valid, i.e. not null. </dd></dl>
-
-<p>Definition at line <a class="el" href="a00438_source.html#l00043">43</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a00461424a31faee8e158a6502a014c3d"></a><!-- doxytag: member="qpid::client::Completion::operator bool" ref="a00461424a31faee8e158a6502a014c3d" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_CLIENT_INLINE_EXTERN qpid::client::Handle::operator bool </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Conversion to bool supports idiom if (handle) { handle-&gt;... </p>
-<p>} </p>
-
-<p>Definition at line <a class="el" href="a00438_source.html#l00049">49</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6e69e13fa5ed709abebdbf6868b5eff4"></a><!-- doxytag: member="qpid::client::Completion::operator!" ref="a6e69e13fa5ed709abebdbf6868b5eff4" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_CLIENT_INLINE_EXTERN bool qpid::client::Handle::operator! </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }. </p>
-
-<p>Definition at line <a class="el" href="a00438_source.html#l00052">52</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a58ce1830a0e6c831fdfb76b1c2a17569"></a><!-- doxytag: member="qpid::client::Completion::operator=" ref="a58ce1830a0e6c831fdfb76b1c2a17569" args="(const Completion &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00054.html">Completion</a>&amp; qpid::client::Completion::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00054.html">Completion</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a5092920190f6ad01c851996395cf33b5"></a><!-- doxytag: member="qpid::client::Completion::swap" ref="a5092920190f6ad01c851996395cf33b5" args="(Handle&lt; T &gt; &amp;h)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::client::Handle::swap </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00140.html">Handle</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>h</em></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00438_source.html#l00054">54</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="acf2eb9af9fd75c88e23c2745fc331faf"></a><!-- doxytag: member="qpid::client::Completion::wait" ref="acf2eb9af9fd75c88e23c2745fc331faf" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::client::Completion::wait </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Wait for the asynchronous command that returned this <a class="el" href="a00054.html" title="Asynchronous commands that do not return a result will return a Completion.">Completion</a> to complete. </p>
-<dl><dt><b>Exceptions:</b></dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">If</td><td>the command returns an error. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="adf6d72d2a888cabcd0b60178419aad59"></a><!-- doxytag: member="qpid::client::Completion::impl" ref="adf6d72d2a888cabcd0b60178419aad59" args="" -->
+<a class="anchor" id="ac6ca6f797da33e069db68ab50da18615"></a><!-- doxytag: member="qpid::framing::CommandInvalidException::code" ref="ac6ca6f797da33e069db68ab50da18615" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">Impl* <a class="el" href="a00140.html#adf6d72d2a888cabcd0b60178419aad59">qpid::client::Handle::impl</a><code> [protected, inherited]</code></td>
+          <td class="memname">const <a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18">framing::execution::ErrorCode</a> <a class="el" href="a00332.html#ac6ca6f797da33e069db68ab50da18615">qpid::SessionException::code</a><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00438_source.html#l00064">64</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
+<p>Definition at line <a class="el" href="a00492_source.html#l00060">60</a> of file <a class="el" href="a00492_source.html">Exception.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/client/<a class="el" href="a00461_source.html">Completion.h</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>qpid/framing/<a class="el" href="a00518_source.html">reply_exceptions.h</a></li>
 </ul>
 </div>
 <!--
@@ -382,7 +214,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

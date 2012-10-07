@@ -33,6 +33,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -55,6 +56,7 @@ public:
         setInsist(_insist);
         flags |= (1 << 8);
         flags |= (1 << 9);
+        if (virtualHost.size() >= 256) throw IllegalArgumentException("Value for virtualHost is too large");
     }
     ConnectionOpenBody(ProtocolVersion=ProtocolVersion())  : flags(0) {}
     

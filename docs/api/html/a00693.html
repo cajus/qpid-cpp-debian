@@ -60,26 +60,40 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00576.html">client</a>      </li>
-      <li class="navelem"><a class="el" href="a00211.html">MessageReplayTracker</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00208.html">Message</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid::client::MessageReplayTracker Member List</div>  </div>
+<div class="title">qpid::client::Message Member List</div>  </div>
 </div>
 <div class="contents">
-This is the complete list of members for <a class="el" href="a00211.html">qpid::client::MessageReplayTracker</a>, including all inherited members.<table>
-  <tr class="memlist"><td><a class="el" href="a00211.html#af48e7371bb969e53a4d7c167ae04ed3d">checkCompletion</a>()</td><td><a class="el" href="a00211.html">qpid::client::MessageReplayTracker</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00211.html#ad507fc3b0ec79ae2269642a736f15367">foreach</a>(F &amp;f)</td><td><a class="el" href="a00211.html">qpid::client::MessageReplayTracker</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00211.html#a6128e687ce471493af37e7d14569237c">getFlushInterval</a>()</td><td><a class="el" href="a00211.html">qpid::client::MessageReplayTracker</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00211.html#ad49ec44efe7ada468ffd197843dcad57">init</a>(AsyncSession session)</td><td><a class="el" href="a00211.html">qpid::client::MessageReplayTracker</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00211.html#ac9369357e42dc396db0a70ff497f96ed">MessageReplayTracker</a>(uint flushInterval)</td><td><a class="el" href="a00211.html">qpid::client::MessageReplayTracker</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00211.html#ad51f2ff419408d9e5e0821bf7a6ff068">replay</a>(AsyncSession session)</td><td><a class="el" href="a00211.html">qpid::client::MessageReplayTracker</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00211.html#a949ae94e79fd5ccff5e6511f1c91b594">send</a>(const Message &amp;message, const std::string &amp;destination=&quot;&quot;)</td><td><a class="el" href="a00211.html">qpid::client::MessageReplayTracker</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00211.html#aadd7731588f7b1a4444b8d8350978556">setFlushInterval</a>(uint interval)</td><td><a class="el" href="a00211.html">qpid::client::MessageReplayTracker</a></td><td></td></tr>
+This is the complete list of members for <a class="el" href="a00208.html">qpid::client::Message</a>, including all inherited members.<table>
+  <tr class="memlist"><td><a class="el" href="a00208.html#aab92ba36817cb9f109fc83a999f7da4a">appendData</a>(const std::string &amp;)</td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#a36967aa1aae67b0d37828774bfac3522">getData</a>() const </td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#a687a1690d8e92a309d84fc0ad1c45c34">getData</a>()</td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#a54f6750cc740886aa05d27f9d1e5d534">getDeliveryProperties</a>()</td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#a542049a6883dfa1daba8cebeaf42adf3">getDeliveryProperties</a>() const </td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#aeb7b6276b35ac1215761126e3e53a569">getDestination</a>() const </td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#a79bdbe74371c67ed355e9b3dbc4460b6">getHeaders</a>()</td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#a965876a07306ff5904aa03f50d239002">getHeaders</a>() const </td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#af04dc4cea2253abc39a72c302347c16c">getId</a>() const </td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#ad382f5cb389e86571997dfdb1bb37782">getMessageProperties</a>()</td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#aae98271b717c1476c1f4f7a7d187a209">getMessageProperties</a>() const </td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#a954b7bd2dcefd469dbd9bb28b6893d33">hasDeliveryProperties</a>() const </td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#a4870bc9936df0481710ebd27a36c79fe">hasMessageProperties</a>() const </td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#a28f4d03a5afa13db7079c7129132eb8d">isRedelivered</a>() const </td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#ae58c2f4eb7b0dbea802b4699ea5bba16">Message</a>(const std::string &amp;data=std::string(), const std::string &amp;routingKey=std::string())</td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#a94e993c569397815c3e6153c14244add">Message</a>(MessageImpl *)</td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#acac38f40f6228d78764cc511c060fd22">Message</a>(const Message &amp;)</td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#abb5bf53df66052a8ff9ea9fd25e1827c">operator=</a>(const Message &amp;)</td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#a58b8d9e270064a6543926e4285d31250">setData</a>(const std::string &amp;)</td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#a6b5e6b6e9cd2349f4d916a3fd4cb58e9">setRedelivered</a>(bool redelivered)</td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#af5c555fde06927cc2117af8bf7e705ff">swap</a>(Message &amp;)</td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00208.html#a79cececaedb33a8cb0dfa09f7dd1eac1">~Message</a>()</td><td><a class="el" href="a00208.html">qpid::client::Message</a></td><td></td></tr>
 </table></div>
 <!--
  
@@ -108,7 +122,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

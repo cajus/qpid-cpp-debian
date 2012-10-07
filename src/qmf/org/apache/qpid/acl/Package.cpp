@@ -25,6 +25,7 @@
 #include "Acl.h"
 #include "EventAllow.h"
 #include "EventDeny.h"
+#include "EventConnectionDeny.h"
 #include "EventFileLoaded.h"
 #include "EventFileLoadFailed.h"
 
@@ -36,6 +37,7 @@ Package::Package (::qpid::management::ManagementAgent* agent)
     Acl::registerSelf(agent);
     EventAllow::registerSelf(agent);
     EventDeny::registerSelf(agent);
+    EventConnectionDeny::registerSelf(agent);
     EventFileLoaded::registerSelf(agent);
     EventFileLoadFailed::registerSelf(agent);
 

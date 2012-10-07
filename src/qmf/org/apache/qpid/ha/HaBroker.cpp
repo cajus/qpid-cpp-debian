@@ -27,13 +27,13 @@
 #include "qpid/amqp_0_10/Codecs.h"
 #include "qpid/management/ManagementAgent.h"
 #include "HaBroker.h"
-#include "ArgsHaBrokerSetBrokers.h"
-#include "ArgsHaBrokerSetPublicBrokers.h"
-#include "ArgsHaBrokerSetExpectedBackups.h"
+#include "ArgsHaBrokerSetBrokersUrl.h"
+#include "ArgsHaBrokerSetPublicUrl.h"
 #include "ArgsHaBrokerReplicate.h"
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
 
 using namespace qmf::org::apache::qpid::ha;
 using           qpid::management::ManagementAgent;
@@ -46,16 +46,18 @@ using           std::string;
 string  HaBroker::packageName  = string ("org.apache.qpid.ha");
 string  HaBroker::className    = string ("habroker");
 uint8_t HaBroker::md5Sum[MD5_LEN]   =
-    {0xc6,0x81,0xdf,0x94,0x41,0xcb,0xc4,0xfd,0x90,0x59,0xd7,0x94,0xe3,0x47,0xdf,0x80};
+    {0xac,0xdc,0x2e,0xf2,0xf7,0x96,0xfb,0xd4,0x22,0xea,0x8e,0xe3,0x8b,0xb4,0xef,0x49};
 
 HaBroker::HaBroker (ManagementAgent*, Manageable* _core, const std::string& _name) :
     ManagementObject(_core),name(_name)
 {
     
     status = "";
-    brokers = "";
-    publicBrokers = "";
-    expectedBackups = 0;
+    brokersUrl = "";
+    publicUrl = "";
+    replicateDefault = "";
+    members = ::qpid::types::Variant::List();
+    systemId = ::qpid::types::Uuid();
 
 
 
@@ -100,9 +102,9 @@ void HaBroker::writeSchema (std::string& schema)
     buf.putShortString (packageName); // Package Name
     buf.putShortString (className);   // Class Name
     buf.putBin128      (md5Sum);      // Schema Hash
-    buf.putShort       (5); // Config Element Count
+    buf.putShort       (7); // Config Element Count
     buf.putShort       (0); // Inst Element Count
-    buf.putShort       (5); // Method Count
+    buf.putShort       (4); // Method Count
 
     // Properties
     ft.clear();
@@ -124,30 +126,48 @@ void HaBroker::writeSchema (std::string& schema)
     buf.putMap(ft);
 
     ft.clear();
-    ft[NAME] = "brokers";
+    ft[NAME] = "brokersUrl";
     ft[TYPE] = TYPE_SSTR;
     ft[ACCESS] = ACCESS_RO;
     ft[IS_INDEX] = 0;
     ft[IS_OPTIONAL] = 0;
-    ft[DESC] = "Multiple-address URL used by HA brokers to connect to each other.";
+    ft[DESC] = "URL with address of each broker in the cluster.";
     buf.putMap(ft);
 
     ft.clear();
-    ft[NAME] = "publicBrokers";
+    ft[NAME] = "publicUrl";
     ft[TYPE] = TYPE_SSTR;
     ft[ACCESS] = ACCESS_RO;
     ft[IS_INDEX] = 0;
     ft[IS_OPTIONAL] = 0;
-    ft[DESC] = "Multiple-address URL used by clients to connect to the HA brokers.";
+    ft[DESC] = "URL advertized to clients to connect to the cluster.";
     buf.putMap(ft);
 
     ft.clear();
-    ft[NAME] = "expectedBackups";
-    ft[TYPE] = TYPE_U16;
+    ft[NAME] = "replicateDefault";
+    ft[TYPE] = TYPE_SSTR;
     ft[ACCESS] = ACCESS_RO;
     ft[IS_INDEX] = 0;
     ft[IS_OPTIONAL] = 0;
-    ft[DESC] = "Number of HA backup brokers expected.";
+    ft[DESC] = "Replication for queues/exchanges with no qpid.replicate argument";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "members";
+    ft[TYPE] = TYPE_LIST;
+    ft[ACCESS] = ACCESS_RO;
+    ft[IS_INDEX] = 0;
+    ft[IS_OPTIONAL] = 0;
+    ft[DESC] = "List of brokers in the cluster";
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "systemId";
+    ft[TYPE] = TYPE_UUID;
+    ft[ACCESS] = ACCESS_RO;
+    ft[IS_INDEX] = 0;
+    ft[IS_OPTIONAL] = 0;
+    ft[DESC] = "Identifies the system.";
     buf.putMap(ft);
 
 
@@ -161,9 +181,9 @@ void HaBroker::writeSchema (std::string& schema)
     buf.putMap(ft);
 
     ft.clear();
-    ft[NAME] =  "setBrokers";
+    ft[NAME] =  "setBrokersUrl";
     ft[ARGCOUNT] = 1;
-    ft[DESC] = "Set URL for HA brokers to connect to each other.";
+    ft[DESC] = "URL listing each broker in the cluster.";
     buf.putMap(ft);
 
     ft.clear();
@@ -173,33 +193,21 @@ void HaBroker::writeSchema (std::string& schema)
     buf.putMap(ft);
 
     ft.clear();
-    ft[NAME] =  "setPublicBrokers";
+    ft[NAME] =  "setPublicUrl";
     ft[ARGCOUNT] = 1;
-    ft[DESC] = "Set URL for clients to connect to  HA brokers";
+    ft[DESC] = "URL advertized to clients.";
     buf.putMap(ft);
 
     ft.clear();
     ft[NAME] = "url";
     ft[TYPE] = TYPE_SSTR;
-    ft[DIR] = "I";
-    buf.putMap(ft);
-
-    ft.clear();
-    ft[NAME] =  "setExpectedBackups";
-    ft[ARGCOUNT] = 1;
-    ft[DESC] = "Set number of backups expected";
-    buf.putMap(ft);
-
-    ft.clear();
-    ft[NAME] = "expectedBackups";
-    ft[TYPE] = TYPE_U16;
     ft[DIR] = "I";
     buf.putMap(ft);
 
     ft.clear();
     ft[NAME] =  "replicate";
     ft[ARGCOUNT] = 2;
-    ft[DESC] = "Replicate from a remote queue to the local broker.";
+    ft[DESC] = "Replicate individual queue from remote broker.";
     buf.putMap(ft);
 
     ft.clear();
@@ -231,9 +239,11 @@ uint32_t HaBroker::writePropertiesSize() const
 
     size += (1 + name.length());  // name
     size += (1 + status.length());  // status
-    size += (1 + brokers.length());  // brokers
-    size += (1 + publicBrokers.length());  // publicBrokers
-    size += 2;  // expectedBackups
+    size += (1 + brokersUrl.length());  // brokersUrl
+    size += (1 + publicUrl.length());  // publicUrl
+    size += (1 + replicateDefault.length());  // replicateDefault
+    size += ::qpid::amqp_0_10::ListCodec::encodedSize(members);  // members
+    size += 16;  // systemId
 
     return size;
 }
@@ -254,9 +264,11 @@ void HaBroker::readProperties (const std::string& _sBuf)
 
     buf.getShortString(name);
     buf.getShortString(status);
-    buf.getShortString(brokers);
-    buf.getShortString(publicBrokers);
-    expectedBackups = buf.getShort();
+    buf.getShortString(brokersUrl);
+    buf.getShortString(publicUrl);
+    buf.getShortString(replicateDefault);
+    buf.getList(members);
+    { unsigned char d[16]; buf.getRawData(d, 16); systemId = ::qpid::types::Uuid(d); };
 
 
     delete [] _tmpBuf;
@@ -281,9 +293,11 @@ void HaBroker::writeProperties (std::string& _sBuf) const
 
     buf.putShortString(name);
     buf.putShortString(status);
-    buf.putShortString(brokers);
-    buf.putShortString(publicBrokers);
-    buf.putShort(expectedBackups);
+    buf.putShortString(brokersUrl);
+    buf.putShortString(publicUrl);
+    buf.putShortString(replicateDefault);
+    buf.putList(members);
+    buf.putRawData(systemId.data(), 16);
 
 
     uint32_t _bufLen = buf.getPosition();
@@ -349,39 +363,26 @@ void HaBroker::doMethod (string& methodName, const string& inStr, string& outStr
         outBuf.putMediumString(::qpid::management::Manageable::StatusText (status, text));
     }
 
-    if (methodName == "setBrokers") {
+    if (methodName == "setBrokersUrl") {
         _matched = true;
-        ArgsHaBrokerSetBrokers ioArgs;
+        ArgsHaBrokerSetBrokersUrl ioArgs;
         inBuf.getShortString(ioArgs.i_url);
-        bool allow = coreObject->AuthorizeMethod(METHOD_SETBROKERS, ioArgs, userId);
+        bool allow = coreObject->AuthorizeMethod(METHOD_SETBROKERSURL, ioArgs, userId);
         if (allow)
-            status = coreObject->ManagementMethod (METHOD_SETBROKERS, ioArgs, text);
+            status = coreObject->ManagementMethod (METHOD_SETBROKERSURL, ioArgs, text);
         else
             status = Manageable::STATUS_FORBIDDEN;
         outBuf.putLong        (status);
         outBuf.putMediumString(::qpid::management::Manageable::StatusText (status, text));
     }
 
-    if (methodName == "setPublicBrokers") {
+    if (methodName == "setPublicUrl") {
         _matched = true;
-        ArgsHaBrokerSetPublicBrokers ioArgs;
+        ArgsHaBrokerSetPublicUrl ioArgs;
         inBuf.getShortString(ioArgs.i_url);
-        bool allow = coreObject->AuthorizeMethod(METHOD_SETPUBLICBROKERS, ioArgs, userId);
+        bool allow = coreObject->AuthorizeMethod(METHOD_SETPUBLICURL, ioArgs, userId);
         if (allow)
-            status = coreObject->ManagementMethod (METHOD_SETPUBLICBROKERS, ioArgs, text);
-        else
-            status = Manageable::STATUS_FORBIDDEN;
-        outBuf.putLong        (status);
-        outBuf.putMediumString(::qpid::management::Manageable::StatusText (status, text));
-    }
-
-    if (methodName == "setExpectedBackups") {
-        _matched = true;
-        ArgsHaBrokerSetExpectedBackups ioArgs;
-        ioArgs.i_expectedBackups = inBuf.getShort();
-        bool allow = coreObject->AuthorizeMethod(METHOD_SETEXPECTEDBACKUPS, ioArgs, userId);
-        if (allow)
-            status = coreObject->ManagementMethod (METHOD_SETEXPECTEDBACKUPS, ioArgs, text);
+            status = coreObject->ManagementMethod (METHOD_SETPUBLICURL, ioArgs, text);
         else
             status = Manageable::STATUS_FORBIDDEN;
         outBuf.putLong        (status);
@@ -437,9 +438,11 @@ void HaBroker::mapEncodeValues (::qpid::types::Variant::Map& _map,
         configChanged = false;
     _map["name"] = ::qpid::types::Variant(name);
     _map["status"] = ::qpid::types::Variant(status);
-    _map["brokers"] = ::qpid::types::Variant(brokers);
-    _map["publicBrokers"] = ::qpid::types::Variant(publicBrokers);
-    _map["expectedBackups"] = ::qpid::types::Variant(expectedBackups);
+    _map["brokersUrl"] = ::qpid::types::Variant(brokersUrl);
+    _map["publicUrl"] = ::qpid::types::Variant(publicUrl);
+    _map["replicateDefault"] = ::qpid::types::Variant(replicateDefault);
+    _map["members"] = ::qpid::types::Variant(members);
+    _map["systemId"] = ::qpid::types::Variant(::qpid::types::Uuid((systemId).data()));
 
     }
 
@@ -464,18 +467,38 @@ void HaBroker::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
 
     if ((_i = _map.find("name")) != _map.end()) {
         name = (_i->second).getString();
+    } else {
+        name = "";
     }
     if ((_i = _map.find("status")) != _map.end()) {
         status = (_i->second).getString();
+    } else {
+        status = "";
     }
-    if ((_i = _map.find("brokers")) != _map.end()) {
-        brokers = (_i->second).getString();
+    if ((_i = _map.find("brokersUrl")) != _map.end()) {
+        brokersUrl = (_i->second).getString();
+    } else {
+        brokersUrl = "";
     }
-    if ((_i = _map.find("publicBrokers")) != _map.end()) {
-        publicBrokers = (_i->second).getString();
+    if ((_i = _map.find("publicUrl")) != _map.end()) {
+        publicUrl = (_i->second).getString();
+    } else {
+        publicUrl = "";
     }
-    if ((_i = _map.find("expectedBackups")) != _map.end()) {
-        expectedBackups = _i->second;
+    if ((_i = _map.find("replicateDefault")) != _map.end()) {
+        replicateDefault = (_i->second).getString();
+    } else {
+        replicateDefault = "";
+    }
+    if ((_i = _map.find("members")) != _map.end()) {
+        members = (_i->second).asList();
+    } else {
+        members = ::qpid::types::Variant::List();
+    }
+    if ((_i = _map.find("systemId")) != _map.end()) {
+        systemId = (_i->second).asUuid().data();
+    } else {
+        systemId = ::qpid::types::Uuid();
     }
 
 }
@@ -498,15 +521,17 @@ void HaBroker::doMethod (string& methodName, const ::qpid::types::Variant::Map& 
         return;
     }
 
-    if (methodName == "setBrokers") {
-        ArgsHaBrokerSetBrokers ioArgs;
+    if (methodName == "setBrokersUrl") {
+        ArgsHaBrokerSetBrokersUrl ioArgs;
         ::qpid::types::Variant::Map::const_iterator _i;
         if ((_i = inMap.find("url")) != inMap.end()) {
             ioArgs.i_url = (_i->second).getString();
+        } else {
+            ioArgs.i_url = "";
         }
-        bool allow = coreObject->AuthorizeMethod(METHOD_SETBROKERS, ioArgs, userId);
+        bool allow = coreObject->AuthorizeMethod(METHOD_SETBROKERSURL, ioArgs, userId);
         if (allow)
-            status = coreObject->ManagementMethod (METHOD_SETBROKERS, ioArgs, text);
+            status = coreObject->ManagementMethod (METHOD_SETBROKERSURL, ioArgs, text);
         else
             status = Manageable::STATUS_FORBIDDEN;
         outMap["_status_code"] = (uint32_t) status;
@@ -514,31 +539,17 @@ void HaBroker::doMethod (string& methodName, const ::qpid::types::Variant::Map& 
         return;
     }
 
-    if (methodName == "setPublicBrokers") {
-        ArgsHaBrokerSetPublicBrokers ioArgs;
+    if (methodName == "setPublicUrl") {
+        ArgsHaBrokerSetPublicUrl ioArgs;
         ::qpid::types::Variant::Map::const_iterator _i;
         if ((_i = inMap.find("url")) != inMap.end()) {
             ioArgs.i_url = (_i->second).getString();
+        } else {
+            ioArgs.i_url = "";
         }
-        bool allow = coreObject->AuthorizeMethod(METHOD_SETPUBLICBROKERS, ioArgs, userId);
+        bool allow = coreObject->AuthorizeMethod(METHOD_SETPUBLICURL, ioArgs, userId);
         if (allow)
-            status = coreObject->ManagementMethod (METHOD_SETPUBLICBROKERS, ioArgs, text);
-        else
-            status = Manageable::STATUS_FORBIDDEN;
-        outMap["_status_code"] = (uint32_t) status;
-        outMap["_status_text"] = ::qpid::management::Manageable::StatusText(status, text);
-        return;
-    }
-
-    if (methodName == "setExpectedBackups") {
-        ArgsHaBrokerSetExpectedBackups ioArgs;
-        ::qpid::types::Variant::Map::const_iterator _i;
-        if ((_i = inMap.find("expectedBackups")) != inMap.end()) {
-            ioArgs.i_expectedBackups = _i->second;
-        }
-        bool allow = coreObject->AuthorizeMethod(METHOD_SETEXPECTEDBACKUPS, ioArgs, userId);
-        if (allow)
-            status = coreObject->ManagementMethod (METHOD_SETEXPECTEDBACKUPS, ioArgs, text);
+            status = coreObject->ManagementMethod (METHOD_SETPUBLICURL, ioArgs, text);
         else
             status = Manageable::STATUS_FORBIDDEN;
         outMap["_status_code"] = (uint32_t) status;
@@ -551,9 +562,13 @@ void HaBroker::doMethod (string& methodName, const ::qpid::types::Variant::Map& 
         ::qpid::types::Variant::Map::const_iterator _i;
         if ((_i = inMap.find("broker")) != inMap.end()) {
             ioArgs.i_broker = (_i->second).getString();
+        } else {
+            ioArgs.i_broker = "";
         }
         if ((_i = inMap.find("queue")) != inMap.end()) {
             ioArgs.i_queue = (_i->second).getString();
+        } else {
+            ioArgs.i_queue = "";
         }
         bool allow = coreObject->AuthorizeMethod(METHOD_REPLICATE, ioArgs, userId);
         if (allow)

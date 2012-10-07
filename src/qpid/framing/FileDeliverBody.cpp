@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/FileDeliverBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void FileDeliverBody::setConsumerTag(const std::string& _consumerTag) {
     consumerTag = _consumerTag;
     flags |= (1 << 8);
+    if (consumerTag.size() >= 256) throw IllegalArgumentException("Value for consumerTag is too large");
 }
 const std::string& FileDeliverBody::getConsumerTag() const { return consumerTag; }
 bool FileDeliverBody::hasConsumerTag() const { return flags & (1 << 8); }
@@ -55,6 +56,7 @@ bool FileDeliverBody::getRedelivered() const { return flags & (1 << 10); }
 void FileDeliverBody::setExchange(const std::string& _exchange) {
     exchange = _exchange;
     flags |= (1 << 11);
+    if (exchange.size() >= 256) throw IllegalArgumentException("Value for exchange is too large");
 }
 const std::string& FileDeliverBody::getExchange() const { return exchange; }
 bool FileDeliverBody::hasExchange() const { return flags & (1 << 11); }
@@ -63,6 +65,7 @@ void FileDeliverBody::clearExchangeFlag() { flags &= ~(1 << 11); }
 void FileDeliverBody::setRoutingKey(const std::string& _routingKey) {
     routingKey = _routingKey;
     flags |= (1 << 12);
+    if (routingKey.size() >= 256) throw IllegalArgumentException("Value for routingKey is too large");
 }
 const std::string& FileDeliverBody::getRoutingKey() const { return routingKey; }
 bool FileDeliverBody::hasRoutingKey() const { return flags & (1 << 12); }
@@ -71,6 +74,7 @@ void FileDeliverBody::clearRoutingKeyFlag() { flags &= ~(1 << 12); }
 void FileDeliverBody::setIdentifier(const std::string& _identifier) {
     identifier = _identifier;
     flags |= (1 << 13);
+    if (identifier.size() >= 256) throw IllegalArgumentException("Value for identifier is too large");
 }
 const std::string& FileDeliverBody::getIdentifier() const { return identifier; }
 bool FileDeliverBody::hasIdentifier() const { return flags & (1 << 13); }

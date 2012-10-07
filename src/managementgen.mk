@@ -90,12 +90,14 @@ mgen_broker_cpp=qmf/org/apache/qpid/broker/System.cpp \
     qmf/org/apache/qpid/acl/Acl.cpp \
     qmf/org/apache/qpid/acl/EventAllow.cpp \
     qmf/org/apache/qpid/acl/EventDeny.cpp \
+    qmf/org/apache/qpid/acl/EventConnectionDeny.cpp \
     qmf/org/apache/qpid/acl/EventFileLoaded.cpp \
     qmf/org/apache/qpid/acl/EventFileLoadFailed.cpp \
     qmf/org/apache/qpid/acl/Package.cpp \
     qmf/org/apache/qpid/cluster/Cluster.cpp \
     qmf/org/apache/qpid/cluster/Package.cpp \
     qmf/org/apache/qpid/ha/HaBroker.cpp \
+    qmf/org/apache/qpid/ha/EventMembersUpdate.cpp \
     qmf/org/apache/qpid/ha/Package.cpp
 
 # Header file install rules.
@@ -145,8 +147,11 @@ dist_org_apache_qpid_broker_HEADERS = qmf/org/apache/qpid/broker/System.h \
 
 org_apache_qpid_acldir = $(includedir)/qmf/org/apache/qpid/acl
 dist_org_apache_qpid_acl_HEADERS = qmf/org/apache/qpid/acl/Acl.h \
+    qmf/org/apache/qpid/acl/ArgsAclLookup.h \
+    qmf/org/apache/qpid/acl/ArgsAclLookupPublish.h \
     qmf/org/apache/qpid/acl/EventAllow.h \
     qmf/org/apache/qpid/acl/EventDeny.h \
+    qmf/org/apache/qpid/acl/EventConnectionDeny.h \
     qmf/org/apache/qpid/acl/EventFileLoaded.h \
     qmf/org/apache/qpid/acl/EventFileLoadFailed.h \
     qmf/org/apache/qpid/acl/Package.h
@@ -158,10 +163,10 @@ dist_org_apache_qpid_cluster_HEADERS = qmf/org/apache/qpid/cluster/Cluster.h \
 
 org_apache_qpid_hadir = $(includedir)/qmf/org/apache/qpid/ha
 dist_org_apache_qpid_ha_HEADERS = qmf/org/apache/qpid/ha/HaBroker.h \
-    qmf/org/apache/qpid/ha/ArgsHaBrokerSetBrokers.h \
-    qmf/org/apache/qpid/ha/ArgsHaBrokerSetPublicBrokers.h \
-    qmf/org/apache/qpid/ha/ArgsHaBrokerSetExpectedBackups.h \
+    qmf/org/apache/qpid/ha/ArgsHaBrokerSetBrokersUrl.h \
+    qmf/org/apache/qpid/ha/ArgsHaBrokerSetPublicUrl.h \
     qmf/org/apache/qpid/ha/ArgsHaBrokerReplicate.h \
+    qmf/org/apache/qpid/ha/EventMembersUpdate.h \
     qmf/org/apache/qpid/ha/Package.h
 
 
@@ -216,8 +221,11 @@ qmfgen_sources=qmf/org/apache/qpid/broker/System.h \
     qmf/org/apache/qpid/broker/EventQueueThresholdExceeded.h \
     qmf/org/apache/qpid/broker/Package.h \
     qmf/org/apache/qpid/acl/Acl.h \
+    qmf/org/apache/qpid/acl/ArgsAclLookup.h \
+    qmf/org/apache/qpid/acl/ArgsAclLookupPublish.h \
     qmf/org/apache/qpid/acl/EventAllow.h \
     qmf/org/apache/qpid/acl/EventDeny.h \
+    qmf/org/apache/qpid/acl/EventConnectionDeny.h \
     qmf/org/apache/qpid/acl/EventFileLoaded.h \
     qmf/org/apache/qpid/acl/EventFileLoadFailed.h \
     qmf/org/apache/qpid/acl/Package.h \
@@ -225,10 +233,10 @@ qmfgen_sources=qmf/org/apache/qpid/broker/System.h \
     qmf/org/apache/qpid/cluster/ArgsClusterStopClusterNode.h \
     qmf/org/apache/qpid/cluster/Package.h \
     qmf/org/apache/qpid/ha/HaBroker.h \
-    qmf/org/apache/qpid/ha/ArgsHaBrokerSetBrokers.h \
-    qmf/org/apache/qpid/ha/ArgsHaBrokerSetPublicBrokers.h \
-    qmf/org/apache/qpid/ha/ArgsHaBrokerSetExpectedBackups.h \
+    qmf/org/apache/qpid/ha/ArgsHaBrokerSetBrokersUrl.h \
+    qmf/org/apache/qpid/ha/ArgsHaBrokerSetPublicUrl.h \
     qmf/org/apache/qpid/ha/ArgsHaBrokerReplicate.h \
+    qmf/org/apache/qpid/ha/EventMembersUpdate.h \
     qmf/org/apache/qpid/ha/Package.h \
     qmf/org/apache/qpid/broker/System.cpp \
     qmf/org/apache/qpid/broker/Memory.cpp \
@@ -262,11 +270,13 @@ qmfgen_sources=qmf/org/apache/qpid/broker/System.h \
     qmf/org/apache/qpid/acl/Acl.cpp \
     qmf/org/apache/qpid/acl/EventAllow.cpp \
     qmf/org/apache/qpid/acl/EventDeny.cpp \
+    qmf/org/apache/qpid/acl/EventConnectionDeny.cpp \
     qmf/org/apache/qpid/acl/EventFileLoaded.cpp \
     qmf/org/apache/qpid/acl/EventFileLoadFailed.cpp \
     qmf/org/apache/qpid/acl/Package.cpp \
     qmf/org/apache/qpid/cluster/Cluster.cpp \
     qmf/org/apache/qpid/cluster/Package.cpp \
     qmf/org/apache/qpid/ha/HaBroker.cpp \
+    qmf/org/apache/qpid/ha/EventMembersUpdate.cpp \
     qmf/org/apache/qpid/ha/Package.cpp
 

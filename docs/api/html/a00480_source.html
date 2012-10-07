@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/client/SubscriptionSettings.h Source File</title>
+    <title>qpid/client/SessionBase_0_10.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,11 +58,11 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/client/SubscriptionSettings.h</div>  </div>
+<div class="title">qpid/client/SessionBase_0_10.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00480.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_CLIENT_SUBSCRIPTIONSETTINGS_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_CLIENT_SUBSCRIPTIONSETTINGS_H</span>
+<a href="a00480.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_CLIENT_SESSIONBASE_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_CLIENT_SESSIONBASE_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="comment">/*</span>
 <a name="l00005"></a>00005 <span class="comment"> *</span>
@@ -84,43 +84,67 @@
 <a name="l00021"></a>00021 <span class="comment"> * under the License.</span>
 <a name="l00022"></a>00022 <span class="comment"> *</span>
 <a name="l00023"></a>00023 <span class="comment"> */</span>
-<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="a00466.html">qpid/client/FlowControl.h</a>&quot;</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00502.html">qpid/framing/enum.h</a>&quot;</span>
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 <span class="keyword">namespace </span>qpid {
-<a name="l00028"></a>00028 <span class="keyword">namespace </span>client {
-<a name="l00029"></a>00029 
-<a name="l00031"></a>00031 <span class="keyword">using namespace </span>qpid::framing::message;
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00551.html">qpid/SessionId.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00494.html">qpid/framing/amqp_structs.h</a>&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00421.html">qpid/client/Message.h</a>&quot;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="a00463.html">qpid/client/Completion.h</a>&quot;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="a00483.html">qpid/client/TypedResult.h</a>&quot;</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &quot;<a class="code" href="a00462.html">qpid/client/ClientImportExport.h</a>&quot;</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#include &lt;string&gt;</span>
 <a name="l00032"></a>00032 
-<a name="l00033"></a><a class="code" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8">00033</a> <span class="keyword">enum</span> <a class="code" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8">CompletionMode</a> {
-<a name="l00034"></a><a class="code" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8a5b271da5858f056db87fd00012fcac67">00034</a>     <a class="code" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8a5b271da5858f056db87fd00012fcac67">MANUAL_COMPLETION</a> = 0,
-<a name="l00035"></a><a class="code" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8a7484fcf320e489fd971883456384e9cb">00035</a>     <a class="code" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8a7484fcf320e489fd971883456384e9cb">COMPLETE_ON_DELIVERY</a> = 1,
-<a name="l00036"></a><a class="code" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8af5159dbb296bb4dd4f80461582651abd">00036</a>     <a class="code" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8af5159dbb296bb4dd4f80461582651abd">COMPLETE_ON_ACCEPT</a> = 2
-<a name="l00037"></a>00037 };
-<a name="l00041"></a>00041 <span class="keyword">struct </span>SubscriptionSettings
-<a name="l00042"></a>00042 {
-<a name="l00043"></a><a class="code" href="a00353.html#a980c973a01509fa5e7a1e5ef8e658dfb">00043</a>     <a class="code" href="a00353.html" title="Settings for a subscription.">SubscriptionSettings</a>(
-<a name="l00044"></a>00044         <a class="code" href="a00132.html" title="Flow control works by associating a finite amount of &quot;credit&quot; with a subscription.">FlowControl</a> flow=<a class="code" href="a00132.html#a4e07036ab42cf4a593fcb578edd4b7bd">FlowControl::unlimited</a>(),
-<a name="l00045"></a>00045         <a class="code" href="a00586.html#a8d6ab87d62f2c2f1136e10f0a200f436">AcceptMode</a> accept=<a class="code" href="a00586.html#a8d6ab87d62f2c2f1136e10f0a200f436ad133238eeb72b988b8098eacbe380b40">ACCEPT_MODE_EXPLICIT</a>,
-<a name="l00046"></a>00046         <a class="code" href="a00586.html#ad010ae646e0187e26e02b829e77213d8">AcquireMode</a> acquire=<a class="code" href="a00586.html#ad010ae646e0187e26e02b829e77213d8adcf58c7c09c0324895876616551e1ace">ACQUIRE_MODE_PRE_ACQUIRED</a>,
-<a name="l00047"></a>00047         <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> autoAck_=1,
-<a name="l00048"></a>00048         <a class="code" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8">CompletionMode</a> completion=<a class="code" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8a7484fcf320e489fd971883456384e9cb">COMPLETE_ON_DELIVERY</a>
-<a name="l00049"></a>00049     ) : flowControl(flow), acceptMode(accept), acquireMode(acquire), autoAck(autoAck_), completionMode(completion), exclusive(false) {}
-<a name="l00050"></a>00050 
-<a name="l00051"></a><a class="code" href="a00353.html#a66b49dcd06ffd6edce7d131b2dcc8c26">00051</a>     <a class="code" href="a00132.html" title="Flow control works by associating a finite amount of &quot;credit&quot; with a subscription.">FlowControl</a> <a class="code" href="a00353.html#a66b49dcd06ffd6edce7d131b2dcc8c26">flowControl</a>;    
-<a name="l00052"></a>00052 
-<a name="l00063"></a><a class="code" href="a00353.html#a4b0f5918418310aa290e55acd7791db0">00063</a>     <a class="code" href="a00586.html#a8d6ab87d62f2c2f1136e10f0a200f436">AcceptMode</a> <a class="code" href="a00353.html#a4b0f5918418310aa290e55acd7791db0" title="&lt; Flow control settings.">acceptMode</a>;      
-<a name="l00064"></a>00064 
-<a name="l00081"></a><a class="code" href="a00353.html#a17a595e878e283a7cd53d7f7133928f7">00081</a>     <a class="code" href="a00586.html#ad010ae646e0187e26e02b829e77213d8">AcquireMode</a> <a class="code" href="a00353.html#a17a595e878e283a7cd53d7f7133928f7" title="&lt; ACCEPT_MODE_EXPLICIT or ACCEPT_MODE_NONE">acquireMode</a>;    
-<a name="l00082"></a>00082 
-<a name="l00090"></a><a class="code" href="a00353.html#abd5ab65d583da00e88a26d99e29a04bc">00090</a>     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="a00353.html#abd5ab65d583da00e88a26d99e29a04bc" title="&lt; ACQUIRE_MODE_PRE_ACQUIRED or ACQUIRE_MODE_NOT_ACQUIRED">autoAck</a>;
-<a name="l00113"></a><a class="code" href="a00353.html#a17c7f3ad2e7d1cfd9b215659c9eab282">00113</a>     <a class="code" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8">CompletionMode</a> <a class="code" href="a00353.html#a17c7f3ad2e7d1cfd9b215659c9eab282" title="In windowing mode, completion of a message will cause the credit used up by that message to be reallo...">completionMode</a>;
-<a name="l00118"></a><a class="code" href="a00353.html#a22c04055189b60293c371d9ef7496222">00118</a>     <span class="keywordtype">bool</span> <a class="code" href="a00353.html#a22c04055189b60293c371d9ef7496222" title="If set, requests that no other subscriber be allowed to access the queue while this subscription is a...">exclusive</a>;
-<a name="l00119"></a>00119 };
-<a name="l00120"></a>00120 
-<a name="l00121"></a>00121 }} <span class="comment">// namespace qpid::client</span>
-<a name="l00122"></a>00122 
-<a name="l00123"></a>00123 <span class="preprocessor">#endif  </span>
+<a name="l00033"></a>00033 <span class="keyword">namespace </span>qpid {
+<a name="l00034"></a>00034 <span class="keyword">namespace </span><a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca8a6e04ce91f4d365de37ccc1a4ef0dc9">client</a> {
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 <span class="keyword">class </span>Connection;
+<a name="l00037"></a>00037 <span class="keyword">class </span>SessionImpl;
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039 <span class="keyword">using</span> qpid::framing::Content;
+<a name="l00040"></a>00040 <span class="keyword">using</span> qpid::framing::FieldTable;
+<a name="l00041"></a>00041 <span class="keyword">using</span> qpid::framing::SequenceNumber;
+<a name="l00042"></a>00042 <span class="keyword">using</span> qpid::framing::SequenceSet;
+<a name="l00043"></a>00043 <span class="keyword">using</span> qpid::framing::SequenceNumberSet;
+<a name="l00044"></a>00044 <span class="keyword">using</span> qpid::SessionId;
+<a name="l00045"></a>00045 <span class="keyword">using</span> qpid::framing::Xid;
+<a name="l00046"></a>00046 
+<a name="l00048"></a><a class="code" href="a00578.html#aea75244fd77ea602193ebe93713d76b9a2c6d9050f766f9b635d392259dff6c2e">00048</a> <span class="keyword">enum</span> <a class="code" href="a00578.html#aea75244fd77ea602193ebe93713d76b9" title="Unit of message credit: messages or bytes.">CreditUnit</a> { <a class="code" href="a00578.html#aea75244fd77ea602193ebe93713d76b9a2e132222108dca761365208d76754e56">MESSAGE_CREDIT</a>=0, <a class="code" href="a00578.html#aea75244fd77ea602193ebe93713d76b9a2c713c2a701cf60895f0d6dedab27095">BYTE_CREDIT</a>=1, <a class="code" href="a00578.html#aea75244fd77ea602193ebe93713d76b9a2c6d9050f766f9b635d392259dff6c2e">UNLIMITED_CREDIT</a>=0xFFFFFFFF };
+<a name="l00049"></a>00049 
+<a name="l00056"></a>00056 <span class="keyword">class </span><a class="code" href="a00462.html#a79998e3c253eb090fed36f2f89ca2e91">QPID_CLIENT_CLASS_EXTERN</a> SessionBase_0_10 {
+<a name="l00057"></a>00057   <span class="keyword">public</span>:
+<a name="l00058"></a>00058 
+<a name="l00060"></a>00060     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> SessionBase_0_10();
+<a name="l00061"></a>00061     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> ~SessionBase_0_10();
+<a name="l00062"></a>00062 
+<a name="l00064"></a>00064     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <a class="code" href="a00334.html" title="Identifier for a session.">SessionId</a> getId() <span class="keyword">const</span>;
+<a name="l00065"></a>00065 
+<a name="l00069"></a>00069     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> close();
+<a name="l00070"></a>00070 
+<a name="l00080"></a>00080     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00578.html#a15a5d12c365f54c47e6d5f910760b6c0" title="Conversion to Session_0_10 from another session type.">sync</a>();
+<a name="l00081"></a>00081 
+<a name="l00083"></a>00083     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> timeout(<a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> seconds);
+<a name="l00084"></a>00084 
+<a name="l00086"></a>00086     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> suspend();
+<a name="l00087"></a>00087 
+<a name="l00089"></a>00089     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> resume(Connection);
+<a name="l00090"></a>00090 
+<a name="l00092"></a>00092     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <a class="code" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> getChannel() <span class="keyword">const</span>;
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> flush();
+<a name="l00095"></a>00095     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> markCompleted(<span class="keyword">const</span> <a class="code" href="a00325.html">framing::SequenceSet</a>&amp; ids, <span class="keywordtype">bool</span> notifyPeer);
+<a name="l00096"></a>00096     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> markCompleted(<span class="keyword">const</span> <a class="code" href="a00324.html" title="4-byte sequence number that &#39;wraps around&#39;.">framing::SequenceNumber</a>&amp; <span class="keywordtype">id</span>, <span class="keywordtype">bool</span> cumulative, <span class="keywordtype">bool</span> notifyPeer);
+<a name="l00097"></a>00097     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> sendCompletion();
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">bool</span> isValid() <span class="keyword">const</span>;
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> Connection getConnection();
+<a name="l00102"></a>00102   <span class="keyword">protected</span>:
+<a name="l00103"></a><a class="code" href="a00329.html#a72d171e291fab3cd457bf04276970904">00103</a>     boost::shared_ptr&lt;SessionImpl&gt; <a class="code" href="a00329.html#a72d171e291fab3cd457bf04276970904">impl</a>;
+<a name="l00104"></a><a class="code" href="a00329.html#aecae61510b6db41798294c354ca55dd5">00104</a>   <span class="keyword">friend</span> <span class="keyword">class </span>SessionBase_0_10Access;
+<a name="l00105"></a>00105 };
+<a name="l00106"></a>00106 
+<a name="l00107"></a>00107 }} <span class="comment">// namespace qpid::client</span>
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -150,7 +174,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

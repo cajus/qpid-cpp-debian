@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ConnectionRedirectBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ConnectionRedirectBody::setHost(const std::string& _host) {
     host = _host;
     flags |= (1 << 8);
+    if (host.size() >= 65536) throw IllegalArgumentException("Value for host is too large");
 }
 const std::string& ConnectionRedirectBody::getHost() const { return host; }
 bool ConnectionRedirectBody::hasHost() const { return flags & (1 << 8); }

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf/engine/Value.h Source File</title>
+    <title>qpid/console/Schema.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,131 +58,114 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qmf/engine/Value.h</div>  </div>
+<div class="title">qpid/console/Schema.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00433.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _QmfEngineValue_</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _QmfEngineValue_</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="comment">/*</span>
-<a name="l00005"></a>00005 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
-<a name="l00006"></a>00006 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
-<a name="l00007"></a>00007 <span class="comment"> * distributed with this work for additional information</span>
-<a name="l00008"></a>00008 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
-<a name="l00009"></a>00009 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
-<a name="l00010"></a>00010 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
-<a name="l00011"></a>00011 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
-<a name="l00012"></a>00012 <span class="comment"> * </span>
-<a name="l00013"></a>00013 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
-<a name="l00014"></a>00014 <span class="comment"> * </span>
-<a name="l00015"></a>00015 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
-<a name="l00016"></a>00016 <span class="comment"> * software distributed under the License is distributed on an</span>
-<a name="l00017"></a>00017 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
-<a name="l00018"></a>00018 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
-<a name="l00019"></a>00019 <span class="comment"> * specific language governing permissions and limitations</span>
-<a name="l00020"></a>00020 <span class="comment"> * under the License.</span>
-<a name="l00021"></a>00021 <span class="comment"> */</span>
-<a name="l00022"></a>00022 
-<a name="l00023"></a>00023 <span class="preprocessor">#include &lt;<a class="code" href="a00423.html">qmf/engine/ObjectId.h</a>&gt;</span>
-<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;<a class="code" href="a00432.html">qmf/engine/Typecode.h</a>&gt;</span>
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026 <span class="keyword">namespace </span>qmf {
-<a name="l00027"></a>00027 <span class="keyword">namespace </span>engine {
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029     <span class="keyword">class </span>Object;
-<a name="l00030"></a>00030     <span class="keyword">struct </span>ValueImpl;
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032     <span class="keyword">class </span>Value {
-<a name="l00033"></a>00033     <span class="keyword">public</span>:
-<a name="l00034"></a>00034         <span class="comment">//        Value();</span>
-<a name="l00035"></a>00035         <a class="code" href="a00379.html#ab1231733deda9440064f4cbbb423e28e">Value</a>(<span class="keyword">const</span> <a class="code" href="a00379.html#ab1231733deda9440064f4cbbb423e28e">Value</a>&amp; from);
-<a name="l00036"></a>00036         <a class="code" href="a00379.html#ab1231733deda9440064f4cbbb423e28e">Value</a>(<a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9">Typecode</a> t, <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9">Typecode</a> <a class="code" href="a00379.html#acb4831c3bc394831e78555983ba88fe8">arrayType</a> = <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a6352fad97e8b6a0f51002b6ac487afd7">TYPE_UINT8</a>);
-<a name="l00037"></a>00037         <a class="code" href="a00379.html#aa4e0cd92c0aa8d2ea3685117c2bb1d66">~Value</a>();
+<a href="a00433.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> *</span>
+<a name="l00003"></a>00003 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
+<a name="l00004"></a>00004 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
+<a name="l00005"></a>00005 <span class="comment"> * distributed with this work for additional information</span>
+<a name="l00006"></a>00006 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
+<a name="l00007"></a>00007 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
+<a name="l00008"></a>00008 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
+<a name="l00009"></a>00009 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
+<a name="l00010"></a>00010 <span class="comment"> *</span>
+<a name="l00011"></a>00011 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
+<a name="l00012"></a>00012 <span class="comment"> *</span>
+<a name="l00013"></a>00013 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
+<a name="l00014"></a>00014 <span class="comment"> * software distributed under the License is distributed on an</span>
+<a name="l00015"></a>00015 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<a name="l00016"></a>00016 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
+<a name="l00017"></a>00017 <span class="comment"> * specific language governing permissions and limitations</span>
+<a name="l00018"></a>00018 <span class="comment"> * under the License.</span>
+<a name="l00019"></a>00019 <span class="comment"> *</span>
+<a name="l00020"></a>00020 <span class="comment"> */</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#ifndef _QPID_CONSOLE_SCHEMA_H_</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define _QPID_CONSOLE_SCHEMA_H_</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="a00486.html">qpid/console/ClassKey.h</a>&quot;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &lt;boost/shared_ptr.hpp&gt;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="keyword">namespace </span>qpid {
+<a name="l00029"></a>00029 <span class="keyword">namespace </span>framing {
+<a name="l00030"></a>00030     <span class="keyword">class </span>Buffer;
+<a name="l00031"></a>00031 }
+<a name="l00032"></a>00032 <span class="keyword">namespace </span>console {
+<a name="l00033"></a>00033     <span class="keyword">class </span>Value;
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035     <span class="keyword">struct </span>SchemaArgument {
+<a name="l00036"></a>00036         <a class="code" href="a00298.html#a07b0a87bb4ed26072a9a67c111a5c828">SchemaArgument</a>(framing::Buffer&amp; buffer, <span class="keywordtype">bool</span> forMethod = <span class="keyword">false</span>);
+<a name="l00037"></a>00037         boost::shared_ptr&lt;Value&gt; <a class="code" href="a00298.html#a0e9caab64d0e1b00b0544904a0538a9c">decodeValue</a>(framing::Buffer&amp; buffer);
 <a name="l00038"></a>00038 
-<a name="l00039"></a>00039         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9">Typecode</a> <a class="code" href="a00379.html#a379748f4ee8344caa1c0bf69eb03b52d">getType</a>() <span class="keyword">const</span>;
-<a name="l00040"></a>00040         <span class="keywordtype">bool</span> <a class="code" href="a00379.html#ac5212a148058adc25f556e11088a4d96">isNull</a>() <span class="keyword">const</span>;
-<a name="l00041"></a>00041         <span class="keywordtype">void</span> <a class="code" href="a00379.html#ad113b53e79787454c3dc6e88595078e3">setNull</a>();
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043         <span class="keywordtype">bool</span> <a class="code" href="a00379.html#af5fa1073fe40af3efe2d912b135a6014">isObjectId</a>() <span class="keyword">const</span>;
-<a name="l00044"></a>00044         <span class="keyword">const</span> ObjectId&amp; <a class="code" href="a00379.html#a796896ada843e9b4f9214dd1a35334c0">asObjectId</a>() <span class="keyword">const</span>;
-<a name="l00045"></a>00045         <span class="keywordtype">void</span> <a class="code" href="a00379.html#ae7bf7b1409db1788944c34ea5f7be6ce">setObjectId</a>(<span class="keyword">const</span> ObjectId&amp; oid);
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047         <span class="keywordtype">bool</span> <a class="code" href="a00379.html#a08ce99887cc09603e922be21f8b05daf">isUint</a>() <span class="keyword">const</span>;
-<a name="l00048"></a>00048         <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00379.html#aed90e1c3a3619b90b77a2eae2701d927">asUint</a>() <span class="keyword">const</span>;
-<a name="l00049"></a>00049         <span class="keywordtype">void</span> <a class="code" href="a00379.html#a88a77af55e0e9e035a02ec70c0953333">setUint</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> val);
+<a name="l00039"></a><a class="code" href="a00298.html#ab8e16be0999534355021b7b696f1e97a">00039</a>         std::string <a class="code" href="a00298.html#ab8e16be0999534355021b7b696f1e97a">name</a>;
+<a name="l00040"></a><a class="code" href="a00298.html#aa0a885e4771956bd3a0cbe11af975615">00040</a>         <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="code" href="a00298.html#aa0a885e4771956bd3a0cbe11af975615">typeCode</a>;
+<a name="l00041"></a><a class="code" href="a00298.html#a8d2eaf5bbbc4acbbc30f3baf0462c27d">00041</a>         <span class="keywordtype">bool</span> <a class="code" href="a00298.html#a8d2eaf5bbbc4acbbc30f3baf0462c27d">dirInput</a>;
+<a name="l00042"></a><a class="code" href="a00298.html#ac4fbb37d5cd1813f046db42de07d5305">00042</a>         <span class="keywordtype">bool</span> <a class="code" href="a00298.html#ac4fbb37d5cd1813f046db42de07d5305">dirOutput</a>;
+<a name="l00043"></a><a class="code" href="a00298.html#a4e903a30802f2f88306686ac34b88704">00043</a>         std::string <a class="code" href="a00298.html#a4e903a30802f2f88306686ac34b88704">unit</a>;
+<a name="l00044"></a><a class="code" href="a00298.html#a10cf359aa73932270cd3fc9c990221e4">00044</a>         <span class="keywordtype">int</span> <a class="code" href="a00298.html#a10cf359aa73932270cd3fc9c990221e4">min</a>;
+<a name="l00045"></a><a class="code" href="a00298.html#a33cc71964237e1a050aeee3a25840cef">00045</a>         <span class="keywordtype">int</span> <a class="code" href="a00298.html#a33cc71964237e1a050aeee3a25840cef">max</a>;
+<a name="l00046"></a><a class="code" href="a00298.html#a8ce8064b4a60f8130833bca9c01b79ce">00046</a>         <span class="keywordtype">int</span> <a class="code" href="a00298.html#a8ce8064b4a60f8130833bca9c01b79ce">maxLen</a>;
+<a name="l00047"></a><a class="code" href="a00298.html#a54d52fbd843ede03dce81951d67a5e9c">00047</a>         std::string <a class="code" href="a00298.html#a54d52fbd843ede03dce81951d67a5e9c">desc</a>;
+<a name="l00048"></a><a class="code" href="a00298.html#a12024005eba4c1fa6c0effc23bcb78b1">00048</a>         std::string <a class="code" href="a00298.html#a12024005eba4c1fa6c0effc23bcb78b1">defaultVal</a>;
+<a name="l00049"></a>00049     };
 <a name="l00050"></a>00050 
-<a name="l00051"></a>00051         <span class="keywordtype">bool</span> <a class="code" href="a00379.html#a3f351ad9ac1d11d2cafa8ee36cd763b4">isInt</a>() <span class="keyword">const</span>;
-<a name="l00052"></a>00052         <a class="code" href="a00556.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a> <a class="code" href="a00379.html#a89270906b4c879dd60d58757b87d4cb9">asInt</a>() <span class="keyword">const</span>;
-<a name="l00053"></a>00053         <span class="keywordtype">void</span> <a class="code" href="a00379.html#a73306a7f98329fa27bb5850e4e5a3306">setInt</a>(<a class="code" href="a00556.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a> val);
+<a name="l00051"></a>00051     <span class="keyword">struct </span><a class="code" href="a00310.html">SchemaProperty</a> {
+<a name="l00052"></a>00052         <a class="code" href="a00310.html#a48d53effd20c62e0a773de093457e15a">SchemaProperty</a>(<a class="code" href="a00045.html">framing::Buffer</a>&amp; buffer);
+<a name="l00053"></a>00053         boost::shared_ptr&lt;Value&gt; <a class="code" href="a00310.html#a440fbf1be6aa30be3e3c82ec11bbed66">decodeValue</a>(<a class="code" href="a00045.html">framing::Buffer</a>&amp; buffer);
 <a name="l00054"></a>00054 
-<a name="l00055"></a>00055         <span class="keywordtype">bool</span> <a class="code" href="a00379.html#ae4bc5f4941709b4da24f4970cccd66e4">isUint64</a>() <span class="keyword">const</span>;
-<a name="l00056"></a>00056         uint64_t <a class="code" href="a00379.html#ac47e7c408151f497b20f3d8614712f73">asUint64</a>() <span class="keyword">const</span>;
-<a name="l00057"></a>00057         <span class="keywordtype">void</span> <a class="code" href="a00379.html#a0a700c83302969f40811e0956ca9feac">setUint64</a>(uint64_t val);
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059         <span class="keywordtype">bool</span> <a class="code" href="a00379.html#a4046c948ae49b9e44586a1c63090780a">isInt64</a>() <span class="keyword">const</span>;
-<a name="l00060"></a>00060         int64_t <a class="code" href="a00379.html#acdbd317b5a1d253897cbb4253b7582dd">asInt64</a>() <span class="keyword">const</span>;
-<a name="l00061"></a>00061         <span class="keywordtype">void</span> <a class="code" href="a00379.html#a5b52dcf478cb2abd657e3fdc363c90d0">setInt64</a>(int64_t val);
-<a name="l00062"></a>00062 
-<a name="l00063"></a>00063         <span class="keywordtype">bool</span> <a class="code" href="a00379.html#aad2fca33a7f98b7ceafab7899fdb37d5">isString</a>() <span class="keyword">const</span>;
-<a name="l00064"></a>00064         <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="a00379.html#a2146b74bcf6ac6283d02a0c53ce879d1">asString</a>() <span class="keyword">const</span>;
-<a name="l00065"></a>00065         <span class="keywordtype">void</span> <a class="code" href="a00379.html#ace53bf7471c5f2c5be8f29cba778440a">setString</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* val);
+<a name="l00055"></a><a class="code" href="a00310.html#aff9d5836c3f16e3943cd930b3221e8dc">00055</a>         std::string <a class="code" href="a00310.html#aff9d5836c3f16e3943cd930b3221e8dc">name</a>;
+<a name="l00056"></a><a class="code" href="a00310.html#ae5fcd3c15c53c6a33253896b0fce483d">00056</a>         <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="code" href="a00310.html#ae5fcd3c15c53c6a33253896b0fce483d">typeCode</a>;
+<a name="l00057"></a><a class="code" href="a00310.html#af3bf99c4ca02d284774ce5482fa13066">00057</a>         <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="code" href="a00310.html#af3bf99c4ca02d284774ce5482fa13066">accessCode</a>;
+<a name="l00058"></a><a class="code" href="a00310.html#ae14bf4ebe95e0041b84a5f260266c46d">00058</a>         <span class="keywordtype">bool</span> <a class="code" href="a00310.html#ae14bf4ebe95e0041b84a5f260266c46d">isIndex</a>;
+<a name="l00059"></a><a class="code" href="a00310.html#a115c692058385682aab528d54594b5d0">00059</a>         <span class="keywordtype">bool</span> <a class="code" href="a00310.html#a115c692058385682aab528d54594b5d0">isOptional</a>;
+<a name="l00060"></a><a class="code" href="a00310.html#ad6608279c590b28da3bd37e3f7116695">00060</a>         std::string <a class="code" href="a00310.html#ad6608279c590b28da3bd37e3f7116695">unit</a>;
+<a name="l00061"></a><a class="code" href="a00310.html#a83bf0e215bca9477ad50c34e6dbfe2af">00061</a>         <span class="keywordtype">int</span> <a class="code" href="a00310.html#a83bf0e215bca9477ad50c34e6dbfe2af">min</a>;
+<a name="l00062"></a><a class="code" href="a00310.html#aa42873a7f955f001e0e0a221e82a1eb9">00062</a>         <span class="keywordtype">int</span> <a class="code" href="a00310.html#aa42873a7f955f001e0e0a221e82a1eb9">max</a>;
+<a name="l00063"></a><a class="code" href="a00310.html#abb96a46e32513738721cd7aa800fc8c5">00063</a>         <span class="keywordtype">int</span> <a class="code" href="a00310.html#abb96a46e32513738721cd7aa800fc8c5">maxLen</a>;
+<a name="l00064"></a><a class="code" href="a00310.html#a3bb7de6cdf31fc313c995fa8473ba7b7">00064</a>         std::string <a class="code" href="a00310.html#a3bb7de6cdf31fc313c995fa8473ba7b7">desc</a>;
+<a name="l00065"></a>00065     };
 <a name="l00066"></a>00066 
-<a name="l00067"></a>00067         <span class="keywordtype">bool</span> <a class="code" href="a00379.html#a8b408f17f85725a174ce9d954b47d83a">isBool</a>() <span class="keyword">const</span>;
-<a name="l00068"></a>00068         <span class="keywordtype">bool</span> <a class="code" href="a00379.html#a8620e7c399e0c17ead2f7e150980844a">asBool</a>() <span class="keyword">const</span>;
-<a name="l00069"></a>00069         <span class="keywordtype">void</span> <a class="code" href="a00379.html#a085d83310d66888e19d3ba9eb117bed2">setBool</a>(<span class="keywordtype">bool</span> val);
+<a name="l00067"></a>00067     <span class="keyword">struct </span><a class="code" href="a00312.html">SchemaStatistic</a> {
+<a name="l00068"></a>00068         <a class="code" href="a00312.html#a4b620aca83e18982e7208beff8bad936">SchemaStatistic</a>(<a class="code" href="a00045.html">framing::Buffer</a>&amp; buffer);
+<a name="l00069"></a>00069         boost::shared_ptr&lt;Value&gt; <a class="code" href="a00312.html#a3003ff3cf979647642d1a90380f968f0">decodeValue</a>(<a class="code" href="a00045.html">framing::Buffer</a>&amp; buffer);
 <a name="l00070"></a>00070 
-<a name="l00071"></a>00071         <span class="keywordtype">bool</span> <a class="code" href="a00379.html#ab9f60612fb2157f56575670ddedccdc1">isFloat</a>() <span class="keyword">const</span>;
-<a name="l00072"></a>00072         <span class="keywordtype">float</span> <a class="code" href="a00379.html#acc44fd7a8757da1e23eaab8944ca1f66">asFloat</a>() <span class="keyword">const</span>;
-<a name="l00073"></a>00073         <span class="keywordtype">void</span> <a class="code" href="a00379.html#a9887098a4dcc0c7cbd64564086038a13">setFloat</a>(<span class="keywordtype">float</span> val);
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075         <span class="keywordtype">bool</span> <a class="code" href="a00379.html#a449eab228fa125a1dab740c86236777b">isDouble</a>() <span class="keyword">const</span>;
-<a name="l00076"></a>00076         <span class="keywordtype">double</span> <a class="code" href="a00379.html#a53b55b0827b1fc73f9762a5f89f63ee8">asDouble</a>() <span class="keyword">const</span>;
-<a name="l00077"></a>00077         <span class="keywordtype">void</span> <a class="code" href="a00379.html#a7cb8e10231fa2c61bd168d833672fad1">setDouble</a>(<span class="keywordtype">double</span> val);
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079         <span class="keywordtype">bool</span> <a class="code" href="a00379.html#a859314dbbb5f6969238eb30f1619ae26">isUuid</a>() <span class="keyword">const</span>;
-<a name="l00080"></a>00080         <span class="keyword">const</span> <a class="code" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* <a class="code" href="a00379.html#af0e1838b69d650f661c01dff362dd93d">asUuid</a>() <span class="keyword">const</span>;
-<a name="l00081"></a>00081         <span class="keywordtype">void</span> <a class="code" href="a00379.html#a6886ba37e13a50c9c37a79547aa48125">setUuid</a>(<span class="keyword">const</span> <a class="code" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* val);
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083         <span class="keywordtype">bool</span> <a class="code" href="a00379.html#aa6d50cfd8195588122997305d1f8eed5">isObject</a>() <span class="keyword">const</span>;
-<a name="l00084"></a>00084         <span class="keyword">const</span> Object* <a class="code" href="a00379.html#a5efc45b9dd1c2fc2f522ab54f92d1c92">asObject</a>() <span class="keyword">const</span>;
-<a name="l00085"></a>00085         <span class="keywordtype">void</span> <a class="code" href="a00379.html#a1d5ac4a7c6230318ff1d6f894e99b818">setObject</a>(Object* val);
-<a name="l00086"></a>00086 
-<a name="l00087"></a>00087         <span class="keywordtype">bool</span> <a class="code" href="a00379.html#a3d27eca85e099fbba18ce425d2536935">isMap</a>() <span class="keyword">const</span>;
-<a name="l00088"></a>00088         <span class="keywordtype">bool</span> <a class="code" href="a00379.html#acf171c35958b2de55600fe1218cf01a2">keyInMap</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="a00379.html#a34b5777203758055405554766bbe8e3e">key</a>) <span class="keyword">const</span>;
-<a name="l00089"></a>00089         <a class="code" href="a00379.html#ab1231733deda9440064f4cbbb423e28e">Value</a>* <a class="code" href="a00379.html#a6bbb0c5195a21e391aba7cd8302a52f5">byKey</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="a00379.html#a34b5777203758055405554766bbe8e3e">key</a>);
-<a name="l00090"></a>00090         <span class="keyword">const</span> <a class="code" href="a00379.html#ab1231733deda9440064f4cbbb423e28e">Value</a>* <a class="code" href="a00379.html#a6bbb0c5195a21e391aba7cd8302a52f5">byKey</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="a00379.html#a34b5777203758055405554766bbe8e3e">key</a>) <span class="keyword">const</span>;
-<a name="l00091"></a>00091         <span class="keywordtype">void</span> <a class="code" href="a00379.html#af1f40815fc1d00ab88a064174e6f00d4">deleteKey</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="a00379.html#a34b5777203758055405554766bbe8e3e">key</a>);
-<a name="l00092"></a>00092         <span class="keywordtype">void</span> <a class="code" href="a00379.html#af9bceb0b28625805bbb1193c2bc74ac7">insert</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="a00379.html#a34b5777203758055405554766bbe8e3e">key</a>, <a class="code" href="a00379.html#ab1231733deda9440064f4cbbb423e28e">Value</a>* val);
-<a name="l00093"></a>00093         <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00379.html#a6336711705b66e500eb9023617c4cfd3">keyCount</a>() <span class="keyword">const</span>;
-<a name="l00094"></a>00094         <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="a00379.html#a34b5777203758055405554766bbe8e3e">key</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> idx) <span class="keyword">const</span>;
-<a name="l00095"></a>00095 
-<a name="l00096"></a>00096         <span class="keywordtype">bool</span> <a class="code" href="a00379.html#a06128acb89ef77dc2a90f1f159e288e6">isList</a>() <span class="keyword">const</span>;
-<a name="l00097"></a>00097         <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00379.html#a160d9354daf9e60c3288573a7cd649bd">listItemCount</a>() <span class="keyword">const</span>;
-<a name="l00098"></a>00098         <a class="code" href="a00379.html#ab1231733deda9440064f4cbbb423e28e">Value</a>* <a class="code" href="a00379.html#acb7f4c53f0429fb69b95750b2fae9898">listItem</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> idx);
-<a name="l00099"></a>00099         <span class="keywordtype">void</span> <a class="code" href="a00379.html#a1ae5fe2de67251139e04baa590b1b88e">appendToList</a>(<a class="code" href="a00379.html#ab1231733deda9440064f4cbbb423e28e">Value</a>* val);
-<a name="l00100"></a>00100         <span class="keywordtype">void</span> <a class="code" href="a00379.html#aa6b00fda542b190e71b205e90dba7348">deleteListItem</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> idx);
-<a name="l00101"></a>00101 
-<a name="l00102"></a>00102         <span class="keywordtype">bool</span> <a class="code" href="a00379.html#ae8385345e39102442fb716dfcf9ac997">isArray</a>() <span class="keyword">const</span>;
-<a name="l00103"></a>00103         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9">Typecode</a> <a class="code" href="a00379.html#acb4831c3bc394831e78555983ba88fe8">arrayType</a>() <span class="keyword">const</span>;
-<a name="l00104"></a>00104         <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00379.html#a1c57ea98c227ebb78e238b0187107ab0">arrayItemCount</a>() <span class="keyword">const</span>;
-<a name="l00105"></a>00105         <a class="code" href="a00379.html#ab1231733deda9440064f4cbbb423e28e">Value</a>* <a class="code" href="a00379.html#a1f7bda52b6bcf03cbd4ca25da0cefe87">arrayItem</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> idx);
-<a name="l00106"></a>00106         <span class="keywordtype">void</span> <a class="code" href="a00379.html#af11e722faa9b699dda8c7ab15ef424ac">appendToArray</a>(<a class="code" href="a00379.html#ab1231733deda9440064f4cbbb423e28e">Value</a>* val);
-<a name="l00107"></a>00107         <span class="keywordtype">void</span> <a class="code" href="a00379.html#a3fbb513521c4a838243a4a195e208e89">deleteArrayItem</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> idx);
-<a name="l00108"></a>00108 
-<a name="l00109"></a>00109     <span class="keyword">private</span>:
-<a name="l00110"></a><a class="code" href="a00379.html#a0a57af687367554eeb923005b562acd1">00110</a>         <span class="keyword">friend</span> <span class="keyword">struct </span><a class="code" href="a00379.html#a0a57af687367554eeb923005b562acd1">ValueImpl</a>;
-<a name="l00111"></a><a class="code" href="a00379.html#a55134f81947ec9b2a089fd2a5eed67a6">00111</a>         <span class="keyword">friend</span> <span class="keyword">class  </span><a class="code" href="a00379.html#a55134f81947ec9b2a089fd2a5eed67a6">BrokerProxyImpl</a>;
-<a name="l00112"></a><a class="code" href="a00379.html#a323ee9e5ddcae202ff0e7cc28986ed02">00112</a>         <span class="keyword">friend</span> <span class="keyword">struct </span><a class="code" href="a00379.html#a323ee9e5ddcae202ff0e7cc28986ed02">ObjectImpl</a>;
-<a name="l00113"></a><a class="code" href="a00379.html#a75c492787b0bbc525050621ca8856bd1">00113</a>         <span class="keyword">friend</span> <span class="keyword">struct </span><a class="code" href="a00379.html#a75c492787b0bbc525050621ca8856bd1">EventImpl</a>;
-<a name="l00114"></a><a class="code" href="a00379.html#a61d9990141016e55bc4d75291c90a301">00114</a>         <span class="keyword">friend</span> <span class="keyword">class  </span><a class="code" href="a00379.html#a61d9990141016e55bc4d75291c90a301">AgentImpl</a>;
-<a name="l00115"></a>00115         <a class="code" href="a00379.html#ab1231733deda9440064f4cbbb423e28e">Value</a>(<a class="code" href="a00379.html#a0a57af687367554eeb923005b562acd1">ValueImpl</a>* impl);
-<a name="l00116"></a>00116         <a class="code" href="a00379.html#a0a57af687367554eeb923005b562acd1">ValueImpl</a>* impl;
-<a name="l00117"></a>00117     };
-<a name="l00118"></a>00118 }
-<a name="l00119"></a>00119 }
-<a name="l00120"></a>00120 
-<a name="l00121"></a>00121 <span class="preprocessor">#endif</span>
-<a name="l00122"></a>00122 <span class="preprocessor"></span>
+<a name="l00071"></a><a class="code" href="a00312.html#a9a28778b6f7f578b31ab7a95ef7795ce">00071</a>         std::string <a class="code" href="a00312.html#a9a28778b6f7f578b31ab7a95ef7795ce">name</a>;
+<a name="l00072"></a><a class="code" href="a00312.html#aae0d4e6de7ff981f53964abe4fbd2fc7">00072</a>         <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="code" href="a00312.html#aae0d4e6de7ff981f53964abe4fbd2fc7">typeCode</a>;
+<a name="l00073"></a><a class="code" href="a00312.html#a684baae2c9719d258be2aeab18c96c7e">00073</a>         std::string <a class="code" href="a00312.html#a684baae2c9719d258be2aeab18c96c7e">unit</a>;
+<a name="l00074"></a><a class="code" href="a00312.html#a3e5f7131a52b868f5e708dca74744241">00074</a>         std::string <a class="code" href="a00312.html#a3e5f7131a52b868f5e708dca74744241">desc</a>;
+<a name="l00075"></a>00075     };
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077     <span class="keyword">struct </span><a class="code" href="a00304.html">SchemaMethod</a> {
+<a name="l00078"></a>00078         <a class="code" href="a00304.html#a1fbb067ecd391ba6ea8e58be7b3337b8">SchemaMethod</a>(<a class="code" href="a00045.html">framing::Buffer</a>&amp; buffer);
+<a name="l00079"></a>00079         <a class="code" href="a00304.html#a2b90a9089c5432b5553a5dc8bbfd994d">~SchemaMethod</a>();
+<a name="l00080"></a>00080 
+<a name="l00081"></a><a class="code" href="a00304.html#ab4ee69af55109d7f7c92145220c40e06">00081</a>         std::string <a class="code" href="a00304.html#ab4ee69af55109d7f7c92145220c40e06">name</a>;
+<a name="l00082"></a><a class="code" href="a00304.html#a19241ac31ae768aa53ecbb932eeaf671">00082</a>         std::string <a class="code" href="a00304.html#a19241ac31ae768aa53ecbb932eeaf671">desc</a>;
+<a name="l00083"></a><a class="code" href="a00304.html#a62ec784915179a30d839c0b4f514c880">00083</a>         std::vector&lt;SchemaArgument*&gt; <a class="code" href="a00304.html#a62ec784915179a30d839c0b4f514c880">arguments</a>;
+<a name="l00084"></a>00084     };
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086     <span class="keyword">struct </span><a class="code" href="a00300.html">SchemaClass</a> {
+<a name="l00087"></a><a class="code" href="a00300.html#a4a0e35cef252d730db1f253709ce9a42">00087</a>         <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="code" href="a00300.html#a4a0e35cef252d730db1f253709ce9a42">KIND_TABLE</a> = 1;
+<a name="l00088"></a><a class="code" href="a00300.html#a47046b189380ac57c873257925118702">00088</a>         <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="code" href="a00300.html#a47046b189380ac57c873257925118702">KIND_EVENT</a> = 2;
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090         <a class="code" href="a00300.html#a52adc9f384523eaaca600a589a587289">SchemaClass</a>(<span class="keyword">const</span> <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="code" href="a00300.html#a8561b10fdd4947f2ef64f0a7cf8028f4">kind</a>, <span class="keyword">const</span> <a class="code" href="a00051.html">ClassKey</a>&amp; <a class="code" href="a00300.html#a7bb20a20f445c6729ffbcb7f20d55ceb">key</a>, <a class="code" href="a00045.html">framing::Buffer</a>&amp; buffer);
+<a name="l00091"></a>00091         <a class="code" href="a00300.html#aa29987283a8b87a96ada1e168cd3237c">~SchemaClass</a>();
+<a name="l00092"></a><a class="code" href="a00300.html#ae740d7e558d136762032f9e276bfb01a">00092</a>         <span class="keyword">const</span> <a class="code" href="a00051.html">ClassKey</a>&amp; <a class="code" href="a00300.html#ae740d7e558d136762032f9e276bfb01a">getClassKey</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a00300.html#a7bb20a20f445c6729ffbcb7f20d55ceb">key</a>; }
+<a name="l00093"></a>00093 
+<a name="l00094"></a><a class="code" href="a00300.html#a8561b10fdd4947f2ef64f0a7cf8028f4">00094</a>         <span class="keyword">const</span> <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="code" href="a00300.html#a8561b10fdd4947f2ef64f0a7cf8028f4">kind</a>;
+<a name="l00095"></a><a class="code" href="a00300.html#a7bb20a20f445c6729ffbcb7f20d55ceb">00095</a>         <span class="keyword">const</span> <a class="code" href="a00051.html">ClassKey</a> <a class="code" href="a00300.html#a7bb20a20f445c6729ffbcb7f20d55ceb">key</a>;
+<a name="l00096"></a><a class="code" href="a00300.html#a790840c70264598336b565855c139251">00096</a>         std::vector&lt;SchemaProperty*&gt; <a class="code" href="a00300.html#a790840c70264598336b565855c139251">properties</a>;
+<a name="l00097"></a><a class="code" href="a00300.html#adebd798702e0901b3f1a9374a959270e">00097</a>         std::vector&lt;SchemaStatistic*&gt; <a class="code" href="a00300.html#adebd798702e0901b3f1a9374a959270e">statistics</a>;
+<a name="l00098"></a><a class="code" href="a00300.html#af93a3db268b19ddc7ac29ffe2ebdd22c">00098</a>         std::vector&lt;SchemaMethod*&gt; <a class="code" href="a00300.html#af93a3db268b19ddc7ac29ffe2ebdd22c">methods</a>;
+<a name="l00099"></a><a class="code" href="a00300.html#aa00ba88c7dc3e565a85cdf6868208036">00099</a>         std::vector&lt;SchemaArgument*&gt; <a class="code" href="a00300.html#aa00ba88c7dc3e565a85cdf6868208036">arguments</a>;
+<a name="l00100"></a>00100     };
+<a name="l00101"></a>00101 }
+<a name="l00102"></a>00102 }
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104 
+<a name="l00105"></a>00105 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--
@@ -212,7 +195,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

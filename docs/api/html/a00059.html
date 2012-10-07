@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::messaging::Connection Class Reference</title>
+    <title>qpid::sys::ConditionalScopedLock Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,531 +60,89 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00591.html">messaging</a>      </li>
-      <li class="navelem"><a class="el" href="a00059.html">Connection</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00594.html">sys</a>      </li>
+      <li class="navelem"><a class="el" href="a00059.html">ConditionalScopedLock</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-types">Protected Types</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::messaging::Connection Class Reference<div class="ingroups"><a class="el" href="a00596.html">Qpid C++ Client API</a></div></div>  </div>
+<div class="title">qpid::sys::ConditionalScopedLock Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::messaging::Connection" --><!-- doxytag: inherits="Handle&lt; ConnectionImpl &gt;" -->
-<p>A connection represents a network connection to a remote endpoint.  
- <a href="a00059.html#details">More...</a></p>
+<!-- doxytag: class="qpid::sys::ConditionalScopedLock" -->
+<p><code>#include &lt;<a class="el" href="a00542_source.html">qpid/sys/Mutex.h</a>&gt;</code></p>
 
-<p><code>#include &lt;<a class="el" href="a00463_source.html">qpid/messaging/Connection.h</a>&gt;</code></p>
-
-<p><a href="a00844.html">List of all members.</a></p>
+<p><a href="a00886.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#abe808ac8eeba96ead96d8496fe943d43">Connection</a> (ConnectionImpl *<a class="el" href="a00139.html#aa4b861c288ed3546405a0e334a2c7ae9">impl</a>)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#a344dfea4fe1f97f9b3d71cb530a7e7e7">Connection</a> (const <a class="el" href="a00059.html">Connection</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#a17f41264ba75dd1e22cd5cc78a7e822f">Connection</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#ae06ab15cdef8d7042db1b01b7b152398">Connection</a> (const <a class="el" href="a00345.html">std::string</a> &amp;url, const <a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;options=<a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a>())</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Current implementation supports the following options:  <a href="#ae06ab15cdef8d7042db1b01b7b152398"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#acf41d71d6ab460c8cf3e1a62fba94c9b">Connection</a> (const <a class="el" href="a00345.html">std::string</a> &amp;url, const <a class="el" href="a00345.html">std::string</a> &amp;options)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a connection using an option string of the form {name:value,name2:value2...}, see above for options supported.  <a href="#acf41d71d6ab460c8cf3e1a62fba94c9b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#a1ccfcd4c1a226412282df50f1d3c51d3">~Connection</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00059.html">Connection</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#ac06a93f6fcf09a2a96eaccc76b7582c2">operator=</a> (const <a class="el" href="a00059.html">Connection</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#a926061681f7dce4d67106a6bc826f5ef">setOption</a> (const <a class="el" href="a00345.html">std::string</a> &amp;name, const <a class="el" href="a00385.html">qpid::types::Variant</a> &amp;value)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#a751f5920609165d991e80ea7bf0d3a9c">open</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#af1222a976ccbcbdefba5d0773f912ab1">isOpen</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#a7dfc416b653844fb51168fe40e6b38fe">isOpen</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#a5b6d7758f86e036e21f25d3971c5cab8">close</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes a connection and all sessions associated with it.  <a href="#a5b6d7758f86e036e21f25d3971c5cab8"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00325.html">Session</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#aac95402282a678630a6dd438de201eee">createTransactionalSession</a> (const <a class="el" href="a00345.html">std::string</a> &amp;name=<a class="el" href="a00345.html">std::string</a>())</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00325.html">Session</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#a51aea78aacfe9ad977b27474583f97da">createSession</a> (const <a class="el" href="a00345.html">std::string</a> &amp;name=<a class="el" href="a00345.html">std::string</a>())</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00325.html">Session</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#aefe86d8176f9a9c63dcb637db7ecbca0">getSession</a> (const <a class="el" href="a00345.html">std::string</a> &amp;name) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#aaa0701501c8288174036a6df0fc6b78a">getAuthenticatedUsername</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_MESSAGING_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a96a040ee9deb2b6534f6ac03fe60ffa4">isValid</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_MESSAGING_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a1f4f3033223421f914db98fbb7ac1704">isNull</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_MESSAGING_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a35cfc26f8be13a312dd9de7cf475a962">operator bool</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to bool supports idiom if (handle) { handle-&gt;...  <a href="#a35cfc26f8be13a312dd9de7cf475a962"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_MESSAGING_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a0bf2de9ff2609eb03d4a350ef5179156">operator!</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }.  <a href="#a0bf2de9ff2609eb03d4a350ef5179156"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a9eb61a86144e01a2683da2ad36137c54">swap</a> (<a class="el" href="a00139.html">Handle</a>&lt; T &gt; &amp;h)</td></tr>
-<tr><td colspan="2"><h2><a name="pro-types"></a>
-Protected Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a51b69551a689a063cd575ae3f81c9775">Impl</a></td></tr>
-<tr><td colspan="2"><h2><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00139.html#a51b69551a689a063cd575ae3f81c9775">Impl</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#aa4b861c288ed3546405a0e334a2c7ae9">impl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#a1afc3f762f760ceb012a52da48435a75">ConditionalScopedLock</a> (L &amp;l)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#a56eb0ca3331b89feaa91867bfe9cc462">~ConditionalScopedLock</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#afa9de934b40472cc609c6d2af6fad03c">lockAcquired</a> ()</td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>A connection represents a network connection to a remote endpoint. </p>
-</div><hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="a51b69551a689a063cd575ae3f81c9775"></a><!-- doxytag: member="qpid::messaging::Connection::Impl" ref="a51b69551a689a063cd575ae3f81c9775" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef T <a class="el" href="a00139.html#a51b69551a689a063cd575ae3f81c9775">qpid::messaging::Handle::Impl</a><code> [protected, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00439_source.html#l00057">57</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="abe808ac8eeba96ead96d8496fe943d43"></a><!-- doxytag: member="qpid::messaging::Connection::Connection" ref="abe808ac8eeba96ead96d8496fe943d43" args="(ConnectionImpl *impl)" -->
+<a class="anchor" id="a1afc3f762f760ceb012a52da48435a75"></a><!-- doxytag: member="qpid::sys::ConditionalScopedLock::ConditionalScopedLock" ref="a1afc3f762f760ceb012a52da48435a75" args="(L &amp;l)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::messaging::Connection::Connection </td>
+          <td class="memname">qpid::sys::ConditionalScopedLock::ConditionalScopedLock </td>
           <td>(</td>
-          <td class="paramtype">ConnectionImpl *&#160;</td>
-          <td class="paramname"><em>impl</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">L &amp;&#160;</td>
+          <td class="paramname"><em>l</em></td><td>)</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="a344dfea4fe1f97f9b3d71cb530a7e7e7"></a><!-- doxytag: member="qpid::messaging::Connection::Connection" ref="a344dfea4fe1f97f9b3d71cb530a7e7e7" args="(const Connection &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::messaging::Connection::Connection </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00059.html">Connection</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Definition at line <a class="el" href="a00542_source.html#l00073">73</a> of file <a class="el" href="a00542_source.html">Mutex.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a17f41264ba75dd1e22cd5cc78a7e822f"></a><!-- doxytag: member="qpid::messaging::Connection::Connection" ref="a17f41264ba75dd1e22cd5cc78a7e822f" args="()" -->
+<a class="anchor" id="a56eb0ca3331b89feaa91867bfe9cc462"></a><!-- doxytag: member="qpid::sys::ConditionalScopedLock::~ConditionalScopedLock" ref="a56eb0ca3331b89feaa91867bfe9cc462" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::messaging::Connection::Connection </td>
+          <td class="memname">qpid::sys::ConditionalScopedLock::~ConditionalScopedLock </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="ae06ab15cdef8d7042db1b01b7b152398"></a><!-- doxytag: member="qpid::messaging::Connection::Connection" ref="ae06ab15cdef8d7042db1b01b7b152398" args="(const std::string &amp;url, const qpid::types::Variant::Map &amp;options=qpid::types::Variant::Map())" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::messaging::Connection::Connection </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>url</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;&#160;</td>
-          <td class="paramname"><em>options</em> = <code><a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a>()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Current implementation supports the following options: </p>
-<ul>
-<li>username</li>
-<li>password</li>
-<li>heartbeat</li>
-<li>tcp_nodelay</li>
-<li>sasl_mechanisms</li>
-<li>sasl_service</li>
-<li>sasl_min_ssf</li>
-<li>sasl_max_ssf</li>
-<li>transport</li>
-</ul>
-<p>Reconnect behaviour can be controlled through the following options:</p>
-<ul>
-<li>reconnect: true/false (enables/disables reconnect entirely)</li>
-<li>reconnect_timeout: seconds (give up and report failure after specified time)</li>
-<li>reconnect_limit: n (give up and report failure after specified number of attempts)</li>
-<li>reconnect_interval_min: seconds (initial delay between failed reconnection attempts)</li>
-<li>reconnect_interval_max: seconds (maximum delay between failed reconnection attempts)</li>
-<li>reconnect_interval: shorthand for setting the same reconnect_interval_min/max</li>
-<li>reconnect_urls: list of alternate urls to try when connecting</li>
-</ul>
-<p>The reconnect_interval is the time that the client waits for after a failed attempt to reconnect before retrying. It starts at the value of the min_retry_interval and is doubled every failure until the value of max_retry_interval is reached.</p>
-<p>Values in seconds can be fractional, for example 0.001 is a millisecond delay. </p>
-
-</div>
-</div>
-<a class="anchor" id="acf41d71d6ab460c8cf3e1a62fba94c9b"></a><!-- doxytag: member="qpid::messaging::Connection::Connection" ref="acf41d71d6ab460c8cf3e1a62fba94c9b" args="(const std::string &amp;url, const std::string &amp;options)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::messaging::Connection::Connection </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>url</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>options</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Creates a connection using an option string of the form {name:value,name2:value2...}, see above for options supported. </p>
-<dl><dt><b>Exceptions:</b></dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="a00164.html" title="Thrown when the syntax of the option string used to configure a connection in not valid...">InvalidOptionString</a></td><td>if the string does not match the correct syntax </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a1ccfcd4c1a226412282df50f1d3c51d3"></a><!-- doxytag: member="qpid::messaging::Connection::~Connection" ref="a1ccfcd4c1a226412282df50f1d3c51d3" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::messaging::Connection::~Connection </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Definition at line <a class="el" href="a00542_source.html#l00074">74</a> of file <a class="el" href="a00542_source.html">Mutex.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a5b6d7758f86e036e21f25d3971c5cab8"></a><!-- doxytag: member="qpid::messaging::Connection::close" ref="a5b6d7758f86e036e21f25d3971c5cab8" args="()" -->
+<a class="anchor" id="afa9de934b40472cc609c6d2af6fad03c"></a><!-- doxytag: member="qpid::sys::ConditionalScopedLock::lockAcquired" ref="afa9de934b40472cc609c6d2af6fad03c" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::messaging::Connection::close </td>
+          <td class="memname">bool qpid::sys::ConditionalScopedLock::lockAcquired </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Closes a connection and all sessions associated with it. </p>
-<p>An opened connection must be closed before the last handle is allowed to go out of scope. </p>
-
-</div>
-</div>
-<a class="anchor" id="a51aea78aacfe9ad977b27474583f97da"></a><!-- doxytag: member="qpid::messaging::Connection::createSession" ref="a51aea78aacfe9ad977b27474583f97da" args="(const std::string &amp;name=std::string())" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00325.html">Session</a> qpid::messaging::Connection::createSession </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em> = <code><a class="el" href="a00345.html">std::string</a>()</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aac95402282a678630a6dd438de201eee"></a><!-- doxytag: member="qpid::messaging::Connection::createTransactionalSession" ref="aac95402282a678630a6dd438de201eee" args="(const std::string &amp;name=std::string())" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00325.html">Session</a> qpid::messaging::Connection::createTransactionalSession </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em> = <code><a class="el" href="a00345.html">std::string</a>()</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aaa0701501c8288174036a6df0fc6b78a"></a><!-- doxytag: member="qpid::messaging::Connection::getAuthenticatedUsername" ref="aaa0701501c8288174036a6df0fc6b78a" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> qpid::messaging::Connection::getAuthenticatedUsername </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aefe86d8176f9a9c63dcb637db7ecbca0"></a><!-- doxytag: member="qpid::messaging::Connection::getSession" ref="aefe86d8176f9a9c63dcb637db7ecbca0" args="(const std::string &amp;name) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00325.html">Session</a> qpid::messaging::Connection::getSession </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1f4f3033223421f914db98fbb7ac1704"></a><!-- doxytag: member="qpid::messaging::Connection::isNull" ref="a1f4f3033223421f914db98fbb7ac1704" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_MESSAGING_INLINE_EXTERN bool qpid::messaging::Handle::isNull </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is null. It is an error to call any function on a null handle. </dd></dl>
-
-<p>Definition at line <a class="el" href="a00439_source.html#l00046">46</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af1222a976ccbcbdefba5d0773f912ab1"></a><!-- doxytag: member="qpid::messaging::Connection::isOpen" ref="af1222a976ccbcbdefba5d0773f912ab1" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::messaging::Connection::isOpen </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7dfc416b653844fb51168fe40e6b38fe"></a><!-- doxytag: member="qpid::messaging::Connection::isOpen" ref="a7dfc416b653844fb51168fe40e6b38fe" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::messaging::Connection::isOpen </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a96a040ee9deb2b6534f6ac03fe60ffa4"></a><!-- doxytag: member="qpid::messaging::Connection::isValid" ref="a96a040ee9deb2b6534f6ac03fe60ffa4" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_MESSAGING_INLINE_EXTERN bool qpid::messaging::Handle::isValid </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is valid, i.e. not null. </dd></dl>
-
-<p>Definition at line <a class="el" href="a00439_source.html#l00043">43</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a751f5920609165d991e80ea7bf0d3a9c"></a><!-- doxytag: member="qpid::messaging::Connection::open" ref="a751f5920609165d991e80ea7bf0d3a9c" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::messaging::Connection::open </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a35cfc26f8be13a312dd9de7cf475a962"></a><!-- doxytag: member="qpid::messaging::Connection::operator bool" ref="a35cfc26f8be13a312dd9de7cf475a962" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_MESSAGING_INLINE_EXTERN qpid::messaging::Handle::operator bool </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Conversion to bool supports idiom if (handle) { handle-&gt;... </p>
-<p>} </p>
-
-<p>Definition at line <a class="el" href="a00439_source.html#l00049">49</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0bf2de9ff2609eb03d4a350ef5179156"></a><!-- doxytag: member="qpid::messaging::Connection::operator!" ref="a0bf2de9ff2609eb03d4a350ef5179156" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_MESSAGING_INLINE_EXTERN bool qpid::messaging::Handle::operator! </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }. </p>
-
-<p>Definition at line <a class="el" href="a00439_source.html#l00052">52</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac06a93f6fcf09a2a96eaccc76b7582c2"></a><!-- doxytag: member="qpid::messaging::Connection::operator=" ref="ac06a93f6fcf09a2a96eaccc76b7582c2" args="(const Connection &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00059.html">Connection</a>&amp; qpid::messaging::Connection::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00059.html">Connection</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a926061681f7dce4d67106a6bc826f5ef"></a><!-- doxytag: member="qpid::messaging::Connection::setOption" ref="a926061681f7dce4d67106a6bc826f5ef" args="(const std::string &amp;name, const qpid::types::Variant &amp;value)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::messaging::Connection::setOption </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00385.html">qpid::types::Variant</a> &amp;&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a9eb61a86144e01a2683da2ad36137c54"></a><!-- doxytag: member="qpid::messaging::Connection::swap" ref="a9eb61a86144e01a2683da2ad36137c54" args="(Handle&lt; T &gt; &amp;h)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::messaging::Handle::swap </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00139.html">Handle</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>h</em></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00439_source.html#l00054">54</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="aa4b861c288ed3546405a0e334a2c7ae9"></a><!-- doxytag: member="qpid::messaging::Connection::impl" ref="aa4b861c288ed3546405a0e334a2c7ae9" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00139.html#a51b69551a689a063cd575ae3f81c9775">Impl</a>* <a class="el" href="a00139.html#aa4b861c288ed3546405a0e334a2c7ae9">qpid::messaging::Handle::impl</a><code> [protected, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00439_source.html#l00064">64</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
+<p>Definition at line <a class="el" href="a00542_source.html#l00075">75</a> of file <a class="el" href="a00542_source.html">Mutex.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/messaging/<a class="el" href="a00463_source.html">Connection.h</a></li>
+<li>qpid/sys/<a class="el" href="a00542_source.html">Mutex.h</a></li>
 </ul>
 </div>
 <!--
@@ -614,7 +172,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

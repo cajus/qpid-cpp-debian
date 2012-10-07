@@ -448,6 +448,7 @@ class QueueFairshareState;
 class QueueObserverState;
 class Clock;
 class QueueDequeueSincePurgeState;
+class InternalState;
 
 } // namespace cluster_connection
 

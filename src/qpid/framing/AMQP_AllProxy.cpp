@@ -158,6 +158,7 @@
 #include "qpid/framing/ClusterConnectionQueueObserverStateBody.h"
 #include "qpid/framing/ClusterConnectionClockBody.h"
 #include "qpid/framing/ClusterConnectionQueueDequeueSincePurgeStateBody.h"
+#include "qpid/framing/ClusterConnectionInternalStateBody.h"
 
 
 namespace qpid {
@@ -586,9 +587,9 @@ void AMQP_AllProxy::ClusterConnection::shadowPrepare(const std::string& manageme
 {
     send(ClusterConnectionShadowPrepareBody(getVersion(), managementId));
 }
-void AMQP_AllProxy::ClusterConnection::consumerState(const std::string& name, bool blocked, bool notifyEnabled, const SequenceNumber& position, uint32_t usedMsgCredit, uint32_t usedByteCredit)
+void AMQP_AllProxy::ClusterConnection::consumerState(const std::string& name, bool blocked, bool notifyEnabled, const SequenceNumber& position, uint32_t usedMsgCredit, uint32_t usedByteCredit, uint32_t deliveryCount)
 {
-    send(ClusterConnectionConsumerStateBody(getVersion(), name, blocked, notifyEnabled, position, usedMsgCredit, usedByteCredit));
+    send(ClusterConnectionConsumerStateBody(getVersion(), name, blocked, notifyEnabled, position, usedMsgCredit, usedByteCredit, deliveryCount));
 }
 void AMQP_AllProxy::ClusterConnection::deliveryRecord(const std::string& queue, const SequenceNumber& position, const std::string& tag, const SequenceNumber& id, bool acquired, bool accepted, bool cancelled, bool completed, bool ended, bool windowing, bool enqueued, uint32_t credit)
 {
@@ -697,6 +698,10 @@ void AMQP_AllProxy::ClusterConnection::clock(uint64_t time)
 void AMQP_AllProxy::ClusterConnection::queueDequeueSincePurgeState(const std::string& queue, uint32_t dequeueSincePurge)
 {
     send(ClusterConnectionQueueDequeueSincePurgeStateBody(getVersion(), queue, dequeueSincePurge));
+}
+void AMQP_AllProxy::ClusterConnection::internalState(const std::string& type, const std::string& name, const FieldTable& state)
+{
+    send(ClusterConnectionInternalStateBody(getVersion(), type, name, state));
 }
 
 }} // namespace qpid::framing

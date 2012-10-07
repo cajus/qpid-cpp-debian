@@ -40,6 +40,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
 
 using namespace qmf::org::apache::qpid::broker;
 using           qpid::management::ManagementAgent;
@@ -52,7 +53,7 @@ using           std::string;
 string  Broker::packageName  = string ("org.apache.qpid.broker");
 string  Broker::className    = string ("broker");
 uint8_t Broker::md5Sum[MD5_LEN]   =
-    {0x51,0x39,0x10,0x71,0x15,0x43,0xcd,0xa4,0xe,0xae,0x70,0x15,0x2a,0xf2,0xca,0x82};
+    {0x39,0xe6,0xcd,0x64,0x78,0x24,0x8b,0x9b,0x30,0x16,0x7b,0x52,0x2d,0xe1,0x33,0x9b};
 
 Broker::Broker (ManagementAgent*, Manageable* _core, ::qpid::management::Manageable* _parent, const std::string& _name) :
     ManagementObject(_core),name(_name)
@@ -60,10 +61,9 @@ Broker::Broker (ManagementAgent*, Manageable* _core, ::qpid::management::Managea
     systemRef = _parent->GetManagementObject ()->getObjectId ();
     port = 0;
     workerThreads = 0;
-    maxConns = 0;
     connBacklog = 0;
     stagingThreshold = 0;
-    mgmtPublish = 0;
+    mgmtPublish = false;
     mgmtPubInterval = 0;
     version = "";
     dataDir = "";
@@ -125,7 +125,7 @@ void Broker::writeSchema (std::string& schema)
     buf.putShortString (packageName); // Package Name
     buf.putShortString (className);   // Class Name
     buf.putBin128      (md5Sum);      // Schema Hash
-    buf.putShort       (11); // Config Element Count
+    buf.putShort       (10); // Config Element Count
     buf.putShort       (34); // Inst Element Count
     buf.putShort       (10); // Method Count
 
@@ -164,15 +164,6 @@ void Broker::writeSchema (std::string& schema)
     ft[IS_INDEX] = 0;
     ft[IS_OPTIONAL] = 0;
     ft[DESC] = "Thread pool size";
-    buf.putMap(ft);
-
-    ft.clear();
-    ft[NAME] = "maxConns";
-    ft[TYPE] = TYPE_U16;
-    ft[ACCESS] = ACCESS_RO;
-    ft[IS_INDEX] = 0;
-    ft[IS_OPTIONAL] = 0;
-    ft[DESC] = "Maximum allowed connections";
     buf.putMap(ft);
 
     ft.clear();
@@ -481,14 +472,12 @@ void Broker::writeSchema (std::string& schema)
     ft[NAME] = "sequence";
     ft[TYPE] = TYPE_U32;
     ft[DIR] = "IO";
-    ft[DEFAULT] = "0";
     buf.putMap(ft);
 
     ft.clear();
     ft[NAME] = "body";
     ft[TYPE] = TYPE_LSTR;
     ft[DIR] = "IO";
-    ft[DEFAULT] = "";
     buf.putMap(ft);
 
     ft.clear();
@@ -570,7 +559,6 @@ void Broker::writeSchema (std::string& schema)
     ft[NAME] = "filter";
     ft[TYPE] = TYPE_FTABLE;
     ft[DIR] = "I";
-    ft[DEFAULT] = "{}";
     ft[DESC] = "if specified, move only those messages matching this filter";
     buf.putMap(ft);
 
@@ -810,7 +798,6 @@ uint32_t Broker::writePropertiesSize() const
     size += 16;  // systemRef
     size += 2;  // port
     size += 2;  // workerThreads
-    size += 2;  // maxConns
     size += 2;  // connBacklog
     size += 4;  // stagingThreshold
     size += 1;  // mgmtPublish
@@ -844,7 +831,6 @@ void Broker::readProperties (const std::string& _sBuf)
     {std::string _s; buf.getRawData(_s, systemRef.encodedSize()); systemRef.decode(_s);};
     port = buf.getShort();
     workerThreads = buf.getShort();
-    maxConns = buf.getShort();
     connBacklog = buf.getShort();
     stagingThreshold = buf.getLong();
     mgmtPublish = buf.getOctet()==1;
@@ -882,7 +868,6 @@ void Broker::writeProperties (std::string& _sBuf) const
     {std::string _s; systemRef.encode(_s); buf.putRawData(_s);};
     buf.putShort(port);
     buf.putShort(workerThreads);
-    buf.putShort(maxConns);
     buf.putShort(connBacklog);
     buf.putLong(stagingThreshold);
     buf.putOctet(mgmtPublish?1:0);
@@ -1178,7 +1163,6 @@ void Broker::mapEncodeValues (::qpid::types::Variant::Map& _map,
     _map["systemRef"] = ::qpid::types::Variant(systemRef);
     _map["port"] = ::qpid::types::Variant(port);
     _map["workerThreads"] = ::qpid::types::Variant(workerThreads);
-    _map["maxConns"] = ::qpid::types::Variant(maxConns);
     _map["connBacklog"] = ::qpid::types::Variant(connBacklog);
     _map["stagingThreshold"] = ::qpid::types::Variant(stagingThreshold);
     _map["mgmtPublish"] = ::qpid::types::Variant(mgmtPublish);
@@ -1261,38 +1245,55 @@ void Broker::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
 
     if ((_i = _map.find("name")) != _map.end()) {
         name = (_i->second).getString();
+    } else {
+        name = "";
     }
     if ((_i = _map.find("systemRef")) != _map.end()) {
         systemRef = _i->second;
+    } else {
+        systemRef = ::qpid::management::ObjectId();
     }
     if ((_i = _map.find("port")) != _map.end()) {
         port = _i->second;
+    } else {
+        port = 0;
     }
     if ((_i = _map.find("workerThreads")) != _map.end()) {
         workerThreads = _i->second;
-    }
-    if ((_i = _map.find("maxConns")) != _map.end()) {
-        maxConns = _i->second;
+    } else {
+        workerThreads = 0;
     }
     if ((_i = _map.find("connBacklog")) != _map.end()) {
         connBacklog = _i->second;
+    } else {
+        connBacklog = 0;
     }
     if ((_i = _map.find("stagingThreshold")) != _map.end()) {
         stagingThreshold = _i->second;
+    } else {
+        stagingThreshold = 0;
     }
     if ((_i = _map.find("mgmtPublish")) != _map.end()) {
         mgmtPublish = _i->second;
+    } else {
+        mgmtPublish = false;
     }
     if ((_i = _map.find("mgmtPubInterval")) != _map.end()) {
         mgmtPubInterval = _i->second;
+    } else {
+        mgmtPubInterval = 0;
     }
     if ((_i = _map.find("version")) != _map.end()) {
         version = (_i->second).getString();
+    } else {
+        version = "";
     }
     _found = false;
     if ((_i = _map.find("dataDir")) != _map.end()) {
         dataDir = (_i->second).getString();
         _found = true;
+    } else {
+        dataDir = "";
     }
     if (_found) {
         presenceMask[presenceByte_dataDir] |= presenceMask_dataDir;
@@ -1311,9 +1312,13 @@ void Broker::doMethod (string& methodName, const ::qpid::types::Variant::Map& in
         ::qpid::types::Variant::Map::const_iterator _i;
         if ((_i = inMap.find("sequence")) != inMap.end()) {
             ioArgs.io_sequence = _i->second;
+        } else {
+            ioArgs.io_sequence = 0;
         }
         if ((_i = inMap.find("body")) != inMap.end()) {
             ioArgs.io_body = (_i->second).getString();
+        } else {
+            ioArgs.io_body = "";
         }
         bool allow = coreObject->AuthorizeMethod(METHOD_ECHO, ioArgs, userId);
         if (allow)
@@ -1332,24 +1337,38 @@ void Broker::doMethod (string& methodName, const ::qpid::types::Variant::Map& in
         ::qpid::types::Variant::Map::const_iterator _i;
         if ((_i = inMap.find("host")) != inMap.end()) {
             ioArgs.i_host = (_i->second).getString();
+        } else {
+            ioArgs.i_host = "";
         }
         if ((_i = inMap.find("port")) != inMap.end()) {
             ioArgs.i_port = _i->second;
+        } else {
+            ioArgs.i_port = 0;
         }
         if ((_i = inMap.find("durable")) != inMap.end()) {
             ioArgs.i_durable = _i->second;
+        } else {
+            ioArgs.i_durable = false;
         }
         if ((_i = inMap.find("authMechanism")) != inMap.end()) {
             ioArgs.i_authMechanism = (_i->second).getString();
+        } else {
+            ioArgs.i_authMechanism = "";
         }
         if ((_i = inMap.find("username")) != inMap.end()) {
             ioArgs.i_username = (_i->second).getString();
+        } else {
+            ioArgs.i_username = "";
         }
         if ((_i = inMap.find("password")) != inMap.end()) {
             ioArgs.i_password = (_i->second).getString();
+        } else {
+            ioArgs.i_password = "";
         }
         if ((_i = inMap.find("transport")) != inMap.end()) {
             ioArgs.i_transport = (_i->second).getString();
+        } else {
+            ioArgs.i_transport = "";
         }
         bool allow = coreObject->AuthorizeMethod(METHOD_CONNECT, ioArgs, userId);
         if (allow)
@@ -1366,15 +1385,23 @@ void Broker::doMethod (string& methodName, const ::qpid::types::Variant::Map& in
         ::qpid::types::Variant::Map::const_iterator _i;
         if ((_i = inMap.find("srcQueue")) != inMap.end()) {
             ioArgs.i_srcQueue = (_i->second).getString();
+        } else {
+            ioArgs.i_srcQueue = "";
         }
         if ((_i = inMap.find("destQueue")) != inMap.end()) {
             ioArgs.i_destQueue = (_i->second).getString();
+        } else {
+            ioArgs.i_destQueue = "";
         }
         if ((_i = inMap.find("qty")) != inMap.end()) {
             ioArgs.i_qty = _i->second;
+        } else {
+            ioArgs.i_qty = 0;
         }
         if ((_i = inMap.find("filter")) != inMap.end()) {
             ioArgs.i_filter = (_i->second).asMap();
+        } else {
+            ioArgs.i_filter = ::qpid::types::Variant::Map();
         }
         bool allow = coreObject->AuthorizeMethod(METHOD_QUEUEMOVEMESSAGES, ioArgs, userId);
         if (allow)
@@ -1391,6 +1418,8 @@ void Broker::doMethod (string& methodName, const ::qpid::types::Variant::Map& in
         ::qpid::types::Variant::Map::const_iterator _i;
         if ((_i = inMap.find("level")) != inMap.end()) {
             ioArgs.i_level = (_i->second).getString();
+        } else {
+            ioArgs.i_level = "";
         }
         bool allow = coreObject->AuthorizeMethod(METHOD_SETLOGLEVEL, ioArgs, userId);
         if (allow)
@@ -1435,6 +1464,8 @@ void Broker::doMethod (string& methodName, const ::qpid::types::Variant::Map& in
         ::qpid::types::Variant::Map::const_iterator _i;
         if ((_i = inMap.find("receive")) != inMap.end()) {
             ioArgs.i_receive = _i->second;
+        } else {
+            ioArgs.i_receive = false;
         }
         bool allow = coreObject->AuthorizeMethod(METHOD_SETTIMESTAMPCONFIG, ioArgs, userId);
         if (allow)
@@ -1451,15 +1482,23 @@ void Broker::doMethod (string& methodName, const ::qpid::types::Variant::Map& in
         ::qpid::types::Variant::Map::const_iterator _i;
         if ((_i = inMap.find("type")) != inMap.end()) {
             ioArgs.i_type = (_i->second).getString();
+        } else {
+            ioArgs.i_type = "";
         }
         if ((_i = inMap.find("name")) != inMap.end()) {
             ioArgs.i_name = (_i->second).getString();
+        } else {
+            ioArgs.i_name = "";
         }
         if ((_i = inMap.find("properties")) != inMap.end()) {
             ioArgs.i_properties = (_i->second).asMap();
+        } else {
+            ioArgs.i_properties = ::qpid::types::Variant::Map();
         }
         if ((_i = inMap.find("strict")) != inMap.end()) {
             ioArgs.i_strict = _i->second;
+        } else {
+            ioArgs.i_strict = false;
         }
         bool allow = coreObject->AuthorizeMethod(METHOD_CREATE, ioArgs, userId);
         if (allow)
@@ -1476,12 +1515,18 @@ void Broker::doMethod (string& methodName, const ::qpid::types::Variant::Map& in
         ::qpid::types::Variant::Map::const_iterator _i;
         if ((_i = inMap.find("type")) != inMap.end()) {
             ioArgs.i_type = (_i->second).getString();
+        } else {
+            ioArgs.i_type = "";
         }
         if ((_i = inMap.find("name")) != inMap.end()) {
             ioArgs.i_name = (_i->second).getString();
+        } else {
+            ioArgs.i_name = "";
         }
         if ((_i = inMap.find("options")) != inMap.end()) {
             ioArgs.i_options = (_i->second).asMap();
+        } else {
+            ioArgs.i_options = ::qpid::types::Variant::Map();
         }
         bool allow = coreObject->AuthorizeMethod(METHOD_DELETE, ioArgs, userId);
         if (allow)
@@ -1498,9 +1543,13 @@ void Broker::doMethod (string& methodName, const ::qpid::types::Variant::Map& in
         ::qpid::types::Variant::Map::const_iterator _i;
         if ((_i = inMap.find("type")) != inMap.end()) {
             ioArgs.i_type = (_i->second).getString();
+        } else {
+            ioArgs.i_type = "";
         }
         if ((_i = inMap.find("name")) != inMap.end()) {
             ioArgs.i_name = (_i->second).getString();
+        } else {
+            ioArgs.i_name = "";
         }
         bool allow = coreObject->AuthorizeMethod(METHOD_QUERY, ioArgs, userId);
         if (allow)

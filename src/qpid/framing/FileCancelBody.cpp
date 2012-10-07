@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/FileCancelBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void FileCancelBody::setConsumerTag(const std::string& _consumerTag) {
     consumerTag = _consumerTag;
     flags |= (1 << 8);
+    if (consumerTag.size() >= 256) throw IllegalArgumentException("Value for consumerTag is too large");
 }
 const std::string& FileCancelBody::getConsumerTag() const { return consumerTag; }
 bool FileCancelBody::hasConsumerTag() const { return flags & (1 << 8); }

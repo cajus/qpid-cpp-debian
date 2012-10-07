@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>std::overflow_error Class Reference</title>
+    <title>qpid::log::Logger::Output Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,22 +60,106 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><b>std</b>      </li>
-      <li class="navelem"><a class="el" href="a00249.html">overflow_error</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00591.html">log</a>      </li>
+      <li class="navelem"><a class="el" href="a00195.html">Logger</a>      </li>
+      <li class="navelem"><a class="el" href="a00249.html">Output</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">std::overflow_error Class Reference</div>  </div>
+<div class="title">qpid::log::Logger::Output Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="std::overflow_error" --><!-- doxytag: inherits="std::runtime_error" -->
-<p>STL class.  
+<!-- doxytag: class="qpid::log::Logger::Output" -->
+<p>Logging output sink.  
  <a href="a00249.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00531_source.html">qpid/log/Logger.h</a>&gt;</code></p>
+
+<p><a href="a00820.html">List of all members.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#a7e6ca50690254dcc5467ba03c5516e4b">Output</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#a7db4b45b9395be7acdca1aebf04f27bb">~Output</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html#a719090fe26b23d13c7cf60042178ecbc">log</a> (const <a class="el" href="a00341.html">Statement</a> &amp;, const <a class="el" href="a00346.html">std::string</a> &amp;)=0</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives the statemnt of origin and formatted message to log.  <a href="#a719090fe26b23d13c7cf60042178ecbc"></a><br/></td></tr>
+</table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>STL class. </p>
-</div><hr/>The documentation for this class was generated from the following file:</div>
+<div class="textblock"><p>Logging output sink. </p>
+<p>The <a class="el" href="a00249.html" title="Logging output sink.">Output</a> sink provides an interface to direct logging output to. Logging sinks are primarily platform-specific as provided for on each platform.</p>
+<p>Implementations of <a class="el" href="a00249.html" title="Logging output sink.">Output</a> must be thread safe. </p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a7e6ca50690254dcc5467ba03c5516e4b"></a><!-- doxytag: member="qpid::log::Logger::Output::Output" ref="a7e6ca50690254dcc5467ba03c5516e4b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::log::Logger::Output::Output </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7db4b45b9395be7acdca1aebf04f27bb"></a><!-- doxytag: member="qpid::log::Logger::Output::~Output" ref="a7db4b45b9395be7acdca1aebf04f27bb" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual qpid::log::Logger::Output::~Output </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a719090fe26b23d13c7cf60042178ecbc"></a><!-- doxytag: member="qpid::log::Logger::Output::log" ref="a719090fe26b23d13c7cf60042178ecbc" args="(const Statement &amp;, const std::string &amp;)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void qpid::log::Logger::Output::log </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00341.html">Statement</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Receives the statemnt of origin and formatted message to log. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qpid/log/<a class="el" href="a00531_source.html">Logger.h</a></li>
+</ul>
+</div>
 <!--
  
  Licensed to the Apache Software Foundation (ASF) under one
@@ -103,7 +187,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

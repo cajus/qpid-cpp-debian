@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/sys/Condition.h File Reference</title>
+    <title>qpid/RangeSet.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,13 +58,42 @@
   </div>
 </div>
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/sys/Condition.h File Reference</div>  </div>
+<div class="title">qpid/RangeSet.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00551_source.html">posix/Condition.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00530_source.html">qpid/InlineVector.h</a>&quot;</code><br/>
+<code>#include &lt;boost/iterator/iterator_facade.hpp&gt;</code><br/>
+<code>#include &lt;boost/operators.hpp&gt;</code><br/>
+<code>#include &lt;boost/bind.hpp&gt;</code><br/>
+<code>#include &lt;algorithm&gt;</code><br/>
+<code>#include &lt;numeric&gt;</code><br/>
 </div>
 <p><a href="a00550_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00268.html">qpid::Range</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A range of values, used in <a class="el" href="a00270.html" title="A set implemented as a list of [begin, end) ranges.">RangeSet</a>.  <a href="a00268.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00270.html">qpid::RangeSet</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A set implemented as a list of [begin, end) ranges.  <a href="a00270.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00174.html">qpid::RangeSet::iterator</a></td></tr>
+<tr><td colspan="2"><h2><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
+<br/></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00576.html#a53bb24052c793e02e1108425660a5d07">qpid::operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;o, const Range&lt; T &gt; &amp;r)</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00576.html#a731c4149da588e385686fd7437e4a5c0">qpid::operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;o, const RangeSet&lt; T &gt; &amp;rs)</td></tr>
+</table>
 </div>
 <!--
  
@@ -93,7 +122,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

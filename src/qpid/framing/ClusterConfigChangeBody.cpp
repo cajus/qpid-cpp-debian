@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ClusterConfigChangeBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ClusterConfigChangeBody::setMembers(const std::string& _members) {
     members = _members;
     flags |= (1 << 8);
+    if (members.size() >= 65536) throw IllegalArgumentException("Value for members is too large");
 }
 const std::string& ClusterConfigChangeBody::getMembers() const { return members; }
 bool ClusterConfigChangeBody::hasMembers() const { return flags & (1 << 8); }
@@ -41,6 +42,7 @@ void ClusterConfigChangeBody::clearMembersFlag() { flags &= ~(1 << 8); }
 void ClusterConfigChangeBody::setJoined(const std::string& _joined) {
     joined = _joined;
     flags |= (1 << 9);
+    if (joined.size() >= 65536) throw IllegalArgumentException("Value for joined is too large");
 }
 const std::string& ClusterConfigChangeBody::getJoined() const { return joined; }
 bool ClusterConfigChangeBody::hasJoined() const { return flags & (1 << 9); }
@@ -49,6 +51,7 @@ void ClusterConfigChangeBody::clearJoinedFlag() { flags &= ~(1 << 9); }
 void ClusterConfigChangeBody::setLeft(const std::string& _left) {
     left = _left;
     flags |= (1 << 10);
+    if (left.size() >= 65536) throw IllegalArgumentException("Value for left is too large");
 }
 const std::string& ClusterConfigChangeBody::getLeft() const { return left; }
 bool ClusterConfigChangeBody::hasLeft() const { return flags & (1 << 10); }

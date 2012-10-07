@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/client/AsyncSession.h Source File</title>
+    <title>qpid/amqp_0_10/Codecs.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,11 +58,11 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/client/AsyncSession.h</div>  </div>
+<div class="title">qpid/amqp_0_10/Codecs.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00457.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_CLIENT_ASYNCSESSION_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_CLIENT_ASYNCSESSION_H</span>
+<a href="a00457.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_AMQP_0_10_CODECS_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_AMQP_0_10_CODECS_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="comment">/*</span>
 <a name="l00005"></a>00005 <span class="comment"> *</span>
@@ -73,9 +73,9 @@
 <a name="l00010"></a>00010 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
 <a name="l00011"></a>00011 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
 <a name="l00012"></a>00012 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
-<a name="l00013"></a>00013 <span class="comment"> *</span>
+<a name="l00013"></a>00013 <span class="comment"> * </span>
 <a name="l00014"></a>00014 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
-<a name="l00015"></a>00015 <span class="comment"> *</span>
+<a name="l00015"></a>00015 <span class="comment"> * </span>
 <a name="l00016"></a>00016 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
 <a name="l00017"></a>00017 <span class="comment"> * software distributed under the License is distributed on an</span>
 <a name="l00018"></a>00018 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
@@ -84,16 +84,47 @@
 <a name="l00021"></a>00021 <span class="comment"> * under the License.</span>
 <a name="l00022"></a>00022 <span class="comment"> *</span>
 <a name="l00023"></a>00023 <span class="comment"> */</span>
-<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="a00458.html">qpid/client/AsyncSession_0_10.h</a>&quot;</span>
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026 <span class="keyword">namespace </span>qpid {
-<a name="l00027"></a>00027 <span class="keyword">namespace </span>client {
-<a name="l00028"></a>00028 
-<a name="l00034"></a><a class="code" href="a00576.html#aaa363d2dd092eb7f790126a8f9333c8c">00034</a> <span class="keyword">typedef</span> <a class="code" href="a00020.html" title="AMQP 0-10 session API with keyword arguments.">AsyncSession_0_10</a> <a class="code" href="a00576.html#aaa363d2dd092eb7f790126a8f9333c8c" title="AsyncSession is an alias for Session_0_10.">AsyncSession</a>;
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036 }} <span class="comment">// namespace qpid::client</span>
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038 <span class="preprocessor">#endif  </span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00484.html">qpid/CommonImportExport.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00571.html">qpid/types/Variant.h</a>&quot;</span>
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="keyword">namespace </span>qpid {
+<a name="l00029"></a><a class="code" href="a00582.html">00029</a> <span class="keyword">namespace </span>framing {
+<a name="l00030"></a>00030 <span class="keyword">class </span><a class="code" href="a00125.html" title="A set of name-value pairs.">FieldTable</a>;
+<a name="l00031"></a>00031 }
+<a name="l00032"></a><a class="code" href="a00577.html">00032</a> <span class="keyword">namespace </span>amqp_0_10 {
+<a name="l00037"></a>00037 <span class="keyword">class </span><a class="code" href="a00484.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> MapCodec
+<a name="l00038"></a>00038 {
+<a name="l00039"></a>00039   <span class="keyword">public</span>:
+<a name="l00040"></a><a class="code" href="a00204.html#acc3a39cada32d72ea8c655ba9b4a6142">00040</a>     <span class="keyword">typedef</span> qpid<a class="code" href="a00203.html" title="STL class.">::types::Variant::Map</a> <a class="code" href="a00204.html#acc3a39cada32d72ea8c655ba9b4a6142">ObjectType</a>;
+<a name="l00041"></a>00041     <span class="keyword">static</span> <span class="keywordtype">void</span>   <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00593.html#afefbffac1ba55c37a1f7ab3a85ca753b" title="Encodes a Variant::Map into a message.">encode</a>(<span class="keyword">const</span> <a class="code" href="a00203.html" title="STL class.">ObjectType</a>&amp;, <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;);
+<a name="l00042"></a>00042     <span class="keyword">static</span> <span class="keywordtype">void</span>   <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00593.html#ad37dfc262612bfde8fdc73e3a85ddf95" title="Decodes message content into a Variant::Map.">decode</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;, <a class="code" href="a00203.html" title="STL class.">ObjectType</a>&amp;);
+<a name="l00043"></a>00043     <span class="keyword">static</span> <span class="keywordtype">size_t</span> <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> encodedSize(<span class="keyword">const</span> <a class="code" href="a00203.html" title="STL class.">ObjectType</a>&amp;);
+<a name="l00044"></a><a class="code" href="a00204.html#a7d03b2225555b1081a551c8f94efacb6">00044</a>     <span class="keyword">static</span> <span class="keyword">const</span>  <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> std::string <a class="code" href="a00204.html#a7d03b2225555b1081a551c8f94efacb6">contentType</a>;
+<a name="l00045"></a>00045   <span class="keyword">private</span>:
+<a name="l00046"></a>00046 };
+<a name="l00047"></a>00047 
+<a name="l00052"></a>00052 <span class="keyword">class </span><a class="code" href="a00484.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> <a class="code" href="a00192.html" title="Codec for encoding/decoding a list of Variants using the AMQP 0-10 list encoding.">ListCodec</a>
+<a name="l00053"></a>00053 {
+<a name="l00054"></a>00054   <span class="keyword">public</span>:
+<a name="l00055"></a><a class="code" href="a00192.html#ab3cec1d174ba6b532e586cc36cea957d">00055</a>     <span class="keyword">typedef</span> qpid<a class="code" href="a00191.html" title="STL class.">::types::Variant::List</a> <a class="code" href="a00192.html#ab3cec1d174ba6b532e586cc36cea957d">ObjectType</a>;
+<a name="l00056"></a>00056     <span class="keyword">static</span> <span class="keywordtype">void</span>   <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00593.html#afefbffac1ba55c37a1f7ab3a85ca753b" title="Encodes a Variant::Map into a message.">encode</a>(<span class="keyword">const</span> <a class="code" href="a00191.html" title="STL class.">ObjectType</a>&amp;, <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;);
+<a name="l00057"></a>00057     <span class="keyword">static</span> <span class="keywordtype">void</span>   <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00593.html#ad37dfc262612bfde8fdc73e3a85ddf95" title="Decodes message content into a Variant::Map.">decode</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;, <a class="code" href="a00191.html" title="STL class.">ObjectType</a>&amp;);
+<a name="l00058"></a>00058     <span class="keyword">static</span> <span class="keywordtype">size_t</span> <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> encodedSize(<span class="keyword">const</span> <a class="code" href="a00191.html" title="STL class.">ObjectType</a>&amp;);
+<a name="l00059"></a><a class="code" href="a00192.html#a702e914aa7bba0616b2c66164eb8eb7a">00059</a>     <span class="keyword">static</span> <span class="keyword">const</span>  <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> std::string <a class="code" href="a00192.html#a702e914aa7bba0616b2c66164eb8eb7a">contentType</a>;
+<a name="l00060"></a>00060   <span class="keyword">private</span>:
+<a name="l00061"></a>00061 };
+<a name="l00062"></a>00062 
+<a name="l00070"></a>00070 <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00577.html#a0a9eabd8b904d29a29cf7fabaa3cbe4e">translate</a>(<span class="keyword">const</span> <a class="code" href="a00203.html" title="STL class.">qpid::types::Variant::Map</a>&amp; from,
+<a name="l00071"></a>00071                                   <a class="code" href="a00125.html" title="A set of name-value pairs.">qpid::framing::FieldTable</a>&amp; to);
+<a name="l00072"></a>00072 <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00577.html#a0a9eabd8b904d29a29cf7fabaa3cbe4e">translate</a>(<span class="keyword">const</span> <a class="code" href="a00203.html" title="STL class.">qpid::types::Variant::Map</a>&amp; from, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; efield, <span class="keyword">const</span> <a class="code" href="a00386.html" title="Represents a value of variable type.">qpid::types::Variant</a>&amp; evalue,
+<a name="l00073"></a>00073                                   <a class="code" href="a00125.html" title="A set of name-value pairs.">qpid::framing::FieldTable</a>&amp; to);
+<a name="l00074"></a>00074 <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00577.html#a0a9eabd8b904d29a29cf7fabaa3cbe4e">translate</a>(<span class="keyword">const</span> <a class="code" href="a00125.html" title="A set of name-value pairs.">qpid::framing::FieldTable</a>&amp; from,
+<a name="l00075"></a>00075                                   <a class="code" href="a00203.html" title="STL class.">qpid::types::Variant::Map</a>&amp; to);
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077 }} <span class="comment">// namespace qpid::amqp_0_10</span>
+<a name="l00078"></a>00078 
+<a name="l00079"></a>00079 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -123,7 +154,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/Msg.h Source File</title>
+    <title>qpid/messaging/Receiver.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,11 +58,11 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/Msg.h</div>  </div>
+<div class="title">qpid/messaging/Receiver.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00547.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_MSG_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_MSG_H</span>
+<a href="a00547.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_MESSAGING_RECEIVER_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_MESSAGING_RECEIVER_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="comment">/*</span>
 <a name="l00005"></a>00005 <span class="comment"> *</span>
@@ -73,9 +73,9 @@
 <a name="l00010"></a>00010 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
 <a name="l00011"></a>00011 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
 <a name="l00012"></a>00012 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
-<a name="l00013"></a>00013 <span class="comment"> *</span>
+<a name="l00013"></a>00013 <span class="comment"> * </span>
 <a name="l00014"></a>00014 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
-<a name="l00015"></a>00015 <span class="comment"> *</span>
+<a name="l00015"></a>00015 <span class="comment"> * </span>
 <a name="l00016"></a>00016 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
 <a name="l00017"></a>00017 <span class="comment"> * software distributed under the License is distributed on an</span>
 <a name="l00018"></a>00018 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
@@ -84,51 +84,55 @@
 <a name="l00021"></a>00021 <span class="comment"> * under the License.</span>
 <a name="l00022"></a>00022 <span class="comment"> *</span>
 <a name="l00023"></a>00023 <span class="comment"> */</span>
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="preprocessor">#include &lt;sstream&gt;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &lt;iostream&gt;</span>
-<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00443.html">qpid/types/ImportExport.h</a>&quot;</span>
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029 <span class="keyword">namespace </span>qpid {
-<a name="l00030"></a>00030 
-<a name="l00041"></a>00041 <span class="keyword">struct </span>Msg {
-<a name="l00042"></a><a class="code" href="a00217.html#a3cbda882ac7551d009ba1cccd22cd114">00042</a>     std::ostringstream <a class="code" href="a00217.html#a3cbda882ac7551d009ba1cccd22cd114">os</a>;
-<a name="l00043"></a><a class="code" href="a00217.html#aae2a3900caf98d8509e5c857f2f8d839">00043</a>     <a class="code" href="a00217.html#aae2a3900caf98d8509e5c857f2f8d839">Msg</a>() {}
-<a name="l00044"></a><a class="code" href="a00217.html#a360606246c8eef9ece49d5006de76e89">00044</a>     <a class="code" href="a00217.html#a360606246c8eef9ece49d5006de76e89">Msg</a>(<span class="keyword">const</span> <a class="code" href="a00217.html" title="A simple wrapper for std::ostringstream that allows in place construction of a message and automatic ...">Msg</a>&amp; m) : <a class="code" href="a00217.html#a3cbda882ac7551d009ba1cccd22cd114">os</a>(m.<a class="code" href="a00217.html#acb0dad1c437dff4aaa03ce44dd4d9b50">str</a>()) {}
-<a name="l00045"></a><a class="code" href="a00217.html#acb0dad1c437dff4aaa03ce44dd4d9b50">00045</a>     std::string <a class="code" href="a00217.html#acb0dad1c437dff4aaa03ce44dd4d9b50">str</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a00217.html#a3cbda882ac7551d009ba1cccd22cd114">os</a>.str(); }
-<a name="l00046"></a><a class="code" href="a00217.html#a824d03e8bb394531b8f3ee6847ece9f0">00046</a>     <a class="code" href="a00217.html#a824d03e8bb394531b8f3ee6847ece9f0">operator std::string</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a00217.html#acb0dad1c437dff4aaa03ce44dd4d9b50">str</a>(); }
-<a name="l00047"></a>00047 
-<a name="l00048"></a><a class="code" href="a00217.html#a8552622c67e6a5a95989a0493d64a95e">00048</a>     <a class="code" href="a00217.html" title="A simple wrapper for std::ostringstream that allows in place construction of a message and automatic ...">Msg</a>&amp; <a class="code" href="a00217.html#a8552622c67e6a5a95989a0493d64a95e">operator&lt;&lt;</a>(<span class="keywordtype">long</span> n) { <a class="code" href="a00217.html#a3cbda882ac7551d009ba1cccd22cd114">os</a> &lt;&lt; n; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
-<a name="l00049"></a><a class="code" href="a00217.html#a784e1debaf9a6d7bd875632e909c4df3">00049</a>     <a class="code" href="a00217.html" title="A simple wrapper for std::ostringstream that allows in place construction of a message and automatic ...">Msg</a>&amp; <a class="code" href="a00217.html#a784e1debaf9a6d7bd875632e909c4df3">operator&lt;&lt;</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> n) { <a class="code" href="a00217.html#a3cbda882ac7551d009ba1cccd22cd114">os</a> &lt;&lt; n; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
-<a name="l00050"></a><a class="code" href="a00217.html#a1792d10d4c7c40da2e8f03370791dae0">00050</a>     <a class="code" href="a00217.html" title="A simple wrapper for std::ostringstream that allows in place construction of a message and automatic ...">Msg</a>&amp; <a class="code" href="a00217.html#a1792d10d4c7c40da2e8f03370791dae0">operator&lt;&lt;</a>(<span class="keywordtype">bool</span> n) { <a class="code" href="a00217.html#a3cbda882ac7551d009ba1cccd22cd114">os</a> &lt;&lt; n; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
-<a name="l00051"></a><a class="code" href="a00217.html#afe5b9e5570116c1e48ce9dc0e062318e">00051</a>     <a class="code" href="a00217.html" title="A simple wrapper for std::ostringstream that allows in place construction of a message and automatic ...">Msg</a>&amp; <a class="code" href="a00217.html#afe5b9e5570116c1e48ce9dc0e062318e">operator&lt;&lt;</a>(<span class="keywordtype">short</span> n) { <a class="code" href="a00217.html#a3cbda882ac7551d009ba1cccd22cd114">os</a> &lt;&lt; n; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
-<a name="l00052"></a><a class="code" href="a00217.html#a5477d21263fd5e5bfedaeeb2be6909f5">00052</a>     <a class="code" href="a00217.html" title="A simple wrapper for std::ostringstream that allows in place construction of a message and automatic ...">Msg</a>&amp; <a class="code" href="a00217.html#a5477d21263fd5e5bfedaeeb2be6909f5">operator&lt;&lt;</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> n) { <a class="code" href="a00217.html#a3cbda882ac7551d009ba1cccd22cd114">os</a> &lt;&lt; n; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
-<a name="l00053"></a><a class="code" href="a00217.html#a91efa5552bd7f29a833be0155f50bcfe">00053</a>     <a class="code" href="a00217.html" title="A simple wrapper for std::ostringstream that allows in place construction of a message and automatic ...">Msg</a>&amp; <a class="code" href="a00217.html#a91efa5552bd7f29a833be0155f50bcfe">operator&lt;&lt;</a>(<span class="keywordtype">int</span> n) { <a class="code" href="a00217.html#a3cbda882ac7551d009ba1cccd22cd114">os</a> &lt;&lt; n; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
-<a name="l00054"></a><a class="code" href="a00217.html#afd5612ffe4d50174d2e55a809a518895">00054</a>     <a class="code" href="a00217.html" title="A simple wrapper for std::ostringstream that allows in place construction of a message and automatic ...">Msg</a>&amp; <a class="code" href="a00217.html#afd5612ffe4d50174d2e55a809a518895">operator&lt;&lt;</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n) { <a class="code" href="a00217.html#a3cbda882ac7551d009ba1cccd22cd114">os</a> &lt;&lt; n; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
-<a name="l00055"></a>00055 <span class="preprocessor">#ifdef _GLIBCXX_USE_LONG_LONG</span>
-<a name="l00056"></a>00056 <span class="preprocessor"></span>    <a class="code" href="a00217.html" title="A simple wrapper for std::ostringstream that allows in place construction of a message and automatic ...">Msg</a>&amp; <a class="code" href="a00217.html#a8552622c67e6a5a95989a0493d64a95e">operator&lt;&lt;</a>(<span class="keywordtype">long</span> <span class="keywordtype">long</span> n) { <a class="code" href="a00217.html#a3cbda882ac7551d009ba1cccd22cd114">os</a> &lt;&lt; n; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
-<a name="l00057"></a>00057     <a class="code" href="a00217.html#aae2a3900caf98d8509e5c857f2f8d839">Msg</a>&amp; <a class="code" href="a00217.html#a8552622c67e6a5a95989a0493d64a95e">operator&lt;&lt;</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> n) { <a class="code" href="a00217.html#a3cbda882ac7551d009ba1cccd22cd114">os</a> &lt;&lt; n; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
-<a name="l00058"></a>00058 <span class="preprocessor">#endif</span>
-<a name="l00059"></a><a class="code" href="a00217.html#a530bb1eca99600589eb734b6f9d42e66">00059</a> <span class="preprocessor"></span>    <a class="code" href="a00217.html" title="A simple wrapper for std::ostringstream that allows in place construction of a message and automatic ...">Msg</a>&amp; <a class="code" href="a00217.html#a530bb1eca99600589eb734b6f9d42e66">operator&lt;&lt;</a>(<span class="keywordtype">double</span> n) { <a class="code" href="a00217.html#a3cbda882ac7551d009ba1cccd22cd114">os</a> &lt;&lt; n; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
-<a name="l00060"></a><a class="code" href="a00217.html#a2ea000bf0cc1e61b376be8de1257a4c8">00060</a>     <a class="code" href="a00217.html" title="A simple wrapper for std::ostringstream that allows in place construction of a message and automatic ...">Msg</a>&amp; <a class="code" href="a00217.html#a2ea000bf0cc1e61b376be8de1257a4c8">operator&lt;&lt;</a>(<span class="keywordtype">float</span> n) { <a class="code" href="a00217.html#a3cbda882ac7551d009ba1cccd22cd114">os</a> &lt;&lt; n; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
-<a name="l00061"></a><a class="code" href="a00217.html#a62d888b7de2becd82b4fb085c9554ca7">00061</a>     <a class="code" href="a00217.html" title="A simple wrapper for std::ostringstream that allows in place construction of a message and automatic ...">Msg</a>&amp; <a class="code" href="a00217.html#a62d888b7de2becd82b4fb085c9554ca7">operator&lt;&lt;</a>(<span class="keywordtype">long</span> <span class="keywordtype">double</span> n) { <a class="code" href="a00217.html#a3cbda882ac7551d009ba1cccd22cd114">os</a> &lt;&lt; n; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
-<a name="l00062"></a>00062 
-<a name="l00063"></a><a class="code" href="a00217.html#a1d8c277fc686a184c25e3017065df857">00063</a>     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <a class="code" href="a00217.html" title="A simple wrapper for std::ostringstream that allows in place construction of a message and automatic ...">Msg</a>&amp; <a class="code" href="a00217.html#a1d8c277fc686a184c25e3017065df857">operator&lt;&lt;</a>(<span class="keyword">const</span> T&amp; t) { <a class="code" href="a00217.html#a3cbda882ac7551d009ba1cccd22cd114">os</a> &lt;&lt;t; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
-<a name="l00064"></a>00064 };
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067 
-<a name="l00068"></a><a class="code" href="a00574.html#a6b4ca4bfc4efedb85d1d0be2005d179a">00068</a> <span class="keyword">inline</span> std::ostream&amp; <a class="code" href="a00574.html#a365c9037931e1445c06e0e66ec94f615">operator&lt;&lt;</a>(<a class="code" href="a00243.html" title="STL class.">std::ostream</a>&amp; o, <span class="keyword">const</span> <a class="code" href="a00217.html" title="A simple wrapper for std::ostringstream that allows in place construction of a message and automatic ...">Msg</a>&amp; m) {
-<a name="l00069"></a>00069     <span class="keywordflow">return</span> o &lt;&lt; m.str();
-<a name="l00070"></a>00070 }
-<a name="l00071"></a>00071 
-<a name="l00073"></a><a class="code" href="a00547.html#a6959c1bc4585740b15772d9e17312371">00073</a> <span class="preprocessor">#define QUOTE_(x) #x</span>
-<a name="l00074"></a><a class="code" href="a00547.html#a2117b58e19182dff91ad3558e650541d">00074</a> <span class="preprocessor"></span><span class="preprocessor">#define QUOTE(x) QUOTE_(x)</span>
-<a name="l00075"></a><a class="code" href="a00547.html#a6852471b830c79460930fbbcfad5bb2b">00075</a> <span class="preprocessor"></span><span class="preprocessor">#define QPID_MSG(message) (::qpid::Msg() &lt;&lt; message &lt;&lt; &quot; (&quot; __FILE__ &quot;:&quot; QUOTE(__LINE__) &quot;)&quot;)</span>
-<a name="l00076"></a>00076 <span class="preprocessor"></span>
-<a name="l00077"></a>00077 } <span class="comment">// namespace qpid</span>
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079 <span class="preprocessor">#endif  </span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="a00444.html">qpid/messaging/ImportExport.h</a>&quot;</span>
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00438.html">qpid/messaging/exceptions.h</a>&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00441.html">qpid/messaging/Handle.h</a>&quot;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="a00545.html">qpid/messaging/Duration.h</a>&quot;</span>
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="keyword">namespace </span>qpid {
+<a name="l00031"></a>00031 <span class="keyword">namespace </span><a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca48b7b5226fcc703289171143d344185b">messaging</a> {
+<a name="l00032"></a>00032 
+<a name="l00033"></a>00033 <span class="preprocessor">#ifndef SWIG</span>
+<a name="l00034"></a>00034 <span class="preprocessor"></span><span class="keyword">template</span> &lt;<span class="keyword">class</span>&gt; <span class="keyword">class </span>PrivateImplRef;
+<a name="l00035"></a>00035 <span class="preprocessor">#endif</span>
+<a name="l00036"></a>00036 <span class="preprocessor"></span>
+<a name="l00037"></a>00037 <span class="keyword">class </span>Message;
+<a name="l00038"></a>00038 <span class="keyword">class </span>ReceiverImpl;
+<a name="l00039"></a>00039 <span class="keyword">class </span><a class="code" href="a00578.html#aa15500ce0ba4cea17f4226bebe584a67" title="Session is an alias for Session_0_10.">Session</a>;
+<a name="l00040"></a>00040 
+<a name="l00044"></a>00044 <span class="keyword">class </span><a class="code" href="a00444.html#af126bc8d7a4d1b70d3c8698442421cd3">QPID_MESSAGING_CLASS_EXTERN</a> Receiver : <span class="keyword">public</span> qpid::<a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca48b7b5226fcc703289171143d344185b">messaging</a>::Handle&lt;ReceiverImpl&gt;
+<a name="l00045"></a>00045 {
+<a name="l00046"></a>00046   <span class="keyword">public</span>:
+<a name="l00047"></a>00047     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Receiver(ReceiverImpl* impl = 0);
+<a name="l00048"></a>00048     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Receiver(<span class="keyword">const</span> Receiver&amp;);
+<a name="l00049"></a>00049     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> ~Receiver();
+<a name="l00050"></a>00050     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Receiver&amp; operator=(<span class="keyword">const</span> Receiver&amp;);
+<a name="l00056"></a>00056     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">bool</span> <span class="keyword">get</span>(Message&amp; message, Duration timeout=Duration::FOREVER);
+<a name="l00066"></a>00066     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Message <span class="keyword">get</span>(Duration timeout=Duration::FOREVER);
+<a name="l00078"></a>00078     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">bool</span> fetch(Message&amp; message, Duration timeout=<a class="code" href="a00106.html#a873e249777ffd59f9ebb263cd0c15dbe">Duration::FOREVER</a>);
+<a name="l00090"></a>00090     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Message fetch(Duration timeout=<a class="code" href="a00106.html#a873e249777ffd59f9ebb263cd0c15dbe">Duration::FOREVER</a>);
+<a name="l00096"></a>00096     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">void</span> setCapacity(<a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>);
+<a name="l00103"></a>00103     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> getCapacity();
+<a name="l00108"></a>00108     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> getAvailable();
+<a name="l00115"></a>00115     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> getUnsettled();
+<a name="l00116"></a>00116 
+<a name="l00120"></a>00120     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">void</span> close();
+<a name="l00121"></a>00121 
+<a name="l00125"></a>00125     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">bool</span> isClosed() <span class="keyword">const</span>;
+<a name="l00126"></a>00126 
+<a name="l00130"></a>00130     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keyword">const</span> std::string&amp; getName() <span class="keyword">const</span>;
+<a name="l00131"></a>00131 
+<a name="l00135"></a>00135     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <a class="code" href="a00578.html#aa15500ce0ba4cea17f4226bebe584a67" title="Session is an alias for Session_0_10.">Session</a> getSession() <span class="keyword">const</span>;
+<a name="l00136"></a>00136 
+<a name="l00137"></a>00137 <span class="preprocessor">#ifndef SWIG</span>
+<a name="l00138"></a>00138 <span class="preprocessor"></span>  <span class="keyword">private</span>:
+<a name="l00139"></a><a class="code" href="a00272.html#a76f44c010d09ee3eb5566cc61382dc8c">00139</a>   <span class="keyword">friend</span> <span class="keyword">class </span>qpid::messaging::PrivateImplRef&lt;<a class="code" href="a00272.html" title="Interface through which messages are received.">Receiver</a>&gt;;
+<a name="l00140"></a>00140 <span class="preprocessor">#endif</span>
+<a name="l00141"></a>00141 <span class="preprocessor"></span>};
+<a name="l00142"></a>00142 }} <span class="comment">// namespace qpid::messaging</span>
+<a name="l00143"></a>00143 
+<a name="l00144"></a>00144 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -158,7 +162,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

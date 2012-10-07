@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/client/Handle.h File Reference</title>
+    <title>qpid/messaging/exceptions.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -62,23 +62,56 @@
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/client/Handle.h File Reference</div>  </div>
+<div class="title">qpid/messaging/exceptions.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00460_source.html">qpid/client/ClientImportExport.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00444_source.html">qpid/messaging/ImportExport.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00493_source.html">qpid/types/Exception.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00571_source.html">qpid/types/Variant.h</a>&quot;</code><br/>
 </div>
 <p><a href="a00438_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html">qpid::client::Handle</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A handle is like a pointer: refers to an underlying implementation object.  <a href="a00140.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00214.html">qpid::messaging::MessagingException</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the base class for all messaging related exceptions thrown by this API.  <a href="a00214.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00166.html">qpid::messaging::InvalidOptionString</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown when the syntax of the option string used to configure a connection in not valid.  <a href="a00166.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00185.html">qpid::messaging::KeyError</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown to indicate a failed lookup of some local object.  <a href="a00185.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html">qpid::messaging::LinkError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html">qpid::messaging::AddressError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00280.html">qpid::messaging::ResolutionError</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown when a syntactically correct address cannot be resolved or used.  <a href="a00280.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html">qpid::messaging::AssertionFailed</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown when creating a sender or receiver for an address for which some asserted property of the node is not matched.  <a href="a00018.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00228.html">qpid::messaging::NotFound</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown on attempts to create a sender or receiver to a non-existent node.  <a href="a00228.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00197.html">qpid::messaging::MalformedAddress</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown when an address string with invalid syntax is used.  <a href="a00197.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00273.html">qpid::messaging::ReceiverError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00124.html">qpid::messaging::FetchError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00225.html">qpid::messaging::NoMessageAvailable</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown by <a class="el" href="a00272.html#ac0819f612dfc58de03cbc95a39420925" title="Retrieves a message for this receivers subscription or waits for up to the specified timeout for one ...">Receiver::fetch()</a>, <a class="el" href="a00272.html#a1d708f9763a9b1f5aefb41002e7446e6" title="Retrieves a message from this receivers local queue, or waits for upto the specified timeout for a me...">Receiver::get()</a> and <a class="el" href="a00326.html#af633ded76d86d312c4114efa8480d3df" title="Retrieves the receiver for the next available message.">Session::nextReceiver()</a> to indicate that there no message was available before the timeout specified.  <a href="a00225.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00321.html">qpid::messaging::SenderError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00322.html">qpid::messaging::SendError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00355.html">qpid::messaging::TargetCapacityExceeded</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown to indicate that the sender attempted to send a message that would result in the target node on the peer exceeding a preconfigured capacity.  <a href="a00355.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00331.html">qpid::messaging::SessionError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00359.html">qpid::messaging::TransactionError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00358.html">qpid::messaging::TransactionAborted</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown on <a class="el" href="a00326.html#ad1135088120d995954e782dd5c8889c7" title="Commits the sessions transaction.">Session::commit()</a> if reconnection results in the transaction being automatically aborted.  <a href="a00358.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00366.html">qpid::messaging::UnauthorizedAccess</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown to indicate that the application attempted to do something for which it was not authorised by its peer.  <a href="a00366.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00062.html">qpid::messaging::ConnectionError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00361.html">qpid::messaging::TransportFailure</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown to indicate loss of underlying connection.  <a href="a00361.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html">qpid</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
 <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid::client</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html">qpid::messaging</a></td></tr>
 </table>
 </div>
 <!--
@@ -108,7 +141,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

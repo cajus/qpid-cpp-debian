@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/agent/QmfAgentImportExport.h Source File</title>
+    <title>qpid/messaging/Address.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,44 +58,80 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/agent/QmfAgentImportExport.h</div>  </div>
+<div class="title">qpid/messaging/Address.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00454.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QMF_AGENT_IMPORT_EXPORT_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QMF_AGENT_IMPORT_EXPORT_H</span>
+<a href="a00454.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_MESSAGING_ADDRESS_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_MESSAGING_ADDRESS_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="comment">/*</span>
-<a name="l00005"></a>00005 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
-<a name="l00006"></a>00006 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
-<a name="l00007"></a>00007 <span class="comment"> * distributed with this work for additional information</span>
-<a name="l00008"></a>00008 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
-<a name="l00009"></a>00009 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
-<a name="l00010"></a>00010 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
-<a name="l00011"></a>00011 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
-<a name="l00012"></a>00012 <span class="comment"> *</span>
-<a name="l00013"></a>00013 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
-<a name="l00014"></a>00014 <span class="comment"> *</span>
-<a name="l00015"></a>00015 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
-<a name="l00016"></a>00016 <span class="comment"> * software distributed under the License is distributed on an</span>
-<a name="l00017"></a>00017 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
-<a name="l00018"></a>00018 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
-<a name="l00019"></a>00019 <span class="comment"> * specific language governing permissions and limitations</span>
-<a name="l00020"></a>00020 <span class="comment"> * under the License.</span>
-<a name="l00021"></a>00021 <span class="comment"> */</span>
-<a name="l00022"></a>00022 
-<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;<a class="code" href="a00441.html">qpid/ImportExport.h</a>&quot;</span>
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="preprocessor">#if defined(QMF_EXPORT) || defined (qmf_EXPORTS)</span>
-<a name="l00026"></a>00026 <span class="preprocessor"></span><span class="preprocessor">#  define QMF_AGENT_EXTERN QPID_EXPORT</span>
-<a name="l00027"></a>00027 <span class="preprocessor"></span><span class="preprocessor">#  define QMF_AGENT_CLASS_EXTERN QPID_CLASS_EXPORT</span>
-<a name="l00028"></a>00028 <span class="preprocessor"></span><span class="preprocessor">#  define QMF_AGENT_INLINE_EXTERN QPID_INLINE_EXPORT</span>
-<a name="l00029"></a>00029 <span class="preprocessor"></span><span class="preprocessor">#else</span>
-<a name="l00030"></a><a class="code" href="a00454.html#a81f76c120023532a1fb2527ed02073b7">00030</a> <span class="preprocessor"></span><span class="preprocessor">#  define QMF_AGENT_EXTERN QPID_IMPORT</span>
-<a name="l00031"></a><a class="code" href="a00454.html#a76136d55fc84398ee870d668bfedf65a">00031</a> <span class="preprocessor"></span><span class="preprocessor">#  define QMF_AGENT_CLASS_EXTERN QPID_CLASS_IMPORT</span>
-<a name="l00032"></a><a class="code" href="a00454.html#a29a11b58b8399d7f4d71beadd2ff0055">00032</a> <span class="preprocessor"></span><span class="preprocessor">#  define QMF_AGENT_INLINE_EXTERN QPID_INLINE_IMPORT</span>
-<a name="l00033"></a>00033 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00034"></a>00034 <span class="preprocessor"></span>
-<a name="l00035"></a>00035 <span class="preprocessor">#endif</span>
+<a name="l00005"></a>00005 <span class="comment"> *</span>
+<a name="l00006"></a>00006 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
+<a name="l00007"></a>00007 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
+<a name="l00008"></a>00008 <span class="comment"> * distributed with this work for additional information</span>
+<a name="l00009"></a>00009 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
+<a name="l00010"></a>00010 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
+<a name="l00011"></a>00011 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
+<a name="l00012"></a>00012 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
+<a name="l00013"></a>00013 <span class="comment"> * </span>
+<a name="l00014"></a>00014 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
+<a name="l00015"></a>00015 <span class="comment"> * </span>
+<a name="l00016"></a>00016 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
+<a name="l00017"></a>00017 <span class="comment"> * software distributed under the License is distributed on an</span>
+<a name="l00018"></a>00018 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<a name="l00019"></a>00019 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
+<a name="l00020"></a>00020 <span class="comment"> * specific language governing permissions and limitations</span>
+<a name="l00021"></a>00021 <span class="comment"> * under the License.</span>
+<a name="l00022"></a>00022 <span class="comment"> *</span>
+<a name="l00023"></a>00023 <span class="comment"> */</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="a00444.html">qpid/messaging/ImportExport.h</a>&quot;</span>
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00438.html">qpid/messaging/exceptions.h</a>&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00571.html">qpid/types/Variant.h</a>&quot;</span>
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &lt;ostream&gt;</span>
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="keyword">namespace </span>qpid {
+<a name="l00033"></a><a class="code" href="a00593.html">00033</a> <span class="keyword">namespace </span><a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca48b7b5226fcc703289171143d344185b">messaging</a> {
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 <span class="keyword">class </span>AddressImpl;
+<a name="l00036"></a>00036 
+<a name="l00122"></a>00122 <span class="keyword">class </span><a class="code" href="a00444.html#af126bc8d7a4d1b70d3c8698442421cd3">QPID_MESSAGING_CLASS_EXTERN</a> Address
+<a name="l00123"></a>00123 {
+<a name="l00124"></a>00124   <span class="keyword">public</span>:
+<a name="l00125"></a>00125     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Address();
+<a name="l00126"></a>00126     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Address(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; address);
+<a name="l00127"></a>00127     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Address(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; name, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; subject,
+<a name="l00128"></a>00128                                <span class="keyword">const</span> <a class="code" href="a00203.html" title="STL class.">qpid::types::Variant::Map</a>&amp; options, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; type = <span class="stringliteral">&quot;&quot;</span>);
+<a name="l00129"></a>00129     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Address(<span class="keyword">const</span> Address&amp; address);
+<a name="l00130"></a>00130     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> ~Address();
+<a name="l00131"></a>00131     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Address&amp; operator=(<span class="keyword">const</span> Address&amp;);
+<a name="l00132"></a>00132     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keyword">const</span> std::string&amp; getName() <span class="keyword">const</span>;
+<a name="l00133"></a>00133     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">void</span> setName(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;);
+<a name="l00134"></a>00134     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keyword">const</span> std::string&amp; getSubject() <span class="keyword">const</span>;
+<a name="l00135"></a>00135     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">void</span> setSubject(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;);
+<a name="l00136"></a>00136     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keyword">const</span> qpid<a class="code" href="a00203.html" title="STL class.">::types::Variant::Map</a>&amp; getOptions() <span class="keyword">const</span>;
+<a name="l00137"></a>00137     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> qpid<a class="code" href="a00203.html" title="STL class.">::types::Variant::Map</a>&amp; getOptions();
+<a name="l00138"></a>00138     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">void</span> setOptions(<span class="keyword">const</span> <a class="code" href="a00203.html" title="STL class.">qpid::types::Variant::Map</a>&amp;);
+<a name="l00139"></a>00139 
+<a name="l00140"></a>00140     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> std::string getType() <span class="keyword">const</span>;
+<a name="l00149"></a>00149     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">void</span> setType(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;);
+<a name="l00150"></a>00150 
+<a name="l00151"></a>00151     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> std::string str() <span class="keyword">const</span>;
+<a name="l00152"></a>00152     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> operator bool() <span class="keyword">const</span>;
+<a name="l00153"></a>00153     <a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">bool</span> operator !() <span class="keyword">const</span>;
+<a name="l00154"></a>00154   <span class="keyword">private</span>:
+<a name="l00155"></a>00155     AddressImpl* impl;
+<a name="l00156"></a>00156 };
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158 <span class="preprocessor">#ifndef SWIG</span>
+<a name="l00159"></a>00159 <span class="preprocessor"></span><a class="code" href="a00444.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> std::ostream&amp; <a class="code" href="a00593.html#a7f0b8d91af7827b93bfeba35a843168d">operator&lt;&lt;</a>(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp; out, <span class="keyword">const</span> Address&amp; address);
+<a name="l00160"></a>00160 <span class="preprocessor">#endif</span>
+<a name="l00161"></a>00161 <span class="preprocessor"></span>
+<a name="l00162"></a>00162 }} <span class="comment">// namespace qpid::messaging</span>
+<a name="l00163"></a>00163 
+<a name="l00164"></a>00164 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -125,7 +161,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

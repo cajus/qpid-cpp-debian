@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/sys/SystemInfo.h File Reference</title>
+    <title>qpid/sys/Runnable.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -59,43 +59,27 @@
 </div>
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/sys/SystemInfo.h File Reference</div>  </div>
+<div class="title">qpid/sys/Runnable.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00554_source.html">qpid/sys/IntegerTypes.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00451_source.html">qpid/Address.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00482_source.html">qpid/CommonImportExport.h</a>&quot;</code><br/>
-<code>#include &lt;vector&gt;</code><br/>
+<div class="textblock"><code>#include &lt;boost/function.hpp&gt;</code><br/>
+<code>#include &quot;<a class="el" href="a00484_source.html">qpid/CommonImportExport.h</a>&quot;</code><br/>
 </div>
 <p><a href="a00567_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00294.html">qpid::sys::Runnable</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface for objects that can be run, e.g.  <a href="a00294.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html">qpid</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
 <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html">qpid::sys</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html">qpid::sys::SystemInfo</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Retrieve information about the system we are running on. </p>
-<br/></td></tr>
-<tr><td colspan="2"><h2><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#a03b6b12da64157edc0c015fe9dec605b">qpid::sys::SystemInfo::concurrency</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate available concurrency, e.g.  <a href="#a03b6b12da64157edc0c015fe9dec605b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#ad108882944288a154c5a13436a6265fd">qpid::sys::SystemInfo::getLocalHostname</a> (Address &amp;address)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the local host name and set it in the specified.  <a href="#ad108882944288a154c5a13436a6265fd"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#a383307c63cd08ce50f44c96248480a7f">qpid::sys::SystemInfo::getLocalIpAddresses</a> (<a class="el" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> port, <a class="el" href="a00386.html">std::vector</a>&lt; Address &gt; &amp;addrList)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#a5b9675f1298c3c4c9d68fc9140701ec4">qpid::sys::SystemInfo::getSystemId</a> (<a class="el" href="a00345.html">std::string</a> &amp;osName, <a class="el" href="a00345.html">std::string</a> &amp;nodeName, <a class="el" href="a00345.html">std::string</a> &amp;release, <a class="el" href="a00345.html">std::string</a> &amp;version, <a class="el" href="a00345.html">std::string</a> &amp;machine)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve system identifiers and versions.  <a href="#a5b9675f1298c3c4c9d68fc9140701ec4"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#a562aa24d65c903d28706d5c8dd6f9528">qpid::sys::SystemInfo::getProcessId</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the process ID of the current process.  <a href="#a562aa24d65c903d28706d5c8dd6f9528"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#a1a5351e1016b5f7c32ee0899c2e3b63d">qpid::sys::SystemInfo::getParentProcessId</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the process ID of the parent of the current process.  <a href="#a1a5351e1016b5f7c32ee0899c2e3b63d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#a8978a4606139acf8d153676bb3c4aef9">qpid::sys::SystemInfo::getProcessName</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the name of the current process (i.e.  <a href="#a8978a4606139acf8d153676bb3c4aef9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html">qpid::sys</a></td></tr>
 </table>
 </div>
 <!--
@@ -125,7 +109,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

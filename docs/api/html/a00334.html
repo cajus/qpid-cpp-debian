@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::console::SessionManager Class Reference</title>
+    <title>qpid::SessionId Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,124 +60,57 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00579.html">console</a>      </li>
-      <li class="navelem"><a class="el" href="a00334.html">SessionManager</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00334.html">SessionId</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::console::SessionManager Class Reference</div>  </div>
+<div class="title">qpid::SessionId Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::console::SessionManager" -->
-<p><code>#include &lt;<a class="el" href="a00489_source.html">qpid/console/SessionManager.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::SessionId" -->
+<p>Identifier for a session.  
+ <a href="a00334.html#details">More...</a></p>
 
-<p><a href="a00724.html">List of all members.</a></p>
+<p><code>#include &lt;<a class="el" href="a00551_source.html">qpid/SessionId.h</a>&gt;</code></p>
+
+<p><a href="a00673.html">List of all members.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00336.html">Settings</a></td></tr>
-<tr><td colspan="2"><h2><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00386.html">std::vector</a>&lt; <a class="el" href="a00345.html">std::string</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#af6b321e2eebcadb744ef0d970c5fea65">NameVector</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00386.html">std::vector</a>&lt; <a class="el" href="a00049.html">ClassKey</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#a620c86f268967adf1fa29ea68090c7ae">KeyVector</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#a4bc763f2e312efcdb355d8dc5e530478">~SessionManager</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#a28b1aad5d2216414a153c88b3614e680">SessionManager</a> (<a class="el" href="a00070.html">ConsoleListener</a> *listener=0, <a class="el" href="a00336.html">Settings</a> settings=<a class="el" href="a00336.html">Settings</a>())</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new <a class="el" href="a00334.html">SessionManager</a>.  <a href="#a28b1aad5d2216414a153c88b3614e680"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00042.html">Broker</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#abafe5dac2b070397efdc0552fe06c5a0">addBroker</a> (<a class="el" href="a00065.html">client::ConnectionSettings</a> &amp;settings)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Connect a broker to the console session.  <a href="#abafe5dac2b070397efdc0552fe06c5a0"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#ace6553411388a412baaeff1d32d8b355">delBroker</a> (<a class="el" href="a00042.html">Broker</a> *broker)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Disconnect a broker from the console session.  <a href="#ace6553411388a412baaeff1d32d8b355"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#a76bbdf47cfefa9a1990ef4748e7e85a8">getPackages</a> (<a class="el" href="a00334.html#af6b321e2eebcadb744ef0d970c5fea65">NameVector</a> &amp;packages)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a list of known management packages.  <a href="#a76bbdf47cfefa9a1990ef4748e7e85a8"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#ae331e5f1ca1c76608aa531769f2852c0">getClasses</a> (<a class="el" href="a00334.html#a620c86f268967adf1fa29ea68090c7ae">KeyVector</a> &amp;classKeys, const <a class="el" href="a00345.html">std::string</a> &amp;packageName)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a list of class keys associated with a package.  <a href="#ae331e5f1ca1c76608aa531769f2852c0"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00299.html">SchemaClass</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#a43040339847a999ce24e7c28c1937796">getSchema</a> (const <a class="el" href="a00049.html">ClassKey</a> &amp;classKey)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the schema of a class given its class key.  <a href="#a43040339847a999ce24e7c28c1937796"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#af57a2f2f798461f6755df7316d5aaca1">bindPackage</a> (const <a class="el" href="a00345.html">std::string</a> &amp;packageName)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Request that updates be received for all classes within a package.  <a href="#af57a2f2f798461f6755df7316d5aaca1"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#a076cf3bbc4be29e68c28d22845431a79">bindClass</a> (const <a class="el" href="a00049.html">ClassKey</a> &amp;classKey)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Request update to be received for a particular class.  <a href="#a076cf3bbc4be29e68c28d22845431a79"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#a351b43747182ff6fa1ee49a78dcfb854">bindClass</a> (const <a class="el" href="a00345.html">std::string</a> &amp;packageName, const <a class="el" href="a00345.html">std::string</a> &amp;className)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#afa40cfeb40744589d11a6d679bdc6eb6">bindEvent</a> (const <a class="el" href="a00049.html">ClassKey</a> &amp;classKey)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Request events from a particular package.  <a href="#afa40cfeb40744589d11a6d679bdc6eb6"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#a0e08a63d393d4769eac8c39106ac6df7">bindEvent</a> (const <a class="el" href="a00345.html">std::string</a> &amp;packageName, const <a class="el" href="a00345.html">std::string</a> &amp;eventName=&quot;&quot;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#a571b49aca198319a17b9fdc23e5af84e">getAgents</a> (<a class="el" href="a00006.html#a21ba1523b7c32dcba8b8f95ae6f2e417">Agent::Vector</a> &amp;agents, <a class="el" href="a00042.html">Broker</a> *broker=0)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a list of qmf agents known to the session manager.  <a href="#a571b49aca198319a17b9fdc23e5af84e"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#a0f24f967aa723ef07d144f77bbc47b32">getObjects</a> (<a class="el" href="a00234.html#a5f9389be059d0a9590a3054d0e4ff62d">Object::Vector</a> &amp;objects, const <a class="el" href="a00345.html">std::string</a> &amp;className, <a class="el" href="a00042.html">Broker</a> *broker=0, <a class="el" href="a00006.html">Agent</a> *agent=0)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get objects from agents.  <a href="#a0f24f967aa723ef07d144f77bbc47b32"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#a9e3691f8b190187b8d55c28d433d642e">SessionId</a> (const <a class="el" href="a00346.html">std::string</a> &amp;userId=<a class="el" href="a00346.html">std::string</a>(), const <a class="el" href="a00346.html">std::string</a> &amp;name=<a class="el" href="a00346.html">std::string</a>())</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#a9eb6b86fdcc383b254270f8ae46c5b1d">getUserId</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#a84fd04542b79a4d46d76bae128c4cf4d">getName</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#ab781c4bd448591e71eb478355c72f42d">operator&lt;</a> (const <a class="el" href="a00334.html">SessionId</a> &amp;) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#ac3f2ed5f14ba411b76587ff4cdd5def1">operator==</a> (const <a class="el" href="a00334.html">SessionId</a> &amp;id) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00334.html#a01e13f250b2aaceb0561becd3313e72e">str</a> () const </td></tr>
 </table>
-<hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="a620c86f268967adf1fa29ea68090c7ae"></a><!-- doxytag: member="qpid::console::SessionManager::KeyVector" ref="a620c86f268967adf1fa29ea68090c7ae" args="" -->
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Identifier for a session. </p>
+<p>There are two parts to a session identifier:</p>
+<p><a class="el" href="a00334.html#a9eb6b86fdcc383b254270f8ae46c5b1d">getUserId()</a> returns the authentication principal associated with the session's connection.</p>
+<p><a class="el" href="a00334.html#a84fd04542b79a4d46d76bae128c4cf4d">getName()</a> returns the session name.</p>
+<p>The name must be unique among sessions with the same authentication principal. </p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a9e3691f8b190187b8d55c28d433d642e"></a><!-- doxytag: member="qpid::SessionId::SessionId" ref="a9e3691f8b190187b8d55c28d433d642e" args="(const std::string &amp;userId=std::string(), const std::string &amp;name=std::string())" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a00386.html">std::vector</a>&lt;<a class="el" href="a00049.html">ClassKey</a>&gt; <a class="el" href="a00334.html#a620c86f268967adf1fa29ea68090c7ae">qpid::console::SessionManager::KeyVector</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00489_source.html#l00054">54</a> of file <a class="el" href="a00489_source.html">SessionManager.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af6b321e2eebcadb744ef0d970c5fea65"></a><!-- doxytag: member="qpid::console::SessionManager::NameVector" ref="af6b321e2eebcadb744ef0d970c5fea65" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a00386.html">std::vector</a>&lt;<a class="el" href="a00345.html">std::string</a>&gt; <a class="el" href="a00334.html#af6b321e2eebcadb744ef0d970c5fea65">qpid::console::SessionManager::NameVector</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00489_source.html#l00053">53</a> of file <a class="el" href="a00489_source.html">SessionManager.h</a>.</p>
-
-</div>
-</div>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a4bc763f2e312efcdb355d8dc5e530478"></a><!-- doxytag: member="qpid::console::SessionManager::~SessionManager" ref="a4bc763f2e312efcdb355d8dc5e530478" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::console::SessionManager::~SessionManager </td>
+          <td class="memname">qpid::SessionId::SessionId </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a28b1aad5d2216414a153c88b3614e680"></a><!-- doxytag: member="qpid::console::SessionManager::SessionManager" ref="a28b1aad5d2216414a153c88b3614e680" args="(ConsoleListener *listener=0, Settings settings=Settings())" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::console::SessionManager::SessionManager </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00070.html">ConsoleListener</a> *&#160;</td>
-          <td class="paramname"><em>listener</em> = <code>0</code>, </td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>userId</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00336.html">Settings</a>&#160;</td>
-          <td class="paramname"><em>settings</em> = <code><a class="el" href="a00336.html">Settings</a>()</code>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -187,95 +120,56 @@ Public Member Functions</h2></td></tr>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Create a new <a class="el" href="a00334.html">SessionManager</a>. </p>
-<p>Provide your own subclass of <a class="el" href="a00070.html" title="Implement a subclass of ConsoleListener and subscribe it using the SessionManager to receive indicati...">ConsoleListener</a> to receive updates and indications asynchronously or leave it as its default and use only synchronous methods.</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">listener</td><td>Listener object to receive asynchronous indications. </td></tr>
-    <tr><td class="paramname">settings.rcvObjects</td><td>Listener wishes to receive managed object data. </td></tr>
-    <tr><td class="paramname">settings.rcvEvents</td><td>Listener wishes to receive events. </td></tr>
-    <tr><td class="paramname">settings.rcvHeartbeats</td><td>Listener wishes to receive agent heartbeats. </td></tr>
-    <tr><td class="paramname">settings.userBindings</td><td>If rcvObjects is true, userBindings allows the console client to control which object classes are received. See the bindPackage and bindClass methods. If userBindings is false, the listener will receive updates for all object classes. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="abafe5dac2b070397efdc0552fe06c5a0"></a><!-- doxytag: member="qpid::console::SessionManager::addBroker" ref="abafe5dac2b070397efdc0552fe06c5a0" args="(client::ConnectionSettings &amp;settings)" -->
+<a class="anchor" id="a84fd04542b79a4d46d76bae128c4cf4d"></a><!-- doxytag: member="qpid::SessionId::getName" ref="a84fd04542b79a4d46d76bae128c4cf4d" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00042.html">Broker</a>* qpid::console::SessionManager::addBroker </td>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::SessionId::getName </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00065.html">client::ConnectionSettings</a> &amp;&#160;</td>
-          <td class="paramname"><em>settings</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Connect a broker to the console session. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">settings</td><td>Connection settings for client access </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>broker object if operation is successful an exception shall be thrown. </dd></dl>
+<p>Definition at line <a class="el" href="a00551_source.html#l00048">48</a> of file <a class="el" href="a00551_source.html">SessionId.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a076cf3bbc4be29e68c28d22845431a79"></a><!-- doxytag: member="qpid::console::SessionManager::bindClass" ref="a076cf3bbc4be29e68c28d22845431a79" args="(const ClassKey &amp;classKey)" -->
+<a class="anchor" id="a9eb6b86fdcc383b254270f8ae46c5b1d"></a><!-- doxytag: member="qpid::SessionId::getUserId" ref="a9eb6b86fdcc383b254270f8ae46c5b1d" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::console::SessionManager::bindClass </td>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::SessionId::getUserId </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00049.html">ClassKey</a> &amp;&#160;</td>
-          <td class="paramname"><em>classKey</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Request update to be received for a particular class. </p>
-<p>Note that this method is only meaningful if a <a class="el" href="a00070.html" title="Implement a subclass of ConsoleListener and subscribe it using the SessionManager to receive indicati...">ConsoleListener</a> was provided at session creation and if the 'userBindings' flag was set to true.</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">classKey</td><td>Class key of class to which to bind. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Definition at line <a class="el" href="a00551_source.html#l00047">47</a> of file <a class="el" href="a00551_source.html">SessionId.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a351b43747182ff6fa1ee49a78dcfb854"></a><!-- doxytag: member="qpid::console::SessionManager::bindClass" ref="a351b43747182ff6fa1ee49a78dcfb854" args="(const std::string &amp;packageName, const std::string &amp;className)" -->
+<a class="anchor" id="ab781c4bd448591e71eb478355c72f42d"></a><!-- doxytag: member="qpid::SessionId::operator&lt;" ref="ab781c4bd448591e71eb478355c72f42d" args="(const SessionId &amp;) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::console::SessionManager::bindClass </td>
+          <td class="memname">bool qpid::SessionId::operator&lt; </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>packageName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>className</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const <a class="el" href="a00334.html">SessionId</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div>
@@ -283,54 +177,16 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="afa40cfeb40744589d11a6d679bdc6eb6"></a><!-- doxytag: member="qpid::console::SessionManager::bindEvent" ref="afa40cfeb40744589d11a6d679bdc6eb6" args="(const ClassKey &amp;classKey)" -->
+<a class="anchor" id="ac3f2ed5f14ba411b76587ff4cdd5def1"></a><!-- doxytag: member="qpid::SessionId::operator==" ref="ac3f2ed5f14ba411b76587ff4cdd5def1" args="(const SessionId &amp;id) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::console::SessionManager::bindEvent </td>
+          <td class="memname">bool qpid::SessionId::operator== </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00049.html">ClassKey</a> &amp;&#160;</td>
-          <td class="paramname"><em>classKey</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Request events from a particular package. </p>
-<p>Note that this method is only meaningful if a <a class="el" href="a00070.html" title="Implement a subclass of ConsoleListener and subscribe it using the SessionManager to receive indicati...">ConsoleListener</a> was provided at session creation and if the 'userBindings' flag was set to true.</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">classKey</td><td>Class key of event of interest </td></tr>
-    <tr><td class="paramname">packageName</td><td>Name of package of event of interest. </td></tr>
-    <tr><td class="paramname">eventName</td><td>Name of event of interest. Default=All events defined by package. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a0e08a63d393d4769eac8c39106ac6df7"></a><!-- doxytag: member="qpid::console::SessionManager::bindEvent" ref="a0e08a63d393d4769eac8c39106ac6df7" args="(const std::string &amp;packageName, const std::string &amp;eventName=&quot;&quot;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::console::SessionManager::bindEvent </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>packageName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>eventName</em> = <code>&quot;&quot;</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const <a class="el" href="a00334.html">SessionId</a> &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div>
@@ -338,234 +194,24 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="af57a2f2f798461f6755df7316d5aaca1"></a><!-- doxytag: member="qpid::console::SessionManager::bindPackage" ref="af57a2f2f798461f6755df7316d5aaca1" args="(const std::string &amp;packageName)" -->
+<a class="anchor" id="a01e13f250b2aaceb0561becd3313e72e"></a><!-- doxytag: member="qpid::SessionId::str" ref="a01e13f250b2aaceb0561becd3313e72e" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::console::SessionManager::bindPackage </td>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::SessionId::str </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>packageName</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Request that updates be received for all classes within a package. </p>
-<p>Note that this method is only meaningful if a <a class="el" href="a00070.html" title="Implement a subclass of ConsoleListener and subscribe it using the SessionManager to receive indicati...">ConsoleListener</a> was provided at session creation and if the 'userBindings' flag was set to true.</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">packageName</td><td>Name of the package to which to bind. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ace6553411388a412baaeff1d32d8b355"></a><!-- doxytag: member="qpid::console::SessionManager::delBroker" ref="ace6553411388a412baaeff1d32d8b355" args="(Broker *broker)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::console::SessionManager::delBroker </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00042.html">Broker</a> *&#160;</td>
-          <td class="paramname"><em>broker</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Disconnect a broker from the console session. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">broker</td><td>The broker object returned from an earlier call to addBroker. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a571b49aca198319a17b9fdc23e5af84e"></a><!-- doxytag: member="qpid::console::SessionManager::getAgents" ref="a571b49aca198319a17b9fdc23e5af84e" args="(Agent::Vector &amp;agents, Broker *broker=0)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::console::SessionManager::getAgents </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00006.html#a21ba1523b7c32dcba8b8f95ae6f2e417">Agent::Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>agents</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00042.html">Broker</a> *&#160;</td>
-          <td class="paramname"><em>broker</em> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Get a list of qmf agents known to the session manager. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">agents</td><td>Vector of <a class="el" href="a00006.html">Agent</a> objects returned by the session manager. </td></tr>
-    <tr><td class="paramname">broker</td><td>Return agents registered with this broker only. If NULL, return agents from all connected brokers. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ae331e5f1ca1c76608aa531769f2852c0"></a><!-- doxytag: member="qpid::console::SessionManager::getClasses" ref="ae331e5f1ca1c76608aa531769f2852c0" args="(KeyVector &amp;classKeys, const std::string &amp;packageName)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::console::SessionManager::getClasses </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00334.html#a620c86f268967adf1fa29ea68090c7ae">KeyVector</a> &amp;&#160;</td>
-          <td class="paramname"><em>classKeys</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>packageName</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Get a list of class keys associated with a package. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">classKeys</td><td>List of class keys returned by the session manager. </td></tr>
-    <tr><td class="paramname">packageName</td><td>Name of package being queried. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a0f24f967aa723ef07d144f77bbc47b32"></a><!-- doxytag: member="qpid::console::SessionManager::getObjects" ref="a0f24f967aa723ef07d144f77bbc47b32" args="(Object::Vector &amp;objects, const std::string &amp;className, Broker *broker=0, Agent *agent=0)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::console::SessionManager::getObjects </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00234.html#a5f9389be059d0a9590a3054d0e4ff62d">Object::Vector</a> &amp;&#160;</td>
-          <td class="paramname"><em>objects</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>className</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00042.html">Broker</a> *&#160;</td>
-          <td class="paramname"><em>broker</em> = <code>0</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00006.html">Agent</a> *&#160;</td>
-          <td class="paramname"><em>agent</em> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Get objects from agents. </p>
-<p>There are four variants of this method with different ways of specifying from which class objects are being queried.</p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">objects</td><td>List of objects received. </td></tr>
-    <tr><td class="paramname">classKey</td><td><a class="el" href="a00049.html">ClassKey</a> object identifying class to be queried. </td></tr>
-    <tr><td class="paramname">className</td><td>Class name identifying class to be queried. </td></tr>
-    <tr><td class="paramname">objectId</td><td><a class="el" href="a00234.html">Object</a> Id of the single object to be queried. </td></tr>
-    <tr><td class="paramname">broker</td><td>Restrict the query to this broker, or all brokers if NULL. </td></tr>
-    <tr><td class="paramname">agent</td><td>Restrict the query to this agent, or all agents if NULL. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a76bbdf47cfefa9a1990ef4748e7e85a8"></a><!-- doxytag: member="qpid::console::SessionManager::getPackages" ref="a76bbdf47cfefa9a1990ef4748e7e85a8" args="(NameVector &amp;packages)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::console::SessionManager::getPackages </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00334.html#af6b321e2eebcadb744ef0d970c5fea65">NameVector</a> &amp;&#160;</td>
-          <td class="paramname"><em>packages</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Get a list of known management packages. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">packages</td><td>Vector of package names returned by the session manager. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a43040339847a999ce24e7c28c1937796"></a><!-- doxytag: member="qpid::console::SessionManager::getSchema" ref="a43040339847a999ce24e7c28c1937796" args="(const ClassKey &amp;classKey)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00299.html">SchemaClass</a>&amp; qpid::console::SessionManager::getSchema </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00049.html">ClassKey</a> &amp;&#160;</td>
-          <td class="paramname"><em>classKey</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Get the schema of a class given its class key. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">classKey</td><td>Class key of the desired schema. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/console/<a class="el" href="a00489_source.html">SessionManager.h</a></li>
+<li>qpid/<a class="el" href="a00551_source.html">SessionId.h</a></li>
 </ul>
 </div>
 <!--
@@ -595,7 +241,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

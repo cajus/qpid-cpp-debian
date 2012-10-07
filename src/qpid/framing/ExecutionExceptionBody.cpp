@@ -26,7 +26,7 @@
 
 
 #include "qpid/framing/ExecutionExceptionBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
@@ -73,6 +73,7 @@ void ExecutionExceptionBody::clearFieldIndexFlag() { flags &= ~(1 << 12); }
 void ExecutionExceptionBody::setDescription(const std::string& _description) {
     description = _description;
     flags |= (1 << 13);
+    if (description.size() >= 65536) throw IllegalArgumentException("Value for description is too large");
 }
 const std::string& ExecutionExceptionBody::getDescription() const { return description; }
 bool ExecutionExceptionBody::hasDescription() const { return flags & (1 << 13); }

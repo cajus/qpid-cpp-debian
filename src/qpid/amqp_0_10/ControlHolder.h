@@ -109,7 +109,8 @@ static const size_t MAX068 = sizeof(cluster-connection::QueueFairshareState) > M
 static const size_t MAX069 = sizeof(cluster-connection::QueueObserverState) > MAX068 ? sizeof(cluster-connection::QueueObserverState) : MAX068;
 static const size_t MAX070 = sizeof(cluster-connection::Clock) > MAX069 ? sizeof(cluster-connection::Clock) : MAX069;
 static const size_t MAX071 = sizeof(cluster-connection::QueueDequeueSincePurgeState) > MAX070 ? sizeof(cluster-connection::QueueDequeueSincePurgeState) : MAX070;
-static const int MAX=MAX071;
+static const size_t MAX072 = sizeof(cluster-connection::InternalState) > MAX071 ? sizeof(cluster-connection::InternalState) : MAX071;
+static const int MAX=MAX072;
 
 } // namespace control_max
 

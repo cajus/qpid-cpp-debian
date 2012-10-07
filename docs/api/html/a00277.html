@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf::engine::ResilientConnection Class Reference</title>
+    <title>qpid::framing::ReplyTo Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,329 +60,103 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00571.html">qmf</a>      </li>
-      <li class="navelem"><a class="el" href="a00572.html">engine</a>      </li>
-      <li class="navelem"><a class="el" href="a00277.html">ResilientConnection</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00582.html">framing</a>      </li>
+      <li class="navelem"><a class="el" href="a00277.html">ReplyTo</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a>  </div>
   <div class="headertitle">
-<div class="title">qmf::engine::ResilientConnection Class Reference</div>  </div>
+<div class="title">qpid::framing::ReplyTo Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qmf::engine::ResilientConnection" -->
-<p><a class="el" href="a00277.html" title="ResilientConnection represents a Qpid connection that is resilient.">ResilientConnection</a> represents a Qpid connection that is resilient.  
- <a href="a00277.html#details">More...</a></p>
+<!-- doxytag: class="qpid::framing::ReplyTo" -->
+<p><code>#include &lt;<a class="el" href="a00519_source.html">qpid/framing/ReplyTo.h</a>&gt;</code></p>
 
-<p><code>#include &lt;<a class="el" href="a00428_source.html">qmf/engine/ResilientConnection.h</a>&gt;</code></p>
-
-<p><a href="a00639.html">List of all members.</a></p>
+<p><a href="a00810.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a4f72b27cbd0051762f5ccceddac32750">ResilientConnection</a> (const <a class="el" href="a00063.html">ConnectionSettings</a> &amp;settings)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new resilient connection.  <a href="#a4f72b27cbd0051762f5ccceddac32750"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a67a330549aa763e411634733a36c1436">~ResilientConnection</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#ad2e2ad25ac20b18de7b1d69043500728">isConnected</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the connected status of the resilient connection.  <a href="#ad2e2ad25ac20b18de7b1d69043500728"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a37bd7af4e3fafd8f0bbf1e15bdfcdf45">getEvent</a> (<a class="el" href="a00278.html">ResilientConnectionEvent</a> &amp;event)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the next event (if present) from the connection.  <a href="#a37bd7af4e3fafd8f0bbf1e15bdfcdf45"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#ad90bd2c5323770ba3be6da32905b8aee">popEvent</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Discard the event on the front of the queue.  <a href="#ad90bd2c5323770ba3be6da32905b8aee"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a88d4ca842466daa8d0666a1c235ab57e">createSession</a> (const char *name, void *sessionContext, <a class="el" href="a00332.html">SessionHandle</a> &amp;handle)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new AMQP session.  <a href="#a88d4ca842466daa8d0666a1c235ab57e"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#acb92cd4ec627554e70a35d706cc418d8">destroySession</a> (<a class="el" href="a00332.html">SessionHandle</a> handle)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy a created session.  <a href="#acb92cd4ec627554e70a35d706cc418d8"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a44b9a89c00b48b48b699e316f94d868a">sendMessage</a> (<a class="el" href="a00332.html">SessionHandle</a> handle, <a class="el" href="a00207.html">Message</a> &amp;message)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a message into the AMQP broker via a session.  <a href="#a44b9a89c00b48b48b699e316f94d868a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#ac43182c6ce214344ca95734326e8bb20">declareQueue</a> (<a class="el" href="a00332.html">SessionHandle</a> handle, char *queue)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Declare an exclusive, auto-delete queue for a session.  <a href="#ac43182c6ce214344ca95734326e8bb20"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a97ff0ef9c47f55ed0f167c574e951b4a">deleteQueue</a> (<a class="el" href="a00332.html">SessionHandle</a> handle, char *queue)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete a queue.  <a href="#a97ff0ef9c47f55ed0f167c574e951b4a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#aa4ae18f367b0375094d5e081211e5c02">bind</a> (<a class="el" href="a00332.html">SessionHandle</a> handle, char *exchange, char *queue, char *key)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Bind a queue to an exchange.  <a href="#aa4ae18f367b0375094d5e081211e5c02"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#ab4ae894168d4818c92d8a0b5b88e3c72">unbind</a> (<a class="el" href="a00332.html">SessionHandle</a> handle, char *exchange, char *queue, char *key)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a binding.  <a href="#ab4ae894168d4818c92d8a0b5b88e3c72"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a5308526ae75a273ccf52fa6dd0916896">setNotifyFd</a> (int fd)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Establish a file descriptor for event notification.  <a href="#a5308526ae75a273ccf52fa6dd0916896"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a9d0fb811692fde821d24ba33c019bd51">notify</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a byte into the notify file descriptor.  <a href="#a9d0fb811692fde821d24ba33c019bd51"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#aca6a28db051adf902bc86de1827c09cd">ReplyTo</a> (const <a class="el" href="a00346.html">std::string</a> &amp;_exchange, const <a class="el" href="a00346.html">std::string</a> &amp;_routingKey)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a44f0ec195c6abf34b9a288454095a3e2">ReplyTo</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a19143939f11da0fc2d88a8bde1e92f00">setExchange</a> (const <a class="el" href="a00346.html">std::string</a> &amp;_exchange)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a7ff20f57b3b395c9eb2c3b6c5734a872">getExchange</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a0c62399b540efe7b9380de42a1369949">hasExchange</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#af50d8f2bf2b0f009d1fea8819289e37a">clearExchangeFlag</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#ac27a79cc883ba9cfa829a700dc1fdd39">setRoutingKey</a> (const <a class="el" href="a00346.html">std::string</a> &amp;_routingKey)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a38b1b558099b3c95406436a79060251a">getRoutingKey</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a810958c822ce5559181349b86d1f94d3">hasRoutingKey</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#acadffd975abd3922d9b06f49f9f22b5c">clearRoutingKeyFlag</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a75f5b0699d315e11d10f87029d070add">encode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#af4033e7cff367ad0332a4d5338422209">decode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;, <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a3118e5b135e4ef9a1af27213e1b7a41f">encodeStructBody</a> (<a class="el" href="a00045.html">Buffer</a> &amp;) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#af3c7e8318077c042a1b89595ec3d7a02">decodeStructBody</a> (<a class="el" href="a00045.html">Buffer</a> &amp;, <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a4ed321313f67c80b5a2ecb346e77c0f0">encodedSize</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a157d6810135b44e3019b3c048fa8f7ff">bodySize</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#a5c8127c8ad19ea7d05e80afd330ee54a">print</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;out) const </td></tr>
+<tr><td colspan="2"><h2><a name="friends"></a>
+Friends</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html#af56ad0d75ed6be5b8dbc595522f9f02c">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;, const <a class="el" href="a00277.html">ReplyTo</a> &amp;)</td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="a00277.html" title="ResilientConnection represents a Qpid connection that is resilient.">ResilientConnection</a> represents a Qpid connection that is resilient. </p>
-<p>Upon creation, <a class="el" href="a00277.html" title="ResilientConnection represents a Qpid connection that is resilient.">ResilientConnection</a> attempts to establish a connection to the messaging broker. If it fails, it will continue to retry at an interval that increases over time (to a maximum interval). If an extablished connection is dropped, a reconnect will be attempted. </p>
-</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a4f72b27cbd0051762f5ccceddac32750"></a><!-- doxytag: member="qmf::engine::ResilientConnection::ResilientConnection" ref="a4f72b27cbd0051762f5ccceddac32750" args="(const ConnectionSettings &amp;settings)" -->
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aca6a28db051adf902bc86de1827c09cd"></a><!-- doxytag: member="qpid::framing::ReplyTo::ReplyTo" ref="aca6a28db051adf902bc86de1827c09cd" args="(const std::string &amp;_exchange, const std::string &amp;_routingKey)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qmf::engine::ResilientConnection::ResilientConnection </td>
+          <td class="memname">qpid::framing::ReplyTo::ReplyTo </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00063.html">ConnectionSettings</a> &amp;&#160;</td>
-          <td class="paramname"><em>settings</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>_exchange</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>_routingKey</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Create a new resilient connection. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">settings</td><td>Settings that define how the connection is to be made. </td></tr>
-    <tr><td class="paramname">delayMin</td><td>Minimum delay (in seconds) between retries. </td></tr>
-    <tr><td class="paramname">delayMax</td><td>Maximum delay (in seconds) between retries. </td></tr>
-    <tr><td class="paramname">delayFactor</td><td>Factor to multiply retry delay by after each failure. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Definition at line <a class="el" href="a00519_source.html#l00044">44</a> of file <a class="el" href="a00519_source.html">ReplyTo.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a67a330549aa763e411634733a36c1436"></a><!-- doxytag: member="qmf::engine::ResilientConnection::~ResilientConnection" ref="a67a330549aa763e411634733a36c1436" args="()" -->
+<a class="anchor" id="a44f0ec195c6abf34b9a288454095a3e2"></a><!-- doxytag: member="qpid::framing::ReplyTo::ReplyTo" ref="a44f0ec195c6abf34b9a288454095a3e2" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qmf::engine::ResilientConnection::~ResilientConnection </td>
+          <td class="memname">qpid::framing::ReplyTo::ReplyTo </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00519_source.html#l00055">55</a> of file <a class="el" href="a00519_source.html">ReplyTo.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="aa4ae18f367b0375094d5e081211e5c02"></a><!-- doxytag: member="qmf::engine::ResilientConnection::bind" ref="aa4ae18f367b0375094d5e081211e5c02" args="(SessionHandle handle, char *exchange, char *queue, char *key)" -->
+<a class="anchor" id="a157d6810135b44e3019b3c048fa8f7ff"></a><!-- doxytag: member="qpid::framing::ReplyTo::bodySize" ref="a157d6810135b44e3019b3c048fa8f7ff" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qmf::engine::ResilientConnection::bind </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00332.html">SessionHandle</a>&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>exchange</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>queue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>key</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Bind a queue to an exchange. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>The session handle of the session to use for binding. </td></tr>
-    <tr><td class="paramname">exchange</td><td>The name of the exchange for binding. </td></tr>
-    <tr><td class="paramname">queue</td><td>The name of the queue for binding. </td></tr>
-    <tr><td class="paramname">key</td><td>The binding key. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a88d4ca842466daa8d0666a1c235ab57e"></a><!-- doxytag: member="qmf::engine::ResilientConnection::createSession" ref="a88d4ca842466daa8d0666a1c235ab57e" args="(const char *name, void *sessionContext, SessionHandle &amp;handle)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qmf::engine::ResilientConnection::createSession </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>sessionContext</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00332.html">SessionHandle</a> &amp;&#160;</td>
-          <td class="paramname"><em>handle</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Create a new AMQP session. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">name</td><td>Unique name for the session. </td></tr>
-    <tr><td class="paramname">sessionContext</td><td>Optional user-context value that will be provided in events pertaining to this session. </td></tr>
-    <tr><td class="paramname">handle</td><td>Output handle to be stored and used in subsequent calls pertaining to this session. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>true iff the session was successfully created. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ac43182c6ce214344ca95734326e8bb20"></a><!-- doxytag: member="qmf::engine::ResilientConnection::declareQueue" ref="ac43182c6ce214344ca95734326e8bb20" args="(SessionHandle handle, char *queue)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qmf::engine::ResilientConnection::declareQueue </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00332.html">SessionHandle</a>&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>queue</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Declare an exclusive, auto-delete queue for a session. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>The session handle for the owner of the queue. </td></tr>
-    <tr><td class="paramname">queue</td><td>The name of the queue. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a97ff0ef9c47f55ed0f167c574e951b4a"></a><!-- doxytag: member="qmf::engine::ResilientConnection::deleteQueue" ref="a97ff0ef9c47f55ed0f167c574e951b4a" args="(SessionHandle handle, char *queue)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qmf::engine::ResilientConnection::deleteQueue </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00332.html">SessionHandle</a>&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>queue</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Delete a queue. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>The session handle for the owner of the queue. </td></tr>
-    <tr><td class="paramname">queue</td><td>The name of the queue. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="acb92cd4ec627554e70a35d706cc418d8"></a><!-- doxytag: member="qmf::engine::ResilientConnection::destroySession" ref="acb92cd4ec627554e70a35d706cc418d8" args="(SessionHandle handle)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qmf::engine::ResilientConnection::destroySession </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00332.html">SessionHandle</a>&#160;</td>
-          <td class="paramname"><em>handle</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Destroy a created session. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td><a class="el" href="a00332.html">SessionHandle</a> returned by createSession. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a37bd7af4e3fafd8f0bbf1e15bdfcdf45"></a><!-- doxytag: member="qmf::engine::ResilientConnection::getEvent" ref="a37bd7af4e3fafd8f0bbf1e15bdfcdf45" args="(ResilientConnectionEvent &amp;event)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qmf::engine::ResilientConnection::getEvent </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00278.html">ResilientConnectionEvent</a> &amp;&#160;</td>
-          <td class="paramname"><em>event</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Get the next event (if present) from the connection. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">event</td><td>Returned event if one is available. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if event is valid, false if there are no more events to handle. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ad2e2ad25ac20b18de7b1d69043500728"></a><!-- doxytag: member="qmf::engine::ResilientConnection::isConnected" ref="ad2e2ad25ac20b18de7b1d69043500728" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qmf::engine::ResilientConnection::isConnected </td>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::ReplyTo::bodySize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -391,17 +165,14 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Get the connected status of the resilient connection. </p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>true iff the connection is established. </dd></dl>
-
 </div>
 </div>
-<a class="anchor" id="a9d0fb811692fde821d24ba33c019bd51"></a><!-- doxytag: member="qmf::engine::ResilientConnection::notify" ref="a9d0fb811692fde821d24ba33c019bd51" args="()" -->
+<a class="anchor" id="af50d8f2bf2b0f009d1fea8819289e37a"></a><!-- doxytag: member="qpid::framing::ReplyTo::clearExchangeFlag" ref="af50d8f2bf2b0f009d1fea8819289e37a" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qmf::engine::ResilientConnection::notify </td>
+          <td class="memname">void qpid::framing::ReplyTo::clearExchangeFlag </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -410,17 +181,14 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Send a byte into the notify file descriptor. </p>
-<p>This can be used to wake up the event processing portion of the engine from either the wrapped implementation or the engine itself. </p>
-
 </div>
 </div>
-<a class="anchor" id="ad90bd2c5323770ba3be6da32905b8aee"></a><!-- doxytag: member="qmf::engine::ResilientConnection::popEvent" ref="ad90bd2c5323770ba3be6da32905b8aee" args="()" -->
+<a class="anchor" id="acadffd975abd3922d9b06f49f9f22b5c"></a><!-- doxytag: member="qpid::framing::ReplyTo::clearRoutingKeyFlag" ref="acadffd975abd3922d9b06f49f9f22b5c" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qmf::engine::ResilientConnection::popEvent </td>
+          <td class="memname">void qpid::framing::ReplyTo::clearRoutingKeyFlag </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -429,26 +197,23 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Discard the event on the front of the queue. </p>
-<p>This should be invoked after processing the event from getEvent. </p>
-
 </div>
 </div>
-<a class="anchor" id="a44b9a89c00b48b48b699e316f94d868a"></a><!-- doxytag: member="qmf::engine::ResilientConnection::sendMessage" ref="a44b9a89c00b48b48b699e316f94d868a" args="(SessionHandle handle, Message &amp;message)" -->
+<a class="anchor" id="af4033e7cff367ad0332a4d5338422209"></a><!-- doxytag: member="qpid::framing::ReplyTo::decode" ref="af4033e7cff367ad0332a4d5338422209" args="(Buffer &amp;, uint32_t=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qmf::engine::ResilientConnection::sendMessage </td>
+          <td class="memname">void qpid::framing::ReplyTo::decode </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00332.html">SessionHandle</a>&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00207.html">Message</a> &amp;&#160;</td>
-          <td class="paramname"><em>message</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -459,69 +224,23 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Send a message into the AMQP broker via a session. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>The session handle of the session to transmit through. </td></tr>
-    <tr><td class="paramname">message</td><td>The QMF message to transmit. </td></tr>
-  </table>
-  </dd>
-</dl>
-
 </div>
 </div>
-<a class="anchor" id="a5308526ae75a273ccf52fa6dd0916896"></a><!-- doxytag: member="qmf::engine::ResilientConnection::setNotifyFd" ref="a5308526ae75a273ccf52fa6dd0916896" args="(int fd)" -->
+<a class="anchor" id="af3c7e8318077c042a1b89595ec3d7a02"></a><!-- doxytag: member="qpid::framing::ReplyTo::decodeStructBody" ref="af3c7e8318077c042a1b89595ec3d7a02" args="(Buffer &amp;, uint32_t=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qmf::engine::ResilientConnection::setNotifyFd </td>
+          <td class="memname">void qpid::framing::ReplyTo::decodeStructBody </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>fd</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Establish a file descriptor for event notification. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fd</td><td>A file descriptor into which the connection shall write a character each time an event is enqueued. This fd may be in a pair, the other fd of which is used in a select loop to control execution. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ab4ae894168d4818c92d8a0b5b88e3c72"></a><!-- doxytag: member="qmf::engine::ResilientConnection::unbind" ref="ab4ae894168d4818c92d8a0b5b88e3c72" args="(SessionHandle handle, char *exchange, char *queue, char *key)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qmf::engine::ResilientConnection::unbind </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00332.html">SessionHandle</a>&#160;</td>
-          <td class="paramname"><em>handle</em>, </td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>exchange</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>queue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>key</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -532,21 +251,203 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Remove a binding. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>The session handle of the session to use for un-binding. </td></tr>
-    <tr><td class="paramname">exchange</td><td>The name of the exchange. </td></tr>
-    <tr><td class="paramname">queue</td><td>The name of the queue. </td></tr>
-    <tr><td class="paramname">key</td><td>The binding key. </td></tr>
-  </table>
-  </dd>
-</dl>
+</div>
+</div>
+<a class="anchor" id="a75f5b0699d315e11d10f87029d070add"></a><!-- doxytag: member="qpid::framing::ReplyTo::encode" ref="a75f5b0699d315e11d10f87029d070add" args="(Buffer &amp;) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::ReplyTo::encode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4ed321313f67c80b5a2ecb346e77c0f0"></a><!-- doxytag: member="qpid::framing::ReplyTo::encodedSize" ref="a4ed321313f67c80b5a2ecb346e77c0f0" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::ReplyTo::encodedSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3118e5b135e4ef9a1af27213e1b7a41f"></a><!-- doxytag: member="qpid::framing::ReplyTo::encodeStructBody" ref="a3118e5b135e4ef9a1af27213e1b7a41f" args="(Buffer &amp;) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::ReplyTo::encodeStructBody </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7ff20f57b3b395c9eb2c3b6c5734a872"></a><!-- doxytag: member="qpid::framing::ReplyTo::getExchange" ref="a7ff20f57b3b395c9eb2c3b6c5734a872" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a>&amp; qpid::framing::ReplyTo::getExchange </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a38b1b558099b3c95406436a79060251a"></a><!-- doxytag: member="qpid::framing::ReplyTo::getRoutingKey" ref="a38b1b558099b3c95406436a79060251a" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a>&amp; qpid::framing::ReplyTo::getRoutingKey </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0c62399b540efe7b9380de42a1369949"></a><!-- doxytag: member="qpid::framing::ReplyTo::hasExchange" ref="a0c62399b540efe7b9380de42a1369949" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::ReplyTo::hasExchange </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a810958c822ce5559181349b86d1f94d3"></a><!-- doxytag: member="qpid::framing::ReplyTo::hasRoutingKey" ref="a810958c822ce5559181349b86d1f94d3" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::ReplyTo::hasRoutingKey </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5c8127c8ad19ea7d05e80afd330ee54a"></a><!-- doxytag: member="qpid::framing::ReplyTo::print" ref="a5c8127c8ad19ea7d05e80afd330ee54a" args="(std::ostream &amp;out) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::ReplyTo::print </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>out</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a19143939f11da0fc2d88a8bde1e92f00"></a><!-- doxytag: member="qpid::framing::ReplyTo::setExchange" ref="a19143939f11da0fc2d88a8bde1e92f00" args="(const std::string &amp;_exchange)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::ReplyTo::setExchange </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>_exchange</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac27a79cc883ba9cfa829a700dc1fdd39"></a><!-- doxytag: member="qpid::framing::ReplyTo::setRoutingKey" ref="ac27a79cc883ba9cfa829a700dc1fdd39" args="(const std::string &amp;_routingKey)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::ReplyTo::setRoutingKey </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>_routingKey</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Friends And Related Function Documentation</h2>
+<a class="anchor" id="af56ad0d75ed6be5b8dbc595522f9f02c"></a><!-- doxytag: member="qpid::framing::ReplyTo::operator&lt;&lt;" ref="af56ad0d75ed6be5b8dbc595522f9f02c" args="(std::ostream &amp;, const ReplyTo &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00277.html">ReplyTo</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [friend]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qmf/engine/<a class="el" href="a00428_source.html">ResilientConnection.h</a></li>
+<li>qpid/framing/<a class="el" href="a00519_source.html">ReplyTo.h</a></li>
 </ul>
 </div>
 <!--
@@ -576,7 +477,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

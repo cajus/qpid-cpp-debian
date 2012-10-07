@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf::engine::Console Class Reference</title>
+    <title>qpid::client::ConnectionSettings Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,55 +60,82 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00571.html">qmf</a>      </li>
-      <li class="navelem"><a class="el" href="a00572.html">engine</a>      </li>
-      <li class="navelem"><a class="el" href="a00067.html">Console</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00067.html">ConnectionSettings</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qmf::engine::Console Class Reference</div>  </div>
+<div class="title">qpid::client::ConnectionSettings Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qmf::engine::Console" -->
-<p><code>#include &lt;<a class="el" href="a00415_source.html">qmf/engine/Console.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::client::ConnectionSettings" -->
+<p>Settings for a <a class="el" href="a00060.html" title="Represents a connection to an AMQP broker.">Connection</a>.  
+ <a href="a00067.html#details">More...</a></p>
 
-<p><a href="a00628.html">List of all members.</a></p>
+<p><code>#include &lt;<a class="el" href="a00415_source.html">qpid/client/ConnectionSettings.h</a>&gt;</code></p>
+
+<p><a href="a00681.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#aba6118318d68b6ddde1ec75c9ebc2203">Console</a> (const <a class="el" href="a00072.html">ConsoleSettings</a> &amp;settings=<a class="el" href="a00072.html">ConsoleSettings</a>())</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a8533cafac0900a32c5fb1c7803accf12">~Console</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a613e1ef1be744c772d8cb08c6177265b">getEvent</a> (<a class="el" href="a00069.html">ConsoleEvent</a> &amp;event) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a32748ea5ff196ac60251ce0741367281">popEvent</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ab39ef0953f4003462b1ebd3bc1c0560d">addConnection</a> (<a class="el" href="a00044.html">BrokerProxy</a> &amp;broker, void *context)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a51595c2b0c280799d9ccf441a68e5416">delConnection</a> (<a class="el" href="a00044.html">BrokerProxy</a> &amp;broker)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ac4761bc526597fbaf1ecaad82431abb7">packageCount</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a3d778a813d3eff0827559b84798335f9">getPackageName</a> (<a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> idx) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a3e9e5961796b29b5e2fad71b0c727127">classCount</a> (const char *packageName) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00300.html">SchemaClassKey</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a837852649d21de89d33eee7dbfb3ba28">getClass</a> (const char *packageName, <a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> idx) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00572.html#a743bf8024ee99e49b1e847fc3c26d59c">ClassKind</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#aafefd76bf47b8dcca214082321859a98">getClassKind</a> (const <a class="el" href="a00300.html">SchemaClassKey</a> *key) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00306.html">SchemaObjectClass</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a8e616082aaab47330ff5cf2914513c20">getObjectClass</a> (const <a class="el" href="a00300.html">SchemaClassKey</a> *key) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00301.html">SchemaEventClass</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#af3d48f037b26b1d0a3c3d7acf4c487f7">getEventClass</a> (const <a class="el" href="a00300.html">SchemaClassKey</a> *key) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a6bc07f51ed4517746cc381ddc1759b3b">bindPackage</a> (const char *packageName)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a824285d45981817dab73560debc61e42">bindClass</a> (const <a class="el" href="a00300.html">SchemaClassKey</a> *key)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a0dbb8f30db0e101c184bddcb3120889e">bindClass</a> (const char *packageName, const char *className)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a60b016834b399f770dc9413ee7f80481">bindEvent</a> (const <a class="el" href="a00300.html">SchemaClassKey</a> *key)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a4abeca74e8b2be96e6c6a3b6a7db8776">bindEvent</a> (const char *packageName, const char *eventName)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#abcbb0d1a8ef00360d4c123b33d4db3bf">ConnectionSettings</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#afe1928e072acdea5c7fb99b88a0ba84c">~ConnectionSettings</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a404b09d618eb41ef80f9f8e16ee00ac4">configureSocket</a> (qpid::sys::Socket &amp;) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows socket to be configured; default only sets tcp-nodelay based on the flag set.  <a href="#a404b09d618eb41ef80f9f8e16ee00ac4"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#add5c2663734d13cf361d50aa1429ff53">protocol</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The protocol used for the connection (defaults to 'tcp')  <a href="#add5c2663734d13cf361d50aa1429ff53"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#acaf7af1ce87ad15f14c9b94faecfdc8d">host</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The host (or ip address) to connect to (defaults to 'localhost').  <a href="#acaf7af1ce87ad15f14c9b94faecfdc8d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a990e1aee711a3812db9ac9498cb80a26">port</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The port to connect to (defaults to 5672).  <a href="#a990e1aee711a3812db9ac9498cb80a26"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ad8c1c9571e7b560334afbc2ccb364f47">virtualhost</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows an AMQP 'virtual host' to be specified for the connection.  <a href="#ad8c1c9571e7b560334afbc2ccb364f47"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a2ef0891b85b765877db7598e11c2977c">username</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The username to use when authenticating the connection.  <a href="#a2ef0891b85b765877db7598e11c2977c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a90ab6b68567a8bce68d92e1ca64598dc">password</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The password to use when authenticating the connection.  <a href="#a90ab6b68567a8bce68d92e1ca64598dc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a877c584a34e59ffd860d5d413c59867c">mechanism</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The SASL mechanism to use when authenticating the connection; the options are currently PLAIN or ANONYMOUS.  <a href="#a877c584a34e59ffd860d5d413c59867c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#ac60f4d0a58bbec3a079693b2756ffc74">locale</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows a locale to be specified for the connection.  <a href="#ac60f4d0a58bbec3a079693b2756ffc74"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a4fddcd73845b333c80ef5f7bce63bf52">heartbeat</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Allows a heartbeat frequency to be specified.  <a href="#a4fddcd73845b333c80ef5f7bce63bf52"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#af3f11c73b669c52b0cdf3a2247aad7fe">maxChannels</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum number of channels that the client will request for use on this connection.  <a href="#af3f11c73b669c52b0cdf3a2247aad7fe"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a22a7c87733136fcb8baa3c7a20e05584">maxFrameSize</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The maximum frame size that the client will request for this connection.  <a href="#a22a7c87733136fcb8baa3c7a20e05584"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a69618b87d57dc63d6a9f8dd96adcaf06">bounds</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Limit the size of the connections send buffer .  <a href="#a69618b87d57dc63d6a9f8dd96adcaf06"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a7f59e4feee4616e5f13ef130b2b08765">tcpNoDelay</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">If true, TCP_NODELAY will be set for the connection.  <a href="#a7f59e4feee4616e5f13ef130b2b08765"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a79ff339b8f43ab18a85a42c9d82a9c3d">service</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">SASL service name.  <a href="#a79ff339b8f43ab18a85a42c9d82a9c3d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a9087d787ab012bfe2aca05fdf5e904a1">minSsf</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum acceptable strength of any SASL negotiated security layer.  <a href="#a9087d787ab012bfe2aca05fdf5e904a1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#af0cec0a9b3f29efb6f500809ea5aa2e5">maxSsf</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum acceptable strength of any SASL negotiated security layer.  <a href="#af0cec0a9b3f29efb6f500809ea5aa2e5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00067.html#a91ccd92d52cee980be882bb5e2a1aad4">sslCertName</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">SSL cert-name for the connection.  <a href="#a91ccd92d52cee980be882bb5e2a1aad4"></a><br/></td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aba6118318d68b6ddde1ec75c9ebc2203"></a><!-- doxytag: member="qmf::engine::Console::Console" ref="aba6118318d68b6ddde1ec75c9ebc2203" args="(const ConsoleSettings &amp;settings=ConsoleSettings())" -->
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Settings for a <a class="el" href="a00060.html" title="Represents a connection to an AMQP broker.">Connection</a>. </p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="abcbb0d1a8ef00360d4c123b33d4db3bf"></a><!-- doxytag: member="qpid::client::ConnectionSettings::ConnectionSettings" ref="abcbb0d1a8ef00360d4c123b33d4db3bf" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qmf::engine::Console::Console </td>
+          <td class="memname">qpid::client::ConnectionSettings::ConnectionSettings </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00072.html">ConsoleSettings</a> &amp;&#160;</td>
-          <td class="paramname"><em>settings</em> = <code><a class="el" href="a00072.html">ConsoleSettings</a>()</code></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -117,15 +144,15 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8533cafac0900a32c5fb1c7803accf12"></a><!-- doxytag: member="qmf::engine::Console::~Console" ref="a8533cafac0900a32c5fb1c7803accf12" args="()" -->
+<a class="anchor" id="afe1928e072acdea5c7fb99b88a0ba84c"></a><!-- doxytag: member="qpid::client::ConnectionSettings::~ConnectionSettings" ref="afe1928e072acdea5c7fb99b88a0ba84c" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qmf::engine::Console::~Console </td>
+          <td class="memname">virtual qpid::client::ConnectionSettings::~ConnectionSettings </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
@@ -134,318 +161,323 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ab39ef0953f4003462b1ebd3bc1c0560d"></a><!-- doxytag: member="qmf::engine::Console::addConnection" ref="ab39ef0953f4003462b1ebd3bc1c0560d" args="(BrokerProxy &amp;broker, void *context)" -->
+<a class="anchor" id="a404b09d618eb41ef80f9f8e16ee00ac4"></a><!-- doxytag: member="qpid::client::ConnectionSettings::configureSocket" ref="a404b09d618eb41ef80f9f8e16ee00ac4" args="(qpid::sys::Socket &amp;) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qmf::engine::Console::addConnection </td>
+          <td class="memname">virtual void qpid::client::ConnectionSettings::configureSocket </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00044.html">BrokerProxy</a> &amp;&#160;</td>
-          <td class="paramname"><em>broker</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>context</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a824285d45981817dab73560debc61e42"></a><!-- doxytag: member="qmf::engine::Console::bindClass" ref="a824285d45981817dab73560debc61e42" args="(const SchemaClassKey *key)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qmf::engine::Console::bindClass </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00300.html">SchemaClassKey</a> *&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0dbb8f30db0e101c184bddcb3120889e"></a><!-- doxytag: member="qmf::engine::Console::bindClass" ref="a0dbb8f30db0e101c184bddcb3120889e" args="(const char *packageName, const char *className)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qmf::engine::Console::bindClass </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>packageName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>className</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a60b016834b399f770dc9413ee7f80481"></a><!-- doxytag: member="qmf::engine::Console::bindEvent" ref="a60b016834b399f770dc9413ee7f80481" args="(const SchemaClassKey *key)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qmf::engine::Console::bindEvent </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00300.html">SchemaClassKey</a> *&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a4abeca74e8b2be96e6c6a3b6a7db8776"></a><!-- doxytag: member="qmf::engine::Console::bindEvent" ref="a4abeca74e8b2be96e6c6a3b6a7db8776" args="(const char *packageName, const char *eventName)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qmf::engine::Console::bindEvent </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>packageName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>eventName</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6bc07f51ed4517746cc381ddc1759b3b"></a><!-- doxytag: member="qmf::engine::Console::bindPackage" ref="a6bc07f51ed4517746cc381ddc1759b3b" args="(const char *packageName)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qmf::engine::Console::bindPackage </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>packageName</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a3e9e5961796b29b5e2fad71b0c727127"></a><!-- doxytag: member="qmf::engine::Console::classCount" ref="a3e9e5961796b29b5e2fad71b0c727127" args="(const char *packageName) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qmf::engine::Console::classCount </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>packageName</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a51595c2b0c280799d9ccf441a68e5416"></a><!-- doxytag: member="qmf::engine::Console::delConnection" ref="a51595c2b0c280799d9ccf441a68e5416" args="(BrokerProxy &amp;broker)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qmf::engine::Console::delConnection </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00044.html">BrokerProxy</a> &amp;&#160;</td>
-          <td class="paramname"><em>broker</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a837852649d21de89d33eee7dbfb3ba28"></a><!-- doxytag: member="qmf::engine::Console::getClass" ref="a837852649d21de89d33eee7dbfb3ba28" args="(const char *packageName, uint32_t idx) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00300.html">SchemaClassKey</a>* qmf::engine::Console::getClass </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>packageName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"><em>idx</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aafefd76bf47b8dcca214082321859a98"></a><!-- doxytag: member="qmf::engine::Console::getClassKind" ref="aafefd76bf47b8dcca214082321859a98" args="(const SchemaClassKey *key) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00572.html#a743bf8024ee99e49b1e847fc3c26d59c">ClassKind</a> qmf::engine::Console::getClassKind </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00300.html">SchemaClassKey</a> *&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a613e1ef1be744c772d8cb08c6177265b"></a><!-- doxytag: member="qmf::engine::Console::getEvent" ref="a613e1ef1be744c772d8cb08c6177265b" args="(ConsoleEvent &amp;event) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qmf::engine::Console::getEvent </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00069.html">ConsoleEvent</a> &amp;&#160;</td>
-          <td class="paramname"><em>event</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af3d48f037b26b1d0a3c3d7acf4c487f7"></a><!-- doxytag: member="qmf::engine::Console::getEventClass" ref="af3d48f037b26b1d0a3c3d7acf4c487f7" args="(const SchemaClassKey *key) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00301.html">SchemaEventClass</a>* qmf::engine::Console::getEventClass </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00300.html">SchemaClassKey</a> *&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8e616082aaab47330ff5cf2914513c20"></a><!-- doxytag: member="qmf::engine::Console::getObjectClass" ref="a8e616082aaab47330ff5cf2914513c20" args="(const SchemaClassKey *key) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00306.html">SchemaObjectClass</a>* qmf::engine::Console::getObjectClass </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00300.html">SchemaClassKey</a> *&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a3d778a813d3eff0827559b84798335f9"></a><!-- doxytag: member="qmf::engine::Console::getPackageName" ref="a3d778a813d3eff0827559b84798335f9" args="(uint32_t idx) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* qmf::engine::Console::getPackageName </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"><em>idx</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac4761bc526597fbaf1ecaad82431abb7"></a><!-- doxytag: member="qmf::engine::Console::packageCount" ref="ac4761bc526597fbaf1ecaad82431abb7" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qmf::engine::Console::packageCount </td>
-          <td>(</td>
+          <td class="paramtype">qpid::sys::Socket &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Allows socket to be configured; default only sets tcp-nodelay based on the flag set. </p>
+<p>Can be overridden. </p>
+
 </div>
 </div>
-<a class="anchor" id="a32748ea5ff196ac60251ce0741367281"></a><!-- doxytag: member="qmf::engine::Console::popEvent" ref="a32748ea5ff196ac60251ce0741367281" args="()" -->
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a69618b87d57dc63d6a9f8dd96adcaf06"></a><!-- doxytag: member="qpid::client::ConnectionSettings::bounds" ref="a69618b87d57dc63d6a9f8dd96adcaf06" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qmf::engine::Console::popEvent </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">unsigned int <a class="el" href="a00067.html#a69618b87d57dc63d6a9f8dd96adcaf06">qpid::client::ConnectionSettings::bounds</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Limit the size of the connections send buffer . </p>
+<p>The buffer is limited to bounds * maxFrameSize. </p>
+
+<p>Definition at line <a class="el" href="a00415_source.html#l00106">106</a> of file <a class="el" href="a00415_source.html">ConnectionSettings.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qmf/engine/<a class="el" href="a00415_source.html">Console.h</a></li>
+<a class="anchor" id="a4fddcd73845b333c80ef5f7bce63bf52"></a><!-- doxytag: member="qpid::client::ConnectionSettings::heartbeat" ref="a4fddcd73845b333c80ef5f7bce63bf52" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="el" href="a00067.html#a4fddcd73845b333c80ef5f7bce63bf52">qpid::client::ConnectionSettings::heartbeat</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Allows a heartbeat frequency to be specified. </p>
+
+<p>Definition at line <a class="el" href="a00415_source.html#l00091">91</a> of file <a class="el" href="a00415_source.html">ConnectionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acaf7af1ce87ad15f14c9b94faecfdc8d"></a><!-- doxytag: member="qpid::client::ConnectionSettings::host" ref="acaf7af1ce87ad15f14c9b94faecfdc8d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> <a class="el" href="a00067.html#acaf7af1ce87ad15f14c9b94faecfdc8d">qpid::client::ConnectionSettings::host</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The host (or ip address) to connect to (defaults to 'localhost'). </p>
+
+<p>Definition at line <a class="el" href="a00415_source.html#l00059">59</a> of file <a class="el" href="a00415_source.html">ConnectionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac60f4d0a58bbec3a079693b2756ffc74"></a><!-- doxytag: member="qpid::client::ConnectionSettings::locale" ref="ac60f4d0a58bbec3a079693b2756ffc74" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> <a class="el" href="a00067.html#ac60f4d0a58bbec3a079693b2756ffc74">qpid::client::ConnectionSettings::locale</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Allows a locale to be specified for the connection. </p>
+
+<p>Definition at line <a class="el" href="a00415_source.html#l00087">87</a> of file <a class="el" href="a00415_source.html">ConnectionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af3f11c73b669c52b0cdf3a2247aad7fe"></a><!-- doxytag: member="qpid::client::ConnectionSettings::maxChannels" ref="af3f11c73b669c52b0cdf3a2247aad7fe" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="el" href="a00067.html#af3f11c73b669c52b0cdf3a2247aad7fe">qpid::client::ConnectionSettings::maxChannels</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The maximum number of channels that the client will request for use on this connection. </p>
+
+<p>Definition at line <a class="el" href="a00415_source.html#l00096">96</a> of file <a class="el" href="a00415_source.html">ConnectionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a22a7c87733136fcb8baa3c7a20e05584"></a><!-- doxytag: member="qpid::client::ConnectionSettings::maxFrameSize" ref="a22a7c87733136fcb8baa3c7a20e05584" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="el" href="a00067.html#a22a7c87733136fcb8baa3c7a20e05584">qpid::client::ConnectionSettings::maxFrameSize</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The maximum frame size that the client will request for this connection. </p>
+
+<p>Definition at line <a class="el" href="a00415_source.html#l00101">101</a> of file <a class="el" href="a00415_source.html">ConnectionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af0cec0a9b3f29efb6f500809ea5aa2e5"></a><!-- doxytag: member="qpid::client::ConnectionSettings::maxSsf" ref="af0cec0a9b3f29efb6f500809ea5aa2e5" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="a00067.html#af0cec0a9b3f29efb6f500809ea5aa2e5">qpid::client::ConnectionSettings::maxSsf</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Maximum acceptable strength of any SASL negotiated security layer. </p>
+<p>0 means no security layer allowed. </p>
+
+<p>Definition at line <a class="el" href="a00415_source.html#l00124">124</a> of file <a class="el" href="a00415_source.html">ConnectionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a877c584a34e59ffd860d5d413c59867c"></a><!-- doxytag: member="qpid::client::ConnectionSettings::mechanism" ref="a877c584a34e59ffd860d5d413c59867c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> <a class="el" href="a00067.html#a877c584a34e59ffd860d5d413c59867c">qpid::client::ConnectionSettings::mechanism</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The SASL mechanism to use when authenticating the connection; the options are currently PLAIN or ANONYMOUS. </p>
+
+<p>Definition at line <a class="el" href="a00415_source.html#l00083">83</a> of file <a class="el" href="a00415_source.html">ConnectionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9087d787ab012bfe2aca05fdf5e904a1"></a><!-- doxytag: member="qpid::client::ConnectionSettings::minSsf" ref="a9087d787ab012bfe2aca05fdf5e904a1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int <a class="el" href="a00067.html#a9087d787ab012bfe2aca05fdf5e904a1">qpid::client::ConnectionSettings::minSsf</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Minimum acceptable strength of any SASL negotiated security layer. </p>
+<p>0 means no security layer required. </p>
+
+<p>Definition at line <a class="el" href="a00415_source.html#l00119">119</a> of file <a class="el" href="a00415_source.html">ConnectionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a90ab6b68567a8bce68d92e1ca64598dc"></a><!-- doxytag: member="qpid::client::ConnectionSettings::password" ref="a90ab6b68567a8bce68d92e1ca64598dc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> <a class="el" href="a00067.html#a90ab6b68567a8bce68d92e1ca64598dc">qpid::client::ConnectionSettings::password</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The password to use when authenticating the connection. </p>
+
+<p>Definition at line <a class="el" href="a00415_source.html#l00078">78</a> of file <a class="el" href="a00415_source.html">ConnectionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a990e1aee711a3812db9ac9498cb80a26"></a><!-- doxytag: member="qpid::client::ConnectionSettings::port" ref="a990e1aee711a3812db9ac9498cb80a26" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="el" href="a00067.html#a990e1aee711a3812db9ac9498cb80a26">qpid::client::ConnectionSettings::port</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The port to connect to (defaults to 5672). </p>
+
+<p>Definition at line <a class="el" href="a00415_source.html#l00063">63</a> of file <a class="el" href="a00415_source.html">ConnectionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="add5c2663734d13cf361d50aa1429ff53"></a><!-- doxytag: member="qpid::client::ConnectionSettings::protocol" ref="add5c2663734d13cf361d50aa1429ff53" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> <a class="el" href="a00067.html#add5c2663734d13cf361d50aa1429ff53">qpid::client::ConnectionSettings::protocol</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The protocol used for the connection (defaults to 'tcp') </p>
+
+<p>Definition at line <a class="el" href="a00415_source.html#l00054">54</a> of file <a class="el" href="a00415_source.html">ConnectionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a79ff339b8f43ab18a85a42c9d82a9c3d"></a><!-- doxytag: member="qpid::client::ConnectionSettings::service" ref="a79ff339b8f43ab18a85a42c9d82a9c3d" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> <a class="el" href="a00067.html#a79ff339b8f43ab18a85a42c9d82a9c3d">qpid::client::ConnectionSettings::service</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>SASL service name. </p>
+
+<p>Definition at line <a class="el" href="a00415_source.html#l00114">114</a> of file <a class="el" href="a00415_source.html">ConnectionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a91ccd92d52cee980be882bb5e2a1aad4"></a><!-- doxytag: member="qpid::client::ConnectionSettings::sslCertName" ref="a91ccd92d52cee980be882bb5e2a1aad4" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> <a class="el" href="a00067.html#a91ccd92d52cee980be882bb5e2a1aad4">qpid::client::ConnectionSettings::sslCertName</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>SSL cert-name for the connection. </p>
+<p>Overrides global SSL settings. Used only when a client connects to the broker. </p>
+
+<p>Definition at line <a class="el" href="a00415_source.html#l00129">129</a> of file <a class="el" href="a00415_source.html">ConnectionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7f59e4feee4616e5f13ef130b2b08765"></a><!-- doxytag: member="qpid::client::ConnectionSettings::tcpNoDelay" ref="a7f59e4feee4616e5f13ef130b2b08765" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a00067.html#a7f59e4feee4616e5f13ef130b2b08765">qpid::client::ConnectionSettings::tcpNoDelay</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>If true, TCP_NODELAY will be set for the connection. </p>
+
+<p>Definition at line <a class="el" href="a00415_source.html#l00110">110</a> of file <a class="el" href="a00415_source.html">ConnectionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2ef0891b85b765877db7598e11c2977c"></a><!-- doxytag: member="qpid::client::ConnectionSettings::username" ref="a2ef0891b85b765877db7598e11c2977c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> <a class="el" href="a00067.html#a2ef0891b85b765877db7598e11c2977c">qpid::client::ConnectionSettings::username</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>The username to use when authenticating the connection. </p>
+<p>If not specified the current users login is used if available. </p>
+
+<p>Definition at line <a class="el" href="a00415_source.html#l00074">74</a> of file <a class="el" href="a00415_source.html">ConnectionSettings.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad8c1c9571e7b560334afbc2ccb364f47"></a><!-- doxytag: member="qpid::client::ConnectionSettings::virtualhost" ref="ad8c1c9571e7b560334afbc2ccb364f47" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> <a class="el" href="a00067.html#ad8c1c9571e7b560334afbc2ccb364f47">qpid::client::ConnectionSettings::virtualhost</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Allows an AMQP 'virtual host' to be specified for the connection. </p>
+
+<p>Definition at line <a class="el" href="a00415_source.html#l00068">68</a> of file <a class="el" href="a00415_source.html">ConnectionSettings.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>qpid/client/<a class="el" href="a00415_source.html">ConnectionSettings.h</a></li>
 </ul>
 </div>
 <!--
@@ -475,7 +507,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

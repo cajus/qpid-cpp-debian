@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf::ConsoleEvent Class Reference</title>
+    <title>qpid::console::Broker::ConnectionThread Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,114 +60,82 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00571.html">qmf</a>      </li>
-      <li class="navelem"><a class="el" href="a00068.html">ConsoleEvent</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00581.html">console</a>      </li>
+      <li class="navelem"><a class="el" href="a00042.html">Broker</a>      </li>
+      <li class="navelem"><a class="el" href="a00068.html">ConnectionThread</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-types">Protected Types</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qmf::ConsoleEvent Class Reference</div>  </div>
+<div class="title">qpid::console::Broker::ConnectionThread Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qmf::ConsoleEvent" --><!-- doxytag: inherits="Handle&lt; ConsoleEventImpl &gt;" -->
-<p><code>#include &lt;<a class="el" href="a00408_source.html">qmf/ConsoleEvent.h</a>&gt;</code></p>
-
-<p><a href="a00603.html">List of all members.</a></p>
+<!-- doxytag: class="qpid::console::Broker::ConnectionThread" --><!-- doxytag: inherits="qpid::sys::Runnable" -->
+<p><a href="a00709.html">List of all members.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef boost::function0&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00294.html#ae6dd30caad64962b36e826fb505cc626">Functor</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Type to represent a runnable as a Functor.  <a href="#ae6dd30caad64962b36e826fb505cc626"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#abae9c024846044fe0184b6401f71d354">ConsoleEvent</a> (ConsoleEventImpl *<a class="el" href="a00141.html#a0effa7fbf9c8ae45a927102af0b25679">impl</a>=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#a98d3b8db2caf8a4dc5ac783a311444a8">ConsoleEvent</a> (const <a class="el" href="a00068.html">ConsoleEvent</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00068.html">ConsoleEvent</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#ad86911a605c3308d9a789131d672d43f">operator=</a> (const <a class="el" href="a00068.html">ConsoleEvent</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#a68d8dcfb4b9b2c027436ca52099d7edc">~ConsoleEvent</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00571.html#afd1ee9f7145ae76c3e2d6ac3d79a8a54">ConsoleEventCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#affb63d772b92d3a3e568e6470c49edc4">getType</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#ad62fdf501dc955e89552c1dcc2a404da">getCorrelator</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00007.html">Agent</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#a2b0b0a646cc90a8cbda12dc75f451f25">getAgent</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00571.html#af4a478cbc9584a8e99e1f0dcc5e03764">AgentDelReason</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#aeb73abdf18819865103e03eb28d20ad5">getAgentDelReason</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#a7605a6cd6fef5660d91a1522882e7cdc">getSchemaIdCount</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00302.html">SchemaId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#abe85b75d00f6f73e82c6043707db8427">getSchemaId</a> (<a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#a312b716197c6a59e09596af086ce84eb">getDataCount</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00094.html">Data</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#a65f66312fc563896d05c7940354dd28f">getData</a> (<a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#a4dbe6503d00141551f9e2efe08f003bd">isFinal</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#a9d3596883c4d0265e5d5bf87be171473">getArguments</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#aa20e5d09c2204587c17a662676e8e2e6">getSeverity</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#a8ded88a41967e8e58eadd26350250099">getTimestamp</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#a39749de38a4fc07f8401696d497a0d3c">isValid</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#a015fea48a0cd370654102196b8972b0c">isNull</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#ac1b6422c4626a1a630ac5cc13b41ad9a">operator bool</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to bool supports idiom if (handle) { handle-&gt;...  <a href="#ac1b6422c4626a1a630ac5cc13b41ad9a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#a5f7fe4689daf51182ceb8db1c5a7b85f">operator!</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }.  <a href="#a5f7fe4689daf51182ceb8db1c5a7b85f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#aa5de6b64fd036c74cbc332ac2c5d1377">swap</a> (<a class="el" href="a00141.html">Handle</a>&lt; T &gt; &amp;h)</td></tr>
-<tr><td colspan="2"><h2><a name="pro-types"></a>
-Protected Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#a15c17b50788ef3057bf2c7a99e7c39b2">Impl</a></td></tr>
-<tr><td colspan="2"><h2><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00141.html#a15c17b50788ef3057bf2c7a99e7c39b2">Impl</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#a0effa7fbf9c8ae45a927102af0b25679">impl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#abfc07f86b011cea1f35ff5894c1417e7">ConnectionThread</a> (<a class="el" href="a00042.html">Broker</a> &amp;_broker)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#a3d94d5006d9203729ba127dde0f2ab0e">~ConnectionThread</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#a370380acad3d7192b17eb1a0b74c1af9">sendBuffer</a> (<a class="el" href="a00045.html">qpid::framing::Buffer</a> &amp;buf, <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> length, const <a class="el" href="a00346.html">std::string</a> &amp;exchange=&quot;qpid.management&quot;, const <a class="el" href="a00346.html">std::string</a> &amp;routingKey=&quot;broker&quot;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#af70b312a49214ec81d0856bcb7c5ec99">bindExchange</a> (const <a class="el" href="a00346.html">std::string</a> &amp;exchange, const <a class="el" href="a00346.html">std::string</a> &amp;key)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#ae5b071d7b38fa6d0db2b6a5de97554e3">shutdown</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00294.html#ae6dd30caad64962b36e826fb505cc626">Functor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00294.html#ac0af11e62e346d8295ddb9ee40620eb0">functor</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a functor object that will call this-&gt;<a class="el" href="a00294.html#a8c8296f61a69c142ad7afecca2578ea1" title="Derived classes override run().">run()</a>.  <a href="#ac0af11e62e346d8295ddb9ee40620eb0"></a><br/></td></tr>
 </table>
 <hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="a15c17b50788ef3057bf2c7a99e7c39b2"></a><!-- doxytag: member="qmf::ConsoleEvent::Impl" ref="a15c17b50788ef3057bf2c7a99e7c39b2" args="" -->
+<a class="anchor" id="ae6dd30caad64962b36e826fb505cc626"></a><!-- doxytag: member="qpid::console::Broker::ConnectionThread::Functor" ref="ae6dd30caad64962b36e826fb505cc626" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef T <a class="el" href="a00141.html#a15c17b50788ef3057bf2c7a99e7c39b2">qmf::Handle::Impl</a><code> [protected, inherited]</code></td>
+          <td class="memname">typedef boost::function0&lt;void&gt; <a class="el" href="a00294.html#ae6dd30caad64962b36e826fb505cc626">qpid::sys::Runnable::Functor</a><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00437_source.html#l00056">56</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
+<p>Type to represent a runnable as a Functor. </p>
+
+<p>Definition at line <a class="el" href="a00567_source.html#l00037">37</a> of file <a class="el" href="a00567_source.html">Runnable.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="abae9c024846044fe0184b6401f71d354"></a><!-- doxytag: member="qmf::ConsoleEvent::ConsoleEvent" ref="abae9c024846044fe0184b6401f71d354" args="(ConsoleEventImpl *impl=0)" -->
+<a class="anchor" id="abfc07f86b011cea1f35ff5894c1417e7"></a><!-- doxytag: member="qpid::console::Broker::ConnectionThread::ConnectionThread" ref="abfc07f86b011cea1f35ff5894c1417e7" args="(Broker &amp;_broker)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qmf::ConsoleEvent::ConsoleEvent </td>
+          <td class="memname">qpid::console::Broker::ConnectionThread::ConnectionThread </td>
           <td>(</td>
-          <td class="paramtype">ConsoleEventImpl *&#160;</td>
-          <td class="paramname"><em>impl</em> = <code>0</code></td><td>)</td>
-          <td></td>
+          <td class="paramtype"><a class="el" href="a00042.html">Broker</a> &amp;&#160;</td>
+          <td class="paramname"><em>_broker</em></td><td>)</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="a98d3b8db2caf8a4dc5ac783a311444a8"></a><!-- doxytag: member="qmf::ConsoleEvent::ConsoleEvent" ref="a98d3b8db2caf8a4dc5ac783a311444a8" args="(const ConsoleEvent &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qmf::ConsoleEvent::ConsoleEvent </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00068.html">ConsoleEvent</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Definition at line <a class="el" href="a00485_source.html#l00102">102</a> of file <a class="el" href="a00485_source.html">Broker.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a68d8dcfb4b9b2c027436ca52099d7edc"></a><!-- doxytag: member="qmf::ConsoleEvent::~ConsoleEvent" ref="a68d8dcfb4b9b2c027436ca52099d7edc" args="()" -->
+<a class="anchor" id="a3d94d5006d9203729ba127dde0f2ab0e"></a><!-- doxytag: member="qpid::console::Broker::ConnectionThread::~ConnectionThread" ref="a3d94d5006d9203729ba127dde0f2ab0e" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qmf::ConsoleEvent::~ConsoleEvent </td>
+          <td class="memname">qpid::console::Broker::ConnectionThread::~ConnectionThread </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -179,15 +147,85 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a2b0b0a646cc90a8cbda12dc75f451f25"></a><!-- doxytag: member="qmf::ConsoleEvent::getAgent" ref="a2b0b0a646cc90a8cbda12dc75f451f25" args="() const " -->
+<a class="anchor" id="af70b312a49214ec81d0856bcb7c5ec99"></a><!-- doxytag: member="qpid::console::Broker::ConnectionThread::bindExchange" ref="af70b312a49214ec81d0856bcb7c5ec99" args="(const std::string &amp;exchange, const std::string &amp;key)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00007.html">Agent</a> qmf::ConsoleEvent::getAgent </td>
+          <td class="memname">void qpid::console::Broker::ConnectionThread::bindExchange </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>exchange</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Referenced by <a class="el" href="a00485_source.html#l00063">qpid::console::Broker::addBinding()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac0af11e62e346d8295ddb9ee40620eb0"></a><!-- doxytag: member="qpid::console::Broker::ConnectionThread::functor" ref="ac0af11e62e346d8295ddb9ee40620eb0" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00294.html#ae6dd30caad64962b36e826fb505cc626">Functor</a> qpid::sys::Runnable::functor </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Create a functor object that will call this-&gt;<a class="el" href="a00294.html#a8c8296f61a69c142ad7afecca2578ea1" title="Derived classes override run().">run()</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a370380acad3d7192b17eb1a0b74c1af9"></a><!-- doxytag: member="qpid::console::Broker::ConnectionThread::sendBuffer" ref="a370380acad3d7192b17eb1a0b74c1af9" args="(qpid::framing::Buffer &amp;buf, uint32_t length, const std::string &amp;exchange=&quot;qpid.management&quot;, const std::string &amp;routingKey=&quot;broker&quot;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::console::Broker::ConnectionThread::sendBuffer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00045.html">qpid::framing::Buffer</a> &amp;&#160;</td>
+          <td class="paramname"><em>buf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>length</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>exchange</em> = <code>&quot;qpid.management&quot;</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>routingKey</em> = <code>&quot;broker&quot;</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
@@ -195,271 +233,13 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aeb73abdf18819865103e03eb28d20ad5"></a><!-- doxytag: member="qmf::ConsoleEvent::getAgentDelReason" ref="aeb73abdf18819865103e03eb28d20ad5" args="() const " -->
+<a class="anchor" id="ae5b071d7b38fa6d0db2b6a5de97554e3"></a><!-- doxytag: member="qpid::console::Broker::ConnectionThread::shutdown" ref="ae5b071d7b38fa6d0db2b6a5de97554e3" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00571.html#af4a478cbc9584a8e99e1f0dcc5e03764">AgentDelReason</a> qmf::ConsoleEvent::getAgentDelReason </td>
+          <td class="memname">void qpid::console::Broker::ConnectionThread::shutdown </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a9d3596883c4d0265e5d5bf87be171473"></a><!-- doxytag: member="qmf::ConsoleEvent::getArguments" ref="a9d3596883c4d0265e5d5bf87be171473" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a>&amp; qmf::ConsoleEvent::getArguments </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad62fdf501dc955e89552c1dcc2a404da"></a><!-- doxytag: member="qmf::ConsoleEvent::getCorrelator" ref="ad62fdf501dc955e89552c1dcc2a404da" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qmf::ConsoleEvent::getCorrelator </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a65f66312fc563896d05c7940354dd28f"></a><!-- doxytag: member="qmf::ConsoleEvent::getData" ref="a65f66312fc563896d05c7940354dd28f" args="(uint32_t) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00094.html">Data</a> qmf::ConsoleEvent::getData </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a312b716197c6a59e09596af086ce84eb"></a><!-- doxytag: member="qmf::ConsoleEvent::getDataCount" ref="a312b716197c6a59e09596af086ce84eb" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qmf::ConsoleEvent::getDataCount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="abe85b75d00f6f73e82c6043707db8427"></a><!-- doxytag: member="qmf::ConsoleEvent::getSchemaId" ref="abe85b75d00f6f73e82c6043707db8427" args="(uint32_t) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00302.html">SchemaId</a> qmf::ConsoleEvent::getSchemaId </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7605a6cd6fef5660d91a1522882e7cdc"></a><!-- doxytag: member="qmf::ConsoleEvent::getSchemaIdCount" ref="a7605a6cd6fef5660d91a1522882e7cdc" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qmf::ConsoleEvent::getSchemaIdCount </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa20e5d09c2204587c17a662676e8e2e6"></a><!-- doxytag: member="qmf::ConsoleEvent::getSeverity" ref="aa20e5d09c2204587c17a662676e8e2e6" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int qmf::ConsoleEvent::getSeverity </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8ded88a41967e8e58eadd26350250099"></a><!-- doxytag: member="qmf::ConsoleEvent::getTimestamp" ref="a8ded88a41967e8e58eadd26350250099" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint64_t qmf::ConsoleEvent::getTimestamp </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="affb63d772b92d3a3e568e6470c49edc4"></a><!-- doxytag: member="qmf::ConsoleEvent::getType" ref="affb63d772b92d3a3e568e6470c49edc4" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00571.html#afd1ee9f7145ae76c3e2d6ac3d79a8a54">ConsoleEventCode</a> qmf::ConsoleEvent::getType </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a4dbe6503d00141551f9e2efe08f003bd"></a><!-- doxytag: member="qmf::ConsoleEvent::isFinal" ref="a4dbe6503d00141551f9e2efe08f003bd" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qmf::ConsoleEvent::isFinal </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a015fea48a0cd370654102196b8972b0c"></a><!-- doxytag: member="qmf::ConsoleEvent::isNull" ref="a015fea48a0cd370654102196b8972b0c" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QMF_INLINE_EXTERN bool qmf::Handle::isNull </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is null. It is an error to call any function on a null handle. </dd></dl>
-
-<p>Definition at line <a class="el" href="a00437_source.html#l00045">45</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a39749de38a4fc07f8401696d497a0d3c"></a><!-- doxytag: member="qmf::ConsoleEvent::isValid" ref="a39749de38a4fc07f8401696d497a0d3c" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QMF_INLINE_EXTERN bool qmf::Handle::isValid </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is valid, i.e. not null. </dd></dl>
-
-<p>Definition at line <a class="el" href="a00437_source.html#l00042">42</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac1b6422c4626a1a630ac5cc13b41ad9a"></a><!-- doxytag: member="qmf::ConsoleEvent::operator bool" ref="ac1b6422c4626a1a630ac5cc13b41ad9a" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QMF_INLINE_EXTERN qmf::Handle::operator bool </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Conversion to bool supports idiom if (handle) { handle-&gt;... </p>
-<p>} </p>
-
-<p>Definition at line <a class="el" href="a00437_source.html#l00048">48</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5f7fe4689daf51182ceb8db1c5a7b85f"></a><!-- doxytag: member="qmf::ConsoleEvent::operator!" ref="a5f7fe4689daf51182ceb8db1c5a7b85f" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QMF_INLINE_EXTERN bool qmf::Handle::operator! </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }. </p>
-
-<p>Definition at line <a class="el" href="a00437_source.html#l00051">51</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad86911a605c3308d9a789131d672d43f"></a><!-- doxytag: member="qmf::ConsoleEvent::operator=" ref="ad86911a605c3308d9a789131d672d43f" args="(const ConsoleEvent &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00068.html">ConsoleEvent</a>&amp; qmf::ConsoleEvent::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00068.html">ConsoleEvent</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -469,43 +249,8 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aa5de6b64fd036c74cbc332ac2c5d1377"></a><!-- doxytag: member="qmf::ConsoleEvent::swap" ref="aa5de6b64fd036c74cbc332ac2c5d1377" args="(Handle&lt; T &gt; &amp;h)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qmf::Handle::swap </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00141.html">Handle</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>h</em></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00437_source.html#l00053">53</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a0effa7fbf9c8ae45a927102af0b25679"></a><!-- doxytag: member="qmf::ConsoleEvent::impl" ref="a0effa7fbf9c8ae45a927102af0b25679" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00141.html#a15c17b50788ef3057bf2c7a99e7c39b2">Impl</a>* <a class="el" href="a00141.html#a0effa7fbf9c8ae45a927102af0b25679">qmf::Handle::impl</a><code> [protected, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00437_source.html#l00063">63</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qmf/<a class="el" href="a00408_source.html">ConsoleEvent.h</a></li>
+<li>qpid/console/<a class="el" href="a00485_source.html">Broker.h</a></li>
 </ul>
 </div>
 <!--
@@ -535,7 +280,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

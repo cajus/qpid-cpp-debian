@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::management::ManagementAgent::Singleton Class Reference</title>
+    <title>qpid::console::SessionManager::Settings Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,88 +60,150 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00590.html">management</a>      </li>
-      <li class="navelem"><a class="el" href="a00198.html">ManagementAgent</a>      </li>
-      <li class="navelem"><a class="el" href="a00337.html">Singleton</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00581.html">console</a>      </li>
+      <li class="navelem"><a class="el" href="a00335.html">SessionManager</a>      </li>
+      <li class="navelem"><a class="el" href="a00337.html">Settings</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a>  </div>
+<a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::management::ManagementAgent::Singleton Class Reference</div>  </div>
+<div class="title">qpid::console::SessionManager::Settings Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::management::ManagementAgent::Singleton" -->
-<p><code>#include &lt;<a class="el" href="a00453_source.html">qpid/agent/ManagementAgent.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::console::SessionManager::Settings" -->
+<p><code>#include &lt;<a class="el" href="a00491_source.html">qpid/console/SessionManager.h</a>&gt;</code></p>
 
-<p><a href="a00828.html">List of all members.</a></p>
+<p><a href="a00727.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QMF_AGENT_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00337.html#a0348b15d17fae3a570896127ba9f38e6">Singleton</a> (bool disableManagement=false)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QMF_AGENT_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00337.html#a1946f5444011f966b26cec261d48b26d">~Singleton</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static QMF_AGENT_EXTERN <br class="typebreak"/>
-<a class="el" href="a00198.html">ManagementAgent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00337.html#ac35e2b11a9c265c544755d1130d7d982">getInstance</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00337.html#a2a5986e7b76cbbc2f270e163e0c45526">Settings</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00337.html#aab97ada7b254238e26b9cb1246b7ae4e">rcvObjects</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00337.html#a0927fca95e2ce712f6fee70fc2980bba">rcvEvents</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00337.html#a41375171f99fdb0f6cbfe796c28089b2">rcvHeartbeats</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00337.html#a7b19e55f9ec6f8e7203d50eb7bb22da7">userBindings</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00337.html#a93241b2a5a654d51217090c1fe26d6c1">methodTimeout</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00337.html#a6c082fc7d9d4321f2c82e0b9a62b1b48">getTimeout</a></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a0348b15d17fae3a570896127ba9f38e6"></a><!-- doxytag: member="qpid::management::ManagementAgent::Singleton::Singleton" ref="a0348b15d17fae3a570896127ba9f38e6" args="(bool disableManagement=false)" -->
+<a class="anchor" id="a2a5986e7b76cbbc2f270e163e0c45526"></a><!-- doxytag: member="qpid::console::SessionManager::Settings::Settings" ref="a2a5986e7b76cbbc2f270e163e0c45526" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QMF_AGENT_EXTERN qpid::management::ManagementAgent::Singleton::Singleton </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>disableManagement</em> = <code>false</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1946f5444011f966b26cec261d48b26d"></a><!-- doxytag: member="qpid::management::ManagementAgent::Singleton::~Singleton" ref="a1946f5444011f966b26cec261d48b26d" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QMF_AGENT_EXTERN qpid::management::ManagementAgent::Singleton::~Singleton </td>
+          <td class="memname">qpid::console::SessionManager::Settings::Settings </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Definition at line <a class="el" href="a00491_source.html#l00065">65</a> of file <a class="el" href="a00491_source.html">SessionManager.h</a>.</p>
+
 </div>
 </div>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ac35e2b11a9c265c544755d1130d7d982"></a><!-- doxytag: member="qpid::management::ManagementAgent::Singleton::getInstance" ref="ac35e2b11a9c265c544755d1130d7d982" args="()" -->
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a6c082fc7d9d4321f2c82e0b9a62b1b48"></a><!-- doxytag: member="qpid::console::SessionManager::Settings::getTimeout" ref="a6c082fc7d9d4321f2c82e0b9a62b1b48" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">static QMF_AGENT_EXTERN <a class="el" href="a00198.html">ManagementAgent</a>* qpid::management::ManagementAgent::Singleton::getInstance </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [static]</code></td>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="el" href="a00337.html#a6c082fc7d9d4321f2c82e0b9a62b1b48">qpid::console::SessionManager::Settings::getTimeout</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Definition at line <a class="el" href="a00491_source.html#l00063">63</a> of file <a class="el" href="a00491_source.html">SessionManager.h</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/agent/<a class="el" href="a00453_source.html">ManagementAgent.h</a></li>
+<a class="anchor" id="a93241b2a5a654d51217090c1fe26d6c1"></a><!-- doxytag: member="qpid::console::SessionManager::Settings::methodTimeout" ref="a93241b2a5a654d51217090c1fe26d6c1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="el" href="a00337.html#a93241b2a5a654d51217090c1fe26d6c1">qpid::console::SessionManager::Settings::methodTimeout</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00491_source.html#l00062">62</a> of file <a class="el" href="a00491_source.html">SessionManager.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0927fca95e2ce712f6fee70fc2980bba"></a><!-- doxytag: member="qpid::console::SessionManager::Settings::rcvEvents" ref="a0927fca95e2ce712f6fee70fc2980bba" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a00337.html#a0927fca95e2ce712f6fee70fc2980bba">qpid::console::SessionManager::Settings::rcvEvents</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00491_source.html#l00059">59</a> of file <a class="el" href="a00491_source.html">SessionManager.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a41375171f99fdb0f6cbfe796c28089b2"></a><!-- doxytag: member="qpid::console::SessionManager::Settings::rcvHeartbeats" ref="a41375171f99fdb0f6cbfe796c28089b2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a00337.html#a41375171f99fdb0f6cbfe796c28089b2">qpid::console::SessionManager::Settings::rcvHeartbeats</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00491_source.html#l00060">60</a> of file <a class="el" href="a00491_source.html">SessionManager.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aab97ada7b254238e26b9cb1246b7ae4e"></a><!-- doxytag: member="qpid::console::SessionManager::Settings::rcvObjects" ref="aab97ada7b254238e26b9cb1246b7ae4e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a00337.html#aab97ada7b254238e26b9cb1246b7ae4e">qpid::console::SessionManager::Settings::rcvObjects</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00491_source.html#l00058">58</a> of file <a class="el" href="a00491_source.html">SessionManager.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7b19e55f9ec6f8e7203d50eb7bb22da7"></a><!-- doxytag: member="qpid::console::SessionManager::Settings::userBindings" ref="a7b19e55f9ec6f8e7203d50eb7bb22da7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="a00337.html#a7b19e55f9ec6f8e7203d50eb7bb22da7">qpid::console::SessionManager::Settings::userBindings</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00491_source.html#l00061">61</a> of file <a class="el" href="a00491_source.html">SessionManager.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>qpid/console/<a class="el" href="a00491_source.html">SessionManager.h</a></li>
 </ul>
 </div>
 <!--
@@ -171,7 +233,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

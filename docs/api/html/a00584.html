@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::framing::execution Namespace Reference</title>
+    <title>qpid::framing::connection Namespace Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,9 +58,9 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00580.html">framing</a>      </li>
-      <li class="navelem"><a class="el" href="a00584.html">execution</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00582.html">framing</a>      </li>
+      <li class="navelem"><a class="el" href="a00584.html">connection</a>      </li>
     </ul>
   </div>
 </div>
@@ -68,75 +68,43 @@
   <div class="summary">
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::framing::execution Namespace Reference</div>  </div>
+<div class="title">qpid::framing::connection Namespace Reference</div>  </div>
 </div>
 <div class="contents">
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00584.html#aa6a7c8b476f3cff908115ab1645e2c18">ErrorCode</a> { <br/>
-&#160;&#160;<a class="el" href="a00584.html#aa6a7c8b476f3cff908115ab1645e2c18ad05a0982952c914662bc03e28c47f2ca">ERROR_CODE_UNAUTHORIZED_ACCESS</a> = 403, 
-<a class="el" href="a00584.html#aa6a7c8b476f3cff908115ab1645e2c18ac840d86bba1f18657e470d772ee413e7">ERROR_CODE_NOT_FOUND</a> = 404, 
-<a class="el" href="a00584.html#aa6a7c8b476f3cff908115ab1645e2c18a320e69337b5a92b1098c212c9705c3fb">ERROR_CODE_RESOURCE_LOCKED</a> = 405, 
-<a class="el" href="a00584.html#aa6a7c8b476f3cff908115ab1645e2c18a796aa6dd0dd827060f15aafb9d0efee0">ERROR_CODE_PRECONDITION_FAILED</a> = 406, 
-<br/>
-&#160;&#160;<a class="el" href="a00584.html#aa6a7c8b476f3cff908115ab1645e2c18a501baa9a8a83954a1b11010f53c484fb">ERROR_CODE_RESOURCE_DELETED</a> = 408, 
-<a class="el" href="a00584.html#aa6a7c8b476f3cff908115ab1645e2c18a9adbcda0445b885c53e5922d210556c2">ERROR_CODE_ILLEGAL_STATE</a> = 409, 
-<a class="el" href="a00584.html#aa6a7c8b476f3cff908115ab1645e2c18af2aad1b70109e91adc2096e66b03c3b7">ERROR_CODE_COMMAND_INVALID</a> = 503, 
-<a class="el" href="a00584.html#aa6a7c8b476f3cff908115ab1645e2c18a0f3ee74a9bac88519f0c820a485552ac">ERROR_CODE_RESOURCE_LIMIT_EXCEEDED</a> = 506, 
-<br/>
-&#160;&#160;<a class="el" href="a00584.html#aa6a7c8b476f3cff908115ab1645e2c18aeeb980808996116f4527048e5bc6b9ab">ERROR_CODE_NOT_ALLOWED</a> = 530, 
-<a class="el" href="a00584.html#aa6a7c8b476f3cff908115ab1645e2c18a22540476656c4aa523a0b0f291a9fcd2">ERROR_CODE_ILLEGAL_ARGUMENT</a> = 531, 
-<a class="el" href="a00584.html#aa6a7c8b476f3cff908115ab1645e2c18a3d7c576df0fedf94f7f154ce2cebc98f">ERROR_CODE_NOT_IMPLEMENTED</a> = 540, 
-<a class="el" href="a00584.html#aa6a7c8b476f3cff908115ab1645e2c18a111f1958e93db2688277cbfd63d1b9b0">ERROR_CODE_INTERNAL_ERROR</a> = 541, 
-<br/>
-&#160;&#160;<a class="el" href="a00584.html#aa6a7c8b476f3cff908115ab1645e2c18a7305d771865e3222f669f3ce786b08aa">ERROR_CODE_INVALID_ARGUMENT</a> = 542
-<br/>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4">CloseCode</a> { <a class="el" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4ad68462c77833631c223f7f416ff1c878">CLOSE_CODE_NORMAL</a> = 200, 
+<a class="el" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4ae2866192665d2637d25a7a4c3b3677f7">CLOSE_CODE_CONNECTION_FORCED</a> = 320, 
+<a class="el" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4a975c0002da29ebb4a042295f5d450ab7">CLOSE_CODE_INVALID_PATH</a> = 402, 
+<a class="el" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4a9638d7bf712ad146adebafcb7efe72a0">CLOSE_CODE_FRAMING_ERROR</a> = 501
  }</td></tr>
 </table>
 <hr/><h2>Enumeration Type Documentation</h2>
-<a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18"></a><!-- doxytag: member="qpid::framing::execution::ErrorCode" ref="aa6a7c8b476f3cff908115ab1645e2c18" args="" -->
+<a class="anchor" id="a55823c03444bbbbb1c9671dfc713aad4"></a><!-- doxytag: member="qpid::framing::connection::CloseCode" ref="a55823c03444bbbbb1c9671dfc713aad4" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00584.html#aa6a7c8b476f3cff908115ab1645e2c18">qpid::framing::execution::ErrorCode</a></td>
+          <td class="memname">enum <a class="el" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4">qpid::framing::connection::CloseCode</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18ad05a0982952c914662bc03e28c47f2ca"></a><!-- doxytag: member="ERROR_CODE_UNAUTHORIZED_ACCESS" ref="aa6a7c8b476f3cff908115ab1645e2c18ad05a0982952c914662bc03e28c47f2ca" args="" -->ERROR_CODE_UNAUTHORIZED_ACCESS</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="a55823c03444bbbbb1c9671dfc713aad4ad68462c77833631c223f7f416ff1c878"></a><!-- doxytag: member="CLOSE_CODE_NORMAL" ref="a55823c03444bbbbb1c9671dfc713aad4ad68462c77833631c223f7f416ff1c878" args="" -->CLOSE_CODE_NORMAL</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18ac840d86bba1f18657e470d772ee413e7"></a><!-- doxytag: member="ERROR_CODE_NOT_FOUND" ref="aa6a7c8b476f3cff908115ab1645e2c18ac840d86bba1f18657e470d772ee413e7" args="" -->ERROR_CODE_NOT_FOUND</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="a55823c03444bbbbb1c9671dfc713aad4ae2866192665d2637d25a7a4c3b3677f7"></a><!-- doxytag: member="CLOSE_CODE_CONNECTION_FORCED" ref="a55823c03444bbbbb1c9671dfc713aad4ae2866192665d2637d25a7a4c3b3677f7" args="" -->CLOSE_CODE_CONNECTION_FORCED</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18a320e69337b5a92b1098c212c9705c3fb"></a><!-- doxytag: member="ERROR_CODE_RESOURCE_LOCKED" ref="aa6a7c8b476f3cff908115ab1645e2c18a320e69337b5a92b1098c212c9705c3fb" args="" -->ERROR_CODE_RESOURCE_LOCKED</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="a55823c03444bbbbb1c9671dfc713aad4a975c0002da29ebb4a042295f5d450ab7"></a><!-- doxytag: member="CLOSE_CODE_INVALID_PATH" ref="a55823c03444bbbbb1c9671dfc713aad4a975c0002da29ebb4a042295f5d450ab7" args="" -->CLOSE_CODE_INVALID_PATH</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18a796aa6dd0dd827060f15aafb9d0efee0"></a><!-- doxytag: member="ERROR_CODE_PRECONDITION_FAILED" ref="aa6a7c8b476f3cff908115ab1645e2c18a796aa6dd0dd827060f15aafb9d0efee0" args="" -->ERROR_CODE_PRECONDITION_FAILED</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18a501baa9a8a83954a1b11010f53c484fb"></a><!-- doxytag: member="ERROR_CODE_RESOURCE_DELETED" ref="aa6a7c8b476f3cff908115ab1645e2c18a501baa9a8a83954a1b11010f53c484fb" args="" -->ERROR_CODE_RESOURCE_DELETED</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18a9adbcda0445b885c53e5922d210556c2"></a><!-- doxytag: member="ERROR_CODE_ILLEGAL_STATE" ref="aa6a7c8b476f3cff908115ab1645e2c18a9adbcda0445b885c53e5922d210556c2" args="" -->ERROR_CODE_ILLEGAL_STATE</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18af2aad1b70109e91adc2096e66b03c3b7"></a><!-- doxytag: member="ERROR_CODE_COMMAND_INVALID" ref="aa6a7c8b476f3cff908115ab1645e2c18af2aad1b70109e91adc2096e66b03c3b7" args="" -->ERROR_CODE_COMMAND_INVALID</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18a0f3ee74a9bac88519f0c820a485552ac"></a><!-- doxytag: member="ERROR_CODE_RESOURCE_LIMIT_EXCEEDED" ref="aa6a7c8b476f3cff908115ab1645e2c18a0f3ee74a9bac88519f0c820a485552ac" args="" -->ERROR_CODE_RESOURCE_LIMIT_EXCEEDED</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18aeeb980808996116f4527048e5bc6b9ab"></a><!-- doxytag: member="ERROR_CODE_NOT_ALLOWED" ref="aa6a7c8b476f3cff908115ab1645e2c18aeeb980808996116f4527048e5bc6b9ab" args="" -->ERROR_CODE_NOT_ALLOWED</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18a22540476656c4aa523a0b0f291a9fcd2"></a><!-- doxytag: member="ERROR_CODE_ILLEGAL_ARGUMENT" ref="aa6a7c8b476f3cff908115ab1645e2c18a22540476656c4aa523a0b0f291a9fcd2" args="" -->ERROR_CODE_ILLEGAL_ARGUMENT</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18a3d7c576df0fedf94f7f154ce2cebc98f"></a><!-- doxytag: member="ERROR_CODE_NOT_IMPLEMENTED" ref="aa6a7c8b476f3cff908115ab1645e2c18a3d7c576df0fedf94f7f154ce2cebc98f" args="" -->ERROR_CODE_NOT_IMPLEMENTED</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18a111f1958e93db2688277cbfd63d1b9b0"></a><!-- doxytag: member="ERROR_CODE_INTERNAL_ERROR" ref="aa6a7c8b476f3cff908115ab1645e2c18a111f1958e93db2688277cbfd63d1b9b0" args="" -->ERROR_CODE_INTERNAL_ERROR</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18a7305d771865e3222f669f3ce786b08aa"></a><!-- doxytag: member="ERROR_CODE_INVALID_ARGUMENT" ref="aa6a7c8b476f3cff908115ab1645e2c18a7305d771865e3222f669f3ce786b08aa" args="" -->ERROR_CODE_INVALID_ARGUMENT</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="a55823c03444bbbbb1c9671dfc713aad4a9638d7bf712ad146adebafcb7efe72a0"></a><!-- doxytag: member="CLOSE_CODE_FRAMING_ERROR" ref="a55823c03444bbbbb1c9671dfc713aad4a9638d7bf712ad146adebafcb7efe72a0" args="" -->CLOSE_CODE_FRAMING_ERROR</em>&nbsp;</td><td>
 </td></tr>
 </table>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="a00502_source.html#l00072">72</a> of file <a class="el" href="a00502_source.html">enum.h</a>.</p>
+<p>Definition at line <a class="el" href="a00504_source.html#l00047">47</a> of file <a class="el" href="a00504_source.html">enum.h</a>.</p>
 
 </div>
 </div>
@@ -168,7 +136,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

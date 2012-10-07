@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::framing::message Namespace Reference</title>
+    <title>qpid::framing::execution Namespace Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,9 +58,9 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00580.html">framing</a>      </li>
-      <li class="navelem"><a class="el" href="a00586.html">message</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00582.html">framing</a>      </li>
+      <li class="navelem"><a class="el" href="a00586.html">execution</a>      </li>
     </ul>
   </div>
 </div>
@@ -68,224 +68,75 @@
   <div class="summary">
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::framing::message Namespace Reference</div>  </div>
+<div class="title">qpid::framing::execution Namespace Reference</div>  </div>
 </div>
 <div class="contents">
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00586.html#a8d6ab87d62f2c2f1136e10f0a200f436">AcceptMode</a> { <a class="el" href="a00586.html#a8d6ab87d62f2c2f1136e10f0a200f436ad133238eeb72b988b8098eacbe380b40">ACCEPT_MODE_EXPLICIT</a> = 0, 
-<a class="el" href="a00586.html#a8d6ab87d62f2c2f1136e10f0a200f436a7b917c100c6da6e48f3051f1082b0c20">ACCEPT_MODE_NONE</a> = 1
- }</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00586.html#ad010ae646e0187e26e02b829e77213d8">AcquireMode</a> { <a class="el" href="a00586.html#ad010ae646e0187e26e02b829e77213d8adcf58c7c09c0324895876616551e1ace">ACQUIRE_MODE_PRE_ACQUIRED</a> = 0, 
-<a class="el" href="a00586.html#ad010ae646e0187e26e02b829e77213d8a31d1c85563e99e1b7c30d1e8a2b51938">ACQUIRE_MODE_NOT_ACQUIRED</a> = 1
- }</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00586.html#a6f9618f6d3e47d90daf18c3f9edcfc89">RejectCode</a> { <a class="el" href="a00586.html#a6f9618f6d3e47d90daf18c3f9edcfc89a9836cbe1a80a07979b40808f1b62cdf3">REJECT_CODE_UNSPECIFIED</a> = 0, 
-<a class="el" href="a00586.html#a6f9618f6d3e47d90daf18c3f9edcfc89ab3b39966c6e4d0b443d7c5d09a618b3e">REJECT_CODE_UNROUTABLE</a> = 1, 
-<a class="el" href="a00586.html#a6f9618f6d3e47d90daf18c3f9edcfc89aebcdcabdc0398519a07c7c0fa0bdb85b">REJECT_CODE_IMMEDIATE</a> = 2
- }</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00586.html#a34c0f78da277cb71d84994c5e143e331">DeliveryMode</a> { <a class="el" href="a00586.html#a34c0f78da277cb71d84994c5e143e331a51c532f78ac8dc742c6876693a14f2ac">DELIVERY_MODE_NON_PERSISTENT</a> = 1, 
-<a class="el" href="a00586.html#a34c0f78da277cb71d84994c5e143e331a5d19604c0b0d11e5d19db2b4b54d4c62">DELIVERY_MODE_PERSISTENT</a> = 2
- }</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00586.html#a0bd493bec452c1b87b3aca711ba45ec3">DeliveryPriority</a> { <br/>
-&#160;&#160;<a class="el" href="a00586.html#a0bd493bec452c1b87b3aca711ba45ec3ae66ac28c235ff8ec37d3cfc8825a7c18">DELIVERY_PRIORITY_LOWEST</a> = 0, 
-<a class="el" href="a00586.html#a0bd493bec452c1b87b3aca711ba45ec3af85c1a29dda5926c2a63f396b998a1c8">DELIVERY_PRIORITY_LOWER</a> = 1, 
-<a class="el" href="a00586.html#a0bd493bec452c1b87b3aca711ba45ec3a0b8d0e3c54fb0ae0789d1da634b0d5d1">DELIVERY_PRIORITY_LOW</a> = 2, 
-<a class="el" href="a00586.html#a0bd493bec452c1b87b3aca711ba45ec3ab43176c1a4cc94dc56ec0ef374afd352">DELIVERY_PRIORITY_BELOW_AVERAGE</a> = 3, 
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18">ErrorCode</a> { <br/>
+&#160;&#160;<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18ad05a0982952c914662bc03e28c47f2ca">ERROR_CODE_UNAUTHORIZED_ACCESS</a> = 403, 
+<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18ac840d86bba1f18657e470d772ee413e7">ERROR_CODE_NOT_FOUND</a> = 404, 
+<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a320e69337b5a92b1098c212c9705c3fb">ERROR_CODE_RESOURCE_LOCKED</a> = 405, 
+<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a796aa6dd0dd827060f15aafb9d0efee0">ERROR_CODE_PRECONDITION_FAILED</a> = 406, 
 <br/>
-&#160;&#160;<a class="el" href="a00586.html#a0bd493bec452c1b87b3aca711ba45ec3a7bb2a422086bd083edb9ac979df58c06">DELIVERY_PRIORITY_MEDIUM</a> = 4, 
-<a class="el" href="a00586.html#a0bd493bec452c1b87b3aca711ba45ec3a97ccd94d78f8420cd00f3a8f865fc4e2">DELIVERY_PRIORITY_ABOVE_AVERAGE</a> = 5, 
-<a class="el" href="a00586.html#a0bd493bec452c1b87b3aca711ba45ec3ac71fbae09a4b9f4e0d55962fe0d3a853">DELIVERY_PRIORITY_HIGH</a> = 6, 
-<a class="el" href="a00586.html#a0bd493bec452c1b87b3aca711ba45ec3a329b94a4b7351414c9a134bc2e3e6d82">DELIVERY_PRIORITY_HIGHER</a> = 7, 
+&#160;&#160;<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a501baa9a8a83954a1b11010f53c484fb">ERROR_CODE_RESOURCE_DELETED</a> = 408, 
+<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a9adbcda0445b885c53e5922d210556c2">ERROR_CODE_ILLEGAL_STATE</a> = 409, 
+<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18af2aad1b70109e91adc2096e66b03c3b7">ERROR_CODE_COMMAND_INVALID</a> = 503, 
+<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a0f3ee74a9bac88519f0c820a485552ac">ERROR_CODE_RESOURCE_LIMIT_EXCEEDED</a> = 506, 
 <br/>
-&#160;&#160;<a class="el" href="a00586.html#a0bd493bec452c1b87b3aca711ba45ec3a0c369ad56da6b6c6bb36c78dfc69dc27">DELIVERY_PRIORITY_VERY_HIGH</a> = 8, 
-<a class="el" href="a00586.html#a0bd493bec452c1b87b3aca711ba45ec3ae992840cb3e56ab31a4b09b9e0a6083f">DELIVERY_PRIORITY_HIGHEST</a> = 9
+&#160;&#160;<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18aeeb980808996116f4527048e5bc6b9ab">ERROR_CODE_NOT_ALLOWED</a> = 530, 
+<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a22540476656c4aa523a0b0f291a9fcd2">ERROR_CODE_ILLEGAL_ARGUMENT</a> = 531, 
+<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a3d7c576df0fedf94f7f154ce2cebc98f">ERROR_CODE_NOT_IMPLEMENTED</a> = 540, 
+<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a111f1958e93db2688277cbfd63d1b9b0">ERROR_CODE_INTERNAL_ERROR</a> = 541, 
 <br/>
- }</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00586.html#ae79c43439857b8ed0acbfeb48bdb263e">FlowMode</a> { <a class="el" href="a00586.html#ae79c43439857b8ed0acbfeb48bdb263eabe519ad4034dc15d0fac0ce655001d1f">FLOW_MODE_CREDIT</a> = 0, 
-<a class="el" href="a00586.html#ae79c43439857b8ed0acbfeb48bdb263ead50321e89017cbccbec44daacf805c96">FLOW_MODE_WINDOW</a> = 1
- }</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00586.html#a7551ef2b50bfcc4513fd83fd0ca412d4">CreditUnit</a> { <a class="el" href="a00586.html#a7551ef2b50bfcc4513fd83fd0ca412d4ad54499c6f023b5d59ae9fee267be733b">CREDIT_UNIT_MESSAGE</a> = 0, 
-<a class="el" href="a00586.html#a7551ef2b50bfcc4513fd83fd0ca412d4a8ba8a0473260228700df23d74e8a8645">CREDIT_UNIT_BYTE</a> = 1
+&#160;&#160;<a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a7305d771865e3222f669f3ce786b08aa">ERROR_CODE_INVALID_ARGUMENT</a> = 542
+<br/>
  }</td></tr>
 </table>
 <hr/><h2>Enumeration Type Documentation</h2>
-<a class="anchor" id="a8d6ab87d62f2c2f1136e10f0a200f436"></a><!-- doxytag: member="qpid::framing::message::AcceptMode" ref="a8d6ab87d62f2c2f1136e10f0a200f436" args="" -->
+<a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18"></a><!-- doxytag: member="qpid::framing::execution::ErrorCode" ref="aa6a7c8b476f3cff908115ab1645e2c18" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00586.html#a8d6ab87d62f2c2f1136e10f0a200f436">qpid::framing::message::AcceptMode</a></td>
+          <td class="memname">enum <a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18">qpid::framing::execution::ErrorCode</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="a8d6ab87d62f2c2f1136e10f0a200f436ad133238eeb72b988b8098eacbe380b40"></a><!-- doxytag: member="ACCEPT_MODE_EXPLICIT" ref="a8d6ab87d62f2c2f1136e10f0a200f436ad133238eeb72b988b8098eacbe380b40" args="" -->ACCEPT_MODE_EXPLICIT</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18ad05a0982952c914662bc03e28c47f2ca"></a><!-- doxytag: member="ERROR_CODE_UNAUTHORIZED_ACCESS" ref="aa6a7c8b476f3cff908115ab1645e2c18ad05a0982952c914662bc03e28c47f2ca" args="" -->ERROR_CODE_UNAUTHORIZED_ACCESS</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a8d6ab87d62f2c2f1136e10f0a200f436a7b917c100c6da6e48f3051f1082b0c20"></a><!-- doxytag: member="ACCEPT_MODE_NONE" ref="a8d6ab87d62f2c2f1136e10f0a200f436a7b917c100c6da6e48f3051f1082b0c20" args="" -->ACCEPT_MODE_NONE</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18ac840d86bba1f18657e470d772ee413e7"></a><!-- doxytag: member="ERROR_CODE_NOT_FOUND" ref="aa6a7c8b476f3cff908115ab1645e2c18ac840d86bba1f18657e470d772ee413e7" args="" -->ERROR_CODE_NOT_FOUND</em>&nbsp;</td><td>
 </td></tr>
-</table>
-</dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00502_source.html#l00093">93</a> of file <a class="el" href="a00502_source.html">enum.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad010ae646e0187e26e02b829e77213d8"></a><!-- doxytag: member="qpid::framing::message::AcquireMode" ref="ad010ae646e0187e26e02b829e77213d8" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00586.html#ad010ae646e0187e26e02b829e77213d8">qpid::framing::message::AcquireMode</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="ad010ae646e0187e26e02b829e77213d8adcf58c7c09c0324895876616551e1ace"></a><!-- doxytag: member="ACQUIRE_MODE_PRE_ACQUIRED" ref="ad010ae646e0187e26e02b829e77213d8adcf58c7c09c0324895876616551e1ace" args="" -->ACQUIRE_MODE_PRE_ACQUIRED</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18a320e69337b5a92b1098c212c9705c3fb"></a><!-- doxytag: member="ERROR_CODE_RESOURCE_LOCKED" ref="aa6a7c8b476f3cff908115ab1645e2c18a320e69337b5a92b1098c212c9705c3fb" args="" -->ERROR_CODE_RESOURCE_LOCKED</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="ad010ae646e0187e26e02b829e77213d8a31d1c85563e99e1b7c30d1e8a2b51938"></a><!-- doxytag: member="ACQUIRE_MODE_NOT_ACQUIRED" ref="ad010ae646e0187e26e02b829e77213d8a31d1c85563e99e1b7c30d1e8a2b51938" args="" -->ACQUIRE_MODE_NOT_ACQUIRED</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18a796aa6dd0dd827060f15aafb9d0efee0"></a><!-- doxytag: member="ERROR_CODE_PRECONDITION_FAILED" ref="aa6a7c8b476f3cff908115ab1645e2c18a796aa6dd0dd827060f15aafb9d0efee0" args="" -->ERROR_CODE_PRECONDITION_FAILED</em>&nbsp;</td><td>
 </td></tr>
-</table>
-</dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00502_source.html#l00097">97</a> of file <a class="el" href="a00502_source.html">enum.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7551ef2b50bfcc4513fd83fd0ca412d4"></a><!-- doxytag: member="qpid::framing::message::CreditUnit" ref="a7551ef2b50bfcc4513fd83fd0ca412d4" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00586.html#a7551ef2b50bfcc4513fd83fd0ca412d4">qpid::framing::message::CreditUnit</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="a7551ef2b50bfcc4513fd83fd0ca412d4ad54499c6f023b5d59ae9fee267be733b"></a><!-- doxytag: member="CREDIT_UNIT_MESSAGE" ref="a7551ef2b50bfcc4513fd83fd0ca412d4ad54499c6f023b5d59ae9fee267be733b" args="" -->CREDIT_UNIT_MESSAGE</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18a501baa9a8a83954a1b11010f53c484fb"></a><!-- doxytag: member="ERROR_CODE_RESOURCE_DELETED" ref="aa6a7c8b476f3cff908115ab1645e2c18a501baa9a8a83954a1b11010f53c484fb" args="" -->ERROR_CODE_RESOURCE_DELETED</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a7551ef2b50bfcc4513fd83fd0ca412d4a8ba8a0473260228700df23d74e8a8645"></a><!-- doxytag: member="CREDIT_UNIT_BYTE" ref="a7551ef2b50bfcc4513fd83fd0ca412d4a8ba8a0473260228700df23d74e8a8645" args="" -->CREDIT_UNIT_BYTE</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18a9adbcda0445b885c53e5922d210556c2"></a><!-- doxytag: member="ERROR_CODE_ILLEGAL_STATE" ref="aa6a7c8b476f3cff908115ab1645e2c18a9adbcda0445b885c53e5922d210556c2" args="" -->ERROR_CODE_ILLEGAL_STATE</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18af2aad1b70109e91adc2096e66b03c3b7"></a><!-- doxytag: member="ERROR_CODE_COMMAND_INVALID" ref="aa6a7c8b476f3cff908115ab1645e2c18af2aad1b70109e91adc2096e66b03c3b7" args="" -->ERROR_CODE_COMMAND_INVALID</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18a0f3ee74a9bac88519f0c820a485552ac"></a><!-- doxytag: member="ERROR_CODE_RESOURCE_LIMIT_EXCEEDED" ref="aa6a7c8b476f3cff908115ab1645e2c18a0f3ee74a9bac88519f0c820a485552ac" args="" -->ERROR_CODE_RESOURCE_LIMIT_EXCEEDED</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18aeeb980808996116f4527048e5bc6b9ab"></a><!-- doxytag: member="ERROR_CODE_NOT_ALLOWED" ref="aa6a7c8b476f3cff908115ab1645e2c18aeeb980808996116f4527048e5bc6b9ab" args="" -->ERROR_CODE_NOT_ALLOWED</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18a22540476656c4aa523a0b0f291a9fcd2"></a><!-- doxytag: member="ERROR_CODE_ILLEGAL_ARGUMENT" ref="aa6a7c8b476f3cff908115ab1645e2c18a22540476656c4aa523a0b0f291a9fcd2" args="" -->ERROR_CODE_ILLEGAL_ARGUMENT</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18a3d7c576df0fedf94f7f154ce2cebc98f"></a><!-- doxytag: member="ERROR_CODE_NOT_IMPLEMENTED" ref="aa6a7c8b476f3cff908115ab1645e2c18a3d7c576df0fedf94f7f154ce2cebc98f" args="" -->ERROR_CODE_NOT_IMPLEMENTED</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18a111f1958e93db2688277cbfd63d1b9b0"></a><!-- doxytag: member="ERROR_CODE_INTERNAL_ERROR" ref="aa6a7c8b476f3cff908115ab1645e2c18a111f1958e93db2688277cbfd63d1b9b0" args="" -->ERROR_CODE_INTERNAL_ERROR</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aa6a7c8b476f3cff908115ab1645e2c18a7305d771865e3222f669f3ce786b08aa"></a><!-- doxytag: member="ERROR_CODE_INVALID_ARGUMENT" ref="aa6a7c8b476f3cff908115ab1645e2c18a7305d771865e3222f669f3ce786b08aa" args="" -->ERROR_CODE_INVALID_ARGUMENT</em>&nbsp;</td><td>
 </td></tr>
 </table>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="a00502_source.html#l00126">126</a> of file <a class="el" href="a00502_source.html">enum.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a34c0f78da277cb71d84994c5e143e331"></a><!-- doxytag: member="qpid::framing::message::DeliveryMode" ref="a34c0f78da277cb71d84994c5e143e331" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00586.html#a34c0f78da277cb71d84994c5e143e331">qpid::framing::message::DeliveryMode</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="a34c0f78da277cb71d84994c5e143e331a51c532f78ac8dc742c6876693a14f2ac"></a><!-- doxytag: member="DELIVERY_MODE_NON_PERSISTENT" ref="a34c0f78da277cb71d84994c5e143e331a51c532f78ac8dc742c6876693a14f2ac" args="" -->DELIVERY_MODE_NON_PERSISTENT</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a34c0f78da277cb71d84994c5e143e331a5d19604c0b0d11e5d19db2b4b54d4c62"></a><!-- doxytag: member="DELIVERY_MODE_PERSISTENT" ref="a34c0f78da277cb71d84994c5e143e331a5d19604c0b0d11e5d19db2b4b54d4c62" args="" -->DELIVERY_MODE_PERSISTENT</em>&nbsp;</td><td>
-</td></tr>
-</table>
-</dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00502_source.html#l00106">106</a> of file <a class="el" href="a00502_source.html">enum.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0bd493bec452c1b87b3aca711ba45ec3"></a><!-- doxytag: member="qpid::framing::message::DeliveryPriority" ref="a0bd493bec452c1b87b3aca711ba45ec3" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00586.html#a0bd493bec452c1b87b3aca711ba45ec3">qpid::framing::message::DeliveryPriority</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="a0bd493bec452c1b87b3aca711ba45ec3ae66ac28c235ff8ec37d3cfc8825a7c18"></a><!-- doxytag: member="DELIVERY_PRIORITY_LOWEST" ref="a0bd493bec452c1b87b3aca711ba45ec3ae66ac28c235ff8ec37d3cfc8825a7c18" args="" -->DELIVERY_PRIORITY_LOWEST</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a0bd493bec452c1b87b3aca711ba45ec3af85c1a29dda5926c2a63f396b998a1c8"></a><!-- doxytag: member="DELIVERY_PRIORITY_LOWER" ref="a0bd493bec452c1b87b3aca711ba45ec3af85c1a29dda5926c2a63f396b998a1c8" args="" -->DELIVERY_PRIORITY_LOWER</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a0bd493bec452c1b87b3aca711ba45ec3a0b8d0e3c54fb0ae0789d1da634b0d5d1"></a><!-- doxytag: member="DELIVERY_PRIORITY_LOW" ref="a0bd493bec452c1b87b3aca711ba45ec3a0b8d0e3c54fb0ae0789d1da634b0d5d1" args="" -->DELIVERY_PRIORITY_LOW</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a0bd493bec452c1b87b3aca711ba45ec3ab43176c1a4cc94dc56ec0ef374afd352"></a><!-- doxytag: member="DELIVERY_PRIORITY_BELOW_AVERAGE" ref="a0bd493bec452c1b87b3aca711ba45ec3ab43176c1a4cc94dc56ec0ef374afd352" args="" -->DELIVERY_PRIORITY_BELOW_AVERAGE</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a0bd493bec452c1b87b3aca711ba45ec3a7bb2a422086bd083edb9ac979df58c06"></a><!-- doxytag: member="DELIVERY_PRIORITY_MEDIUM" ref="a0bd493bec452c1b87b3aca711ba45ec3a7bb2a422086bd083edb9ac979df58c06" args="" -->DELIVERY_PRIORITY_MEDIUM</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a0bd493bec452c1b87b3aca711ba45ec3a97ccd94d78f8420cd00f3a8f865fc4e2"></a><!-- doxytag: member="DELIVERY_PRIORITY_ABOVE_AVERAGE" ref="a0bd493bec452c1b87b3aca711ba45ec3a97ccd94d78f8420cd00f3a8f865fc4e2" args="" -->DELIVERY_PRIORITY_ABOVE_AVERAGE</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a0bd493bec452c1b87b3aca711ba45ec3ac71fbae09a4b9f4e0d55962fe0d3a853"></a><!-- doxytag: member="DELIVERY_PRIORITY_HIGH" ref="a0bd493bec452c1b87b3aca711ba45ec3ac71fbae09a4b9f4e0d55962fe0d3a853" args="" -->DELIVERY_PRIORITY_HIGH</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a0bd493bec452c1b87b3aca711ba45ec3a329b94a4b7351414c9a134bc2e3e6d82"></a><!-- doxytag: member="DELIVERY_PRIORITY_HIGHER" ref="a0bd493bec452c1b87b3aca711ba45ec3a329b94a4b7351414c9a134bc2e3e6d82" args="" -->DELIVERY_PRIORITY_HIGHER</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a0bd493bec452c1b87b3aca711ba45ec3a0c369ad56da6b6c6bb36c78dfc69dc27"></a><!-- doxytag: member="DELIVERY_PRIORITY_VERY_HIGH" ref="a0bd493bec452c1b87b3aca711ba45ec3a0c369ad56da6b6c6bb36c78dfc69dc27" args="" -->DELIVERY_PRIORITY_VERY_HIGH</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a0bd493bec452c1b87b3aca711ba45ec3ae992840cb3e56ab31a4b09b9e0a6083f"></a><!-- doxytag: member="DELIVERY_PRIORITY_HIGHEST" ref="a0bd493bec452c1b87b3aca711ba45ec3ae992840cb3e56ab31a4b09b9e0a6083f" args="" -->DELIVERY_PRIORITY_HIGHEST</em>&nbsp;</td><td>
-</td></tr>
-</table>
-</dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00502_source.html#l00110">110</a> of file <a class="el" href="a00502_source.html">enum.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae79c43439857b8ed0acbfeb48bdb263e"></a><!-- doxytag: member="qpid::framing::message::FlowMode" ref="ae79c43439857b8ed0acbfeb48bdb263e" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00586.html#ae79c43439857b8ed0acbfeb48bdb263e">qpid::framing::message::FlowMode</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="ae79c43439857b8ed0acbfeb48bdb263eabe519ad4034dc15d0fac0ce655001d1f"></a><!-- doxytag: member="FLOW_MODE_CREDIT" ref="ae79c43439857b8ed0acbfeb48bdb263eabe519ad4034dc15d0fac0ce655001d1f" args="" -->FLOW_MODE_CREDIT</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="ae79c43439857b8ed0acbfeb48bdb263ead50321e89017cbccbec44daacf805c96"></a><!-- doxytag: member="FLOW_MODE_WINDOW" ref="ae79c43439857b8ed0acbfeb48bdb263ead50321e89017cbccbec44daacf805c96" args="" -->FLOW_MODE_WINDOW</em>&nbsp;</td><td>
-</td></tr>
-</table>
-</dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00502_source.html#l00122">122</a> of file <a class="el" href="a00502_source.html">enum.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6f9618f6d3e47d90daf18c3f9edcfc89"></a><!-- doxytag: member="qpid::framing::message::RejectCode" ref="a6f9618f6d3e47d90daf18c3f9edcfc89" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00586.html#a6f9618f6d3e47d90daf18c3f9edcfc89">qpid::framing::message::RejectCode</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="a6f9618f6d3e47d90daf18c3f9edcfc89a9836cbe1a80a07979b40808f1b62cdf3"></a><!-- doxytag: member="REJECT_CODE_UNSPECIFIED" ref="a6f9618f6d3e47d90daf18c3f9edcfc89a9836cbe1a80a07979b40808f1b62cdf3" args="" -->REJECT_CODE_UNSPECIFIED</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a6f9618f6d3e47d90daf18c3f9edcfc89ab3b39966c6e4d0b443d7c5d09a618b3e"></a><!-- doxytag: member="REJECT_CODE_UNROUTABLE" ref="a6f9618f6d3e47d90daf18c3f9edcfc89ab3b39966c6e4d0b443d7c5d09a618b3e" args="" -->REJECT_CODE_UNROUTABLE</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a6f9618f6d3e47d90daf18c3f9edcfc89aebcdcabdc0398519a07c7c0fa0bdb85b"></a><!-- doxytag: member="REJECT_CODE_IMMEDIATE" ref="a6f9618f6d3e47d90daf18c3f9edcfc89aebcdcabdc0398519a07c7c0fa0bdb85b" args="" -->REJECT_CODE_IMMEDIATE</em>&nbsp;</td><td>
-</td></tr>
-</table>
-</dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00502_source.html#l00101">101</a> of file <a class="el" href="a00502_source.html">enum.h</a>.</p>
+<p>Definition at line <a class="el" href="a00504_source.html#l00072">72</a> of file <a class="el" href="a00504_source.html">enum.h</a>.</p>
 
 </div>
 </div>
@@ -317,7 +168,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

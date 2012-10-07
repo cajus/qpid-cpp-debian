@@ -67,10 +67,45 @@ except AttributeError:
     _newclass = 0
 
 
-Empty = _cqpid.NoMessageAvailable
-TargetCapacityExceeded = _cqpid.TargetCapacityExceeded
+MessagingError = _cqpid.MessagingError
+
+LinkError = _cqpid.LinkError
+
+AddressError = _cqpid.AddressError
+
+ResolutionError = _cqpid.ResolutionError
+
+AssertionFailed = _cqpid.AssertionFailed
+
 NotFound = _cqpid.NotFound
-ConnectError = _cqpid.TransportFailure
+
+InvalidOption = _cqpid.InvalidOption
+
+MalformedAddress = _cqpid.MalformedAddress
+
+ReceiverError = _cqpid.ReceiverError
+
+FetchError = _cqpid.FetchError
+
+Empty = _cqpid.Empty
+
+SenderError = _cqpid.SenderError
+
+SendError = _cqpid.SendError
+
+TargetCapacityExceeded = _cqpid.TargetCapacityExceeded
+
+ConnectionError = _cqpid.ConnectionError
+
+ConnectError = _cqpid.ConnectError
+
+SessionError = _cqpid.SessionError
+
+TransactionError = _cqpid.TransactionError
+
+TransactionAborted = _cqpid.TransactionAborted
+
+UnauthorizedAccess = _cqpid.UnauthorizedAccess
 
 class Address(_object):
     __swig_setmethods__ = {}

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/framing/DtxGetTimeoutResult.h File Reference</title>
+    <title>qpid/framing/constants.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -59,29 +59,207 @@
 </div>
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/framing/DtxGetTimeoutResult.h File Reference</div>  </div>
+<div class="title">qpid/framing/constants.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &lt;ostream&gt;</code><br/>
-<code>#include &quot;<a class="el" href="a00494_source.html">qpid/framing/amqp_types_full.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00482_source.html">qpid/CommonImportExport.h</a>&quot;</code><br/>
-</div>
+
 <p><a href="a00500_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00101.html">qpid::framing::DtxGetTimeoutResult</a></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html">qpid</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
 <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00580.html">qpid::framing</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00582.html">qpid::framing</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>The framing namespace contains classes that are used to create, send and receive the basic packets from which AMQP is built. </p>
 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31">qpid::framing::AmqpConstant</a> { <br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ac8d00f6cf14752e156864315a39db303">qpid::framing::MIN_MAX_FRAME_SIZE</a> = 4096, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ae00eaa51843f96cef190aa8e28b2191c">qpid::framing::CONNECTION_CLASS_ID</a> = 0x1, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ac37e72ed35cd67f482a8affef287c499">qpid::framing::CONNECTION_START_METHOD_ID</a> = 0x1, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a66103d243109cbf5485f6687268d199f">qpid::framing::CONNECTION_START_OK_METHOD_ID</a> = 0x2, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a1fa83f257f24f99bf1b58d1b193ce09b">qpid::framing::CONNECTION_SECURE_METHOD_ID</a> = 0x3, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aeac8fb8ed1c2d2b13b380a2cf04d8440">qpid::framing::CONNECTION_SECURE_OK_METHOD_ID</a> = 0x4, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a2c57472ed3046f8b691d4105b5c1e1e9">qpid::framing::CONNECTION_TUNE_METHOD_ID</a> = 0x5, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ac83fd42ce4e422256a0feb244d0e1901">qpid::framing::CONNECTION_TUNE_OK_METHOD_ID</a> = 0x6, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ae25efcc22815227191eaf72234c5a1d8">qpid::framing::CONNECTION_OPEN_METHOD_ID</a> = 0x7, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31adb866b51da0891b61244624f6b1742cc">qpid::framing::CONNECTION_OPEN_OK_METHOD_ID</a> = 0x8, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a1c175a729a2e969083d55dbcbccb3451">qpid::framing::CONNECTION_REDIRECT_METHOD_ID</a> = 0x9, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aed6e0f790d5582373debf1c7f64c03bc">qpid::framing::CONNECTION_HEARTBEAT_METHOD_ID</a> = 0xa, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a34449318d35d89f8a5379c556cd2cd22">qpid::framing::CONNECTION_CLOSE_METHOD_ID</a> = 0xb, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a1214a6e30a3f309f4419e1206cf6f9b8">qpid::framing::CONNECTION_CLOSE_OK_METHOD_ID</a> = 0xc, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a20adb2b718fb82c0d7c8a5a848e8a41f">qpid::framing::SESSION_CLASS_ID</a> = 0x2, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a53ce08111dafeb2ddf01d971f3b11811">qpid::framing::SESSION_ATTACH_METHOD_ID</a> = 0x1, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aca2cec2f977fb3bdc526c9fbe75fc95f">qpid::framing::SESSION_ATTACHED_METHOD_ID</a> = 0x2, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a1119116048ea0bd4c79a455c722fa06b">qpid::framing::SESSION_DETACH_METHOD_ID</a> = 0x3, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31abbbc2cb0ecd52bb86df7c75dcd1f2302">qpid::framing::SESSION_DETACHED_METHOD_ID</a> = 0x4, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a7d65f33929475bac16249db1838a61aa">qpid::framing::SESSION_REQUEST_TIMEOUT_METHOD_ID</a> = 0x5, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a34e861ed67d12782c0f89b5e210fa802">qpid::framing::SESSION_TIMEOUT_METHOD_ID</a> = 0x6, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a3026e207d468738ab8336b1e25644849">qpid::framing::SESSION_COMMAND_POINT_METHOD_ID</a> = 0x7, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a195c75e7d684a82eb1b88e7c3c21c647">qpid::framing::SESSION_EXPECTED_METHOD_ID</a> = 0x8, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ae19de3ca08b717fc677644fbd3f0a178">qpid::framing::SESSION_CONFIRMED_METHOD_ID</a> = 0x9, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a9a0032eabdef4fa3b7d98a5ea8f802e2">qpid::framing::SESSION_COMPLETED_METHOD_ID</a> = 0xa, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a40a6e30fc77405b0d719ef2a56505089">qpid::framing::SESSION_KNOWN_COMPLETED_METHOD_ID</a> = 0xb, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a5a2106373908e2f4b9e48d0370f74db9">qpid::framing::SESSION_FLUSH_METHOD_ID</a> = 0xc, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a4d04e5922d98ee1e41b6add734ec68ad">qpid::framing::SESSION_GAP_METHOD_ID</a> = 0xd, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a2602e9de28a3f907a1ff4874cbb8958b">qpid::framing::EXECUTION_CLASS_ID</a> = 0x3, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a24627f95da35345c1f99d570ae161900">qpid::framing::EXECUTION_SYNC_METHOD_ID</a> = 0x1, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a85b93b5100c89265dd95147475d57883">qpid::framing::EXECUTION_RESULT_METHOD_ID</a> = 0x2, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aad10b69d938d573a12855e70245f17e2">qpid::framing::EXECUTION_EXCEPTION_METHOD_ID</a> = 0x3, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a416ded2f6b775cb18b901bcaf85c291a">qpid::framing::MESSAGE_CLASS_ID</a> = 0x4, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31accc5c0acbc5187a35bd7ca8efc098bce">qpid::framing::MESSAGE_TRANSFER_METHOD_ID</a> = 0x1, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a429ea4ca399d04632bce82458eddf0ed">qpid::framing::MESSAGE_ACCEPT_METHOD_ID</a> = 0x2, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aa970e37ce65d4a5a72b4a84720a78e9f">qpid::framing::MESSAGE_REJECT_METHOD_ID</a> = 0x3, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31af0c8bba3b241b7ca2a4d558560bf0355">qpid::framing::MESSAGE_RELEASE_METHOD_ID</a> = 0x4, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31acee30541d38cf3b23f9c3c59ceda1b84">qpid::framing::MESSAGE_ACQUIRE_METHOD_ID</a> = 0x5, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a67c0919b8c1dc4afc3d6a4f7725780fe">qpid::framing::MESSAGE_RESUME_METHOD_ID</a> = 0x6, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a2660e6d467d3566d151583d651a9cca5">qpid::framing::MESSAGE_SUBSCRIBE_METHOD_ID</a> = 0x7, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a2adca1d0a50da60fd7eb1af78bf47788">qpid::framing::MESSAGE_CANCEL_METHOD_ID</a> = 0x8, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ae88319b32f43b9d649179f4eb1ad6ac2">qpid::framing::MESSAGE_SET_FLOW_MODE_METHOD_ID</a> = 0x9, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31abcddf84b1c1f2ad9f603166b21edcb07">qpid::framing::MESSAGE_FLOW_METHOD_ID</a> = 0xa, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a9e6ad11eb2fd34cd29c8ae147831bf04">qpid::framing::MESSAGE_FLUSH_METHOD_ID</a> = 0xb, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a34cedcf64fb4ad1dfe35e0184a9921b8">qpid::framing::MESSAGE_STOP_METHOD_ID</a> = 0xc, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ab17090592f6fd031fdea8ac3cd41e9bd">qpid::framing::TX_CLASS_ID</a> = 0x5, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a193c245c02a141ba9f6a3321f5910e05">qpid::framing::TX_SELECT_METHOD_ID</a> = 0x1, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ab6d7e3ea890eec0a028c7c6d5c5e9f29">qpid::framing::TX_COMMIT_METHOD_ID</a> = 0x2, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a427f6031c74c62a7bdd3bc86e39385b0">qpid::framing::TX_ROLLBACK_METHOD_ID</a> = 0x3, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31abe823f9aa45488d01f8f8688ccc2450c">qpid::framing::DTX_CLASS_ID</a> = 0x6, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a74b4e57ae43f6ec5f95c55934c611967">qpid::framing::DTX_SELECT_METHOD_ID</a> = 0x1, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a6f3eb84b2b058bcc784a5c45b072aef2">qpid::framing::DTX_START_METHOD_ID</a> = 0x2, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ad8833e18dcbd6e2e0f035e2926c8e999">qpid::framing::DTX_END_METHOD_ID</a> = 0x3, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ae3432676a2fb8edc087709a9cee6de05">qpid::framing::DTX_COMMIT_METHOD_ID</a> = 0x4, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a8a05e4134510b8fc0f526a29a7152e33">qpid::framing::DTX_FORGET_METHOD_ID</a> = 0x5, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a8f7044c363d398922c5ca168e5e02184">qpid::framing::DTX_GET_TIMEOUT_METHOD_ID</a> = 0x6, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a3a2399f6e7d37efee63294770e73bf95">qpid::framing::DTX_PREPARE_METHOD_ID</a> = 0x7, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ad5bd5e4f8eaa89b4a639c2cbe0800c58">qpid::framing::DTX_RECOVER_METHOD_ID</a> = 0x8, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a81b08c626647d389dbaefa4b88d6d3fa">qpid::framing::DTX_ROLLBACK_METHOD_ID</a> = 0x9, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ace724e51d1aeaf918a7e9c0ebecbfefc">qpid::framing::DTX_SET_TIMEOUT_METHOD_ID</a> = 0xa, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a4a2b2822a2c1710ba6e303540bc3f5cf">qpid::framing::EXCHANGE_CLASS_ID</a> = 0x7, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a687bfd2c2aa528a96790b7c6f8d79688">qpid::framing::EXCHANGE_DECLARE_METHOD_ID</a> = 0x1, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aeae56c085e55ba4173b034cb9cc020d4">qpid::framing::EXCHANGE_DELETE_METHOD_ID</a> = 0x2, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ae107af7f46aac6bfa41dbdc2ee1b7511">qpid::framing::EXCHANGE_QUERY_METHOD_ID</a> = 0x3, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a4f3c5fa37f68f216d32b6e8316a7277c">qpid::framing::EXCHANGE_BIND_METHOD_ID</a> = 0x4, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31af51d23e781991c18bd26818c73a94fbf">qpid::framing::EXCHANGE_UNBIND_METHOD_ID</a> = 0x5, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a19844bbe24413de9f52add4dee3342d4">qpid::framing::EXCHANGE_BOUND_METHOD_ID</a> = 0x6, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aab364615176a59901c2527b3519b79fa">qpid::framing::QUEUE_CLASS_ID</a> = 0x8, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a19f112a01630fcc2739294e12833a51d">qpid::framing::QUEUE_DECLARE_METHOD_ID</a> = 0x1, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aab80eeed0d649266fcb20f4b9808cac3">qpid::framing::QUEUE_DELETE_METHOD_ID</a> = 0x2, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a890e2b0abfb80a65468889b70614716c">qpid::framing::QUEUE_PURGE_METHOD_ID</a> = 0x3, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a2b42e73f49fbf66c46de862ab703312c">qpid::framing::QUEUE_QUERY_METHOD_ID</a> = 0x4, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aac949c4174e395e32142bee461d28162">qpid::framing::FILE_CLASS_ID</a> = 0x9, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aa979038edfe5208c1429c269b021e9f4">qpid::framing::FILE_QOS_METHOD_ID</a> = 0x1, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a5cf79f85b3c43a1fc605817f02d7a9d9">qpid::framing::FILE_QOS_OK_METHOD_ID</a> = 0x2, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aba53b58ca826e288b5dbc21e0791033f">qpid::framing::FILE_CONSUME_METHOD_ID</a> = 0x3, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a342500d7b6b4b07cb3660f71f872a3e9">qpid::framing::FILE_CONSUME_OK_METHOD_ID</a> = 0x4, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a676c3dedcfcd08fe08ff3d93a95b3118">qpid::framing::FILE_CANCEL_METHOD_ID</a> = 0x5, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a9585f3e074a6e24d60788dac3cb0f0a4">qpid::framing::FILE_OPEN_METHOD_ID</a> = 0x6, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a7503aad974bc53017c5b4208f6d474ba">qpid::framing::FILE_OPEN_OK_METHOD_ID</a> = 0x7, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a85c0c220d3a264ac004e9b9589180b09">qpid::framing::FILE_STAGE_METHOD_ID</a> = 0x8, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a7b9a02611d0b7a9b36d6033cc13e5018">qpid::framing::FILE_PUBLISH_METHOD_ID</a> = 0x9, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aec630a43b7018d20205205257b84f031">qpid::framing::FILE_RETURN_METHOD_ID</a> = 0xa, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ac12d307889a43101c65abf1785c8dfce">qpid::framing::FILE_DELIVER_METHOD_ID</a> = 0xb, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ade689826e6f3339f2c751226f6f2b58c">qpid::framing::FILE_ACK_METHOD_ID</a> = 0xc, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31af07a6318d0cb2e9add5aa0d8c9e7c913">qpid::framing::FILE_REJECT_METHOD_ID</a> = 0xd, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31af2194e9ed3edf616ba46ea0ddb6de4f8">qpid::framing::STREAM_CLASS_ID</a> = 0xa, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a61e72023e903d2e814b2cc27bc0cb3a5">qpid::framing::STREAM_QOS_METHOD_ID</a> = 0x1, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aabc67aa4102b3c4ef90f94fabecada6d">qpid::framing::STREAM_QOS_OK_METHOD_ID</a> = 0x2, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a72c9c5cf6e468a82acbd6bf4dcbeea6a">qpid::framing::STREAM_CONSUME_METHOD_ID</a> = 0x3, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31af39e3cccede5f7f02047bd14e7838222">qpid::framing::STREAM_CONSUME_OK_METHOD_ID</a> = 0x4, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a94c133de93d5f8d00b151d57de729efd">qpid::framing::STREAM_CANCEL_METHOD_ID</a> = 0x5, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aa003f5d41c33942511508703890195ac">qpid::framing::STREAM_PUBLISH_METHOD_ID</a> = 0x6, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a0cc09b0f2e170f662f72f16716ac146c">qpid::framing::STREAM_RETURN_METHOD_ID</a> = 0x7, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31af5f9ba13e71dddf9a67d20e1b70e53bc">qpid::framing::STREAM_DELIVER_METHOD_ID</a> = 0x8, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a0a3337255187ef8ae7c0c2cf3f042015">qpid::framing::CLUSTER_CLASS_ID</a> = 0x80, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31afd4eec11c6c51408e0ae574d8532f934">qpid::framing::CLUSTER_UPDATE_REQUEST_METHOD_ID</a> = 0x1, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ac34d48ba34f512f59d9ab3c6a0634dd3">qpid::framing::CLUSTER_UPDATE_OFFER_METHOD_ID</a> = 0x2, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a253012294df567aa8289787f59c0927a">qpid::framing::CLUSTER_RETRACT_OFFER_METHOD_ID</a> = 0x3, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a5df720a45e208fe99a0de153187f5e4c">qpid::framing::CLUSTER_INITIAL_STATUS_METHOD_ID</a> = 0x5, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31acd8989ea856b8c8afa99d627d6c0bdd6">qpid::framing::CLUSTER_READY_METHOD_ID</a> = 0x10, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aa90270c3d822305447f821a10db8bc3b">qpid::framing::CLUSTER_CONFIG_CHANGE_METHOD_ID</a> = 0x11, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aac04a7da31965a5324edc520cfbe3cb3">qpid::framing::CLUSTER_ERROR_CHECK_METHOD_ID</a> = 0x14, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aaaf9387047abf7506de85a6a319ad650">qpid::framing::CLUSTER_TIMER_WAKEUP_METHOD_ID</a> = 0x15, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a954e91a34561f45f02c2eeb1abad30ad">qpid::framing::CLUSTER_TIMER_DROP_METHOD_ID</a> = 0x16, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a535db823c62e78ab49a82058f380a7c4">qpid::framing::CLUSTER_SHUTDOWN_METHOD_ID</a> = 0x20, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a80fa4821606f55c001b0d28cef9a2e1b">qpid::framing::CLUSTER_DELIVER_TO_QUEUE_METHOD_ID</a> = 0x21, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a42f06e54e89e61c2704b4ef05ea58e52">qpid::framing::CLUSTER_CLOCK_METHOD_ID</a> = 0x22, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31acdad2c62d009b6a04af665993d0915d6">qpid::framing::CLUSTER_CONNECTION_CLASS_ID</a> = 0x81, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aaaf8e70b62a37c2e1564bccab25e6a56">qpid::framing::CLUSTER_CONNECTION_ANNOUNCE_METHOD_ID</a> = 0x1, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a841ad84f8b1c48259de0cc5d2e521214">qpid::framing::CLUSTER_CONNECTION_DELIVER_CLOSE_METHOD_ID</a> = 0x2, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a2f5aa461c2d6475a1d61ac8d51ad1ff7">qpid::framing::CLUSTER_CONNECTION_DELIVER_DO_OUTPUT_METHOD_ID</a> = 0x3, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a53631ac3c6a285ce03a0a5478145fa09">qpid::framing::CLUSTER_CONNECTION_ABORT_METHOD_ID</a> = 0x4, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a80d387ff4939b1ea96814f1cad8f75de">qpid::framing::CLUSTER_CONNECTION_SHADOW_SET_USER_METHOD_ID</a> = 0x0E, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a15054e993ea77c41a93689ae85230b43">qpid::framing::CLUSTER_CONNECTION_SHADOW_PREPARE_METHOD_ID</a> = 0x0F, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a0d2597663a3fe1e36bb76c820d06938c">qpid::framing::CLUSTER_CONNECTION_CONSUMER_STATE_METHOD_ID</a> = 0x10, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31af60975b1d178be36c3cefdf1b13e34b4">qpid::framing::CLUSTER_CONNECTION_DELIVERY_RECORD_METHOD_ID</a> = 0x11, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aa2ee35315477d476775169841a2c0c79">qpid::framing::CLUSTER_CONNECTION_TX_START_METHOD_ID</a> = 0x12, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ac9c040af7d0e00deac1175067a2bad39">qpid::framing::CLUSTER_CONNECTION_TX_ACCEPT_METHOD_ID</a> = 0x13, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ab828380783d5ce416e8e88aea731ff6b">qpid::framing::CLUSTER_CONNECTION_TX_DEQUEUE_METHOD_ID</a> = 0x14, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31adb257095882f15cd89d41b94ac311590">qpid::framing::CLUSTER_CONNECTION_TX_ENQUEUE_METHOD_ID</a> = 0x15, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aa81534cab13beefd4883ad6c3e9a3441">qpid::framing::CLUSTER_CONNECTION_TX_PUBLISH_METHOD_ID</a> = 0x16, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ac46befde901732f4cd03bd627b067195">qpid::framing::CLUSTER_CONNECTION_TX_END_METHOD_ID</a> = 0x17, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a6006c4ed80e8c99a619efbffaf4d74f5">qpid::framing::CLUSTER_CONNECTION_ACCUMULATED_ACK_METHOD_ID</a> = 0x18, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a1c9d08cdee27c0dfd1b750ff45274321">qpid::framing::CLUSTER_CONNECTION_OUTPUT_TASK_METHOD_ID</a> = 0x19, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31abe02ec3f8107dddc132545057a447b40">qpid::framing::CLUSTER_CONNECTION_DTX_START_METHOD_ID</a> = 0x1A, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31acf0635ac444e1db736d22faef0371654">qpid::framing::CLUSTER_CONNECTION_DTX_END_METHOD_ID</a> = 0x1B, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aee81aed4c26c8f21e2bffc66e701907d">qpid::framing::CLUSTER_CONNECTION_DTX_ACK_METHOD_ID</a> = 0x1C, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ac3dca870c0d801700f308a6e3bb81841">qpid::framing::CLUSTER_CONNECTION_DTX_BUFFER_REF_METHOD_ID</a> = 0x1D, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a43f5411016c89d3a896b0b73ddd6b06c">qpid::framing::CLUSTER_CONNECTION_DTX_WORK_RECORD_METHOD_ID</a> = 0x1E, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31ad7589a8bc2a94c9c86fdadfbcae61fa9">qpid::framing::CLUSTER_CONNECTION_SESSION_STATE_METHOD_ID</a> = 0x1F, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aafe031eddacd0da87b65d019e70e208f">qpid::framing::CLUSTER_CONNECTION_SHADOW_READY_METHOD_ID</a> = 0x20, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aee28b933ad0264ab6b71d0f160482bb9">qpid::framing::CLUSTER_CONNECTION_MEMBERSHIP_METHOD_ID</a> = 0x21, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a9ed27ac5ff5b6afbaef13c1b918aa2e7">qpid::framing::CLUSTER_CONNECTION_RETRACT_OFFER_METHOD_ID</a> = 0x22, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a7d08daec30171494cd7bb0cb017afd9b">qpid::framing::CLUSTER_CONNECTION_QUEUE_POSITION_METHOD_ID</a> = 0x30, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a112ddb9e49c072d629a3403146b7f258">qpid::framing::CLUSTER_CONNECTION_EXCHANGE_METHOD_ID</a> = 0x31, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a34914268dbdf548912eaf88d838c412f">qpid::framing::CLUSTER_CONNECTION_ADD_QUEUE_LISTENER_METHOD_ID</a> = 0x34, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a4ceb9acf7fe2224a92b8b137092f6b81">qpid::framing::CLUSTER_CONNECTION_MANAGEMENT_SETUP_STATE_METHOD_ID</a> = 0x36, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31aace6aad016e069c27f7525f3f89f8b42">qpid::framing::CLUSTER_CONNECTION_CONFIG_METHOD_ID</a> = 0x37, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a60d6f040b7284cd3692e2897932ef8d0">qpid::framing::CLUSTER_CONNECTION_QUEUE_FAIRSHARE_STATE_METHOD_ID</a> = 0x38, 
+<br/>
+&#160;&#160;<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a93a10c4f8bc879913102d40d7a077376">qpid::framing::CLUSTER_CONNECTION_QUEUE_OBSERVER_STATE_METHOD_ID</a> = 0x39, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a2883ce17ffa9908c4f23bcd431b90f3f">qpid::framing::CLUSTER_CONNECTION_CLOCK_METHOD_ID</a> = 0x40, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a9e3ca749257f90349e4b06e12ace1618">qpid::framing::CLUSTER_CONNECTION_QUEUE_DEQUEUE_SINCE_PURGE_STATE_METHOD_ID</a> = 0x41, 
+<a class="el" href="a00582.html#a029e30bcec4ea5e073268e93c42f8a31a1c70cc17493f0d67bbc8567c7e3acccc">qpid::framing::CLUSTER_CONNECTION_INTERNAL_STATE_METHOD_ID</a> = 0x42
+<br/>
+ }</td></tr>
 </table>
 </div>
 <!--
@@ -111,7 +289,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

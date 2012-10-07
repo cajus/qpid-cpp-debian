@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/sys/windows/Time.h Source File</title>
+    <title>qpid/sys/posix/Time.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,11 +58,11 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/sys/windows/Time.h</div>  </div>
+<div class="title">qpid/sys/posix/Time.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00564.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_SYS_WINDOWS_TIME_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_SYS_WINDOWS_TIME_H</span>
+<a href="a00564.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_SYS_POSIX_TIME_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_SYS_POSIX_TIME_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="comment">/*</span>
 <a name="l00005"></a>00005 <span class="comment"> *</span>
@@ -82,16 +82,16 @@
 <a name="l00019"></a>00019 <span class="comment"> *</span>
 <a name="l00020"></a>00020 <span class="comment"> */</span>
 <a name="l00021"></a>00021 
-<a name="l00022"></a>00022 <span class="preprocessor">#include &lt;boost/date_time/posix_time/posix_time_types.hpp&gt;</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="a00556.html">qpid/sys/IntegerTypes.h</a>&quot;</span>
 <a name="l00023"></a>00023 
 <a name="l00024"></a>00024 <span class="keyword">namespace </span>qpid {
 <a name="l00025"></a>00025 <span class="keyword">namespace </span>sys {
 <a name="l00026"></a>00026 
-<a name="l00032"></a>00032 <span class="keyword">typedef</span> boost::posix_time::ptime <a class="code" href="a00592.html#a4e0478fec86975db052a4c87ac13739b" title="Class to represent an instant in time.">TimePrivate</a>;
+<a name="l00030"></a><a class="code" href="a00594.html#a4e0478fec86975db052a4c87ac13739b">00030</a> <span class="keyword">typedef</span> int64_t <a class="code" href="a00594.html#a4e0478fec86975db052a4c87ac13739b" title="Class to represent an instant in time.">TimePrivate</a>;
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 }} <span class="comment">// namespace qpid::sys</span>
 <a name="l00033"></a>00033 
-<a name="l00034"></a>00034 }} <span class="comment">// namespace qpid::sys</span>
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036 <span class="preprocessor">#endif  </span>
+<a name="l00034"></a>00034 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -121,7 +121,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

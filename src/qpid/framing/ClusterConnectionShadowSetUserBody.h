@@ -34,6 +34,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -50,6 +51,7 @@ public:
         userId(_userId),
         flags(0){
         flags |= (1 << 8);
+        if (userId.size() >= 65536) throw IllegalArgumentException("Value for userId is too large");
     }
     ClusterConnectionShadowSetUserBody(ProtocolVersion=ProtocolVersion())  : flags(0) {}
     

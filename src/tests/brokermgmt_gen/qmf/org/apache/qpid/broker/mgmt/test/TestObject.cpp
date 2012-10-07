@@ -30,6 +30,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
 
 using namespace qmf::org::apache::qpid::broker::mgmt::test;
 using           qpid::management::ManagementAgent;
@@ -49,7 +50,7 @@ TestObject::TestObject (ManagementAgent*, Manageable* _core) :
 {
     
     string1 = "";
-    bool1 = 0;
+    bool1 = false;
     map1 = ::qpid::types::Variant::Map();
 
 
@@ -299,12 +300,18 @@ void TestObject::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
 
     if ((_i = _map.find("string1")) != _map.end()) {
         string1 = (_i->second).getString();
+    } else {
+        string1 = "";
     }
     if ((_i = _map.find("bool1")) != _map.end()) {
         bool1 = _i->second;
+    } else {
+        bool1 = false;
     }
     if ((_i = _map.find("map1")) != _map.end()) {
         map1 = (_i->second).asMap();
+    } else {
+        map1 = ::qpid::types::Variant::Map();
     }
 
 }

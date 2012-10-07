@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf/engine/Typecode.h Source File</title>
+    <title>qmf/Schema.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,13 +58,13 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qmf/engine/Typecode.h</div>  </div>
+<div class="title">qmf/Schema.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00432.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _QmfEngineTypecode_</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _QmfEngineTypecode_</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="comment">/*</span>
+<a href="a00432.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QMF_SCHEMA_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QMF_SCHEMA_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="comment">/*</span>
+<a name="l00004"></a>00004 <span class="comment"> *</span>
 <a name="l00005"></a>00005 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
 <a name="l00006"></a>00006 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
 <a name="l00007"></a>00007 <span class="comment"> * distributed with this work for additional information</span>
@@ -81,39 +81,62 @@
 <a name="l00018"></a>00018 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
 <a name="l00019"></a>00019 <span class="comment"> * specific language governing permissions and limitations</span>
 <a name="l00020"></a>00020 <span class="comment"> * under the License.</span>
-<a name="l00021"></a>00021 <span class="comment"> */</span>
-<a name="l00022"></a>00022 
-<a name="l00023"></a>00023 <span class="keyword">namespace </span>qmf {
-<a name="l00024"></a>00024 <span class="keyword">namespace </span>engine {
-<a name="l00025"></a>00025 
-<a name="l00026"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9">00026</a>     <span class="keyword">enum</span> <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9">Typecode</a> {
-<a name="l00027"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a6352fad97e8b6a0f51002b6ac487afd7">00027</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a6352fad97e8b6a0f51002b6ac487afd7">TYPE_UINT8</a>      = 1,
-<a name="l00028"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9aca3bb4f35ec6edaf7b28c96b18e4caa1">00028</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9aca3bb4f35ec6edaf7b28c96b18e4caa1">TYPE_UINT16</a>     = 2,
-<a name="l00029"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a09f0f10b3e34c1099fe20ebd93a40a96">00029</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a09f0f10b3e34c1099fe20ebd93a40a96">TYPE_UINT32</a>     = 3,
-<a name="l00030"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9ab5b10098900b97668ad22a529e79fa09">00030</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9ab5b10098900b97668ad22a529e79fa09">TYPE_UINT64</a>     = 4,
-<a name="l00031"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a91d3a699e9cf3f236deb4cdb6fb21135">00031</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a91d3a699e9cf3f236deb4cdb6fb21135">TYPE_SSTR</a>       = 6,
-<a name="l00032"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9ae27dec338622753c3da59c1f837307e5">00032</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9ae27dec338622753c3da59c1f837307e5">TYPE_LSTR</a>       = 7,
-<a name="l00033"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a7d5c762f1e2ab14e54955a8d7f9ca838">00033</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a7d5c762f1e2ab14e54955a8d7f9ca838">TYPE_ABSTIME</a>    = 8,
-<a name="l00034"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a9b80442738a16793dfa6425ff01929ee">00034</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a9b80442738a16793dfa6425ff01929ee">TYPE_DELTATIME</a>  = 9,
-<a name="l00035"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a8fb860fbe57a93d3b50cf20a256b6632">00035</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a8fb860fbe57a93d3b50cf20a256b6632">TYPE_REF</a>        = 10,
-<a name="l00036"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a5857498910421f040bf3845b935eb2e3">00036</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a5857498910421f040bf3845b935eb2e3">TYPE_BOOL</a>       = 11,
-<a name="l00037"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9ac976dadca977517ec4b32dba9fe3cef3">00037</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9ac976dadca977517ec4b32dba9fe3cef3">TYPE_FLOAT</a>      = 12,
-<a name="l00038"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a9066c74a15f5a8ab98c4aa245523687b">00038</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a9066c74a15f5a8ab98c4aa245523687b">TYPE_DOUBLE</a>     = 13,
-<a name="l00039"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a6e480557031bde95527f52860b3fc6d2">00039</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a6e480557031bde95527f52860b3fc6d2">TYPE_UUID</a>       = 14,
-<a name="l00040"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9ac1a3978b3e0e979ce05f5e09e8bcd1a8">00040</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9ac1a3978b3e0e979ce05f5e09e8bcd1a8">TYPE_MAP</a>        = 15,
-<a name="l00041"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a9620e3062371258136fbff2c2640a1be">00041</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a9620e3062371258136fbff2c2640a1be">TYPE_INT8</a>       = 16,
-<a name="l00042"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9af7fd3ba389bf2e0d03f3b50e4c71cb61">00042</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9af7fd3ba389bf2e0d03f3b50e4c71cb61">TYPE_INT16</a>      = 17,
-<a name="l00043"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a19bcd54d45d918f1e4627fdee1429050">00043</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a19bcd54d45d918f1e4627fdee1429050">TYPE_INT32</a>      = 18,
-<a name="l00044"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9ab8dbed2b55543e67bbe198eb14d9fac9">00044</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9ab8dbed2b55543e67bbe198eb14d9fac9">TYPE_INT64</a>      = 19,
-<a name="l00045"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a1f0d743b524e1ef5fc295d85b6ddf0e6">00045</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a1f0d743b524e1ef5fc295d85b6ddf0e6">TYPE_OBJECT</a>     = 20,
-<a name="l00046"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9af16c6b5cfc27df77c6f3d3336e7e4dd8">00046</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9af16c6b5cfc27df77c6f3d3336e7e4dd8">TYPE_LIST</a>       = 21,
-<a name="l00047"></a><a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a3c965b8153bdde8edeea5ff4c5dfc803">00047</a>         <a class="code" href="a00572.html#abc957f805da7e264caa8f71145adc4c9a3c965b8153bdde8edeea5ff4c5dfc803">TYPE_ARRAY</a>      = 22
-<a name="l00048"></a>00048     };
-<a name="l00049"></a>00049 }
-<a name="l00050"></a>00050 }
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052 <span class="preprocessor">#endif</span>
-<a name="l00053"></a>00053 <span class="preprocessor"></span>
+<a name="l00021"></a>00021 <span class="comment"> *</span>
+<a name="l00022"></a>00022 <span class="comment"> */</span>
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;<a class="code" href="a00442.html">qmf/ImportExport.h</a>&gt;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00556.html">qpid/sys/IntegerTypes.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00439.html">qmf/Handle.h</a>&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00450.html">qmf/SchemaTypes.h</a>&quot;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="keyword">namespace </span>qmf {
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="preprocessor">#ifndef SWIG</span>
+<a name="l00033"></a>00033 <span class="preprocessor"></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span>&gt; <span class="keyword">class </span>PrivateImplRef;
+<a name="l00034"></a>00034 <span class="preprocessor">#endif</span>
+<a name="l00035"></a>00035 <span class="preprocessor"></span>
+<a name="l00036"></a>00036     <span class="keyword">class </span>SchemaImpl;
+<a name="l00037"></a>00037     <span class="keyword">class </span>SchemaId;
+<a name="l00038"></a>00038     <span class="keyword">class </span>SchemaProperty;
+<a name="l00039"></a>00039     <span class="keyword">class </span>SchemaMethod;
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041     <span class="keyword">class </span><a class="code" href="a00442.html#aa6143d1e586807dc556687a007c92b69">QMF_CLASS_EXTERN</a> Schema : <span class="keyword">public</span> qmf::Handle&lt;SchemaImpl&gt; {
+<a name="l00042"></a>00042     <span class="keyword">public</span>:
+<a name="l00043"></a>00043         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> Schema(SchemaImpl* impl = 0);
+<a name="l00044"></a>00044         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> Schema(<span class="keyword">const</span> Schema&amp;);
+<a name="l00045"></a>00045         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> Schema&amp; operator=(<span class="keyword">const</span> Schema&amp;);
+<a name="l00046"></a>00046         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> ~Schema();
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> Schema(<span class="keywordtype">int</span>, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;);
+<a name="l00049"></a>00049         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keyword">const</span> SchemaId&amp; getSchemaId() <span class="keyword">const</span>;
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">void</span> finalize();
+<a name="l00052"></a>00052         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">bool</span> isFinalized() <span class="keyword">const</span>;
+<a name="l00053"></a>00053         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">void</span> addProperty(<span class="keyword">const</span> SchemaProperty&amp;);
+<a name="l00054"></a>00054         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">void</span> addMethod(<span class="keyword">const</span> SchemaMethod&amp;);
+<a name="l00055"></a>00055         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">void</span> setDesc(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;);
+<a name="l00056"></a>00056         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keyword">const</span> std::string&amp; getDesc() <span class="keyword">const</span>;
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">void</span> setDefaultSeverity(<span class="keywordtype">int</span>);
+<a name="l00059"></a>00059         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">int</span> getDefaultSeverity() <span class="keyword">const</span>;
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> getPropertyCount() <span class="keyword">const</span>;
+<a name="l00062"></a>00062         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> SchemaProperty getProperty(<a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>) <span class="keyword">const</span>;
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> getMethodCount() <span class="keyword">const</span>;
+<a name="l00065"></a>00065         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> SchemaMethod getMethod(<a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>) <span class="keyword">const</span>;
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067 <span class="preprocessor">#ifndef SWIG</span>
+<a name="l00068"></a>00068 <span class="preprocessor"></span>    <span class="keyword">private</span>:
+<a name="l00069"></a><a class="code" href="a00297.html#ab3305a1e40615b1233abb28346a6a717">00069</a>         <span class="keyword">friend</span> <span class="keyword">class </span>qmf::PrivateImplRef&lt;<a class="code" href="a00297.html">Schema</a>&gt;;
+<a name="l00070"></a><a class="code" href="a00297.html#a67106eb6fb7fb5c47f5daf22a6db5c79">00070</a>         <span class="keyword">friend</span> <span class="keyword">struct </span>SchemaImplAccess;
+<a name="l00071"></a>00071 <span class="preprocessor">#endif</span>
+<a name="l00072"></a>00072 <span class="preprocessor"></span>    };
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074 }
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--
@@ -143,7 +166,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

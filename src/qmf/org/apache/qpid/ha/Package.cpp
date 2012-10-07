@@ -23,6 +23,7 @@
 
 #include "Package.h"
 #include "HaBroker.h"
+#include "EventMembersUpdate.h"
 
 
 using namespace qmf::org::apache::qpid::ha;
@@ -30,6 +31,7 @@ using namespace qmf::org::apache::qpid::ha;
 Package::Package (::qpid::management::ManagementAgent* agent)
 {
     HaBroker::registerSelf(agent);
+    EventMembersUpdate::registerSelf(agent);
 
 }
 

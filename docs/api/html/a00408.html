@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf/ConsoleEvent.h File Reference</title>
+    <title>qmf/AgentSession.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,51 +60,26 @@
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">qmf/ConsoleEvent.h File Reference</div>  </div>
+<div class="title">qmf/AgentSession.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="a00440_source.html">qmf/ImportExport.h</a>&gt;</code><br/>
-<code>#include &quot;<a class="el" href="a00437_source.html">qmf/Handle.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00403_source.html">qmf/Agent.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00410_source.html">qmf/Data.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00445_source.html">qmf/SchemaId.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00569_source.html">qpid/types/Variant.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &lt;<a class="el" href="a00442_source.html">qmf/ImportExport.h</a>&gt;</code><br/>
+<code>#include &quot;<a class="el" href="a00439_source.html">qmf/Handle.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00545_source.html">qpid/messaging/Duration.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00465_source.html">qpid/messaging/Connection.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00571_source.html">qpid/types/Variant.h</a>&quot;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
 </div>
 <p><a href="a00408_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html">qmf::ConsoleEvent</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00012.html">qmf::AgentSession</a></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html">qmf</a></td></tr>
-<tr><td colspan="2"><h2><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#afd1ee9f7145ae76c3e2d6ac3d79a8a54">qmf::ConsoleEventCode</a> { <br/>
-&#160;&#160;<a class="el" href="a00571.html#afd1ee9f7145ae76c3e2d6ac3d79a8a54ac83c049ec4e319f4a11a6ed0f3768920">qmf::CONSOLE_AGENT_ADD</a> =  1, 
-<a class="el" href="a00571.html#afd1ee9f7145ae76c3e2d6ac3d79a8a54a2ea0e5b797e1afcb1fbfc5d77edd7971">qmf::CONSOLE_AGENT_DEL</a> =  2, 
-<a class="el" href="a00571.html#afd1ee9f7145ae76c3e2d6ac3d79a8a54a6a5ed03409788fa9cf36e2109c66bd34">qmf::CONSOLE_AGENT_RESTART</a> =  3, 
-<a class="el" href="a00571.html#afd1ee9f7145ae76c3e2d6ac3d79a8a54a7b533dc99e9e10038894f5bb7ceea0f8">qmf::CONSOLE_AGENT_SCHEMA_UPDATE</a> =  4, 
-<br/>
-&#160;&#160;<a class="el" href="a00571.html#afd1ee9f7145ae76c3e2d6ac3d79a8a54a38e23818e551e228125b42c8e73635f4">qmf::CONSOLE_AGENT_SCHEMA_RESPONSE</a> =  5, 
-<a class="el" href="a00571.html#afd1ee9f7145ae76c3e2d6ac3d79a8a54a688748bd6678aba4f6e078e3cd7c1955">qmf::CONSOLE_EVENT</a> =  6, 
-<a class="el" href="a00571.html#afd1ee9f7145ae76c3e2d6ac3d79a8a54a5358f20893fa63a3f9e87d1dfbcde834">qmf::CONSOLE_QUERY_RESPONSE</a> =  7, 
-<a class="el" href="a00571.html#afd1ee9f7145ae76c3e2d6ac3d79a8a54a0d2b9d399d58f292742199685dc2257e">qmf::CONSOLE_METHOD_RESPONSE</a> =  8, 
-<br/>
-&#160;&#160;<a class="el" href="a00571.html#afd1ee9f7145ae76c3e2d6ac3d79a8a54ad7170a0dd495627da421481f0973f2a7">qmf::CONSOLE_EXCEPTION</a> =  9, 
-<a class="el" href="a00571.html#afd1ee9f7145ae76c3e2d6ac3d79a8a54a9921864155d90445aacae1f4593b4d27">qmf::CONSOLE_SUBSCRIBE_ADD</a> =  10, 
-<a class="el" href="a00571.html#afd1ee9f7145ae76c3e2d6ac3d79a8a54ab65b1604eafb521737959bc37aa7bd19">qmf::CONSOLE_SUBSCRIBE_UPDATE</a> =  11, 
-<a class="el" href="a00571.html#afd1ee9f7145ae76c3e2d6ac3d79a8a54a6479b063ef08ff8fc13413b5784f27d8">qmf::CONSOLE_SUBSCRIBE_DEL</a> =  12, 
-<br/>
-&#160;&#160;<a class="el" href="a00571.html#afd1ee9f7145ae76c3e2d6ac3d79a8a54a88c3303435ee733e64a06e97e220e6cc">qmf::CONSOLE_THREAD_FAILED</a> =  13
-<br/>
- }</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html#af4a478cbc9584a8e99e1f0dcc5e03764">qmf::AgentDelReason</a> { <a class="el" href="a00571.html#af4a478cbc9584a8e99e1f0dcc5e03764af7d1f63f81f9639f04c0d359bd289cda">qmf::AGENT_DEL_AGED</a> =  1, 
-<a class="el" href="a00571.html#af4a478cbc9584a8e99e1f0dcc5e03764a9e53c3fc7f3b7c3003d362e81159eefb">qmf::AGENT_DEL_FILTER</a> =  2
- }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00573.html">qmf</a></td></tr>
 </table>
 </div>
 <!--
@@ -134,7 +109,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/messaging/Duration.h File Reference</title>
+    <title>qpid/sys/posix/Mutex.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -61,33 +61,51 @@
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#define-members">Defines</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/messaging/Duration.h File Reference</div>  </div>
+<div class="title">qpid/sys/posix/Mutex.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00442_source.html">qpid/messaging/ImportExport.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00554_source.html">qpid/sys/IntegerTypes.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00561_source.html">qpid/sys/posix/check.h</a>&quot;</code><br/>
+<code>#include &lt;pthread.h&gt;</code><br/>
+<code>#include &lt;boost/noncopyable.hpp&gt;</code><br/>
 </div>
 <p><a href="a00543_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00104.html">qpid::messaging::Duration</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A duration is a time in milliseconds.  <a href="a00104.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00221.html">qpid::sys::Mutex</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00221.html" title="Mutex lock.">Mutex</a> lock.  <a href="a00221.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html">qpid::sys::RWlock</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">RW lock.  <a href="a00296.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00252.html">qpid::sys::PODMutex</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00252.html" title="PODMutex is a POD, can be static-initialized with PODMutex m = QPID_PODMUTEX_INITIALIZER.">PODMutex</a> is a POD, can be static-initialized with <a class="el" href="a00252.html" title="PODMutex is a POD, can be static-initialized with PODMutex m = QPID_PODMUTEX_INITIALIZER.">PODMutex</a> m = QPID_PODMUTEX_INITIALIZER.  <a href="a00252.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html">qpid</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
 <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html">qpid::messaging</a></td></tr>
-<tr><td colspan="2"><h2><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">Duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html#a459c51ff9d1561bacd2bce12548d95c7">qpid::messaging::operator*</a> (const Duration &amp;duration, uint64_t multiplier)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">Duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html#a2b6e28b60be1fb6ca4a74f3d71c603f8">qpid::messaging::operator*</a> (uint64_t multiplier, const Duration &amp;duration)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html#ad6b3c1090c7a9c977547c3b02fb92c21">qpid::messaging::operator==</a> (const Duration &amp;a, const Duration &amp;b)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html#a2258913affedf4b9aed1b4c63eb30b20">qpid::messaging::operator!=</a> (const Duration &amp;a, const Duration &amp;b)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html">qpid::sys</a></td></tr>
+<tr><td colspan="2"><h2><a name="define-members"></a>
+Defines</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a3e841ff24a5edd2e46ea476ac90ddaba">QPID_MUTEX_INITIALIZER</a>&#160;&#160;&#160;{ PTHREAD_MUTEX_INITIALIZER }</td></tr>
 </table>
+<hr/><h2>Define Documentation</h2>
+<a class="anchor" id="a3e841ff24a5edd2e46ea476ac90ddaba"></a><!-- doxytag: member="Mutex.h::QPID_MUTEX_INITIALIZER" ref="a3e841ff24a5edd2e46ea476ac90ddaba" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define QPID_MUTEX_INITIALIZER&#160;&#160;&#160;{ PTHREAD_MUTEX_INITIALIZER }</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00543_source.html#l00093">93</a> of file <a class="el" href="a00543_source.html">Mutex.h</a>.</p>
+
+</div>
+</div>
 </div>
 <!--
  
@@ -116,7 +134,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

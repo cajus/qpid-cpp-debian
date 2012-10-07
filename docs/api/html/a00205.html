@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::messaging::Message Class Reference</title>
+    <title>qpid::console::MapValue Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,152 +60,102 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00591.html">messaging</a>      </li>
-      <li class="navelem"><a class="el" href="a00205.html">Message</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00581.html">console</a>      </li>
+      <li class="navelem"><a class="el" href="a00205.html">MapValue</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::messaging::Message Class Reference<div class="ingroups"><a class="el" href="a00596.html">Qpid C++ Client API</a></div></div>  </div>
+<div class="title">qpid::console::MapValue Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::messaging::Message" -->
-<p>Representation of a message.  
- <a href="a00205.html#details">More...</a></p>
+<!-- doxytag: class="qpid::console::MapValue" --><!-- doxytag: inherits="qpid::console::Value" -->
+<p><code>#include &lt;<a class="el" href="a00436_source.html">qpid/console/Value.h</a>&gt;</code></p>
 
-<p><code>#include &lt;<a class="el" href="a00420_source.html">qpid/messaging/Message.h</a>&gt;</code></p>
-
-<p><a href="a00869.html">List of all members.</a></p>
+<p><a href="a00740.html">List of all members.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef boost::shared_ptr&lt; <a class="el" href="a00380.html">Value</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a9834997d76e11574c7779190c0e0a796">Ptr</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#af464d94558eea6df96decfe8af6000d4">Message</a> (const <a class="el" href="a00345.html">std::string</a> &amp;bytes=<a class="el" href="a00345.html">std::string</a>())</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a31f45d21be9c49d93846706cf6997e52">Message</a> (const char *, size_t)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#ad7ed150f4b28bbf57b99f701e266133e">Message</a> (const <a class="el" href="a00205.html">Message</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#aecd8f34151dee1b591fdb563ec6b0f8f">~Message</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00205.html">Message</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a4ed19d11126346946c6d36d0da0c09a0">operator=</a> (const <a class="el" href="a00205.html">Message</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#ac327df7b6a7f17397640bcd313f502c8">setReplyTo</a> (const <a class="el" href="a00003.html">Address</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00003.html">Address</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#af424edcbc0f0a528251a70125f3c80c5">getReplyTo</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#aa76550ab6104a8373791c30d034d2491">setSubject</a> (const <a class="el" href="a00345.html">std::string</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a6c15c8ba1ec99ffb4b8dd937047dc244">getSubject</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a94e3bacb59544ae10637e57296454b66">setContentType</a> (const <a class="el" href="a00345.html">std::string</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the content type (i.e.  <a href="#a94e3bacb59544ae10637e57296454b66"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a993231975c6369d339731cd36dc4f06c">getContentType</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the content type (i.e.  <a href="#a993231975c6369d339731cd36dc4f06c"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a27514a6046c7024c85247ad9c8cf3d37">setMessageId</a> (const <a class="el" href="a00345.html">std::string</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set an application defined identifier for the message.  <a href="#a27514a6046c7024c85247ad9c8cf3d37"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a57b495ce5c15e236ecc94b3423b62b7e">getMessageId</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#ae1c4894d3c45c032529a4ceb06e6c700">setUserId</a> (const <a class="el" href="a00345.html">std::string</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the user id of the message.  <a href="#ae1c4894d3c45c032529a4ceb06e6c700"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#aded0b30598b1aeb7b1e3b5ceb608b2e4">getUserId</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#aa6e94780e50f6f591ae307ccffe1e06e">setCorrelationId</a> (const <a class="el" href="a00345.html">std::string</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Can be used to set application specific correlation identifiers as part of a protocol for message exchange patterns.  <a href="#aa6e94780e50f6f591ae307ccffe1e06e"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#ae4864bac444051a08597a543f9e4cbb4">getCorrelationId</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a07ef8848406b9fd84f8c6377c53b635c">setPriority</a> (<a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a priority level on the message.  <a href="#a07ef8848406b9fd84f8c6377c53b635c"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#add87dfab113da0a81c98c18ea3d2eef1">getPriority</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#aa9c6ff455f538b445f8d34ca4e72b0ce">setTtl</a> (<a class="el" href="a00104.html">Duration</a> ttl)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the time to live for this message in milliseconds.  <a href="#aa9c6ff455f538b445f8d34ca4e72b0ce"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00104.html">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a77f84723b96f5dea43f17983ba98a61b">getTtl</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the time to live for this message in milliseconds.  <a href="#a77f84723b96f5dea43f17983ba98a61b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#acc0775f8ada8e1a8df8b425d2b275da1">setDurable</a> (bool durable)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Mark the message as durable.  <a href="#acc0775f8ada8e1a8df8b425d2b275da1"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#aef8add17baa66c040a649a715e5a61e9">getDurable</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a940a86561f4b5b3224de388fe7957b09">getRedelivered</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The redelivered flag if set implies that the message *may* have been previously delivered and thus is a hint to the application or messaging infrastructure that if de-duplication is required this message should be examined to determine if it is a duplicate.  <a href="#a940a86561f4b5b3224de388fe7957b09"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a398f7015ffcc0483b0cf26eebe843f1f">setRedelivered</a> (bool)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Can be used to provide a hint to the application or messaging infrastructure that if de-duplication is required this message should be examined to determine if it is a duplicate.  <a href="#a398f7015ffcc0483b0cf26eebe843f1f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#adde7592f32dcd00bdc587243a495a18b">getProperties</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In addition to a payload (i.e.  <a href="#adde7592f32dcd00bdc587243a495a18b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a172986bfc7e36094e5d869c1a486b222">getProperties</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a0caa8ab72d6d9a89cc330f8aaf368600">setContent</a> (const <a class="el" href="a00345.html">std::string</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the content to the data held in the string parameter.  <a href="#a0caa8ab72d6d9a89cc330f8aaf368600"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a6cfb42ef324be643f46245df0e0beeae">setContent</a> (const char *chars, size_t count)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy count bytes from the region pointed to by chars as the message content.  <a href="#a6cfb42ef324be643f46245df0e0beeae"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a16a85a0b491447b5346353d1513a800c">getContent</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the content as a <a class="el" href="a00345.html" title="STL class.">std::string</a>.  <a href="#a16a85a0b491447b5346353d1513a800c"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a9080134c5a631a9636e7471a19d8f745">getContentPtr</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a const pointer to the start of the content data.  <a href="#a9080134c5a631a9636e7471a19d8f745"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#aff10d05f029e3958aebe26867028e36d">getContentSize</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the size of content in bytes.  <a href="#aff10d05f029e3958aebe26867028e36d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a2c429266af6ad3984e455cb6bae31922">setProperty</a> (const <a class="el" href="a00345.html">std::string</a> &amp;, const <a class="el" href="a00385.html">qpid::types::Variant</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a2e89ef61a3a31a045d1a77d75bac4806">MapValue</a> (const <a class="el" href="a00125.html">framing::FieldTable</a> &amp;v)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#aa82d9578d00ede9c2128e5074c04b99e">MapValue</a> (<a class="el" href="a00045.html">framing::Buffer</a> &amp;buffer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a3965009b2f7694240bc98dc7a958f155">str</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#a25c3458959c9f896d67424e5242d4dc9">isMap</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00125.html">framing::FieldTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html#af2f5bb26dc660191547705f95d7d1fb2">asMap</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a1c7dd830d702a8faebafeb0053634961">isNull</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a8dd1f2237d651448e2dfa1d939d8c80e">isObjectId</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#ab2f09e977bd08bb17a4b05acc0ff5a1b">isUint</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a19d79a0d80f6f62ee63fda0d3330a0a2">isInt</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a972d7eafb3de1b63a22bf9a7623381c4">isUint64</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#aefb7c121c29a173cdff8a07e661d12ab">isInt64</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a8128b817aa583bef3f1b7b0f6b74ead6">isString</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a97e36a7fd1b29b0396568d14cf1142cf">isBool</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a0e5f70fa8e3413647d164661aac5e7b9">isFloat</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a20be729fbff090709185a0624195ac17">isDouble</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a6a6aa6acd0868843bdbc826d288e28f9">isUuid</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00237.html">ObjectId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#acb9c8c74e7dd391d466ec2219c8ea98f">asObjectId</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a874d4d49a551d678613c8b9e2fb8c0d7">asUint</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00558.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a4fd3c2f8c1b6d68a134c76f8fff5f33f">asInt</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a23e7072dcb99a9b2682f76ad69d861fd">asUint64</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a468f81b8979fc3b32fc772750b6b4c89">asInt64</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a2eafe1e4128bb78479b9d95c3910873b">asString</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a744d937a96d917abafdd6ec8a4a189a8">asBool</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a161a0c2d67cad814c15be85e44aa9ec4">asFloat</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a67f68742e28b98b6cdb6f143c4d85ad1">asDouble</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00376.html">framing::Uuid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#acf60f0d7259ca235c9cb312a5660510d">asUuid</a> () const </td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Representation of a message. </p>
-</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="af464d94558eea6df96decfe8af6000d4"></a><!-- doxytag: member="qpid::messaging::Message::Message" ref="af464d94558eea6df96decfe8af6000d4" args="(const std::string &amp;bytes=std::string())" -->
+<hr/><h2>Member Typedef Documentation</h2>
+<a class="anchor" id="a9834997d76e11574c7779190c0e0a796"></a><!-- doxytag: member="qpid::console::MapValue::Ptr" ref="a9834997d76e11574c7779190c0e0a796" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::messaging::Message::Message </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>bytes</em> = <code><a class="el" href="a00345.html">std::string</a>()</code></td><td>)</td>
-          <td></td>
+          <td class="memname">typedef boost::shared_ptr&lt;<a class="el" href="a00380.html">Value</a>&gt; <a class="el" href="a00380.html#a9834997d76e11574c7779190c0e0a796">qpid::console::Value::Ptr</a><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Definition at line <a class="el" href="a00436_source.html#l00042">42</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a31f45d21be9c49d93846706cf6997e52"></a><!-- doxytag: member="qpid::messaging::Message::Message" ref="a31f45d21be9c49d93846706cf6997e52" args="(const char *, size_t)" -->
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a2e89ef61a3a31a045d1a77d75bac4806"></a><!-- doxytag: member="qpid::console::MapValue::MapValue" ref="a2e89ef61a3a31a045d1a77d75bac4806" args="(const framing::FieldTable &amp;v)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::messaging::Message::Message </td>
+          <td class="memname">qpid::console::MapValue::MapValue </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramtype">const <a class="el" href="a00125.html">framing::FieldTable</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="ad7ed150f4b28bbf57b99f701e266133e"></a><!-- doxytag: member="qpid::messaging::Message::Message" ref="ad7ed150f4b28bbf57b99f701e266133e" args="(const Message &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::messaging::Message::Message </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00205.html">Message</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Definition at line <a class="el" href="a00436_source.html#l00196">196</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aecd8f34151dee1b591fdb563ec6b0f8f"></a><!-- doxytag: member="qpid::messaging::Message::~Message" ref="aecd8f34151dee1b591fdb563ec6b0f8f" args="()" -->
+<a class="anchor" id="aa82d9578d00ede9c2128e5074c04b99e"></a><!-- doxytag: member="qpid::console::MapValue::MapValue" ref="aa82d9578d00ede9c2128e5074c04b99e" args="(framing::Buffer &amp;buffer)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::messaging::Message::~Message </td>
+          <td class="memname">qpid::console::MapValue::MapValue </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00045.html">framing::Buffer</a> &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -215,551 +165,486 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a16a85a0b491447b5346353d1513a800c"></a><!-- doxytag: member="qpid::messaging::Message::getContent" ref="a16a85a0b491447b5346353d1513a800c" args="() const " -->
+<a class="anchor" id="a744d937a96d917abafdd6ec8a4a189a8"></a><!-- doxytag: member="qpid::console::MapValue::asBool" ref="a744d937a96d917abafdd6ec8a4a189a8" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> qpid::messaging::Message::getContent </td>
+          <td class="memname">virtual bool qpid::console::Value::asBool </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Get the content as a <a class="el" href="a00345.html" title="STL class.">std::string</a>. </p>
+<p>Reimplemented in <a class="el" href="a00041.html#ae0550b477c32765cd431b6d4a7bb3fe1">qpid::console::BoolValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00065">65</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a9080134c5a631a9636e7471a19d8f745"></a><!-- doxytag: member="qpid::messaging::Message::getContentPtr" ref="a9080134c5a631a9636e7471a19d8f745" args="() const " -->
+<a class="anchor" id="a67f68742e28b98b6cdb6f143c4d85ad1"></a><!-- doxytag: member="qpid::console::MapValue::asDouble" ref="a67f68742e28b98b6cdb6f143c4d85ad1" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const char* qpid::messaging::Message::getContentPtr </td>
+          <td class="memname">virtual double qpid::console::Value::asDouble </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Get a const pointer to the start of the content data. </p>
-<p>The memory pointed to is owned by the message. The <a class="el" href="a00205.html#aff10d05f029e3958aebe26867028e36d" title="Get the size of content in bytes.">getContentSize()</a> method indicates how much data there is (i.e. the extent of the memory region pointed to by the return value of this method). </p>
+<p>Reimplemented in <a class="el" href="a00102.html#a33fb37acc586b174fb4576ca6afc7733">qpid::console::DoubleValue</a>, and <a class="el" href="a00133.html#a0becfd9a1607b016573166c315abf063">qpid::console::FloatValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00067">67</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aff10d05f029e3958aebe26867028e36d"></a><!-- doxytag: member="qpid::messaging::Message::getContentSize" ref="aff10d05f029e3958aebe26867028e36d" args="() const " -->
+<a class="anchor" id="a161a0c2d67cad814c15be85e44aa9ec4"></a><!-- doxytag: member="qpid::console::MapValue::asFloat" ref="a161a0c2d67cad814c15be85e44aa9ec4" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t qpid::messaging::Message::getContentSize </td>
+          <td class="memname">virtual float qpid::console::Value::asFloat </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Get the size of content in bytes. </p>
+<p>Reimplemented in <a class="el" href="a00133.html#a4cec764b74ea0fe0c8c283e0de335d65">qpid::console::FloatValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00066">66</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a993231975c6369d339731cd36dc4f06c"></a><!-- doxytag: member="qpid::messaging::Message::getContentType" ref="a993231975c6369d339731cd36dc4f06c" args="() const " -->
+<a class="anchor" id="a4fd3c2f8c1b6d68a134c76f8fff5f33f"></a><!-- doxytag: member="qpid::console::MapValue::asInt" ref="a4fd3c2f8c1b6d68a134c76f8fff5f33f" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a>&amp; qpid::messaging::Message::getContentType </td>
+          <td class="memname">virtual <a class="el" href="a00558.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a> qpid::console::Value::asInt </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Returns the content type (i.e. </p>
-<p>the MIME type) for the message. This can be used to determine how to decode the message content. </p>
+<p>Reimplemented in <a class="el" href="a00160.html#a6c42cfb70efa41ebc7cc07e44463c230">qpid::console::IntValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00061">61</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae4864bac444051a08597a543f9e4cbb4"></a><!-- doxytag: member="qpid::messaging::Message::getCorrelationId" ref="ae4864bac444051a08597a543f9e4cbb4" args="() const " -->
+<a class="anchor" id="a468f81b8979fc3b32fc772750b6b4c89"></a><!-- doxytag: member="qpid::console::MapValue::asInt64" ref="a468f81b8979fc3b32fc772750b6b4c89" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a>&amp; qpid::messaging::Message::getCorrelationId </td>
+          <td class="memname">virtual int64_t qpid::console::Value::asInt64 </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Reimplemented in <a class="el" href="a00154.html#a816612ae4f33c1b1503384a43015f9ef">qpid::console::Int64Value</a>, and <a class="el" href="a00160.html#afea688c9d24d043c213e7ec622d8c047">qpid::console::IntValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00063">63</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="aef8add17baa66c040a649a715e5a61e9"></a><!-- doxytag: member="qpid::messaging::Message::getDurable" ref="aef8add17baa66c040a649a715e5a61e9" args="() const " -->
+<a class="anchor" id="af2f5bb26dc660191547705f95d7d1fb2"></a><!-- doxytag: member="qpid::console::MapValue::asMap" ref="af2f5bb26dc660191547705f95d7d1fb2" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool qpid::messaging::Message::getDurable </td>
+          <td class="memname"><a class="el" href="a00125.html">framing::FieldTable</a> qpid::console::MapValue::asMap </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline, virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Reimplemented from <a class="el" href="a00380.html#a7ff3e3a3cdea1b6bc589efbaa7d1ddd6">qpid::console::Value</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00200">200</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a57b495ce5c15e236ecc94b3423b62b7e"></a><!-- doxytag: member="qpid::messaging::Message::getMessageId" ref="a57b495ce5c15e236ecc94b3423b62b7e" args="() const " -->
+<a class="anchor" id="acb9c8c74e7dd391d466ec2219c8ea98f"></a><!-- doxytag: member="qpid::console::MapValue::asObjectId" ref="acb9c8c74e7dd391d466ec2219c8ea98f" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a>&amp; qpid::messaging::Message::getMessageId </td>
+          <td class="memname">virtual <a class="el" href="a00237.html">ObjectId</a> qpid::console::Value::asObjectId </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Reimplemented in <a class="el" href="a00275.html#a0deba5c1803187cc3aa5d3340a5c2c31">qpid::console::RefValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00059">59</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="add87dfab113da0a81c98c18ea3d2eef1"></a><!-- doxytag: member="qpid::messaging::Message::getPriority" ref="add87dfab113da0a81c98c18ea3d2eef1" args="() const " -->
+<a class="anchor" id="a2eafe1e4128bb78479b9d95c3910873b"></a><!-- doxytag: member="qpid::console::MapValue::asString" ref="a2eafe1e4128bb78479b9d95c3910873b" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> qpid::messaging::Message::getPriority </td>
+          <td class="memname">virtual <a class="el" href="a00346.html">std::string</a> qpid::console::Value::asString </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Reimplemented in <a class="el" href="a00348.html#a6e144a857c8c7fe42014250bc4a7b882">qpid::console::StringValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00064">64</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="adde7592f32dcd00bdc587243a495a18b"></a><!-- doxytag: member="qpid::messaging::Message::getProperties" ref="adde7592f32dcd00bdc587243a495a18b" args="() const " -->
+<a class="anchor" id="a874d4d49a551d678613c8b9e2fb8c0d7"></a><!-- doxytag: member="qpid::console::MapValue::asUint" ref="a874d4d49a551d678613c8b9e2fb8c0d7" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a>&amp; qpid::messaging::Message::getProperties </td>
+          <td class="memname">virtual <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::console::Value::asUint </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>In addition to a payload (i.e. </p>
-<p>the content), messages can include annotations describing aspectf of the message. In addition to the standard annotations such as TTL and content type, application- or context- specific properties can also be defined. Each message has a map of name values for such custom properties. The value is specified as a Variant. </p>
+<p>Reimplemented in <a class="el" href="a00365.html#ada358712505c28447b9fea050a7ba1a2">qpid::console::UintValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00060">60</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a172986bfc7e36094e5d869c1a486b222"></a><!-- doxytag: member="qpid::messaging::Message::getProperties" ref="a172986bfc7e36094e5d869c1a486b222" args="()" -->
+<a class="anchor" id="a23e7072dcb99a9b2682f76ad69d861fd"></a><!-- doxytag: member="qpid::console::MapValue::asUint64" ref="a23e7072dcb99a9b2682f76ad69d861fd" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a>&amp; qpid::messaging::Message::getProperties </td>
+          <td class="memname">virtual uint64_t qpid::console::Value::asUint64 </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Reimplemented in <a class="el" href="a00364.html#ac2b518036a7c9d8e5609d4b80a36f482">qpid::console::Uint64Value</a>, and <a class="el" href="a00365.html#a37e7ab62994ec5d0db671e985c61293e">qpid::console::UintValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00062">62</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a940a86561f4b5b3224de388fe7957b09"></a><!-- doxytag: member="qpid::messaging::Message::getRedelivered" ref="a940a86561f4b5b3224de388fe7957b09" args="() const " -->
+<a class="anchor" id="acf60f0d7259ca235c9cb312a5660510d"></a><!-- doxytag: member="qpid::console::MapValue::asUuid" ref="acf60f0d7259ca235c9cb312a5660510d" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool qpid::messaging::Message::getRedelivered </td>
+          <td class="memname">virtual <a class="el" href="a00376.html">framing::Uuid</a> qpid::console::Value::asUuid </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>The redelivered flag if set implies that the message *may* have been previously delivered and thus is a hint to the application or messaging infrastructure that if de-duplication is required this message should be examined to determine if it is a duplicate. </p>
+<p>Reimplemented in <a class="el" href="a00377.html#a56827e0afe9c3fd377ccf9f7345ce3f2">qpid::console::UuidValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00068">68</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af424edcbc0f0a528251a70125f3c80c5"></a><!-- doxytag: member="qpid::messaging::Message::getReplyTo" ref="af424edcbc0f0a528251a70125f3c80c5" args="() const " -->
+<a class="anchor" id="a97e36a7fd1b29b0396568d14cf1142cf"></a><!-- doxytag: member="qpid::console::MapValue::isBool" ref="a97e36a7fd1b29b0396568d14cf1142cf" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00003.html">Address</a>&amp; qpid::messaging::Message::getReplyTo </td>
+          <td class="memname">virtual bool qpid::console::Value::isBool </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Reimplemented in <a class="el" href="a00041.html#aa72d48b0a6f5d0595d3c63f6b40e50b9">qpid::console::BoolValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00053">53</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a6c15c8ba1ec99ffb4b8dd937047dc244"></a><!-- doxytag: member="qpid::messaging::Message::getSubject" ref="a6c15c8ba1ec99ffb4b8dd937047dc244" args="() const " -->
+<a class="anchor" id="a20be729fbff090709185a0624195ac17"></a><!-- doxytag: member="qpid::console::MapValue::isDouble" ref="a20be729fbff090709185a0624195ac17" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a>&amp; qpid::messaging::Message::getSubject </td>
+          <td class="memname">virtual bool qpid::console::Value::isDouble </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Reimplemented in <a class="el" href="a00102.html#a6246459b45a4e9b54efa145a2acbdbc0">qpid::console::DoubleValue</a>, and <a class="el" href="a00133.html#a31cc60b274420114aae0d9e979f54357">qpid::console::FloatValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00055">55</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a77f84723b96f5dea43f17983ba98a61b"></a><!-- doxytag: member="qpid::messaging::Message::getTtl" ref="a77f84723b96f5dea43f17983ba98a61b" args="() const " -->
+<a class="anchor" id="a0e5f70fa8e3413647d164661aac5e7b9"></a><!-- doxytag: member="qpid::console::MapValue::isFloat" ref="a0e5f70fa8e3413647d164661aac5e7b9" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00104.html">Duration</a> qpid::messaging::Message::getTtl </td>
+          <td class="memname">virtual bool qpid::console::Value::isFloat </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Get the time to live for this message in milliseconds. </p>
+<p>Reimplemented in <a class="el" href="a00133.html#a487146f4898449feffaf80c4120854e9">qpid::console::FloatValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00054">54</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aded0b30598b1aeb7b1e3b5ceb608b2e4"></a><!-- doxytag: member="qpid::messaging::Message::getUserId" ref="aded0b30598b1aeb7b1e3b5ceb608b2e4" args="() const " -->
+<a class="anchor" id="a19d79a0d80f6f62ee63fda0d3330a0a2"></a><!-- doxytag: member="qpid::console::MapValue::isInt" ref="a19d79a0d80f6f62ee63fda0d3330a0a2" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a>&amp; qpid::messaging::Message::getUserId </td>
+          <td class="memname">virtual bool qpid::console::Value::isInt </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Reimplemented in <a class="el" href="a00160.html#aca4420853254a6e70b3e40ff9d820cfd">qpid::console::IntValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00049">49</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a4ed19d11126346946c6d36d0da0c09a0"></a><!-- doxytag: member="qpid::messaging::Message::operator=" ref="a4ed19d11126346946c6d36d0da0c09a0" args="(const Message &amp;)" -->
+<a class="anchor" id="aefb7c121c29a173cdff8a07e661d12ab"></a><!-- doxytag: member="qpid::console::MapValue::isInt64" ref="aefb7c121c29a173cdff8a07e661d12ab" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00205.html">Message</a>&amp; qpid::messaging::Message::operator= </td>
+          <td class="memname">virtual bool qpid::console::Value::isInt64 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00205.html">Message</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Reimplemented in <a class="el" href="a00154.html#a7a1a4906a4ef0eaba51a68a6843f8e4e">qpid::console::Int64Value</a>, and <a class="el" href="a00160.html#a01b358e2fe0d862eae4c7aad95967678">qpid::console::IntValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00051">51</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a0caa8ab72d6d9a89cc330f8aaf368600"></a><!-- doxytag: member="qpid::messaging::Message::setContent" ref="a0caa8ab72d6d9a89cc330f8aaf368600" args="(const std::string &amp;)" -->
+<a class="anchor" id="a25c3458959c9f896d67424e5242d4dc9"></a><!-- doxytag: member="qpid::console::MapValue::isMap" ref="a25c3458959c9f896d67424e5242d4dc9" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::messaging::Message::setContent </td>
+          <td class="memname">bool qpid::console::MapValue::isMap </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const<code> [inline, virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Set the content to the data held in the string parameter. </p>
-<p>Note: this is treated as raw bytes and need not be text. Consider setting the content-type to indicate how the data should be interpreted by recipients. </p>
+<p>Reimplemented from <a class="el" href="a00380.html#afcb398bc05144d57d6f08d255c97cdfc">qpid::console::Value</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00199">199</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6cfb42ef324be643f46245df0e0beeae"></a><!-- doxytag: member="qpid::messaging::Message::setContent" ref="a6cfb42ef324be643f46245df0e0beeae" args="(const char *chars, size_t count)" -->
+<a class="anchor" id="a1c7dd830d702a8faebafeb0053634961"></a><!-- doxytag: member="qpid::console::MapValue::isNull" ref="a1c7dd830d702a8faebafeb0053634961" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::messaging::Message::setContent </td>
+          <td class="memname">virtual bool qpid::console::Value::isNull </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>chars</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>count</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Copy count bytes from the region pointed to by chars as the message content. </p>
-
-</div>
-</div>
-<a class="anchor" id="a94e3bacb59544ae10637e57296454b66"></a><!-- doxytag: member="qpid::messaging::Message::setContentType" ref="a94e3bacb59544ae10637e57296454b66" args="(const std::string &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::messaging::Message::setContentType </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Set the content type (i.e. </p>
-<p>the MIME type) for the message. This should be set by the sending application and indicates to recipients of message how to interpret or decode the content. </p>
+<p>Reimplemented in <a class="el" href="a00233.html#a36431c2ba06e4ff808c777b8f15c21e6">qpid::console::NullValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00046">46</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa6e94780e50f6f591ae307ccffe1e06e"></a><!-- doxytag: member="qpid::messaging::Message::setCorrelationId" ref="aa6e94780e50f6f591ae307ccffe1e06e" args="(const std::string &amp;)" -->
+<a class="anchor" id="a8dd1f2237d651448e2dfa1d939d8c80e"></a><!-- doxytag: member="qpid::console::MapValue::isObjectId" ref="a8dd1f2237d651448e2dfa1d939d8c80e" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::messaging::Message::setCorrelationId </td>
+          <td class="memname">virtual bool qpid::console::Value::isObjectId </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Can be used to set application specific correlation identifiers as part of a protocol for message exchange patterns. </p>
-<p>E.g. a request-reponse pattern might require the correlation-id of the request and response to match, or might use the message-id of the request as the correlation-id on the response etc. </p>
+<p>Reimplemented in <a class="el" href="a00275.html#a82db116f2799ed0e43d25aafbe7f381e">qpid::console::RefValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00047">47</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="acc0775f8ada8e1a8df8b425d2b275da1"></a><!-- doxytag: member="qpid::messaging::Message::setDurable" ref="acc0775f8ada8e1a8df8b425d2b275da1" args="(bool durable)" -->
+<a class="anchor" id="a8128b817aa583bef3f1b7b0f6b74ead6"></a><!-- doxytag: member="qpid::console::MapValue::isString" ref="a8128b817aa583bef3f1b7b0f6b74ead6" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::messaging::Message::setDurable </td>
+          <td class="memname">virtual bool qpid::console::Value::isString </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>durable</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Mark the message as durable. </p>
-<p>This is a hint to the messaging infrastructure that the message should be persisted or otherwise stored such that failoures or shutdown do not cause it to be lost. </p>
-
-</div>
-</div>
-<a class="anchor" id="a27514a6046c7024c85247ad9c8cf3d37"></a><!-- doxytag: member="qpid::messaging::Message::setMessageId" ref="a27514a6046c7024c85247ad9c8cf3d37" args="(const std::string &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::messaging::Message::setMessageId </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Set an application defined identifier for the message. </p>
-<p>At present this must be a stringfied UUID (support for less restrictive IDs is anticipated however). </p>
+<p>Reimplemented in <a class="el" href="a00348.html#af4ea64a1b4eb93ea6bfaaa22dc55d9d7">qpid::console::StringValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00052">52</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a07ef8848406b9fd84f8c6377c53b635c"></a><!-- doxytag: member="qpid::messaging::Message::setPriority" ref="a07ef8848406b9fd84f8c6377c53b635c" args="(uint8_t)" -->
+<a class="anchor" id="ab2f09e977bd08bb17a4b05acc0ff5a1b"></a><!-- doxytag: member="qpid::console::MapValue::isUint" ref="ab2f09e977bd08bb17a4b05acc0ff5a1b" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::messaging::Message::setPriority </td>
+          <td class="memname">virtual bool qpid::console::Value::isUint </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Sets a priority level on the message. </p>
-<p>This may be used by the messaging infrastructure to prioritise delivery of higher priority messages. </p>
+<p>Reimplemented in <a class="el" href="a00365.html#a9ccec9566cb62eaba2d08dc3ef98e0a1">qpid::console::UintValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00048">48</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2c429266af6ad3984e455cb6bae31922"></a><!-- doxytag: member="qpid::messaging::Message::setProperty" ref="a2c429266af6ad3984e455cb6bae31922" args="(const std::string &amp;, const qpid::types::Variant &amp;)" -->
+<a class="anchor" id="a972d7eafb3de1b63a22bf9a7623381c4"></a><!-- doxytag: member="qpid::console::MapValue::isUint64" ref="a972d7eafb3de1b63a22bf9a7623381c4" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::messaging::Message::setProperty </td>
+          <td class="memname">virtual bool qpid::console::Value::isUint64 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00385.html">qpid::types::Variant</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a398f7015ffcc0483b0cf26eebe843f1f"></a><!-- doxytag: member="qpid::messaging::Message::setRedelivered" ref="a398f7015ffcc0483b0cf26eebe843f1f" args="(bool)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::messaging::Message::setRedelivered </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Can be used to provide a hint to the application or messaging infrastructure that if de-duplication is required this message should be examined to determine if it is a duplicate. </p>
+<p>Reimplemented in <a class="el" href="a00364.html#ad76f4a6a7c641d89d13938a7b1552d60">qpid::console::Uint64Value</a>, and <a class="el" href="a00365.html#a829532251c77ae0076eb79ebfdb4e13a">qpid::console::UintValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00050">50</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ac327df7b6a7f17397640bcd313f502c8"></a><!-- doxytag: member="qpid::messaging::Message::setReplyTo" ref="ac327df7b6a7f17397640bcd313f502c8" args="(const Address &amp;)" -->
+<a class="anchor" id="a6a6aa6acd0868843bdbc826d288e28f9"></a><!-- doxytag: member="qpid::console::MapValue::isUuid" ref="a6a6aa6acd0868843bdbc826d288e28f9" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::messaging::Message::setReplyTo </td>
+          <td class="memname">virtual bool qpid::console::Value::isUuid </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00003.html">Address</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Reimplemented in <a class="el" href="a00377.html#a9c4e432a8dca93135c0d7596701b4c77">qpid::console::UuidValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00056">56</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="aa76550ab6104a8373791c30d034d2491"></a><!-- doxytag: member="qpid::messaging::Message::setSubject" ref="aa76550ab6104a8373791c30d034d2491" args="(const std::string &amp;)" -->
+<a class="anchor" id="a3965009b2f7694240bc98dc7a958f155"></a><!-- doxytag: member="qpid::console::MapValue::str" ref="a3965009b2f7694240bc98dc7a958f155" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::messaging::Message::setSubject </td>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::console::MapValue::str </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const<code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="aa9c6ff455f538b445f8d34ca4e72b0ce"></a><!-- doxytag: member="qpid::messaging::Message::setTtl" ref="aa9c6ff455f538b445f8d34ca4e72b0ce" args="(Duration ttl)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::messaging::Message::setTtl </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00104.html">Duration</a>&#160;</td>
-          <td class="paramname"><em>ttl</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Set the time to live for this message in milliseconds. </p>
-<p>This can be used by the messaging infrastructure to discard messages that are no longer of relevance. </p>
-
-</div>
-</div>
-<a class="anchor" id="ae1c4894d3c45c032529a4ceb06e6c700"></a><!-- doxytag: member="qpid::messaging::Message::setUserId" ref="ae1c4894d3c45c032529a4ceb06e6c700" args="(const std::string &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::messaging::Message::setUserId </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Sets the user id of the message. </p>
-<p>This should in general be the user-id as which the sending connection authenticated itself as the messaging infrastructure will verify this. See <a class="el" href="a00059.html#aaa0701501c8288174036a6df0fc6b78a">Connection::getAuthenticatedUsername()</a> </p>
+<p>Implements <a class="el" href="a00380.html#ac6c8c3b7e148879b8ce210bf16f84897">qpid::console::Value</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/messaging/<a class="el" href="a00420_source.html">Message.h</a></li>
+<li>qpid/console/<a class="el" href="a00436_source.html">Value.h</a></li>
 </ul>
 </div>
 <!--
@@ -789,7 +674,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

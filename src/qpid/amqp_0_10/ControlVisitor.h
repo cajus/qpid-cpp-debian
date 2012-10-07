@@ -107,6 +107,7 @@ struct ControlVisitor
     virtual void visit(cluster-connection::QueueObserverState&) = 0;
     virtual void visit(cluster-connection::Clock&) = 0;
     virtual void visit(cluster-connection::QueueDequeueSincePurgeState&) = 0;
+    virtual void visit(cluster-connection::InternalState&) = 0;
 };
 struct ConstControlVisitor
 {
@@ -183,6 +184,7 @@ struct ConstControlVisitor
     virtual void visit(const cluster-connection::QueueObserverState&) = 0;
     virtual void visit(const cluster-connection::Clock&) = 0;
     virtual void visit(const cluster-connection::QueueDequeueSincePurgeState&) = 0;
+    virtual void visit(const cluster-connection::InternalState&) = 0;
 };
 
 }} // namespace qpid::amqp_0_10

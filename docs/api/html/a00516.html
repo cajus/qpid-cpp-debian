@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/framing/reply_exceptions.h File Reference</title>
+    <title>qpid/framing/ProtocolVersion.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,74 +60,28 @@
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/framing/reply_exceptions.h File Reference</div>  </div>
+<div class="title">qpid/framing/ProtocolVersion.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00490_source.html">qpid/Exception.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00553_source.html">qpid/sys/ExceptionHolder.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00502_source.html">qpid/framing/enum.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00482_source.html">qpid/CommonImportExport.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00495_source.html">qpid/framing/amqp_types.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00484_source.html">qpid/CommonImportExport.h</a>&quot;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
 </div>
 <p><a href="a00516_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00366.html">qpid::framing::UnauthorizedAccessException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The client attempted to work with a server entity to which it has no access due to security settings.  <a href="a00366.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00228.html">qpid::framing::NotFoundException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The client attempted to work with a server entity that does not exist.  <a href="a00228.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00282.html">qpid::framing::ResourceLockedException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The client attempted to work with a server entity to which it has no access because another client is working with it.  <a href="a00282.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00253.html">qpid::framing::PreconditionFailedException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The client requested a command that was not allowed because some precondition failed.  <a href="a00253.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00280.html">qpid::framing::ResourceDeletedException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A server entity the client is working with has been deleted.  <a href="a00280.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00145.html">qpid::framing::IllegalStateException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The peer sent a command that is not permitted in the current state of the session.  <a href="a00145.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00052.html">qpid::framing::CommandInvalidException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The command segments could not be decoded.  <a href="a00052.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00281.html">qpid::framing::ResourceLimitExceededException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The client exceeded its resource allocation.  <a href="a00281.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00225.html">qpid::framing::NotAllowedException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The peer tried to use a command a manner that is inconsistent with the rules described in the specification.  <a href="a00225.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00144.html">qpid::framing::IllegalArgumentException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The command argument is malformed, i.e.  <a href="a00144.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00230.html">qpid::framing::NotImplementedException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The peer tried to use functionality that is not implemented in its partner.  <a href="a00230.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00157.html">qpid::framing::InternalErrorException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The peer could not complete the command because of an internal error.  <a href="a00157.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00161.html">qpid::framing::InvalidArgumentException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">An invalid argument was passed to a command, and the operation could not proceed.  <a href="a00161.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00062.html">qpid::framing::ConnectionForcedException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">An operator intervened to close the connection for some reason.  <a href="a00062.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00165.html">qpid::framing::InvalidPathException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The client tried to work with an unknown virtual host.  <a href="a00165.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html">qpid::framing::FramingErrorException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A valid frame header cannot be formed from the incoming byte stream.  <a href="a00134.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00329.html">qpid::framing::SessionBusyException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The session is currently attached to another transport.  <a href="a00329.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00359.html">qpid::framing::TransportBusyException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The transport is currently attached to another session.  <a href="a00359.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00226.html">qpid::framing::NotAttachedException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The transport is not currently attached to any session.  <a href="a00226.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00368.html">qpid::framing::UnknownIdsException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Command data was received prior to any use of the command-point control.  <a href="a00368.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00256.html">qpid::framing::ProtocolVersion</a></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html">qpid</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
 <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00580.html">qpid::framing</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00582.html">qpid::framing</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>The framing namespace contains classes that are used to create, send and receive the basic packets from which AMQP is built. </p>
 <br/></td></tr>
-<tr><td colspan="2"><h2><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">sys::ExceptionHolder&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00580.html#af2b76817bad697f3aff512ab2c1ee885">qpid::framing::createSessionException</a> (int code, const <a class="el" href="a00345.html">std::string</a> &amp;text)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">sys::ExceptionHolder&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00580.html#af7b53c53ef4ae24311b4007efbd187bd">qpid::framing::createConnectionException</a> (int code, const <a class="el" href="a00345.html">std::string</a> &amp;text)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">sys::ExceptionHolder&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00580.html#a07bcbe85fcf21bb7c4ab273049b1209b">qpid::framing::createChannelException</a> (int code, const <a class="el" href="a00345.html">std::string</a> &amp;text)</td></tr>
 </table>
 </div>
 <!--
@@ -157,7 +111,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

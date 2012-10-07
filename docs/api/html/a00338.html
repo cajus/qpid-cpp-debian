@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::log::SinkOptions Struct Reference</title>
+    <title>qpid::management::ManagementAgent::Singleton Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,9 +60,10 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00589.html">log</a>      </li>
-      <li class="navelem"><a class="el" href="a00338.html">SinkOptions</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00592.html">management</a>      </li>
+      <li class="navelem"><a class="el" href="a00199.html">ManagementAgent</a>      </li>
+      <li class="navelem"><a class="el" href="a00338.html">Singleton</a>      </li>
     </ul>
   </div>
 </div>
@@ -71,100 +72,66 @@
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::log::SinkOptions Struct Reference</div>  </div>
+<div class="title">qpid::management::ManagementAgent::Singleton Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::log::SinkOptions" --><!-- doxytag: inherits="qpid::Options" -->
-<p>Logging sink options.  
- <a href="a00338.html#details">More...</a></p>
+<!-- doxytag: class="qpid::management::ManagementAgent::Singleton" -->
+<p><code>#include &lt;<a class="el" href="a00455_source.html">qpid/agent/ManagementAgent.h</a>&gt;</code></p>
 
-<p><code>#include &lt;<a class="el" href="a00533_source.html">qpid/log/SinkOptions.h</a>&gt;</code></p>
-
-<p><a href="a00822.html">List of all members.</a></p>
+<p><a href="a00831.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00338.html#a9eb7d1a347b38405e88037503ac47a11">SinkOptions</a> (const <a class="el" href="a00345.html">std::string</a> &amp;name=&quot;Logging sink options&quot;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00338.html#ab992a43633f57d3bce7c05f424275faa">~SinkOptions</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00338.html">SinkOptions</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00338.html#a91b85a7abf24adb0b0af4ea970cda80b">operator=</a> (const <a class="el" href="a00338.html">SinkOptions</a> &amp;)=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00338.html#a7a3815c79cd179602b125d9f9fbbcd31">detached</a> (void)=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00338.html#a6d8bd9645f137b40f875a8f027625ed6">setup</a> (<a class="el" href="a00194.html">Logger</a> *logger)=0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html#a9ab9ee7e214162e52a022c9ae92b0a6c">parse</a> (int argc, char const *const *argv, const <a class="el" href="a00345.html">std::string</a> &amp;configfile=<a class="el" href="a00345.html">std::string</a>(), bool allowUnknown=false)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses options from argc/argv, environment variables and config file.  <a href="#a9ab9ee7e214162e52a022c9ae92b0a6c"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">boost::program_options::options_description_easy_init&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00240.html#a9ee2ebed980f7a1dcf3a5781555a5b70">addOptions</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QMF_AGENT_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00338.html#a0348b15d17fae3a570896127ba9f38e6">Singleton</a> (bool disableManagement=false)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QMF_AGENT_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00338.html#a1946f5444011f966b26cec261d48b26d">~Singleton</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00338.html">SinkOptions</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00338.html#a9eefbfc0d1ece5d8d53fcef95e72b90a">create</a> (const <a class="el" href="a00345.html">std::string</a> &amp;argv0=<a class="el" href="a00345.html">std::string</a>())</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static QMF_AGENT_EXTERN <br class="typebreak"/>
+<a class="el" href="a00199.html">ManagementAgent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00338.html#ac35e2b11a9c265c544755d1130d7d982">getInstance</a> ()</td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Logging sink options. </p>
-<p>Most logging sink options will be platform-specific, even if some are duplicated. The range of platforms to which this code may be ported can't be assumed to all have C++ iostreams or files. Thus, this class is primarily for implementing in a platform-specific way. </p>
-</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a9eb7d1a347b38405e88037503ac47a11"></a><!-- doxytag: member="qpid::log::SinkOptions::SinkOptions" ref="a9eb7d1a347b38405e88037503ac47a11" args="(const std::string &amp;name=&quot;Logging sink options&quot;)" -->
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a0348b15d17fae3a570896127ba9f38e6"></a><!-- doxytag: member="qpid::management::ManagementAgent::Singleton::Singleton" ref="a0348b15d17fae3a570896127ba9f38e6" args="(bool disableManagement=false)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::log::SinkOptions::SinkOptions </td>
+          <td class="memname">QMF_AGENT_EXTERN qpid::management::ManagementAgent::Singleton::Singleton </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em> = <code>&quot;Logging&#160;sink&#160;options&quot;</code></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>disableManagement</em> = <code>false</code></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00533_source.html#l00044">44</a> of file <a class="el" href="a00533_source.html">SinkOptions.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="ab992a43633f57d3bce7c05f424275faa"></a><!-- doxytag: member="qpid::log::SinkOptions::~SinkOptions" ref="ab992a43633f57d3bce7c05f424275faa" args="()" -->
+<a class="anchor" id="a1946f5444011f966b26cec261d48b26d"></a><!-- doxytag: member="qpid::management::ManagementAgent::Singleton::~Singleton" ref="a1946f5444011f966b26cec261d48b26d" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual qpid::log::SinkOptions::~SinkOptions </td>
+          <td class="memname">QMF_AGENT_EXTERN qpid::management::ManagementAgent::Singleton::~Singleton </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00533_source.html#l00047">47</a> of file <a class="el" href="a00533_source.html">SinkOptions.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a9ee2ebed980f7a1dcf3a5781555a5b70"></a><!-- doxytag: member="qpid::log::SinkOptions::addOptions" ref="a9ee2ebed980f7a1dcf3a5781555a5b70" args="()" -->
+<a class="anchor" id="ac35e2b11a9c265c544755d1130d7d982"></a><!-- doxytag: member="qpid::management::ManagementAgent::Singleton::getInstance" ref="ac35e2b11a9c265c544755d1130d7d982" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">boost::program_options::options_description_easy_init qpid::Options::addOptions </td>
+          <td class="memname">static QMF_AGENT_EXTERN <a class="el" href="a00199.html">ManagementAgent</a>* qpid::management::ManagementAgent::Singleton::getInstance </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00531_source.html#l00154">154</a> of file <a class="el" href="a00531_source.html">Options.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9eefbfc0d1ece5d8d53fcef95e72b90a"></a><!-- doxytag: member="qpid::log::SinkOptions::create" ref="a9eefbfc0d1ece5d8d53fcef95e72b90a" args="(const std::string &amp;argv0=std::string())" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="a00338.html">SinkOptions</a>* qpid::log::SinkOptions::create </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>argv0</em> = <code><a class="el" href="a00345.html">std::string</a>()</code></td><td>)</td>
           <td><code> [static]</code></td>
         </tr>
       </table>
@@ -173,101 +140,8 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a7a3815c79cd179602b125d9f9fbbcd31"></a><!-- doxytag: member="qpid::log::SinkOptions::detached" ref="a7a3815c79cd179602b125d9f9fbbcd31" args="(void)=0" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void qpid::log::SinkOptions::detached </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [pure virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a91b85a7abf24adb0b0af4ea970cda80b"></a><!-- doxytag: member="qpid::log::SinkOptions::operator=" ref="a91b85a7abf24adb0b0af4ea970cda80b" args="(const SinkOptions &amp;)=0" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00338.html">SinkOptions</a>&amp; qpid::log::SinkOptions::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00338.html">SinkOptions</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [pure virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a9ab9ee7e214162e52a022c9ae92b0a6c"></a><!-- doxytag: member="qpid::log::SinkOptions::parse" ref="a9ab9ee7e214162e52a022c9ae92b0a6c" args="(int argc, char const *const *argv, const std::string &amp;configfile=std::string(), bool allowUnknown=false)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::Options::parse </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char const *const *&#160;</td>
-          <td class="paramname"><em>argv</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>configfile</em> = <code><a class="el" href="a00345.html">std::string</a>()</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>allowUnknown</em> = <code>false</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Parses options from argc/argv, environment variables and config file. </p>
-<p>Note the filename argument can reference an options variable that is updated by argc/argv or environment variable parsing. </p>
-
-</div>
-</div>
-<a class="anchor" id="a6d8bd9645f137b40f875a8f027625ed6"></a><!-- doxytag: member="qpid::log::SinkOptions::setup" ref="a6d8bd9645f137b40f875a8f027625ed6" args="(Logger *logger)=0" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void qpid::log::SinkOptions::setup </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00194.html">Logger</a> *&#160;</td>
-          <td class="paramname"><em>logger</em></td><td>)</td>
-          <td><code> [pure virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/log/<a class="el" href="a00533_source.html">SinkOptions.h</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qpid/agent/<a class="el" href="a00455_source.html">ManagementAgent.h</a></li>
 </ul>
 </div>
 <!--
@@ -297,7 +171,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

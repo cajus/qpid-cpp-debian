@@ -60,23 +60,39 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00571.html">qmf</a>      </li>
-      <li class="navelem"><a class="el" href="a00572.html">engine</a>      </li>
-      <li class="navelem"><a class="el" href="a00214.html">MethodResponse</a>      </li>
+      <li class="navelem"><a class="el" href="a00573.html">qmf</a>      </li>
+      <li class="navelem"><a class="el" href="a00574.html">engine</a>      </li>
+      <li class="navelem"><a class="el" href="a00005.html">Agent</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qmf::engine::MethodResponse Member List</div>  </div>
+<div class="title">qmf::engine::Agent Member List</div>  </div>
 </div>
 <div class="contents">
-This is the complete list of members for <a class="el" href="a00214.html">qmf::engine::MethodResponse</a>, including all inherited members.<table>
-  <tr class="memlist"><td><a class="el" href="a00214.html#ac56cef754ad68bf1f2c0e6807857172f">getArgs</a>() const </td><td><a class="el" href="a00214.html">qmf::engine::MethodResponse</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00214.html#acf3ba48222758f9be6a675023baf7699">getException</a>() const </td><td><a class="el" href="a00214.html">qmf::engine::MethodResponse</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00214.html#a354817274df573f062e69dae62baa0b2">getStatus</a>() const </td><td><a class="el" href="a00214.html">qmf::engine::MethodResponse</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00214.html#a61e3847c60b29d9694b3837604ba714e">MethodResponse</a>(const MethodResponse &amp;from)</td><td><a class="el" href="a00214.html">qmf::engine::MethodResponse</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00214.html#abac7144779ee8f5044eef8de22108b79">~MethodResponse</a>()</td><td><a class="el" href="a00214.html">qmf::engine::MethodResponse</a></td><td></td></tr>
+This is the complete list of members for <a class="el" href="a00005.html">qmf::engine::Agent</a>, including all inherited members.<table>
+  <tr class="memlist"><td><a class="el" href="a00005.html#adb7f72867b184e94f16a0c7c8df10f20">addObject</a>(Object &amp;obj, uint64_t persistId)</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#a44efc142d9c889bb9640cee573cc19fc">Agent</a>(char *label, bool internalStore=true)</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#a7ed1a242f908bb3288fcd7e2050a8a12">allocObjectId</a>(uint64_t persistId)</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#a3e4807d2e66cfcb85fad189e49625df3">allocObjectId</a>(uint32_t persistIdLo, uint32_t persistIdHi)</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#a15c19f43b28f63a826562d1a1dabd7e7">getEvent</a>(AgentEvent &amp;event) const </td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#acc8b2035af16616624247263ed3ec5ce">getXmtMessage</a>(Message &amp;item) const </td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#ac3884711b7deb275ade4c29fff567bee">handleRcvMessage</a>(Message &amp;message)</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#a4796c9caa8b20c770ec4c439f9c03ad2">heartbeat</a>()</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#a1df18fdb59e5f9ed134e90ea65b130f5">methodResponse</a>(uint32_t sequence, uint32_t status, char *text, const Value &amp;arguments)</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#a126d7a08de068af40544a207b1e5c15f">newSession</a>()</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#a85425603a2456369632069399a29f5fc">popEvent</a>()</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#aafcde4dd6ea395e5b9f8200310c6d03b">popXmt</a>()</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#abb5d659981b2e6bde14d7fe4dcd38d75">queryComplete</a>(uint32_t sequence)</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#a069c7ade6ea8606dbb6d5cfb6c3eca63">queryResponse</a>(uint32_t sequence, Object &amp;object, bool prop=true, bool stat=true)</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#a439626a88dad21ae5395a06f2dade862">raiseEvent</a>(Event &amp;event)</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#a9e1adfb2d9558d344df9eb266f961f9b">registerClass</a>(SchemaObjectClass *cls)</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#a550d3e7de8f0dfbdd5f0c5b396d263f0">registerClass</a>(SchemaEventClass *cls)</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#a481ccd6a73ced7d1a8e524350f2f09e9">setStoreDir</a>(const char *path)</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#a489c88f95a56dbf716abaa4b30beda6e">setTransferDir</a>(const char *path)</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#a5e693ba92e2dcc74b6b2ce181f0be34f">startProtocol</a>()</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00005.html#a4939abdaa0d08dbf23100000d22b3f22">~Agent</a>()</td><td><a class="el" href="a00005.html">qmf::engine::Agent</a></td><td></td></tr>
 </table></div>
 <!--
  
@@ -105,7 +121,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

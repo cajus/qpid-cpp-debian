@@ -157,6 +157,7 @@
 #include "qpid/framing/ClusterConnectionQueueObserverStateBody.h"
 #include "qpid/framing/ClusterConnectionClockBody.h"
 #include "qpid/framing/ClusterConnectionQueueDequeueSincePurgeStateBody.h"
+#include "qpid/framing/ClusterConnectionInternalStateBody.h"
 #include "qpid/Exception.h"
 #include "qpid/Msg.h"
 
@@ -341,6 +342,7 @@ boost::intrusive_ptr<AMQMethodBody> MethodBodyFactory::create(ClassId c, MethodI
             case 0x39: return BodyFactory::create<ClusterConnectionQueueObserverStateBody>();
             case 0x40: return BodyFactory::create<ClusterConnectionClockBody>();
             case 0x41: return BodyFactory::create<ClusterConnectionQueueDequeueSincePurgeStateBody>();
+            case 0x42: return BodyFactory::create<ClusterConnectionInternalStateBody>();
             default: throw Exception(QPID_MSG("Invalid method id " << int(m) << " for class cluster-connection "));
         }
         break;

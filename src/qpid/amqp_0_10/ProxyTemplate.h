@@ -992,10 +992,11 @@ class QPID_COMMON_CLASS_EXTERN ProxyTemplate
         Bit notifyEnabled_,
         const SequenceNo& position_,
         Uint32 usedMsgCredit_,
-        Uint32 usedByteCredit_
+        Uint32 usedByteCredit_,
+        Uint32 deliveryCount_
     )
     {
-        cluster-connection::ConsumerState consumerState(name_, blocked_, notifyEnabled_, position_, usedMsgCredit_, usedByteCredit_);
+        cluster-connection::ConsumerState consumerState(name_, blocked_, notifyEnabled_, position_, usedMsgCredit_, usedByteCredit_, deliveryCount_);
         return functor(consumerState);
     }
     
@@ -1263,6 +1264,17 @@ class QPID_COMMON_CLASS_EXTERN ProxyTemplate
     {
         cluster-connection::QueueDequeueSincePurgeState queueDequeueSincePurgeState(queue_, dequeueSincePurge_);
         return functor(queueDequeueSincePurgeState);
+    }
+    
+    
+    R clusterConnectionInternalState(
+        const Str8& type_,
+        const Str8& name_,
+        const Map& state_
+    )
+    {
+        cluster-connection::InternalState internalState(type_, name_, state_);
+        return functor(internalState);
     }
   private:
     F functor;

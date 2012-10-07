@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::framing::List Class Reference</title>
+    <title>qpid::messaging::LinkError Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,479 +60,87 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00580.html">framing</a>      </li>
-      <li class="navelem"><a class="el" href="a00189.html">List</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00593.html">messaging</a>      </li>
+      <li class="navelem"><a class="el" href="a00189.html">LinkError</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#friends">Friends</a>  </div>
+<a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::framing::List Class Reference</div>  </div>
+<div class="title">qpid::messaging::LinkError Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::framing::List" -->
-<p>Representation of an AMQP 0-10 list.  
- <a href="a00189.html#details">More...</a></p>
+<!-- doxytag: class="qpid::messaging::LinkError" --><!-- doxytag: inherits="qpid::messaging::MessagingException" -->
+<p><code>#include &lt;<a class="el" href="a00438_source.html">qpid/messaging/exceptions.h</a>&gt;</code></p>
 
-<p><code>#include &lt;<a class="el" href="a00510_source.html">qpid/framing/List.h</a>&gt;</code></p>
-
-<p><a href="a00783.html">List of all members.</a></p>
+<p><a href="a00852.html">List of all members.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef boost::shared_ptr<br class="typebreak"/>
-&lt; <a class="el" href="a00125.html">FieldValue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#a197e5374ba2996281d2e16924976bf08">ValuePtr</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00189.html#a197e5374ba2996281d2e16924976bf08">ValuePtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#a30758c70a32d64495e088b8a7d62e694">value_type</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00190.html">std::list</a>&lt; <a class="el" href="a00189.html#a197e5374ba2996281d2e16924976bf08">ValuePtr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#a86de08d3955a33a42c243c13bedef183">Values</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef Values::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#ac74a9b3c1ae3d1c584bce42d998ffd16">const_iterator</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef Values::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#aca645bdd1960fb7733d84a62989738ac">iterator</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef Values::const_reference&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#a65895ab32c96ffb6939de5a86a060a32">const_reference</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef Values::reference&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#a308fc57a5e48474084d4761fa26f5f49">reference</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#ae120935d9a0cdfe59e6314967ef91f97">encodedSize</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#a240b4544587d7627fc255c0c241bb790">encode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;buffer) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#a62672b43b2e298049407ca1edb00ebbd">decode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;buffer)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#ad26380aabead51bcb341889de6d97d4f">operator==</a> (const <a class="el" href="a00189.html">List</a> &amp;other) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN <br class="typebreak"/>
-<a class="el" href="a00189.html#ac74a9b3c1ae3d1c584bce42d998ffd16">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#a6124daeb124ec5193f7dc29abdc2833e">begin</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN <br class="typebreak"/>
-<a class="el" href="a00189.html#ac74a9b3c1ae3d1c584bce42d998ffd16">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#a76e315df27100f971a0f621c1daa3119">end</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00189.html#aca645bdd1960fb7733d84a62989738ac">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#a747220803207237cca679ff302bf36c9">begin</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00189.html#aca645bdd1960fb7733d84a62989738ac">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#a1d2badbc403a76d023390cc3c3d24978">end</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00189.html#a197e5374ba2996281d2e16924976bf08">ValuePtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#a052acc2c7bd4119e99ebf4b4d88aa60d">front</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00189.html#a197e5374ba2996281d2e16924976bf08">ValuePtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#aa97d29d8dfd5327735dd7697a1af1b2f">back</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#a896262642b93526d3634f3648abbab14">size</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00189.html#aca645bdd1960fb7733d84a62989738ac">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#a5af95c7751434fc86acf1b54ed7b4d5a">insert</a> (<a class="el" href="a00189.html#aca645bdd1960fb7733d84a62989738ac">iterator</a> i, <a class="el" href="a00189.html#a197e5374ba2996281d2e16924976bf08">ValuePtr</a> value)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#a8fb576e86aa1d224bddb0d00d15880b2">erase</a> (<a class="el" href="a00189.html#aca645bdd1960fb7733d84a62989738ac">iterator</a> i)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#ad195dec59b5da7c41d1638d5f802b60b">push_back</a> (<a class="el" href="a00189.html#a197e5374ba2996281d2e16924976bf08">ValuePtr</a> value)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#ab18b8f3bf0d793f44038929f54018e1a">pop_back</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="friends"></a>
-Friends</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#a4c7712bf47d8f2bdf5dfd1c828c92129">operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;out, const <a class="el" href="a00189.html">List</a> &amp;list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html#a8893fa81aee5b9c61bfbc490b1f00044">LinkError</a> (const <a class="el" href="a00346.html">std::string</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QPID_TYPES_EXTERN <br class="typebreak"/>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00114.html#a96ddb3fe10a2b9d059cb78832a64751d">what</a> () const   throw ()</td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00214.html#ad2a0464e06d10b0ba61a4520bac1cfa7">detail</a></td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Representation of an AMQP 0-10 list. </p>
-</div><hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="ac74a9b3c1ae3d1c584bce42d998ffd16"></a><!-- doxytag: member="qpid::framing::List::const_iterator" ref="ac74a9b3c1ae3d1c584bce42d998ffd16" args="" -->
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a8893fa81aee5b9c61bfbc490b1f00044"></a><!-- doxytag: member="qpid::messaging::LinkError::LinkError" ref="a8893fa81aee5b9c61bfbc490b1f00044" args="(const std::string &amp;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef Values::const_iterator <a class="el" href="a00189.html#ac74a9b3c1ae3d1c584bce42d998ffd16">qpid::framing::List::const_iterator</a></td>
+          <td class="memname">qpid::messaging::LinkError::LinkError </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00510_source.html#l00045">45</a> of file <a class="el" href="a00510_source.html">List.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a65895ab32c96ffb6939de5a86a060a32"></a><!-- doxytag: member="qpid::framing::List::const_reference" ref="a65895ab32c96ffb6939de5a86a060a32" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef Values::const_reference <a class="el" href="a00189.html#a65895ab32c96ffb6939de5a86a060a32">qpid::framing::List::const_reference</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00510_source.html#l00047">47</a> of file <a class="el" href="a00510_source.html">List.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aca645bdd1960fb7733d84a62989738ac"></a><!-- doxytag: member="qpid::framing::List::iterator" ref="aca645bdd1960fb7733d84a62989738ac" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef Values::iterator <a class="el" href="a00189.html#aca645bdd1960fb7733d84a62989738ac">qpid::framing::List::iterator</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00510_source.html#l00046">46</a> of file <a class="el" href="a00510_source.html">List.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a308fc57a5e48474084d4761fa26f5f49"></a><!-- doxytag: member="qpid::framing::List::reference" ref="a308fc57a5e48474084d4761fa26f5f49" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef Values::reference <a class="el" href="a00189.html#a308fc57a5e48474084d4761fa26f5f49">qpid::framing::List::reference</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00510_source.html#l00048">48</a> of file <a class="el" href="a00510_source.html">List.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a30758c70a32d64495e088b8a7d62e694"></a><!-- doxytag: member="qpid::framing::List::value_type" ref="a30758c70a32d64495e088b8a7d62e694" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a00189.html#a197e5374ba2996281d2e16924976bf08">ValuePtr</a> <a class="el" href="a00189.html#a30758c70a32d64495e088b8a7d62e694">qpid::framing::List::value_type</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00510_source.html#l00043">43</a> of file <a class="el" href="a00510_source.html">List.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a197e5374ba2996281d2e16924976bf08"></a><!-- doxytag: member="qpid::framing::List::ValuePtr" ref="a197e5374ba2996281d2e16924976bf08" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef boost::shared_ptr&lt;<a class="el" href="a00125.html">FieldValue</a>&gt; <a class="el" href="a00189.html#a197e5374ba2996281d2e16924976bf08">qpid::framing::List::ValuePtr</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00510_source.html#l00042">42</a> of file <a class="el" href="a00510_source.html">List.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a86de08d3955a33a42c243c13bedef183"></a><!-- doxytag: member="qpid::framing::List::Values" ref="a86de08d3955a33a42c243c13bedef183" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a00190.html">std::list</a>&lt;<a class="el" href="a00189.html#a197e5374ba2996281d2e16924976bf08">ValuePtr</a>&gt; <a class="el" href="a00189.html#a86de08d3955a33a42c243c13bedef183">qpid::framing::List::Values</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00510_source.html#l00044">44</a> of file <a class="el" href="a00510_source.html">List.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="aa97d29d8dfd5327735dd7697a1af1b2f"></a><!-- doxytag: member="qpid::framing::List::back" ref="aa97d29d8dfd5327735dd7697a1af1b2f" args="() const " -->
+<a class="anchor" id="a96ddb3fe10a2b9d059cb78832a64751d"></a><!-- doxytag: member="qpid::messaging::LinkError::what" ref="a96ddb3fe10a2b9d059cb78832a64751d" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00189.html#a197e5374ba2996281d2e16924976bf08">ValuePtr</a> qpid::framing::List::back </td>
+          <td class="memname">virtual QPID_TYPES_EXTERN const char* qpid::types::Exception::what </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td> const  throw ()<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00510_source.html#l00063">63</a> of file <a class="el" href="a00510_source.html">List.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a6124daeb124ec5193f7dc29abdc2833e"></a><!-- doxytag: member="qpid::framing::List::begin" ref="a6124daeb124ec5193f7dc29abdc2833e" args="() const " -->
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="ad2a0464e06d10b0ba61a4520bac1cfa7"></a><!-- doxytag: member="qpid::messaging::LinkError::detail" ref="ad2a0464e06d10b0ba61a4520bac1cfa7" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00189.html#ac74a9b3c1ae3d1c584bce42d998ffd16">const_iterator</a> qpid::framing::List::begin </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td class="memname"><a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> <a class="el" href="a00214.html#ad2a0464e06d10b0ba61a4520bac1cfa7">qpid::messaging::MessagingException::detail</a><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00510_source.html#l00057">57</a> of file <a class="el" href="a00510_source.html">List.h</a>.</p>
+<p>Definition at line <a class="el" href="a00438_source.html#l00044">44</a> of file <a class="el" href="a00438_source.html">exceptions.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a747220803207237cca679ff302bf36c9"></a><!-- doxytag: member="qpid::framing::List::begin" ref="a747220803207237cca679ff302bf36c9" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00189.html#aca645bdd1960fb7733d84a62989738ac">iterator</a> qpid::framing::List::begin </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00510_source.html#l00059">59</a> of file <a class="el" href="a00510_source.html">List.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a62672b43b2e298049407ca1edb00ebbd"></a><!-- doxytag: member="qpid::framing::List::decode" ref="a62672b43b2e298049407ca1edb00ebbd" args="(Buffer &amp;buffer)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::List::decode </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a240b4544587d7627fc255c0c241bb790"></a><!-- doxytag: member="qpid::framing::List::encode" ref="a240b4544587d7627fc255c0c241bb790" args="(Buffer &amp;buffer) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::List::encode </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae120935d9a0cdfe59e6314967ef91f97"></a><!-- doxytag: member="qpid::framing::List::encodedSize" ref="ae120935d9a0cdfe59e6314967ef91f97" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::List::encodedSize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a76e315df27100f971a0f621c1daa3119"></a><!-- doxytag: member="qpid::framing::List::end" ref="a76e315df27100f971a0f621c1daa3119" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00189.html#ac74a9b3c1ae3d1c584bce42d998ffd16">const_iterator</a> qpid::framing::List::end </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00510_source.html#l00058">58</a> of file <a class="el" href="a00510_source.html">List.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1d2badbc403a76d023390cc3c3d24978"></a><!-- doxytag: member="qpid::framing::List::end" ref="a1d2badbc403a76d023390cc3c3d24978" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00189.html#aca645bdd1960fb7733d84a62989738ac">iterator</a> qpid::framing::List::end </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00510_source.html#l00060">60</a> of file <a class="el" href="a00510_source.html">List.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a8fb576e86aa1d224bddb0d00d15880b2"></a><!-- doxytag: member="qpid::framing::List::erase" ref="a8fb576e86aa1d224bddb0d00d15880b2" args="(iterator i)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN void qpid::framing::List::erase </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00189.html#aca645bdd1960fb7733d84a62989738ac">iterator</a>&#160;</td>
-          <td class="paramname"><em>i</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00510_source.html#l00067">67</a> of file <a class="el" href="a00510_source.html">List.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a052acc2c7bd4119e99ebf4b4d88aa60d"></a><!-- doxytag: member="qpid::framing::List::front" ref="a052acc2c7bd4119e99ebf4b4d88aa60d" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00189.html#a197e5374ba2996281d2e16924976bf08">ValuePtr</a> qpid::framing::List::front </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00510_source.html#l00062">62</a> of file <a class="el" href="a00510_source.html">List.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5af95c7751434fc86acf1b54ed7b4d5a"></a><!-- doxytag: member="qpid::framing::List::insert" ref="a5af95c7751434fc86acf1b54ed7b4d5a" args="(iterator i, ValuePtr value)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00189.html#aca645bdd1960fb7733d84a62989738ac">iterator</a> qpid::framing::List::insert </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00189.html#aca645bdd1960fb7733d84a62989738ac">iterator</a>&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00189.html#a197e5374ba2996281d2e16924976bf08">ValuePtr</a>&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00510_source.html#l00066">66</a> of file <a class="el" href="a00510_source.html">List.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad26380aabead51bcb341889de6d97d4f"></a><!-- doxytag: member="qpid::framing::List::operator==" ref="ad26380aabead51bcb341889de6d97d4f" args="(const List &amp;other) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::List::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00189.html">List</a> &amp;&#160;</td>
-          <td class="paramname"><em>other</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab18b8f3bf0d793f44038929f54018e1a"></a><!-- doxytag: member="qpid::framing::List::pop_back" ref="ab18b8f3bf0d793f44038929f54018e1a" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN void qpid::framing::List::pop_back </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00510_source.html#l00069">69</a> of file <a class="el" href="a00510_source.html">List.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad195dec59b5da7c41d1638d5f802b60b"></a><!-- doxytag: member="qpid::framing::List::push_back" ref="ad195dec59b5da7c41d1638d5f802b60b" args="(ValuePtr value)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN void qpid::framing::List::push_back </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00189.html#a197e5374ba2996281d2e16924976bf08">ValuePtr</a>&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00510_source.html#l00068">68</a> of file <a class="el" href="a00510_source.html">List.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a896262642b93526d3634f3648abbab14"></a><!-- doxytag: member="qpid::framing::List::size" ref="a896262642b93526d3634f3648abbab14" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN size_t qpid::framing::List::size </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00510_source.html#l00064">64</a> of file <a class="el" href="a00510_source.html">List.h</a>.</p>
-
-</div>
-</div>
-<hr/><h2>Friends And Related Function Documentation</h2>
-<a class="anchor" id="a4c7712bf47d8f2bdf5dfd1c828c92129"></a><!-- doxytag: member="qpid::framing::List::operator&lt;&lt;" ref="a4c7712bf47d8f2bdf5dfd1c828c92129" args="(std::ostream &amp;out, const List &amp;list)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00243.html">std::ostream</a>&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname"><em>out</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00189.html">List</a> &amp;&#160;</td>
-          <td class="paramname"><em>list</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/framing/<a class="el" href="a00510_source.html">List.h</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>qpid/messaging/<a class="el" href="a00438_source.html">exceptions.h</a></li>
 </ul>
 </div>
 <!--
@@ -562,7 +170,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

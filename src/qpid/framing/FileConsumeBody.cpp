@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/FileConsumeBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void FileConsumeBody::setQueue(const std::string& _queue) {
     queue = _queue;
     flags |= (1 << 8);
+    if (queue.size() >= 256) throw IllegalArgumentException("Value for queue is too large");
 }
 const std::string& FileConsumeBody::getQueue() const { return queue; }
 bool FileConsumeBody::hasQueue() const { return flags & (1 << 8); }
@@ -41,6 +42,7 @@ void FileConsumeBody::clearQueueFlag() { flags &= ~(1 << 8); }
 void FileConsumeBody::setConsumerTag(const std::string& _consumerTag) {
     consumerTag = _consumerTag;
     flags |= (1 << 9);
+    if (consumerTag.size() >= 256) throw IllegalArgumentException("Value for consumerTag is too large");
 }
 const std::string& FileConsumeBody::getConsumerTag() const { return consumerTag; }
 bool FileConsumeBody::hasConsumerTag() const { return flags & (1 << 9); }

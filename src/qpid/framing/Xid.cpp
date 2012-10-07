@@ -26,7 +26,7 @@
 
 
 #include "qpid/framing/Xid.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
@@ -41,6 +41,7 @@ void Xid::clearFormatFlag() { flags &= ~(1 << 8); }
 void Xid::setGlobalId(const std::string& _globalId) {
     globalId = _globalId;
     flags |= (1 << 9);
+    if (globalId.size() >= 256) throw IllegalArgumentException("Value for globalId is too large");
 }
 const std::string& Xid::getGlobalId() const { return globalId; }
 bool Xid::hasGlobalId() const { return flags & (1 << 9); }
@@ -49,6 +50,7 @@ void Xid::clearGlobalIdFlag() { flags &= ~(1 << 9); }
 void Xid::setBranchId(const std::string& _branchId) {
     branchId = _branchId;
     flags |= (1 << 10);
+    if (branchId.size() >= 256) throw IllegalArgumentException("Value for branchId is too large");
 }
 const std::string& Xid::getBranchId() const { return branchId; }
 bool Xid::hasBranchId() const { return flags & (1 << 10); }

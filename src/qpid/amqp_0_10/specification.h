@@ -3835,6 +3835,7 @@ struct ConsumerState:
     SequenceNo position;
     Uint32 usedMsgCredit;
     Uint32 usedByteCredit;
+    Uint32 deliveryCount;
     
     static const char* NAME;
     static const uint8_t CODE=0x10;
@@ -3846,12 +3847,13 @@ struct ConsumerState:
         Bit notifyEnabled_=Bit(),
         const SequenceNo& position_=SequenceNo(),
         Uint32 usedMsgCredit_=Uint32(),
-        Uint32 usedByteCredit_=Uint32()
+        Uint32 usedByteCredit_=Uint32(),
+        Uint32 deliveryCount_=Uint32()
     );
     void accept(Visitor&);
     void accept(ConstVisitor&) const;
     template <class S> void serialize(S& s) {
-        s(name)(blocked)(notifyEnabled)(position)(usedMsgCredit)(usedByteCredit);
+        s(name)(blocked)(notifyEnabled)(position)(usedMsgCredit)(usedByteCredit)(deliveryCount);
     }
     
     struct Handler
@@ -3862,13 +3864,14 @@ struct ConsumerState:
             Bit notifyEnabled_,
             const SequenceNo& position_,
             Uint32 usedMsgCredit_,
-            Uint32 usedByteCredit_
+            Uint32 usedByteCredit_,
+            Uint32 deliveryCount_
         );
     };
     
     template <class T> void invoke(T& target)const
     {
-        target.clusterConnectionConsumerState(name, blocked, notifyEnabled, position, usedMsgCredit, usedByteCredit );
+        target.clusterConnectionConsumerState(name, blocked, notifyEnabled, position, usedMsgCredit, usedByteCredit, deliveryCount );
     }
 };
 inline Packer<ConsumerState> serializable(ConsumerState& x) { return Packer<ConsumerState>(x); }
@@ -4894,6 +4897,46 @@ struct QueueDequeueSincePurgeState:
 inline Packer<QueueDequeueSincePurgeState> serializable(QueueDequeueSincePurgeState& x) { return Packer<QueueDequeueSincePurgeState>(x); }
 std::ostream& operator << (std::ostream&, const QueueDequeueSincePurgeState&);
 bool operator==(const QueueDequeueSincePurgeState&, const QueueDequeueSincePurgeState&);
+
+struct InternalState:
+    public Control
+{
+    Str8 type;
+    Str8 name;
+    Map state;
+    
+    static const char* NAME;
+    static const uint8_t CODE=0x42;
+    static const uint8_t CLASS_CODE=cluster_connection::CODE;
+    static const char* CLASS_NAME;
+    explicit InternalState(
+        const Str8& type_=Str8(),
+        const Str8& name_=Str8(),
+        const Map& state_=Map()
+    );
+    void accept(Visitor&);
+    void accept(ConstVisitor&) const;
+    template <class S> void serialize(S& s) {
+        s(type)(name)(state);
+    }
+    
+    struct Handler
+    {
+        void clusterConnectionInternalState(
+            const Str8& type_,
+            const Str8& name_,
+            const Map& state_
+        );
+    };
+    
+    template <class T> void invoke(T& target)const
+    {
+        target.clusterConnectionInternalState(type, name, state );
+    }
+};
+inline Packer<InternalState> serializable(InternalState& x) { return Packer<InternalState>(x); }
+std::ostream& operator << (std::ostream&, const InternalState&);
+bool operator==(const InternalState&, const InternalState&);
 
 } // namespace cluster_connection
 

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::management::ManagementItem Class Reference</title>
+    <title>qpid::management::ManagementEvent Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,68 +60,96 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00590.html">management</a>      </li>
-      <li class="navelem"><a class="el" href="a00200.html">ManagementItem</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00592.html">management</a>      </li>
+      <li class="navelem"><a class="el" href="a00200.html">ManagementEvent</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::management::ManagementItem Class Reference</div>  </div>
+<div class="title">qpid::management::ManagementEvent Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::management::ManagementItem" -->
-<p><code>#include &lt;<a class="el" href="a00538_source.html">qpid/management/ManagementObject.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::management::ManagementEvent" --><!-- doxytag: inherits="qpid::management::ManagementItem" -->
+<p><code>#include &lt;<a class="el" href="a00539_source.html">qpid/management/ManagementEvent.h</a>&gt;</code></p>
 
 <p><a href="a00838.html">List of all members.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#ad7c8a4efa36a1285c1f75e48efe4ac88">writeSchemaCall_t</a> )(<a class="el" href="a00346.html">std::string</a> &amp;)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a0abbd2ddc23836b8ac6fbdd4b34ed992">~ManagementItem</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#af19a5613ae434686086cd7fb57fc4cdb">~ManagementEvent</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00200.html#ad7c8a4efa36a1285c1f75e48efe4ac88">writeSchemaCall_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#aa94540fea95d78e8dca2ce8e10c6b16e">getWriteSchemaCall</a> (void)=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a15098210370c4cb2842d39a226e04a2e">getEventName</a> () const =0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a71c3717bef680f5a7543b738f1b8226b">getPackageName</a> () const =0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a696252473e24756e48abc9241efa0f9e">getMd5Sum</a> () const =0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#ab0166fe27082618ea7000b6ec4f743ba">getSeverity</a> () const =0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a4373ee1759da887f676b2b65fb40feb9">encode</a> (<a class="el" href="a00346.html">std::string</a> &amp;) const =0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a4b2239112ae62564d87321e810e63b26">mapEncode</a> (<a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;) const =0</td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a3ed17a93c80c0b71ab71fc8fe66eacec">TYPE_U8</a> = 1</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#aad710349e8c4a555b4f851f0dd14aa72">TYPE_U16</a> = 2</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a8eeb15d7ed85b6bdba25004992780ca8">TYPE_U32</a> = 3</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a66c1403c61072e9b527a0a7f29e68305">TYPE_U64</a> = 4</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a2d04ed6b892bdc8c90f0444295226c95">TYPE_SSTR</a> = 6</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a414f9c1db80e4748134684e7f65ff322">TYPE_LSTR</a> = 7</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a1ac1f7b6eda94f5e5d714568eaddd02a">TYPE_ABSTIME</a> = 8</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a02dd138d66aefb1c3546b128c3008916">TYPE_DELTATIME</a> = 9</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a32fc7353e3255d9b4c5b8a45dfb0f771">TYPE_REF</a> = 10</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a5c53fe4759fe304c45731ab6a6b0d15f">TYPE_BOOL</a> = 11</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a50c88e06345c8d40b8ac024a3e8e540f">TYPE_FLOAT</a> = 12</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a025cf0b9c8d3030a7474ec0d8085e22a">TYPE_DOUBLE</a> = 13</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a39194ced1d85391148c62114af1f0bea">TYPE_UUID</a> = 14</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#aafc2a333e739dafdb0ef9086caaf4213">TYPE_FTABLE</a> = 15</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a2bcd55d61202efbb7ab9158fe7299d54">TYPE_S8</a> = 16</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a911492576a26f7f795c8926f9b2ebd21">TYPE_S16</a> = 17</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a173728b03bbe9f4ebb30ce29462ef74a">TYPE_S32</a> = 18</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a11e1ec88242fcede6e5d1484a129434e">TYPE_S64</a> = 19</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a35557d9e999eec0ed51a2437d8abdf54">TYPE_LIST</a> = 21</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#af88765df78374dc3e86249bf57e6a1a0">ACCESS_RC</a> = 1</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#acaa9362ed3b1c044728ad6e46aefbc73">ACCESS_RW</a> = 2</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#acb3834b6aa774434f5757570e84a7cde">ACCESS_RO</a> = 3</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#ac03c7d668d625ec77a7b6582080ed85a">DIR_I</a> = 1</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a3e0dad394812ee2d34f15bf06f81a1ec">DIR_O</a> = 2</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a873a8e4c9f2f90f0dfcfecb466f06880">DIR_IO</a> = 3</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#aba08e17b8ebdbc99013c903ae1dae8f5">FLAG_CONFIG</a> = 0x01</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a19557e35e18aec87132b305afd79a67a">FLAG_INDEX</a> = 0x02</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a0c9fa1b2f3353fd8be094d51a21ebf87">FLAG_END</a> = 0x80</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a6fd07b5a2ae327dbd190d0c28fd48f8e">CLASS_KIND_TABLE</a> = 1</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#a6e4f9a9feb036af2d4ac95352da22188">CLASS_KIND_EVENT</a> = 2</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00200.html#aff98b0ebb6c2f80ea79f3552a2e1a9dc">MD5_LEN</a> = 16</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a3ed17a93c80c0b71ab71fc8fe66eacec">TYPE_U8</a> = 1</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#aad710349e8c4a555b4f851f0dd14aa72">TYPE_U16</a> = 2</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a8eeb15d7ed85b6bdba25004992780ca8">TYPE_U32</a> = 3</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a66c1403c61072e9b527a0a7f29e68305">TYPE_U64</a> = 4</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a2d04ed6b892bdc8c90f0444295226c95">TYPE_SSTR</a> = 6</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a414f9c1db80e4748134684e7f65ff322">TYPE_LSTR</a> = 7</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a1ac1f7b6eda94f5e5d714568eaddd02a">TYPE_ABSTIME</a> = 8</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a02dd138d66aefb1c3546b128c3008916">TYPE_DELTATIME</a> = 9</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a32fc7353e3255d9b4c5b8a45dfb0f771">TYPE_REF</a> = 10</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a5c53fe4759fe304c45731ab6a6b0d15f">TYPE_BOOL</a> = 11</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a50c88e06345c8d40b8ac024a3e8e540f">TYPE_FLOAT</a> = 12</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a025cf0b9c8d3030a7474ec0d8085e22a">TYPE_DOUBLE</a> = 13</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a39194ced1d85391148c62114af1f0bea">TYPE_UUID</a> = 14</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#aafc2a333e739dafdb0ef9086caaf4213">TYPE_FTABLE</a> = 15</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a2bcd55d61202efbb7ab9158fe7299d54">TYPE_S8</a> = 16</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a911492576a26f7f795c8926f9b2ebd21">TYPE_S16</a> = 17</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a173728b03bbe9f4ebb30ce29462ef74a">TYPE_S32</a> = 18</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a11e1ec88242fcede6e5d1484a129434e">TYPE_S64</a> = 19</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a35557d9e999eec0ed51a2437d8abdf54">TYPE_LIST</a> = 21</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#af88765df78374dc3e86249bf57e6a1a0">ACCESS_RC</a> = 1</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#acaa9362ed3b1c044728ad6e46aefbc73">ACCESS_RW</a> = 2</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#acb3834b6aa774434f5757570e84a7cde">ACCESS_RO</a> = 3</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#ac03c7d668d625ec77a7b6582080ed85a">DIR_I</a> = 1</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a3e0dad394812ee2d34f15bf06f81a1ec">DIR_O</a> = 2</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a873a8e4c9f2f90f0dfcfecb466f06880">DIR_IO</a> = 3</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#aba08e17b8ebdbc99013c903ae1dae8f5">FLAG_CONFIG</a> = 0x01</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a19557e35e18aec87132b305afd79a67a">FLAG_INDEX</a> = 0x02</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a0c9fa1b2f3353fd8be094d51a21ebf87">FLAG_END</a> = 0x80</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a6fd07b5a2ae327dbd190d0c28fd48f8e">CLASS_KIND_TABLE</a> = 1</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00201.html#a6e4f9a9feb036af2d4ac95352da22188">CLASS_KIND_EVENT</a> = 2</td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a0abbd2ddc23836b8ac6fbdd4b34ed992"></a><!-- doxytag: member="qpid::management::ManagementItem::~ManagementItem" ref="a0abbd2ddc23836b8ac6fbdd4b34ed992" args="()" -->
+<hr/><h2>Member Typedef Documentation</h2>
+<a class="anchor" id="ad7c8a4efa36a1285c1f75e48efe4ac88"></a><!-- doxytag: member="qpid::management::ManagementEvent::writeSchemaCall_t" ref="ad7c8a4efa36a1285c1f75e48efe4ac88" args=")(std::string &amp;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual qpid::management::ManagementItem::~ManagementItem </td>
+          <td class="memname">typedef void(* <a class="el" href="a00200.html#ad7c8a4efa36a1285c1f75e48efe4ac88">qpid::management::ManagementEvent::writeSchemaCall_t</a>)(<a class="el" href="a00346.html">std::string</a> &amp;)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00539_source.html#l00038">38</a> of file <a class="el" href="a00539_source.html">ManagementEvent.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="af19a5613ae434686086cd7fb57fc4cdb"></a><!-- doxytag: member="qpid::management::ManagementEvent::~ManagementEvent" ref="af19a5613ae434686086cd7fb57fc4cdb" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual qpid::management::ManagementEvent::~ManagementEvent </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [inline, virtual]</code></td>
@@ -130,463 +158,594 @@ Static Public Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00131">131</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00539_source.html#l00039">39</a> of file <a class="el" href="a00539_source.html">ManagementEvent.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a4373ee1759da887f676b2b65fb40feb9"></a><!-- doxytag: member="qpid::management::ManagementEvent::encode" ref="a4373ee1759da887f676b2b65fb40feb9" args="(std::string &amp;) const =0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void qpid::management::ManagementEvent::encode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a15098210370c4cb2842d39a226e04a2e"></a><!-- doxytag: member="qpid::management::ManagementEvent::getEventName" ref="a15098210370c4cb2842d39a226e04a2e" args="() const =0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00346.html">std::string</a>&amp; qpid::management::ManagementEvent::getEventName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a696252473e24756e48abc9241efa0f9e"></a><!-- doxytag: member="qpid::management::ManagementEvent::getMd5Sum" ref="a696252473e24756e48abc9241efa0f9e" args="() const =0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* qpid::management::ManagementEvent::getMd5Sum </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a71c3717bef680f5a7543b738f1b8226b"></a><!-- doxytag: member="qpid::management::ManagementEvent::getPackageName" ref="a71c3717bef680f5a7543b738f1b8226b" args="() const =0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00346.html">std::string</a>&amp; qpid::management::ManagementEvent::getPackageName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab0166fe27082618ea7000b6ec4f743ba"></a><!-- doxytag: member="qpid::management::ManagementEvent::getSeverity" ref="ab0166fe27082618ea7000b6ec4f743ba" args="() const =0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> qpid::management::ManagementEvent::getSeverity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa94540fea95d78e8dca2ce8e10c6b16e"></a><!-- doxytag: member="qpid::management::ManagementEvent::getWriteSchemaCall" ref="aa94540fea95d78e8dca2ce8e10c6b16e" args="(void)=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00200.html#ad7c8a4efa36a1285c1f75e48efe4ac88">writeSchemaCall_t</a> qpid::management::ManagementEvent::getWriteSchemaCall </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4b2239112ae62564d87321e810e63b26"></a><!-- doxytag: member="qpid::management::ManagementEvent::mapEncode" ref="a4b2239112ae62564d87321e810e63b26" args="(qpid::types::Variant::Map &amp;) const =0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void qpid::management::ManagementEvent::mapEncode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="af88765df78374dc3e86249bf57e6a1a0"></a><!-- doxytag: member="qpid::management::ManagementItem::ACCESS_RC" ref="af88765df78374dc3e86249bf57e6a1a0" args="" -->
+<a class="anchor" id="af88765df78374dc3e86249bf57e6a1a0"></a><!-- doxytag: member="qpid::management::ManagementEvent::ACCESS_RC" ref="af88765df78374dc3e86249bf57e6a1a0" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#af88765df78374dc3e86249bf57e6a1a0">qpid::management::ManagementItem::ACCESS_RC</a> = 1<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#af88765df78374dc3e86249bf57e6a1a0">qpid::management::ManagementItem::ACCESS_RC</a> = 1<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00113">113</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00113">113</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="acb3834b6aa774434f5757570e84a7cde"></a><!-- doxytag: member="qpid::management::ManagementItem::ACCESS_RO" ref="acb3834b6aa774434f5757570e84a7cde" args="" -->
+<a class="anchor" id="acb3834b6aa774434f5757570e84a7cde"></a><!-- doxytag: member="qpid::management::ManagementEvent::ACCESS_RO" ref="acb3834b6aa774434f5757570e84a7cde" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#acb3834b6aa774434f5757570e84a7cde">qpid::management::ManagementItem::ACCESS_RO</a> = 3<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#acb3834b6aa774434f5757570e84a7cde">qpid::management::ManagementItem::ACCESS_RO</a> = 3<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00115">115</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00115">115</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="acaa9362ed3b1c044728ad6e46aefbc73"></a><!-- doxytag: member="qpid::management::ManagementItem::ACCESS_RW" ref="acaa9362ed3b1c044728ad6e46aefbc73" args="" -->
+<a class="anchor" id="acaa9362ed3b1c044728ad6e46aefbc73"></a><!-- doxytag: member="qpid::management::ManagementEvent::ACCESS_RW" ref="acaa9362ed3b1c044728ad6e46aefbc73" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#acaa9362ed3b1c044728ad6e46aefbc73">qpid::management::ManagementItem::ACCESS_RW</a> = 2<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#acaa9362ed3b1c044728ad6e46aefbc73">qpid::management::ManagementItem::ACCESS_RW</a> = 2<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00114">114</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00114">114</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6e4f9a9feb036af2d4ac95352da22188"></a><!-- doxytag: member="qpid::management::ManagementItem::CLASS_KIND_EVENT" ref="a6e4f9a9feb036af2d4ac95352da22188" args="" -->
+<a class="anchor" id="a6e4f9a9feb036af2d4ac95352da22188"></a><!-- doxytag: member="qpid::management::ManagementEvent::CLASS_KIND_EVENT" ref="a6e4f9a9feb036af2d4ac95352da22188" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a6e4f9a9feb036af2d4ac95352da22188">qpid::management::ManagementItem::CLASS_KIND_EVENT</a> = 2<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a6e4f9a9feb036af2d4ac95352da22188">qpid::management::ManagementItem::CLASS_KIND_EVENT</a> = 2<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00126">126</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00126">126</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6fd07b5a2ae327dbd190d0c28fd48f8e"></a><!-- doxytag: member="qpid::management::ManagementItem::CLASS_KIND_TABLE" ref="a6fd07b5a2ae327dbd190d0c28fd48f8e" args="" -->
+<a class="anchor" id="a6fd07b5a2ae327dbd190d0c28fd48f8e"></a><!-- doxytag: member="qpid::management::ManagementEvent::CLASS_KIND_TABLE" ref="a6fd07b5a2ae327dbd190d0c28fd48f8e" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a6fd07b5a2ae327dbd190d0c28fd48f8e">qpid::management::ManagementItem::CLASS_KIND_TABLE</a> = 1<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a6fd07b5a2ae327dbd190d0c28fd48f8e">qpid::management::ManagementItem::CLASS_KIND_TABLE</a> = 1<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00125">125</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00125">125</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ac03c7d668d625ec77a7b6582080ed85a"></a><!-- doxytag: member="qpid::management::ManagementItem::DIR_I" ref="ac03c7d668d625ec77a7b6582080ed85a" args="" -->
+<a class="anchor" id="ac03c7d668d625ec77a7b6582080ed85a"></a><!-- doxytag: member="qpid::management::ManagementEvent::DIR_I" ref="ac03c7d668d625ec77a7b6582080ed85a" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#ac03c7d668d625ec77a7b6582080ed85a">qpid::management::ManagementItem::DIR_I</a> = 1<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#ac03c7d668d625ec77a7b6582080ed85a">qpid::management::ManagementItem::DIR_I</a> = 1<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00117">117</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00117">117</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a873a8e4c9f2f90f0dfcfecb466f06880"></a><!-- doxytag: member="qpid::management::ManagementItem::DIR_IO" ref="a873a8e4c9f2f90f0dfcfecb466f06880" args="" -->
+<a class="anchor" id="a873a8e4c9f2f90f0dfcfecb466f06880"></a><!-- doxytag: member="qpid::management::ManagementEvent::DIR_IO" ref="a873a8e4c9f2f90f0dfcfecb466f06880" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a873a8e4c9f2f90f0dfcfecb466f06880">qpid::management::ManagementItem::DIR_IO</a> = 3<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a873a8e4c9f2f90f0dfcfecb466f06880">qpid::management::ManagementItem::DIR_IO</a> = 3<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00119">119</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00119">119</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3e0dad394812ee2d34f15bf06f81a1ec"></a><!-- doxytag: member="qpid::management::ManagementItem::DIR_O" ref="a3e0dad394812ee2d34f15bf06f81a1ec" args="" -->
+<a class="anchor" id="a3e0dad394812ee2d34f15bf06f81a1ec"></a><!-- doxytag: member="qpid::management::ManagementEvent::DIR_O" ref="a3e0dad394812ee2d34f15bf06f81a1ec" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a3e0dad394812ee2d34f15bf06f81a1ec">qpid::management::ManagementItem::DIR_O</a> = 2<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a3e0dad394812ee2d34f15bf06f81a1ec">qpid::management::ManagementItem::DIR_O</a> = 2<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00118">118</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00118">118</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aba08e17b8ebdbc99013c903ae1dae8f5"></a><!-- doxytag: member="qpid::management::ManagementItem::FLAG_CONFIG" ref="aba08e17b8ebdbc99013c903ae1dae8f5" args="" -->
+<a class="anchor" id="aba08e17b8ebdbc99013c903ae1dae8f5"></a><!-- doxytag: member="qpid::management::ManagementEvent::FLAG_CONFIG" ref="aba08e17b8ebdbc99013c903ae1dae8f5" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#aba08e17b8ebdbc99013c903ae1dae8f5">qpid::management::ManagementItem::FLAG_CONFIG</a> = 0x01<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#aba08e17b8ebdbc99013c903ae1dae8f5">qpid::management::ManagementItem::FLAG_CONFIG</a> = 0x01<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00121">121</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00121">121</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a0c9fa1b2f3353fd8be094d51a21ebf87"></a><!-- doxytag: member="qpid::management::ManagementItem::FLAG_END" ref="a0c9fa1b2f3353fd8be094d51a21ebf87" args="" -->
+<a class="anchor" id="a0c9fa1b2f3353fd8be094d51a21ebf87"></a><!-- doxytag: member="qpid::management::ManagementEvent::FLAG_END" ref="a0c9fa1b2f3353fd8be094d51a21ebf87" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a0c9fa1b2f3353fd8be094d51a21ebf87">qpid::management::ManagementItem::FLAG_END</a> = 0x80<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a0c9fa1b2f3353fd8be094d51a21ebf87">qpid::management::ManagementItem::FLAG_END</a> = 0x80<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00123">123</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00123">123</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a19557e35e18aec87132b305afd79a67a"></a><!-- doxytag: member="qpid::management::ManagementItem::FLAG_INDEX" ref="a19557e35e18aec87132b305afd79a67a" args="" -->
+<a class="anchor" id="a19557e35e18aec87132b305afd79a67a"></a><!-- doxytag: member="qpid::management::ManagementEvent::FLAG_INDEX" ref="a19557e35e18aec87132b305afd79a67a" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a19557e35e18aec87132b305afd79a67a">qpid::management::ManagementItem::FLAG_INDEX</a> = 0x02<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a19557e35e18aec87132b305afd79a67a">qpid::management::ManagementItem::FLAG_INDEX</a> = 0x02<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00122">122</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00122">122</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1ac1f7b6eda94f5e5d714568eaddd02a"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_ABSTIME" ref="a1ac1f7b6eda94f5e5d714568eaddd02a" args="" -->
+<a class="anchor" id="aff98b0ebb6c2f80ea79f3552a2e1a9dc"></a><!-- doxytag: member="qpid::management::ManagementEvent::MD5_LEN" ref="aff98b0ebb6c2f80ea79f3552a2e1a9dc" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a1ac1f7b6eda94f5e5d714568eaddd02a">qpid::management::ManagementItem::TYPE_ABSTIME</a> = 8<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#aff98b0ebb6c2f80ea79f3552a2e1a9dc">qpid::management::ManagementEvent::MD5_LEN</a> = 16<code> [static]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00099">99</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00539_source.html#l00036">36</a> of file <a class="el" href="a00539_source.html">ManagementEvent.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a5c53fe4759fe304c45731ab6a6b0d15f"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_BOOL" ref="a5c53fe4759fe304c45731ab6a6b0d15f" args="" -->
+<a class="anchor" id="a1ac1f7b6eda94f5e5d714568eaddd02a"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_ABSTIME" ref="a1ac1f7b6eda94f5e5d714568eaddd02a" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a5c53fe4759fe304c45731ab6a6b0d15f">qpid::management::ManagementItem::TYPE_BOOL</a> = 11<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a1ac1f7b6eda94f5e5d714568eaddd02a">qpid::management::ManagementItem::TYPE_ABSTIME</a> = 8<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00102">102</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00099">99</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a02dd138d66aefb1c3546b128c3008916"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_DELTATIME" ref="a02dd138d66aefb1c3546b128c3008916" args="" -->
+<a class="anchor" id="a5c53fe4759fe304c45731ab6a6b0d15f"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_BOOL" ref="a5c53fe4759fe304c45731ab6a6b0d15f" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a02dd138d66aefb1c3546b128c3008916">qpid::management::ManagementItem::TYPE_DELTATIME</a> = 9<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a5c53fe4759fe304c45731ab6a6b0d15f">qpid::management::ManagementItem::TYPE_BOOL</a> = 11<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00100">100</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00102">102</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a025cf0b9c8d3030a7474ec0d8085e22a"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_DOUBLE" ref="a025cf0b9c8d3030a7474ec0d8085e22a" args="" -->
+<a class="anchor" id="a02dd138d66aefb1c3546b128c3008916"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_DELTATIME" ref="a02dd138d66aefb1c3546b128c3008916" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a025cf0b9c8d3030a7474ec0d8085e22a">qpid::management::ManagementItem::TYPE_DOUBLE</a> = 13<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a02dd138d66aefb1c3546b128c3008916">qpid::management::ManagementItem::TYPE_DELTATIME</a> = 9<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00104">104</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00100">100</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a50c88e06345c8d40b8ac024a3e8e540f"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_FLOAT" ref="a50c88e06345c8d40b8ac024a3e8e540f" args="" -->
+<a class="anchor" id="a025cf0b9c8d3030a7474ec0d8085e22a"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_DOUBLE" ref="a025cf0b9c8d3030a7474ec0d8085e22a" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a50c88e06345c8d40b8ac024a3e8e540f">qpid::management::ManagementItem::TYPE_FLOAT</a> = 12<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a025cf0b9c8d3030a7474ec0d8085e22a">qpid::management::ManagementItem::TYPE_DOUBLE</a> = 13<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00103">103</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00104">104</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aafc2a333e739dafdb0ef9086caaf4213"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_FTABLE" ref="aafc2a333e739dafdb0ef9086caaf4213" args="" -->
+<a class="anchor" id="a50c88e06345c8d40b8ac024a3e8e540f"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_FLOAT" ref="a50c88e06345c8d40b8ac024a3e8e540f" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#aafc2a333e739dafdb0ef9086caaf4213">qpid::management::ManagementItem::TYPE_FTABLE</a> = 15<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a50c88e06345c8d40b8ac024a3e8e540f">qpid::management::ManagementItem::TYPE_FLOAT</a> = 12<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00106">106</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00103">103</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a35557d9e999eec0ed51a2437d8abdf54"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_LIST" ref="a35557d9e999eec0ed51a2437d8abdf54" args="" -->
+<a class="anchor" id="aafc2a333e739dafdb0ef9086caaf4213"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_FTABLE" ref="aafc2a333e739dafdb0ef9086caaf4213" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a35557d9e999eec0ed51a2437d8abdf54">qpid::management::ManagementItem::TYPE_LIST</a> = 21<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#aafc2a333e739dafdb0ef9086caaf4213">qpid::management::ManagementItem::TYPE_FTABLE</a> = 15<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00111">111</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00106">106</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a414f9c1db80e4748134684e7f65ff322"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_LSTR" ref="a414f9c1db80e4748134684e7f65ff322" args="" -->
+<a class="anchor" id="a35557d9e999eec0ed51a2437d8abdf54"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_LIST" ref="a35557d9e999eec0ed51a2437d8abdf54" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a414f9c1db80e4748134684e7f65ff322">qpid::management::ManagementItem::TYPE_LSTR</a> = 7<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a35557d9e999eec0ed51a2437d8abdf54">qpid::management::ManagementItem::TYPE_LIST</a> = 21<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00098">98</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00111">111</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a32fc7353e3255d9b4c5b8a45dfb0f771"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_REF" ref="a32fc7353e3255d9b4c5b8a45dfb0f771" args="" -->
+<a class="anchor" id="a414f9c1db80e4748134684e7f65ff322"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_LSTR" ref="a414f9c1db80e4748134684e7f65ff322" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a32fc7353e3255d9b4c5b8a45dfb0f771">qpid::management::ManagementItem::TYPE_REF</a> = 10<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a414f9c1db80e4748134684e7f65ff322">qpid::management::ManagementItem::TYPE_LSTR</a> = 7<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00101">101</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00098">98</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a911492576a26f7f795c8926f9b2ebd21"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_S16" ref="a911492576a26f7f795c8926f9b2ebd21" args="" -->
+<a class="anchor" id="a32fc7353e3255d9b4c5b8a45dfb0f771"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_REF" ref="a32fc7353e3255d9b4c5b8a45dfb0f771" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a911492576a26f7f795c8926f9b2ebd21">qpid::management::ManagementItem::TYPE_S16</a> = 17<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a32fc7353e3255d9b4c5b8a45dfb0f771">qpid::management::ManagementItem::TYPE_REF</a> = 10<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00108">108</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00101">101</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a173728b03bbe9f4ebb30ce29462ef74a"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_S32" ref="a173728b03bbe9f4ebb30ce29462ef74a" args="" -->
+<a class="anchor" id="a911492576a26f7f795c8926f9b2ebd21"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_S16" ref="a911492576a26f7f795c8926f9b2ebd21" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a173728b03bbe9f4ebb30ce29462ef74a">qpid::management::ManagementItem::TYPE_S32</a> = 18<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a911492576a26f7f795c8926f9b2ebd21">qpid::management::ManagementItem::TYPE_S16</a> = 17<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00109">109</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00108">108</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a11e1ec88242fcede6e5d1484a129434e"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_S64" ref="a11e1ec88242fcede6e5d1484a129434e" args="" -->
+<a class="anchor" id="a173728b03bbe9f4ebb30ce29462ef74a"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_S32" ref="a173728b03bbe9f4ebb30ce29462ef74a" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a11e1ec88242fcede6e5d1484a129434e">qpid::management::ManagementItem::TYPE_S64</a> = 19<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a173728b03bbe9f4ebb30ce29462ef74a">qpid::management::ManagementItem::TYPE_S32</a> = 18<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00110">110</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00109">109</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2bcd55d61202efbb7ab9158fe7299d54"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_S8" ref="a2bcd55d61202efbb7ab9158fe7299d54" args="" -->
+<a class="anchor" id="a11e1ec88242fcede6e5d1484a129434e"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_S64" ref="a11e1ec88242fcede6e5d1484a129434e" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a2bcd55d61202efbb7ab9158fe7299d54">qpid::management::ManagementItem::TYPE_S8</a> = 16<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a11e1ec88242fcede6e5d1484a129434e">qpid::management::ManagementItem::TYPE_S64</a> = 19<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00107">107</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00110">110</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2d04ed6b892bdc8c90f0444295226c95"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_SSTR" ref="a2d04ed6b892bdc8c90f0444295226c95" args="" -->
+<a class="anchor" id="a2bcd55d61202efbb7ab9158fe7299d54"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_S8" ref="a2bcd55d61202efbb7ab9158fe7299d54" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a2d04ed6b892bdc8c90f0444295226c95">qpid::management::ManagementItem::TYPE_SSTR</a> = 6<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a2bcd55d61202efbb7ab9158fe7299d54">qpid::management::ManagementItem::TYPE_S8</a> = 16<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00097">97</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00107">107</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aad710349e8c4a555b4f851f0dd14aa72"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_U16" ref="aad710349e8c4a555b4f851f0dd14aa72" args="" -->
+<a class="anchor" id="a2d04ed6b892bdc8c90f0444295226c95"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_SSTR" ref="a2d04ed6b892bdc8c90f0444295226c95" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#aad710349e8c4a555b4f851f0dd14aa72">qpid::management::ManagementItem::TYPE_U16</a> = 2<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a2d04ed6b892bdc8c90f0444295226c95">qpid::management::ManagementItem::TYPE_SSTR</a> = 6<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00094">94</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00097">97</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a8eeb15d7ed85b6bdba25004992780ca8"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_U32" ref="a8eeb15d7ed85b6bdba25004992780ca8" args="" -->
+<a class="anchor" id="aad710349e8c4a555b4f851f0dd14aa72"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_U16" ref="aad710349e8c4a555b4f851f0dd14aa72" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a8eeb15d7ed85b6bdba25004992780ca8">qpid::management::ManagementItem::TYPE_U32</a> = 3<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#aad710349e8c4a555b4f851f0dd14aa72">qpid::management::ManagementItem::TYPE_U16</a> = 2<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00095">95</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00094">94</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a66c1403c61072e9b527a0a7f29e68305"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_U64" ref="a66c1403c61072e9b527a0a7f29e68305" args="" -->
+<a class="anchor" id="a8eeb15d7ed85b6bdba25004992780ca8"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_U32" ref="a8eeb15d7ed85b6bdba25004992780ca8" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a66c1403c61072e9b527a0a7f29e68305">qpid::management::ManagementItem::TYPE_U64</a> = 4<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a8eeb15d7ed85b6bdba25004992780ca8">qpid::management::ManagementItem::TYPE_U32</a> = 3<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00096">96</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00095">95</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a3ed17a93c80c0b71ab71fc8fe66eacec"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_U8" ref="a3ed17a93c80c0b71ab71fc8fe66eacec" args="" -->
+<a class="anchor" id="a66c1403c61072e9b527a0a7f29e68305"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_U64" ref="a66c1403c61072e9b527a0a7f29e68305" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a3ed17a93c80c0b71ab71fc8fe66eacec">qpid::management::ManagementItem::TYPE_U8</a> = 1<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a66c1403c61072e9b527a0a7f29e68305">qpid::management::ManagementItem::TYPE_U64</a> = 4<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00093">93</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00096">96</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a39194ced1d85391148c62114af1f0bea"></a><!-- doxytag: member="qpid::management::ManagementItem::TYPE_UUID" ref="a39194ced1d85391148c62114af1f0bea" args="" -->
+<a class="anchor" id="a3ed17a93c80c0b71ab71fc8fe66eacec"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_U8" ref="a3ed17a93c80c0b71ab71fc8fe66eacec" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00200.html#a39194ced1d85391148c62114af1f0bea">qpid::management::ManagementItem::TYPE_UUID</a> = 14<code> [static]</code></td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a3ed17a93c80c0b71ab71fc8fe66eacec">qpid::management::ManagementItem::TYPE_U8</a> = 1<code> [static, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00538_source.html#l00105">105</a> of file <a class="el" href="a00538_source.html">ManagementObject.h</a>.</p>
+<p>Definition at line <a class="el" href="a00540_source.html#l00093">93</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a39194ced1d85391148c62114af1f0bea"></a><!-- doxytag: member="qpid::management::ManagementEvent::TYPE_UUID" ref="a39194ced1d85391148c62114af1f0bea" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="el" href="a00201.html#a39194ced1d85391148c62114af1f0bea">qpid::management::ManagementItem::TYPE_UUID</a> = 14<code> [static, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00540_source.html#l00105">105</a> of file <a class="el" href="a00540_source.html">ManagementObject.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/management/<a class="el" href="a00538_source.html">ManagementObject.h</a></li>
+<li>qpid/management/<a class="el" href="a00539_source.html">ManagementEvent.h</a></li>
 </ul>
 </div>
 <!--
@@ -616,7 +775,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::client::arg Namespace Reference</title>
+    <title>qpid::amqp_0_10 Namespace Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,17 +58,126 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00576.html">client</a>      </li>
-      <li class="navelem"><a class="el" href="a00577.html">arg</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00577.html">amqp_0_10</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::client::arg Namespace Reference</div>  </div>
+<div class="title">qpid::amqp_0_10 Namespace Reference</div>  </div>
 </div>
 <div class="contents">
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00204.html">MapCodec</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Codec for encoding/decoding a map of Variants using the AMQP 0-10 map encoding.  <a href="a00204.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00192.html">ListCodec</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Codec for encoding/decoding a list of Variants using the AMQP 0-10 list encoding.  <a href="a00192.html#details">More...</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00577.html#a0a9eabd8b904d29a29cf7fabaa3cbe4e">translate</a> (const <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;from, <a class="el" href="a00125.html">qpid::framing::FieldTable</a> &amp;to)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00577.html#a4f4c5ffb59bc3bde141cb53050f909e7">translate</a> (const <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;from, const <a class="el" href="a00346.html">std::string</a> &amp;efield, const <a class="el" href="a00386.html">qpid::types::Variant</a> &amp;evalue, <a class="el" href="a00125.html">qpid::framing::FieldTable</a> &amp;to)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00577.html#ab4eabc93bb268b8b17737c29afb5249c">translate</a> (const <a class="el" href="a00125.html">qpid::framing::FieldTable</a> &amp;from, <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;to)</td></tr>
+</table>
+<hr/><h2>Function Documentation</h2>
+<a class="anchor" id="a0a9eabd8b904d29a29cf7fabaa3cbe4e"></a><!-- doxytag: member="qpid::amqp_0_10::translate" ref="a0a9eabd8b904d29a29cf7fabaa3cbe4e" args="(const qpid::types::Variant::Map &amp;from, qpid::framing::FieldTable &amp;to)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::amqp_0_10::translate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00125.html">qpid::framing::FieldTable</a> &amp;&#160;</td>
+          <td class="paramname"><em>to</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4f4c5ffb59bc3bde141cb53050f909e7"></a><!-- doxytag: member="qpid::amqp_0_10::translate" ref="a4f4c5ffb59bc3bde141cb53050f909e7" args="(const qpid::types::Variant::Map &amp;from, const std::string &amp;efield, const qpid::types::Variant &amp;evalue, qpid::framing::FieldTable &amp;to)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::amqp_0_10::translate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>efield</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00386.html">qpid::types::Variant</a> &amp;&#160;</td>
+          <td class="paramname"><em>evalue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00125.html">qpid::framing::FieldTable</a> &amp;&#160;</td>
+          <td class="paramname"><em>to</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab4eabc93bb268b8b17737c29afb5249c"></a><!-- doxytag: member="qpid::amqp_0_10::translate" ref="ab4eabc93bb268b8b17737c29afb5249c" args="(const qpid::framing::FieldTable &amp;from, qpid::types::Variant::Map &amp;to)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::amqp_0_10::translate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00125.html">qpid::framing::FieldTable</a> &amp;&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;&#160;</td>
+          <td class="paramname"><em>to</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
 </div>
 <!--
  
@@ -97,7 +206,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

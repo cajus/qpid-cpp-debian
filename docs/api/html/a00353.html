@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::client::SubscriptionSettings Struct Reference</title>
+    <title>qpid::client::SubscriptionManager Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,208 +60,1073 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00576.html">client</a>      </li>
-      <li class="navelem"><a class="el" href="a00353.html">SubscriptionSettings</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00353.html">SubscriptionManager</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a>  </div>
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::client::SubscriptionSettings Struct Reference</div>  </div>
+<div class="title">qpid::client::SubscriptionManager Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::client::SubscriptionSettings" -->
-<p>Settings for a subscription.  
+<!-- doxytag: class="qpid::client::SubscriptionManager" --><!-- doxytag: inherits="qpid::sys::Runnable,Handle&lt; SubscriptionManagerImpl &gt;" -->
+<p>A class to help create and manage subscriptions.  
  <a href="a00353.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00480_source.html">qpid/client/SubscriptionSettings.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00481_source.html">qpid/client/SubscriptionManager.h</a>&gt;</code></p>
 
 <p><a href="a00701.html">List of all members.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef boost::function0&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00294.html#ae6dd30caad64962b36e826fb505cc626">Functor</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Type to represent a runnable as a Functor.  <a href="#ae6dd30caad64962b36e826fb505cc626"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a980c973a01509fa5e7a1e5ef8e658dfb">SubscriptionSettings</a> (<a class="el" href="a00132.html">FlowControl</a> flow=FlowControl::unlimited(), <a class="el" href="a00586.html#a8d6ab87d62f2c2f1136e10f0a200f436">AcceptMode</a> accept=ACCEPT_MODE_EXPLICIT, <a class="el" href="a00586.html#ad010ae646e0187e26e02b829e77213d8">AcquireMode</a> acquire=ACQUIRE_MODE_PRE_ACQUIRED, unsigned int autoAck_=1, <a class="el" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8">CompletionMode</a> completion=COMPLETE_ON_DELIVERY)</td></tr>
-<tr><td colspan="2"><h2><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00132.html">FlowControl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a66b49dcd06ffd6edce7d131b2dcc8c26">flowControl</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00586.html#a8d6ab87d62f2c2f1136e10f0a200f436">AcceptMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a4b0f5918418310aa290e55acd7791db0">acceptMode</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Flow control settings.  <a href="#a4b0f5918418310aa290e55acd7791db0"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00586.html#ad010ae646e0187e26e02b829e77213d8">AcquireMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a17a595e878e283a7cd53d7f7133928f7">acquireMode</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; ACCEPT_MODE_EXPLICIT or ACCEPT_MODE_NONE  <a href="#a17a595e878e283a7cd53d7f7133928f7"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#abd5ab65d583da00e88a26d99e29a04bc">autoAck</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; ACQUIRE_MODE_PRE_ACQUIRED or ACQUIRE_MODE_NOT_ACQUIRED  <a href="#abd5ab65d583da00e88a26d99e29a04bc"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8">CompletionMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a17c7f3ad2e7d1cfd9b215659c9eab282">completionMode</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">In windowing mode, completion of a message will cause the credit used up by that message to be reallocated.  <a href="#a17c7f3ad2e7d1cfd9b215659c9eab282"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a22c04055189b60293c371d9ef7496222">exclusive</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">If set, requests that no other subscriber be allowed to access the queue while this subscription is active.  <a href="#a22c04055189b60293c371d9ef7496222"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a78dd4e6d2640ed606509526b3a5e6bb6">SubscriptionManager</a> (const <a class="el" href="a00578.html#aa15500ce0ba4cea17f4226bebe584a67">Session</a> &amp;session)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a new <a class="el" href="a00353.html" title="A class to help create and manage subscriptions.">SubscriptionManager</a> associated with a session.  <a href="#a78dd4e6d2640ed606509526b3a5e6bb6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a5bffe0d743799364742b2e4368aac773">SubscriptionManager</a> (const <a class="el" href="a00353.html">SubscriptionManager</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a0f4f1e9e1d4ac81cf2e648558714fd91">~SubscriptionManager</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00353.html">SubscriptionManager</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a546263fd742abbf0a0e8f644e7128f4f">operator=</a> (const <a class="el" href="a00353.html">SubscriptionManager</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00351.html">Subscription</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#ac41a60dbeb349ffce22e813dffed5d69">subscribe</a> (<a class="el" href="a00210.html">MessageListener</a> &amp;listener, const <a class="el" href="a00346.html">std::string</a> &amp;queue, const <a class="el" href="a00354.html">SubscriptionSettings</a> &amp;settings, const <a class="el" href="a00346.html">std::string</a> &amp;name=<a class="el" href="a00346.html">std::string</a>())</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribe a MessagesListener to receive messages from queue.  <a href="#ac41a60dbeb349ffce22e813dffed5d69"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00351.html">Subscription</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#aad83778a5c45da818a912a0559012b03">subscribe</a> (<a class="el" href="a00194.html">LocalQueue</a> &amp;localQueue, const <a class="el" href="a00346.html">std::string</a> &amp;queue, const <a class="el" href="a00354.html">SubscriptionSettings</a> &amp;settings, const <a class="el" href="a00346.html">std::string</a> &amp;name=<a class="el" href="a00346.html">std::string</a>())</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribe a <a class="el" href="a00194.html" title="A local queue to collect messages retrieved from a remote broker queue.">LocalQueue</a> to receive messages from queue.  <a href="#aad83778a5c45da818a912a0559012b03"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00351.html">Subscription</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a0e45dca9a771599bb8c7bb9c2a333f95">subscribe</a> (<a class="el" href="a00210.html">MessageListener</a> &amp;listener, const <a class="el" href="a00346.html">std::string</a> &amp;queue, const <a class="el" href="a00346.html">std::string</a> &amp;name=<a class="el" href="a00346.html">std::string</a>())</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribe a MessagesListener to receive messages from queue.  <a href="#a0e45dca9a771599bb8c7bb9c2a333f95"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00351.html">Subscription</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a43294983754db870de655edb09abb825">subscribe</a> (<a class="el" href="a00194.html">LocalQueue</a> &amp;localQueue, const <a class="el" href="a00346.html">std::string</a> &amp;queue, const <a class="el" href="a00346.html">std::string</a> &amp;name=<a class="el" href="a00346.html">std::string</a>())</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribe a <a class="el" href="a00194.html" title="A local queue to collect messages retrieved from a remote broker queue.">LocalQueue</a> to receive messages from queue.  <a href="#a43294983754db870de655edb09abb825"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#ad8fe58735bd338d31104098cc599e017">get</a> (<a class="el" href="a00208.html">Message</a> &amp;result, const <a class="el" href="a00346.html">std::string</a> &amp;queue, <a class="el" href="a00105.html">sys::Duration</a> timeout=0)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a single message from a queue.  <a href="#ad8fe58735bd338d31104098cc599e017"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00208.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a8c8d38404b4d20e4d5334675ee0f4189">get</a> (const <a class="el" href="a00346.html">std::string</a> &amp;queue, <a class="el" href="a00105.html">sys::Duration</a> timeout=<a class="el" href="a00594.html#a3aa132e281f66ba27d5fd25d71043bc0">sys::TIME_INFINITE</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a single message from a queue.  <a href="#a8c8d38404b4d20e4d5334675ee0f4189"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00351.html">Subscription</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#af866bde034050419b5a878d66b517b6e">getSubscription</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a subscription by name.  <a href="#af866bde034050419b5a878d66b517b6e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a19456563d46238188411e934aa403f51">cancel</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancel a subscription.  <a href="#a19456563d46238188411e934aa403f51"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a58bd72dee8a3386f2ac29d46b65381b9">run</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Deliver messages in the current thread until <a class="el" href="a00353.html#a1be6e1a70d3ce23d069d320eabd772c5" title="Stop delivery.">stop()</a> is called.  <a href="#a58bd72dee8a3386f2ac29d46b65381b9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a4ca1c748acd9a90d81bd16b460b044ff">start</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Start a new thread to deliver messages.  <a href="#a4ca1c748acd9a90d81bd16b460b044ff"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a88da27bc4cfb4ecb538437b261da3471">wait</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for the thread started by a call to <a class="el" href="a00353.html#a4ca1c748acd9a90d81bd16b460b044ff" title="Start a new thread to deliver messages.">start()</a> to complete.  <a href="#a88da27bc4cfb4ecb538437b261da3471"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a6917791ac9c6dd618e895ee654c8ad9d">setAutoStop</a> (bool set=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">If set true, <a class="el" href="a00353.html#a58bd72dee8a3386f2ac29d46b65381b9" title="Deliver messages in the current thread until stop() is called.">run()</a> will stop when all subscriptions are cancelled.  <a href="#a6917791ac9c6dd618e895ee654c8ad9d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a1be6e1a70d3ce23d069d320eabd772c5">stop</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop delivery.  <a href="#a1be6e1a70d3ce23d069d320eabd772c5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a7dbc0d2242f7dee83693f7ef383cdfe2">setFlowControl</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name, const <a class="el" href="a00134.html">FlowControl</a> &amp;flow)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the flow control for a subscription.  <a href="#a7dbc0d2242f7dee83693f7ef383cdfe2"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a9a7a30637ea8808ea4dbd02123957dfc">setFlowControl</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name, <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> messages, <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> bytes, bool window=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the flow control for a subscription.  <a href="#a9a7a30637ea8808ea4dbd02123957dfc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a003f532256bc6d06c29825db1831a60d">setDefaultSettings</a> (const <a class="el" href="a00354.html">SubscriptionSettings</a> &amp;s)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the default settings for <a class="el" href="a00353.html#ac41a60dbeb349ffce22e813dffed5d69" title="Subscribe a MessagesListener to receive messages from queue.">subscribe()</a> calls that don't include a <a class="el" href="a00354.html" title="Settings for a subscription.">SubscriptionSettings</a> parameter.  <a href="#a003f532256bc6d06c29825db1831a60d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00354.html">SubscriptionSettings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#af84f04419a9bcc2d7bdb2b12a49cfaff">getDefaultSettings</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the default settings for <a class="el" href="a00353.html#ac41a60dbeb349ffce22e813dffed5d69" title="Subscribe a MessagesListener to receive messages from queue.">subscribe()</a> calls that don't include a <a class="el" href="a00354.html" title="Settings for a subscription.">SubscriptionSettings</a> parameter.  <a href="#af84f04419a9bcc2d7bdb2b12a49cfaff"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00354.html">SubscriptionSettings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a9ed3fedf882bab741e804f1a87ae3ecf">getDefaultSettings</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the default settings for <a class="el" href="a00353.html#ac41a60dbeb349ffce22e813dffed5d69" title="Subscribe a MessagesListener to receive messages from queue.">subscribe()</a> calls that don't include a <a class="el" href="a00354.html" title="Settings for a subscription.">SubscriptionSettings</a> parameter.  <a href="#a9ed3fedf882bab741e804f1a87ae3ecf"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a50948592cebb3e66eac303092ab2cd9f">setFlowControl</a> (<a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> messages, <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> bytes, bool window=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the default flow control settings for <a class="el" href="a00353.html#ac41a60dbeb349ffce22e813dffed5d69" title="Subscribe a MessagesListener to receive messages from queue.">subscribe()</a> calls that don't include a <a class="el" href="a00354.html" title="Settings for a subscription.">SubscriptionSettings</a> parameter.  <a href="#a50948592cebb3e66eac303092ab2cd9f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a5e760078a23a5617bdcdbec8d91be128">setAcceptMode</a> (AcceptMode mode)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the default accept-mode for <a class="el" href="a00353.html#ac41a60dbeb349ffce22e813dffed5d69" title="Subscribe a MessagesListener to receive messages from queue.">subscribe()</a> calls that don't include a <a class="el" href="a00354.html" title="Settings for a subscription.">SubscriptionSettings</a> parameter.  <a href="#a5e760078a23a5617bdcdbec8d91be128"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a7aafea3fcc8043a1fe663f1ab74c9912">setAcquireMode</a> (AcquireMode mode)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the default acquire-mode <a class="el" href="a00353.html#ac41a60dbeb349ffce22e813dffed5d69" title="Subscribe a MessagesListener to receive messages from queue.">subscribe()</a>s that don't specify <a class="el" href="a00354.html" title="Settings for a subscription.">SubscriptionSettings</a>.  <a href="#a7aafea3fcc8043a1fe663f1ab74c9912"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a2ba66e4bc870e20846a1c1060a64440f">registerFailoverHandler</a> (boost::function&lt; void()&gt; fh)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00578.html#aa15500ce0ba4cea17f4226bebe584a67">Session</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a36139f6dacf4d4f06ecab3478a89ded4">getSession</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a3774ac1bd472612208f4412dfa62bee4">SubscriptionManager</a> (SubscriptionManagerImpl *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00294.html#ae6dd30caad64962b36e826fb505cc626">Functor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00294.html#ac0af11e62e346d8295ddb9ee40620eb0">functor</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a functor object that will call this-&gt;<a class="el" href="a00294.html#a8c8296f61a69c142ad7afecca2578ea1" title="Derived classes override run().">run()</a>.  <a href="#ac0af11e62e346d8295ddb9ee40620eb0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a57379e651d725b0f73edcb714e9efbc7">isValid</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#ae6f5dd2c23bdf3016f4afcd32057b9c5">isNull</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a00461424a31faee8e158a6502a014c3d">operator bool</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to bool supports idiom if (handle) { handle-&gt;...  <a href="#a00461424a31faee8e158a6502a014c3d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a6e69e13fa5ed709abebdbf6868b5eff4">operator!</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }.  <a href="#a6e69e13fa5ed709abebdbf6868b5eff4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a5092920190f6ad01c851996395cf33b5">swap</a> (<a class="el" href="a00142.html">Handle</a>&lt; T &gt; &amp;h)</td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html#a46cf43909ca6249e181e89d301f264a1">UNLIMITED</a> = 0xFFFFFFFF</td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">Impl *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#adf6d72d2a888cabcd0b60178419aad59">impl</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Settings for a subscription. </p>
-</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a980c973a01509fa5e7a1e5ef8e658dfb"></a><!-- doxytag: member="qpid::client::SubscriptionSettings::SubscriptionSettings" ref="a980c973a01509fa5e7a1e5ef8e658dfb" args="(FlowControl flow=FlowControl::unlimited(), AcceptMode accept=ACCEPT_MODE_EXPLICIT, AcquireMode acquire=ACQUIRE_MODE_PRE_ACQUIRED, unsigned int autoAck_=1, CompletionMode completion=COMPLETE_ON_DELIVERY)" -->
+<div class="textblock"><p>A class to help create and manage subscriptions. </p>
+<p>Set up your subscriptions, then call <a class="el" href="a00353.html#a58bd72dee8a3386f2ac29d46b65381b9" title="Deliver messages in the current thread until stop() is called.">run()</a> to have messages delivered.</p>
+<h2>Subscribing and canceling subscriptions</h2>
+<ul>
+<li>
+<p class="startli"></p>
+<p class="endli"><a class="el" href="a00353.html#ac41a60dbeb349ffce22e813dffed5d69" title="Subscribe a MessagesListener to receive messages from queue.">subscribe()</a> </p>
+<pre> <a class="el" href="a00353.html" title="A class to help create and manage subscriptions.">SubscriptionManager</a> subscriptions(session);
+ Listener listener(subscriptions);
+ subscriptions.subscribe(listener, myQueue);</pre> <pre> <a class="el" href="a00353.html" title="A class to help create and manage subscriptions.">SubscriptionManager</a> subscriptions(session);
+ <a class="el" href="a00194.html" title="A local queue to collect messages retrieved from a remote broker queue.">LocalQueue</a> local_queue;
+ subscriptions.subscribe(local_queue, string("message_queue"));</pre> </li>
+<li>
+<p class="startli"></p>
+<p class="endli"><a class="el" href="a00353.html#a19456563d46238188411e934aa403f51" title="Cancel a subscription.">cancel()</a> </p>
+<pre>subscriptions.cancel();</pre> </li>
+</ul>
+<h2>Waiting for messages (and returning)</h2>
+<ul>
+<li>
+<p class="startli"></p>
+<p class="endli"><a class="el" href="a00353.html#a58bd72dee8a3386f2ac29d46b65381b9" title="Deliver messages in the current thread until stop() is called.">run()</a> </p>
+<pre> // Give up control to receive messages
+ subscriptions.run();</pre> </li>
+<li>
+<p class="startli"></p>
+<p class="endli"><a class="el" href="a00353.html#a1be6e1a70d3ce23d069d320eabd772c5" title="Stop delivery.">stop()</a> </p>
+<pre>.// Use this code in a listener to return from <a class="el" href="a00353.html#a58bd72dee8a3386f2ac29d46b65381b9" title="Deliver messages in the current thread until stop() is called.">run()</a>
+ subscriptions.stop();</pre> </li>
+<li>
+<p class="startli"></p>
+<p class="endli"><a class="el" href="a00353.html#a6917791ac9c6dd618e895ee654c8ad9d" title="If set true, run() will stop when all subscriptions are cancelled.">setAutoStop()</a> </p>
+<pre>.// Return from subscriptions.run() when last subscription is cancelled
+.subscriptions.setAutoStop(true);
+.subscriptons.run();
+ </pre> </li>
+<li>
+<p class="startli"></p>
+<p>Ending a subscription in a listener </p>
+<pre>
+ void Listener::received(<a class="el" href="a00208.html" title="A message sent to or received from the broker.">Message</a>&amp; message) {</pre><pre>  if (message.getData() == "That's all, folks!") {
+       subscriptions.cancel(message.getDestination());
+   }
+ }
+ </pre>  </li>
+</ul>
+</div><hr/><h2>Member Typedef Documentation</h2>
+<a class="anchor" id="ae6dd30caad64962b36e826fb505cc626"></a><!-- doxytag: member="qpid::client::SubscriptionManager::Functor" ref="ae6dd30caad64962b36e826fb505cc626" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::client::SubscriptionSettings::SubscriptionSettings </td>
+          <td class="memname">typedef boost::function0&lt;void&gt; <a class="el" href="a00294.html#ae6dd30caad64962b36e826fb505cc626">qpid::sys::Runnable::Functor</a><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Type to represent a runnable as a Functor. </p>
+
+<p>Definition at line <a class="el" href="a00567_source.html#l00037">37</a> of file <a class="el" href="a00567_source.html">Runnable.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a78dd4e6d2640ed606509526b3a5e6bb6"></a><!-- doxytag: member="qpid::client::SubscriptionManager::SubscriptionManager" ref="a78dd4e6d2640ed606509526b3a5e6bb6" args="(const Session &amp;session)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::client::SubscriptionManager::SubscriptionManager </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00132.html">FlowControl</a>&#160;</td>
-          <td class="paramname"><em>flow</em> = <code>FlowControl::unlimited()</code>, </td>
+          <td class="paramtype">const <a class="el" href="a00578.html#aa15500ce0ba4cea17f4226bebe584a67">Session</a> &amp;&#160;</td>
+          <td class="paramname"><em>session</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Create a new <a class="el" href="a00353.html" title="A class to help create and manage subscriptions.">SubscriptionManager</a> associated with a session. </p>
+
+</div>
+</div>
+<a class="anchor" id="a5bffe0d743799364742b2e4368aac773"></a><!-- doxytag: member="qpid::client::SubscriptionManager::SubscriptionManager" ref="a5bffe0d743799364742b2e4368aac773" args="(const SubscriptionManager &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::client::SubscriptionManager::SubscriptionManager </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00353.html">SubscriptionManager</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0f4f1e9e1d4ac81cf2e648558714fd91"></a><!-- doxytag: member="qpid::client::SubscriptionManager::~SubscriptionManager" ref="a0f4f1e9e1d4ac81cf2e648558714fd91" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::client::SubscriptionManager::~SubscriptionManager </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3774ac1bd472612208f4412dfa62bee4"></a><!-- doxytag: member="qpid::client::SubscriptionManager::SubscriptionManager" ref="a3774ac1bd472612208f4412dfa62bee4" args="(SubscriptionManagerImpl *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::client::SubscriptionManager::SubscriptionManager </td>
+          <td>(</td>
+          <td class="paramtype">SubscriptionManagerImpl *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a19456563d46238188411e934aa403f51"></a><!-- doxytag: member="qpid::client::SubscriptionManager::cancel" ref="a19456563d46238188411e934aa403f51" args="(const std::string &amp;name)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::SubscriptionManager::cancel </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Cancel a subscription. </p>
+<p>See also: <a class="el" href="a00351.html#aa96a865ece4e1276e76ea0a50ff50661" title="Cancel the subscription.">Subscription.cancel()</a> </p>
+
+<p>Referenced by <a class="el" href="a00481_source.html#l00284">qpid::client::AutoCancel::~AutoCancel()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac0af11e62e346d8295ddb9ee40620eb0"></a><!-- doxytag: member="qpid::client::SubscriptionManager::functor" ref="ac0af11e62e346d8295ddb9ee40620eb0" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00294.html#ae6dd30caad64962b36e826fb505cc626">Functor</a> qpid::sys::Runnable::functor </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Create a functor object that will call this-&gt;<a class="el" href="a00294.html#a8c8296f61a69c142ad7afecca2578ea1" title="Derived classes override run().">run()</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad8fe58735bd338d31104098cc599e017"></a><!-- doxytag: member="qpid::client::SubscriptionManager::get" ref="ad8fe58735bd338d31104098cc599e017" args="(Message &amp;result, const std::string &amp;queue, sys::Duration timeout=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::client::SubscriptionManager::get </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00208.html">Message</a> &amp;&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00586.html#a8d6ab87d62f2c2f1136e10f0a200f436">AcceptMode</a>&#160;</td>
-          <td class="paramname"><em>accept</em> = <code>ACCEPT_MODE_EXPLICIT</code>, </td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>queue</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00586.html#ad010ae646e0187e26e02b829e77213d8">AcquireMode</a>&#160;</td>
-          <td class="paramname"><em>acquire</em> = <code>ACQUIRE_MODE_PRE_ACQUIRED</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">unsigned int&#160;</td>
-          <td class="paramname"><em>autoAck_</em> = <code>1</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8">CompletionMode</a>&#160;</td>
-          <td class="paramname"><em>completion</em> = <code>COMPLETE_ON_DELIVERY</code>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00105.html">sys::Duration</a>&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td><code> [inline]</code></td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00480_source.html#l00043">43</a> of file <a class="el" href="a00480_source.html">SubscriptionSettings.h</a>.</p>
+<p>Get a single message from a queue. </p>
+<p>(Note: this currently uses a subscription per invocation and is thus relatively expensive. The subscription is cancelled as part of each call which can trigger auto-deletion). </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">result</td><td>is set to the message from the queue. </td></tr>
+    <tr><td class="paramname">timeout</td><td>wait up this timeout for a message to appear. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>true if result was set, false if no message available after timeout. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8c8d38404b4d20e4d5334675ee0f4189"></a><!-- doxytag: member="qpid::client::SubscriptionManager::get" ref="a8c8d38404b4d20e4d5334675ee0f4189" args="(const std::string &amp;queue, sys::Duration timeout=sys::TIME_INFINITE)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00208.html">Message</a> qpid::client::SubscriptionManager::get </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>queue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00105.html">sys::Duration</a>&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code><a class="el" href="a00594.html#a3aa132e281f66ba27d5fd25d71043bc0">sys::TIME_INFINITE</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get a single message from a queue. </p>
+<p>(Note: this currently uses a subscription per invocation and is thus relatively expensive. The subscription is cancelled as part of each call which can trigger auto-deletion). </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>wait up this timeout for a message to appear. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>message from the queue. </dd></dl>
+<dl><dt><b>Exceptions:</b></dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="a00116.html" title="Base class for Qpid runtime exceptions.">Exception</a></td><td>if the timeout is exceeded. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="af84f04419a9bcc2d7bdb2b12a49cfaff"></a><!-- doxytag: member="qpid::client::SubscriptionManager::getDefaultSettings" ref="af84f04419a9bcc2d7bdb2b12a49cfaff" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00354.html">SubscriptionSettings</a>&amp; qpid::client::SubscriptionManager::getDefaultSettings </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get the default settings for <a class="el" href="a00353.html#ac41a60dbeb349ffce22e813dffed5d69" title="Subscribe a MessagesListener to receive messages from queue.">subscribe()</a> calls that don't include a <a class="el" href="a00354.html" title="Settings for a subscription.">SubscriptionSettings</a> parameter. </p>
+
+</div>
+</div>
+<a class="anchor" id="a9ed3fedf882bab741e804f1a87ae3ecf"></a><!-- doxytag: member="qpid::client::SubscriptionManager::getDefaultSettings" ref="a9ed3fedf882bab741e804f1a87ae3ecf" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00354.html">SubscriptionSettings</a>&amp; qpid::client::SubscriptionManager::getDefaultSettings </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get the default settings for <a class="el" href="a00353.html#ac41a60dbeb349ffce22e813dffed5d69" title="Subscribe a MessagesListener to receive messages from queue.">subscribe()</a> calls that don't include a <a class="el" href="a00354.html" title="Settings for a subscription.">SubscriptionSettings</a> parameter. </p>
+
+</div>
+</div>
+<a class="anchor" id="a36139f6dacf4d4f06ecab3478a89ded4"></a><!-- doxytag: member="qpid::client::SubscriptionManager::getSession" ref="a36139f6dacf4d4f06ecab3478a89ded4" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00578.html#aa15500ce0ba4cea17f4226bebe584a67">Session</a> qpid::client::SubscriptionManager::getSession </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af866bde034050419b5a878d66b517b6e"></a><!-- doxytag: member="qpid::client::SubscriptionManager::getSubscription" ref="af866bde034050419b5a878d66b517b6e" args="(const std::string &amp;name) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00351.html">Subscription</a> qpid::client::SubscriptionManager::getSubscription </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get a subscription by name. </p>
+<dl><dt><b>Exceptions:</b></dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="a00116.html" title="Base class for Qpid runtime exceptions.">Exception</a></td><td>if not found. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="ae6f5dd2c23bdf3016f4afcd32057b9c5"></a><!-- doxytag: member="qpid::client::SubscriptionManager::isNull" ref="ae6f5dd2c23bdf3016f4afcd32057b9c5" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_CLIENT_INLINE_EXTERN bool qpid::client::Handle::isNull </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is null. It is an error to call any function on a null handle. </dd></dl>
+
+<p>Definition at line <a class="el" href="a00440_source.html#l00046">46</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a57379e651d725b0f73edcb714e9efbc7"></a><!-- doxytag: member="qpid::client::SubscriptionManager::isValid" ref="a57379e651d725b0f73edcb714e9efbc7" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_CLIENT_INLINE_EXTERN bool qpid::client::Handle::isValid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is valid, i.e. not null. </dd></dl>
+
+<p>Definition at line <a class="el" href="a00440_source.html#l00043">43</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a00461424a31faee8e158a6502a014c3d"></a><!-- doxytag: member="qpid::client::SubscriptionManager::operator bool" ref="a00461424a31faee8e158a6502a014c3d" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_CLIENT_INLINE_EXTERN qpid::client::Handle::operator bool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Conversion to bool supports idiom if (handle) { handle-&gt;... </p>
+<p>} </p>
+
+<p>Definition at line <a class="el" href="a00440_source.html#l00049">49</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6e69e13fa5ed709abebdbf6868b5eff4"></a><!-- doxytag: member="qpid::client::SubscriptionManager::operator!" ref="a6e69e13fa5ed709abebdbf6868b5eff4" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_CLIENT_INLINE_EXTERN bool qpid::client::Handle::operator! </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }. </p>
+
+<p>Definition at line <a class="el" href="a00440_source.html#l00052">52</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a546263fd742abbf0a0e8f644e7128f4f"></a><!-- doxytag: member="qpid::client::SubscriptionManager::operator=" ref="a546263fd742abbf0a0e8f644e7128f4f" args="(const SubscriptionManager &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00353.html">SubscriptionManager</a>&amp; qpid::client::SubscriptionManager::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00353.html">SubscriptionManager</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2ba66e4bc870e20846a1c1060a64440f"></a><!-- doxytag: member="qpid::client::SubscriptionManager::registerFailoverHandler" ref="a2ba66e4bc870e20846a1c1060a64440f" args="(boost::function&lt; void()&gt; fh)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::SubscriptionManager::registerFailoverHandler </td>
+          <td>(</td>
+          <td class="paramtype">boost::function&lt; void()&gt;&#160;</td>
+          <td class="paramname"><em>fh</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a58bd72dee8a3386f2ac29d46b65381b9"></a><!-- doxytag: member="qpid::client::SubscriptionManager::run" ref="a58bd72dee8a3386f2ac29d46b65381b9" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::SubscriptionManager::run </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Deliver messages in the current thread until <a class="el" href="a00353.html#a1be6e1a70d3ce23d069d320eabd772c5" title="Stop delivery.">stop()</a> is called. </p>
+<p>Only one thread may be running in a <a class="el" href="a00353.html" title="A class to help create and manage subscriptions.">SubscriptionManager</a> at a time. </p>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="a00353.html#a58bd72dee8a3386f2ac29d46b65381b9" title="Deliver messages in the current thread until stop() is called.">run</a> </dd></dl>
+
+<p>Implements <a class="el" href="a00294.html#a8c8296f61a69c142ad7afecca2578ea1">qpid::sys::Runnable</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5e760078a23a5617bdcdbec8d91be128"></a><!-- doxytag: member="qpid::client::SubscriptionManager::setAcceptMode" ref="a5e760078a23a5617bdcdbec8d91be128" args="(AcceptMode mode)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::SubscriptionManager::setAcceptMode </td>
+          <td>(</td>
+          <td class="paramtype">AcceptMode&#160;</td>
+          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set the default accept-mode for <a class="el" href="a00353.html#ac41a60dbeb349ffce22e813dffed5d69" title="Subscribe a MessagesListener to receive messages from queue.">subscribe()</a> calls that don't include a <a class="el" href="a00354.html" title="Settings for a subscription.">SubscriptionSettings</a> parameter. </p>
+
+</div>
+</div>
+<a class="anchor" id="a7aafea3fcc8043a1fe663f1ab74c9912"></a><!-- doxytag: member="qpid::client::SubscriptionManager::setAcquireMode" ref="a7aafea3fcc8043a1fe663f1ab74c9912" args="(AcquireMode mode)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::SubscriptionManager::setAcquireMode </td>
+          <td>(</td>
+          <td class="paramtype">AcquireMode&#160;</td>
+          <td class="paramname"><em>mode</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set the default acquire-mode <a class="el" href="a00353.html#ac41a60dbeb349ffce22e813dffed5d69" title="Subscribe a MessagesListener to receive messages from queue.">subscribe()</a>s that don't specify <a class="el" href="a00354.html" title="Settings for a subscription.">SubscriptionSettings</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6917791ac9c6dd618e895ee654c8ad9d"></a><!-- doxytag: member="qpid::client::SubscriptionManager::setAutoStop" ref="a6917791ac9c6dd618e895ee654c8ad9d" args="(bool set=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::SubscriptionManager::setAutoStop </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>set</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>If set true, <a class="el" href="a00353.html#a58bd72dee8a3386f2ac29d46b65381b9" title="Deliver messages in the current thread until stop() is called.">run()</a> will stop when all subscriptions are cancelled. </p>
+<p>If false, run will only stop when <a class="el" href="a00353.html#a1be6e1a70d3ce23d069d320eabd772c5" title="Stop delivery.">stop()</a> is called. True by default. </p>
+
+</div>
+</div>
+<a class="anchor" id="a003f532256bc6d06c29825db1831a60d"></a><!-- doxytag: member="qpid::client::SubscriptionManager::setDefaultSettings" ref="a003f532256bc6d06c29825db1831a60d" args="(const SubscriptionSettings &amp;s)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::SubscriptionManager::setDefaultSettings </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00354.html">SubscriptionSettings</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set the default settings for <a class="el" href="a00353.html#ac41a60dbeb349ffce22e813dffed5d69" title="Subscribe a MessagesListener to receive messages from queue.">subscribe()</a> calls that don't include a <a class="el" href="a00354.html" title="Settings for a subscription.">SubscriptionSettings</a> parameter. </p>
+
+</div>
+</div>
+<a class="anchor" id="a7dbc0d2242f7dee83693f7ef383cdfe2"></a><!-- doxytag: member="qpid::client::SubscriptionManager::setFlowControl" ref="a7dbc0d2242f7dee83693f7ef383cdfe2" args="(const std::string &amp;name, const FlowControl &amp;flow)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::SubscriptionManager::setFlowControl </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00134.html">FlowControl</a> &amp;&#160;</td>
+          <td class="paramname"><em>flow</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set the flow control for a subscription. </p>
+
+</div>
+</div>
+<a class="anchor" id="a9a7a30637ea8808ea4dbd02123957dfc"></a><!-- doxytag: member="qpid::client::SubscriptionManager::setFlowControl" ref="a9a7a30637ea8808ea4dbd02123957dfc" args="(const std::string &amp;name, uint32_t messages, uint32_t bytes, bool window=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::SubscriptionManager::setFlowControl </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>messages</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>bytes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>window</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set the flow control for a subscription. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name,:</td><td>name of the subscription. </td></tr>
+    <tr><td class="paramname">messages,:</td><td>message credit. </td></tr>
+    <tr><td class="paramname">bytes,:</td><td>byte credit. </td></tr>
+    <tr><td class="paramname">window,:</td><td>if true use window-based flow control. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a50948592cebb3e66eac303092ab2cd9f"></a><!-- doxytag: member="qpid::client::SubscriptionManager::setFlowControl" ref="a50948592cebb3e66eac303092ab2cd9f" args="(uint32_t messages, uint32_t bytes, bool window=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::SubscriptionManager::setFlowControl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>messages</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>bytes</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>window</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set the default flow control settings for <a class="el" href="a00353.html#ac41a60dbeb349ffce22e813dffed5d69" title="Subscribe a MessagesListener to receive messages from queue.">subscribe()</a> calls that don't include a <a class="el" href="a00354.html" title="Settings for a subscription.">SubscriptionSettings</a> parameter. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">messages,:</td><td>message credit. </td></tr>
+    <tr><td class="paramname">bytes,:</td><td>byte credit. </td></tr>
+    <tr><td class="paramname">window,:</td><td>if true use window-based flow control. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a4ca1c748acd9a90d81bd16b460b044ff"></a><!-- doxytag: member="qpid::client::SubscriptionManager::start" ref="a4ca1c748acd9a90d81bd16b460b044ff" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::SubscriptionManager::start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Start a new thread to deliver messages. </p>
+<p>Only one thread may be running in a <a class="el" href="a00353.html" title="A class to help create and manage subscriptions.">SubscriptionManager</a> at a time. </p>
+<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="a00353.html#a4ca1c748acd9a90d81bd16b460b044ff" title="Start a new thread to deliver messages.">start</a> </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1be6e1a70d3ce23d069d320eabd772c5"></a><!-- doxytag: member="qpid::client::SubscriptionManager::stop" ref="a1be6e1a70d3ce23d069d320eabd772c5" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::SubscriptionManager::stop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Stop delivery. </p>
+<p>Causes <a class="el" href="a00353.html#a58bd72dee8a3386f2ac29d46b65381b9" title="Deliver messages in the current thread until stop() is called.">run()</a> to return, or the thread started with <a class="el" href="a00353.html#a4ca1c748acd9a90d81bd16b460b044ff" title="Start a new thread to deliver messages.">start()</a> to exit. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac41a60dbeb349ffce22e813dffed5d69"></a><!-- doxytag: member="qpid::client::SubscriptionManager::subscribe" ref="ac41a60dbeb349ffce22e813dffed5d69" args="(MessageListener &amp;listener, const std::string &amp;queue, const SubscriptionSettings &amp;settings, const std::string &amp;name=std::string())" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00351.html">Subscription</a> qpid::client::SubscriptionManager::subscribe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00210.html">MessageListener</a> &amp;&#160;</td>
+          <td class="paramname"><em>listener</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>queue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00354.html">SubscriptionSettings</a> &amp;&#160;</td>
+          <td class="paramname"><em>settings</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Subscribe a MessagesListener to receive messages from queue. </p>
+<p>Provide your own subclass of MessagesListener to process incoming messages. It will be called for each message received.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">listener</td><td>Listener object to receive messages. </td></tr>
+    <tr><td class="paramname">queue</td><td>Name of the queue to subscribe to. </td></tr>
+    <tr><td class="paramname">settings</td><td>settings for the subscription. </td></tr>
+    <tr><td class="paramname">name</td><td>unique destination name for the subscription, defaults to queue name. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aad83778a5c45da818a912a0559012b03"></a><!-- doxytag: member="qpid::client::SubscriptionManager::subscribe" ref="aad83778a5c45da818a912a0559012b03" args="(LocalQueue &amp;localQueue, const std::string &amp;queue, const SubscriptionSettings &amp;settings, const std::string &amp;name=std::string())" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00351.html">Subscription</a> qpid::client::SubscriptionManager::subscribe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00194.html">LocalQueue</a> &amp;&#160;</td>
+          <td class="paramname"><em>localQueue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>queue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00354.html">SubscriptionSettings</a> &amp;&#160;</td>
+          <td class="paramname"><em>settings</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Subscribe a <a class="el" href="a00194.html" title="A local queue to collect messages retrieved from a remote broker queue.">LocalQueue</a> to receive messages from queue. </p>
+<p>Incoming messages are stored in the queue for you to retrieve.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queue</td><td>Name of the queue to subscribe to. </td></tr>
+    <tr><td class="paramname">flow</td><td>initial <a class="el" href="a00134.html" title="Flow control works by associating a finite amount of &quot;credit&quot; with a subscription.">FlowControl</a> for the subscription. </td></tr>
+    <tr><td class="paramname">name</td><td>unique destination name for the subscription, defaults to queue name. If not specified, the queue name is used. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0e45dca9a771599bb8c7bb9c2a333f95"></a><!-- doxytag: member="qpid::client::SubscriptionManager::subscribe" ref="a0e45dca9a771599bb8c7bb9c2a333f95" args="(MessageListener &amp;listener, const std::string &amp;queue, const std::string &amp;name=std::string())" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00351.html">Subscription</a> qpid::client::SubscriptionManager::subscribe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00210.html">MessageListener</a> &amp;&#160;</td>
+          <td class="paramname"><em>listener</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>queue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Subscribe a MessagesListener to receive messages from queue. </p>
+<p>Provide your own subclass of MessagesListener to process incoming messages. It will be called for each message received.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">listener</td><td>Listener object to receive messages. </td></tr>
+    <tr><td class="paramname">queue</td><td>Name of the queue to subscribe to. </td></tr>
+    <tr><td class="paramname">name</td><td>unique destination name for the subscription, defaults to queue name. If not specified, the queue name is used. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a43294983754db870de655edb09abb825"></a><!-- doxytag: member="qpid::client::SubscriptionManager::subscribe" ref="a43294983754db870de655edb09abb825" args="(LocalQueue &amp;localQueue, const std::string &amp;queue, const std::string &amp;name=std::string())" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00351.html">Subscription</a> qpid::client::SubscriptionManager::subscribe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00194.html">LocalQueue</a> &amp;&#160;</td>
+          <td class="paramname"><em>localQueue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>queue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Subscribe a <a class="el" href="a00194.html" title="A local queue to collect messages retrieved from a remote broker queue.">LocalQueue</a> to receive messages from queue. </p>
+<p>Incoming messages are stored in the queue for you to retrieve.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queue</td><td>Name of the queue to subscribe to. </td></tr>
+    <tr><td class="paramname">name</td><td>unique destination name for the subscription, defaults to queue name. If not specified, the queue name is used. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a5092920190f6ad01c851996395cf33b5"></a><!-- doxytag: member="qpid::client::SubscriptionManager::swap" ref="a5092920190f6ad01c851996395cf33b5" args="(Handle&lt; T &gt; &amp;h)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::Handle::swap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00142.html">Handle</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>h</em></td><td>)</td>
+          <td><code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00440_source.html#l00054">54</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a88da27bc4cfb4ecb538437b261da3471"></a><!-- doxytag: member="qpid::client::SubscriptionManager::wait" ref="a88da27bc4cfb4ecb538437b261da3471" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::SubscriptionManager::wait </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Wait for the thread started by a call to <a class="el" href="a00353.html#a4ca1c748acd9a90d81bd16b460b044ff" title="Start a new thread to deliver messages.">start()</a> to complete. </p>
 
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a4b0f5918418310aa290e55acd7791db0"></a><!-- doxytag: member="qpid::client::SubscriptionSettings::acceptMode" ref="a4b0f5918418310aa290e55acd7791db0" args="" -->
+<a class="anchor" id="adf6d72d2a888cabcd0b60178419aad59"></a><!-- doxytag: member="qpid::client::SubscriptionManager::impl" ref="adf6d72d2a888cabcd0b60178419aad59" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00586.html#a8d6ab87d62f2c2f1136e10f0a200f436">AcceptMode</a> <a class="el" href="a00353.html#a4b0f5918418310aa290e55acd7791db0">qpid::client::SubscriptionSettings::acceptMode</a></td>
+          <td class="memname">Impl* <a class="el" href="a00142.html#adf6d72d2a888cabcd0b60178419aad59">qpid::client::Handle::impl</a><code> [protected, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>&lt; Flow control settings. </p>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="a00132.html" title="Flow control works by associating a finite amount of &quot;credit&quot; with a subscription.">FlowControl</a> The <a class="el" href="a00353.html#a4b0f5918418310aa290e55acd7791db0" title="&lt; Flow control settings.">acceptMode</a> determines whether the broker should expect delivery of messages to be acknowledged by the <a class="el" href="a00576.html">client</a> indicating that it accepts them. A value of ACCEPT_MODE_EXPLICIT means that messages must be accepted (note: this may be done automatically by the library - see <a class="el" href="a00353.html#abd5ab65d583da00e88a26d99e29a04bc" title="&lt; ACQUIRE_MODE_PRE_ACQUIRED or ACQUIRE_MODE_NOT_ACQUIRED">autoAck</a> - or through an explicit call be the application - see <a class="el" href="a00351.html#ab432864f349dc55c2f49eebc20e134c4" title="Accept messageIds and remove them from the unaccepted set.">Subscription::accept()</a>) before they can be dequeued. A value of ACCEPT_MODE_NONE means that the broker can dequeue a message as soon as it is acquired. </dd></dl>
-
-<p>Definition at line <a class="el" href="a00480_source.html#l00063">63</a> of file <a class="el" href="a00480_source.html">SubscriptionSettings.h</a>.</p>
+<p>Definition at line <a class="el" href="a00440_source.html#l00064">64</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a17a595e878e283a7cd53d7f7133928f7"></a><!-- doxytag: member="qpid::client::SubscriptionSettings::acquireMode" ref="a17a595e878e283a7cd53d7f7133928f7" args="" -->
+<a class="anchor" id="a46cf43909ca6249e181e89d301f264a1"></a><!-- doxytag: member="qpid::client::SubscriptionManager::UNLIMITED" ref="a46cf43909ca6249e181e89d301f264a1" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00586.html#ad010ae646e0187e26e02b829e77213d8">AcquireMode</a> <a class="el" href="a00353.html#a17a595e878e283a7cd53d7f7133928f7">qpid::client::SubscriptionSettings::acquireMode</a></td>
+          <td class="memname">const <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="el" href="a00353.html#a46cf43909ca6249e181e89d301f264a1">qpid::client::SubscriptionManager::UNLIMITED</a> = 0xFFFFFFFF<code> [static]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>&lt; ACCEPT_MODE_EXPLICIT or ACCEPT_MODE_NONE </p>
-<p>The acquireMode determines whether messages are locked for the subscriber when delivered, and thus are not delivered to any other subscriber unless this subscriber releases them.</p>
-<p>The default is ACQUIRE_MODE_PRE_ACQUIRED meaning that the subscriber expects to have been given that message exclusively (i.e. the message will not be given to any other subscriber unless released explicitly or by this subscribers session failing without having accepted the message).</p>
-<p>Delivery of message in ACQUIRE_MODE_NOT_ACQUIRED mode means the message will still be available for other subscribers to receive. The application can if desired acquire a (set of) messages through an explicit acquire call - see <a class="el" href="a00351.html#ae876d4b0b942d0873d17d64655d683f4" title="Acquire messageIds and remove them from the unacquired set.">Subscription::acquire()</a>. </p>
-
-<p>Definition at line <a class="el" href="a00480_source.html#l00081">81</a> of file <a class="el" href="a00480_source.html">SubscriptionSettings.h</a>.</p>
+<p>Definition at line <a class="el" href="a00481_source.html#l00220">220</a> of file <a class="el" href="a00481_source.html">SubscriptionManager.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="abd5ab65d583da00e88a26d99e29a04bc"></a><!-- doxytag: member="qpid::client::SubscriptionSettings::autoAck" ref="abd5ab65d583da00e88a26d99e29a04bc" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned int <a class="el" href="a00353.html#abd5ab65d583da00e88a26d99e29a04bc">qpid::client::SubscriptionSettings::autoAck</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>&lt; ACQUIRE_MODE_PRE_ACQUIRED or ACQUIRE_MODE_NOT_ACQUIRED </p>
-<p>Configures the frequency at which messages are automatically accepted (e.g. a value of 5 means that messages are accepted in batches of 5). A value of 0 means no automatic acknowledgement will occur and the application will itself be responsible for accepting messages. </p>
-
-<p>Definition at line <a class="el" href="a00480_source.html#l00090">90</a> of file <a class="el" href="a00480_source.html">SubscriptionSettings.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a17c7f3ad2e7d1cfd9b215659c9eab282"></a><!-- doxytag: member="qpid::client::SubscriptionSettings::completionMode" ref="a17c7f3ad2e7d1cfd9b215659c9eab282" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00576.html#a42369ab37a91cfa7cd1702713dd211c8">CompletionMode</a> <a class="el" href="a00353.html#a17c7f3ad2e7d1cfd9b215659c9eab282">qpid::client::SubscriptionSettings::completionMode</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>In windowing mode, completion of a message will cause the credit used up by that message to be reallocated. </p>
-<p>The subscriptions completion mode controls how completion is managed.</p>
-<p>If set to COMPLETE_ON_DELIVERY (which is the default), messages will be marked as completed once they have been received. The server will be explicitly notified of all completed messages for the session when the next accept is sent through the subscription (either explictly or through autAck). However the server may also periodically request information on the completed messages.</p>
-<p>If set to COMPLETE_ON_ACCEPT, messages will be marked as completed once they are accepted (via the <a class="el" href="a00351.html" title="A handle to an active subscription.">Subscription</a> class) and the server will also be notified of all completed messages for the session.</p>
-<p>If set to MANUAL_COMPLETION the application is responsible for completing messages (</p>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="a00328.html#a71b6f8e5c01c5ab1d8dba353f0c2dc6e">Session::markCompleted()</a>). </dd></dl>
-
-<p>Definition at line <a class="el" href="a00480_source.html#l00113">113</a> of file <a class="el" href="a00480_source.html">SubscriptionSettings.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a22c04055189b60293c371d9ef7496222"></a><!-- doxytag: member="qpid::client::SubscriptionSettings::exclusive" ref="a22c04055189b60293c371d9ef7496222" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="a00353.html#a22c04055189b60293c371d9ef7496222">qpid::client::SubscriptionSettings::exclusive</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>If set, requests that no other subscriber be allowed to access the queue while this subscription is active. </p>
-
-<p>Definition at line <a class="el" href="a00480_source.html#l00118">118</a> of file <a class="el" href="a00480_source.html">SubscriptionSettings.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a66b49dcd06ffd6edce7d131b2dcc8c26"></a><!-- doxytag: member="qpid::client::SubscriptionSettings::flowControl" ref="a66b49dcd06ffd6edce7d131b2dcc8c26" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00132.html">FlowControl</a> <a class="el" href="a00353.html#a66b49dcd06ffd6edce7d131b2dcc8c26">qpid::client::SubscriptionSettings::flowControl</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00480_source.html#l00051">51</a> of file <a class="el" href="a00480_source.html">SubscriptionSettings.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/client/<a class="el" href="a00480_source.html">SubscriptionSettings.h</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qpid/client/<a class="el" href="a00481_source.html">SubscriptionManager.h</a></li>
 </ul>
 </div>
 <!--
@@ -291,7 +1156,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

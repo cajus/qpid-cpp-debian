@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf::engine::QueryOperand Struct Reference</title>
+    <title>qmf::engine::QueryExpression Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,70 +60,140 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00571.html">qmf</a>      </li>
-      <li class="navelem"><a class="el" href="a00572.html">engine</a>      </li>
-      <li class="navelem"><a class="el" href="a00261.html">QueryOperand</a>      </li>
+      <li class="navelem"><a class="el" href="a00573.html">qmf</a>      </li>
+      <li class="navelem"><a class="el" href="a00574.html">engine</a>      </li>
+      <li class="navelem"><a class="el" href="a00261.html">QueryExpression</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qmf::engine::QueryOperand Struct Reference</div>  </div>
+<div class="title">qmf::engine::QueryExpression Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qmf::engine::QueryOperand" -->
-<p><code>#include &lt;<a class="el" href="a00426_source.html">qmf/engine/Query.h</a>&gt;</code></p>
+<!-- doxytag: class="qmf::engine::QueryExpression" --><!-- doxytag: inherits="qmf::engine::QueryOperand" -->
+<p><code>#include &lt;<a class="el" href="a00428_source.html">qmf/engine/Query.h</a>&gt;</code></p>
 
-<p><a href="a00633.html">List of all members.</a></p>
+<p><a href="a00637.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00261.html#a063553a5b3d3b7eb9c35f3a073fb1057">~QueryOperand</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00261.html#a735d7ce9aa1b8fe7e19a33f0b9879059">evaluate</a> (const <a class="el" href="a00233.html">Object</a> *object) const =0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00261.html#a6f9a6dde61a8eb11e271fac4276f8560">QueryExpression</a> (<a class="el" href="a00574.html#a1ceb9b4335b824a50ac067c37c19eedc">ExprOper</a> oper, const <a class="el" href="a00262.html">QueryOperand</a> *operand1, const <a class="el" href="a00262.html">QueryOperand</a> *operand2)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00261.html#afb495ad24226bedd6f505b0186deef2c">QueryExpression</a> (QueryExpressionImpl *<a class="el" href="a00261.html#aa164c4e23179d66748b797a96251bc0c">impl</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00261.html#a2ace2c36990ce88b238ad30b00e5d1db">~QueryExpression</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00261.html#a21ca164e577cde2f0315debad9dc5868">evaluate</a> (const <a class="el" href="a00234.html">Object</a> *object) const </td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QueryExpressionImpl *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00261.html#aa164c4e23179d66748b797a96251bc0c">impl</a></td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a063553a5b3d3b7eb9c35f3a073fb1057"></a><!-- doxytag: member="qmf::engine::QueryOperand::~QueryOperand" ref="a063553a5b3d3b7eb9c35f3a073fb1057" args="()" -->
+<a class="anchor" id="a6f9a6dde61a8eb11e271fac4276f8560"></a><!-- doxytag: member="qmf::engine::QueryExpression::QueryExpression" ref="a6f9a6dde61a8eb11e271fac4276f8560" args="(ExprOper oper, const QueryOperand *operand1, const QueryOperand *operand2)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual qmf::engine::QueryOperand::~QueryOperand </td>
+          <td class="memname">qmf::engine::QueryExpression::QueryExpression </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
+          <td class="paramtype"><a class="el" href="a00574.html#a1ceb9b4335b824a50ac067c37c19eedc">ExprOper</a>&#160;</td>
+          <td class="paramname"><em>oper</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00262.html">QueryOperand</a> *&#160;</td>
+          <td class="paramname"><em>operand1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00262.html">QueryOperand</a> *&#160;</td>
+          <td class="paramname"><em>operand2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00426_source.html#l00049">49</a> of file <a class="el" href="a00426_source.html">Query.h</a>.</p>
+</div>
+</div>
+<a class="anchor" id="afb495ad24226bedd6f505b0186deef2c"></a><!-- doxytag: member="qmf::engine::QueryExpression::QueryExpression" ref="afb495ad24226bedd6f505b0186deef2c" args="(QueryExpressionImpl *impl)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qmf::engine::QueryExpression::QueryExpression </td>
+          <td>(</td>
+          <td class="paramtype">QueryExpressionImpl *&#160;</td>
+          <td class="paramname"><em>impl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2ace2c36990ce88b238ad30b00e5d1db"></a><!-- doxytag: member="qmf::engine::QueryExpression::~QueryExpression" ref="a2ace2c36990ce88b238ad30b00e5d1db" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual qmf::engine::QueryExpression::~QueryExpression </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a735d7ce9aa1b8fe7e19a33f0b9879059"></a><!-- doxytag: member="qmf::engine::QueryOperand::evaluate" ref="a735d7ce9aa1b8fe7e19a33f0b9879059" args="(const Object *object) const =0" -->
+<a class="anchor" id="a21ca164e577cde2f0315debad9dc5868"></a><!-- doxytag: member="qmf::engine::QueryExpression::evaluate" ref="a21ca164e577cde2f0315debad9dc5868" args="(const Object *object) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool qmf::engine::QueryOperand::evaluate </td>
+          <td class="memname">bool qmf::engine::QueryExpression::evaluate </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00233.html">Object</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00234.html">Object</a> *&#160;</td>
           <td class="paramname"><em>object</em></td><td>)</td>
-          <td> const<code> [pure virtual]</code></td>
+          <td> const<code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Implemented in <a class="el" href="a00260.html#a21ca164e577cde2f0315debad9dc5868">qmf::engine::QueryExpression</a>, and <a class="el" href="a00259.html#ae8c9b2b800407e5393b8cc40e9c6299f">qmf::engine::QueryElement</a>.</p>
+<p>Implements <a class="el" href="a00262.html#a735d7ce9aa1b8fe7e19a33f0b9879059">qmf::engine::QueryOperand</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="aa164c4e23179d66748b797a96251bc0c"></a><!-- doxytag: member="qmf::engine::QueryExpression::impl" ref="aa164c4e23179d66748b797a96251bc0c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QueryExpressionImpl* <a class="el" href="a00261.html#aa164c4e23179d66748b797a96251bc0c">qmf::engine::QueryExpression::impl</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00428_source.html#l00075">75</a> of file <a class="el" href="a00428_source.html">Query.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qmf/engine/<a class="el" href="a00426_source.html">Query.h</a></li>
+<li>qmf/engine/<a class="el" href="a00428_source.html">Query.h</a></li>
 </ul>
 </div>
 <!--
@@ -153,7 +223,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

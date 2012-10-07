@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::client::FlowControl Struct Reference</title>
+    <title>qpid::framing::FloatValue Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,322 +60,423 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00576.html">client</a>      </li>
-      <li class="navelem"><a class="el" href="a00132.html">FlowControl</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00582.html">framing</a>      </li>
+      <li class="navelem"><a class="el" href="a00132.html">FloatValue</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a>  </div>
+<a href="#pro-static-methods">Static Protected Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::client::FlowControl Struct Reference</div>  </div>
+<div class="title">qpid::framing::FloatValue Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::client::FlowControl" -->
-<p>Flow control works by associating a finite amount of "credit" with a subscription.  
- <a href="a00132.html#details">More...</a></p>
+<!-- doxytag: class="qpid::framing::FloatValue" --><!-- doxytag: inherits="qpid::framing::FieldValue" -->
+<p><code>#include &lt;<a class="el" href="a00508_source.html">qpid/framing/FieldValue.h</a>&gt;</code></p>
 
-<p><code>#include &lt;<a class="el" href="a00466_source.html">qpid/client/FlowControl.h</a>&gt;</code></p>
-
-<p><a href="a00685.html">List of all members.</a></p>
+<p><a href="a00764.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a70a9cd61b9e475c3d1978a3d15742863">FlowControl</a> (<a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> messages_=0, <a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> bytes_=0, bool window_=false)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a9faa2fcf29b06be1a3230108b0c4aa97">operator==</a> (const <a class="el" href="a00132.html">FlowControl</a> &amp;x)</td></tr>
-<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00132.html">FlowControl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#ad70c11ee99f9c3e2d98ff96acb011efc">messageCredit</a> (<a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> messages_)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00132.html">FlowControl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a9e79a3b0299c43718010b35009016678">messageWindow</a> (<a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> messages_)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00132.html">FlowControl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a121aeaaac832c22255af480795f04b66">byteCredit</a> (<a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> bytes_)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00132.html">FlowControl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a071925adc0dfffe2497a1897493343b3">byteWindow</a> (<a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> bytes_)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00132.html">FlowControl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a4e07036ab42cf4a593fcb578edd4b7bd">unlimited</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00132.html">FlowControl</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a2ca4cadfaee543ab80bab25f6176f784">zero</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a6d69bece2668a3781975501fe4275404">messages</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00206.html" title="A message sent to or received from the broker.">Message</a> credit: subscription can accept up to this many messages.  <a href="#a6d69bece2668a3781975501fe4275404"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a91155edfa05bff8c5b186d40ffdd1445">bytes</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Byte credit: subscription can accept up to this many bytes of message content.  <a href="#a91155edfa05bff8c5b186d40ffdd1445"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a6b85045fe5866ac8f66a738401d05768">window</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Window mode.  <a href="#a6b85045fe5866ac8f66a738401d05768"></a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#afee588b945f5edbf4a6108dfd3fe3a70">UNLIMITED</a> = 0xFFFFFFFF</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00132.html#a2438fd74cc6bd0ced7961439ec84659d">FloatValue</a> (float f)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#afbfa57a2201cbf1cbdacf9348a151836">setType</a> (<a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> type)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#a04733582a526cc63041584f826986fdd">getType</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00095.html">Data</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#a2b86b28664416550394345eaad87c27a">getData</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#ac3c945b063162e969a83696e58faa940">encodedSize</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#a01492e48a30259f9a01fe68c2a797a55">empty</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#a3bfecf0212e14ce84613f1bfff4af991">encode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;buffer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#ab6f20bc5872620ce13c32ddc9c90aa2c">decode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;buffer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#a38c77de4637465a9be0d981afe12009e">operator==</a> (const <a class="el" href="a00127.html">FieldValue</a> &amp;) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#affd3877cde74370c5c3a1d3f9ddbd164">operator!=</a> (const <a class="el" href="a00127.html">FieldValue</a> &amp;v) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#ad5c51d404ce77bec34caa72673fefcad">print</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;out) const </td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00127.html#abacc2b0d7a0514fd8d0de7cb71c0f786">convertsTo</a> () const </td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00127.html#aeff9f97cc00e08c176abd5787ab57d46">get</a> () const </td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00127.html#a21f6bd8d2f902aeebd72a6eef8dc6089">get</a> (T &amp;) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor that can be used to get values of type <a class="el" href="a00125.html" title="A set of name-value pairs.">FieldTable</a>, <a class="el" href="a00016.html">Array</a> and <a class="el" href="a00190.html" title="Representation of an AMQP 0-10 list.">List</a>.  <a href="#a21f6bd8d2f902aeebd72a6eef8dc6089"></a><br/></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T , int W&gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00127.html#a694aa76d11fb72c08e14d784387f964f">getIntegerValue</a> () const </td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00127.html#a64fc6a55e7b5d9c2ef484c2fc1d2c7d3">getIntegerValue</a> () const </td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T , int W&gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00127.html#ae1e2adfd64967f7599ff08bac240f0d6">getFloatingPointValue</a> () const </td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;int W&gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00127.html#a0c9ff7e35026d5b05b1aa66ceaaf233c">getFixedWidthValue</a> (unsigned char *) const </td></tr>
+<tr><td colspan="2"><h2><a name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#a74c8b51fa57fa8e0707defd20cf8975f">convertIfRequired</a> (<a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *const octets, int width)</td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Flow control works by associating a finite amount of "credit" with a subscription. </p>
-<p>Credit includes a message count and a byte count. Each message received decreases the message count by one, and the byte count by the size of the message. Either count can have the special value UNLIMITED which is never decreased.</p>
-<p>A subscription's credit is exhausted when the message count is 0 or the byte count is too small for the next available message. The subscription will not receive any further messages until is credit is renewed.</p>
-<p>In "window mode" credit is automatically renewed when a message is completed (which by default happens when it is accepted). In non-window mode credit is not automatically renewed, it must be explicitly re-set (</p>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="a00351.html" title="A handle to an active subscription.">Subscription</a>) </dd></dl>
-</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a70a9cd61b9e475c3d1978a3d15742863"></a><!-- doxytag: member="qpid::client::FlowControl::FlowControl" ref="a70a9cd61b9e475c3d1978a3d15742863" args="(uint32_t messages_=0, uint32_t bytes_=0, bool window_=false)" -->
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a2438fd74cc6bd0ced7961439ec84659d"></a><!-- doxytag: member="qpid::framing::FloatValue::FloatValue" ref="a2438fd74cc6bd0ced7961439ec84659d" args="(float f)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::client::FlowControl::FlowControl </td>
+          <td class="memname">qpid::framing::FloatValue::FloatValue </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"><em>messages_</em> = <code>0</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"><em>bytes_</em> = <code>0</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>window_</em> = <code>false</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00466_source.html#l00051">51</a> of file <a class="el" href="a00466_source.html">FlowControl.h</a>.</p>
-
-<p>Referenced by <a class="el" href="a00466_source.html#l00054">messageCredit()</a>, <a class="el" href="a00466_source.html#l00055">messageWindow()</a>, <a class="el" href="a00466_source.html#l00056">byteCredit()</a>, <a class="el" href="a00466_source.html#l00057">byteWindow()</a>, <a class="el" href="a00466_source.html#l00058">unlimited()</a>, and <a class="el" href="a00466_source.html#l00059">zero()</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a121aeaaac832c22255af480795f04b66"></a><!-- doxytag: member="qpid::client::FlowControl::byteCredit" ref="a121aeaaac832c22255af480795f04b66" args="(uint32_t bytes_)" -->
+<a class="anchor" id="a74c8b51fa57fa8e0707defd20cf8975f"></a><!-- doxytag: member="qpid::framing::FloatValue::convertIfRequired" ref="a74c8b51fa57fa8e0707defd20cf8975f" args="(uint8_t *const octets, int width)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="a00132.html">FlowControl</a> qpid::client::FlowControl::byteCredit </td>
+          <td class="memname">static <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* qpid::framing::FieldValue::convertIfRequired </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"><em>bytes_</em></td><td>)</td>
-          <td><code> [inline, static]</code></td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *const&#160;</td>
+          <td class="paramname"><em>octets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [static, protected, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00466_source.html#l00056">56</a> of file <a class="el" href="a00466_source.html">FlowControl.h</a>.</p>
-
-<p>References <a class="el" href="a00466_source.html#l00051">FlowControl()</a>, and <a class="el" href="a00466_source.html#l00050">UNLIMITED</a>.</p>
+<p>Referenced by <a class="el" href="a00508_source.html#l00213">qpid::framing::FieldValue::getFloatingPointValue()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a071925adc0dfffe2497a1897493343b3"></a><!-- doxytag: member="qpid::client::FlowControl::byteWindow" ref="a071925adc0dfffe2497a1897493343b3" args="(uint32_t bytes_)" -->
+<a class="anchor" id="abacc2b0d7a0514fd8d0de7cb71c0f786"></a><!-- doxytag: member="qpid::framing::FloatValue::convertsTo" ref="abacc2b0d7a0514fd8d0de7cb71c0f786" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="a00132.html">FlowControl</a> qpid::client::FlowControl::byteWindow </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"><em>bytes_</em></td><td>)</td>
-          <td><code> [inline, static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00466_source.html#l00057">57</a> of file <a class="el" href="a00466_source.html">FlowControl.h</a>.</p>
-
-<p>References <a class="el" href="a00466_source.html#l00051">FlowControl()</a>, and <a class="el" href="a00466_source.html#l00050">UNLIMITED</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad70c11ee99f9c3e2d98ff96acb011efc"></a><!-- doxytag: member="qpid::client::FlowControl::messageCredit" ref="ad70c11ee99f9c3e2d98ff96acb011efc" args="(uint32_t messages_)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="a00132.html">FlowControl</a> qpid::client::FlowControl::messageCredit </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"><em>messages_</em></td><td>)</td>
-          <td><code> [inline, static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00466_source.html#l00054">54</a> of file <a class="el" href="a00466_source.html">FlowControl.h</a>.</p>
-
-<p>References <a class="el" href="a00466_source.html#l00051">FlowControl()</a>, and <a class="el" href="a00466_source.html#l00050">UNLIMITED</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9e79a3b0299c43718010b35009016678"></a><!-- doxytag: member="qpid::client::FlowControl::messageWindow" ref="a9e79a3b0299c43718010b35009016678" args="(uint32_t messages_)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="a00132.html">FlowControl</a> qpid::client::FlowControl::messageWindow </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"><em>messages_</em></td><td>)</td>
-          <td><code> [inline, static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00466_source.html#l00055">55</a> of file <a class="el" href="a00466_source.html">FlowControl.h</a>.</p>
-
-<p>References <a class="el" href="a00466_source.html#l00051">FlowControl()</a>, and <a class="el" href="a00466_source.html#l00050">UNLIMITED</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9faa2fcf29b06be1a3230108b0c4aa97"></a><!-- doxytag: member="qpid::client::FlowControl::operator==" ref="a9faa2fcf29b06be1a3230108b0c4aa97" args="(const FlowControl &amp;x)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::client::FlowControl::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00132.html">FlowControl</a> &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00466_source.html#l00068">68</a> of file <a class="el" href="a00466_source.html">FlowControl.h</a>.</p>
-
-<p>References <a class="el" href="a00466_source.html#l00062">messages</a>, <a class="el" href="a00466_source.html#l00064">bytes</a>, and <a class="el" href="a00466_source.html#l00066">window</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4e07036ab42cf4a593fcb578edd4b7bd"></a><!-- doxytag: member="qpid::client::FlowControl::unlimited" ref="a4e07036ab42cf4a593fcb578edd4b7bd" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="a00132.html">FlowControl</a> qpid::client::FlowControl::unlimited </td>
+          <td class="memname">bool qpid::framing::FieldValue::convertsTo&lt; int64_t &gt; </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline, static]</code></td>
+          <td> const<code> [inline, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00466_source.html#l00058">58</a> of file <a class="el" href="a00466_source.html">FlowControl.h</a>.</p>
-
-<p>References <a class="el" href="a00466_source.html#l00051">FlowControl()</a>, and <a class="el" href="a00466_source.html#l00050">UNLIMITED</a>.</p>
+<p>Definition at line <a class="el" href="a00508_source.html#l00097">97</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2ca4cadfaee543ab80bab25f6176f784"></a><!-- doxytag: member="qpid::client::FlowControl::zero" ref="a2ca4cadfaee543ab80bab25f6176f784" args="()" -->
+<a class="anchor" id="ab6f20bc5872620ce13c32ddc9c90aa2c"></a><!-- doxytag: member="qpid::framing::FloatValue::decode" ref="ab6f20bc5872620ce13c32ddc9c90aa2c" args="(Buffer &amp;buffer)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="a00132.html">FlowControl</a> qpid::client::FlowControl::zero </td>
+          <td class="memname">void qpid::framing::FieldValue::decode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a01492e48a30259f9a01fe68c2a797a55"></a><!-- doxytag: member="qpid::framing::FloatValue::empty" ref="a01492e48a30259f9a01fe68c2a797a55" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::FieldValue::empty </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline, static]</code></td>
+          <td> const<code> [inline, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00466_source.html#l00059">59</a> of file <a class="el" href="a00466_source.html">FlowControl.h</a>.</p>
-
-<p>References <a class="el" href="a00466_source.html#l00051">FlowControl()</a>.</p>
+<p>Definition at line <a class="el" href="a00508_source.html#l00089">89</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a91155edfa05bff8c5b186d40ffdd1445"></a><!-- doxytag: member="qpid::client::FlowControl::bytes" ref="a91155edfa05bff8c5b186d40ffdd1445" args="" -->
+<a class="anchor" id="a3bfecf0212e14ce84613f1bfff4af991"></a><!-- doxytag: member="qpid::framing::FloatValue::encode" ref="a3bfecf0212e14ce84613f1bfff4af991" args="(Buffer &amp;buffer)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="el" href="a00132.html#a91155edfa05bff8c5b186d40ffdd1445">qpid::client::FlowControl::bytes</a></td>
+          <td class="memname">void qpid::framing::FieldValue::encode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Byte credit: subscription can accept up to this many bytes of message content. </p>
-
-<p>Definition at line <a class="el" href="a00466_source.html#l00064">64</a> of file <a class="el" href="a00466_source.html">FlowControl.h</a>.</p>
-
-<p>Referenced by <a class="el" href="a00466_source.html#l00068">operator==()</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a6d69bece2668a3781975501fe4275404"></a><!-- doxytag: member="qpid::client::FlowControl::messages" ref="a6d69bece2668a3781975501fe4275404" args="" -->
+<a class="anchor" id="ac3c945b063162e969a83696e58faa940"></a><!-- doxytag: member="qpid::framing::FloatValue::encodedSize" ref="ac3c945b063162e969a83696e58faa940" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="el" href="a00132.html#a6d69bece2668a3781975501fe4275404">qpid::client::FlowControl::messages</a></td>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::FieldValue::encodedSize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p><a class="el" href="a00206.html" title="A message sent to or received from the broker.">Message</a> credit: subscription can accept up to this many messages. </p>
-
-<p>Definition at line <a class="el" href="a00466_source.html#l00062">62</a> of file <a class="el" href="a00466_source.html">FlowControl.h</a>.</p>
-
-<p>Referenced by <a class="el" href="a00466_source.html#l00068">operator==()</a>.</p>
+<p>Definition at line <a class="el" href="a00508_source.html#l00088">88</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="afee588b945f5edbf4a6108dfd3fe3a70"></a><!-- doxytag: member="qpid::client::FlowControl::UNLIMITED" ref="afee588b945f5edbf4a6108dfd3fe3a70" args="" -->
+<a class="anchor" id="aeff9f97cc00e08c176abd5787ab57d46"></a><!-- doxytag: member="qpid::framing::FloatValue::get" ref="aeff9f97cc00e08c176abd5787ab57d46" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="el" href="a00132.html#afee588b945f5edbf4a6108dfd3fe3a70">qpid::client::FlowControl::UNLIMITED</a> = 0xFFFFFFFF<code> [static]</code></td>
+          <td class="memname">double qpid::framing::FieldValue::get&lt; double &gt; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00466_source.html#l00050">50</a> of file <a class="el" href="a00466_source.html">FlowControl.h</a>.</p>
-
-<p>Referenced by <a class="el" href="a00466_source.html#l00054">messageCredit()</a>, <a class="el" href="a00466_source.html#l00055">messageWindow()</a>, <a class="el" href="a00466_source.html#l00056">byteCredit()</a>, <a class="el" href="a00466_source.html#l00057">byteWindow()</a>, and <a class="el" href="a00466_source.html#l00058">unlimited()</a>.</p>
+<p>Definition at line <a class="el" href="a00508_source.html#l00098">98</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6b85045fe5866ac8f66a738401d05768"></a><!-- doxytag: member="qpid::client::FlowControl::window" ref="a6b85045fe5866ac8f66a738401d05768" args="" -->
+<a class="anchor" id="a21f6bd8d2f902aeebd72a6eef8dc6089"></a><!-- doxytag: member="qpid::framing::FloatValue::get" ref="a21f6bd8d2f902aeebd72a6eef8dc6089" args="(T &amp;) const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::FieldValue::get </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Accessor that can be used to get values of type <a class="el" href="a00125.html" title="A set of name-value pairs.">FieldTable</a>, <a class="el" href="a00016.html">Array</a> and <a class="el" href="a00190.html" title="Representation of an AMQP 0-10 list.">List</a>. </p>
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00325">325</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b86b28664416550394345eaad87c27a"></a><!-- doxytag: member="qpid::framing::FloatValue::getData" ref="a2b86b28664416550394345eaad87c27a" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="a00132.html#a6b85045fe5866ac8f66a738401d05768">qpid::client::FlowControl::window</a></td>
+          <td class="memname"><a class="el" href="a00095.html">Data</a>&amp; qpid::framing::FieldValue::getData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Window mode. </p>
-<p>If true credit is automatically renewed as messages are acknowledged. </p>
-
-<p>Definition at line <a class="el" href="a00466_source.html#l00066">66</a> of file <a class="el" href="a00466_source.html">FlowControl.h</a>.</p>
-
-<p>Referenced by <a class="el" href="a00466_source.html#l00068">operator==()</a>.</p>
+<p>Definition at line <a class="el" href="a00508_source.html#l00087">87</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/client/<a class="el" href="a00466_source.html">FlowControl.h</a></li>
+<a class="anchor" id="a0c9ff7e35026d5b05b1aa66ceaaf233c"></a><!-- doxytag: member="qpid::framing::FloatValue::getFixedWidthValue" ref="a0c9ff7e35026d5b05b1aa66ceaaf233c" args="(unsigned char *) const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int W&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FieldValue::getFixedWidthValue </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00226">226</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae1e2adfd64967f7599ff08bac240f0d6"></a><!-- doxytag: member="qpid::framing::FloatValue::getFloatingPointValue" ref="ae1e2adfd64967f7599ff08bac240f0d6" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , int W&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T qpid::framing::FieldValue::getFloatingPointValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00213">213</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
+
+<p>References <a class="el" href="a00127.html#a74c8b51fa57fa8e0707defd20cf8975f">qpid::framing::FieldValue::convertIfRequired()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a694aa76d11fb72c08e14d784387f964f"></a><!-- doxytag: member="qpid::framing::FloatValue::getIntegerValue" ref="a694aa76d11fb72c08e14d784387f964f" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T qpid::framing::FieldValue::getIntegerValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00184">184</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a64fc6a55e7b5d9c2ef484c2fc1d2c7d3"></a><!-- doxytag: member="qpid::framing::FloatValue::getIntegerValue" ref="a64fc6a55e7b5d9c2ef484c2fc1d2c7d3" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T qpid::framing::FieldValue::getIntegerValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a04733582a526cc63041584f826986fdd"></a><!-- doxytag: member="qpid::framing::FloatValue::getType" ref="a04733582a526cc63041584f826986fdd" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> qpid::framing::FieldValue::getType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="affd3877cde74370c5c3a1d3f9ddbd164"></a><!-- doxytag: member="qpid::framing::FloatValue::operator!=" ref="affd3877cde74370c5c3a1d3f9ddbd164" args="(const FieldValue &amp;v) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_COMMON_INLINE_EXTERN bool qpid::framing::FieldValue::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00127.html">FieldValue</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00093">93</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a38c77de4637465a9be0d981afe12009e"></a><!-- doxytag: member="qpid::framing::FloatValue::operator==" ref="a38c77de4637465a9be0d981afe12009e" args="(const FieldValue &amp;) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::FieldValue::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00127.html">FieldValue</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad5c51d404ce77bec34caa72673fefcad"></a><!-- doxytag: member="qpid::framing::FloatValue::print" ref="ad5c51d404ce77bec34caa72673fefcad" args="(std::ostream &amp;out) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FieldValue::print </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>out</em></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Referenced by <a class="el" href="a00508_source.html#l00135">qpid::framing::operator&lt;&lt;()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afbfa57a2201cbf1cbdacf9348a151836"></a><!-- doxytag: member="qpid::framing::FloatValue::setType" ref="afbfa57a2201cbf1cbdacf9348a151836" args="(uint8_t type)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FieldValue::setType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qpid/framing/<a class="el" href="a00508_source.html">FieldValue.h</a></li>
 </ul>
 </div>
 <!--
@@ -405,7 +506,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

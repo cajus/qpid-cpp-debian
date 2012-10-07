@@ -31,6 +31,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
 
 using namespace qmf::org::apache::qpid::agent::example;
 using           qpid::management::ManagementAgent;
@@ -224,6 +225,8 @@ void Parent::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
 
     if ((_i = _map.find("name")) != _map.end()) {
         name = (_i->second).getString();
+    } else {
+        name = "";
     }
 
 }
@@ -239,6 +242,8 @@ void Parent::doMethod (string& methodName, const ::qpid::types::Variant::Map& in
         ::qpid::types::Variant::Map::const_iterator _i;
         if ((_i = inMap.find("name")) != inMap.end()) {
             ioArgs.i_name = (_i->second).getString();
+        } else {
+            ioArgs.i_name = "";
         }
         bool allow = coreObject->AuthorizeMethod(METHOD_CREATE_CHILD, ioArgs, userId);
         if (allow)

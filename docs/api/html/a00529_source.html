@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/log/Logger.h Source File</title>
+    <title>qpid/InlineAllocator.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,92 +58,106 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/log/Logger.h</div>  </div>
+<div class="title">qpid/InlineAllocator.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00529.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_LOG_LOGGER_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_LOG_LOGGER_H</span>
+<a href="a00529.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_INLINEALLOCATOR_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_INLINEALLOCATOR_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="comment">/*</span>
-<a name="l00005"></a>00005 <span class="comment"> *    http://www.apache.org/licenses/LICENSE-2.0</span>
-<a name="l00006"></a>00006 <span class="comment"> *</span>
-<a name="l00007"></a>00007 <span class="comment"> * Unless required by applicable law or agreed to in writing, software</span>
-<a name="l00008"></a>00008 <span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
-<a name="l00009"></a>00009 <span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
-<a name="l00010"></a>00010 <span class="comment"> * See the License for the specific language governing permissions and</span>
-<a name="l00011"></a>00011 <span class="comment"> * limitations under the License.</span>
-<a name="l00012"></a>00012 <span class="comment"> *</span>
-<a name="l00013"></a>00013 <span class="comment"> */</span>
-<a name="l00014"></a>00014 
-<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;<a class="code" href="a00532.html">qpid/log/Selector.h</a>&quot;</span>
-<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="a00530.html">qpid/log/Options.h</a>&quot;</span>
-<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="a00540.html">qpid/sys/Mutex.h</a>&quot;</span>
-<a name="l00018"></a>00018 <span class="preprocessor">#include &lt;boost/ptr_container/ptr_vector.hpp&gt;</span>
-<a name="l00019"></a>00019 <span class="preprocessor">#include &lt;boost/noncopyable.hpp&gt;</span>
-<a name="l00020"></a>00020 <span class="preprocessor">#include &lt;set&gt;</span>
-<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;<a class="code" href="a00482.html">qpid/CommonImportExport.h</a>&quot;</span>
-<a name="l00022"></a>00022 
-<a name="l00023"></a>00023 <span class="keyword">namespace </span>qpid {
-<a name="l00024"></a><a class="code" href="a00589.html">00024</a> <span class="keyword">namespace </span>log {
-<a name="l00025"></a>00025 
-<a name="l00036"></a>00036 <span class="keyword">class </span><a class="code" href="a00482.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> Logger : <span class="keyword">private</span> boost::noncopyable {
-<a name="l00037"></a>00037   <span class="keyword">public</span>:
-<a name="l00039"></a><a class="code" href="a00194.html#ac508e01bd3e624fded92ce2f9800e12ba09e5c56b2aa5c110fcaf5b00232def1d">00039</a>     <span class="keyword">enum</span> <a class="code" href="a00194.html#ac508e01bd3e624fded92ce2f9800e12b" title="Flags indicating what to include in the log output.">FormatFlag</a> { FILE=1, LINE=2, FUNCTION=4, LEVEL=8, TIME=16, THREAD=32, HIRES=64};
-<a name="l00040"></a>00040 
-<a name="l00050"></a>00050     <span class="keyword">class </span>Output {
-<a name="l00051"></a>00051       <span class="keyword">public</span>:
-<a name="l00052"></a>00052         <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> Output();
-<a name="l00053"></a>00053         <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">virtual</span> ~Output();
-<a name="l00055"></a>00055         <span class="keyword">virtual</span> <span class="keywordtype">void</span> log(<span class="keyword">const</span> <a class="code" href="a00340.html" title="POD struct representing a logging statement in source code.">Statement</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp;) =0;
-<a name="l00056"></a>00056     };
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">static</span> Logger&amp; instance();
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> Logger();
-<a name="l00061"></a>00061     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> ~Logger();
-<a name="l00062"></a>00062 
-<a name="l00064"></a>00064     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> select(<span class="keyword">const</span> Selector&amp; s);
-<a name="l00065"></a>00065 
-<a name="l00067"></a>00067     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> format(<span class="keywordtype">int</span> formatFlags);
-<a name="l00068"></a>00068 
-<a name="l00072"></a>00072     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">int</span> format(<span class="keyword">const</span> <a class="code" href="a00240.html" title="Base class for options.">Options</a>&amp;);
-<a name="l00073"></a>00073 
-<a name="l00075"></a>00075     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> configure(<span class="keyword">const</span> <a class="code" href="a00240.html" title="Base class for options.">Options</a>&amp; o);
-<a name="l00076"></a>00076 
-<a name="l00078"></a>00078     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> reconfigure(<span class="keyword">const</span> <a class="code" href="a00386.html">std::vector&lt;std::string&gt;</a>&amp; selectors);
-<a name="l00079"></a>00079 
-<a name="l00081"></a>00081     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> add(Statement&amp; s);
-<a name="l00082"></a>00082 
-<a name="l00084"></a>00084     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> log(<span class="keyword">const</span> Statement&amp;, <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp;);
+<a name="l00005"></a>00005 <span class="comment"> *</span>
+<a name="l00006"></a>00006 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
+<a name="l00007"></a>00007 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
+<a name="l00008"></a>00008 <span class="comment"> * distributed with this work for additional information</span>
+<a name="l00009"></a>00009 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
+<a name="l00010"></a>00010 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
+<a name="l00011"></a>00011 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
+<a name="l00012"></a>00012 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
+<a name="l00013"></a>00013 <span class="comment"> *</span>
+<a name="l00014"></a>00014 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
+<a name="l00015"></a>00015 <span class="comment"> *</span>
+<a name="l00016"></a>00016 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
+<a name="l00017"></a>00017 <span class="comment"> * software distributed under the License is distributed on an</span>
+<a name="l00018"></a>00018 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<a name="l00019"></a>00019 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
+<a name="l00020"></a>00020 <span class="comment"> * specific language governing permissions and limitations</span>
+<a name="l00021"></a>00021 <span class="comment"> * under the License.</span>
+<a name="l00022"></a>00022 <span class="comment"> *</span>
+<a name="l00023"></a>00023 <span class="comment"> */</span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="preprocessor">#include &lt;memory&gt;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &lt;assert.h&gt;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &lt;boost/type_traits/type_with_alignment.hpp&gt;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;boost/type_traits/alignment_of.hpp&gt;</span>
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="keyword">namespace </span>qpid {
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> RequestedType, <span class="keyword">typename</span> InlineType, <span class="keyword">typename</span> BaseAllocator, <span class="keywordtype">size_t</span> Max&gt;
+<a name="l00033"></a>00033 <span class="keyword">struct </span>InlineRebind;
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 
+<a name="l00040"></a>00040 <span class="keyword">template</span> &lt;<span class="keyword">class</span> BaseAllocator, <span class="keywordtype">size_t</span> Max&gt;
+<a name="l00041"></a>00041 <span class="keyword">class </span>InlineAllocator : <span class="keyword">public</span> BaseAllocator {
+<a name="l00042"></a>00042   <span class="keyword">public</span>:
+<a name="l00043"></a><a class="code" href="a00150.html#aad274d6fb59148499f8f218aef1188dc">00043</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> BaseAllocator<a class="code" href="a00150.html#aad274d6fb59148499f8f218aef1188dc">::pointer</a> <a class="code" href="a00150.html#aad274d6fb59148499f8f218aef1188dc">pointer</a>;
+<a name="l00044"></a><a class="code" href="a00150.html#aafc8bce95385a704a92d2cdbfc0a84e0">00044</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> BaseAllocator<a class="code" href="a00150.html#aafc8bce95385a704a92d2cdbfc0a84e0">::size_type</a> <a class="code" href="a00150.html#aafc8bce95385a704a92d2cdbfc0a84e0">size_type</a>;
+<a name="l00045"></a><a class="code" href="a00150.html#a15f2dd9f8dceae1d64f5347b7d0bc1ca">00045</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> BaseAllocator<a class="code" href="a00150.html#a15f2dd9f8dceae1d64f5347b7d0bc1ca">::value_type</a> <a class="code" href="a00150.html#a15f2dd9f8dceae1d64f5347b7d0bc1ca">value_type</a>;
+<a name="l00046"></a>00046 
+<a name="l00047"></a><a class="code" href="a00150.html#a58193ad2141ba38095ebcbbba9a50740">00047</a>     <a class="code" href="a00150.html#a58193ad2141ba38095ebcbbba9a50740">InlineAllocator</a>() : allocated(false) {}
+<a name="l00048"></a><a class="code" href="a00150.html#a586fd7ef0fc570dbd88c68bf7b27f469">00048</a>     <a class="code" href="a00150.html#a586fd7ef0fc570dbd88c68bf7b27f469">InlineAllocator</a>(<span class="keyword">const</span> <a class="code" href="a00150.html" title="An allocator that has inline storage for up to Max objects of type BaseAllocator::value_type.">InlineAllocator</a>&amp; x) : BaseAllocator(x), allocated(false) {}
+<a name="l00049"></a>00049 
+<a name="l00050"></a><a class="code" href="a00150.html#ac3e71402c02f1e0be304626aef5e0d25">00050</a>     <a class="code" href="a00150.html#aad274d6fb59148499f8f218aef1188dc">pointer</a> <a class="code" href="a00150.html#ac3e71402c02f1e0be304626aef5e0d25">allocate</a>(<a class="code" href="a00150.html#aafc8bce95385a704a92d2cdbfc0a84e0">size_type</a> n) {
+<a name="l00051"></a>00051         <span class="keywordflow">if</span> (n &lt;= Max &amp;&amp; !allocated) {
+<a name="l00052"></a>00052             allocated=<span class="keyword">true</span>;
+<a name="l00053"></a>00053             <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="a00150.html#a15f2dd9f8dceae1d64f5347b7d0bc1ca">value_type</a>*<span class="keyword">&gt;</span>(address());
+<a name="l00054"></a>00054         }
+<a name="l00055"></a>00055         <span class="keywordflow">else</span>
+<a name="l00056"></a>00056             <span class="keywordflow">return</span> <a class="code" href="a00150.html#ac3e71402c02f1e0be304626aef5e0d25">BaseAllocator::allocate</a>(n, 0);
+<a name="l00057"></a>00057     }
+<a name="l00058"></a>00058 
+<a name="l00059"></a><a class="code" href="a00150.html#aa41941515184d2ecb41a6296f99918a9">00059</a>     <span class="keywordtype">void</span> <a class="code" href="a00150.html#aa41941515184d2ecb41a6296f99918a9">deallocate</a>(<a class="code" href="a00150.html#aad274d6fb59148499f8f218aef1188dc">pointer</a> p, <a class="code" href="a00150.html#aafc8bce95385a704a92d2cdbfc0a84e0">size_type</a> n) {
+<a name="l00060"></a>00060         <span class="keywordflow">if</span> (p == address()) {
+<a name="l00061"></a>00061             assert(allocated);
+<a name="l00062"></a>00062             allocated=<span class="keyword">false</span>;
+<a name="l00063"></a>00063         }
+<a name="l00064"></a>00064         <span class="keywordflow">else</span>
+<a name="l00065"></a>00065             <a class="code" href="a00150.html#aa41941515184d2ecb41a6296f99918a9">BaseAllocator::deallocate</a>(p, n);
+<a name="l00066"></a>00066     }
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068     <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T1&gt;
+<a name="l00069"></a>00069     <span class="keyword">struct </span>rebind {
+<a name="l00070"></a><a class="code" href="a00271.html#a272f12e8b27b882d0a73adbaf59ad594">00070</a>         <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="a00151.html#ad5e27c280455b47325dac9ed8a62d2b9">InlineRebind&lt;T1, value_type, BaseAllocator, Max&gt;::other</a> <a class="code" href="a00271.html#a272f12e8b27b882d0a73adbaf59ad594">other</a>;
+<a name="l00071"></a>00071     };
+<a name="l00072"></a>00072 
+<a name="l00073"></a>00073   <span class="keyword">private</span>:
+<a name="l00074"></a>00074     <span class="comment">// POD object with alignment and size to hold Max value_types.</span>
+<a name="l00075"></a>00075     <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> ALIGNMENT=boost::alignment_of&lt;value_type&gt;::value;
+<a name="l00076"></a>00076     <span class="keyword">typedef</span> <span class="keyword">typename</span> boost::type_with_alignment&lt;ALIGNMENT&gt;::type Aligner;
+<a name="l00077"></a>00077     <span class="keyword">union </span><a class="code" href="a00342.html">Store</a> {
+<a name="l00078"></a><a class="code" href="a00342.html#acce0aa1638e92bd4bf723fafadee121c">00078</a>       Aligner <a class="code" href="a00342.html#acce0aa1638e92bd4bf723fafadee121c">aligner_</a>;
+<a name="l00079"></a><a class="code" href="a00342.html#ab2d0b0ac889f00fab4b4e9bad717f19e">00079</a>       <span class="keywordtype">char</span> <a class="code" href="a00342.html#ab2d0b0ac889f00fab4b4e9bad717f19e">sizer_</a>[<span class="keyword">sizeof</span>(<a class="code" href="a00150.html#a15f2dd9f8dceae1d64f5347b7d0bc1ca">value_type</a>)*Max];
+<a name="l00080"></a>00080     } store;
+<a name="l00081"></a>00081     <a class="code" href="a00150.html#a15f2dd9f8dceae1d64f5347b7d0bc1ca">value_type</a>* address() { <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span><a class="code" href="a00150.html#a15f2dd9f8dceae1d64f5347b7d0bc1ca">value_type</a>*<span class="keyword">&gt;</span>(&amp;store); }
+<a name="l00082"></a>00082     <span class="keywordtype">bool</span> allocated;
+<a name="l00083"></a>00083 };
+<a name="l00084"></a>00084 
 <a name="l00085"></a>00085 
-<a name="l00087"></a>00087     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> output(<a class="code" href="a00022.html" title="STL class.">std::auto_ptr&lt;Output&gt;</a> out);
+<a name="l00086"></a>00086 <span class="comment">// Rebind: if RequestedType == InlineType, use the InlineAllocator,</span>
+<a name="l00087"></a>00087 <span class="comment">// otherwise, use the BaseAllocator without any inlining.</span>
 <a name="l00088"></a>00088 
-<a name="l00090"></a>00090     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setPrefix(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; prefix);
-<a name="l00091"></a>00091 
-<a name="l00093"></a>00093     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clear();
-<a name="l00094"></a>00094 
-<a name="l00096"></a><a class="code" href="a00194.html#a8129a037aa8a6a9ac7d4176b189db1da">00096</a>     <a class="code" href="a00482.html#a22b814cc5ef605d90a1295eae41f4ee4">QPID_COMMON_INLINE_EXTERN</a> <span class="keyword">const</span> <a class="code" href="a00241.html" title="Logging options for config parser.">Options</a>&amp; <a class="code" href="a00194.html#a8129a037aa8a6a9ac7d4176b189db1da" title="Get the options used to configure the logger.">getOptions</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> options; }
-<a name="l00097"></a>00097 
+<a name="l00089"></a>00089 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> RequestedType, <span class="keyword">typename</span> InlineType, <span class="keyword">typename</span> BaseAllocator, <span class="keywordtype">size_t</span> Max&gt;
+<a name="l00090"></a>00090 <span class="keyword">struct </span>InlineRebind {
+<a name="l00091"></a><a class="code" href="a00151.html#ad5e27c280455b47325dac9ed8a62d2b9">00091</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> BaseAllocator::template rebind&lt;RequestedType&gt;::other <a class="code" href="a00151.html#ad5e27c280455b47325dac9ed8a62d2b9">other</a>;
+<a name="l00092"></a>00092 };
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094 <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> BaseAllocator, <span class="keywordtype">size_t</span> Max&gt;
+<a name="l00095"></a>00095 <span class="keyword">struct </span><a class="code" href="a00151.html">InlineRebind</a>&lt;T, T, BaseAllocator, Max&gt; {
+<a name="l00096"></a><a class="code" href="a00152.html#a3e2e925f2844df666b65d24df4e4a692">00096</a>     <span class="keyword">typedef</span> <span class="keyword">typename</span> qpid<a class="code" href="a00150.html" title="An allocator that has inline storage for up to Max objects of type BaseAllocator::value_type.">::InlineAllocator&lt;BaseAllocator, Max&gt;</a> <a class="code" href="a00152.html#a3e2e925f2844df666b65d24df4e4a692">other</a>;
+<a name="l00097"></a>00097 };
 <a name="l00098"></a>00098 
-<a name="l00099"></a>00099   <span class="keyword">private</span>:
-<a name="l00100"></a>00100     <span class="keyword">typedef</span> boost::ptr_vector&lt;Output&gt; Outputs;
-<a name="l00101"></a>00101     <span class="keyword">typedef</span> std::set&lt;Statement*&gt; Statements;
-<a name="l00102"></a>00102 
-<a name="l00103"></a>00103     sys::Mutex lock;
-<a name="l00104"></a>00104     <span class="keyword">inline</span> <span class="keywordtype">void</span> enable_unlocked(<a class="code" href="a00340.html" title="POD struct representing a logging statement in source code.">Statement</a>* s);
-<a name="l00105"></a>00105 
-<a name="l00106"></a>00106     Statements statements;
-<a name="l00107"></a>00107     Outputs outputs;
-<a name="l00108"></a>00108     <a class="code" href="a00318.html" title="A selector identifies the set of log messages to enable.">Selector</a> selector;
-<a name="l00109"></a>00109     <span class="keywordtype">int</span> flags;
-<a name="l00110"></a>00110     std::string prefix;
-<a name="l00111"></a>00111     <a class="code" href="a00241.html" title="Logging options for config parser.">Options</a> options;
-<a name="l00112"></a>00112 };
-<a name="l00113"></a>00113 
-<a name="l00114"></a>00114 }} <span class="comment">// namespace qpid::log</span>
-<a name="l00115"></a>00115 
-<a name="l00116"></a>00116 
-<a name="l00117"></a>00117 <span class="preprocessor">#endif  </span>
+<a name="l00099"></a>00099 } <span class="comment">// namespace qpid</span>
+<a name="l00100"></a>00100 
+<a name="l00101"></a>00101 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -173,7 +187,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>
