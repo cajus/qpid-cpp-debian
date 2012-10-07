@@ -496,7 +496,8 @@ class QPID_COMMON_CLASS_EXTERN AMQP_AllProxy:
                     bool notifyEnabled,
                     const SequenceNumber& position,
                     uint32_t usedMsgCredit,
-                    uint32_t usedByteCredit);
+                    uint32_t usedByteCredit,
+                    uint32_t deliveryCount);
         
         QPID_COMMON_EXTERN virtual void deliveryRecord(const std::string& queue,
                     const SequenceNumber& position,
@@ -598,6 +599,10 @@ class QPID_COMMON_CLASS_EXTERN AMQP_AllProxy:
         
         QPID_COMMON_EXTERN virtual void queueDequeueSincePurgeState(const std::string& queue,
                     uint32_t dequeueSincePurge);
+        
+        QPID_COMMON_EXTERN virtual void internalState(const std::string& type,
+                    const std::string& name,
+                    const FieldTable& state);
         
     };
     

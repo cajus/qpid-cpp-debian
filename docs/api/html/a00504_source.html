@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/framing/ExchangeQueryResult.h Source File</title>
+    <title>qpid/framing/enum.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,11 +58,11 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/framing/ExchangeQueryResult.h</div>  </div>
+<div class="title">qpid/framing/enum.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00504.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_FRAMING_EXCHANGEQUERYRESULT_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_FRAMING_EXCHANGEQUERYRESULT_H</span>
+<a href="a00504.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_FRAMING_ENUM_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_FRAMING_ENUM_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span><span class="comment">/*</span>
 <a name="l00004"></a>00004 <span class="comment"> *</span>
 <a name="l00005"></a>00005 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
@@ -87,59 +87,167 @@
 <a name="l00028"></a>00028 
 <a name="l00029"></a>00029 
 <a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="preprocessor">#include &lt;ostream&gt;</span>
-<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="a00494.html" title="Definitions and full declarations of all types used in AMQP messages.">qpid/framing/amqp_types_full.h</a>&quot;</span>
-<a name="l00033"></a>00033 <span class="preprocessor">#include &quot;<a class="code" href="a00482.html">qpid/CommonImportExport.h</a>&quot;</span>
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035 <span class="keyword">namespace </span>qpid {
-<a name="l00036"></a>00036 <span class="keyword">namespace </span>framing {
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038 <span class="keyword">class </span><a class="code" href="a00482.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> ExchangeQueryResult  {
-<a name="l00039"></a>00039     std::string type;
-<a name="l00040"></a>00040     FieldTable arguments;
-<a name="l00041"></a>00041     <a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> flags;
-<a name="l00042"></a>00042 <span class="keyword">public</span>:
-<a name="l00043"></a><a class="code" href="a00117.html#a8de57f4e86b3588061725e3798692261">00043</a>     <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> TYPE = 1793;
-<a name="l00044"></a><a class="code" href="a00117.html#a7fb21d0d48260fa20c95845f841f1953">00044</a>     <a class="code" href="a00117.html">ExchangeQueryResult</a>(
-<a name="l00045"></a>00045         <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; _type,
-<a name="l00046"></a>00046         <span class="keywordtype">bool</span> _durable,
-<a name="l00047"></a>00047         <span class="keywordtype">bool</span> _notFound,
-<a name="l00048"></a>00048         <span class="keyword">const</span> <a class="code" href="a00123.html" title="A set of name-value pairs.">FieldTable</a>&amp; _arguments) : 
-<a name="l00049"></a>00049         type(_type),
-<a name="l00050"></a>00050         arguments(_arguments),
-<a name="l00051"></a>00051         flags(0){
-<a name="l00052"></a>00052         setDurable(_durable);
-<a name="l00053"></a>00053         setNotFound(_notFound);
-<a name="l00054"></a>00054         flags |= (1 &lt;&lt; 8);
-<a name="l00055"></a>00055         flags |= (1 &lt;&lt; 11);
-<a name="l00056"></a>00056     }
-<a name="l00057"></a><a class="code" href="a00117.html#a314930e7565eaf34f36db62ecaff748d">00057</a>     <a class="code" href="a00117.html#a314930e7565eaf34f36db62ecaff748d">ExchangeQueryResult</a>()  : flags(0) {}
-<a name="l00058"></a>00058     
-<a name="l00059"></a>00059     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setType(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; _type);
-<a name="l00060"></a>00060     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">const</span> std<a class="code" href="a00345.html" title="STL class.">::string</a>&amp; getType() <span class="keyword">const</span>;
-<a name="l00061"></a>00061     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasType() <span class="keyword">const</span>;
-<a name="l00062"></a>00062     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearTypeFlag();
-<a name="l00063"></a>00063     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setDurable(<span class="keywordtype">bool</span> _durable);
-<a name="l00064"></a>00064     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> getDurable() <span class="keyword">const</span>;
-<a name="l00065"></a>00065     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setNotFound(<span class="keywordtype">bool</span> _notFound);
-<a name="l00066"></a>00066     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> getNotFound() <span class="keyword">const</span>;
-<a name="l00067"></a>00067     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setArguments(<span class="keyword">const</span> <a class="code" href="a00123.html" title="A set of name-value pairs.">FieldTable</a>&amp; _arguments);
-<a name="l00068"></a>00068     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">const</span> <a class="code" href="a00123.html" title="A set of name-value pairs.">FieldTable</a>&amp; getArguments() <span class="keyword">const</span>;
-<a name="l00069"></a>00069     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00123.html" title="A set of name-value pairs.">FieldTable</a>&amp; getArguments();
-<a name="l00070"></a>00070     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasArguments() <span class="keyword">const</span>;
-<a name="l00071"></a>00071     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearArgumentsFlag();
-<a name="l00072"></a>00072     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="a00580.html#a26b5aa4aa3e48e044e86832a401304b7">operator&lt;&lt;</a>(<a class="code" href="a00243.html" title="STL class.">std::ostream</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00117.html">ExchangeQueryResult</a>&amp;);
-<a name="l00073"></a>00073     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00591.html#afefbffac1ba55c37a1f7ab3a85ca753b" title="Encodes a Variant::Map into a message.">encode</a>(<a class="code" href="a00045.html">Buffer</a>&amp;) <span class="keyword">const</span>;
-<a name="l00074"></a>00074     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00591.html#ad37dfc262612bfde8fdc73e3a85ddf95" title="Decodes message content into a Variant::Map.">decode</a>(<a class="code" href="a00045.html">Buffer</a>&amp;, <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0);
-<a name="l00075"></a>00075     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> encodeStructBody(<a class="code" href="a00045.html">Buffer</a>&amp;) <span class="keyword">const</span>;
-<a name="l00076"></a>00076     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> decodeStructBody(<a class="code" href="a00045.html">Buffer</a>&amp;, <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0);
-<a name="l00077"></a>00077     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> encodedSize() <span class="keyword">const</span>;
-<a name="l00078"></a>00078     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> bodySize() <span class="keyword">const</span>;
-<a name="l00079"></a>00079     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> print(<a class="code" href="a00243.html" title="STL class.">std::ostream</a>&amp; out) <span class="keyword">const</span>;
-<a name="l00080"></a>00080 }; <span class="comment">/* class ExchangeQueryResult */</span>
-<a name="l00081"></a>00081 
-<a name="l00082"></a>00082 }}
-<a name="l00083"></a>00083 <span class="preprocessor">#endif  </span>
+<a name="l00031"></a>00031 <span class="keyword">namespace </span>qpid {
+<a name="l00032"></a>00032 <span class="keyword">namespace </span>framing {
+<a name="l00033"></a>00033 
+<a name="l00034"></a><a class="code" href="a00582.html#ac31aaf2077ae429687cb0736c5ff1485">00034</a> <span class="keyword">enum</span> <a class="code" href="a00582.html#ac31aaf2077ae429687cb0736c5ff1485">SegmentType</a> {
+<a name="l00035"></a><a class="code" href="a00582.html#ac31aaf2077ae429687cb0736c5ff1485a10da7e53eb6c63d398d6bc00f8316fd9">00035</a>     <a class="code" href="a00582.html#ac31aaf2077ae429687cb0736c5ff1485a10da7e53eb6c63d398d6bc00f8316fd9">SEGMENT_TYPE_CONTROL</a>=0,
+<a name="l00036"></a><a class="code" href="a00582.html#ac31aaf2077ae429687cb0736c5ff1485af0f5ba077a7b73cb891ff8af6e6de0b7">00036</a>     <a class="code" href="a00582.html#ac31aaf2077ae429687cb0736c5ff1485af0f5ba077a7b73cb891ff8af6e6de0b7">SEGMENT_TYPE_COMMAND</a>=1,
+<a name="l00037"></a><a class="code" href="a00582.html#ac31aaf2077ae429687cb0736c5ff1485a9d5a4ceca62933e7f29a8d3882197df1">00037</a>     <a class="code" href="a00582.html#ac31aaf2077ae429687cb0736c5ff1485a9d5a4ceca62933e7f29a8d3882197df1">SEGMENT_TYPE_HEADER</a>=2,
+<a name="l00038"></a><a class="code" href="a00582.html#ac31aaf2077ae429687cb0736c5ff1485a4565bfe023e91e6fb94b2bb243c32712">00038</a>     <a class="code" href="a00582.html#ac31aaf2077ae429687cb0736c5ff1485a4565bfe023e91e6fb94b2bb243c32712">SEGMENT_TYPE_BODY</a>=3
+<a name="l00039"></a>00039 };
+<a name="l00040"></a><a class="code" href="a00582.html#a078c3212966c7fcf685163f41e580fb4">00040</a> <span class="keyword">enum</span> <a class="code" href="a00582.html#a078c3212966c7fcf685163f41e580fb4">Track</a> {
+<a name="l00041"></a><a class="code" href="a00582.html#a078c3212966c7fcf685163f41e580fb4a34d25fe1849455e69fdf7ba143d54c7e">00041</a>     <a class="code" href="a00582.html#a078c3212966c7fcf685163f41e580fb4a34d25fe1849455e69fdf7ba143d54c7e">TRACK_CONTROL</a>=0,
+<a name="l00042"></a><a class="code" href="a00582.html#a078c3212966c7fcf685163f41e580fb4a16d811fda8fead2951b87af2d18bd71f">00042</a>     <a class="code" href="a00582.html#a078c3212966c7fcf685163f41e580fb4a16d811fda8fead2951b87af2d18bd71f">TRACK_COMMAND</a>=1
+<a name="l00043"></a>00043 };
+<a name="l00044"></a>00044 
+<a name="l00045"></a><a class="code" href="a00584.html">00045</a> <span class="keyword">namespace </span>connection {
+<a name="l00046"></a>00046 
+<a name="l00047"></a><a class="code" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4">00047</a> <span class="keyword">enum</span> <a class="code" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4">CloseCode</a> {
+<a name="l00048"></a><a class="code" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4ad68462c77833631c223f7f416ff1c878">00048</a>     <a class="code" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4ad68462c77833631c223f7f416ff1c878">CLOSE_CODE_NORMAL</a>=200,
+<a name="l00049"></a><a class="code" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4ae2866192665d2637d25a7a4c3b3677f7">00049</a>     <a class="code" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4ae2866192665d2637d25a7a4c3b3677f7">CLOSE_CODE_CONNECTION_FORCED</a>=320,
+<a name="l00050"></a><a class="code" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4a975c0002da29ebb4a042295f5d450ab7">00050</a>     <a class="code" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4a975c0002da29ebb4a042295f5d450ab7">CLOSE_CODE_INVALID_PATH</a>=402,
+<a name="l00051"></a><a class="code" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4a9638d7bf712ad146adebafcb7efe72a0">00051</a>     <a class="code" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4a9638d7bf712ad146adebafcb7efe72a0">CLOSE_CODE_FRAMING_ERROR</a>=501
+<a name="l00052"></a>00052 };
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054 } <span class="comment">// namespace connection</span>
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 
+<a name="l00057"></a><a class="code" href="a00589.html">00057</a> <span class="keyword">namespace </span>session {
+<a name="l00058"></a>00058 
+<a name="l00059"></a><a class="code" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540">00059</a> <span class="keyword">enum</span> <a class="code" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540">DetachCode</a> {
+<a name="l00060"></a><a class="code" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540a0b5ac5eec3a6d192ccba5e9212cfbb47">00060</a>     <a class="code" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540a0b5ac5eec3a6d192ccba5e9212cfbb47">DETACH_CODE_NORMAL</a>=0,
+<a name="l00061"></a><a class="code" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540aee5045fa3748a8dcf899288de457741c">00061</a>     <a class="code" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540aee5045fa3748a8dcf899288de457741c">DETACH_CODE_SESSION_BUSY</a>=1,
+<a name="l00062"></a><a class="code" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540ab660f691aa9683149ba04e0175351a41">00062</a>     <a class="code" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540ab660f691aa9683149ba04e0175351a41">DETACH_CODE_TRANSPORT_BUSY</a>=2,
+<a name="l00063"></a><a class="code" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540ad49c675a24dc8474110f6d567bbb3283">00063</a>     <a class="code" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540ad49c675a24dc8474110f6d567bbb3283">DETACH_CODE_NOT_ATTACHED</a>=3,
+<a name="l00064"></a><a class="code" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540aecc25c880105bad2f8e9e15e2548f3a5">00064</a>     <a class="code" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540aecc25c880105bad2f8e9e15e2548f3a5">DETACH_CODE_UNKNOWN_IDS</a>=4
+<a name="l00065"></a>00065 };
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067 } <span class="comment">// namespace session</span>
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 
+<a name="l00070"></a><a class="code" href="a00586.html">00070</a> <span class="keyword">namespace </span>execution {
+<a name="l00071"></a>00071 
+<a name="l00072"></a><a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18">00072</a> <span class="keyword">enum</span> <a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18">ErrorCode</a> {
+<a name="l00073"></a><a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18ad05a0982952c914662bc03e28c47f2ca">00073</a>     <a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18ad05a0982952c914662bc03e28c47f2ca">ERROR_CODE_UNAUTHORIZED_ACCESS</a>=403,
+<a name="l00074"></a><a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18ac840d86bba1f18657e470d772ee413e7">00074</a>     <a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18ac840d86bba1f18657e470d772ee413e7">ERROR_CODE_NOT_FOUND</a>=404,
+<a name="l00075"></a><a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a320e69337b5a92b1098c212c9705c3fb">00075</a>     <a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a320e69337b5a92b1098c212c9705c3fb">ERROR_CODE_RESOURCE_LOCKED</a>=405,
+<a name="l00076"></a><a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a796aa6dd0dd827060f15aafb9d0efee0">00076</a>     <a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a796aa6dd0dd827060f15aafb9d0efee0">ERROR_CODE_PRECONDITION_FAILED</a>=406,
+<a name="l00077"></a><a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a501baa9a8a83954a1b11010f53c484fb">00077</a>     <a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a501baa9a8a83954a1b11010f53c484fb">ERROR_CODE_RESOURCE_DELETED</a>=408,
+<a name="l00078"></a><a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a9adbcda0445b885c53e5922d210556c2">00078</a>     <a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a9adbcda0445b885c53e5922d210556c2">ERROR_CODE_ILLEGAL_STATE</a>=409,
+<a name="l00079"></a><a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18af2aad1b70109e91adc2096e66b03c3b7">00079</a>     <a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18af2aad1b70109e91adc2096e66b03c3b7">ERROR_CODE_COMMAND_INVALID</a>=503,
+<a name="l00080"></a><a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a0f3ee74a9bac88519f0c820a485552ac">00080</a>     <a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a0f3ee74a9bac88519f0c820a485552ac">ERROR_CODE_RESOURCE_LIMIT_EXCEEDED</a>=506,
+<a name="l00081"></a><a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18aeeb980808996116f4527048e5bc6b9ab">00081</a>     <a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18aeeb980808996116f4527048e5bc6b9ab">ERROR_CODE_NOT_ALLOWED</a>=530,
+<a name="l00082"></a><a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a22540476656c4aa523a0b0f291a9fcd2">00082</a>     <a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a22540476656c4aa523a0b0f291a9fcd2">ERROR_CODE_ILLEGAL_ARGUMENT</a>=531,
+<a name="l00083"></a><a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a3d7c576df0fedf94f7f154ce2cebc98f">00083</a>     <a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a3d7c576df0fedf94f7f154ce2cebc98f">ERROR_CODE_NOT_IMPLEMENTED</a>=540,
+<a name="l00084"></a><a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a111f1958e93db2688277cbfd63d1b9b0">00084</a>     <a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a111f1958e93db2688277cbfd63d1b9b0">ERROR_CODE_INTERNAL_ERROR</a>=541,
+<a name="l00085"></a><a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a7305d771865e3222f669f3ce786b08aa">00085</a>     <a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a7305d771865e3222f669f3ce786b08aa">ERROR_CODE_INVALID_ARGUMENT</a>=542
+<a name="l00086"></a>00086 };
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 } <span class="comment">// namespace execution</span>
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090 
+<a name="l00091"></a><a class="code" href="a00588.html">00091</a> <span class="keyword">namespace </span>message {
+<a name="l00092"></a>00092 
+<a name="l00093"></a><a class="code" href="a00588.html#a8d6ab87d62f2c2f1136e10f0a200f436">00093</a> <span class="keyword">enum</span> <a class="code" href="a00588.html#a8d6ab87d62f2c2f1136e10f0a200f436">AcceptMode</a> {
+<a name="l00094"></a><a class="code" href="a00588.html#a8d6ab87d62f2c2f1136e10f0a200f436ad133238eeb72b988b8098eacbe380b40">00094</a>     <a class="code" href="a00588.html#a8d6ab87d62f2c2f1136e10f0a200f436ad133238eeb72b988b8098eacbe380b40">ACCEPT_MODE_EXPLICIT</a>=0,
+<a name="l00095"></a><a class="code" href="a00588.html#a8d6ab87d62f2c2f1136e10f0a200f436a7b917c100c6da6e48f3051f1082b0c20">00095</a>     <a class="code" href="a00588.html#a8d6ab87d62f2c2f1136e10f0a200f436a7b917c100c6da6e48f3051f1082b0c20">ACCEPT_MODE_NONE</a>=1
+<a name="l00096"></a>00096 };
+<a name="l00097"></a><a class="code" href="a00588.html#ad010ae646e0187e26e02b829e77213d8">00097</a> <span class="keyword">enum</span> <a class="code" href="a00588.html#ad010ae646e0187e26e02b829e77213d8">AcquireMode</a> {
+<a name="l00098"></a><a class="code" href="a00588.html#ad010ae646e0187e26e02b829e77213d8adcf58c7c09c0324895876616551e1ace">00098</a>     <a class="code" href="a00588.html#ad010ae646e0187e26e02b829e77213d8adcf58c7c09c0324895876616551e1ace">ACQUIRE_MODE_PRE_ACQUIRED</a>=0,
+<a name="l00099"></a><a class="code" href="a00588.html#ad010ae646e0187e26e02b829e77213d8a31d1c85563e99e1b7c30d1e8a2b51938">00099</a>     <a class="code" href="a00588.html#ad010ae646e0187e26e02b829e77213d8a31d1c85563e99e1b7c30d1e8a2b51938">ACQUIRE_MODE_NOT_ACQUIRED</a>=1
+<a name="l00100"></a>00100 };
+<a name="l00101"></a><a class="code" href="a00588.html#a6f9618f6d3e47d90daf18c3f9edcfc89">00101</a> <span class="keyword">enum</span> <a class="code" href="a00588.html#a6f9618f6d3e47d90daf18c3f9edcfc89">RejectCode</a> {
+<a name="l00102"></a><a class="code" href="a00588.html#a6f9618f6d3e47d90daf18c3f9edcfc89a9836cbe1a80a07979b40808f1b62cdf3">00102</a>     <a class="code" href="a00588.html#a6f9618f6d3e47d90daf18c3f9edcfc89a9836cbe1a80a07979b40808f1b62cdf3">REJECT_CODE_UNSPECIFIED</a>=0,
+<a name="l00103"></a><a class="code" href="a00588.html#a6f9618f6d3e47d90daf18c3f9edcfc89ab3b39966c6e4d0b443d7c5d09a618b3e">00103</a>     <a class="code" href="a00588.html#a6f9618f6d3e47d90daf18c3f9edcfc89ab3b39966c6e4d0b443d7c5d09a618b3e">REJECT_CODE_UNROUTABLE</a>=1,
+<a name="l00104"></a><a class="code" href="a00588.html#a6f9618f6d3e47d90daf18c3f9edcfc89aebcdcabdc0398519a07c7c0fa0bdb85b">00104</a>     <a class="code" href="a00588.html#a6f9618f6d3e47d90daf18c3f9edcfc89aebcdcabdc0398519a07c7c0fa0bdb85b">REJECT_CODE_IMMEDIATE</a>=2
+<a name="l00105"></a>00105 };
+<a name="l00106"></a><a class="code" href="a00588.html#a34c0f78da277cb71d84994c5e143e331">00106</a> <span class="keyword">enum</span> <a class="code" href="a00588.html#a34c0f78da277cb71d84994c5e143e331">DeliveryMode</a> {
+<a name="l00107"></a><a class="code" href="a00588.html#a34c0f78da277cb71d84994c5e143e331a51c532f78ac8dc742c6876693a14f2ac">00107</a>     <a class="code" href="a00588.html#a34c0f78da277cb71d84994c5e143e331a51c532f78ac8dc742c6876693a14f2ac">DELIVERY_MODE_NON_PERSISTENT</a>=1,
+<a name="l00108"></a><a class="code" href="a00588.html#a34c0f78da277cb71d84994c5e143e331a5d19604c0b0d11e5d19db2b4b54d4c62">00108</a>     <a class="code" href="a00588.html#a34c0f78da277cb71d84994c5e143e331a5d19604c0b0d11e5d19db2b4b54d4c62">DELIVERY_MODE_PERSISTENT</a>=2
+<a name="l00109"></a>00109 };
+<a name="l00110"></a><a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3">00110</a> <span class="keyword">enum</span> <a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3">DeliveryPriority</a> {
+<a name="l00111"></a><a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3ae66ac28c235ff8ec37d3cfc8825a7c18">00111</a>     <a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3ae66ac28c235ff8ec37d3cfc8825a7c18">DELIVERY_PRIORITY_LOWEST</a>=0,
+<a name="l00112"></a><a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3af85c1a29dda5926c2a63f396b998a1c8">00112</a>     <a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3af85c1a29dda5926c2a63f396b998a1c8">DELIVERY_PRIORITY_LOWER</a>=1,
+<a name="l00113"></a><a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3a0b8d0e3c54fb0ae0789d1da634b0d5d1">00113</a>     <a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3a0b8d0e3c54fb0ae0789d1da634b0d5d1">DELIVERY_PRIORITY_LOW</a>=2,
+<a name="l00114"></a><a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3ab43176c1a4cc94dc56ec0ef374afd352">00114</a>     <a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3ab43176c1a4cc94dc56ec0ef374afd352">DELIVERY_PRIORITY_BELOW_AVERAGE</a>=3,
+<a name="l00115"></a><a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3a7bb2a422086bd083edb9ac979df58c06">00115</a>     <a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3a7bb2a422086bd083edb9ac979df58c06">DELIVERY_PRIORITY_MEDIUM</a>=4,
+<a name="l00116"></a><a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3a97ccd94d78f8420cd00f3a8f865fc4e2">00116</a>     <a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3a97ccd94d78f8420cd00f3a8f865fc4e2">DELIVERY_PRIORITY_ABOVE_AVERAGE</a>=5,
+<a name="l00117"></a><a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3ac71fbae09a4b9f4e0d55962fe0d3a853">00117</a>     <a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3ac71fbae09a4b9f4e0d55962fe0d3a853">DELIVERY_PRIORITY_HIGH</a>=6,
+<a name="l00118"></a><a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3a329b94a4b7351414c9a134bc2e3e6d82">00118</a>     <a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3a329b94a4b7351414c9a134bc2e3e6d82">DELIVERY_PRIORITY_HIGHER</a>=7,
+<a name="l00119"></a><a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3a0c369ad56da6b6c6bb36c78dfc69dc27">00119</a>     <a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3a0c369ad56da6b6c6bb36c78dfc69dc27">DELIVERY_PRIORITY_VERY_HIGH</a>=8,
+<a name="l00120"></a><a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3ae992840cb3e56ab31a4b09b9e0a6083f">00120</a>     <a class="code" href="a00588.html#a0bd493bec452c1b87b3aca711ba45ec3ae992840cb3e56ab31a4b09b9e0a6083f">DELIVERY_PRIORITY_HIGHEST</a>=9
+<a name="l00121"></a>00121 };
+<a name="l00122"></a><a class="code" href="a00588.html#ae79c43439857b8ed0acbfeb48bdb263e">00122</a> <span class="keyword">enum</span> <a class="code" href="a00588.html#ae79c43439857b8ed0acbfeb48bdb263e">FlowMode</a> {
+<a name="l00123"></a><a class="code" href="a00588.html#ae79c43439857b8ed0acbfeb48bdb263eabe519ad4034dc15d0fac0ce655001d1f">00123</a>     <a class="code" href="a00588.html#ae79c43439857b8ed0acbfeb48bdb263eabe519ad4034dc15d0fac0ce655001d1f">FLOW_MODE_CREDIT</a>=0,
+<a name="l00124"></a><a class="code" href="a00588.html#ae79c43439857b8ed0acbfeb48bdb263ead50321e89017cbccbec44daacf805c96">00124</a>     <a class="code" href="a00588.html#ae79c43439857b8ed0acbfeb48bdb263ead50321e89017cbccbec44daacf805c96">FLOW_MODE_WINDOW</a>=1
+<a name="l00125"></a>00125 };
+<a name="l00126"></a><a class="code" href="a00588.html#a7551ef2b50bfcc4513fd83fd0ca412d4">00126</a> <span class="keyword">enum</span> <a class="code" href="a00588.html#a7551ef2b50bfcc4513fd83fd0ca412d4">CreditUnit</a> {
+<a name="l00127"></a><a class="code" href="a00588.html#a7551ef2b50bfcc4513fd83fd0ca412d4ad54499c6f023b5d59ae9fee267be733b">00127</a>     <a class="code" href="a00588.html#a7551ef2b50bfcc4513fd83fd0ca412d4ad54499c6f023b5d59ae9fee267be733b">CREDIT_UNIT_MESSAGE</a>=0,
+<a name="l00128"></a><a class="code" href="a00588.html#a7551ef2b50bfcc4513fd83fd0ca412d4a8ba8a0473260228700df23d74e8a8645">00128</a>     <a class="code" href="a00588.html#a7551ef2b50bfcc4513fd83fd0ca412d4a8ba8a0473260228700df23d74e8a8645">CREDIT_UNIT_BYTE</a>=1
+<a name="l00129"></a>00129 };
+<a name="l00130"></a>00130 
+<a name="l00131"></a>00131 } <span class="comment">// namespace message</span>
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133 
+<a name="l00134"></a><a class="code" href="a00585.html">00134</a> <span class="keyword">namespace </span>dtx {
+<a name="l00135"></a>00135 
+<a name="l00136"></a><a class="code" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106">00136</a> <span class="keyword">enum</span> <a class="code" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106">XaStatus</a> {
+<a name="l00137"></a><a class="code" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106ab1bfa28507ea90a04c510643912c5a77">00137</a>     <a class="code" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106ab1bfa28507ea90a04c510643912c5a77">XA_STATUS_XA_OK</a>=0,
+<a name="l00138"></a><a class="code" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106a9b243cde1c4b8a43b083043e2461ea92">00138</a>     <a class="code" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106a9b243cde1c4b8a43b083043e2461ea92">XA_STATUS_XA_RBROLLBACK</a>=1,
+<a name="l00139"></a><a class="code" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106a61831d30b4dde298330186f7803ed6bd">00139</a>     <a class="code" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106a61831d30b4dde298330186f7803ed6bd">XA_STATUS_XA_RBTIMEOUT</a>=2,
+<a name="l00140"></a><a class="code" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106a43d175dfcec0c27e69bf763176fa9718">00140</a>     <a class="code" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106a43d175dfcec0c27e69bf763176fa9718">XA_STATUS_XA_HEURHAZ</a>=3,
+<a name="l00141"></a><a class="code" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106aefaedcec538994a97f7bbe58721fa6b6">00141</a>     <a class="code" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106aefaedcec538994a97f7bbe58721fa6b6">XA_STATUS_XA_HEURCOM</a>=4,
+<a name="l00142"></a><a class="code" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106a6f1cb0f46b55d72d1f48a79f199a89c5">00142</a>     <a class="code" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106a6f1cb0f46b55d72d1f48a79f199a89c5">XA_STATUS_XA_HEURRB</a>=5,
+<a name="l00143"></a><a class="code" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106ab46635e4385092bdce867d5a84ad4e14">00143</a>     <a class="code" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106ab46635e4385092bdce867d5a84ad4e14">XA_STATUS_XA_HEURMIX</a>=6,
+<a name="l00144"></a><a class="code" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106a914a388ca583a00f54159cdf05d31f38">00144</a>     <a class="code" href="a00585.html#a662b9c8e054bdd1d302c4da8df5ca106a914a388ca583a00f54159cdf05d31f38">XA_STATUS_XA_RDONLY</a>=7
+<a name="l00145"></a>00145 };
+<a name="l00146"></a>00146 
+<a name="l00147"></a>00147 } <span class="comment">// namespace dtx</span>
+<a name="l00148"></a>00148 
+<a name="l00149"></a>00149 
+<a name="l00150"></a><a class="code" href="a00587.html">00150</a> <span class="keyword">namespace </span>file {
+<a name="l00151"></a>00151 
+<a name="l00152"></a><a class="code" href="a00587.html#af93e0aa19b21742f9c4a9e2c3a37454e">00152</a> <span class="keyword">enum</span> <a class="code" href="a00587.html#af93e0aa19b21742f9c4a9e2c3a37454e">ReturnCode</a> {
+<a name="l00153"></a><a class="code" href="a00587.html#af93e0aa19b21742f9c4a9e2c3a37454ea821e09f2bee9786b613c2f14243e9073">00153</a>     <a class="code" href="a00587.html#af93e0aa19b21742f9c4a9e2c3a37454ea821e09f2bee9786b613c2f14243e9073">RETURN_CODE_CONTENT_TOO_LARGE</a>=311,
+<a name="l00154"></a><a class="code" href="a00587.html#af93e0aa19b21742f9c4a9e2c3a37454ea7e0275964855671439006b4a481e2f19">00154</a>     <a class="code" href="a00587.html#af93e0aa19b21742f9c4a9e2c3a37454ea7e0275964855671439006b4a481e2f19">RETURN_CODE_NO_ROUTE</a>=312,
+<a name="l00155"></a><a class="code" href="a00587.html#af93e0aa19b21742f9c4a9e2c3a37454eabbdc86842b396d40be46a065f349d093">00155</a>     <a class="code" href="a00587.html#af93e0aa19b21742f9c4a9e2c3a37454eabbdc86842b396d40be46a065f349d093">RETURN_CODE_NO_CONSUMERS</a>=313
+<a name="l00156"></a>00156 };
+<a name="l00157"></a>00157 
+<a name="l00158"></a>00158 } <span class="comment">// namespace file</span>
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160 
+<a name="l00161"></a><a class="code" href="a00590.html">00161</a> <span class="keyword">namespace </span>stream {
+<a name="l00162"></a>00162 
+<a name="l00163"></a><a class="code" href="a00590.html#ab476f23cc8d99d32c50e6c683f1ecd80">00163</a> <span class="keyword">enum</span> <a class="code" href="a00590.html#ab476f23cc8d99d32c50e6c683f1ecd80">ReturnCode</a> {
+<a name="l00164"></a><a class="code" href="a00590.html#ab476f23cc8d99d32c50e6c683f1ecd80afde120cb77e4abd7aba1c1ff7e0d7867">00164</a>     <a class="code" href="a00590.html#ab476f23cc8d99d32c50e6c683f1ecd80afde120cb77e4abd7aba1c1ff7e0d7867">RETURN_CODE_CONTENT_TOO_LARGE</a>=311,
+<a name="l00165"></a><a class="code" href="a00590.html#ab476f23cc8d99d32c50e6c683f1ecd80a02077590d23f8eca9d4b162865c20fc4">00165</a>     <a class="code" href="a00590.html#ab476f23cc8d99d32c50e6c683f1ecd80a02077590d23f8eca9d4b162865c20fc4">RETURN_CODE_NO_ROUTE</a>=312,
+<a name="l00166"></a><a class="code" href="a00590.html#ab476f23cc8d99d32c50e6c683f1ecd80a0eeaaabb6bb6b29f95914c3b7a0d032a">00166</a>     <a class="code" href="a00590.html#ab476f23cc8d99d32c50e6c683f1ecd80a0eeaaabb6bb6b29f95914c3b7a0d032a">RETURN_CODE_NO_CONSUMERS</a>=313
+<a name="l00167"></a>00167 };
+<a name="l00168"></a>00168 
+<a name="l00169"></a>00169 } <span class="comment">// namespace stream</span>
+<a name="l00170"></a>00170 
+<a name="l00171"></a>00171 
+<a name="l00172"></a><a class="code" href="a00583.html">00172</a> <span class="keyword">namespace </span>cluster {
+<a name="l00173"></a>00173 
+<a name="l00174"></a><a class="code" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7">00174</a> <span class="keyword">enum</span> <a class="code" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7">StoreState</a> {
+<a name="l00175"></a><a class="code" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7aa3eb6571aa48877729a0f367509a70c4">00175</a>     <a class="code" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7aa3eb6571aa48877729a0f367509a70c4">STORE_STATE_NO_STORE</a>=0,
+<a name="l00176"></a><a class="code" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7a20f56190d72e28ffa08382a852df3a12">00176</a>     <a class="code" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7a20f56190d72e28ffa08382a852df3a12">STORE_STATE_EMPTY_STORE</a>=1,
+<a name="l00177"></a><a class="code" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7a9d4ed02a67fd5628db255baa90da85e1">00177</a>     <a class="code" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7a9d4ed02a67fd5628db255baa90da85e1">STORE_STATE_CLEAN_STORE</a>=2,
+<a name="l00178"></a><a class="code" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7a5516eb694b7d73feda7028fab75f6ec3">00178</a>     <a class="code" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7a5516eb694b7d73feda7028fab75f6ec3">STORE_STATE_DIRTY_STORE</a>=3
+<a name="l00179"></a>00179 };
+<a name="l00180"></a><a class="code" href="a00583.html#a1f0c00f95b3402b5ffdafd94f1bda53a">00180</a> <span class="keyword">enum</span> <a class="code" href="a00583.html#a1f0c00f95b3402b5ffdafd94f1bda53a">ErrorType</a> {
+<a name="l00181"></a><a class="code" href="a00583.html#a1f0c00f95b3402b5ffdafd94f1bda53aa2c7e16fbd015d7cab61b0e325a2a674b">00181</a>     <a class="code" href="a00583.html#a1f0c00f95b3402b5ffdafd94f1bda53aa2c7e16fbd015d7cab61b0e325a2a674b">ERROR_TYPE_NONE</a>=0,
+<a name="l00182"></a><a class="code" href="a00583.html#a1f0c00f95b3402b5ffdafd94f1bda53aa63975e6bfe458123e7a8ef72f19e75aa">00182</a>     <a class="code" href="a00583.html#a1f0c00f95b3402b5ffdafd94f1bda53aa63975e6bfe458123e7a8ef72f19e75aa">ERROR_TYPE_SESSION</a>=1,
+<a name="l00183"></a><a class="code" href="a00583.html#a1f0c00f95b3402b5ffdafd94f1bda53aabdcdbcc564d022a7927d10a07f268eee">00183</a>     <a class="code" href="a00583.html#a1f0c00f95b3402b5ffdafd94f1bda53aabdcdbcc564d022a7927d10a07f268eee">ERROR_TYPE_CONNECTION</a>=2
+<a name="l00184"></a>00184 };
+<a name="l00185"></a>00185 
+<a name="l00186"></a>00186 } <span class="comment">// namespace cluster</span>
+<a name="l00187"></a>00187 
+<a name="l00188"></a>00188 
+<a name="l00189"></a>00189 }} <span class="comment">// namespace qpid::framing</span>
+<a name="l00190"></a>00190 
+<a name="l00191"></a>00191 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -169,7 +277,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/log/SinkOptions.h File Reference</title>
+    <title>qpid/Options.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,26 +60,47 @@
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/log/SinkOptions.h File Reference</div>  </div>
+<div class="title">qpid/Options.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00531_source.html">qpid/Options.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00492_source.html">qpid/Exception.h</a>&quot;</code><br/>
+<code>#include &lt;boost/program_options.hpp&gt;</code><br/>
+<code>#include &lt;boost/format.hpp&gt;</code><br/>
+<code>#include &lt;sstream&gt;</code><br/>
+<code>#include &lt;iterator&gt;</code><br/>
+<code>#include &lt;algorithm&gt;</code><br/>
 <code>#include &lt;string&gt;</code><br/>
+<code>#include &quot;<a class="el" href="a00484_source.html">qpid/CommonImportExport.h</a>&quot;</code><br/>
 </div>
 <p><a href="a00533_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00338.html">qpid::log::SinkOptions</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Logging sink options.  <a href="a00338.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00243.html">qpid::OptionValue</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00241.html">qpid::Options</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for options.  <a href="a00241.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00113.html">qpid::Options::Exception</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00055.html">qpid::CommonOptions</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Standard options for configuration.  <a href="a00055.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html">qpid</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
 <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00589.html">qpid::log</a></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#aa82987134f1b58966a77bca596e25d9f">qpid::prettyArg</a> (const <a class="el" href="a00346.html">std::string</a> &amp;, const <a class="el" href="a00346.html">std::string</a> &amp;)</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">po::value_semantic *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00576.html#a8528c6a24f1a699f1cad39814cc34880">qpid::optValue</a> (T &amp;value, const char *name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an option value.  <a href="#a8528c6a24f1a699f1cad39814cc34880"></a><br/></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">po::value_semantic *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00576.html#afcd1a6083d6ac7b47e213a67035fb998">qpid::optValue</a> (<a class="el" href="a00387.html">std::vector</a>&lt; T &gt; &amp;value, const char *name)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a vector value.  <a href="#afcd1a6083d6ac7b47e213a67035fb998"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">po::value_semantic *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#a2a4f0c2a95d060596552187971260c09">qpid::optValue</a> (bool &amp;value)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a boolean switch value.  <a href="#a2a4f0c2a95d060596552187971260c09"></a><br/></td></tr>
 </table>
 </div>
 <!--
@@ -109,7 +130,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

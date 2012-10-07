@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/console/ConsoleImportExport.h File Reference</title>
+    <title>qpid/console/Broker.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -59,67 +59,47 @@
 </div>
 <div class="header">
   <div class="summary">
-<a href="#define-members">Defines</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/console/ConsoleImportExport.h File Reference</div>  </div>
+<div class="title">qpid/console/Broker.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00441_source.html">qpid/ImportExport.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00487_source.html">qpid/console/ConsoleImportExport.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00464_source.html">qpid/client/Connection.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00415_source.html">qpid/client/ConnectionSettings.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00481_source.html">qpid/client/SubscriptionManager.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00478_source.html">qpid/client/Session.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00459_source.html">qpid/client/AsyncSession.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00421_source.html">qpid/client/Message.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00473_source.html">qpid/client/MessageListener.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00570_source.html">qpid/sys/Thread.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00567_source.html">qpid/sys/Runnable.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00542_source.html">qpid/sys/Mutex.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00552_source.html">qpid/sys/Condition.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00572_source.html">qpid/Url.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00498_source.html">qpid/framing/Buffer.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00525_source.html">qpid/framing/Uuid.h</a>&quot;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
 </div>
 <p><a href="a00485_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="define-members"></a>
-Defines</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a>&#160;&#160;&#160;QPID_IMPORT</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#a605423c5ca3e6697ff3ef1949ca042f0">QPID_CONSOLE_CLASS_EXTERN</a>&#160;&#160;&#160;QPID_CLASS_IMPORT</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00485.html#a11f7cb8e03cd49ebeb8f1514a81e81c2">QPID_CONSOLE_INLINE_EXTERN</a>&#160;&#160;&#160;QPID_INLINE_IMPORT</td></tr>
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00042.html">qpid::console::Broker</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html">qpid::console::Broker::ConnectionThread</a></td></tr>
+<tr><td colspan="2"><h2><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
+<br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00581.html">qpid::console</a></td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00581.html#a428ae2235a31d7e36f1f72468bfd8ec6">qpid::console::operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;o, const Broker &amp;k)</td></tr>
 </table>
-<hr/><h2>Define Documentation</h2>
-<a class="anchor" id="a605423c5ca3e6697ff3ef1949ca042f0"></a><!-- doxytag: member="ConsoleImportExport.h::QPID_CONSOLE_CLASS_EXTERN" ref="a605423c5ca3e6697ff3ef1949ca042f0" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define QPID_CONSOLE_CLASS_EXTERN&#160;&#160;&#160;QPID_CLASS_IMPORT</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00485_source.html#l00031">31</a> of file <a class="el" href="a00485_source.html">ConsoleImportExport.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="adc1c9fffeb12a98cd48682f22ed91c04"></a><!-- doxytag: member="ConsoleImportExport.h::QPID_CONSOLE_EXTERN" ref="adc1c9fffeb12a98cd48682f22ed91c04" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define QPID_CONSOLE_EXTERN&#160;&#160;&#160;QPID_IMPORT</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00485_source.html#l00030">30</a> of file <a class="el" href="a00485_source.html">ConsoleImportExport.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a11f7cb8e03cd49ebeb8f1514a81e81c2"></a><!-- doxytag: member="ConsoleImportExport.h::QPID_CONSOLE_INLINE_EXTERN" ref="a11f7cb8e03cd49ebeb8f1514a81e81c2" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define QPID_CONSOLE_INLINE_EXTERN&#160;&#160;&#160;QPID_INLINE_IMPORT</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00485_source.html#l00032">32</a> of file <a class="el" href="a00485_source.html">ConsoleImportExport.h</a>.</p>
-
-</div>
-</div>
 </div>
 <!--
  
@@ -148,7 +128,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

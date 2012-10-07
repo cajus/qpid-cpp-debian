@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/StreamPublishBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void StreamPublishBody::setExchange(const std::string& _exchange) {
     exchange = _exchange;
     flags |= (1 << 8);
+    if (exchange.size() >= 256) throw IllegalArgumentException("Value for exchange is too large");
 }
 const std::string& StreamPublishBody::getExchange() const { return exchange; }
 bool StreamPublishBody::hasExchange() const { return flags & (1 << 8); }
@@ -41,6 +42,7 @@ void StreamPublishBody::clearExchangeFlag() { flags &= ~(1 << 8); }
 void StreamPublishBody::setRoutingKey(const std::string& _routingKey) {
     routingKey = _routingKey;
     flags |= (1 << 9);
+    if (routingKey.size() >= 256) throw IllegalArgumentException("Value for routingKey is too large");
 }
 const std::string& StreamPublishBody::getRoutingKey() const { return routingKey; }
 bool StreamPublishBody::hasRoutingKey() const { return flags & (1 << 9); }

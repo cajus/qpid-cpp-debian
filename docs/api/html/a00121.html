@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>std::ios_base::failure Class Reference</title>
+    <title>qpid::client::FailoverManager Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,23 +60,168 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><b>std</b>      </li>
-      <li class="navelem"><a class="el" href="a00169.html">ios_base</a>      </li>
-      <li class="navelem"><a class="el" href="a00121.html">failure</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00121.html">FailoverManager</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">std::ios_base::failure Class Reference</div>  </div>
+<div class="title">qpid::client::FailoverManager Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="std::ios_base::failure" --><!-- doxytag: inherits="std::exception" -->
-<p>STL class.  
+<!-- doxytag: class="qpid::client::FailoverManager" -->
+<p>Utility to manage failover.  
  <a href="a00121.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00467_source.html">qpid/client/FailoverManager.h</a>&gt;</code></p>
+
+<p><a href="a00684.html">List of all members.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00053.html">Command</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface to implement for doing work that can be resumed on failover.  <a href="a00053.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00274.html">ReconnectionStrategy</a></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00121.html#ae0c259b14b780faa344fde59e957abee">FailoverManager</a> (const <a class="el" href="a00067.html">ConnectionSettings</a> &amp;settings, <a class="el" href="a00274.html">ReconnectionStrategy</a> *strategy=0)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a manager to control failover for a logical connection.  <a href="#ae0c259b14b780faa344fde59e957abee"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00060.html">Connection</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00121.html#a6d3e7cbd9fd9263f274e492743a29c72">connect</a> (<a class="el" href="a00387.html">std::vector</a>&lt; <a class="el" href="a00374.html">Url</a> &gt; brokers=<a class="el" href="a00387.html">std::vector</a>&lt; <a class="el" href="a00374.html">Url</a> &gt;())</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current connection if open or attept to reconnect to the specified list of urls.  <a href="#a6d3e7cbd9fd9263f274e492743a29c72"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00060.html">Connection</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00121.html#ad5db4f3c25d41830ac1c3b28f771b5fe">getConnection</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current connection whether open or not.  <a href="#ad5db4f3c25d41830ac1c3b28f771b5fe"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00121.html#a33215cb636cd3446d407848a8f15c95a">close</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the current connection.  <a href="#a33215cb636cd3446d407848a8f15c95a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00121.html#a3df5cecbae290c75e121d5ed45811013">execute</a> (<a class="el" href="a00053.html">Command</a> &amp;)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reliably execute the specified command.  <a href="#a3df5cecbae290c75e121d5ed45811013"></a><br/></td></tr>
+</table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>STL class. </p>
-</div><hr/>The documentation for this class was generated from the following file:</div>
+<div class="textblock"><p>Utility to manage failover. </p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ae0c259b14b780faa344fde59e957abee"></a><!-- doxytag: member="qpid::client::FailoverManager::FailoverManager" ref="ae0c259b14b780faa344fde59e957abee" args="(const ConnectionSettings &amp;settings, ReconnectionStrategy *strategy=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::client::FailoverManager::FailoverManager </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00067.html">ConnectionSettings</a> &amp;&#160;</td>
+          <td class="paramname"><em>settings</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00274.html">ReconnectionStrategy</a> *&#160;</td>
+          <td class="paramname"><em>strategy</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Create a manager to control failover for a logical connection. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">settings</td><td>the initial connection settings </td></tr>
+    <tr><td class="paramname">strategy</td><td>optional stratgey callback allowing application to edit or reorder the list of urls to which reconnection is attempted </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a33215cb636cd3446d407848a8f15c95a"></a><!-- doxytag: member="qpid::client::FailoverManager::close" ref="a33215cb636cd3446d407848a8f15c95a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::FailoverManager::close </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Close the current connection. </p>
+
+</div>
+</div>
+<a class="anchor" id="a6d3e7cbd9fd9263f274e492743a29c72"></a><!-- doxytag: member="qpid::client::FailoverManager::connect" ref="a6d3e7cbd9fd9263f274e492743a29c72" args="(std::vector&lt; Url &gt; brokers=std::vector&lt; Url &gt;())" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00060.html">Connection</a>&amp; qpid::client::FailoverManager::connect </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00387.html">std::vector</a>&lt; <a class="el" href="a00374.html">Url</a> &gt;&#160;</td>
+          <td class="paramname"><em>brokers</em> = <code><a class="el" href="a00387.html">std::vector</a>&lt;&#160;<a class="el" href="a00374.html">Url</a>&#160;&gt;()</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Return the current connection if open or attept to reconnect to the specified list of urls. </p>
+<p>If no list is specified the list of known brokers from the last connection will be used. If no list is specified and this is the first connect attempt, the host and port from the initial settings will be used.</p>
+<p>If the full list is tried and all attempts fail, <a class="el" href="a00047.html">CannotConnectException</a> is thrown. </p>
+
+</div>
+</div>
+<a class="anchor" id="a3df5cecbae290c75e121d5ed45811013"></a><!-- doxytag: member="qpid::client::FailoverManager::execute" ref="a3df5cecbae290c75e121d5ed45811013" args="(Command &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::FailoverManager::execute </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00053.html">Command</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reliably execute the specified command. </p>
+<p>This involves creating a session on which to carry out the work of the command, handling failover occuring while exeuting that command and re-starting the work.</p>
+<p>Multiple concurrent threads can call execute with different commands; each thread will be allocated its own session. <a class="el" href="a00121.html" title="Utility to manage failover.">FailoverManager</a> will coordinate the different threads on failover to ensure they continue to use the same logical connection. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad5db4f3c25d41830ac1c3b28f771b5fe"></a><!-- doxytag: member="qpid::client::FailoverManager::getConnection" ref="ad5db4f3c25d41830ac1c3b28f771b5fe" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00060.html">Connection</a>&amp; qpid::client::FailoverManager::getConnection </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Return the current connection whether open or not. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qpid/client/<a class="el" href="a00467_source.html">FailoverManager.h</a></li>
+</ul>
+</div>
 <!--
  
  Licensed to the Apache Software Foundation (ASF) under one
@@ -104,7 +249,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::InlineAllocator Class Reference</title>
+    <title>qmf::IndexOutOfRange Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,181 +60,102 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00148.html">InlineAllocator</a>      </li>
+      <li class="navelem"><a class="el" href="a00573.html">qmf</a>      </li>
+      <li class="navelem"><a class="el" href="a00148.html">IndexOutOfRange</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::InlineAllocator Class Reference</div>  </div>
+<div class="title">qmf::IndexOutOfRange Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::InlineAllocator" -->
-<p>An allocator that has inline storage for up to Max objects of type BaseAllocator::value_type.  
- <a href="a00148.html#details">More...</a></p>
+<!-- doxytag: class="qmf::IndexOutOfRange" --><!-- doxytag: inherits="qmf::QmfException" -->
+<p><code>#include &lt;<a class="el" href="a00437_source.html">qmf/exceptions.h</a>&gt;</code></p>
 
-<p><code>#include &lt;<a class="el" href="a00527_source.html">qpid/InlineAllocator.h</a>&gt;</code></p>
-
-<p><a href="a00657.html">List of all members.</a></p>
+<p><a href="a00611.html">List of all members.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00270.html">rebind</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">union &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00341.html">Store</a></td></tr>
-<tr><td colspan="2"><h2><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef BaseAllocator::pointer&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00148.html#aad274d6fb59148499f8f218aef1188dc">pointer</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef BaseAllocator::size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00148.html#aafc8bce95385a704a92d2cdbfc0a84e0">size_type</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef BaseAllocator::value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00148.html#a15f2dd9f8dceae1d64f5347b7d0bc1ca">value_type</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00148.html#a58193ad2141ba38095ebcbbba9a50740">InlineAllocator</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00148.html#a586fd7ef0fc570dbd88c68bf7b27f469">InlineAllocator</a> (const <a class="el" href="a00148.html">InlineAllocator</a> &amp;x)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00148.html#aad274d6fb59148499f8f218aef1188dc">pointer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00148.html#ac3e71402c02f1e0be304626aef5e0d25">allocate</a> (<a class="el" href="a00148.html#aafc8bce95385a704a92d2cdbfc0a84e0">size_type</a> n)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00148.html#aa41941515184d2ecb41a6296f99918a9">deallocate</a> (<a class="el" href="a00148.html#aad274d6fb59148499f8f218aef1188dc">pointer</a> p, <a class="el" href="a00148.html#aafc8bce95385a704a92d2cdbfc0a84e0">size_type</a> n)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00148.html#a0ad0192ae163253728f51fafbd883e44">IndexOutOfRange</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00148.html#a69712c6ce8ba9dccfc0d62490d7508f3">~IndexOutOfRange</a> ()  throw ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QPID_TYPES_EXTERN <br class="typebreak"/>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00114.html#a96ddb3fe10a2b9d059cb78832a64751d">what</a> () const   throw ()</td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00257.html#a3a1ed05eb67ac17d99a1561d093fcaa5">detail</a></td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>An allocator that has inline storage for up to Max objects of type BaseAllocator::value_type. </p>
-</div><hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="aad274d6fb59148499f8f218aef1188dc"></a><!-- doxytag: member="qpid::InlineAllocator::pointer" ref="aad274d6fb59148499f8f218aef1188dc" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef BaseAllocator::pointer <a class="el" href="a00148.html#aad274d6fb59148499f8f218aef1188dc">qpid::InlineAllocator::pointer</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00527_source.html#l00043">43</a> of file <a class="el" href="a00527_source.html">InlineAllocator.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aafc8bce95385a704a92d2cdbfc0a84e0"></a><!-- doxytag: member="qpid::InlineAllocator::size_type" ref="aafc8bce95385a704a92d2cdbfc0a84e0" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef BaseAllocator::size_type <a class="el" href="a00148.html#aafc8bce95385a704a92d2cdbfc0a84e0">qpid::InlineAllocator::size_type</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00527_source.html#l00044">44</a> of file <a class="el" href="a00527_source.html">InlineAllocator.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a15f2dd9f8dceae1d64f5347b7d0bc1ca"></a><!-- doxytag: member="qpid::InlineAllocator::value_type" ref="a15f2dd9f8dceae1d64f5347b7d0bc1ca" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef BaseAllocator::value_type <a class="el" href="a00148.html#a15f2dd9f8dceae1d64f5347b7d0bc1ca">qpid::InlineAllocator::value_type</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00527_source.html#l00045">45</a> of file <a class="el" href="a00527_source.html">InlineAllocator.h</a>.</p>
-
-</div>
-</div>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a58193ad2141ba38095ebcbbba9a50740"></a><!-- doxytag: member="qpid::InlineAllocator::InlineAllocator" ref="a58193ad2141ba38095ebcbbba9a50740" args="()" -->
+<a class="anchor" id="a0ad0192ae163253728f51fafbd883e44"></a><!-- doxytag: member="qmf::IndexOutOfRange::IndexOutOfRange" ref="a0ad0192ae163253728f51fafbd883e44" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::InlineAllocator::InlineAllocator </td>
+          <td class="memname">qmf::IndexOutOfRange::IndexOutOfRange </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00527_source.html#l00047">47</a> of file <a class="el" href="a00527_source.html">InlineAllocator.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a586fd7ef0fc570dbd88c68bf7b27f469"></a><!-- doxytag: member="qpid::InlineAllocator::InlineAllocator" ref="a586fd7ef0fc570dbd88c68bf7b27f469" args="(const InlineAllocator &amp;x)" -->
+<a class="anchor" id="a69712c6ce8ba9dccfc0d62490d7508f3"></a><!-- doxytag: member="qmf::IndexOutOfRange::~IndexOutOfRange" ref="a69712c6ce8ba9dccfc0d62490d7508f3" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::InlineAllocator::InlineAllocator </td>
+          <td class="memname">virtual qmf::IndexOutOfRange::~IndexOutOfRange </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00148.html">InlineAllocator</a> &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td class="paramname"></td><td>)</td>
+          <td>  throw ()<code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00527_source.html#l00048">48</a> of file <a class="el" href="a00527_source.html">InlineAllocator.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ac3e71402c02f1e0be304626aef5e0d25"></a><!-- doxytag: member="qpid::InlineAllocator::allocate" ref="ac3e71402c02f1e0be304626aef5e0d25" args="(size_type n)" -->
+<a class="anchor" id="a96ddb3fe10a2b9d059cb78832a64751d"></a><!-- doxytag: member="qmf::IndexOutOfRange::what" ref="a96ddb3fe10a2b9d059cb78832a64751d" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00148.html#aad274d6fb59148499f8f218aef1188dc">pointer</a> qpid::InlineAllocator::allocate </td>
+          <td class="memname">virtual QPID_TYPES_EXTERN const char* qpid::types::Exception::what </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00148.html#aafc8bce95385a704a92d2cdbfc0a84e0">size_type</a>&#160;</td>
-          <td class="paramname"><em>n</em></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const  throw ()<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00527_source.html#l00050">50</a> of file <a class="el" href="a00527_source.html">InlineAllocator.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="aa41941515184d2ecb41a6296f99918a9"></a><!-- doxytag: member="qpid::InlineAllocator::deallocate" ref="aa41941515184d2ecb41a6296f99918a9" args="(pointer p, size_type n)" -->
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a3a1ed05eb67ac17d99a1561d093fcaa5"></a><!-- doxytag: member="qmf::IndexOutOfRange::detail" ref="a3a1ed05eb67ac17d99a1561d093fcaa5" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::InlineAllocator::deallocate </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00148.html#aad274d6fb59148499f8f218aef1188dc">pointer</a>&#160;</td>
-          <td class="paramname"><em>p</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00148.html#aafc8bce95385a704a92d2cdbfc0a84e0">size_type</a>&#160;</td>
-          <td class="paramname"><em>n</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inline]</code></td>
+          <td class="memname"><a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> <a class="el" href="a00257.html#a3a1ed05eb67ac17d99a1561d093fcaa5">qmf::QmfException::detail</a><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00527_source.html#l00059">59</a> of file <a class="el" href="a00527_source.html">InlineAllocator.h</a>.</p>
+<p>Definition at line <a class="el" href="a00437_source.html#l00038">38</a> of file <a class="el" href="a00437_source.html">exceptions.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/<a class="el" href="a00527_source.html">InlineAllocator.h</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>qmf/<a class="el" href="a00437_source.html">exceptions.h</a></li>
 </ul>
 </div>
 <!--
@@ -264,7 +185,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

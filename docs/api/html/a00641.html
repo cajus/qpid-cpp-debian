@@ -60,27 +60,32 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00571.html">qmf</a>      </li>
-      <li class="navelem"><a class="el" href="a00572.html">engine</a>      </li>
-      <li class="navelem"><a class="el" href="a00305.html">SchemaMethod</a>      </li>
+      <li class="navelem"><a class="el" href="a00573.html">qmf</a>      </li>
+      <li class="navelem"><a class="el" href="a00574.html">engine</a>      </li>
+      <li class="navelem"><a class="el" href="a00278.html">ResilientConnection</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qmf::engine::SchemaMethod Member List</div>  </div>
+<div class="title">qmf::engine::ResilientConnection Member List</div>  </div>
 </div>
 <div class="contents">
-This is the complete list of members for <a class="el" href="a00305.html">qmf::engine::SchemaMethod</a>, including all inherited members.<table>
-  <tr class="memlist"><td><a class="el" href="a00305.html#a9fc7fc917ebcf44214ef05d1b27066a3">addArgument</a>(const SchemaArgument *argument)</td><td><a class="el" href="a00305.html">qmf::engine::SchemaMethod</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00305.html#a6819e63180160225ead7fb4e0262a428">getArgument</a>(int idx) const </td><td><a class="el" href="a00305.html">qmf::engine::SchemaMethod</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00305.html#aec770d6911ee23dbd82dacb6a77ffd0f">getArgumentCount</a>() const </td><td><a class="el" href="a00305.html">qmf::engine::SchemaMethod</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00305.html#aaf4627c425809d4584ff01a8c1f08f35">getDesc</a>() const </td><td><a class="el" href="a00305.html">qmf::engine::SchemaMethod</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00305.html#a44184a8757135b0bce5661739c55e894">getName</a>() const </td><td><a class="el" href="a00305.html">qmf::engine::SchemaMethod</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00305.html#a2a545ab26626d2d0d5ff018a8fbf2a43">SchemaMethod</a>(const char *name)</td><td><a class="el" href="a00305.html">qmf::engine::SchemaMethod</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00305.html#ad76fbf8512c7a1626f181db51de38e7b">SchemaMethod</a>(const SchemaMethod &amp;from)</td><td><a class="el" href="a00305.html">qmf::engine::SchemaMethod</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00305.html#a99dc6d9c250bc9cdab61ca544017e1cf">setDesc</a>(const char *desc)</td><td><a class="el" href="a00305.html">qmf::engine::SchemaMethod</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00305.html#adbcb37c9705dfd319728113be692b172">~SchemaMethod</a>()</td><td><a class="el" href="a00305.html">qmf::engine::SchemaMethod</a></td><td></td></tr>
+This is the complete list of members for <a class="el" href="a00278.html">qmf::engine::ResilientConnection</a>, including all inherited members.<table>
+  <tr class="memlist"><td><a class="el" href="a00278.html#aa4ae18f367b0375094d5e081211e5c02">bind</a>(SessionHandle handle, char *exchange, char *queue, char *key)</td><td><a class="el" href="a00278.html">qmf::engine::ResilientConnection</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00278.html#a88d4ca842466daa8d0666a1c235ab57e">createSession</a>(const char *name, void *sessionContext, SessionHandle &amp;handle)</td><td><a class="el" href="a00278.html">qmf::engine::ResilientConnection</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00278.html#ac43182c6ce214344ca95734326e8bb20">declareQueue</a>(SessionHandle handle, char *queue)</td><td><a class="el" href="a00278.html">qmf::engine::ResilientConnection</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00278.html#a97ff0ef9c47f55ed0f167c574e951b4a">deleteQueue</a>(SessionHandle handle, char *queue)</td><td><a class="el" href="a00278.html">qmf::engine::ResilientConnection</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00278.html#acb92cd4ec627554e70a35d706cc418d8">destroySession</a>(SessionHandle handle)</td><td><a class="el" href="a00278.html">qmf::engine::ResilientConnection</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00278.html#a37bd7af4e3fafd8f0bbf1e15bdfcdf45">getEvent</a>(ResilientConnectionEvent &amp;event)</td><td><a class="el" href="a00278.html">qmf::engine::ResilientConnection</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00278.html#ad2e2ad25ac20b18de7b1d69043500728">isConnected</a>() const </td><td><a class="el" href="a00278.html">qmf::engine::ResilientConnection</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00278.html#a9d0fb811692fde821d24ba33c019bd51">notify</a>()</td><td><a class="el" href="a00278.html">qmf::engine::ResilientConnection</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00278.html#ad90bd2c5323770ba3be6da32905b8aee">popEvent</a>()</td><td><a class="el" href="a00278.html">qmf::engine::ResilientConnection</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00278.html#a4f72b27cbd0051762f5ccceddac32750">ResilientConnection</a>(const ConnectionSettings &amp;settings)</td><td><a class="el" href="a00278.html">qmf::engine::ResilientConnection</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00278.html#a44b9a89c00b48b48b699e316f94d868a">sendMessage</a>(SessionHandle handle, Message &amp;message)</td><td><a class="el" href="a00278.html">qmf::engine::ResilientConnection</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00278.html#a5308526ae75a273ccf52fa6dd0916896">setNotifyFd</a>(int fd)</td><td><a class="el" href="a00278.html">qmf::engine::ResilientConnection</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00278.html#ab4ae894168d4818c92d8a0b5b88e3c72">unbind</a>(SessionHandle handle, char *exchange, char *queue, char *key)</td><td><a class="el" href="a00278.html">qmf::engine::ResilientConnection</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00278.html#a67a330549aa763e411634733a36c1436">~ResilientConnection</a>()</td><td><a class="el" href="a00278.html">qmf::engine::ResilientConnection</a></td><td></td></tr>
 </table></div>
 <!--
  
@@ -109,7 +114,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

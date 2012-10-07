@@ -30,6 +30,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
 
 using namespace qmf::org::apache::qpid::broker;
 using           qpid::management::ManagementAgent;
@@ -380,20 +381,30 @@ void Binding::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
 
     if ((_i = _map.find("exchangeRef")) != _map.end()) {
         exchangeRef = _i->second;
+    } else {
+        exchangeRef = ::qpid::management::ObjectId();
     }
     if ((_i = _map.find("queueRef")) != _map.end()) {
         queueRef = _i->second;
+    } else {
+        queueRef = ::qpid::management::ObjectId();
     }
     if ((_i = _map.find("bindingKey")) != _map.end()) {
         bindingKey = (_i->second).getString();
+    } else {
+        bindingKey = "";
     }
     if ((_i = _map.find("arguments")) != _map.end()) {
         arguments = (_i->second).asMap();
+    } else {
+        arguments = ::qpid::types::Variant::Map();
     }
     _found = false;
     if ((_i = _map.find("origin")) != _map.end()) {
         origin = (_i->second).getString();
         _found = true;
+    } else {
+        origin = "";
     }
     if (_found) {
         presenceMask[presenceByte_origin] |= presenceMask_origin;

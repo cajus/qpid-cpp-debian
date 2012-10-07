@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/framing/DtxRecoverResult.h Source File</title>
+    <title>qpid/framing/DeliveryProperties.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,11 +58,11 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/framing/DtxRecoverResult.h</div>  </div>
+<div class="title">qpid/framing/DeliveryProperties.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00501.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_FRAMING_DTXRECOVERRESULT_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_FRAMING_DTXRECOVERRESULT_H</span>
+<a href="a00501.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_FRAMING_DELIVERYPROPERTIES_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_FRAMING_DELIVERYPROPERTIES_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span><span class="comment">/*</span>
 <a name="l00004"></a>00004 <span class="comment"> *</span>
 <a name="l00005"></a>00005 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
@@ -88,41 +88,121 @@
 <a name="l00029"></a>00029 
 <a name="l00030"></a>00030 
 <a name="l00031"></a>00031 <span class="preprocessor">#include &lt;ostream&gt;</span>
-<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="a00494.html" title="Definitions and full declarations of all types used in AMQP messages.">qpid/framing/amqp_types_full.h</a>&quot;</span>
-<a name="l00033"></a>00033 <span class="preprocessor">#include &quot;<a class="code" href="a00482.html">qpid/CommonImportExport.h</a>&quot;</span>
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035 <span class="keyword">namespace </span>qpid {
-<a name="l00036"></a>00036 <span class="keyword">namespace </span>framing {
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038 <span class="keyword">class </span><a class="code" href="a00482.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> DtxRecoverResult  {
-<a name="l00039"></a>00039     Array inDoubt;
-<a name="l00040"></a>00040     <a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> flags;
-<a name="l00041"></a>00041 <span class="keyword">public</span>:
-<a name="l00042"></a><a class="code" href="a00102.html#a44253482afde7bfaa681e380f00a2d45">00042</a>     <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> TYPE = 1539;
-<a name="l00043"></a><a class="code" href="a00102.html#a1e6adf9a076284b15c589fa906f8b8cb">00043</a>     <a class="code" href="a00102.html">DtxRecoverResult</a>(
-<a name="l00044"></a>00044         <span class="keyword">const</span> <a class="code" href="a00016.html">Array</a>&amp; _inDoubt) : 
-<a name="l00045"></a>00045         inDoubt(_inDoubt),
-<a name="l00046"></a>00046         flags(0){
-<a name="l00047"></a>00047         flags |= (1 &lt;&lt; 8);
-<a name="l00048"></a>00048     }
-<a name="l00049"></a><a class="code" href="a00102.html#a73cae28ea301a97b675e0b20001f1640">00049</a>     <a class="code" href="a00102.html#a73cae28ea301a97b675e0b20001f1640">DtxRecoverResult</a>()  : flags(0) {}
-<a name="l00050"></a>00050     
-<a name="l00051"></a>00051     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setInDoubt(<span class="keyword">const</span> <a class="code" href="a00016.html">Array</a>&amp; _inDoubt);
-<a name="l00052"></a>00052     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">const</span> <a class="code" href="a00016.html">Array</a>&amp; getInDoubt() <span class="keyword">const</span>;
-<a name="l00053"></a>00053     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasInDoubt() <span class="keyword">const</span>;
-<a name="l00054"></a>00054     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearInDoubtFlag();
-<a name="l00055"></a>00055     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="a00580.html#a26b5aa4aa3e48e044e86832a401304b7">operator&lt;&lt;</a>(<a class="code" href="a00243.html" title="STL class.">std::ostream</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00102.html">DtxRecoverResult</a>&amp;);
-<a name="l00056"></a>00056     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00591.html#afefbffac1ba55c37a1f7ab3a85ca753b" title="Encodes a Variant::Map into a message.">encode</a>(<a class="code" href="a00045.html">Buffer</a>&amp;) <span class="keyword">const</span>;
-<a name="l00057"></a>00057     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00591.html#ad37dfc262612bfde8fdc73e3a85ddf95" title="Decodes message content into a Variant::Map.">decode</a>(<a class="code" href="a00045.html">Buffer</a>&amp;, <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0);
-<a name="l00058"></a>00058     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> encodeStructBody(<a class="code" href="a00045.html">Buffer</a>&amp;) <span class="keyword">const</span>;
-<a name="l00059"></a>00059     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> decodeStructBody(<a class="code" href="a00045.html">Buffer</a>&amp;, <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0);
-<a name="l00060"></a>00060     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> encodedSize() <span class="keyword">const</span>;
-<a name="l00061"></a>00061     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> bodySize() <span class="keyword">const</span>;
-<a name="l00062"></a>00062     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> print(<a class="code" href="a00243.html" title="STL class.">std::ostream</a>&amp; out) <span class="keyword">const</span>;
-<a name="l00063"></a>00063 }; <span class="comment">/* class DtxRecoverResult */</span>
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065 }}
-<a name="l00066"></a>00066 <span class="preprocessor">#endif  </span>
+<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="a00496.html" title="Definitions and full declarations of all types used in AMQP messages.">qpid/framing/amqp_types_full.h</a>&quot;</span>
+<a name="l00033"></a>00033 <span class="preprocessor">#include &quot;<a class="code" href="a00518.html">qpid/framing/reply_exceptions.h</a>&quot;</span>
+<a name="l00034"></a>00034 <span class="preprocessor">#include &quot;<a class="code" href="a00484.html">qpid/CommonImportExport.h</a>&quot;</span>
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 <span class="keyword">namespace </span>qpid {
+<a name="l00037"></a>00037 <span class="keyword">namespace </span>framing {
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039 <span class="keyword">class </span><a class="code" href="a00484.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> DeliveryProperties  {
+<a name="l00040"></a>00040     <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> priority;
+<a name="l00041"></a>00041     <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> deliveryMode;
+<a name="l00042"></a>00042     uint64_t ttl;
+<a name="l00043"></a>00043     uint64_t timestamp;
+<a name="l00044"></a>00044     uint64_t expiration;
+<a name="l00045"></a>00045     std::string exchange;
+<a name="l00046"></a>00046     std::string routingKey;
+<a name="l00047"></a>00047     std::string resumeId;
+<a name="l00048"></a>00048     uint64_t resumeTtl;
+<a name="l00049"></a>00049     <a class="code" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> flags;
+<a name="l00050"></a>00050 <span class="keyword">public</span>:
+<a name="l00051"></a><a class="code" href="a00098.html#a754658e00fc12335f6cbd9f12214a97f">00051</a>     <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> TYPE = 1025;
+<a name="l00052"></a><a class="code" href="a00098.html#a2419230da60cbcdf1af08dd71e51d314">00052</a>     <a class="code" href="a00098.html">DeliveryProperties</a>(
+<a name="l00053"></a>00053         <span class="keywordtype">bool</span> _discardUnroutable,
+<a name="l00054"></a>00054         <span class="keywordtype">bool</span> _immediate,
+<a name="l00055"></a>00055         <span class="keywordtype">bool</span> _redelivered,
+<a name="l00056"></a>00056         <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> _priority,
+<a name="l00057"></a>00057         <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> _deliveryMode,
+<a name="l00058"></a>00058         uint64_t _ttl,
+<a name="l00059"></a>00059         uint64_t _timestamp,
+<a name="l00060"></a>00060         uint64_t _expiration,
+<a name="l00061"></a>00061         <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; _exchange,
+<a name="l00062"></a>00062         <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; _routingKey,
+<a name="l00063"></a>00063         <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; _resumeId,
+<a name="l00064"></a>00064         uint64_t _resumeTtl) : 
+<a name="l00065"></a>00065         priority(_priority),
+<a name="l00066"></a>00066         deliveryMode(_deliveryMode),
+<a name="l00067"></a>00067         ttl(_ttl),
+<a name="l00068"></a>00068         timestamp(_timestamp),
+<a name="l00069"></a>00069         expiration(_expiration),
+<a name="l00070"></a>00070         exchange(_exchange),
+<a name="l00071"></a>00071         routingKey(_routingKey),
+<a name="l00072"></a>00072         resumeId(_resumeId),
+<a name="l00073"></a>00073         resumeTtl(_resumeTtl),
+<a name="l00074"></a>00074         flags(0){
+<a name="l00075"></a>00075         setDiscardUnroutable(_discardUnroutable);
+<a name="l00076"></a>00076         setImmediate(_immediate);
+<a name="l00077"></a>00077         setRedelivered(_redelivered);
+<a name="l00078"></a>00078         flags |= (1 &lt;&lt; 11);
+<a name="l00079"></a>00079         flags |= (1 &lt;&lt; 12);
+<a name="l00080"></a>00080         flags |= (1 &lt;&lt; 13);
+<a name="l00081"></a>00081         flags |= (1 &lt;&lt; 14);
+<a name="l00082"></a>00082         flags |= (1 &lt;&lt; 15);
+<a name="l00083"></a>00083         flags |= (1 &lt;&lt; 0);
+<a name="l00084"></a>00084         flags |= (1 &lt;&lt; 1);
+<a name="l00085"></a>00085         flags |= (1 &lt;&lt; 2);
+<a name="l00086"></a>00086         flags |= (1 &lt;&lt; 3);
+<a name="l00087"></a>00087         <span class="keywordflow">if</span> (exchange.size() &gt;= 256) <span class="keywordflow">throw</span> <a class="code" href="a00146.html" title="The command argument is malformed, i.e.">IllegalArgumentException</a>(<span class="stringliteral">&quot;Value for exchange is too large&quot;</span>);
+<a name="l00088"></a>00088         <span class="keywordflow">if</span> (routingKey.size() &gt;= 256) <span class="keywordflow">throw</span> <a class="code" href="a00146.html" title="The command argument is malformed, i.e.">IllegalArgumentException</a>(<span class="stringliteral">&quot;Value for routingKey is too large&quot;</span>);
+<a name="l00089"></a>00089         <span class="keywordflow">if</span> (resumeId.size() &gt;= 65536) <span class="keywordflow">throw</span> <a class="code" href="a00146.html" title="The command argument is malformed, i.e.">IllegalArgumentException</a>(<span class="stringliteral">&quot;Value for resumeId is too large&quot;</span>);
+<a name="l00090"></a>00090     }
+<a name="l00091"></a><a class="code" href="a00098.html#acc14d32f6dbd5380c1a1ce6dc3405fa9">00091</a>     <a class="code" href="a00098.html#acc14d32f6dbd5380c1a1ce6dc3405fa9">DeliveryProperties</a>()  : priority(0), deliveryMode(0), ttl(0), timestamp(0), expiration(0), resumeTtl(0), flags(0) {}
+<a name="l00092"></a>00092     
+<a name="l00093"></a>00093     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setDiscardUnroutable(<span class="keywordtype">bool</span> _discardUnroutable);
+<a name="l00094"></a>00094     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> getDiscardUnroutable() <span class="keyword">const</span>;
+<a name="l00095"></a>00095     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setImmediate(<span class="keywordtype">bool</span> _immediate);
+<a name="l00096"></a>00096     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> getImmediate() <span class="keyword">const</span>;
+<a name="l00097"></a>00097     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setRedelivered(<span class="keywordtype">bool</span> _redelivered);
+<a name="l00098"></a>00098     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> getRedelivered() <span class="keyword">const</span>;
+<a name="l00099"></a>00099     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setPriority(<a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> _priority);
+<a name="l00100"></a>00100     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> getPriority() <span class="keyword">const</span>;
+<a name="l00101"></a>00101     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasPriority() <span class="keyword">const</span>;
+<a name="l00102"></a>00102     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearPriorityFlag();
+<a name="l00103"></a>00103     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setDeliveryMode(<a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> _deliveryMode);
+<a name="l00104"></a>00104     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> getDeliveryMode() <span class="keyword">const</span>;
+<a name="l00105"></a>00105     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasDeliveryMode() <span class="keyword">const</span>;
+<a name="l00106"></a>00106     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearDeliveryModeFlag();
+<a name="l00107"></a>00107     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setTtl(uint64_t _ttl);
+<a name="l00108"></a>00108     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> uint64_t getTtl() <span class="keyword">const</span>;
+<a name="l00109"></a>00109     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasTtl() <span class="keyword">const</span>;
+<a name="l00110"></a>00110     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearTtlFlag();
+<a name="l00111"></a>00111     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setTimestamp(uint64_t _timestamp);
+<a name="l00112"></a>00112     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> uint64_t getTimestamp() <span class="keyword">const</span>;
+<a name="l00113"></a>00113     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasTimestamp() <span class="keyword">const</span>;
+<a name="l00114"></a>00114     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearTimestampFlag();
+<a name="l00115"></a>00115     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setExpiration(uint64_t _expiration);
+<a name="l00116"></a>00116     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> uint64_t getExpiration() <span class="keyword">const</span>;
+<a name="l00117"></a>00117     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasExpiration() <span class="keyword">const</span>;
+<a name="l00118"></a>00118     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearExpirationFlag();
+<a name="l00119"></a>00119     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setExchange(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; _exchange);
+<a name="l00120"></a>00120     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">const</span> std::string&amp; getExchange() <span class="keyword">const</span>;
+<a name="l00121"></a>00121     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasExchange() <span class="keyword">const</span>;
+<a name="l00122"></a>00122     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearExchangeFlag();
+<a name="l00123"></a>00123     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setRoutingKey(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; _routingKey);
+<a name="l00124"></a>00124     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">const</span> std::string&amp; getRoutingKey() <span class="keyword">const</span>;
+<a name="l00125"></a>00125     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasRoutingKey() <span class="keyword">const</span>;
+<a name="l00126"></a>00126     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearRoutingKeyFlag();
+<a name="l00127"></a>00127     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setResumeId(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; _resumeId);
+<a name="l00128"></a>00128     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">const</span> std::string&amp; getResumeId() <span class="keyword">const</span>;
+<a name="l00129"></a>00129     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasResumeId() <span class="keyword">const</span>;
+<a name="l00130"></a>00130     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearResumeIdFlag();
+<a name="l00131"></a>00131     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setResumeTtl(uint64_t _resumeTtl);
+<a name="l00132"></a>00132     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> uint64_t getResumeTtl() <span class="keyword">const</span>;
+<a name="l00133"></a>00133     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasResumeTtl() <span class="keyword">const</span>;
+<a name="l00134"></a>00134     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearResumeTtlFlag();
+<a name="l00135"></a>00135     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="a00582.html#a26b5aa4aa3e48e044e86832a401304b7">operator&lt;&lt;</a>(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00098.html">DeliveryProperties</a>&amp;);
+<a name="l00136"></a>00136     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00593.html#afefbffac1ba55c37a1f7ab3a85ca753b" title="Encodes a Variant::Map into a message.">encode</a>(<a class="code" href="a00045.html">Buffer</a>&amp;) <span class="keyword">const</span>;
+<a name="l00137"></a>00137     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00593.html#ad37dfc262612bfde8fdc73e3a85ddf95" title="Decodes message content into a Variant::Map.">decode</a>(<a class="code" href="a00045.html">Buffer</a>&amp;, <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0);
+<a name="l00138"></a>00138     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> encodeStructBody(<a class="code" href="a00045.html">Buffer</a>&amp;) <span class="keyword">const</span>;
+<a name="l00139"></a>00139     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> decodeStructBody(<a class="code" href="a00045.html">Buffer</a>&amp;, <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0);
+<a name="l00140"></a>00140     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> encodedSize() <span class="keyword">const</span>;
+<a name="l00141"></a>00141     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> bodySize() <span class="keyword">const</span>;
+<a name="l00142"></a>00142     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> print(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp; out) <span class="keyword">const</span>;
+<a name="l00143"></a>00143 }; <span class="comment">/* class DeliveryProperties */</span>
+<a name="l00144"></a>00144 
+<a name="l00145"></a>00145 }}
+<a name="l00146"></a>00146 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -152,7 +232,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

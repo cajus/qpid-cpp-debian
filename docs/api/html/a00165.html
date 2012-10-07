@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::framing::InvalidPathException Struct Reference</title>
+    <title>qpid::framing::InvalidConversionException Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,68 +60,62 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00580.html">framing</a>      </li>
-      <li class="navelem"><a class="el" href="a00165.html">InvalidPathException</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00582.html">framing</a>      </li>
+      <li class="navelem"><a class="el" href="a00165.html">InvalidConversionException</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a>  </div>
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::framing::InvalidPathException Struct Reference</div>  </div>
+<div class="title">qpid::framing::InvalidConversionException Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::framing::InvalidPathException" --><!-- doxytag: inherits="qpid::ConnectionException" -->
-<p>The client tried to work with an unknown virtual host.  
+<!-- doxytag: class="qpid::framing::InvalidConversionException" --><!-- doxytag: inherits="qpid::framing::FieldValueException" -->
+<p><a class="el" href="a00116.html" title="Base class for Qpid runtime exceptions.">Exception</a> thrown when we can't perform requested conversion.  
  <a href="a00165.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00516_source.html">qpid/framing/reply_exceptions.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00508_source.html">qpid/framing/FieldValue.h</a>&gt;</code></p>
 
-<p><a href="a00803.html">List of all members.</a></p>
+<p><a href="a00752.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00165.html#a4c7d1b105617c905e70b93be1d3344d5">getPrefix</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00165.html#ac3736231b06f434fb74dccfc720e29e8">InvalidPathException</a> (const <a class="el" href="a00345.html">std::string</a> &amp;msg=<a class="el" href="a00345.html">std::string</a>())</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00114.html#a1319c2877b78e71fb5ded050298be31a">what</a> () const   throw ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00114.html#a5fd1b7dd26ec0e2742c54b2b7da6c6b0">getMessage</a> () const </td></tr>
-<tr><td colspan="2"><h2><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <br class="typebreak"/>
-<a class="el" href="a00582.html#a55823c03444bbbbb1c9671dfc713aad4">framing::connection::CloseCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00061.html#aec86be26e0790ef11c0fbd5d2bcf04bd">code</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00165.html#a16a1a8998d729b435e3deda68eadf0e2">InvalidConversionException</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html#a1319c2877b78e71fb5ded050298be31a">what</a> () const   throw ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html#a5fd1b7dd26ec0e2742c54b2b7da6c6b0">getMessage</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html#a8680803b228ba1036624fd5cee183d36">getPrefix</a> () const </td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>The client tried to work with an unknown virtual host. </p>
+<div class="textblock"><p><a class="el" href="a00116.html" title="Base class for Qpid runtime exceptions.">Exception</a> thrown when we can't perform requested conversion. </p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ac3736231b06f434fb74dccfc720e29e8"></a><!-- doxytag: member="qpid::framing::InvalidPathException::InvalidPathException" ref="ac3736231b06f434fb74dccfc720e29e8" args="(const std::string &amp;msg=std::string())" -->
+<a class="anchor" id="a16a1a8998d729b435e3deda68eadf0e2"></a><!-- doxytag: member="qpid::framing::InvalidConversionException::InvalidConversionException" ref="a16a1a8998d729b435e3deda68eadf0e2" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::framing::InvalidPathException::InvalidPathException </td>
+          <td class="memname">qpid::framing::InvalidConversionException::InvalidConversionException </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>msg</em> = <code><a class="el" href="a00345.html">std::string</a>()</code></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00516_source.html#l00227">227</a> of file <a class="el" href="a00516_source.html">reply_exceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="a00508_source.html#l00052">52</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a5fd1b7dd26ec0e2742c54b2b7da6c6b0"></a><!-- doxytag: member="qpid::framing::InvalidPathException::getMessage" ref="a5fd1b7dd26ec0e2742c54b2b7da6c6b0" args="() const " -->
+<a class="anchor" id="a5fd1b7dd26ec0e2742c54b2b7da6c6b0"></a><!-- doxytag: member="qpid::framing::InvalidConversionException::getMessage" ref="a5fd1b7dd26ec0e2742c54b2b7da6c6b0" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a00345.html">std::string</a> qpid::Exception::getMessage </td>
+          <td class="memname">virtual <a class="el" href="a00346.html">std::string</a> qpid::Exception::getMessage </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const<code> [virtual, inherited]</code></td>
@@ -132,27 +126,25 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4c7d1b105617c905e70b93be1d3344d5"></a><!-- doxytag: member="qpid::framing::InvalidPathException::getPrefix" ref="a4c7d1b105617c905e70b93be1d3344d5" args="() const " -->
+<a class="anchor" id="a8680803b228ba1036624fd5cee183d36"></a><!-- doxytag: member="qpid::framing::InvalidConversionException::getPrefix" ref="a8680803b228ba1036624fd5cee183d36" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> qpid::framing::InvalidPathException::getPrefix </td>
+          <td class="memname">virtual <a class="el" href="a00346.html">std::string</a> qpid::Exception::getPrefix </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, virtual]</code></td>
+          <td> const<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Reimplemented from <a class="el" href="a00114.html#a8680803b228ba1036624fd5cee183d36">qpid::Exception</a>.</p>
-
-<p>Definition at line <a class="el" href="a00516_source.html#l00226">226</a> of file <a class="el" href="a00516_source.html">reply_exceptions.h</a>.</p>
+<p>Reimplemented in <a class="el" href="a00369.html#a2b396d56db865b062fd1971fb203ea79">qpid::framing::UnknownIdsException</a>, <a class="el" href="a00227.html#a74a6fa53c98ada3d89397b5befe23704">qpid::framing::NotAttachedException</a>, <a class="el" href="a00360.html#a0b3a8d5112a65cd06d0ba4e057df852b">qpid::framing::TransportBusyException</a>, <a class="el" href="a00330.html#a276d6be7f637e2983a0f81d1a471ce58">qpid::framing::SessionBusyException</a>, <a class="el" href="a00136.html#ad2d071fded654f988803a78f0d10c606">qpid::framing::FramingErrorException</a>, <a class="el" href="a00167.html#a4c7d1b105617c905e70b93be1d3344d5">qpid::framing::InvalidPathException</a>, <a class="el" href="a00064.html#a8908ed76d6ee75405e54a0c9ec05fdc2">qpid::framing::ConnectionForcedException</a>, <a class="el" href="a00163.html#a64a5f314238c65a88cbf40a5167802dd">qpid::framing::InvalidArgumentException</a>, <a class="el" href="a00159.html#a7abb408867ff45af4d52d98f40a7255f">qpid::framing::InternalErrorException</a>, <a class="el" href="a00231.html#a6b04f2753b351971edbb842f7b0cfab5">qpid::framing::NotImplementedException</a>, <a class="el" href="a00146.html#a3fe0033d91b8067780110c202066b117">qpid::framing::IllegalArgumentException</a>, <a class="el" href="a00226.html#adc44ba31830bd0327d1a977a24de0112">qpid::framing::NotAllowedException</a>, <a class="el" href="a00282.html#a82adefb368554e09b2e5c9432f98336e">qpid::framing::ResourceLimitExceededException</a>, <a class="el" href="a00054.html#ae0f4432e4b8a2e42e2c5808e6d3ad5d2">qpid::framing::CommandInvalidException</a>, <a class="el" href="a00147.html#a58c3f099ba425ccf96223676ad8a0f59">qpid::framing::IllegalStateException</a>, <a class="el" href="a00281.html#ac2fdd5327c3696d9ad3e2bea65cc39ee">qpid::framing::ResourceDeletedException</a>, <a class="el" href="a00254.html#a2540228a5234ec04e85a63cf6441b10a">qpid::framing::PreconditionFailedException</a>, <a class="el" href="a00052.html#ad7fc8034f1f05ac512e2e505da93e0f1">qpid::ClosedException</a>, <a class="el" href="a00283.html#a074ad096de110ad2e2f9a6e819ac1304">qpid::framing::ResourceLockedException</a>, <a class="el" href="a00229.html#a3183173cc8af2c9f13a76bedb1dec855">qpid::framing::NotFoundException</a>, and <a class="el" href="a00367.html#a3d960f4967e25321280d70daeb95e38b">qpid::framing::UnauthorizedAccessException</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a1319c2877b78e71fb5ded050298be31a"></a><!-- doxytag: member="qpid::framing::InvalidPathException::what" ref="a1319c2877b78e71fb5ded050298be31a" args="() const " -->
+<a class="anchor" id="a1319c2877b78e71fb5ded050298be31a"></a><!-- doxytag: member="qpid::framing::InvalidConversionException::what" ref="a1319c2877b78e71fb5ded050298be31a" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -168,24 +160,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="aec86be26e0790ef11c0fbd5d2bcf04bd"></a><!-- doxytag: member="qpid::framing::InvalidPathException::code" ref="aec86be26e0790ef11c0fbd5d2bcf04bd" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00582.html#a55823c03444bbbbb1c9671dfc713aad4">framing::connection::CloseCode</a> <a class="el" href="a00061.html#aec86be26e0790ef11c0fbd5d2bcf04bd">qpid::ConnectionException::code</a><code> [inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00490_source.html#l00072">72</a> of file <a class="el" href="a00490_source.html">Exception.h</a>.</p>
-
-</div>
-</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/framing/<a class="el" href="a00516_source.html">reply_exceptions.h</a></li>
+<li>qpid/framing/<a class="el" href="a00508_source.html">FieldValue.h</a></li>
 </ul>
 </div>
 <!--
@@ -215,7 +191,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

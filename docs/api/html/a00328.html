@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::client::SessionBase_0_10 Class Reference</title>
+    <title>qpid::client::no_keyword::Session_0_10 Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,9 +60,10 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00576.html">client</a>      </li>
-      <li class="navelem"><a class="el" href="a00328.html">SessionBase_0_10</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00580.html">no_keyword</a>      </li>
+      <li class="navelem"><a class="el" href="a00328.html">Session_0_10</a>      </li>
     </ul>
   </div>
 </div>
@@ -71,55 +72,133 @@
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::client::SessionBase_0_10 Class Reference</div>  </div>
+<div class="title">qpid::client::no_keyword::Session_0_10 Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::client::SessionBase_0_10" -->
-<p>Base class for handles to an AMQP session.  
+<!-- doxytag: class="qpid::client::no_keyword::Session_0_10" --><!-- doxytag: inherits="qpid::client::SessionBase_0_10" -->
+<p>AMQP 0-10 synchronous session API.  
  <a href="a00328.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00478_source.html">qpid/client/SessionBase_0_10.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00475_source.html">qpid/client/no_keyword/Session_0_10.h</a>&gt;</code></p>
 
-<p><a href="a00697.html">List of all members.</a></p>
+<p><a href="a00706.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a83ff389441c0ca4610d22a080dfdae4e">SessionBase_0_10</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a1a9b24e6032eabad4ed2efbc288217cc">~SessionBase_0_10</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00333.html">SessionId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#aba4c611d0f2008bf153b5a0d372d7b32">getId</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#aab751f910be43a2bbfde5461e06f307d">Session_0_10</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a4861748d70f2e6d92c19c47626043feb">Session_0_10</a> (const <a class="el" href="a00329.html">SessionBase_0_10</a> &amp;other)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN <br class="typebreak"/>
+<a class="el" href="a00328.html">Session_0_10</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a3fdd057ad448fd954af3ee27a4e22fcc">operator=</a> (const <a class="el" href="a00329.html">SessionBase_0_10</a> &amp;other)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a8624344fa93ef539d494ca729d0a7c62">executionSync</a> (bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command is complete when all prior commands are completed.  <a href="#a8624344fa93ef539d494ca729d0a7c62"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#af3363be39e7fac0f20bb72300051bbd9">executionResult</a> (const <a class="el" href="a00324.html">SequenceNumber</a> &amp;commandId=<a class="el" href="a00324.html">SequenceNumber</a>(), const <a class="el" href="a00346.html">std::string</a> &amp;value=<a class="el" href="a00346.html">std::string</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command carries data resulting from the execution of a command.  <a href="#af3363be39e7fac0f20bb72300051bbd9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a0d1e6ed0c378c3bf3beb8b63b6a8597e">executionException</a> (<a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> errorCode=0, const <a class="el" href="a00324.html">SequenceNumber</a> &amp;commandId=<a class="el" href="a00324.html">SequenceNumber</a>(), <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> classCode=0, <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> commandCode=0, <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> fieldIndex=0, const <a class="el" href="a00346.html">std::string</a> &amp;description=<a class="el" href="a00346.html">std::string</a>(), const <a class="el" href="a00125.html">FieldTable</a> &amp;errorInfo=<a class="el" href="a00125.html">FieldTable</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command informs a peer of an execution exception.  <a href="#a0d1e6ed0c378c3bf3beb8b63b6a8597e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a7d814e81e09073acd21557e8ec23afb9">messageTransfer</a> (const <a class="el" href="a00346.html">std::string</a> &amp;destination=<a class="el" href="a00346.html">std::string</a>(), <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> acceptMode=1, <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> acquireMode=0, const <a class="el" href="a00208.html">Message</a> &amp;content=<a class="el" href="a00208.html">Message</a>(<a class="el" href="a00346.html">std::string</a>()), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command transfers a message between two peers.  <a href="#a7d814e81e09073acd21557e8ec23afb9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a265bec6609180acb136026c81c694a93">messageAccept</a> (const <a class="el" href="a00325.html">SequenceSet</a> &amp;transfers=<a class="el" href="a00325.html">SequenceSet</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Accepts the message.  <a href="#a265bec6609180acb136026c81c694a93"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#ac42a3dc8392a8d30f700a331940921ba">messageReject</a> (const <a class="el" href="a00325.html">SequenceSet</a> &amp;transfers=<a class="el" href="a00325.html">SequenceSet</a>(), <a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> code=0, const <a class="el" href="a00346.html">std::string</a> &amp;text=<a class="el" href="a00346.html">std::string</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates that the message transfers are unprocessable in some way.  <a href="#ac42a3dc8392a8d30f700a331940921ba"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#ae630b4bb8e5ac453e3cf5b3c481d91ea">messageRelease</a> (const <a class="el" href="a00325.html">SequenceSet</a> &amp;transfers=<a class="el" href="a00325.html">SequenceSet</a>(), bool setRedelivered=false, bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Release previously transferred messages.  <a href="#ae630b4bb8e5ac453e3cf5b3c481d91ea"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00209.html">qpid::framing::MessageAcquireResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a193732a30d8e483df3712c87abc49302">messageAcquire</a> (const <a class="el" href="a00325.html">SequenceSet</a> &amp;transfers=<a class="el" href="a00325.html">SequenceSet</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Acquires previously transferred messages for consumption.  <a href="#a193732a30d8e483df3712c87abc49302"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00213.html">qpid::framing::MessageResumeResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a5d9acd859143ba51d5252876924ad4f0">messageResume</a> (const <a class="el" href="a00346.html">std::string</a> &amp;destination=<a class="el" href="a00346.html">std::string</a>(), const <a class="el" href="a00346.html">std::string</a> &amp;resumeId=<a class="el" href="a00346.html">std::string</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command resumes an interrupted transfer.  <a href="#a5d9acd859143ba51d5252876924ad4f0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a2f9be432ec2b20e1f6101871fb45bb57">messageSubscribe</a> (const <a class="el" href="a00346.html">std::string</a> &amp;queue=<a class="el" href="a00346.html">std::string</a>(), const <a class="el" href="a00346.html">std::string</a> &amp;destination=<a class="el" href="a00346.html">std::string</a>(), <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> acceptMode=0, <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> acquireMode=0, bool exclusive=false, const <a class="el" href="a00346.html">std::string</a> &amp;resumeId=<a class="el" href="a00346.html">std::string</a>(), uint64_t resumeTtl=0, const <a class="el" href="a00125.html">FieldTable</a> &amp;arguments=<a class="el" href="a00125.html">FieldTable</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command asks the server to start a "subscription", which is a request for messages from a specific queue.  <a href="#a2f9be432ec2b20e1f6101871fb45bb57"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a10756c4a0bd621fe50aacb476c80d9b8">messageCancel</a> (const <a class="el" href="a00346.html">std::string</a> &amp;destination=<a class="el" href="a00346.html">std::string</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command cancels a subscription.  <a href="#a10756c4a0bd621fe50aacb476c80d9b8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a825a3aac640482ec9bcfafb82de2d3e8">messageSetFlowMode</a> (const <a class="el" href="a00346.html">std::string</a> &amp;destination=<a class="el" href="a00346.html">std::string</a>(), <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> flowMode=0, bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the mode of flow control used for a given destination to either window or credit based flow control.  <a href="#a825a3aac640482ec9bcfafb82de2d3e8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a228c32c3844499f8e8338152b4726717">messageFlow</a> (const <a class="el" href="a00346.html">std::string</a> &amp;destination=<a class="el" href="a00346.html">std::string</a>(), <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> unit=0, <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> value=0, bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command controls the flow of message data to a given destination.  <a href="#a228c32c3844499f8e8338152b4726717"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a251093386143c538d2f9de26afe9f09f">messageFlush</a> (const <a class="el" href="a00346.html">std::string</a> &amp;destination=<a class="el" href="a00346.html">std::string</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Forces the sender to exhaust his credit supply.  <a href="#a251093386143c538d2f9de26afe9f09f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a16892606ee60682645875f7814506f72">messageStop</a> (const <a class="el" href="a00346.html">std::string</a> &amp;destination=<a class="el" href="a00346.html">std::string</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">On receipt of this command, a producer of messages MUST set his credit to zero for the given destination.  <a href="#a16892606ee60682645875f7814506f72"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#abfb204dc7a10ed736d55cdf52b2d015e">txSelect</a> (bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command sets the session to use standard transactions.  <a href="#abfb204dc7a10ed736d55cdf52b2d015e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a39be16ae229b675318202245278092d4">txCommit</a> (bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command commits all messages published and accepted in the current transaction.  <a href="#a39be16ae229b675318202245278092d4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a36483b4abf4b4c60f429585eb6cf4173">txRollback</a> (bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command abandons the current transaction.  <a href="#a36483b4abf4b4c60f429585eb6cf4173"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#adfdc774a5d6f37c077221300916e63f3">dtxSelect</a> (bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command sets the session to use distributed transactions.  <a href="#adfdc774a5d6f37c077221300916e63f3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00401.html">qpid::framing::XaResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a463fd94be164145621ade42119159979">dtxStart</a> (const <a class="el" href="a00402.html">Xid</a> &amp;xid=<a class="el" href="a00402.html">Xid</a>(), bool join=false, bool resume=false, bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command is called when messages should be produced and consumed on behalf a transaction branch identified by xid.  <a href="#a463fd94be164145621ade42119159979"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00401.html">qpid::framing::XaResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a05292645e7ab1194b6edf09c7885b3a5">dtxEnd</a> (const <a class="el" href="a00402.html">Xid</a> &amp;xid=<a class="el" href="a00402.html">Xid</a>(), bool fail=false, bool suspend=false, bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command is called when the work done on behalf a transaction branch finishes or needs to be suspended.  <a href="#a05292645e7ab1194b6edf09c7885b3a5"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00401.html">qpid::framing::XaResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a0059fa98a0e399917f0a212ce88bbadd">dtxCommit</a> (const <a class="el" href="a00402.html">Xid</a> &amp;xid=<a class="el" href="a00402.html">Xid</a>(), bool onePhase=false, bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Commit the work done on behalf a transaction branch.  <a href="#a0059fa98a0e399917f0a212ce88bbadd"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#ab603a0b4690fd95ca3c86ecd65e73d7b">dtxForget</a> (const <a class="el" href="a00402.html">Xid</a> &amp;xid=<a class="el" href="a00402.html">Xid</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command is called to forget about a heuristically completed transaction branch.  <a href="#ab603a0b4690fd95ca3c86ecd65e73d7b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00103.html">qpid::framing::DtxGetTimeoutResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a5a62bf71629847494dbfc4cba1a9a926">dtxGetTimeout</a> (const <a class="el" href="a00402.html">Xid</a> &amp;xid=<a class="el" href="a00402.html">Xid</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command obtains the current transaction timeout value in seconds.  <a href="#a5a62bf71629847494dbfc4cba1a9a926"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00401.html">qpid::framing::XaResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a96c75999c547cc9d29994e0e7708928e">dtxPrepare</a> (const <a class="el" href="a00402.html">Xid</a> &amp;xid=<a class="el" href="a00402.html">Xid</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command prepares for commitment any message produced or consumed on behalf of xid.  <a href="#a96c75999c547cc9d29994e0e7708928e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00104.html">qpid::framing::DtxRecoverResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#afcfa84f2a75c47358438f92aad3dfd1e">dtxRecover</a> (bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command is called to obtain a list of transaction branches that are in a prepared or heuristically completed state.  <a href="#afcfa84f2a75c47358438f92aad3dfd1e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00401.html">qpid::framing::XaResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a5bad468e4ee69622985a6df6fbe2246b">dtxRollback</a> (const <a class="el" href="a00402.html">Xid</a> &amp;xid=<a class="el" href="a00402.html">Xid</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command rolls back the work associated with xid.  <a href="#a5bad468e4ee69622985a6df6fbe2246b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a0d9e5ca2e6515a58dffea15c452eafdf">dtxSetTimeout</a> (const <a class="el" href="a00402.html">Xid</a> &amp;xid=<a class="el" href="a00402.html">Xid</a>(), <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> timeout=0, bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the specified transaction branch timeout value in seconds.  <a href="#a0d9e5ca2e6515a58dffea15c452eafdf"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#ac7b94acf8820d902df82d8303d15eca4">exchangeDeclare</a> (const <a class="el" href="a00346.html">std::string</a> &amp;exchange=<a class="el" href="a00346.html">std::string</a>(), const <a class="el" href="a00346.html">std::string</a> &amp;type=<a class="el" href="a00346.html">std::string</a>(), const <a class="el" href="a00346.html">std::string</a> &amp;alternateExchange=<a class="el" href="a00346.html">std::string</a>(), bool passive=false, bool durable=false, bool autoDelete=false, const <a class="el" href="a00125.html">FieldTable</a> &amp;arguments=<a class="el" href="a00125.html">FieldTable</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command creates an exchange if it does not already exist, and if the exchange exists, verifies that it is of the correct and expected class.  <a href="#ac7b94acf8820d902df82d8303d15eca4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a7d8439a5d24db730c8dcd717fc0f1600">exchangeDelete</a> (const <a class="el" href="a00346.html">std::string</a> &amp;exchange=<a class="el" href="a00346.html">std::string</a>(), bool ifUnused=false, bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command deletes an exchange.  <a href="#a7d8439a5d24db730c8dcd717fc0f1600"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00119.html">qpid::framing::ExchangeQueryResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a7ffd9f8af395cdb9caba56ee51e6d8ef">exchangeQuery</a> (const <a class="el" href="a00346.html">std::string</a> &amp;name=<a class="el" href="a00346.html">std::string</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command is used to request information on a particular exchange.  <a href="#a7ffd9f8af395cdb9caba56ee51e6d8ef"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a7a96fb24e976628a11917397db5c9dc3">exchangeBind</a> (const <a class="el" href="a00346.html">std::string</a> &amp;queue=<a class="el" href="a00346.html">std::string</a>(), const <a class="el" href="a00346.html">std::string</a> &amp;exchange=<a class="el" href="a00346.html">std::string</a>(), const <a class="el" href="a00346.html">std::string</a> &amp;bindingKey=<a class="el" href="a00346.html">std::string</a>(), const <a class="el" href="a00125.html">FieldTable</a> &amp;arguments=<a class="el" href="a00125.html">FieldTable</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command binds a queue to an exchange.  <a href="#a7a96fb24e976628a11917397db5c9dc3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#ac84cb0ea976003d1886943c8405d0fe8">exchangeUnbind</a> (const <a class="el" href="a00346.html">std::string</a> &amp;queue=<a class="el" href="a00346.html">std::string</a>(), const <a class="el" href="a00346.html">std::string</a> &amp;exchange=<a class="el" href="a00346.html">std::string</a>(), const <a class="el" href="a00346.html">std::string</a> &amp;bindingKey=<a class="el" href="a00346.html">std::string</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command unbinds a queue from an exchange.  <a href="#ac84cb0ea976003d1886943c8405d0fe8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00118.html">qpid::framing::ExchangeBoundResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a7518a71279426205b6ed5676643156bc">exchangeBound</a> (const <a class="el" href="a00346.html">std::string</a> &amp;exchange=<a class="el" href="a00346.html">std::string</a>(), const <a class="el" href="a00346.html">std::string</a> &amp;queue=<a class="el" href="a00346.html">std::string</a>(), const <a class="el" href="a00346.html">std::string</a> &amp;bindingKey=<a class="el" href="a00346.html">std::string</a>(), const <a class="el" href="a00125.html">FieldTable</a> &amp;arguments=<a class="el" href="a00125.html">FieldTable</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command is used to request information on the bindings to a particular exchange.  <a href="#a7518a71279426205b6ed5676643156bc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a785df7f03802bfa5aa436f01bd037c81">queueDeclare</a> (const <a class="el" href="a00346.html">std::string</a> &amp;queue=<a class="el" href="a00346.html">std::string</a>(), const <a class="el" href="a00346.html">std::string</a> &amp;alternateExchange=<a class="el" href="a00346.html">std::string</a>(), bool passive=false, bool durable=false, bool exclusive=false, bool autoDelete=false, const <a class="el" href="a00125.html">FieldTable</a> &amp;arguments=<a class="el" href="a00125.html">FieldTable</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command creates or checks a queue.  <a href="#a785df7f03802bfa5aa436f01bd037c81"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a78c98223b64afdf3e8a971747ec38701">queueDelete</a> (const <a class="el" href="a00346.html">std::string</a> &amp;queue=<a class="el" href="a00346.html">std::string</a>(), bool ifUnused=false, bool ifEmpty=false, bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command deletes a queue.  <a href="#a78c98223b64afdf3e8a971747ec38701"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#adb7e81811bd0da8feefa2ad1369d52d1">queuePurge</a> (const <a class="el" href="a00346.html">std::string</a> &amp;queue=<a class="el" href="a00346.html">std::string</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command removes all messages from a queue.  <a href="#adb7e81811bd0da8feefa2ad1369d52d1"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00266.html">qpid::framing::QueueQueryResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a272232fbf5f88c293b0b666ef57bfb91">queueQuery</a> (const <a class="el" href="a00346.html">std::string</a> &amp;queue=<a class="el" href="a00346.html">std::string</a>(), bool sync=true)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This command requests information about a queue.  <a href="#a272232fbf5f88c293b0b666ef57bfb91"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00334.html">SessionId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00329.html#aba4c611d0f2008bf153b5a0d372d7b32">getId</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the session ID.  <a href="#aba4c611d0f2008bf153b5a0d372d7b32"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#aa3db8a210e8bdb4d9c04f048a3bc16af">close</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00329.html#aa3db8a210e8bdb4d9c04f048a3bc16af">close</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the session.  <a href="#aa3db8a210e8bdb4d9c04f048a3bc16af"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a198880ec0840c18b0d8a9140d38db699">sync</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronize the session: <a class="el" href="a00328.html#a198880ec0840c18b0d8a9140d38db699" title="Synchronize the session: sync() waits until all commands issued on this session so far have been comp...">sync()</a> waits until all commands issued on this session so far have been completed by the broker.  <a href="#a198880ec0840c18b0d8a9140d38db699"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a90f4dc4899c23d4cfb00360a5f215b26">timeout</a> (<a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> seconds)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00329.html#a198880ec0840c18b0d8a9140d38db699">sync</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronize the session: <a class="el" href="a00329.html#a198880ec0840c18b0d8a9140d38db699" title="Synchronize the session: sync() waits until all commands issued on this session so far have been comp...">sync()</a> waits until all commands issued on this session so far have been completed by the broker.  <a href="#a198880ec0840c18b0d8a9140d38db699"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00329.html#a90f4dc4899c23d4cfb00360a5f215b26">timeout</a> (<a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> seconds)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the timeout for this session.  <a href="#a90f4dc4899c23d4cfb00360a5f215b26"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a7767cc2b33cdba119824b86ca212dbd6">suspend</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00329.html#a7767cc2b33cdba119824b86ca212dbd6">suspend</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Suspend the session - detach it from its connection.  <a href="#a7767cc2b33cdba119824b86ca212dbd6"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a7b6f55034313f9a4ca2d2ae71649b840">resume</a> (<a class="el" href="a00058.html">Connection</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00329.html#a7b6f55034313f9a4ca2d2ae71649b840">resume</a> (<a class="el" href="a00060.html">Connection</a>)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Resume a suspended session with a new connection.  <a href="#a7b6f55034313f9a4ca2d2ae71649b840"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a2395fbbedb1705bfefc45a70a9b80b6f">getChannel</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00329.html#a2395fbbedb1705bfefc45a70a9b80b6f">getChannel</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the channel associated with this session.  <a href="#a2395fbbedb1705bfefc45a70a9b80b6f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#aad3b41e7fb8e6d40c309a9b0c7144243">flush</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a71b6f8e5c01c5ab1d8dba353f0c2dc6e">markCompleted</a> (const <a class="el" href="a00324.html">framing::SequenceSet</a> &amp;ids, bool notifyPeer)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#ab9d172be089286ffc7b4fda418b87301">markCompleted</a> (const <a class="el" href="a00323.html">framing::SequenceNumber</a> &amp;id, bool cumulative, bool notifyPeer)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a151e42932f03d3a453bb1598e160a025">sendCompletion</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#ae4424751cfa94ad272711dae9213cb2c">isValid</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00058.html">Connection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#ad90f254bc31ff8e5933c4dd14f3a48b5">getConnection</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00329.html#aad3b41e7fb8e6d40c309a9b0c7144243">flush</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00329.html#a71b6f8e5c01c5ab1d8dba353f0c2dc6e">markCompleted</a> (const <a class="el" href="a00325.html">framing::SequenceSet</a> &amp;ids, bool notifyPeer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00329.html#ab9d172be089286ffc7b4fda418b87301">markCompleted</a> (const <a class="el" href="a00324.html">framing::SequenceNumber</a> &amp;id, bool cumulative, bool notifyPeer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00329.html#a151e42932f03d3a453bb1598e160a025">sendCompletion</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00329.html#ae4424751cfa94ad272711dae9213cb2c">isValid</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00060.html">Connection</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00329.html#ad90f254bc31ff8e5933c4dd14f3a48b5">getConnection</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">boost::shared_ptr&lt; SessionImpl &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00328.html#a72d171e291fab3cd457bf04276970904">impl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">boost::shared_ptr&lt; SessionImpl &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00329.html#a72d171e291fab3cd457bf04276970904">impl</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Base class for handles to an AMQP session. </p>
-<p>Subclasses provide the AMQP commands for a given version of the protocol. </p>
+<div class="textblock"><p>AMQP 0-10 synchronous session API. </p>
+<p>A session is a named interaction between two peers. Session names are chosen by the upper layers and may be used indefinitely. The model layer may associate long-lived or durable state with a given session name. The session layer provides transport of commands associated with this interaction. </p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a83ff389441c0ca4610d22a080dfdae4e"></a><!-- doxytag: member="qpid::client::SessionBase_0_10::SessionBase_0_10" ref="a83ff389441c0ca4610d22a080dfdae4e" args="()" -->
+<a class="anchor" id="aab751f910be43a2bbfde5461e06f307d"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::Session_0_10" ref="aab751f910be43a2bbfde5461e06f307d" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::client::SessionBase_0_10::SessionBase_0_10 </td>
+          <td class="memname">qpid::client::no_keyword::Session_0_10::Session_0_10 </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -128,26 +207,31 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Reimplemented in <a class="el" href="a00327.html#aa1850df2eb97e35f5bfb26d597cc969d">qpid::client::Session_0_10</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a1a9b24e6032eabad4ed2efbc288217cc"></a><!-- doxytag: member="qpid::client::SessionBase_0_10::~SessionBase_0_10" ref="a1a9b24e6032eabad4ed2efbc288217cc" args="()" -->
+<a class="anchor" id="a4861748d70f2e6d92c19c47626043feb"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::Session_0_10" ref="a4861748d70f2e6d92c19c47626043feb" args="(const SessionBase_0_10 &amp;other)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::client::SessionBase_0_10::~SessionBase_0_10 </td>
+          <td class="memname">QPID_CLIENT_INLINE_EXTERN qpid::client::no_keyword::Session_0_10::Session_0_10 </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00329.html">SessionBase_0_10</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00327.html#a589e1a96fff4f01262fed330e223069c">qpid::client::Session_0_10</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="aa3db8a210e8bdb4d9c04f048a3bc16af"></a><!-- doxytag: member="qpid::client::SessionBase_0_10::close" ref="aa3db8a210e8bdb4d9c04f048a3bc16af" args="()" -->
+<a class="anchor" id="aa3db8a210e8bdb4d9c04f048a3bc16af"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::close" ref="aa3db8a210e8bdb4d9c04f048a3bc16af" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -155,7 +239,7 @@ Protected Attributes</h2></td></tr>
           <td class="memname">void qpid::client::SessionBase_0_10::close </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -166,7 +250,899 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aad3b41e7fb8e6d40c309a9b0c7144243"></a><!-- doxytag: member="qpid::client::SessionBase_0_10::flush" ref="aad3b41e7fb8e6d40c309a9b0c7144243" args="()" -->
+<a class="anchor" id="a0059fa98a0e399917f0a212ce88bbadd"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::dtxCommit" ref="a0059fa98a0e399917f0a212ce88bbadd" args="(const Xid &amp;xid=Xid(), bool onePhase=false, bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00401.html">qpid::framing::XaResult</a> qpid::client::no_keyword::Session_0_10::dtxCommit </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00402.html">Xid</a> &amp;&#160;</td>
+          <td class="paramname"><em>xid</em> = <code><a class="el" href="a00402.html">Xid</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>onePhase</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Commit the work done on behalf a transaction branch. </p>
+<p>This command commits the work associated with xid. Any produced messages are made available and any consumed messages are discarded.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xid</td><td>Specifies the xid of the transaction branch to be committed.</td></tr>
+    <tr><td class="paramname">onePhase</td><td>Used to indicate whether one-phase or two-phase commit is used.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00425">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a05292645e7ab1194b6edf09c7885b3a5"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::dtxEnd" ref="a05292645e7ab1194b6edf09c7885b3a5" args="(const Xid &amp;xid=Xid(), bool fail=false, bool suspend=false, bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00401.html">qpid::framing::XaResult</a> qpid::client::no_keyword::Session_0_10::dtxEnd </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00402.html">Xid</a> &amp;&#160;</td>
+          <td class="paramname"><em>xid</em> = <code><a class="el" href="a00402.html">Xid</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>fail</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>suspend</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command is called when the work done on behalf a transaction branch finishes or needs to be suspended. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xid</td><td>Specifies the xid of the transaction branch to be ended.</td></tr>
+    <tr><td class="paramname">fail</td><td>If set, indicates that this portion of work has failed; otherwise this portion of work has completed successfully.</td></tr>
+    <tr><td class="paramname">suspend</td><td>Indicates that the transaction branch is temporarily suspended in an incomplete state.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00417">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab603a0b4690fd95ca3c86ecd65e73d7b"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::dtxForget" ref="ab603a0b4690fd95ca3c86ecd65e73d7b" args="(const Xid &amp;xid=Xid(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::dtxForget </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00402.html">Xid</a> &amp;&#160;</td>
+          <td class="paramname"><em>xid</em> = <code><a class="el" href="a00402.html">Xid</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command is called to forget about a heuristically completed transaction branch. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xid</td><td>Specifies the xid of the transaction branch to be forgotten.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00432">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5a62bf71629847494dbfc4cba1a9a926"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::dtxGetTimeout" ref="a5a62bf71629847494dbfc4cba1a9a926" args="(const Xid &amp;xid=Xid(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00103.html">qpid::framing::DtxGetTimeoutResult</a> qpid::client::no_keyword::Session_0_10::dtxGetTimeout </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00402.html">Xid</a> &amp;&#160;</td>
+          <td class="paramname"><em>xid</em> = <code><a class="el" href="a00402.html">Xid</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command obtains the current transaction timeout value in seconds. </p>
+<p>If set-timeout was not used prior to invoking this command, the return value is the default timeout; otherwise, the value used in the previous set-timeout call is returned.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xid</td><td>Specifies the xid of the transaction branch for getting the timeout.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00438">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a96c75999c547cc9d29994e0e7708928e"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::dtxPrepare" ref="a96c75999c547cc9d29994e0e7708928e" args="(const Xid &amp;xid=Xid(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00401.html">qpid::framing::XaResult</a> qpid::client::no_keyword::Session_0_10::dtxPrepare </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00402.html">Xid</a> &amp;&#160;</td>
+          <td class="paramname"><em>xid</em> = <code><a class="el" href="a00402.html">Xid</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command prepares for commitment any message produced or consumed on behalf of xid. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xid</td><td>Specifies the xid of the transaction branch that can be prepared.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00444">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afcfa84f2a75c47358438f92aad3dfd1e"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::dtxRecover" ref="afcfa84f2a75c47358438f92aad3dfd1e" args="(bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00104.html">qpid::framing::DtxRecoverResult</a> qpid::client::no_keyword::Session_0_10::dtxRecover </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command is called to obtain a list of transaction branches that are in a prepared or heuristically completed state. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00450">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5bad468e4ee69622985a6df6fbe2246b"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::dtxRollback" ref="a5bad468e4ee69622985a6df6fbe2246b" args="(const Xid &amp;xid=Xid(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00401.html">qpid::framing::XaResult</a> qpid::client::no_keyword::Session_0_10::dtxRollback </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00402.html">Xid</a> &amp;&#160;</td>
+          <td class="paramname"><em>xid</em> = <code><a class="el" href="a00402.html">Xid</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command rolls back the work associated with xid. </p>
+<p>Any produced messages are discarded and any consumed messages are re-enqueued.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xid</td><td>Specifies the xid of the transaction branch that can be rolled back.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00455">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adfdc774a5d6f37c077221300916e63f3"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::dtxSelect" ref="adfdc774a5d6f37c077221300916e63f3" args="(bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::dtxSelect </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command sets the session to use distributed transactions. </p>
+<p>The client must use this command at least once on a session before using XA demarcation operations.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00404">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0d9e5ca2e6515a58dffea15c452eafdf"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::dtxSetTimeout" ref="a0d9e5ca2e6515a58dffea15c452eafdf" args="(const Xid &amp;xid=Xid(), uint32_t timeout=0, bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::dtxSetTimeout </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00402.html">Xid</a> &amp;&#160;</td>
+          <td class="paramname"><em>xid</em> = <code><a class="el" href="a00402.html">Xid</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Sets the specified transaction branch timeout value in seconds. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xid</td><td>Specifies the xid of the transaction branch for setting the timeout.</td></tr>
+    <tr><td class="paramname">timeout</td><td>The transaction timeout value in seconds.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00461">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a463fd94be164145621ade42119159979"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::dtxStart" ref="a463fd94be164145621ade42119159979" args="(const Xid &amp;xid=Xid(), bool join=false, bool resume=false, bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00401.html">qpid::framing::XaResult</a> qpid::client::no_keyword::Session_0_10::dtxStart </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00402.html">Xid</a> &amp;&#160;</td>
+          <td class="paramname"><em>xid</em> = <code><a class="el" href="a00402.html">Xid</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>join</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>resume</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command is called when messages should be produced and consumed on behalf a transaction branch identified by xid. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">xid</td><td>Specifies the xid of the transaction branch to be started.</td></tr>
+    <tr><td class="paramname">join</td><td>Indicate whether this is joining an already associated xid. Indicate that the start applies to joining a transaction previously seen.</td></tr>
+    <tr><td class="paramname">resume</td><td>Indicate that the start applies to resuming a suspended transaction branch specified.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00409">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7a96fb24e976628a11917397db5c9dc3"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::exchangeBind" ref="a7a96fb24e976628a11917397db5c9dc3" args="(const std::string &amp;queue=std::string(), const std::string &amp;exchange=std::string(), const std::string &amp;bindingKey=std::string(), const FieldTable &amp;arguments=FieldTable(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::exchangeBind </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>queue</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>exchange</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>bindingKey</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00125.html">FieldTable</a> &amp;&#160;</td>
+          <td class="paramname"><em>arguments</em> = <code><a class="el" href="a00125.html">FieldTable</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command binds a queue to an exchange. </p>
+<p>Until a queue is bound it will not receive any messages. In a classic messaging model, store-and-forward queues are bound to a direct exchange and subscription queues are bound to a topic exchange.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queue</td><td>Specifies the name of the queue to bind.</td></tr>
+    <tr><td class="paramname">exchange</td><td></td></tr>
+    <tr><td class="paramname">bindingKey</td><td>The binding-key uniquely identifies a binding between a given (exchange, queue) pair. Depending on the exchange configuration, the binding key may be matched against the message routing key in order to make routing decisions. The match algorithm depends on the exchange type. Some exchange types may ignore the binding key when making routing decisions. Refer to the specific exchange type documentation. The meaning of an empty binding key depends on the exchange implementation.</td></tr>
+    <tr><td class="paramname">arguments</td><td>A set of arguments for the binding. The syntax and semantics of these arguments depends on the exchange class.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00493">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7518a71279426205b6ed5676643156bc"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::exchangeBound" ref="a7518a71279426205b6ed5676643156bc" args="(const std::string &amp;exchange=std::string(), const std::string &amp;queue=std::string(), const std::string &amp;bindingKey=std::string(), const FieldTable &amp;arguments=FieldTable(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00118.html">qpid::framing::ExchangeBoundResult</a> qpid::client::no_keyword::Session_0_10::exchangeBound </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>exchange</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>queue</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>bindingKey</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00125.html">FieldTable</a> &amp;&#160;</td>
+          <td class="paramname"><em>arguments</em> = <code><a class="el" href="a00125.html">FieldTable</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command is used to request information on the bindings to a particular exchange. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">exchange</td><td>The name of the exchange for which binding information is being requested. If not specified explicitly the default exchange is implied.</td></tr>
+    <tr><td class="paramname">queue</td><td>If populated then determine whether the given queue is bound to the exchange.</td></tr>
+    <tr><td class="paramname">bindingKey</td><td>If populated defines the binding-key of the binding of interest, if not populated the request will ignore the binding-key on bindings when searching for a match.</td></tr>
+    <tr><td class="paramname">arguments</td><td>If populated defines the arguments of the binding of interest if not populated the request will ignore the arguments on bindings when searching for a match</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00510">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac7b94acf8820d902df82d8303d15eca4"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::exchangeDeclare" ref="ac7b94acf8820d902df82d8303d15eca4" args="(const std::string &amp;exchange=std::string(), const std::string &amp;type=std::string(), const std::string &amp;alternateExchange=std::string(), bool passive=false, bool durable=false, bool autoDelete=false, const FieldTable &amp;arguments=FieldTable(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::exchangeDeclare </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>exchange</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>type</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>alternateExchange</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>passive</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>durable</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>autoDelete</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00125.html">FieldTable</a> &amp;&#160;</td>
+          <td class="paramname"><em>arguments</em> = <code><a class="el" href="a00125.html">FieldTable</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command creates an exchange if it does not already exist, and if the exchange exists, verifies that it is of the correct and expected class. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">exchange</td><td></td></tr>
+    <tr><td class="paramname">type</td><td>Each exchange belongs to one of a set of exchange types implemented by the server. The exchange types define the functionality of the exchange - i.e. how messages are routed through it. It is not valid or meaningful to attempt to change the type of an existing exchange.</td></tr>
+    <tr><td class="paramname">alternateExchange</td><td>In the event that a message cannot be routed, this is the name of the exchange to which the message will be sent. Messages transferred using message.transfer will be routed to the alternate-exchange only if they are sent with the "none" accept-mode, and the discard-unroutable delivery property is set to false, and there is no queue to route to for the given message according to the bindings on this exchange.</td></tr>
+    <tr><td class="paramname">passive</td><td>If set, the server will not create the exchange. The client can use this to check whether an exchange exists without modifying the server state.</td></tr>
+    <tr><td class="paramname">durable</td><td>If set when creating a new exchange, the exchange will be marked as durable. Durable exchanges remain active when a server restarts. Non-durable exchanges (transient exchanges) are purged if/when a server restarts.</td></tr>
+    <tr><td class="paramname">autoDelete</td><td>If set, the exchange is deleted automatically when there remain no bindings between the exchange and any queue. Such an exchange will not be automatically deleted until at least one binding has been made to prevent the immediate deletion of the exchange upon creation.</td></tr>
+    <tr><td class="paramname">arguments</td><td>A set of arguments for the declaration. The syntax and semantics of these arguments depends on the server implementation. This field is ignored if passive is 1.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00468">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7d8439a5d24db730c8dcd717fc0f1600"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::exchangeDelete" ref="a7d8439a5d24db730c8dcd717fc0f1600" args="(const std::string &amp;exchange=std::string(), bool ifUnused=false, bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::exchangeDelete </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>exchange</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>ifUnused</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command deletes an exchange. </p>
+<p>When an exchange is deleted all queue bindings on the exchange are cancelled.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">exchange</td><td></td></tr>
+    <tr><td class="paramname">ifUnused</td><td>If set, the server will only delete the exchange if it has no queue bindings. If the exchange has queue bindings the server does not delete it but raises an exception instead.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00480">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7ffd9f8af395cdb9caba56ee51e6d8ef"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::exchangeQuery" ref="a7ffd9f8af395cdb9caba56ee51e6d8ef" args="(const std::string &amp;name=std::string(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00119.html">qpid::framing::ExchangeQueryResult</a> qpid::client::no_keyword::Session_0_10::exchangeQuery </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>name</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command is used to request information on a particular exchange. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the exchange for which information is requested. If not specified explicitly the default exchange is implied.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00487">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac84cb0ea976003d1886943c8405d0fe8"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::exchangeUnbind" ref="ac84cb0ea976003d1886943c8405d0fe8" args="(const std::string &amp;queue=std::string(), const std::string &amp;exchange=std::string(), const std::string &amp;bindingKey=std::string(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::exchangeUnbind </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>queue</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>exchange</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>bindingKey</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command unbinds a queue from an exchange. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queue</td><td>Specifies the name of the queue to unbind.</td></tr>
+    <tr><td class="paramname">exchange</td><td>The name of the exchange to unbind from.</td></tr>
+    <tr><td class="paramname">bindingKey</td><td>Specifies the binding-key of the binding to unbind.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00502">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0d1e6ed0c378c3bf3beb8b63b6a8597e"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::executionException" ref="a0d1e6ed0c378c3bf3beb8b63b6a8597e" args="(uint16_t errorCode=0, const SequenceNumber &amp;commandId=SequenceNumber(), uint8_t classCode=0, uint8_t commandCode=0, uint8_t fieldIndex=0, const std::string &amp;description=std::string(), const FieldTable &amp;errorInfo=FieldTable(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::executionException </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td>
+          <td class="paramname"><em>errorCode</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00324.html">SequenceNumber</a> &amp;&#160;</td>
+          <td class="paramname"><em>commandId</em> = <code><a class="el" href="a00324.html">SequenceNumber</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"><em>classCode</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"><em>commandCode</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"><em>fieldIndex</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>description</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00125.html">FieldTable</a> &amp;&#160;</td>
+          <td class="paramname"><em>errorInfo</em> = <code><a class="el" href="a00125.html">FieldTable</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command informs a peer of an execution exception. </p>
+<p>The command-id, when given, correlates the error to a specific command.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">errorCode</td><td></td></tr>
+    <tr><td class="paramname">commandId</td><td>The command-id of the command which caused the exception. If the exception was not caused by a specific command, this value is not set.</td></tr>
+    <tr><td class="paramname">classCode</td><td></td></tr>
+    <tr><td class="paramname">commandCode</td><td></td></tr>
+    <tr><td class="paramname">fieldIndex</td><td>The zero based index of the exceptional field within the arguments to the exceptional command. If the exception was not caused by a specific field, this value is not set.</td></tr>
+    <tr><td class="paramname">description</td><td>The description provided is implementation defined, but MUST be in the language appropriate for the selected locale. The intention is that this description is suitable for logging or alerting output.</td></tr>
+    <tr><td class="paramname">errorInfo</td><td></td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00288">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af3363be39e7fac0f20bb72300051bbd9"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::executionResult" ref="af3363be39e7fac0f20bb72300051bbd9" args="(const SequenceNumber &amp;commandId=SequenceNumber(), const std::string &amp;value=std::string(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::executionResult </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00324.html">SequenceNumber</a> &amp;&#160;</td>
+          <td class="paramname"><em>commandId</em> = <code><a class="el" href="a00324.html">SequenceNumber</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>value</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command carries data resulting from the execution of a command. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">commandId</td><td></td></tr>
+    <tr><td class="paramname">value</td><td></td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00281">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8624344fa93ef539d494ca729d0a7c62"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::executionSync" ref="a8624344fa93ef539d494ca729d0a7c62" args="(bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::executionSync </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command is complete when all prior commands are completed. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00276">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aad3b41e7fb8e6d40c309a9b0c7144243"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::flush" ref="aad3b41e7fb8e6d40c309a9b0c7144243" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -174,7 +1150,7 @@ Protected Attributes</h2></td></tr>
           <td class="memname">void qpid::client::SessionBase_0_10::flush </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -182,15 +1158,15 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a2395fbbedb1705bfefc45a70a9b80b6f"></a><!-- doxytag: member="qpid::client::SessionBase_0_10::getChannel" ref="a2395fbbedb1705bfefc45a70a9b80b6f" args="() const " -->
+<a class="anchor" id="a2395fbbedb1705bfefc45a70a9b80b6f"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::getChannel" ref="a2395fbbedb1705bfefc45a70a9b80b6f" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> qpid::client::SessionBase_0_10::getChannel </td>
+          <td class="memname"><a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> qpid::client::SessionBase_0_10::getChannel </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -200,15 +1176,15 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ad90f254bc31ff8e5933c4dd14f3a48b5"></a><!-- doxytag: member="qpid::client::SessionBase_0_10::getConnection" ref="ad90f254bc31ff8e5933c4dd14f3a48b5" args="()" -->
+<a class="anchor" id="ad90f254bc31ff8e5933c4dd14f3a48b5"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::getConnection" ref="ad90f254bc31ff8e5933c4dd14f3a48b5" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00058.html">Connection</a> qpid::client::SessionBase_0_10::getConnection </td>
+          <td class="memname"><a class="el" href="a00060.html">Connection</a> qpid::client::SessionBase_0_10::getConnection </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -216,15 +1192,15 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aba4c611d0f2008bf153b5a0d372d7b32"></a><!-- doxytag: member="qpid::client::SessionBase_0_10::getId" ref="aba4c611d0f2008bf153b5a0d372d7b32" args="() const " -->
+<a class="anchor" id="aba4c611d0f2008bf153b5a0d372d7b32"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::getId" ref="aba4c611d0f2008bf153b5a0d372d7b32" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00333.html">SessionId</a> qpid::client::SessionBase_0_10::getId </td>
+          <td class="memname"><a class="el" href="a00334.html">SessionId</a> qpid::client::SessionBase_0_10::getId </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -234,7 +1210,7 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae4424751cfa94ad272711dae9213cb2c"></a><!-- doxytag: member="qpid::client::SessionBase_0_10::isValid" ref="ae4424751cfa94ad272711dae9213cb2c" args="() const " -->
+<a class="anchor" id="ae4424751cfa94ad272711dae9213cb2c"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::isValid" ref="ae4424751cfa94ad272711dae9213cb2c" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -242,7 +1218,7 @@ Protected Attributes</h2></td></tr>
           <td class="memname">bool qpid::client::SessionBase_0_10::isValid </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -250,14 +1226,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a71b6f8e5c01c5ab1d8dba353f0c2dc6e"></a><!-- doxytag: member="qpid::client::SessionBase_0_10::markCompleted" ref="a71b6f8e5c01c5ab1d8dba353f0c2dc6e" args="(const framing::SequenceSet &amp;ids, bool notifyPeer)" -->
+<a class="anchor" id="a71b6f8e5c01c5ab1d8dba353f0c2dc6e"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::markCompleted" ref="a71b6f8e5c01c5ab1d8dba353f0c2dc6e" args="(const framing::SequenceSet &amp;ids, bool notifyPeer)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void qpid::client::SessionBase_0_10::markCompleted </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00324.html">framing::SequenceSet</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00325.html">framing::SequenceSet</a> &amp;&#160;</td>
           <td class="paramname"><em>ids</em>, </td>
         </tr>
         <tr>
@@ -269,7 +1245,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -277,14 +1253,14 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ab9d172be089286ffc7b4fda418b87301"></a><!-- doxytag: member="qpid::client::SessionBase_0_10::markCompleted" ref="ab9d172be089286ffc7b4fda418b87301" args="(const framing::SequenceNumber &amp;id, bool cumulative, bool notifyPeer)" -->
+<a class="anchor" id="ab9d172be089286ffc7b4fda418b87301"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::markCompleted" ref="ab9d172be089286ffc7b4fda418b87301" args="(const framing::SequenceNumber &amp;id, bool cumulative, bool notifyPeer)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void qpid::client::SessionBase_0_10::markCompleted </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00323.html">framing::SequenceNumber</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00324.html">framing::SequenceNumber</a> &amp;&#160;</td>
           <td class="paramname"><em>id</em>, </td>
         </tr>
         <tr>
@@ -302,7 +1278,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -310,16 +1286,842 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a7b6f55034313f9a4ca2d2ae71649b840"></a><!-- doxytag: member="qpid::client::SessionBase_0_10::resume" ref="a7b6f55034313f9a4ca2d2ae71649b840" args="(Connection)" -->
+<a class="anchor" id="a265bec6609180acb136026c81c694a93"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::messageAccept" ref="a265bec6609180acb136026c81c694a93" args="(const SequenceSet &amp;transfers=SequenceSet(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::messageAccept </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00325.html">SequenceSet</a> &amp;&#160;</td>
+          <td class="paramname"><em>transfers</em> = <code><a class="el" href="a00325.html">SequenceSet</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Accepts the message. </p>
+<p>Once a transfer is accepted, the command-id may no longer be referenced from other commands.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">transfers</td><td>Identifies the messages previously transferred that should be accepted.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00309">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a193732a30d8e483df3712c87abc49302"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::messageAcquire" ref="a193732a30d8e483df3712c87abc49302" args="(const SequenceSet &amp;transfers=SequenceSet(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00209.html">qpid::framing::MessageAcquireResult</a> qpid::client::no_keyword::Session_0_10::messageAcquire </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00325.html">SequenceSet</a> &amp;&#160;</td>
+          <td class="paramname"><em>transfers</em> = <code><a class="el" href="a00325.html">SequenceSet</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Acquires previously transferred messages for consumption. </p>
+<p>The acquired ids (if any) are sent via message.acquired.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">transfers</td><td>Indicates the messages to be acquired.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00330">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a10756c4a0bd621fe50aacb476c80d9b8"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::messageCancel" ref="a10756c4a0bd621fe50aacb476c80d9b8" args="(const std::string &amp;destination=std::string(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::messageCancel </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>destination</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command cancels a subscription. </p>
+<p>This does not affect already delivered messages, but it does mean the server will not send any more messages for that subscription. The client may receive an arbitrary number of messages in between sending the cancel command and receiving notification that the cancel command is complete.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">destination</td><td></td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00356">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a228c32c3844499f8e8338152b4726717"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::messageFlow" ref="a228c32c3844499f8e8338152b4726717" args="(const std::string &amp;destination=std::string(), uint8_t unit=0, uint32_t value=0, bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::messageFlow </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>destination</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"><em>unit</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>value</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command controls the flow of message data to a given destination. </p>
+<p>It is used by the recipient of messages to dynamically match the incoming rate of message flow to its processing or forwarding capacity. Upon receipt of this command, the sender must add "value" number of the specified unit to the available credit balance for the specified destination. A value of (0xFFFFFFFF) indicates an infinite amount of credit. This disables any limit for the given unit until the credit balance is zeroed with message.stop or message.flush.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">destination</td><td></td></tr>
+    <tr><td class="paramname">unit</td><td>The unit of value.</td></tr>
+    <tr><td class="paramname">value</td><td>If the value is not set then this indicates an infinite amount of credit.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00369">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a251093386143c538d2f9de26afe9f09f"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::messageFlush" ref="a251093386143c538d2f9de26afe9f09f" args="(const std::string &amp;destination=std::string(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::messageFlush </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>destination</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Forces the sender to exhaust his credit supply. </p>
+<p>The sender's credit will always be zero when this command completes. The command completes when immediately available message data has been transferred, or when the credit supply is exhausted.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">destination</td><td></td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00377">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac42a3dc8392a8d30f700a331940921ba"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::messageReject" ref="ac42a3dc8392a8d30f700a331940921ba" args="(const SequenceSet &amp;transfers=SequenceSet(), uint16_t code=0, const std::string &amp;text=std::string(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::messageReject </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00325.html">SequenceSet</a> &amp;&#160;</td>
+          <td class="paramname"><em>transfers</em> = <code><a class="el" href="a00325.html">SequenceSet</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td>
+          <td class="paramname"><em>code</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>text</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Indicates that the message transfers are unprocessable in some way. </p>
+<p>A server may reject a message if it is unroutable. A client may reject a message if it is invalid. A message may be rejected for other reasons as well. Once a transfer is rejected, the command-id may no longer be referenced from other commands.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">transfers</td><td>Identifies the messages previously transferred that should be rejected.</td></tr>
+    <tr><td class="paramname">code</td><td>Code describing the reason for rejection.</td></tr>
+    <tr><td class="paramname">text</td><td>Text describing the reason for rejection.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00315">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae630b4bb8e5ac453e3cf5b3c481d91ea"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::messageRelease" ref="ae630b4bb8e5ac453e3cf5b3c481d91ea" args="(const SequenceSet &amp;transfers=SequenceSet(), bool setRedelivered=false, bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::messageRelease </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00325.html">SequenceSet</a> &amp;&#160;</td>
+          <td class="paramname"><em>transfers</em> = <code><a class="el" href="a00325.html">SequenceSet</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>setRedelivered</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Release previously transferred messages. </p>
+<p>When acquired messages are released, they become available for acquisition by any subscriber. Once a transfer is released, the command-id may no longer be referenced from other commands.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">transfers</td><td>Indicates the messages to be released.</td></tr>
+    <tr><td class="paramname">setRedelivered</td><td>By setting set-redelivered to true, any acquired messages released to a queue with this command will be marked as redelivered on their next transfer from that queue. If this flag is not set, then an acquired message will retain its original redelivered status on the queue. Messages that are not acquired are unaffected by the value of this flag.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00323">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5d9acd859143ba51d5252876924ad4f0"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::messageResume" ref="a5d9acd859143ba51d5252876924ad4f0" args="(const std::string &amp;destination=std::string(), const std::string &amp;resumeId=std::string(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00213.html">qpid::framing::MessageResumeResult</a> qpid::client::no_keyword::Session_0_10::messageResume </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>destination</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>resumeId</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command resumes an interrupted transfer. </p>
+<p>The recipient should return the amount of partially transferred data associated with the given resume-id, or zero if there is no data at all. If a non-zero result is returned, the recipient should expect to receive message fragment(s) containing the remainder of the interrupted message.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">destination</td><td>The destination to which the remaining message fragments are transferred.</td></tr>
+    <tr><td class="paramname">resumeId</td><td>The name of the transfer being resumed.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00336">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a825a3aac640482ec9bcfafb82de2d3e8"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::messageSetFlowMode" ref="a825a3aac640482ec9bcfafb82de2d3e8" args="(const std::string &amp;destination=std::string(), uint8_t flowMode=0, bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::messageSetFlowMode </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>destination</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"><em>flowMode</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Sets the mode of flow control used for a given destination to either window or credit based flow control. </p>
+<p>With credit based flow control, the sender of messages continually maintains its current credit balance with the recipient. The credit balance consists of two values, a message count, and a byte count. Whenever message data is sent, both counts must be decremented. If either value reaches zero, the flow of message data must stop. Additional credit is received via the message.flow command.</p>
+<p>The sender MUST NOT send partial assemblies. This means that if there is not enough byte credit available to send a complete message, the sender must either wait or use message fragmentation (see the fragment-properties header struct) to send the first part of the message data in a complete assembly.</p>
+<p>Window based flow control is identical to credit based flow control, however message transfer completion implicitly grants a single unit of message credit, and the size of the message in byte credits for each completed message transfer. <a class="el" href="a00056.html" title="Asynchronous commands that do not return a result will return a Completion.">Completion</a> of the transfer command with session.completed is the only way credit is implicitly updated; message.accept, message.release, message.reject, tx.commit and tx.rollback have no effect on the outstanding credit balances.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">destination</td><td></td></tr>
+    <tr><td class="paramname">flowMode</td><td>The new flow control mode.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00362">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a16892606ee60682645875f7814506f72"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::messageStop" ref="a16892606ee60682645875f7814506f72" args="(const std::string &amp;destination=std::string(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::messageStop </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>destination</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>On receipt of this command, a producer of messages MUST set his credit to zero for the given destination. </p>
+<p>When notifying of completion, credit MUST be zero and no further messages will be sent until such a time as further credit is received.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">destination</td><td></td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00383">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2f9be432ec2b20e1f6101871fb45bb57"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::messageSubscribe" ref="a2f9be432ec2b20e1f6101871fb45bb57" args="(const std::string &amp;queue=std::string(), const std::string &amp;destination=std::string(), uint8_t acceptMode=0, uint8_t acquireMode=0, bool exclusive=false, const std::string &amp;resumeId=std::string(), uint64_t resumeTtl=0, const FieldTable &amp;arguments=FieldTable(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::messageSubscribe </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>queue</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>destination</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"><em>acceptMode</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"><em>acquireMode</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>exclusive</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>resumeId</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>resumeTtl</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00125.html">FieldTable</a> &amp;&#160;</td>
+          <td class="paramname"><em>arguments</em> = <code><a class="el" href="a00125.html">FieldTable</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command asks the server to start a "subscription", which is a request for messages from a specific queue. </p>
+<p>Subscriptions last as long as the session they were created on, or until the client cancels them.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queue</td><td>Specifies the name of the subscribed queue.</td></tr>
+    <tr><td class="paramname">destination</td><td>The client specified name for the subscription. This is used as the destination for all messages transferred from this subscription. The destination is scoped to the session.</td></tr>
+    <tr><td class="paramname">acceptMode</td><td>The accept-mode to use for messages transferred from this subscription.</td></tr>
+    <tr><td class="paramname">acquireMode</td><td>The acquire-mode to use for messages transferred from this subscription.</td></tr>
+    <tr><td class="paramname">exclusive</td><td>Request an exclusive subscription. This prevents other subscribers from subscribing to the queue.</td></tr>
+    <tr><td class="paramname">resumeId</td><td>Requests that the broker use the supplied resume-id when transferring messages for this subscription.</td></tr>
+    <tr><td class="paramname">resumeTtl</td><td>Requested duration in milliseconds for the broker use as resume-ttl when transferring messages for this subscription.</td></tr>
+    <tr><td class="paramname">arguments</td><td>The syntax and semantics of these arguments depends on the providers implementation.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00343">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7d814e81e09073acd21557e8ec23afb9"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::messageTransfer" ref="a7d814e81e09073acd21557e8ec23afb9" args="(const std::string &amp;destination=std::string(), uint8_t acceptMode=1, uint8_t acquireMode=0, const Message &amp;content=Message(std::string()), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::messageTransfer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>destination</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"><em>acceptMode</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"><em>acquireMode</em> = <code>0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00208.html">Message</a> &amp;&#160;</td>
+          <td class="paramname"><em>content</em> = <code><a class="el" href="a00208.html">Message</a>(<a class="el" href="a00346.html">std::string</a>())</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command transfers a message between two peers. </p>
+<p>When a client uses this command to publish a message to a broker, the destination identifies a specific exchange. The message will then be routed to queues as defined by the exchange configuration.</p>
+<p>The client may request a broker to transfer messages to it, from a particular queue, by issuing a subscribe command. The subscribe command specifies the destination that the broker should use for any resulting transfers.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">destination</td><td>Specifies the destination to which the message is to be transferred.</td></tr>
+    <tr><td class="paramname">acceptMode</td><td>Indicates whether message.accept, session.complete, or nothing at all is required to indicate successful transfer of the message.</td></tr>
+    <tr><td class="paramname">acquireMode</td><td>Indicates whether or not the transferred message has been acquired.</td></tr>
+    <tr><td class="paramname">content</td><td><a class="el" href="a00208.html" title="A message sent to or received from the broker.">Message</a> content</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00300">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3fdd057ad448fd954af3ee27a4e22fcc"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::operator=" ref="a3fdd057ad448fd954af3ee27a4e22fcc" args="(const SessionBase_0_10 &amp;other)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_CLIENT_INLINE_EXTERN <a class="el" href="a00328.html">Session_0_10</a>&amp; qpid::client::no_keyword::Session_0_10::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00329.html">SessionBase_0_10</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00327.html#af62dc7bfaad19bc6a74c771b8e22a042">qpid::client::Session_0_10</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a785df7f03802bfa5aa436f01bd037c81"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::queueDeclare" ref="a785df7f03802bfa5aa436f01bd037c81" args="(const std::string &amp;queue=std::string(), const std::string &amp;alternateExchange=std::string(), bool passive=false, bool durable=false, bool exclusive=false, bool autoDelete=false, const FieldTable &amp;arguments=FieldTable(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::queueDeclare </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>queue</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>alternateExchange</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>passive</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>durable</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>exclusive</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>autoDelete</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00125.html">FieldTable</a> &amp;&#160;</td>
+          <td class="paramname"><em>arguments</em> = <code><a class="el" href="a00125.html">FieldTable</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command creates or checks a queue. </p>
+<p>When creating a new queue the client can specify various properties that control the durability of the queue and its contents, and the level of sharing for the queue.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queue</td><td></td></tr>
+    <tr><td class="paramname">alternateExchange</td><td>The alternate-exchange field specifies how messages on this queue should be treated when they are rejected by a subscriber, or when they are orphaned by queue deletion. When present, rejected or orphaned messages MUST be routed to the alternate-exchange. In all cases the messages MUST be removed from the queue.</td></tr>
+    <tr><td class="paramname">passive</td><td>If set, the server will not create the queue. This field allows the client to assert the presence of a queue without modifying the server state.</td></tr>
+    <tr><td class="paramname">durable</td><td>If set when creating a new queue, the queue will be marked as durable. Durable queues remain active when a server restarts. Non-durable queues (transient queues) are purged if/when a server restarts. Note that durable queues do not necessarily hold persistent messages, although it does not make sense to send persistent messages to a transient queue.</td></tr>
+    <tr><td class="paramname">exclusive</td><td>Exclusive queues can only be used from one session at a time. Once a session declares an exclusive queue, that queue cannot be used by any other session until the declaring session closes.</td></tr>
+    <tr><td class="paramname">autoDelete</td><td>If this field is set and the exclusive field is also set, then the queue MUST be deleted when the session closes.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>If this field is set and the exclusive field is not set the queue is deleted when all the consumers have finished using it. Last consumer can be cancelled either explicitly or because its session is closed. If there was no consumer ever on the queue, it won't be deleted.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">arguments</td><td>A set of arguments for the declaration. The syntax and semantics of these arguments depends on the server implementation. This field is ignored if passive is 1.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00519">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a78c98223b64afdf3e8a971747ec38701"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::queueDelete" ref="a78c98223b64afdf3e8a971747ec38701" args="(const std::string &amp;queue=std::string(), bool ifUnused=false, bool ifEmpty=false, bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::queueDelete </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>queue</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>ifUnused</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>ifEmpty</em> = <code>false</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command deletes a queue. </p>
+<p>When a queue is deleted any pending messages are sent to the alternate-exchange if defined, or discarded if it is not.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queue</td><td>Specifies the name of the queue to delete.</td></tr>
+    <tr><td class="paramname">ifUnused</td><td>If set, the server will only delete the queue if it has no consumers. If the queue has consumers the server does does not delete it but raises an exception instead.</td></tr>
+    <tr><td class="paramname">ifEmpty</td><td>If set, the server will only delete the queue if it has no messages.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00531">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adb7e81811bd0da8feefa2ad1369d52d1"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::queuePurge" ref="adb7e81811bd0da8feefa2ad1369d52d1" args="(const std::string &amp;queue=std::string(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::queuePurge </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>queue</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command removes all messages from a queue. </p>
+<p>It does not cancel subscribers. Purged messages are deleted without any formal "undo" mechanism.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queue</td><td>Specifies the name of the queue to purge.</td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00539">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a272232fbf5f88c293b0b666ef57bfb91"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::queueQuery" ref="a272232fbf5f88c293b0b666ef57bfb91" args="(const std::string &amp;queue=std::string(), bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00266.html">qpid::framing::QueueQueryResult</a> qpid::client::no_keyword::Session_0_10::queueQuery </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>queue</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command requests information about a queue. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queue</td><td></td></tr>
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00545">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7b6f55034313f9a4ca2d2ae71649b840"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::resume" ref="a7b6f55034313f9a4ca2d2ae71649b840" args="(Connection)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void qpid::client::SessionBase_0_10::resume </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00058.html">Connection</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00060.html">Connection</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -329,7 +2131,7 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a151e42932f03d3a453bb1598e160a025"></a><!-- doxytag: member="qpid::client::SessionBase_0_10::sendCompletion" ref="a151e42932f03d3a453bb1598e160a025" args="()" -->
+<a class="anchor" id="a151e42932f03d3a453bb1598e160a025"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::sendCompletion" ref="a151e42932f03d3a453bb1598e160a025" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -337,7 +2139,7 @@ Protected Attributes</h2></td></tr>
           <td class="memname">void qpid::client::SessionBase_0_10::sendCompletion </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -345,7 +2147,7 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a7767cc2b33cdba119824b86ca212dbd6"></a><!-- doxytag: member="qpid::client::SessionBase_0_10::suspend" ref="a7767cc2b33cdba119824b86ca212dbd6" args="()" -->
+<a class="anchor" id="a7767cc2b33cdba119824b86ca212dbd6"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::suspend" ref="a7767cc2b33cdba119824b86ca212dbd6" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -353,7 +2155,7 @@ Protected Attributes</h2></td></tr>
           <td class="memname">void qpid::client::SessionBase_0_10::suspend </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -363,7 +2165,7 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a198880ec0840c18b0d8a9140d38db699"></a><!-- doxytag: member="qpid::client::SessionBase_0_10::sync" ref="a198880ec0840c18b0d8a9140d38db699" args="()" -->
+<a class="anchor" id="a198880ec0840c18b0d8a9140d38db699"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::sync" ref="a198880ec0840c18b0d8a9140d38db699" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -371,27 +2173,27 @@ Protected Attributes</h2></td></tr>
           <td class="memname">void qpid::client::SessionBase_0_10::sync </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Synchronize the session: <a class="el" href="a00328.html#a198880ec0840c18b0d8a9140d38db699" title="Synchronize the session: sync() waits until all commands issued on this session so far have been comp...">sync()</a> waits until all commands issued on this session so far have been completed by the broker. </p>
-<p>Note <a class="el" href="a00328.html#a198880ec0840c18b0d8a9140d38db699" title="Synchronize the session: sync() waits until all commands issued on this session so far have been comp...">sync()</a> is always synchronous, even on an AsyncSession object because that's almost always what you want. You can call <a class="el" href="a00019.html#a0fe280bdbf655e1c4dd4cb350415fa69" title="This command is complete when all prior commands are completed.">AsyncSession::executionSync()</a> directly in the unusual event that you want to do an asynchronous sync. </p>
+<p>Synchronize the session: <a class="el" href="a00329.html#a198880ec0840c18b0d8a9140d38db699" title="Synchronize the session: sync() waits until all commands issued on this session so far have been comp...">sync()</a> waits until all commands issued on this session so far have been completed by the broker. </p>
+<p>Note <a class="el" href="a00329.html#a198880ec0840c18b0d8a9140d38db699" title="Synchronize the session: sync() waits until all commands issued on this session so far have been comp...">sync()</a> is always synchronous, even on an AsyncSession object because that's almost always what you want. You can call <a class="el" href="a00019.html#a0fe280bdbf655e1c4dd4cb350415fa69" title="This command is complete when all prior commands are completed.">AsyncSession::executionSync()</a> directly in the unusual event that you want to do an asynchronous sync. </p>
 
 </div>
 </div>
-<a class="anchor" id="a90f4dc4899c23d4cfb00360a5f215b26"></a><!-- doxytag: member="qpid::client::SessionBase_0_10::timeout" ref="a90f4dc4899c23d4cfb00360a5f215b26" args="(uint32_t seconds)" -->
+<a class="anchor" id="a90f4dc4899c23d4cfb00360a5f215b26"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::timeout" ref="a90f4dc4899c23d4cfb00360a5f215b26" args="(uint32_t seconds)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::client::SessionBase_0_10::timeout </td>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::client::SessionBase_0_10::timeout </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
           <td class="paramname"><em>seconds</em></td><td>)</td>
-          <td></td>
+          <td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -401,26 +2203,110 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a72d171e291fab3cd457bf04276970904"></a><!-- doxytag: member="qpid::client::SessionBase_0_10::impl" ref="a72d171e291fab3cd457bf04276970904" args="" -->
+<a class="anchor" id="a39be16ae229b675318202245278092d4"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::txCommit" ref="a39be16ae229b675318202245278092d4" args="(bool sync=true)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">boost::shared_ptr&lt;SessionImpl&gt; <a class="el" href="a00328.html#a72d171e291fab3cd457bf04276970904">qpid::client::SessionBase_0_10::impl</a><code> [protected]</code></td>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::txCommit </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00478_source.html#l00104">104</a> of file <a class="el" href="a00478_source.html">SessionBase_0_10.h</a>.</p>
+<p>This command commits all messages published and accepted in the current transaction. </p>
+<p>A new transaction starts immediately after a commit.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p>Referenced by <a class="el" href="a00458_source.html#l00559">qpid::client::AsyncSession_0_10::operator=()</a>, and <a class="el" href="a00474_source.html#l00559">qpid::client::Session_0_10::operator=()</a>.</p>
+<p>Referenced by <a class="el" href="a00476_source.html#l00394">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a36483b4abf4b4c60f429585eb6cf4173"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::txRollback" ref="a36483b4abf4b4c60f429585eb6cf4173" args="(bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::txRollback </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command abandons the current transaction. </p>
+<p>In particular the transfers from Client to Server (publishes) and accepts of transfers from Server to Client which occurred in the current transaction are discarded. A new transaction starts immediately after a rollback.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00399">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abfb204dc7a10ed736d55cdf52b2d015e"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::txSelect" ref="abfb204dc7a10ed736d55cdf52b2d015e" args="(bool sync=true)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::no_keyword::Session_0_10::txSelect </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>sync</em> = <code>true</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>This command sets the session to use standard transactions. </p>
+<p>The client must use this command exactly once on a session before using the Commit or Rollback commands.</p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sync</td><td>If true the broker will respond with completion status as soon as possible. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Referenced by <a class="el" href="a00476_source.html#l00389">qpid::client::Session_0_10::BOOST_PARAMETER_MEMFUN()</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a72d171e291fab3cd457bf04276970904"></a><!-- doxytag: member="qpid::client::no_keyword::Session_0_10::impl" ref="a72d171e291fab3cd457bf04276970904" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::shared_ptr&lt;SessionImpl&gt; <a class="el" href="a00329.html#a72d171e291fab3cd457bf04276970904">qpid::client::SessionBase_0_10::impl</a><code> [protected, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00480_source.html#l00103">103</a> of file <a class="el" href="a00480_source.html">SessionBase_0_10.h</a>.</p>
+
+<p>Referenced by <a class="el" href="a00460_source.html#l00559">qpid::client::AsyncSession_0_10::operator=()</a>, and <a class="el" href="a00476_source.html#l00559">qpid::client::Session_0_10::operator=()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/client/<a class="el" href="a00478_source.html">SessionBase_0_10.h</a></li>
+<li>qpid/client/no_keyword/<a class="el" href="a00475_source.html">Session_0_10.h</a></li>
 </ul>
 </div>
 <!--
@@ -450,7 +2336,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

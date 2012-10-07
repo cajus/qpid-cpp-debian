@@ -60,46 +60,26 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00590.html">management</a>      </li>
-      <li class="navelem"><a class="el" href="a00198.html">ManagementAgent</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00591.html">log</a>      </li>
+      <li class="navelem"><a class="el" href="a00341.html">Statement</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid::management::ManagementAgent Member List</div>  </div>
+<div class="title">qpid::log::Statement Member List</div>  </div>
 </div>
 <div class="contents">
-This is the complete list of members for <a class="el" href="a00198.html">qpid::management::ManagementAgent</a>, including all inherited members.<table>
-  <tr class="memlist"><td><a class="el" href="a00198.html#a2f2f0f42d660db81dffaf437721a2121">addObject</a>(ManagementObject *objectPtr, uint64_t persistId=0)=0</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td><code> [pure virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#a0e84cb3a1a2a9f3cdea1b01257871b3e">addObject</a>(ManagementObject *objectPtr, const std::string &amp;key, bool persistent=true)=0</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td><code> [pure virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#a99a1c515c1decb0d610288b9a2d043cc">cb_t</a> typedef</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#a7a0bcc875d00c77944e6f8ce7eb024e5">getAddress</a>()=0</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td><code> [pure virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#a39cb51367c8e02411d9ca0d953e25b92">getMaxThreads</a>()=0</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td><code> [pure virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#a77672c7a9cab08436a10c5fdc42cc2f9">getName</a>(std::string &amp;vendor, std::string &amp;product, std::string &amp;instance)=0</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td><code> [pure virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#a3ec4168095bedec6905ef3ab06d27ab8">getSignalFd</a>()=0</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td><code> [pure virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#aa67b15d15c7d65e4feb83bf02569a1d3">init</a>(const std::string &amp;brokerHost=&quot;localhost&quot;, uint16_t brokerPort=5672, uint16_t intervalSeconds=10, bool useExternalThread=false, const std::string &amp;storeFile=&quot;&quot;, const std::string &amp;uid=&quot;&quot;, const std::string &amp;pwd=&quot;&quot;, const std::string &amp;mech=&quot;PLAIN&quot;, const std::string &amp;proto=&quot;tcp&quot;)=0</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td><code> [pure virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#a0352cb5f9d5c1ee90a6582d3a6089075">init</a>(const management::ConnectionSettings &amp;settings, uint16_t intervalSeconds=10, bool useExternalThread=false, const std::string &amp;storeFile=&quot;&quot;)=0</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td><code> [pure virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#a9ba8ee339f2c41cb9273877d93091778">ManagementAgent</a>()</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#ae83c9925dbea0823c80916ca01adef9d">pollCallbacks</a>(uint32_t callLimit=0)=0</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td><code> [pure virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#a74707aff4e61f03ed56436e36d5d625d">raiseEvent</a>(const ManagementEvent &amp;event, severity_t severity=SEV_DEFAULT)=0</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td><code> [pure virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#a87236f51bbe3815af6da479314998f2f">registerClass</a>(const std::string &amp;packageName, const std::string &amp;className, uint8_t *md5Sum, management::ManagementObject::writeSchemaCall_t schemaCall)=0</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td><code> [pure virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#a0cbd7e974994c9b4c0d3af67450db326">registerEvent</a>(const std::string &amp;packageName, const std::string &amp;eventName, uint8_t *md5Sum, management::ManagementEvent::writeSchemaCall_t schemaCall)=0</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td><code> [pure virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#a4bbc4b69d147df1f41c58446f5d3603f">setName</a>(const std::string &amp;vendor, const std::string &amp;product, const std::string &amp;instance=&quot;&quot;)=0</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td><code> [pure virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#acad55ce01a6f2a8a7f7712adfb6e01bd">setSignalCallback</a>(cb_t callback, void *context)=0</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td><code> [pure virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#a06921ad943406d2f3b1b5c29a8821395">setSignalCallback</a>(Notifyable &amp;notifyable)=0</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td><code> [pure virtual]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71ad453ca58d7973fb315e749b90c813630">SEV_ALERT</a> enum value</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71a9a860673610c639fe04a0f34a8b1075a">SEV_CRIT</a> enum value</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71ac87b6f4637a800100d5b7669de0deabb">SEV_DEBUG</a> enum value</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71ada0ed585ff4fa6b8c399ef914322819b">SEV_DEFAULT</a> enum value</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71a4cfb6cde4eb0ed49442aab1ccfe2f084">SEV_EMERG</a> enum value</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71a2b7eb29fcec04154b189def808481ba9">SEV_ERROR</a> enum value</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71a20b493310033839b87e4514997f2051c">SEV_INFO</a> enum value</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71a3742fa39ff1b7ff3bd91ca442afa2d6c">SEV_NOTE</a> enum value</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71af87695ef52e46ab6f7c485d371b04a24">SEV_WARN</a> enum value</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71">severity_t</a> enum name</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00198.html#a53d2d915022ae97fee7825fbfd8b0a07">~ManagementAgent</a>()</td><td><a class="el" href="a00198.html">qpid::management::ManagementAgent</a></td><td><code> [inline, virtual]</code></td></tr>
+This is the complete list of members for <a class="el" href="a00341.html">qpid::log::Statement</a>, including all inherited members.<table>
+  <tr class="memlist"><td><a class="el" href="a00341.html#a4bfa14a2c33f72eacfc88ab1a395d208">categorize</a>(Statement &amp;s)</td><td><a class="el" href="a00341.html">qpid::log::Statement</a></td><td><code> [static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00341.html#aba9738d70fed6acd4150c6d4bdd803a9">category</a></td><td><a class="el" href="a00341.html">qpid::log::Statement</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00341.html#af5952853189769404724b5b5a04d91d6">enabled</a></td><td><a class="el" href="a00341.html">qpid::log::Statement</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00341.html#a94f3961edc2b84b1bf1458d3e5fee295">file</a></td><td><a class="el" href="a00341.html">qpid::log::Statement</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00341.html#afc6c53cf7acfc486b38baaf6833ee61c">function</a></td><td><a class="el" href="a00341.html">qpid::log::Statement</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00341.html#a03f5f50dc6f42470bdef1f830ee1e197">level</a></td><td><a class="el" href="a00341.html">qpid::log::Statement</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00341.html#a246ba9a6e1da30177a189ad7161b463c">line</a></td><td><a class="el" href="a00341.html">qpid::log::Statement</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00341.html#a15286d686172451b736b4a287ff1b085">log</a>(const std::string &amp;message)</td><td><a class="el" href="a00341.html">qpid::log::Statement</a></td><td></td></tr>
 </table></div>
 <!--
  
@@ -128,7 +108,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

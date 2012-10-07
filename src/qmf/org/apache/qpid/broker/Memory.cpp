@@ -30,6 +30,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
 
 using namespace qmf::org::apache::qpid::broker;
 using           qpid::management::ManagementAgent;
@@ -441,11 +442,15 @@ void Memory::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
 
     if ((_i = _map.find("name")) != _map.end()) {
         name = (_i->second).getString();
+    } else {
+        name = "";
     }
     _found = false;
     if ((_i = _map.find("malloc_arena")) != _map.end()) {
         malloc_arena = _i->second;
         _found = true;
+    } else {
+        malloc_arena = 0;
     }
     if (_found) {
         presenceMask[presenceByte_malloc_arena] |= presenceMask_malloc_arena;
@@ -454,6 +459,8 @@ void Memory::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
     if ((_i = _map.find("malloc_ordblks")) != _map.end()) {
         malloc_ordblks = _i->second;
         _found = true;
+    } else {
+        malloc_ordblks = 0;
     }
     if (_found) {
         presenceMask[presenceByte_malloc_ordblks] |= presenceMask_malloc_ordblks;
@@ -462,6 +469,8 @@ void Memory::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
     if ((_i = _map.find("malloc_hblks")) != _map.end()) {
         malloc_hblks = _i->second;
         _found = true;
+    } else {
+        malloc_hblks = 0;
     }
     if (_found) {
         presenceMask[presenceByte_malloc_hblks] |= presenceMask_malloc_hblks;
@@ -470,6 +479,8 @@ void Memory::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
     if ((_i = _map.find("malloc_hblkhd")) != _map.end()) {
         malloc_hblkhd = _i->second;
         _found = true;
+    } else {
+        malloc_hblkhd = 0;
     }
     if (_found) {
         presenceMask[presenceByte_malloc_hblkhd] |= presenceMask_malloc_hblkhd;
@@ -478,6 +489,8 @@ void Memory::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
     if ((_i = _map.find("malloc_uordblks")) != _map.end()) {
         malloc_uordblks = _i->second;
         _found = true;
+    } else {
+        malloc_uordblks = 0;
     }
     if (_found) {
         presenceMask[presenceByte_malloc_uordblks] |= presenceMask_malloc_uordblks;
@@ -486,6 +499,8 @@ void Memory::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
     if ((_i = _map.find("malloc_fordblks")) != _map.end()) {
         malloc_fordblks = _i->second;
         _found = true;
+    } else {
+        malloc_fordblks = 0;
     }
     if (_found) {
         presenceMask[presenceByte_malloc_fordblks] |= presenceMask_malloc_fordblks;
@@ -494,6 +509,8 @@ void Memory::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
     if ((_i = _map.find("malloc_keepcost")) != _map.end()) {
         malloc_keepcost = _i->second;
         _found = true;
+    } else {
+        malloc_keepcost = 0;
     }
     if (_found) {
         presenceMask[presenceByte_malloc_keepcost] |= presenceMask_malloc_keepcost;

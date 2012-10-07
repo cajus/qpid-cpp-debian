@@ -22,13 +22,20 @@
 #include "qpid/log/OstreamOutput.h"
 #include "qpid/memory.h"
 #include "qpid/Exception.h"
+
 #include <iostream>
 #include <map>
 #include <string>
 #include <syslog.h>
 
+#include <boost/lexical_cast.hpp>
+
 using std::string;
 using qpid::Exception;
+
+namespace qpid {
+namespace log {
+namespace posix {
 
 namespace {
 
@@ -86,7 +93,7 @@ public:
     string name(int value) const {
         ByValue::const_iterator i = byValue.find(value);
         if (i == byValue.end())
-            throw Exception("Not a valid syslog value: " + value);
+            throw Exception("Not a valid syslog value: " + boost::lexical_cast<string>(value));
         return i->second;
     }
 
@@ -109,10 +116,6 @@ std::string basename(const std::string path) {
 }
 
 } // namespace
-
-namespace qpid {
-namespace log {
-namespace posix {
 
 std::ostream& operator<<(std::ostream& o, const SyslogFacility& f) {
     return o << SyslogFacilities().name(f.value);

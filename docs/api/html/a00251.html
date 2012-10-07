@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::sys::PODMutex Struct Reference</title>
+    <title>qpid::console::Package Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,230 +60,75 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00592.html">sys</a>      </li>
-      <li class="navelem"><a class="el" href="a00251.html">PODMutex</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00581.html">console</a>      </li>
+      <li class="navelem"><a class="el" href="a00251.html">Package</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::sys::PODMutex Struct Reference</div>  </div>
+<div class="title">qpid::console::Package Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::sys::PODMutex" -->
-<p><a class="el" href="a00251.html" title="PODMutex is a POD, can be static-initialized with PODMutex m = QPID_PODMUTEX_INITIALIZER.">PODMutex</a> is a POD, can be static-initialized with <a class="el" href="a00251.html" title="PODMutex is a POD, can be static-initialized with PODMutex m = QPID_PODMUTEX_INITIALIZER.">PODMutex</a> m = QPID_PODMUTEX_INITIALIZER.  
- <a href="a00251.html#details">More...</a></p>
+<!-- doxytag: class="qpid::console::Package" -->
+<p><code>#include &lt;<a class="el" href="a00489_source.html">qpid/console/Package.h</a>&gt;</code></p>
 
-<p><code>#include &lt;<a class="el" href="a00541_source.html">qpid/sys/posix/Mutex.h</a>&gt;</code></p>
-
-<p><a href="a00887.html">List of all members.</a></p>
+<p><a href="a00717.html">List of all members.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-::<a class="el" href="a00312.html">qpid::sys::ScopedLock</a><br class="typebreak"/>
-&lt; <a class="el" href="a00251.html">PODMutex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#a436946942ad64d8ea6fd0feb029d536c">ScopedLock</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-::<a class="el" href="a00312.html">qpid::sys::ScopedLock</a><br class="typebreak"/>
-&lt; <a class="el" href="a00251.html">PODMutex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#a436946942ad64d8ea6fd0feb029d536c">ScopedLock</a></td></tr>
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00223.html">NameHash</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00224.html">NameHashComp</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#a6857ea472fb260d636c87bc9391cf32d">lock</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#a411fd8bd5d5fb84ac7bbfe4a05727980">unlock</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#afea652d1a3e343d5f6915b98d2f123d0">trylock</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#a6857ea472fb260d636c87bc9391cf32d">lock</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#a411fd8bd5d5fb84ac7bbfe4a05727980">unlock</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#afea652d1a3e343d5f6915b98d2f123d0">trylock</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#a150d30fb56b5ea06f90f14f05dfd4aa5">mutex</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">boost::recursive_mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#a014a80a8ed8f7769dc8b2ceb8b746b35">mutex</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#a658a1f39683fa00857a941101bca2db0">Package</a> (const <a class="el" href="a00346.html">std::string</a> &amp;n)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00251.html#acdc338342e17e0eff2c369ef7b2a456c">getName</a> () const </td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="a00251.html" title="PODMutex is a POD, can be static-initialized with PODMutex m = QPID_PODMUTEX_INITIALIZER.">PODMutex</a> is a POD, can be static-initialized with <a class="el" href="a00251.html" title="PODMutex is a POD, can be static-initialized with PODMutex m = QPID_PODMUTEX_INITIALIZER.">PODMutex</a> m = QPID_PODMUTEX_INITIALIZER. </p>
-
-<p>Definition at line <a class="el" href="a00542_source.html#l00091">91</a> of file <a class="el" href="a00542_source.html">Mutex.h</a>.</p>
-</div><hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="a436946942ad64d8ea6fd0feb029d536c"></a><!-- doxytag: member="qpid::sys::PODMutex::ScopedLock" ref="a436946942ad64d8ea6fd0feb029d536c" args="" -->
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a658a1f39683fa00857a941101bca2db0"></a><!-- doxytag: member="qpid::console::Package::Package" ref="a658a1f39683fa00857a941101bca2db0" args="(const std::string &amp;n)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef ::<a class="el" href="a00312.html">qpid::sys::ScopedLock</a>&lt;<a class="el" href="a00251.html">PODMutex</a>&gt; <a class="el" href="a00251.html#a436946942ad64d8ea6fd0feb029d536c">qpid::sys::PODMutex::ScopedLock</a></td>
+          <td class="memname">qpid::console::Package::Package </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00541_source.html#l00083">83</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a436946942ad64d8ea6fd0feb029d536c"></a><!-- doxytag: member="qpid::sys::PODMutex::ScopedLock" ref="a436946942ad64d8ea6fd0feb029d536c" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef ::<a class="el" href="a00312.html">qpid::sys::ScopedLock</a>&lt;<a class="el" href="a00251.html">PODMutex</a>&gt; <a class="el" href="a00251.html#a436946942ad64d8ea6fd0feb029d536c">qpid::sys::PODMutex::ScopedLock</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00542_source.html#l00093">93</a> of file <a class="el" href="a00542_source.html">Mutex.h</a>.</p>
+<p>Definition at line <a class="el" href="a00489_source.html#l00039">39</a> of file <a class="el" href="a00489_source.html">Package.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a6857ea472fb260d636c87bc9391cf32d"></a><!-- doxytag: member="qpid::sys::PODMutex::lock" ref="a6857ea472fb260d636c87bc9391cf32d" args="()" -->
+<a class="anchor" id="acdc338342e17e0eff2c369ef7b2a456c"></a><!-- doxytag: member="qpid::console::Package::getName" ref="acdc338342e17e0eff2c369ef7b2a456c" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::sys::PODMutex::lock </td>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a>&amp; qpid::console::Package::getName </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00541_source.html#l00095">95</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-<p>References <a class="el" href="a00559_source.html#l00047">QPID_POSIX_ASSERT_THROW_IF</a>, and <a class="el" href="a00541_source.html#l00090">mutex</a>.</p>
+<p>Definition at line <a class="el" href="a00489_source.html#l00040">40</a> of file <a class="el" href="a00489_source.html">Package.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6857ea472fb260d636c87bc9391cf32d"></a><!-- doxytag: member="qpid::sys::PODMutex::lock" ref="a6857ea472fb260d636c87bc9391cf32d" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::PODMutex::lock </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="afea652d1a3e343d5f6915b98d2f123d0"></a><!-- doxytag: member="qpid::sys::PODMutex::trylock" ref="afea652d1a3e343d5f6915b98d2f123d0" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::sys::PODMutex::trylock </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00541_source.html#l00103">103</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-<p>References <a class="el" href="a00541_source.html#l00090">mutex</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="afea652d1a3e343d5f6915b98d2f123d0"></a><!-- doxytag: member="qpid::sys::PODMutex::trylock" ref="afea652d1a3e343d5f6915b98d2f123d0" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::sys::PODMutex::trylock </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a411fd8bd5d5fb84ac7bbfe4a05727980"></a><!-- doxytag: member="qpid::sys::PODMutex::unlock" ref="a411fd8bd5d5fb84ac7bbfe4a05727980" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::PODMutex::unlock </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00541_source.html#l00099">99</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-<p>References <a class="el" href="a00559_source.html#l00047">QPID_POSIX_ASSERT_THROW_IF</a>, and <a class="el" href="a00541_source.html#l00090">mutex</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a411fd8bd5d5fb84ac7bbfe4a05727980"></a><!-- doxytag: member="qpid::sys::PODMutex::unlock" ref="a411fd8bd5d5fb84ac7bbfe4a05727980" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::PODMutex::unlock </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a150d30fb56b5ea06f90f14f05dfd4aa5"></a><!-- doxytag: member="qpid::sys::PODMutex::mutex" ref="a150d30fb56b5ea06f90f14f05dfd4aa5" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">pthread_mutex_t <a class="el" href="a00251.html#a150d30fb56b5ea06f90f14f05dfd4aa5">qpid::sys::PODMutex::mutex</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00541_source.html#l00090">90</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-<p>Referenced by <a class="el" href="a00541_source.html#l00095">lock()</a>, <a class="el" href="a00541_source.html#l00099">unlock()</a>, and <a class="el" href="a00541_source.html#l00103">trylock()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a014a80a8ed8f7769dc8b2ceb8b746b35"></a><!-- doxytag: member="qpid::sys::PODMutex::mutex" ref="a014a80a8ed8f7769dc8b2ceb8b746b35" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">boost::recursive_mutex <a class="el" href="a00251.html#a150d30fb56b5ea06f90f14f05dfd4aa5">qpid::sys::PODMutex::mutex</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00542_source.html#l00100">100</a> of file <a class="el" href="a00542_source.html">Mutex.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following files:<ul>
-<li>qpid/sys/posix/<a class="el" href="a00541_source.html">Mutex.h</a></li>
-<li>qpid/sys/windows/<a class="el" href="a00542_source.html">Mutex.h</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qpid/console/<a class="el" href="a00489_source.html">Package.h</a></li>
 </ul>
 </div>
 <!--
@@ -313,7 +158,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

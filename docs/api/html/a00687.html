@@ -60,25 +60,30 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00576.html">client</a>      </li>
-      <li class="navelem"><a class="el" href="a00137.html">FutureCompletion</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00134.html">FlowControl</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid::client::FutureCompletion Member List</div>  </div>
+<div class="title">qpid::client::FlowControl Member List</div>  </div>
 </div>
 <div class="contents">
-This is the complete list of members for <a class="el" href="a00137.html">qpid::client::FutureCompletion</a>, including all inherited members.<table>
-  <tr class="memlist"><td><a class="el" href="a00137.html#ab9fa51a05b9b4963c83d4398e5154b7c">complete</a></td><td><a class="el" href="a00137.html">qpid::client::FutureCompletion</a></td><td><code> [protected]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00137.html#acde085d450d03013d5452de3ca95d111">completed</a>()</td><td><a class="el" href="a00137.html">qpid::client::FutureCompletion</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00137.html#a7acffb6cf9739c78f88bf4493da06522">FutureCompletion</a>()</td><td><a class="el" href="a00137.html">qpid::client::FutureCompletion</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00137.html#a6f8e55487bdad258de630084b04a55ed">isComplete</a>() const </td><td><a class="el" href="a00137.html">qpid::client::FutureCompletion</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00137.html#a6737752913f4c59065681833de5af8ed">lock</a></td><td><a class="el" href="a00137.html">qpid::client::FutureCompletion</a></td><td><code> [mutable, protected]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00137.html#a7d1e8ef6b3470e8c8d0267b48a25650c">waitForCompletion</a>() const </td><td><a class="el" href="a00137.html">qpid::client::FutureCompletion</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00137.html#a2e895022fe74aa580a38227e0f3a67f3">~FutureCompletion</a>()</td><td><a class="el" href="a00137.html">qpid::client::FutureCompletion</a></td><td><code> [inline, virtual]</code></td></tr>
+This is the complete list of members for <a class="el" href="a00134.html">qpid::client::FlowControl</a>, including all inherited members.<table>
+  <tr class="memlist"><td><a class="el" href="a00134.html#a121aeaaac832c22255af480795f04b66">byteCredit</a>(uint32_t bytes_)</td><td><a class="el" href="a00134.html">qpid::client::FlowControl</a></td><td><code> [inline, static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00134.html#a91155edfa05bff8c5b186d40ffdd1445">bytes</a></td><td><a class="el" href="a00134.html">qpid::client::FlowControl</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00134.html#a071925adc0dfffe2497a1897493343b3">byteWindow</a>(uint32_t bytes_)</td><td><a class="el" href="a00134.html">qpid::client::FlowControl</a></td><td><code> [inline, static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00134.html#a70a9cd61b9e475c3d1978a3d15742863">FlowControl</a>(uint32_t messages_=0, uint32_t bytes_=0, bool window_=false)</td><td><a class="el" href="a00134.html">qpid::client::FlowControl</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00134.html#ad70c11ee99f9c3e2d98ff96acb011efc">messageCredit</a>(uint32_t messages_)</td><td><a class="el" href="a00134.html">qpid::client::FlowControl</a></td><td><code> [inline, static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00134.html#a6d69bece2668a3781975501fe4275404">messages</a></td><td><a class="el" href="a00134.html">qpid::client::FlowControl</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00134.html#a9e79a3b0299c43718010b35009016678">messageWindow</a>(uint32_t messages_)</td><td><a class="el" href="a00134.html">qpid::client::FlowControl</a></td><td><code> [inline, static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00134.html#a9faa2fcf29b06be1a3230108b0c4aa97">operator==</a>(const FlowControl &amp;x)</td><td><a class="el" href="a00134.html">qpid::client::FlowControl</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00134.html#afee588b945f5edbf4a6108dfd3fe3a70">UNLIMITED</a></td><td><a class="el" href="a00134.html">qpid::client::FlowControl</a></td><td><code> [static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00134.html#a4e07036ab42cf4a593fcb578edd4b7bd">unlimited</a>()</td><td><a class="el" href="a00134.html">qpid::client::FlowControl</a></td><td><code> [inline, static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00134.html#a6b85045fe5866ac8f66a738401d05768">window</a></td><td><a class="el" href="a00134.html">qpid::client::FlowControl</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00134.html#a2ca4cadfaee543ab80bab25f6176f784">zero</a>()</td><td><a class="el" href="a00134.html">qpid::client::FlowControl</a></td><td><code> [inline, static]</code></td></tr>
 </table></div>
 <!--
  
@@ -107,7 +112,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

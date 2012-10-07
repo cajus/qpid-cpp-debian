@@ -60,8 +60,8 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00576.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
       <li class="navelem"><a class="el" href="a00351.html">Subscription</a>      </li>
     </ul>
   </div>
@@ -79,9 +79,9 @@
 <p>A handle to an active subscription.  
  <a href="a00351.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00450_source.html">qpid/client/Subscription.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00452_source.html">qpid/client/Subscription.h</a>&gt;</code></p>
 
-<p><a href="a00698.html">List of all members.</a></p>
+<p><a href="a00700.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -89,52 +89,52 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a26927589044d2d4f65f7a6516dce6928">Subscription</a> (const <a class="el" href="a00351.html">Subscription</a> &amp;)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a91e60e67a756cc41e7ea9dd884ac974b">~Subscription</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00351.html">Subscription</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#aef2a66de9238578846a11cd9cee74868">operator=</a> (const <a class="el" href="a00351.html">Subscription</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a7c3999b0a9dbd51a141eeb280183016c">getName</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a7c3999b0a9dbd51a141eeb280183016c">getName</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the subscription, used as the "destination" for messages from the broker.  <a href="#a7c3999b0a9dbd51a141eeb280183016c"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a7fb32c0955ddbc0fb85d06d9e228441a">getQueue</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a7fb32c0955ddbc0fb85d06d9e228441a">getQueue</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the queue this subscription subscribes to.  <a href="#a7fb32c0955ddbc0fb85d06d9e228441a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00353.html">SubscriptionSettings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a0a99cd104b053c9765fd698fb13e0abc">getSettings</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00354.html">SubscriptionSettings</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a0a99cd104b053c9765fd698fb13e0abc">getSettings</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the flow control and acknowledgement settings for this subscription.  <a href="#a0a99cd104b053c9765fd698fb13e0abc"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a87328b0c77c6f1c6634bb6132831d39a">setFlowControl</a> (const <a class="el" href="a00132.html">FlowControl</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a87328b0c77c6f1c6634bb6132831d39a">setFlowControl</a> (const <a class="el" href="a00134.html">FlowControl</a> &amp;)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the flow control parameters.  <a href="#a87328b0c77c6f1c6634bb6132831d39a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#ab73d3e29bb5878a13bd7e8d7fe5e5096">setAutoAck</a> (unsigned int n)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Automatically acknowledge (acquire and accept) batches of n messages.  <a href="#ab73d3e29bb5878a13bd7e8d7fe5e5096"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">SequenceSet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a63e95b4ea8cb0b07942d115aa974252f">getUnacquired</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00325.html">SequenceSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a63e95b4ea8cb0b07942d115aa974252f">getUnacquired</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the set of ID's for messages received by this subscription but not yet acquired.  <a href="#a63e95b4ea8cb0b07942d115aa974252f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">SequenceSet&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#ad93a070abc0b734ec2f9128658ecbe27">getUnaccepted</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00325.html">SequenceSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#ad93a070abc0b734ec2f9128658ecbe27">getUnaccepted</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the set of ID's for messages received by this subscription but not yet accepted.  <a href="#ad93a070abc0b734ec2f9128658ecbe27"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#ae876d4b0b942d0873d17d64655d683f4">acquire</a> (const SequenceSet &amp;messageIds)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#ae876d4b0b942d0873d17d64655d683f4">acquire</a> (const <a class="el" href="a00325.html">SequenceSet</a> &amp;messageIds)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Acquire messageIds and remove them from the unacquired set.  <a href="#ae876d4b0b942d0873d17d64655d683f4"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#ab432864f349dc55c2f49eebc20e134c4">accept</a> (const SequenceSet &amp;messageIds)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#ab432864f349dc55c2f49eebc20e134c4">accept</a> (const <a class="el" href="a00325.html">SequenceSet</a> &amp;messageIds)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Accept messageIds and remove them from the unaccepted set.  <a href="#ab432864f349dc55c2f49eebc20e134c4"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a4e01eb3238ffa0428b50d4e27e6e8797">release</a> (const SequenceSet &amp;messageIds)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a4e01eb3238ffa0428b50d4e27e6e8797">release</a> (const <a class="el" href="a00325.html">SequenceSet</a> &amp;messageIds)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Release messageIds and remove them from the unaccepted set.  <a href="#a4e01eb3238ffa0428b50d4e27e6e8797"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a45c1b1aef944190521a29c1e672afeb2">acquire</a> (const <a class="el" href="a00206.html">Message</a> &amp;m)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a44b1bc0f4788d0d14485a60b7c128aae">accept</a> (const <a class="el" href="a00206.html">Message</a> &amp;m)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a47dbc944e93ed56412b15870bf2fb4f8">release</a> (const <a class="el" href="a00206.html">Message</a> &amp;m)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00576.html#aa15500ce0ba4cea17f4226bebe584a67">Session</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a9c1f2b5037de8aba6d280ac48123de4a">getSession</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a45c1b1aef944190521a29c1e672afeb2">acquire</a> (const <a class="el" href="a00208.html">Message</a> &amp;m)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a44b1bc0f4788d0d14485a60b7c128aae">accept</a> (const <a class="el" href="a00208.html">Message</a> &amp;m)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a47dbc944e93ed56412b15870bf2fb4f8">release</a> (const <a class="el" href="a00208.html">Message</a> &amp;m)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00578.html#aa15500ce0ba4cea17f4226bebe584a67">Session</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a9c1f2b5037de8aba6d280ac48123de4a">getSession</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the session associated with this subscription.  <a href="#a9c1f2b5037de8aba6d280ac48123de4a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00352.html">SubscriptionManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a2b3357f3f41fe65c4e35592e4e5cc8b4">getSubscriptionManager</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00353.html">SubscriptionManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a2b3357f3f41fe65c4e35592e4e5cc8b4">getSubscriptionManager</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the subscription manager associated with this subscription.  <a href="#a2b3357f3f41fe65c4e35592e4e5cc8b4"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#aa96a865ece4e1276e76ea0a50ff50661">cancel</a> ()</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancel the subscription.  <a href="#aa96a865ece4e1276e76ea0a50ff50661"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a796d9c939e5f8392f06a30585935d955">grantMessageCredit</a> (<a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a796d9c939e5f8392f06a30585935d955">grantMessageCredit</a> (<a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Grant the specified amount of message credit.  <a href="#a796d9c939e5f8392f06a30585935d955"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a4a3631da091f703d15cc8367cffef7c0">grantByteCredit</a> (<a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00351.html#a4a3631da091f703d15cc8367cffef7c0">grantByteCredit</a> (<a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Grant the specified amount of byte credit.  <a href="#a4a3631da091f703d15cc8367cffef7c0"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#a57379e651d725b0f73edcb714e9efbc7">isValid</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#ae6f5dd2c23bdf3016f4afcd32057b9c5">isNull</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#a00461424a31faee8e158a6502a014c3d">operator bool</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a57379e651d725b0f73edcb714e9efbc7">isValid</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#ae6f5dd2c23bdf3016f4afcd32057b9c5">isNull</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a00461424a31faee8e158a6502a014c3d">operator bool</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to bool supports idiom if (handle) { handle-&gt;...  <a href="#a00461424a31faee8e158a6502a014c3d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#a6e69e13fa5ed709abebdbf6868b5eff4">operator!</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a6e69e13fa5ed709abebdbf6868b5eff4">operator!</a> () const </td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }.  <a href="#a6e69e13fa5ed709abebdbf6868b5eff4"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#a5092920190f6ad01c851996395cf33b5">swap</a> (<a class="el" href="a00140.html">Handle</a>&lt; T &gt; &amp;h)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a5092920190f6ad01c851996395cf33b5">swap</a> (<a class="el" href="a00142.html">Handle</a>&lt; T &gt; &amp;h)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-types"></a>
 Protected Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#a48cdef2174f1512c6948d5cfb9488949">Impl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a48cdef2174f1512c6948d5cfb9488949">Impl</a></td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00140.html#a48cdef2174f1512c6948d5cfb9488949">Impl</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#adf6d72d2a888cabcd0b60178419aad59">impl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00142.html#a48cdef2174f1512c6948d5cfb9488949">Impl</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#adf6d72d2a888cabcd0b60178419aad59">impl</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>A handle to an active subscription. </p>
@@ -145,13 +145,13 @@ Protected Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef T <a class="el" href="a00140.html#a48cdef2174f1512c6948d5cfb9488949">qpid::client::Handle::Impl</a><code> [protected, inherited]</code></td>
+          <td class="memname">typedef T <a class="el" href="a00142.html#a48cdef2174f1512c6948d5cfb9488949">qpid::client::Handle::Impl</a><code> [protected, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00438_source.html#l00057">57</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
+<p>Definition at line <a class="el" href="a00440_source.html#l00057">57</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
 
 </div>
 </div>
@@ -214,7 +214,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void qpid::client::Subscription::accept </td>
           <td>(</td>
-          <td class="paramtype">const SequenceSet &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00325.html">SequenceSet</a> &amp;&#160;</td>
           <td class="paramname"><em>messageIds</em></td><td>)</td>
           <td></td>
         </tr>
@@ -234,7 +234,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">QPID_CLIENT_INLINE_EXTERN void qpid::client::Subscription::accept </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00206.html">Message</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00208.html">Message</a> &amp;&#160;</td>
           <td class="paramname"><em>m</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
@@ -242,11 +242,11 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00450_source.html#l00097">97</a> of file <a class="el" href="a00450_source.html">Subscription.h</a>.</p>
+<p>Definition at line <a class="el" href="a00452_source.html#l00097">97</a> of file <a class="el" href="a00452_source.html">Subscription.h</a>.</p>
 
-<p>References <a class="el" href="a00450_source.html#l00097">accept()</a>, and <a class="el" href="a00206.html#af04dc4cea2253abc39a72c302347c16c">qpid::client::Message::getId()</a>.</p>
+<p>References <a class="el" href="a00452_source.html#l00097">accept()</a>, and <a class="el" href="a00208.html#af04dc4cea2253abc39a72c302347c16c">qpid::client::Message::getId()</a>.</p>
 
-<p>Referenced by <a class="el" href="a00450_source.html#l00097">accept()</a>.</p>
+<p>Referenced by <a class="el" href="a00452_source.html#l00097">accept()</a>.</p>
 
 </div>
 </div>
@@ -257,7 +257,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void qpid::client::Subscription::acquire </td>
           <td>(</td>
-          <td class="paramtype">const SequenceSet &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00325.html">SequenceSet</a> &amp;&#160;</td>
           <td class="paramname"><em>messageIds</em></td><td>)</td>
           <td></td>
         </tr>
@@ -277,7 +277,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">QPID_CLIENT_INLINE_EXTERN void qpid::client::Subscription::acquire </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00206.html">Message</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00208.html">Message</a> &amp;&#160;</td>
           <td class="paramname"><em>m</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
@@ -285,11 +285,11 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00450_source.html#l00094">94</a> of file <a class="el" href="a00450_source.html">Subscription.h</a>.</p>
+<p>Definition at line <a class="el" href="a00452_source.html#l00094">94</a> of file <a class="el" href="a00452_source.html">Subscription.h</a>.</p>
 
-<p>References <a class="el" href="a00450_source.html#l00094">acquire()</a>, and <a class="el" href="a00206.html#af04dc4cea2253abc39a72c302347c16c">qpid::client::Message::getId()</a>.</p>
+<p>References <a class="el" href="a00452_source.html#l00094">acquire()</a>, and <a class="el" href="a00208.html#af04dc4cea2253abc39a72c302347c16c">qpid::client::Message::getId()</a>.</p>
 
-<p>Referenced by <a class="el" href="a00450_source.html#l00094">acquire()</a>.</p>
+<p>Referenced by <a class="el" href="a00452_source.html#l00094">acquire()</a>.</p>
 
 </div>
 </div>
@@ -316,7 +316,7 @@ Protected Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> qpid::client::Subscription::getName </td>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::client::Subscription::getName </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -335,7 +335,7 @@ Protected Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> qpid::client::Subscription::getQueue </td>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::client::Subscription::getQueue </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -353,7 +353,7 @@ Protected Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00576.html#aa15500ce0ba4cea17f4226bebe584a67">Session</a> qpid::client::Subscription::getSession </td>
+          <td class="memname"><a class="el" href="a00578.html#aa15500ce0ba4cea17f4226bebe584a67">Session</a> qpid::client::Subscription::getSession </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -371,7 +371,7 @@ Protected Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00353.html">SubscriptionSettings</a>&amp; qpid::client::Subscription::getSettings </td>
+          <td class="memname">const <a class="el" href="a00354.html">SubscriptionSettings</a>&amp; qpid::client::Subscription::getSettings </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -389,7 +389,7 @@ Protected Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00352.html">SubscriptionManager</a> qpid::client::Subscription::getSubscriptionManager </td>
+          <td class="memname"><a class="el" href="a00353.html">SubscriptionManager</a> qpid::client::Subscription::getSubscriptionManager </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -407,7 +407,7 @@ Protected Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">SequenceSet qpid::client::Subscription::getUnaccepted </td>
+          <td class="memname"><a class="el" href="a00325.html">SequenceSet</a> qpid::client::Subscription::getUnaccepted </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -425,7 +425,7 @@ Protected Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">SequenceSet qpid::client::Subscription::getUnacquired </td>
+          <td class="memname"><a class="el" href="a00325.html">SequenceSet</a> qpid::client::Subscription::getUnacquired </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -446,7 +446,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void qpid::client::Subscription::grantByteCredit </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -465,7 +465,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void qpid::client::Subscription::grantMessageCredit </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -492,9 +492,9 @@ Protected Attributes</h2></td></tr>
 <div class="memdoc">
 <dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is null. It is an error to call any function on a null handle. </dd></dl>
 
-<p>Definition at line <a class="el" href="a00438_source.html#l00046">46</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
+<p>Definition at line <a class="el" href="a00440_source.html#l00046">46</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
 
-<p>References <a class="el" href="a00438_source.html#l00064">qpid::client::Handle::impl</a>.</p>
+<p>References <a class="el" href="a00440_source.html#l00064">qpid::client::Handle::impl</a>.</p>
 
 </div>
 </div>
@@ -513,9 +513,9 @@ Protected Attributes</h2></td></tr>
 <div class="memdoc">
 <dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is valid, i.e. not null. </dd></dl>
 
-<p>Definition at line <a class="el" href="a00438_source.html#l00043">43</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
+<p>Definition at line <a class="el" href="a00440_source.html#l00043">43</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
 
-<p>References <a class="el" href="a00438_source.html#l00064">qpid::client::Handle::impl</a>.</p>
+<p>References <a class="el" href="a00440_source.html#l00064">qpid::client::Handle::impl</a>.</p>
 
 </div>
 </div>
@@ -536,9 +536,9 @@ Protected Attributes</h2></td></tr>
 <p>Conversion to bool supports idiom if (handle) { handle-&gt;... </p>
 <p>} </p>
 
-<p>Definition at line <a class="el" href="a00438_source.html#l00049">49</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
+<p>Definition at line <a class="el" href="a00440_source.html#l00049">49</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
 
-<p>References <a class="el" href="a00438_source.html#l00064">qpid::client::Handle::impl</a>.</p>
+<p>References <a class="el" href="a00440_source.html#l00064">qpid::client::Handle::impl</a>.</p>
 
 </div>
 </div>
@@ -558,9 +558,9 @@ Protected Attributes</h2></td></tr>
 
 <p>Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }. </p>
 
-<p>Definition at line <a class="el" href="a00438_source.html#l00052">52</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
+<p>Definition at line <a class="el" href="a00440_source.html#l00052">52</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
 
-<p>References <a class="el" href="a00438_source.html#l00064">qpid::client::Handle::impl</a>.</p>
+<p>References <a class="el" href="a00440_source.html#l00064">qpid::client::Handle::impl</a>.</p>
 
 </div>
 </div>
@@ -588,7 +588,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void qpid::client::Subscription::release </td>
           <td>(</td>
-          <td class="paramtype">const SequenceSet &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00325.html">SequenceSet</a> &amp;&#160;</td>
           <td class="paramname"><em>messageIds</em></td><td>)</td>
           <td></td>
         </tr>
@@ -608,7 +608,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">QPID_CLIENT_INLINE_EXTERN void qpid::client::Subscription::release </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00206.html">Message</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00208.html">Message</a> &amp;&#160;</td>
           <td class="paramname"><em>m</em></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
@@ -616,11 +616,11 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00450_source.html#l00100">100</a> of file <a class="el" href="a00450_source.html">Subscription.h</a>.</p>
+<p>Definition at line <a class="el" href="a00452_source.html#l00100">100</a> of file <a class="el" href="a00452_source.html">Subscription.h</a>.</p>
 
-<p>References <a class="el" href="a00450_source.html#l00100">release()</a>, and <a class="el" href="a00206.html#af04dc4cea2253abc39a72c302347c16c">qpid::client::Message::getId()</a>.</p>
+<p>References <a class="el" href="a00452_source.html#l00100">release()</a>, and <a class="el" href="a00208.html#af04dc4cea2253abc39a72c302347c16c">qpid::client::Message::getId()</a>.</p>
 
-<p>Referenced by <a class="el" href="a00450_source.html#l00100">release()</a>.</p>
+<p>Referenced by <a class="el" href="a00452_source.html#l00100">release()</a>.</p>
 
 </div>
 </div>
@@ -651,7 +651,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void qpid::client::Subscription::setFlowControl </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00132.html">FlowControl</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00134.html">FlowControl</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -670,7 +670,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">void qpid::client::Handle::swap </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00141.html">Handle</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="a00143.html">Handle</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>h</em></td><td>)</td>
           <td><code> [inline, inherited]</code></td>
         </tr>
@@ -678,9 +678,9 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00438_source.html#l00054">54</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
+<p>Definition at line <a class="el" href="a00440_source.html#l00054">54</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
 
-<p>References <a class="el" href="a00438_source.html#l00064">qpid::client::Handle::impl</a>.</p>
+<p>References <a class="el" href="a00440_source.html#l00064">qpid::client::Handle::impl</a>.</p>
 
 </div>
 </div>
@@ -690,18 +690,18 @@ Protected Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00140.html#a48cdef2174f1512c6948d5cfb9488949">Impl</a>* <a class="el" href="a00140.html#adf6d72d2a888cabcd0b60178419aad59">qpid::client::Handle::impl</a><code> [protected, inherited]</code></td>
+          <td class="memname"><a class="el" href="a00142.html#a48cdef2174f1512c6948d5cfb9488949">Impl</a>* <a class="el" href="a00142.html#adf6d72d2a888cabcd0b60178419aad59">qpid::client::Handle::impl</a><code> [protected, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00438_source.html#l00064">64</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
+<p>Definition at line <a class="el" href="a00440_source.html#l00064">64</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/client/<a class="el" href="a00450_source.html">Subscription.h</a></li>
+<li>qpid/client/<a class="el" href="a00452_source.html">Subscription.h</a></li>
 </ul>
 </div>
 <!--
@@ -731,7 +731,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

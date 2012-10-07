@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/framing/ReplyTo.h Source File</title>
+    <title>qpid/framing/QueueQueryResult.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,11 +58,11 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/framing/ReplyTo.h</div>  </div>
+<div class="title">qpid/framing/QueueQueryResult.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00517.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_FRAMING_REPLYTO_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_FRAMING_REPLYTO_H</span>
+<a href="a00517.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_FRAMING_QUEUEQUERYRESULT_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_FRAMING_QUEUEQUERYRESULT_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span><span class="comment">/*</span>
 <a name="l00004"></a>00004 <span class="comment"> *</span>
 <a name="l00005"></a>00005 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
@@ -88,48 +88,89 @@
 <a name="l00029"></a>00029 
 <a name="l00030"></a>00030 
 <a name="l00031"></a>00031 <span class="preprocessor">#include &lt;ostream&gt;</span>
-<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="a00494.html" title="Definitions and full declarations of all types used in AMQP messages.">qpid/framing/amqp_types_full.h</a>&quot;</span>
-<a name="l00033"></a>00033 <span class="preprocessor">#include &quot;<a class="code" href="a00482.html">qpid/CommonImportExport.h</a>&quot;</span>
-<a name="l00034"></a>00034 
-<a name="l00035"></a>00035 <span class="keyword">namespace </span>qpid {
-<a name="l00036"></a>00036 <span class="keyword">namespace </span>framing {
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038 <span class="keyword">class </span><a class="code" href="a00482.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> ReplyTo  {
-<a name="l00039"></a>00039     std::string exchange;
-<a name="l00040"></a>00040     std::string routingKey;
-<a name="l00041"></a>00041     <a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> flags;
-<a name="l00042"></a>00042 <span class="keyword">public</span>:
-<a name="l00043"></a><a class="code" href="a00276.html#aca6a28db051adf902bc86de1827c09cd">00043</a>     <a class="code" href="a00276.html">ReplyTo</a>(
-<a name="l00044"></a>00044         <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; _exchange,
-<a name="l00045"></a>00045         <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; _routingKey) : 
-<a name="l00046"></a>00046         exchange(_exchange),
-<a name="l00047"></a>00047         routingKey(_routingKey),
-<a name="l00048"></a>00048         flags(0){
-<a name="l00049"></a>00049         flags |= (1 &lt;&lt; 8);
-<a name="l00050"></a>00050         flags |= (1 &lt;&lt; 9);
-<a name="l00051"></a>00051     }
-<a name="l00052"></a><a class="code" href="a00276.html#a44f0ec195c6abf34b9a288454095a3e2">00052</a>     <a class="code" href="a00276.html#a44f0ec195c6abf34b9a288454095a3e2">ReplyTo</a>()  : flags(0) {}
-<a name="l00053"></a>00053     
-<a name="l00054"></a>00054     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setExchange(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; _exchange);
-<a name="l00055"></a>00055     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">const</span> std<a class="code" href="a00345.html" title="STL class.">::string</a>&amp; getExchange() <span class="keyword">const</span>;
-<a name="l00056"></a>00056     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasExchange() <span class="keyword">const</span>;
-<a name="l00057"></a>00057     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearExchangeFlag();
-<a name="l00058"></a>00058     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setRoutingKey(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; _routingKey);
-<a name="l00059"></a>00059     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">const</span> std<a class="code" href="a00345.html" title="STL class.">::string</a>&amp; getRoutingKey() <span class="keyword">const</span>;
-<a name="l00060"></a>00060     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasRoutingKey() <span class="keyword">const</span>;
-<a name="l00061"></a>00061     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearRoutingKeyFlag();
-<a name="l00062"></a>00062     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="a00580.html#a26b5aa4aa3e48e044e86832a401304b7">operator&lt;&lt;</a>(<a class="code" href="a00243.html" title="STL class.">std::ostream</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00276.html">ReplyTo</a>&amp;);
-<a name="l00063"></a>00063     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00591.html#afefbffac1ba55c37a1f7ab3a85ca753b" title="Encodes a Variant::Map into a message.">encode</a>(<a class="code" href="a00045.html">Buffer</a>&amp;) <span class="keyword">const</span>;
-<a name="l00064"></a>00064     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00591.html#ad37dfc262612bfde8fdc73e3a85ddf95" title="Decodes message content into a Variant::Map.">decode</a>(<a class="code" href="a00045.html">Buffer</a>&amp;, <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0);
-<a name="l00065"></a>00065     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> encodeStructBody(<a class="code" href="a00045.html">Buffer</a>&amp;) <span class="keyword">const</span>;
-<a name="l00066"></a>00066     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> decodeStructBody(<a class="code" href="a00045.html">Buffer</a>&amp;, <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0);
-<a name="l00067"></a>00067     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> encodedSize() <span class="keyword">const</span>;
-<a name="l00068"></a>00068     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> bodySize() <span class="keyword">const</span>;
-<a name="l00069"></a>00069     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> print(<a class="code" href="a00243.html" title="STL class.">std::ostream</a>&amp; out) <span class="keyword">const</span>;
-<a name="l00070"></a>00070 }; <span class="comment">/* class ReplyTo */</span>
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072 }}
-<a name="l00073"></a>00073 <span class="preprocessor">#endif  </span>
+<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="a00496.html" title="Definitions and full declarations of all types used in AMQP messages.">qpid/framing/amqp_types_full.h</a>&quot;</span>
+<a name="l00033"></a>00033 <span class="preprocessor">#include &quot;<a class="code" href="a00518.html">qpid/framing/reply_exceptions.h</a>&quot;</span>
+<a name="l00034"></a>00034 <span class="preprocessor">#include &quot;<a class="code" href="a00484.html">qpid/CommonImportExport.h</a>&quot;</span>
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 <span class="keyword">namespace </span>qpid {
+<a name="l00037"></a>00037 <span class="keyword">namespace </span>framing {
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039 <span class="keyword">class </span><a class="code" href="a00484.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> QueueQueryResult  {
+<a name="l00040"></a>00040     std::string queue;
+<a name="l00041"></a>00041     std::string alternateExchange;
+<a name="l00042"></a>00042     FieldTable arguments;
+<a name="l00043"></a>00043     <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> messageCount;
+<a name="l00044"></a>00044     <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> subscriberCount;
+<a name="l00045"></a>00045     <a class="code" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> flags;
+<a name="l00046"></a>00046 <span class="keyword">public</span>:
+<a name="l00047"></a><a class="code" href="a00266.html#a2d653ff12143242514a4f64597470714">00047</a>     <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> TYPE = 2049;
+<a name="l00048"></a><a class="code" href="a00266.html#a627e38597ff5d3cde9e5285f3ce301e8">00048</a>     <a class="code" href="a00266.html">QueueQueryResult</a>(
+<a name="l00049"></a>00049         <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; _queue,
+<a name="l00050"></a>00050         <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; _alternateExchange,
+<a name="l00051"></a>00051         <span class="keywordtype">bool</span> _durable,
+<a name="l00052"></a>00052         <span class="keywordtype">bool</span> _exclusive,
+<a name="l00053"></a>00053         <span class="keywordtype">bool</span> _autoDelete,
+<a name="l00054"></a>00054         <span class="keyword">const</span> <a class="code" href="a00125.html" title="A set of name-value pairs.">FieldTable</a>&amp; _arguments,
+<a name="l00055"></a>00055         <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> _messageCount,
+<a name="l00056"></a>00056         <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> _subscriberCount) : 
+<a name="l00057"></a>00057         queue(_queue),
+<a name="l00058"></a>00058         alternateExchange(_alternateExchange),
+<a name="l00059"></a>00059         arguments(_arguments),
+<a name="l00060"></a>00060         messageCount(_messageCount),
+<a name="l00061"></a>00061         subscriberCount(_subscriberCount),
+<a name="l00062"></a>00062         flags(0){
+<a name="l00063"></a>00063         setDurable(_durable);
+<a name="l00064"></a>00064         setExclusive(_exclusive);
+<a name="l00065"></a>00065         setAutoDelete(_autoDelete);
+<a name="l00066"></a>00066         flags |= (1 &lt;&lt; 8);
+<a name="l00067"></a>00067         flags |= (1 &lt;&lt; 9);
+<a name="l00068"></a>00068         flags |= (1 &lt;&lt; 13);
+<a name="l00069"></a>00069         flags |= (1 &lt;&lt; 14);
+<a name="l00070"></a>00070         flags |= (1 &lt;&lt; 15);
+<a name="l00071"></a>00071         <span class="keywordflow">if</span> (queue.size() &gt;= 256) <span class="keywordflow">throw</span> <a class="code" href="a00146.html" title="The command argument is malformed, i.e.">IllegalArgumentException</a>(<span class="stringliteral">&quot;Value for queue is too large&quot;</span>);
+<a name="l00072"></a>00072         <span class="keywordflow">if</span> (alternateExchange.size() &gt;= 256) <span class="keywordflow">throw</span> <a class="code" href="a00146.html" title="The command argument is malformed, i.e.">IllegalArgumentException</a>(<span class="stringliteral">&quot;Value for alternateExchange is too large&quot;</span>);
+<a name="l00073"></a>00073     }
+<a name="l00074"></a><a class="code" href="a00266.html#a1176f38f4790886dac7393095d628edf">00074</a>     <a class="code" href="a00266.html#a1176f38f4790886dac7393095d628edf">QueueQueryResult</a>()  : messageCount(0), subscriberCount(0), flags(0) {}
+<a name="l00075"></a>00075     
+<a name="l00076"></a>00076     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setQueue(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; _queue);
+<a name="l00077"></a>00077     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">const</span> std::string&amp; getQueue() <span class="keyword">const</span>;
+<a name="l00078"></a>00078     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasQueue() <span class="keyword">const</span>;
+<a name="l00079"></a>00079     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearQueueFlag();
+<a name="l00080"></a>00080     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setAlternateExchange(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; _alternateExchange);
+<a name="l00081"></a>00081     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">const</span> std::string&amp; getAlternateExchange() <span class="keyword">const</span>;
+<a name="l00082"></a>00082     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasAlternateExchange() <span class="keyword">const</span>;
+<a name="l00083"></a>00083     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearAlternateExchangeFlag();
+<a name="l00084"></a>00084     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setDurable(<span class="keywordtype">bool</span> _durable);
+<a name="l00085"></a>00085     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> getDurable() <span class="keyword">const</span>;
+<a name="l00086"></a>00086     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setExclusive(<span class="keywordtype">bool</span> _exclusive);
+<a name="l00087"></a>00087     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> getExclusive() <span class="keyword">const</span>;
+<a name="l00088"></a>00088     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setAutoDelete(<span class="keywordtype">bool</span> _autoDelete);
+<a name="l00089"></a>00089     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> getAutoDelete() <span class="keyword">const</span>;
+<a name="l00090"></a>00090     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setArguments(<span class="keyword">const</span> <a class="code" href="a00125.html" title="A set of name-value pairs.">FieldTable</a>&amp; _arguments);
+<a name="l00091"></a>00091     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">const</span> <a class="code" href="a00125.html" title="A set of name-value pairs.">FieldTable</a>&amp; getArguments() <span class="keyword">const</span>;
+<a name="l00092"></a>00092     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00125.html" title="A set of name-value pairs.">FieldTable</a>&amp; getArguments();
+<a name="l00093"></a>00093     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasArguments() <span class="keyword">const</span>;
+<a name="l00094"></a>00094     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearArgumentsFlag();
+<a name="l00095"></a>00095     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setMessageCount(<a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> _messageCount);
+<a name="l00096"></a>00096     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> getMessageCount() <span class="keyword">const</span>;
+<a name="l00097"></a>00097     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasMessageCount() <span class="keyword">const</span>;
+<a name="l00098"></a>00098     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearMessageCountFlag();
+<a name="l00099"></a>00099     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setSubscriberCount(<a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> _subscriberCount);
+<a name="l00100"></a>00100     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> getSubscriberCount() <span class="keyword">const</span>;
+<a name="l00101"></a>00101     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> hasSubscriberCount() <span class="keyword">const</span>;
+<a name="l00102"></a>00102     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clearSubscriberCountFlag();
+<a name="l00103"></a>00103     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="a00582.html#a26b5aa4aa3e48e044e86832a401304b7">operator&lt;&lt;</a>(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00266.html">QueueQueryResult</a>&amp;);
+<a name="l00104"></a>00104     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00593.html#afefbffac1ba55c37a1f7ab3a85ca753b" title="Encodes a Variant::Map into a message.">encode</a>(<a class="code" href="a00045.html">Buffer</a>&amp;) <span class="keyword">const</span>;
+<a name="l00105"></a>00105     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00593.html#ad37dfc262612bfde8fdc73e3a85ddf95" title="Decodes message content into a Variant::Map.">decode</a>(<a class="code" href="a00045.html">Buffer</a>&amp;, <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0);
+<a name="l00106"></a>00106     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> encodeStructBody(<a class="code" href="a00045.html">Buffer</a>&amp;) <span class="keyword">const</span>;
+<a name="l00107"></a>00107     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> decodeStructBody(<a class="code" href="a00045.html">Buffer</a>&amp;, <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0);
+<a name="l00108"></a>00108     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> encodedSize() <span class="keyword">const</span>;
+<a name="l00109"></a>00109     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> bodySize() <span class="keyword">const</span>;
+<a name="l00110"></a>00110     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> print(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp; out) <span class="keyword">const</span>;
+<a name="l00111"></a>00111 }; <span class="comment">/* class QueueQueryResult */</span>
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113 }}
+<a name="l00114"></a>00114 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -159,7 +200,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

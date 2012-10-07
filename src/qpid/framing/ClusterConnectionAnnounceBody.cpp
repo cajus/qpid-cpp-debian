@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ClusterConnectionAnnounceBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ClusterConnectionAnnounceBody::setManagementId(const std::string& _managementId) {
     managementId = _managementId;
     flags |= (1 << 8);
+    if (managementId.size() >= 65536) throw IllegalArgumentException("Value for managementId is too large");
 }
 const std::string& ClusterConnectionAnnounceBody::getManagementId() const { return managementId; }
 bool ClusterConnectionAnnounceBody::hasManagementId() const { return flags & (1 << 8); }
@@ -49,6 +50,7 @@ void ClusterConnectionAnnounceBody::clearSsfFlag() { flags &= ~(1 << 9); }
 void ClusterConnectionAnnounceBody::setAuthid(const std::string& _authid) {
     authid = _authid;
     flags |= (1 << 10);
+    if (authid.size() >= 65536) throw IllegalArgumentException("Value for authid is too large");
 }
 const std::string& ClusterConnectionAnnounceBody::getAuthid() const { return authid; }
 bool ClusterConnectionAnnounceBody::hasAuthid() const { return flags & (1 << 10); }

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf/engine/Message.h Source File</title>
+    <title>qmf/engine/Event.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,11 +58,11 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qmf/engine/Message.h</div>  </div>
+<div class="title">qmf/engine/Event.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00418.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _QmfEngineMessage_</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _QmfEngineMessage_</span>
+<a href="a00418.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _QmfEngineEvent_</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _QmfEngineEvent_</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="comment">/*</span>
 <a name="l00005"></a>00005 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
@@ -83,25 +83,33 @@
 <a name="l00020"></a>00020 <span class="comment"> * under the License.</span>
 <a name="l00021"></a>00021 <span class="comment"> */</span>
 <a name="l00022"></a>00022 
-<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;<a class="code" href="a00554.html">qpid/sys/IntegerTypes.h</a>&quot;</span>
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="keyword">namespace </span>qmf {
-<a name="l00026"></a>00026 <span class="keyword">namespace </span>engine {
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028     <span class="keyword">struct </span>Message {
-<a name="l00029"></a><a class="code" href="a00207.html#afe1813f5c59662eaaf831c6bba0f22fa">00029</a>         <span class="keywordtype">char</span>*    <a class="code" href="a00207.html#afe1813f5c59662eaaf831c6bba0f22fa">body</a>;
-<a name="l00030"></a><a class="code" href="a00207.html#aaac1b09e626989e04047e157cc3de5f6">00030</a>         <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00207.html#aaac1b09e626989e04047e157cc3de5f6">length</a>;
-<a name="l00031"></a><a class="code" href="a00207.html#a58c26c02d6990e962f779c8c5482c065">00031</a>         <span class="keywordtype">char</span>*    <a class="code" href="a00207.html#a58c26c02d6990e962f779c8c5482c065">destination</a>;
-<a name="l00032"></a><a class="code" href="a00207.html#a0471c964b3f723eee21a5a3815b5ec56">00032</a>         <span class="keywordtype">char</span>*    <a class="code" href="a00207.html#a0471c964b3f723eee21a5a3815b5ec56">routingKey</a>;
-<a name="l00033"></a><a class="code" href="a00207.html#a08bba4ad3182540f6af895bc81790184">00033</a>         <span class="keywordtype">char</span>*    <a class="code" href="a00207.html#a08bba4ad3182540f6af895bc81790184">replyExchange</a>;
-<a name="l00034"></a><a class="code" href="a00207.html#a722521a3ed8f22f7111a8d85270647e2">00034</a>         <span class="keywordtype">char</span>*    <a class="code" href="a00207.html#a722521a3ed8f22f7111a8d85270647e2">replyKey</a>;
-<a name="l00035"></a><a class="code" href="a00207.html#a095648cdd3e88fee752df527d8bfae34">00035</a>         <span class="keywordtype">char</span>*    <a class="code" href="a00207.html#a095648cdd3e88fee752df527d8bfae34">userId</a>;
-<a name="l00036"></a>00036     };
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038 }
-<a name="l00039"></a>00039 }
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041 <span class="preprocessor">#endif</span>
+<a name="l00023"></a>00023 <span class="keyword">namespace </span>qmf {
+<a name="l00024"></a>00024 <span class="keyword">namespace </span>engine {
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026     <span class="keyword">class </span>SchemaEventClass;
+<a name="l00027"></a>00027     <span class="keyword">class </span>Value;
+<a name="l00028"></a>00028     <span class="keyword">struct </span>EventImpl;
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030     <span class="keyword">class </span>Event {
+<a name="l00031"></a>00031     <span class="keyword">public</span>:
+<a name="l00032"></a>00032         <a class="code" href="a00110.html#a13ab62852ede7ae179b754bfc0e422d4">Event</a>(<span class="keyword">const</span> SchemaEventClass* type);
+<a name="l00033"></a>00033         <a class="code" href="a00110.html#a13ab62852ede7ae179b754bfc0e422d4">Event</a>(<span class="keyword">const</span> <a class="code" href="a00110.html#a13ab62852ede7ae179b754bfc0e422d4">Event</a>&amp; from);
+<a name="l00034"></a>00034         <a class="code" href="a00110.html#a9beb8f6dbc3d7a730359073db96b23a7">~Event</a>();
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036         <span class="keyword">const</span> SchemaEventClass* <a class="code" href="a00110.html#ac0041cc4dd9be54bc2391ddb0c4591de">getClass</a>() <span class="keyword">const</span>;
+<a name="l00037"></a>00037         Value* <a class="code" href="a00110.html#adbcc50937ed977ec89da10cee0ea62db">getValue</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* key) <span class="keyword">const</span>;
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039     <span class="keyword">private</span>:
+<a name="l00040"></a><a class="code" href="a00110.html#a75c492787b0bbc525050621ca8856bd1">00040</a>         <span class="keyword">friend</span> <span class="keyword">struct </span><a class="code" href="a00110.html#a75c492787b0bbc525050621ca8856bd1">EventImpl</a>;
+<a name="l00041"></a><a class="code" href="a00110.html#a61d9990141016e55bc4d75291c90a301">00041</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a00110.html#a61d9990141016e55bc4d75291c90a301">AgentImpl</a>;
+<a name="l00042"></a>00042         <a class="code" href="a00110.html#a13ab62852ede7ae179b754bfc0e422d4">Event</a>(<a class="code" href="a00110.html#a75c492787b0bbc525050621ca8856bd1">EventImpl</a>* impl);
+<a name="l00043"></a>00043         <a class="code" href="a00110.html#a75c492787b0bbc525050621ca8856bd1">EventImpl</a>* impl;
+<a name="l00044"></a>00044     };
+<a name="l00045"></a>00045 }
+<a name="l00046"></a>00046 }
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048 <span class="preprocessor">#endif</span>
+<a name="l00049"></a>00049 <span class="preprocessor"></span>
 </pre></div></div>
 </div>
 <!--
@@ -131,7 +139,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

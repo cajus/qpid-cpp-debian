@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::log::Logger Class Reference</title>
+    <title>qpid::client::LocalQueue Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,126 +60,133 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00589.html">log</a>      </li>
-      <li class="navelem"><a class="el" href="a00194.html">Logger</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00194.html">LocalQueue</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a>  </div>
+<a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::log::Logger Class Reference</div>  </div>
+<div class="title">qpid::client::LocalQueue Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::log::Logger" -->
-<p>Central logging agent.  
+<!-- doxytag: class="qpid::client::LocalQueue" --><!-- doxytag: inherits="Handle&lt; LocalQueueImpl &gt;" -->
+<p>A local queue to collect messages retrieved from a remote broker queue.  
  <a href="a00194.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00529_source.html">qpid/log/Logger.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00472_source.html">qpid/client/LocalQueue.h</a>&gt;</code></p>
 
-<p><a href="a00818.html">List of all members.</a></p>
+<p><a href="a00692.html">List of all members.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00248.html">Output</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Logging output sink.  <a href="a00248.html#details">More...</a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#ac508e01bd3e624fded92ce2f9800e12b">FormatFlag</a> { <br/>
-&#160;&#160;<a class="el" href="a00194.html#ac508e01bd3e624fded92ce2f9800e12bab98210c0bfae79fb2532a7fa744fcb63">FILE</a> = 1, 
-<a class="el" href="a00194.html#ac508e01bd3e624fded92ce2f9800e12baa2d536406d3a385db1819d22d67d1760">LINE</a> = 2, 
-<a class="el" href="a00194.html#ac508e01bd3e624fded92ce2f9800e12ba182dc2a197411177de0239b3fde6cbf8">FUNCTION</a> = 4, 
-<a class="el" href="a00194.html#ac508e01bd3e624fded92ce2f9800e12ba9a5dd04e9771e67eb8f97689146f785f">LEVEL</a> = 8, 
-<br/>
-&#160;&#160;<a class="el" href="a00194.html#ac508e01bd3e624fded92ce2f9800e12ba09e5c56b2aa5c110fcaf5b00232def1d">TIME</a> = 16, 
-<a class="el" href="a00194.html#ac508e01bd3e624fded92ce2f9800e12ba189fae3798d0b010384b9010bace065a">THREAD</a> = 32, 
-<a class="el" href="a00194.html#ac508e01bd3e624fded92ce2f9800e12ba765ea7d8bcf89495bb6396c87e813ce0">HIRES</a> = 64
-<br/>
- }</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags indicating what to include in the log output.  <a href="a00194.html#ac508e01bd3e624fded92ce2f9800e12b">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#a019324448139672bf84c745aabf9b53a">Logger</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#a0887e68a123f200f6089612da6a0756d">~Logger</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#adccae2b2d7d84cbc07a9b56ebb65d194">select</a> (const <a class="el" href="a00318.html">Selector</a> &amp;s)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Select the messages to be logged.  <a href="#adccae2b2d7d84cbc07a9b56ebb65d194"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#aefcef8508020a35036b6e92afe5c633c">format</a> (int formatFlags)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the formatting flags, bitwise OR of FormatFlag values.  <a href="#aefcef8508020a35036b6e92afe5c633c"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#adb1a8a89d98cb9dcc840f2ef454804b6">format</a> (const <a class="el" href="a00241.html">Options</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set format flags from options object.  <a href="#adb1a8a89d98cb9dcc840f2ef454804b6"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#a4d17bb55ad352b296010b9b856f1c108">configure</a> (const <a class="el" href="a00241.html">Options</a> &amp;o)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure logger from <a class="el" href="a00241.html" title="Logging options for config parser.">Options</a>.  <a href="#a4d17bb55ad352b296010b9b856f1c108"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#a95a3e039bd6aebb14a20b44f9e451c4d">reconfigure</a> (const <a class="el" href="a00386.html">std::vector</a>&lt; <a class="el" href="a00345.html">std::string</a> &gt; &amp;selectors)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the log selectors.  <a href="#a95a3e039bd6aebb14a20b44f9e451c4d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#af7b47bbee7f64cb1d52bccb46fa8b5d9">add</a> (<a class="el" href="a00340.html">Statement</a> &amp;s)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a statement.  <a href="#af7b47bbee7f64cb1d52bccb46fa8b5d9"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#aeb461434305029bd82416a3b7d474be4">log</a> (const <a class="el" href="a00340.html">Statement</a> &amp;, const <a class="el" href="a00345.html">std::string</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Log a message.  <a href="#aeb461434305029bd82416a3b7d474be4"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#ac3e8b1f5e4babe3f3112b703bf6cb7c8">output</a> (<a class="el" href="a00022.html">std::auto_ptr</a>&lt; <a class="el" href="a00248.html">Output</a> &gt; out)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an output destination for messages.  <a href="#ac3e8b1f5e4babe3f3112b703bf6cb7c8"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#aada642b53b33feaf2e26646ceefa2046">setPrefix</a> (const <a class="el" href="a00345.html">std::string</a> &amp;prefix)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a prefix for all messages.  <a href="#aada642b53b33feaf2e26646ceefa2046"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#aa982cb9fc8e0828fd708ca263d03b534">clear</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the logger.  <a href="#aa982cb9fc8e0828fd708ca263d03b534"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN <br class="typebreak"/>
-const <a class="el" href="a00241.html">Options</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#a8129a037aa8a6a9ac7d4176b189db1da">getOptions</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the options used to configure the logger.  <a href="#a8129a037aa8a6a9ac7d4176b189db1da"></a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00194.html">Logger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#a43c49b514bd2973cd5131a96e6a1e270">instance</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#a86b2fcbc65e5a4c03a1f09d85583d4c7">LocalQueue</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a local queue.  <a href="#a86b2fcbc65e5a4c03a1f09d85583d4c7"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#aef94543e815bd2bc817fad4845a30a35">LocalQueue</a> (const <a class="el" href="a00194.html">LocalQueue</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#a672042b5faba2af8ac355467b338f656">~LocalQueue</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00194.html">LocalQueue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#abc7977374204ae9a7d743b2c08f05d3a">operator=</a> (const <a class="el" href="a00194.html">LocalQueue</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#a6280a01fd2b01069412909225d7f503f">get</a> (<a class="el" href="a00208.html">Message</a> &amp;result, <a class="el" href="a00105.html">sys::Duration</a> timeout=0)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait up to timeout for the next message from the local queue.  <a href="#a6280a01fd2b01069412909225d7f503f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00208.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#af35cc1d347d6ffc94416b1ea33fdc38f">get</a> (<a class="el" href="a00105.html">sys::Duration</a> timeout=<a class="el" href="a00594.html#a3aa132e281f66ba27d5fd25d71043bc0">sys::TIME_INFINITE</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the next message off the local queue, or wait up to the timeout for message from the broker queue.  <a href="#af35cc1d347d6ffc94416b1ea33fdc38f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00208.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#abf6253c5f4a8da967e0d3e57eeab2317">pop</a> (<a class="el" href="a00105.html">sys::Duration</a> timeout=<a class="el" href="a00594.html#a3aa132e281f66ba27d5fd25d71043bc0">sys::TIME_INFINITE</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Synonym for <a class="el" href="a00194.html#a6280a01fd2b01069412909225d7f503f" title="Wait up to timeout for the next message from the local queue.">get()</a>  <a href="#abf6253c5f4a8da967e0d3e57eeab2317"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#a93e7eae407ac6149ad30ea5d21f1963d">empty</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if local queue is empty.  <a href="#a93e7eae407ac6149ad30ea5d21f1963d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#ae4c1886fb9c9a5660d7297a92a26ccc6">size</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of messages on the local queue.  <a href="#ae4c1886fb9c9a5660d7297a92a26ccc6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html#a8057ecce82d9220868b9c30ee4c7a9cc">LocalQueue</a> (LocalQueueImpl *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a57379e651d725b0f73edcb714e9efbc7">isValid</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#ae6f5dd2c23bdf3016f4afcd32057b9c5">isNull</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a00461424a31faee8e158a6502a014c3d">operator bool</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to bool supports idiom if (handle) { handle-&gt;...  <a href="#a00461424a31faee8e158a6502a014c3d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a6e69e13fa5ed709abebdbf6868b5eff4">operator!</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }.  <a href="#a6e69e13fa5ed709abebdbf6868b5eff4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#a5092920190f6ad01c851996395cf33b5">swap</a> (<a class="el" href="a00142.html">Handle</a>&lt; T &gt; &amp;h)</td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">Impl *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00142.html#adf6d72d2a888cabcd0b60178419aad59">impl</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Central logging agent. </p>
-<p>Thread safe, singleton.</p>
-<p>The <a class="el" href="a00194.html" title="Central logging agent.">Logger</a> provides all needed functionality for selecting and formatting logging output. The actual outputting of log records is handled by <a class="el" href="a00248.html" title="Logging output sink.">Logger::Output</a>-derived classes instantiated by the platform's sink-related options. </p>
-</div><hr/><h2>Member Enumeration Documentation</h2>
-<a class="anchor" id="ac508e01bd3e624fded92ce2f9800e12b"></a><!-- doxytag: member="qpid::log::Logger::FormatFlag" ref="ac508e01bd3e624fded92ce2f9800e12b" args="" -->
+<div class="textblock"><p>A local queue to collect messages retrieved from a remote broker queue. </p>
+<p>Create a queue and subscribe it using the <a class="el" href="a00353.html" title="A class to help create and manage subscriptions.">SubscriptionManager</a>. Messages from the remote queue on the broker will be stored in the local queue until you retrieve them.</p>
+<p>Using a Local Queue</p>
+<pre>
+ <a class="el" href="a00194.html" title="A local queue to collect messages retrieved from a remote broker queue.">LocalQueue</a> local_queue;
+ subscriptions.subscribe(local_queue, string("message_queue"));
+ for (int i=0; i&lt;10; i++) {
+   <a class="el" href="a00208.html" title="A message sent to or received from the broker.">Message</a> message = local_queue.get();
+   std::cout &lt;&lt; message.getData() &lt;&lt; std::endl;
+ }
+ </pre><h2>Getting Messages</h2>
+<ul>
+<li>
+<p class="startli"></p>
+<p class="endli"><a class="el" href="a00194.html#a6280a01fd2b01069412909225d7f503f" title="Wait up to timeout for the next message from the local queue.">get()</a> </p>
+<pre><a class="el" href="a00208.html" title="A message sent to or received from the broker.">Message</a> message = local_queue.get();</pre> <pre>// Specifying timeouts (TIME_SEC, TIME_MSEC, TIME_USEC, TIME_NSEC)
+#include &lt;<a class="el" href="a00565.html">qpid/sys/Time.h</a>&gt;
+<a class="el" href="a00208.html" title="A message sent to or received from the broker.">Message</a> message;
+local_queue.get(message, 5*sys::TIME_SEC);</pre></li>
+</ul>
+<h2>Checking size</h2>
+<ul>
+<li>
+<p class="startli"></p>
+<p class="endli"><a class="el" href="a00194.html#a93e7eae407ac6149ad30ea5d21f1963d" title="Return true if local queue is empty.">empty()</a> </p>
+<pre>if (local_queue.empty()) { ... }</pre> </li>
+<li>
+<p class="startli"></p>
+<p class="endli"><a class="el" href="a00194.html#ae4c1886fb9c9a5660d7297a92a26ccc6" title="Number of messages on the local queue.">size()</a> </p>
+<pre>std::cout &lt;&lt; local_queue.size();</pre> </li>
+</ul>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a86b2fcbc65e5a4c03a1f09d85583d4c7"></a><!-- doxytag: member="qpid::client::LocalQueue::LocalQueue" ref="a86b2fcbc65e5a4c03a1f09d85583d4c7" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00194.html#ac508e01bd3e624fded92ce2f9800e12b">qpid::log::Logger::FormatFlag</a></td>
+          <td class="memname">qpid::client::LocalQueue::LocalQueue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Flags indicating what to include in the log output. </p>
-<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="ac508e01bd3e624fded92ce2f9800e12bab98210c0bfae79fb2532a7fa744fcb63"></a><!-- doxytag: member="FILE" ref="ac508e01bd3e624fded92ce2f9800e12bab98210c0bfae79fb2532a7fa744fcb63" args="" -->FILE</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="ac508e01bd3e624fded92ce2f9800e12baa2d536406d3a385db1819d22d67d1760"></a><!-- doxytag: member="LINE" ref="ac508e01bd3e624fded92ce2f9800e12baa2d536406d3a385db1819d22d67d1760" args="" -->LINE</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="ac508e01bd3e624fded92ce2f9800e12ba182dc2a197411177de0239b3fde6cbf8"></a><!-- doxytag: member="FUNCTION" ref="ac508e01bd3e624fded92ce2f9800e12ba182dc2a197411177de0239b3fde6cbf8" args="" -->FUNCTION</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="ac508e01bd3e624fded92ce2f9800e12ba9a5dd04e9771e67eb8f97689146f785f"></a><!-- doxytag: member="LEVEL" ref="ac508e01bd3e624fded92ce2f9800e12ba9a5dd04e9771e67eb8f97689146f785f" args="" -->LEVEL</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="ac508e01bd3e624fded92ce2f9800e12ba09e5c56b2aa5c110fcaf5b00232def1d"></a><!-- doxytag: member="TIME" ref="ac508e01bd3e624fded92ce2f9800e12ba09e5c56b2aa5c110fcaf5b00232def1d" args="" -->TIME</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="ac508e01bd3e624fded92ce2f9800e12ba189fae3798d0b010384b9010bace065a"></a><!-- doxytag: member="THREAD" ref="ac508e01bd3e624fded92ce2f9800e12ba189fae3798d0b010384b9010bace065a" args="" -->THREAD</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="ac508e01bd3e624fded92ce2f9800e12ba765ea7d8bcf89495bb6396c87e813ce0"></a><!-- doxytag: member="HIRES" ref="ac508e01bd3e624fded92ce2f9800e12ba765ea7d8bcf89495bb6396c87e813ce0" args="" -->HIRES</em>&nbsp;</td><td>
-</td></tr>
-</table>
-</dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00529_source.html#l00039">39</a> of file <a class="el" href="a00529_source.html">Logger.h</a>.</p>
+<p>Create a local queue. </p>
+<p>Subscribe the local queue to a remote broker queue with a <a class="el" href="a00353.html" title="A class to help create and manage subscriptions.">SubscriptionManager</a>.</p>
+<p><a class="el" href="a00194.html" title="A local queue to collect messages retrieved from a remote broker queue.">LocalQueue</a> is an alternative to implementing a <a class="el" href="a00210.html" title="Implement a subclass of MessageListener and subscribe it using the SubscriptionManager to receive mes...">MessageListener</a>. </p>
 
 </div>
 </div>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a019324448139672bf84c745aabf9b53a"></a><!-- doxytag: member="qpid::log::Logger::Logger" ref="a019324448139672bf84c745aabf9b53a" args="()" -->
+<a class="anchor" id="aef94543e815bd2bc817fad4845a30a35"></a><!-- doxytag: member="qpid::client::LocalQueue::LocalQueue" ref="aef94543e815bd2bc817fad4845a30a35" args="(const LocalQueue &amp;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::log::Logger::Logger </td>
+          <td class="memname">qpid::client::LocalQueue::LocalQueue </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00194.html">LocalQueue</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a672042b5faba2af8ac355467b338f656"></a><!-- doxytag: member="qpid::client::LocalQueue::~LocalQueue" ref="a672042b5faba2af8ac355467b338f656" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::client::LocalQueue::~LocalQueue </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -190,13 +197,14 @@ Static Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a0887e68a123f200f6089612da6a0756d"></a><!-- doxytag: member="qpid::log::Logger::~Logger" ref="a0887e68a123f200f6089612da6a0756d" args="()" -->
+<a class="anchor" id="a8057ecce82d9220868b9c30ee4c7a9cc"></a><!-- doxytag: member="qpid::client::LocalQueue::LocalQueue" ref="a8057ecce82d9220868b9c30ee4c7a9cc" args="(LocalQueueImpl *)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::log::Logger::~Logger </td>
+          <td class="memname">qpid::client::LocalQueue::LocalQueue </td>
           <td>(</td>
+          <td class="paramtype">LocalQueueImpl *&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -207,152 +215,39 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="af7b47bbee7f64cb1d52bccb46fa8b5d9"></a><!-- doxytag: member="qpid::log::Logger::add" ref="af7b47bbee7f64cb1d52bccb46fa8b5d9" args="(Statement &amp;s)" -->
+<a class="anchor" id="a93e7eae407ac6149ad30ea5d21f1963d"></a><!-- doxytag: member="qpid::client::LocalQueue::empty" ref="a93e7eae407ac6149ad30ea5d21f1963d" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::log::Logger::add </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00340.html">Statement</a> &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Add a statement. </p>
-
-</div>
-</div>
-<a class="anchor" id="aa982cb9fc8e0828fd708ca263d03b534"></a><!-- doxytag: member="qpid::log::Logger::clear" ref="aa982cb9fc8e0828fd708ca263d03b534" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::log::Logger::clear </td>
+          <td class="memname">bool qpid::client::LocalQueue::empty </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Reset the logger. </p>
+<p>Return true if local queue is empty. </p>
 
 </div>
 </div>
-<a class="anchor" id="a4d17bb55ad352b296010b9b856f1c108"></a><!-- doxytag: member="qpid::log::Logger::configure" ref="a4d17bb55ad352b296010b9b856f1c108" args="(const Options &amp;o)" -->
+<a class="anchor" id="a6280a01fd2b01069412909225d7f503f"></a><!-- doxytag: member="qpid::client::LocalQueue::get" ref="a6280a01fd2b01069412909225d7f503f" args="(Message &amp;result, sys::Duration timeout=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::log::Logger::configure </td>
+          <td class="memname">bool qpid::client::LocalQueue::get </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00241.html">Options</a> &amp;&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Configure logger from <a class="el" href="a00241.html" title="Logging options for config parser.">Options</a>. </p>
-
-</div>
-</div>
-<a class="anchor" id="aefcef8508020a35036b6e92afe5c633c"></a><!-- doxytag: member="qpid::log::Logger::format" ref="aefcef8508020a35036b6e92afe5c633c" args="(int formatFlags)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::log::Logger::format </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>formatFlags</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Set the formatting flags, bitwise OR of FormatFlag values. </p>
-
-</div>
-</div>
-<a class="anchor" id="adb1a8a89d98cb9dcc840f2ef454804b6"></a><!-- doxytag: member="qpid::log::Logger::format" ref="adb1a8a89d98cb9dcc840f2ef454804b6" args="(const Options &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int qpid::log::Logger::format </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00241.html">Options</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Set format flags from options object. </p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>computed flags. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a8129a037aa8a6a9ac7d4176b189db1da"></a><!-- doxytag: member="qpid::log::Logger::getOptions" ref="a8129a037aa8a6a9ac7d4176b189db1da" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN const <a class="el" href="a00241.html">Options</a>&amp; qpid::log::Logger::getOptions </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Get the options used to configure the logger. </p>
-
-<p>Definition at line <a class="el" href="a00529_source.html#l00096">96</a> of file <a class="el" href="a00529_source.html">Logger.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a43c49b514bd2973cd5131a96e6a1e270"></a><!-- doxytag: member="qpid::log::Logger::instance" ref="a43c49b514bd2973cd5131a96e6a1e270" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="a00194.html">Logger</a>&amp; qpid::log::Logger::instance </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aeb461434305029bd82416a3b7d474be4"></a><!-- doxytag: member="qpid::log::Logger::log" ref="aeb461434305029bd82416a3b7d474be4" args="(const Statement &amp;, const std::string &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::log::Logger::log </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00340.html">Statement</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramtype"><a class="el" href="a00208.html">Message</a> &amp;&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramtype"><a class="el" href="a00105.html">sys::Duration</a>&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -363,88 +258,220 @@ Static Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Log a message. </p>
+<p>Wait up to timeout for the next message from the local queue. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">result</td><td>Set to the message from the queue. </td></tr>
+    <tr><td class="paramname">timeout</td><td>wait up this timeout for a message to appear. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>true if result was set, false if queue was empty after timeout. </dd></dl>
 
 </div>
 </div>
-<a class="anchor" id="ac3e8b1f5e4babe3f3112b703bf6cb7c8"></a><!-- doxytag: member="qpid::log::Logger::output" ref="ac3e8b1f5e4babe3f3112b703bf6cb7c8" args="(std::auto_ptr&lt; Output &gt; out)" -->
+<a class="anchor" id="af35cc1d347d6ffc94416b1ea33fdc38f"></a><!-- doxytag: member="qpid::client::LocalQueue::get" ref="af35cc1d347d6ffc94416b1ea33fdc38f" args="(sys::Duration timeout=sys::TIME_INFINITE)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::log::Logger::output </td>
+          <td class="memname"><a class="el" href="a00208.html">Message</a> qpid::client::LocalQueue::get </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00022.html">std::auto_ptr</a>&lt; <a class="el" href="a00248.html">Output</a> &gt;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00105.html">sys::Duration</a>&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code><a class="el" href="a00594.html#a3aa132e281f66ba27d5fd25d71043bc0">sys::TIME_INFINITE</a></code></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Add an output destination for messages. </p>
+<p>Get the next message off the local queue, or wait up to the timeout for message from the broker queue. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>wait up this timeout for a message to appear. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="return"><dt><b>Returns:</b></dt><dd>message from the queue. </dd></dl>
+<dl><dt><b>Exceptions:</b></dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="a00052.html">ClosedException</a></td><td>if subscription is closed or timeout exceeded. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a class="anchor" id="a95a3e039bd6aebb14a20b44f9e451c4d"></a><!-- doxytag: member="qpid::log::Logger::reconfigure" ref="a95a3e039bd6aebb14a20b44f9e451c4d" args="(const std::vector&lt; std::string &gt; &amp;selectors)" -->
+<a class="anchor" id="ae6f5dd2c23bdf3016f4afcd32057b9c5"></a><!-- doxytag: member="qpid::client::LocalQueue::isNull" ref="ae6f5dd2c23bdf3016f4afcd32057b9c5" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::log::Logger::reconfigure </td>
+          <td class="memname">QPID_CLIENT_INLINE_EXTERN bool qpid::client::Handle::isNull </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00386.html">std::vector</a>&lt; <a class="el" href="a00345.html">std::string</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>selectors</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is null. It is an error to call any function on a null handle. </dd></dl>
+
+<p>Definition at line <a class="el" href="a00440_source.html#l00046">46</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a57379e651d725b0f73edcb714e9efbc7"></a><!-- doxytag: member="qpid::client::LocalQueue::isValid" ref="a57379e651d725b0f73edcb714e9efbc7" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_CLIENT_INLINE_EXTERN bool qpid::client::Handle::isValid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is valid, i.e. not null. </dd></dl>
+
+<p>Definition at line <a class="el" href="a00440_source.html#l00043">43</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a00461424a31faee8e158a6502a014c3d"></a><!-- doxytag: member="qpid::client::LocalQueue::operator bool" ref="a00461424a31faee8e158a6502a014c3d" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_CLIENT_INLINE_EXTERN qpid::client::Handle::operator bool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Conversion to bool supports idiom if (handle) { handle-&gt;... </p>
+<p>} </p>
+
+<p>Definition at line <a class="el" href="a00440_source.html#l00049">49</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6e69e13fa5ed709abebdbf6868b5eff4"></a><!-- doxytag: member="qpid::client::LocalQueue::operator!" ref="a6e69e13fa5ed709abebdbf6868b5eff4" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_CLIENT_INLINE_EXTERN bool qpid::client::Handle::operator! </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }. </p>
+
+<p>Definition at line <a class="el" href="a00440_source.html#l00052">52</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abc7977374204ae9a7d743b2c08f05d3a"></a><!-- doxytag: member="qpid::client::LocalQueue::operator=" ref="abc7977374204ae9a7d743b2c08f05d3a" args="(const LocalQueue &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00194.html">LocalQueue</a>&amp; qpid::client::LocalQueue::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00194.html">LocalQueue</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Reset the log selectors. </p>
-
 </div>
 </div>
-<a class="anchor" id="adccae2b2d7d84cbc07a9b56ebb65d194"></a><!-- doxytag: member="qpid::log::Logger::select" ref="adccae2b2d7d84cbc07a9b56ebb65d194" args="(const Selector &amp;s)" -->
+<a class="anchor" id="abf6253c5f4a8da967e0d3e57eeab2317"></a><!-- doxytag: member="qpid::client::LocalQueue::pop" ref="abf6253c5f4a8da967e0d3e57eeab2317" args="(sys::Duration timeout=sys::TIME_INFINITE)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::log::Logger::select </td>
+          <td class="memname"><a class="el" href="a00208.html">Message</a> qpid::client::LocalQueue::pop </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00318.html">Selector</a> &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00105.html">sys::Duration</a>&#160;</td>
+          <td class="paramname"><em>timeout</em> = <code><a class="el" href="a00594.html#a3aa132e281f66ba27d5fd25d71043bc0">sys::TIME_INFINITE</a></code></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Select the messages to be logged. </p>
+<p>Synonym for <a class="el" href="a00194.html#a6280a01fd2b01069412909225d7f503f" title="Wait up to timeout for the next message from the local queue.">get()</a> </p>
 
 </div>
 </div>
-<a class="anchor" id="aada642b53b33feaf2e26646ceefa2046"></a><!-- doxytag: member="qpid::log::Logger::setPrefix" ref="aada642b53b33feaf2e26646ceefa2046" args="(const std::string &amp;prefix)" -->
+<a class="anchor" id="ae4c1886fb9c9a5660d7297a92a26ccc6"></a><!-- doxytag: member="qpid::client::LocalQueue::size" ref="ae4c1886fb9c9a5660d7297a92a26ccc6" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::log::Logger::setPrefix </td>
+          <td class="memname">size_t qpid::client::LocalQueue::size </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>prefix</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Set a prefix for all messages. </p>
+<p>Number of messages on the local queue. </p>
+
+</div>
+</div>
+<a class="anchor" id="a5092920190f6ad01c851996395cf33b5"></a><!-- doxytag: member="qpid::client::LocalQueue::swap" ref="a5092920190f6ad01c851996395cf33b5" args="(Handle&lt; T &gt; &amp;h)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::client::Handle::swap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00142.html">Handle</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>h</em></td><td>)</td>
+          <td><code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00440_source.html#l00054">54</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="adf6d72d2a888cabcd0b60178419aad59"></a><!-- doxytag: member="qpid::client::LocalQueue::impl" ref="adf6d72d2a888cabcd0b60178419aad59" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Impl* <a class="el" href="a00142.html#adf6d72d2a888cabcd0b60178419aad59">qpid::client::Handle::impl</a><code> [protected, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00440_source.html#l00064">64</a> of file <a class="el" href="a00440_source.html">Handle.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/log/<a class="el" href="a00529_source.html">Logger.h</a></li>
+<li>qpid/client/<a class="el" href="a00472_source.html">LocalQueue.h</a></li>
 </ul>
 </div>
 <!--
@@ -474,7 +501,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

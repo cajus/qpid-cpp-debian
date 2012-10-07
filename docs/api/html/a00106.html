@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::messaging::EncodingException Struct Reference</title>
+    <title>qpid::messaging::Duration Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,41 +60,52 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00591.html">messaging</a>      </li>
-      <li class="navelem"><a class="el" href="a00106.html">EncodingException</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00593.html">messaging</a>      </li>
+      <li class="navelem"><a class="el" href="a00106.html">Duration</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::messaging::EncodingException Struct Reference</div>  </div>
+<div class="title">qpid::messaging::Duration Class Reference<div class="ingroups"><a class="el" href="a00598.html">Qpid C++ Client API</a></div></div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::messaging::EncodingException" --><!-- doxytag: inherits="qpid::types::Exception" -->
-<p><code>#include &lt;<a class="el" href="a00420_source.html">qpid/messaging/Message.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::messaging::Duration" -->
+<p>A duration is a time in milliseconds.  
+ <a href="a00106.html#details">More...</a></p>
 
-<p><a href="a00870.html">List of all members.</a></p>
+<p><code>#include &lt;<a class="el" href="a00545_source.html">qpid/messaging/Duration.h</a>&gt;</code></p>
+
+<p><a href="a00848.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#ae69f019bf8415a6d67306561b2592c84">EncodingException</a> (const <a class="el" href="a00345.html">std::string</a> &amp;msg)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual QPID_TYPES_EXTERN <br class="typebreak"/>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00112.html#a96ddb3fe10a2b9d059cb78832a64751d">what</a> () const   throw ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#ad4edb336e5617cb2921d74431ae3f197">Duration</a> (uint64_t milliseconds)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#aa81f6dcb9f5e6d5da9983d33ce806b82">getMilliseconds</a> () const </td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00106.html">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#a873e249777ffd59f9ebb263cd0c15dbe">FOREVER</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00106.html">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#ab9deeb98686244a779285df122684ff3">IMMEDIATE</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00106.html">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#ac290530f452546032cb3add29b7ec6fb">SECOND</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00106.html">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html#a9c781de15ddc7f6477e53e771558dfcb">MINUTE</a></td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ae69f019bf8415a6d67306561b2592c84"></a><!-- doxytag: member="qpid::messaging::EncodingException::EncodingException" ref="ae69f019bf8415a6d67306561b2592c84" args="(const std::string &amp;msg)" -->
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>A duration is a time in milliseconds. </p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ad4edb336e5617cb2921d74431ae3f197"></a><!-- doxytag: member="qpid::messaging::Duration::Duration" ref="ad4edb336e5617cb2921d74431ae3f197" args="(uint64_t milliseconds)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::messaging::EncodingException::EncodingException </td>
+          <td class="memname">qpid::messaging::Duration::Duration </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>msg</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>milliseconds</em></td><td>)</td>
+          <td><code> [explicit]</code></td>
         </tr>
       </table>
 </div>
@@ -103,15 +114,15 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a96ddb3fe10a2b9d059cb78832a64751d"></a><!-- doxytag: member="qpid::messaging::EncodingException::what" ref="a96ddb3fe10a2b9d059cb78832a64751d" args="() const " -->
+<a class="anchor" id="aa81f6dcb9f5e6d5da9983d33ce806b82"></a><!-- doxytag: member="qpid::messaging::Duration::getMilliseconds" ref="aa81f6dcb9f5e6d5da9983d33ce806b82" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual QPID_TYPES_EXTERN const char* qpid::types::Exception::what </td>
+          <td class="memname">uint64_t qpid::messaging::Duration::getMilliseconds </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const  throw ()<code> [virtual, inherited]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
@@ -119,8 +130,69 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/messaging/<a class="el" href="a00420_source.html">Message.h</a></li>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a873e249777ffd59f9ebb263cd0c15dbe"></a><!-- doxytag: member="qpid::messaging::Duration::FOREVER" ref="a873e249777ffd59f9ebb263cd0c15dbe" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00106.html">Duration</a> <a class="el" href="a00106.html#a873e249777ffd59f9ebb263cd0c15dbe">qpid::messaging::Duration::FOREVER</a><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00545_source.html#l00040">40</a> of file <a class="el" href="a00545_source.html">Duration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab9deeb98686244a779285df122684ff3"></a><!-- doxytag: member="qpid::messaging::Duration::IMMEDIATE" ref="ab9deeb98686244a779285df122684ff3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00106.html">Duration</a> <a class="el" href="a00106.html#ab9deeb98686244a779285df122684ff3">qpid::messaging::Duration::IMMEDIATE</a><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00545_source.html#l00041">41</a> of file <a class="el" href="a00545_source.html">Duration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9c781de15ddc7f6477e53e771558dfcb"></a><!-- doxytag: member="qpid::messaging::Duration::MINUTE" ref="a9c781de15ddc7f6477e53e771558dfcb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00106.html">Duration</a> <a class="el" href="a00106.html#a9c781de15ddc7f6477e53e771558dfcb">qpid::messaging::Duration::MINUTE</a><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00545_source.html#l00043">43</a> of file <a class="el" href="a00545_source.html">Duration.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac290530f452546032cb3add29b7ec6fb"></a><!-- doxytag: member="qpid::messaging::Duration::SECOND" ref="ac290530f452546032cb3add29b7ec6fb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00106.html">Duration</a> <a class="el" href="a00106.html#ac290530f452546032cb3add29b7ec6fb">qpid::messaging::Duration::SECOND</a><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00545_source.html#l00042">42</a> of file <a class="el" href="a00545_source.html">Duration.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qpid/messaging/<a class="el" href="a00545_source.html">Duration.h</a></li>
 </ul>
 </div>
 <!--
@@ -150,7 +222,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

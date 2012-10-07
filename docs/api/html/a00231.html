@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::sys::NullIOHandle Class Reference</title>
+    <title>qpid::framing::NotImplementedException Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,69 +60,131 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00592.html">sys</a>      </li>
-      <li class="navelem"><a class="el" href="a00231.html">NullIOHandle</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00582.html">framing</a>      </li>
+      <li class="navelem"><a class="el" href="a00231.html">NotImplementedException</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::sys::NullIOHandle Class Reference</div>  </div>
+<div class="title">qpid::framing::NotImplementedException Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::sys::NullIOHandle" --><!-- doxytag: inherits="qpid::sys::IOHandle" -->
-<p><code>#include &lt;<a class="el" href="a00561_source.html">qpid/sys/posix/PrivatePosix.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::framing::NotImplementedException" --><!-- doxytag: inherits="qpid::SessionException" -->
+<p>The peer tried to use functionality that is not implemented in its partner.  
+ <a href="a00231.html#details">More...</a></p>
 
-<p><a href="a00890.html">List of all members.</a></p>
+<p><code>#include &lt;<a class="el" href="a00518_source.html">qpid/framing/reply_exceptions.h</a>&gt;</code></p>
+
+<p><a href="a00800.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00231.html#a53cdd9df2c881dbb636bb2c63633f536">NullIOHandle</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00167.html">IOHandlePrivate</a> *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00166.html#aa9c915155c3d7482df44ff1436a1b521">impl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00231.html#a6b04f2753b351971edbb842f7b0cfab5">getPrefix</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00231.html#a78f9f83d8423a88634269557e770e755">NotImplementedException</a> (const <a class="el" href="a00346.html">std::string</a> &amp;msg=<a class="el" href="a00346.html">std::string</a>())</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html#a1319c2877b78e71fb5ded050298be31a">what</a> () const   throw ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html#a5fd1b7dd26ec0e2742c54b2b7da6c6b0">getMessage</a> () const </td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18">framing::execution::ErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#ac6ca6f797da33e069db68ab50da18615">code</a></td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a53cdd9df2c881dbb636bb2c63633f536"></a><!-- doxytag: member="qpid::sys::NullIOHandle::NullIOHandle" ref="a53cdd9df2c881dbb636bb2c63633f536" args="()" -->
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>The peer tried to use functionality that is not implemented in its partner. </p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a78f9f83d8423a88634269557e770e755"></a><!-- doxytag: member="qpid::framing::NotImplementedException::NotImplementedException" ref="a78f9f83d8423a88634269557e770e755" args="(const std::string &amp;msg=std::string())" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::sys::NullIOHandle::NullIOHandle </td>
+          <td class="memname">qpid::framing::NotImplementedException::NotImplementedException </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>msg</em> = <code><a class="el" href="a00346.html">std::string</a>()</code></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00561_source.html#l00068">68</a> of file <a class="el" href="a00561_source.html">PrivatePosix.h</a>.</p>
+<p>Definition at line <a class="el" href="a00518_source.html#l00173">173</a> of file <a class="el" href="a00518_source.html">reply_exceptions.h</a>.</p>
 
 </div>
 </div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="aa9c915155c3d7482df44ff1436a1b521"></a><!-- doxytag: member="qpid::sys::NullIOHandle::impl" ref="aa9c915155c3d7482df44ff1436a1b521" args="" -->
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a5fd1b7dd26ec0e2742c54b2b7da6c6b0"></a><!-- doxytag: member="qpid::framing::NotImplementedException::getMessage" ref="a5fd1b7dd26ec0e2742c54b2b7da6c6b0" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00167.html">IOHandlePrivate</a>* const <a class="el" href="a00166.html#aa9c915155c3d7482df44ff1436a1b521">qpid::sys::IOHandle::impl</a><code> [protected, inherited]</code></td>
+          <td class="memname">virtual <a class="el" href="a00346.html">std::string</a> qpid::Exception::getMessage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00557_source.html#l00041">41</a> of file <a class="el" href="a00557_source.html">IOHandle.h</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a6b04f2753b351971edbb842f7b0cfab5"></a><!-- doxytag: member="qpid::framing::NotImplementedException::getPrefix" ref="a6b04f2753b351971edbb842f7b0cfab5" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::framing::NotImplementedException::getPrefix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="a00116.html#a8680803b228ba1036624fd5cee183d36">qpid::Exception</a>.</p>
+
+<p>Definition at line <a class="el" href="a00518_source.html#l00172">172</a> of file <a class="el" href="a00518_source.html">reply_exceptions.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/sys/posix/<a class="el" href="a00561_source.html">PrivatePosix.h</a></li>
+<a class="anchor" id="a1319c2877b78e71fb5ded050298be31a"></a><!-- doxytag: member="qpid::framing::NotImplementedException::what" ref="a1319c2877b78e71fb5ded050298be31a" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const char* qpid::Exception::what </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const  throw ()<code> [virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="ac6ca6f797da33e069db68ab50da18615"></a><!-- doxytag: member="qpid::framing::NotImplementedException::code" ref="ac6ca6f797da33e069db68ab50da18615" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18">framing::execution::ErrorCode</a> <a class="el" href="a00332.html#ac6ca6f797da33e069db68ab50da18615">qpid::SessionException::code</a><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00492_source.html#l00060">60</a> of file <a class="el" href="a00492_source.html">Exception.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>qpid/framing/<a class="el" href="a00518_source.html">reply_exceptions.h</a></li>
 </ul>
 </div>
 <!--
@@ -152,7 +214,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

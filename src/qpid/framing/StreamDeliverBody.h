@@ -34,6 +34,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -62,6 +63,9 @@ public:
         flags |= (1 << 9);
         flags |= (1 << 10);
         flags |= (1 << 11);
+        if (consumerTag.size() >= 256) throw IllegalArgumentException("Value for consumerTag is too large");
+        if (exchange.size() >= 256) throw IllegalArgumentException("Value for exchange is too large");
+        if (queue.size() >= 256) throw IllegalArgumentException("Value for queue is too large");
     }
     StreamDeliverBody(ProtocolVersion=ProtocolVersion())  : deliveryTag(0), flags(0) {}
     

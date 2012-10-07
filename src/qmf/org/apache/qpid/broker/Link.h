@@ -51,10 +51,12 @@ QPID_BROKER_CLASS_EXTERN class Link : public ::qpid::management::ManagementObjec
 
     // Properties
     ::qpid::management::ObjectId vhostRef;
+    std::string name;
     std::string host;
     uint16_t port;
     std::string transport;
     bool durable;
+    ::qpid::management::ObjectId connectionRef;
 
     // Statistics
     std::string  state;
@@ -88,7 +90,7 @@ QPID_BROKER_CLASS_EXTERN class Link : public ::qpid::management::ManagementObjec
 
     QPID_BROKER_EXTERN Link(
         ::qpid::management::ManagementAgent* agent,
-        ::qpid::management::Manageable* coreObject, ::qpid::management::Manageable* _parent, const std::string& _host, uint16_t _port, const std::string& _transport, bool _durable);
+        ::qpid::management::Manageable* coreObject, ::qpid::management::Manageable* _parent, const std::string& _name, bool _durable);
 
     QPID_BROKER_EXTERN ~Link();
 
@@ -106,6 +108,42 @@ QPID_BROKER_CLASS_EXTERN class Link : public ::qpid::management::ManagementObjec
     QPID_BROKER_EXTERN static const uint32_t METHOD_BRIDGE = 2;
 
     // Accessor Methods
+    inline void set_host (const std::string& val) {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        host = val;
+        configChanged = true;
+    }
+    inline const std::string& get_host() {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        return host;
+    }
+    inline void set_port (uint16_t val) {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        port = val;
+        configChanged = true;
+    }
+    inline uint16_t get_port() {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        return port;
+    }
+    inline void set_transport (const std::string& val) {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        transport = val;
+        configChanged = true;
+    }
+    inline const std::string& get_transport() {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        return transport;
+    }
+    inline void set_connectionRef (const ::qpid::management::ObjectId& val) {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        connectionRef = val;
+        configChanged = true;
+    }
+    inline const ::qpid::management::ObjectId& get_connectionRef() {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        return connectionRef;
+    }
     inline void set_state (const std::string& val) {
         ::qpid::management::Mutex::ScopedLock mutex(accessLock);
         state = val;

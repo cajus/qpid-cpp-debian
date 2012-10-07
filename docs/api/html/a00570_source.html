@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/Url.h Source File</title>
+    <title>qpid/sys/Thread.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,94 +58,77 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/Url.h</div>  </div>
+<div class="title">qpid/sys/Thread.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00570.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_URL_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_URL_H</span>
+<a href="a00570.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _sys_Thread_h</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _sys_Thread_h</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="comment">/*</span>
 <a name="l00005"></a>00005 <span class="comment"> *</span>
-<a name="l00006"></a>00006 <span class="comment"> * Copyright (c) 2006 The Apache Software Foundation</span>
-<a name="l00007"></a>00007 <span class="comment"> *</span>
-<a name="l00008"></a>00008 <span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
-<a name="l00009"></a>00009 <span class="comment"> * you may not use this file except in compliance with the License.</span>
-<a name="l00010"></a>00010 <span class="comment"> * You may obtain a copy of the License at</span>
-<a name="l00011"></a>00011 <span class="comment"> *</span>
-<a name="l00012"></a>00012 <span class="comment"> *    http://www.apache.org/licenses/LICENSE-2.0</span>
+<a name="l00006"></a>00006 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
+<a name="l00007"></a>00007 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
+<a name="l00008"></a>00008 <span class="comment"> * distributed with this work for additional information</span>
+<a name="l00009"></a>00009 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
+<a name="l00010"></a>00010 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
+<a name="l00011"></a>00011 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
+<a name="l00012"></a>00012 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
 <a name="l00013"></a>00013 <span class="comment"> *</span>
-<a name="l00014"></a>00014 <span class="comment"> * Unless required by applicable law or agreed to in writing, software</span>
-<a name="l00015"></a>00015 <span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
-<a name="l00016"></a>00016 <span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
-<a name="l00017"></a>00017 <span class="comment"> * See the License for the specific language governing permissions and</span>
-<a name="l00018"></a>00018 <span class="comment"> * limitations under the License.</span>
-<a name="l00019"></a>00019 <span class="comment"> *</span>
-<a name="l00020"></a>00020 <span class="comment"> */</span>
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="a00451.html">qpid/Address.h</a>&quot;</span>
-<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;<a class="code" href="a00490.html">qpid/Exception.h</a>&quot;</span>
-<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &lt;new&gt;</span>
-<a name="l00027"></a>00027 <span class="preprocessor">#include &lt;ostream&gt;</span>
-<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="a00482.html">qpid/CommonImportExport.h</a>&quot;</span>
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 <span class="keyword">namespace </span>qpid {
-<a name="l00031"></a>00031 
-<a name="l00033"></a>00033 <span class="keyword">struct </span>Url : <span class="keyword">public</span> std::vector&lt;Address&gt; {
-<a name="l00034"></a>00034 
-<a name="l00036"></a>00036     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">static</span> <a class="code" href="a00373.html#ad75ccdfa0864d16375845ec9d7660eff" title="Empty URL.">Url</a> <a class="code" href="a00373.html#ac4171c7096fcef2b55150a38d5a1840d" title="Url with the hostname as returned by gethostname(2)">getHostNameUrl</a>(<a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> port);
-<a name="l00037"></a>00037 
-<a name="l00040"></a>00040     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">static</span> <a class="code" href="a00373.html#ad75ccdfa0864d16375845ec9d7660eff" title="Empty URL.">Url</a> <a class="code" href="a00373.html#a90865762b4f028ebf4a82a3c55378d32" title="Url with local IP address(es), may be more than one address on a multi-homed host.">getIpAddressesUrl</a>(<a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> port);
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042     <span class="keyword">struct </span>Invalid : <span class="keyword">public</span> Exception { <a class="code" href="a00159.html#a6645dc71f83628c9b36e9907f83a8d1f">Invalid</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; s); };
+<a name="l00014"></a>00014 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
+<a name="l00015"></a>00015 <span class="comment"> *</span>
+<a name="l00016"></a>00016 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
+<a name="l00017"></a>00017 <span class="comment"> * software distributed under the License is distributed on an</span>
+<a name="l00018"></a>00018 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<a name="l00019"></a>00019 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
+<a name="l00020"></a>00020 <span class="comment"> * specific language governing permissions and limitations</span>
+<a name="l00021"></a>00021 <span class="comment"> * under the License.</span>
+<a name="l00022"></a>00022 <span class="comment"> *</span>
+<a name="l00023"></a>00023 <span class="comment"> */</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;boost/shared_ptr.hpp&gt;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00484.html">qpid/CommonImportExport.h</a>&quot;</span>
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="preprocessor">#ifdef _WIN32</span>
+<a name="l00028"></a>00028 <span class="preprocessor"></span><span class="preprocessor">#  ifdef _MSC_VER</span>
+<a name="l00029"></a>00029 <span class="preprocessor"></span><span class="preprocessor">#    define QPID_TSS __declspec(thread)</span>
+<a name="l00030"></a>00030 <span class="preprocessor"></span><span class="preprocessor">#  else</span>
+<a name="l00031"></a>00031 <span class="preprocessor"></span><span class="preprocessor">#    define QPID_TSS __thread</span>
+<a name="l00032"></a>00032 <span class="preprocessor"></span><span class="preprocessor">#  endif</span>
+<a name="l00033"></a>00033 <span class="preprocessor"></span><span class="preprocessor">#elif defined (__GNUC__)</span>
+<a name="l00034"></a>00034 <span class="preprocessor"></span><span class="preprocessor">#  define QPID_TSS __thread</span>
+<a name="l00035"></a>00035 <span class="preprocessor"></span><span class="preprocessor">#elif defined (__SUNPRO_CC)</span>
+<a name="l00036"></a>00036 <span class="preprocessor"></span><span class="preprocessor">#  define QPID_TSS __thread</span>
+<a name="l00037"></a>00037 <span class="preprocessor"></span><span class="preprocessor">#else</span>
+<a name="l00038"></a>00038 <span class="preprocessor"></span><span class="preprocessor">#  error &quot;Dont know how to define QPID_TSS for this platform&quot;</span>
+<a name="l00039"></a>00039 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
+<a name="l00040"></a>00040 <span class="preprocessor"></span>
+<a name="l00041"></a>00041 <span class="keyword">namespace </span>qpid {
+<a name="l00042"></a>00042 <span class="keyword">namespace </span>sys {
 <a name="l00043"></a>00043 
-<a name="l00045"></a>00045     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> std::string <a class="code" href="a00373.html#a938344db8fdcbce98f661b3a6ec4af4e" title="Convert to string form.">str</a>() <span class="keyword">const</span>;
+<a name="l00044"></a>00044 <span class="keyword">class </span>Runnable;
+<a name="l00045"></a>00045 <span class="keyword">class </span>ThreadPrivate;
 <a name="l00046"></a>00046 
-<a name="l00048"></a><a class="code" href="a00373.html#ad75ccdfa0864d16375845ec9d7660eff">00048</a>     <a class="code" href="a00373.html#ad75ccdfa0864d16375845ec9d7660eff" title="Empty URL.">Url</a>() {}
-<a name="l00049"></a>00049 
-<a name="l00051"></a><a class="code" href="a00373.html#acae27deb0fa8058a2d7a71bf95683e74">00051</a>     <span class="keyword">explicit</span> <a class="code" href="a00373.html#acae27deb0fa8058a2d7a71bf95683e74" title="URL containing a single address.">Url</a>(<span class="keyword">const</span> <a class="code" href="a00002.html" title="Contains the protocol address of an AMQP broker.">Address</a>&amp; addr) { push_back(addr); }
-<a name="l00052"></a>00052 
-<a name="l00054"></a><a class="code" href="a00373.html#ac45f27e6821ac88ab743f820ce4a7f93">00054</a>     <span class="keyword">explicit</span> <a class="code" href="a00373.html#ac45f27e6821ac88ab743f820ce4a7f93" title="Parse url, throw Invalid if invalid.">Url</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; url) { <a class="code" href="a00373.html#a805ce2afe48ee608e15a608e1c63e08f" title="Replace contents with parsed url if the url is invalid.">parse</a>(url.c_str()); }
-<a name="l00056"></a><a class="code" href="a00373.html#a80b638e267fc10c35fee13a4fdb8780d">00056</a>     <span class="keyword">explicit</span> <a class="code" href="a00373.html#a80b638e267fc10c35fee13a4fdb8780d" title="Parse url, throw Invalid if invalid.">Url</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; url, <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; defaultProtocol) { <a class="code" href="a00373.html#a805ce2afe48ee608e15a608e1c63e08f" title="Replace contents with parsed url if the url is invalid.">parse</a>(url.c_str(), defaultProtocol); }
-<a name="l00057"></a>00057 
-<a name="l00059"></a><a class="code" href="a00373.html#ae144b2c7f52e1ef12dc1e2bb80f676b3">00059</a>     <span class="keyword">explicit</span> <a class="code" href="a00373.html#ae144b2c7f52e1ef12dc1e2bb80f676b3" title="Parse url, throw Invalid if invalid.">Url</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* url) { <a class="code" href="a00373.html#a805ce2afe48ee608e15a608e1c63e08f" title="Replace contents with parsed url if the url is invalid.">parse</a>(url); }
-<a name="l00060"></a>00060 
-<a name="l00061"></a><a class="code" href="a00373.html#ac6065b9f5fb56e04902ce87743115284">00061</a>     <a class="code" href="a00373.html" title="An AMQP URL contains a list of addresses.">Url</a>&amp; <a class="code" href="a00373.html#ac6065b9f5fb56e04902ce87743115284">operator=</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* s) { <a class="code" href="a00373.html#a805ce2afe48ee608e15a608e1c63e08f" title="Replace contents with parsed url if the url is invalid.">parse</a>(s); <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
-<a name="l00062"></a><a class="code" href="a00373.html#ad1b5ce2c6f02ae7dd92d9b052237a9bd">00062</a>     <a class="code" href="a00373.html" title="An AMQP URL contains a list of addresses.">Url</a>&amp; <a class="code" href="a00373.html#ad1b5ce2c6f02ae7dd92d9b052237a9bd">operator=</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; s) { <a class="code" href="a00373.html#a805ce2afe48ee608e15a608e1c63e08f" title="Replace contents with parsed url if the url is invalid.">parse</a>(s); <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
+<a name="l00047"></a>00047 <span class="keyword">class </span>Thread
+<a name="l00048"></a>00048 {
+<a name="l00049"></a>00049     boost::shared_ptr&lt;ThreadPrivate&gt; impl;
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051   <span class="keyword">public</span>:
+<a name="l00052"></a>00052     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00356.html#a0f89717f5372353ad431e4b061dd6288">Thread</a>();
+<a name="l00053"></a>00053     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">explicit</span> <a class="code" href="a00356.html#a0f89717f5372353ad431e4b061dd6288">Thread</a>(<a class="code" href="a00294.html" title="Interface for objects that can be run, e.g.">qpid::sys::Runnable</a>*);
+<a name="l00054"></a>00054     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">explicit</span> <a class="code" href="a00356.html#a0f89717f5372353ad431e4b061dd6288">Thread</a>(<a class="code" href="a00294.html" title="Interface for objects that can be run, e.g.">qpid::sys::Runnable</a>&amp;);
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00356.html#a7b6b4d36bbe13b32b5c5a51522f550d5">operator bool</a>();
+<a name="l00057"></a>00057     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> <a class="code" href="a00356.html#a9526ed65191221f41e42bc521bc947d8">operator==</a>(<span class="keyword">const</span> <a class="code" href="a00356.html#a0f89717f5372353ad431e4b061dd6288">Thread</a>&amp;) <span class="keyword">const</span>;
+<a name="l00058"></a>00058     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> <a class="code" href="a00356.html#a837c039d59eee9308f90432fd7a5b680">operator!=</a>(<span class="keyword">const</span> <a class="code" href="a00356.html#a0f89717f5372353ad431e4b061dd6288">Thread</a>&amp;) <span class="keyword">const</span>;
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00356.html#abfd7db7931a80d416fe29bea4f9acdb3">join</a>();
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">static</span> <a class="code" href="a00356.html#a0f89717f5372353ad431e4b061dd6288">Thread</a> <a class="code" href="a00356.html#aab7ad4f92d67051dbba4880c58968903">current</a>();
 <a name="l00063"></a>00063 
-<a name="l00065"></a>00065     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00373.html#afdd7736b48f5f74fa408064fd4ccbee8" title="Throw Invalid if the URL does not contain any addresses.">throwIfEmpty</a>() <span class="keyword">const</span>;
-<a name="l00066"></a>00066 
-<a name="l00070"></a>00070     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00373.html#a805ce2afe48ee608e15a608e1c63e08f" title="Replace contents with parsed url if the url is invalid.">parse</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* url);
-<a name="l00071"></a>00071     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00373.html#a805ce2afe48ee608e15a608e1c63e08f" title="Replace contents with parsed url if the url is invalid.">parse</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* url, <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; defaultProtocol);
-<a name="l00072"></a><a class="code" href="a00373.html#a76e99ee02d3012f53fc6b1a42de78186">00072</a>     <a class="code" href="a00482.html#a22b814cc5ef605d90a1295eae41f4ee4">QPID_COMMON_INLINE_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00373.html#a76e99ee02d3012f53fc6b1a42de78186">parse</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; url) { <a class="code" href="a00373.html#a76e99ee02d3012f53fc6b1a42de78186">parse</a>(url.c_str()); }
-<a name="l00073"></a>00073 
-<a name="l00075"></a>00075     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00373.html#ac0e5c56ae896d479948d174595cbda5b" title="Replace contesnts with parsed URL.">parseNoThrow</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* url);
-<a name="l00076"></a>00076     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00373.html#ac0e5c56ae896d479948d174595cbda5b" title="Replace contesnts with parsed URL.">parseNoThrow</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* url, <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; defaultProtocol);
-<a name="l00077"></a>00077 
-<a name="l00081"></a>00081     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="a00373.html#a5b2985e6bd8660fe218271c47b9d7ece" title="Add a protocol tag to be recognzed in URLs.">addProtocol</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; tag);
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00373.html#a1232f9776e93cc339b41a2f6ad5d91e4">setUser</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp;);
-<a name="l00084"></a>00084     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00373.html#a531aef3c7c22ece280d6fce5875e3de5">setPass</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp;);
-<a name="l00085"></a>00085     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> std::string <a class="code" href="a00373.html#a95663d240ce44d74c4b8bc88de999cef">getUser</a>() <span class="keyword">const</span>;
-<a name="l00086"></a>00086     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> std::string <a class="code" href="a00373.html#a18a5be42e723adb84d0710bdda0302e9">getPass</a>() <span class="keyword">const</span>;
-<a name="l00087"></a>00087 
-<a name="l00088"></a>00088   <span class="keyword">private</span>:
-<a name="l00089"></a>00089     <span class="keyword">mutable</span> std::string cache;  <span class="comment">// cache string form for efficiency.</span>
-<a name="l00090"></a>00090     std::string user, pass;
-<a name="l00091"></a>00091 
-<a name="l00092"></a><a class="code" href="a00373.html#ad45943a79fdecb7bd48d00bf283a86cf">00092</a>   <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a00373.html#ad45943a79fdecb7bd48d00bf283a86cf">UrlParser</a>;
-<a name="l00093"></a>00093 };
-<a name="l00094"></a>00094 
-<a name="l00095"></a><a class="code" href="a00574.html#a6cf8340fdd0d05446805d6f400b9f4a7">00095</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="a00574.html#aacf454d1ba7d16ccf9ecd4037c4c47f3">operator==</a>(<span class="keyword">const</span> <a class="code" href="a00373.html" title="An AMQP URL contains a list of addresses.">Url</a>&amp; a, <span class="keyword">const</span> <a class="code" href="a00373.html" title="An AMQP URL contains a list of addresses.">Url</a>&amp; b) { <span class="keywordflow">return</span> a.str()==b.str(); }
-<a name="l00096"></a><a class="code" href="a00574.html#a1b3b4dbc3b3be36961da443d48c02dd4">00096</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="a00574.html#a1b3b4dbc3b3be36961da443d48c02dd4">operator!=</a>(<span class="keyword">const</span> <a class="code" href="a00373.html" title="An AMQP URL contains a list of addresses.">Url</a>&amp; a, <span class="keyword">const</span> <a class="code" href="a00373.html" title="An AMQP URL contains a list of addresses.">Url</a>&amp; b) { <span class="keywordflow">return</span> a.str()!=b.str(); }
-<a name="l00097"></a>00097 
-<a name="l00098"></a>00098 <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> std::ostream&amp; <a class="code" href="a00574.html#a365c9037931e1445c06e0e66ec94f615">operator&lt;&lt;</a>(<a class="code" href="a00243.html" title="STL class.">std::ostream</a>&amp; os, <span class="keyword">const</span> Url&amp; url);
-<a name="l00099"></a>00099 <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> std::istream&amp; <a class="code" href="a00574.html#a35bb1cee76de54197517fb8989801d22">operator&gt;&gt;</a>(<a class="code" href="a00170.html" title="STL class.">std::istream</a>&amp; is, Url&amp; url);
-<a name="l00100"></a>00100 
-<a name="l00101"></a>00101 } <span class="comment">// namespace qpid</span>
-<a name="l00102"></a>00102 
-<a name="l00103"></a>00103 <span class="preprocessor">#endif  </span>
+<a name="l00067"></a>00067     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> <a class="code" href="a00356.html#af795bc09bab9f9017df2634de4023580" title="ID of current thread for logging.">logId</a>();
+<a name="l00068"></a>00068 };
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070 }}
+<a name="l00071"></a>00071 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -175,7 +158,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf/DataAddr.h Source File</title>
+    <title>qmf/ConsoleSession.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,11 +58,11 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qmf/DataAddr.h</div>  </div>
+<div class="title">qmf/ConsoleSession.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00411.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QMF_DATA_ADDR_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QMF_DATA_ADDR_H</span>
+<a href="a00411.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QMF_CONSOLE_SESSION_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QMF_CONSOLE_SESSION_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span><span class="comment">/*</span>
 <a name="l00004"></a>00004 <span class="comment"> *</span>
 <a name="l00005"></a>00005 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
@@ -84,49 +84,61 @@
 <a name="l00021"></a>00021 <span class="comment"> *</span>
 <a name="l00022"></a>00022 <span class="comment"> */</span>
 <a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;<a class="code" href="a00440.html">qmf/ImportExport.h</a>&gt;</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00437.html">qmf/Handle.h</a>&quot;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00569.html">qpid/types/Variant.h</a>&quot;</span>
-<a name="l00027"></a>00027 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029 <span class="keyword">namespace </span>qmf {
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="preprocessor">#ifndef SWIG</span>
-<a name="l00032"></a>00032 <span class="preprocessor"></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span>&gt; <span class="keyword">class </span>PrivateImplRef;
-<a name="l00033"></a>00033 <span class="preprocessor">#endif</span>
-<a name="l00034"></a>00034 <span class="preprocessor"></span>
-<a name="l00035"></a>00035     <span class="keyword">class </span>DataAddrImpl;
-<a name="l00036"></a>00036 
-<a name="l00037"></a>00037     <span class="keyword">class </span><a class="code" href="a00440.html#aa6143d1e586807dc556687a007c92b69">QMF_CLASS_EXTERN</a> DataAddr : <span class="keyword">public</span> qmf::Handle&lt;DataAddrImpl&gt; {
-<a name="l00038"></a>00038     <span class="keyword">public</span>:
-<a name="l00039"></a>00039         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> DataAddr(DataAddrImpl* impl = 0);
-<a name="l00040"></a>00040         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> DataAddr(<span class="keyword">const</span> DataAddr&amp;);
-<a name="l00041"></a>00041         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> DataAddr&amp; operator=(<span class="keyword">const</span> DataAddr&amp;);
-<a name="l00042"></a>00042         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> ~DataAddr();
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">bool</span> <a class="code" href="a00574.html#aacf454d1ba7d16ccf9ecd4037c4c47f3">operator==</a>(<span class="keyword">const</span> DataAddr&amp;);
-<a name="l00045"></a>00045         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">bool</span> <a class="code" href="a00592.html#a65509dc2edc1f45418191a21bd433b0a">operator&lt;</a>(<span class="keyword">const</span> DataAddr&amp;);
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> DataAddr(<span class="keyword">const</span> <a class="code" href="a00202.html" title="STL class.">qpid::types::Variant::Map</a>&amp;);
-<a name="l00048"></a>00048         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> DataAddr(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; name, <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; agentName, <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> agentEpoch=0);
-<a name="l00049"></a>00049         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keyword">const</span> std::string&amp; getName() <span class="keyword">const</span>;
-<a name="l00050"></a>00050         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keyword">const</span> std::string&amp; getAgentName() <span class="keyword">const</span>;
-<a name="l00051"></a>00051         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> getAgentEpoch() <span class="keyword">const</span>;
-<a name="l00052"></a>00052         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> qpid::types::Variant::Map asMap() <span class="keyword">const</span>;
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">bool</span> <a class="code" href="a00574.html#aacf454d1ba7d16ccf9ecd4037c4c47f3">operator==</a>(<span class="keyword">const</span> DataAddr&amp;) <span class="keyword">const</span>;
-<a name="l00055"></a>00055         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">bool</span> <a class="code" href="a00592.html#a65509dc2edc1f45418191a21bd433b0a">operator&lt;</a>(<span class="keyword">const</span> DataAddr&amp;) <span class="keyword">const</span>;
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057 <span class="preprocessor">#ifndef SWIG</span>
-<a name="l00058"></a>00058 <span class="preprocessor"></span>    <span class="keyword">private</span>:
-<a name="l00059"></a><a class="code" href="a00095.html#a2cc6d2aebdcb82e9ea7f22b245ef9374">00059</a>         <span class="keyword">friend</span> <span class="keyword">class </span>qmf::PrivateImplRef&lt;<a class="code" href="a00095.html">DataAddr</a>&gt;;
-<a name="l00060"></a><a class="code" href="a00095.html#ad54a07fcd3f42ded2582e65e7b94606f">00060</a>         <span class="keyword">friend</span> <span class="keyword">struct </span>DataAddrImplAccess;
-<a name="l00061"></a>00061 <span class="preprocessor">#endif</span>
-<a name="l00062"></a>00062 <span class="preprocessor"></span>    };
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064 }
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066 <span class="preprocessor">#endif</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;<a class="code" href="a00442.html">qmf/ImportExport.h</a>&gt;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00439.html">qmf/Handle.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00404.html">qmf/Agent.h</a>&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00451.html">qmf/Subscription.h</a>&quot;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="a00545.html">qpid/messaging/Duration.h</a>&quot;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="a00465.html">qpid/messaging/Connection.h</a>&quot;</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="keyword">namespace </span>qmf {
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 <span class="preprocessor">#ifndef SWIG</span>
+<a name="l00035"></a>00035 <span class="preprocessor"></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span>&gt; <span class="keyword">class </span>PrivateImplRef;
+<a name="l00036"></a>00036 <span class="preprocessor">#endif</span>
+<a name="l00037"></a>00037 <span class="preprocessor"></span>
+<a name="l00038"></a>00038     <span class="keyword">class </span>ConsoleSessionImpl;
+<a name="l00039"></a>00039     <span class="keyword">class </span>ConsoleEvent;
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041     <span class="keyword">class </span><a class="code" href="a00442.html#aa6143d1e586807dc556687a007c92b69">QMF_CLASS_EXTERN</a> ConsoleSession : <span class="keyword">public</span> qmf::Handle&lt;ConsoleSessionImpl&gt; {
+<a name="l00042"></a>00042     <span class="keyword">public</span>:
+<a name="l00043"></a>00043         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> ConsoleSession(ConsoleSessionImpl* impl = 0);
+<a name="l00044"></a>00044         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> ConsoleSession(<span class="keyword">const</span> ConsoleSession&amp;);
+<a name="l00045"></a>00045         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> ConsoleSession&amp; operator=(<span class="keyword">const</span> ConsoleSession&amp;);
+<a name="l00046"></a>00046         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> ~ConsoleSession();
+<a name="l00047"></a>00047 
+<a name="l00069"></a>00069         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> ConsoleSession(<a class="code" href="a00061.html" title="A connection represents a network connection to a remote endpoint.">qpid::messaging::Connection</a>&amp; conn, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; options=<span class="stringliteral">&quot;&quot;</span>);
+<a name="l00070"></a>00070 
+<a name="l00076"></a>00076         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">void</span> setDomain(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; domain);
+<a name="l00077"></a>00077         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">void</span> setAgentFilter(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; filter);
+<a name="l00078"></a>00078 
+<a name="l00082"></a>00082         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">void</span> open();
+<a name="l00083"></a>00083 
+<a name="l00087"></a>00087         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">void</span> close();
+<a name="l00088"></a>00088 
+<a name="l00095"></a>00095         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">bool</span> nextEvent(ConsoleEvent&amp; outEvent, <a class="code" href="a00106.html" title="A duration is a time in milliseconds.">qpid::messaging::Duration</a> timeout=<a class="code" href="a00106.html#a873e249777ffd59f9ebb263cd0c15dbe">qpid::messaging::Duration::FOREVER</a>);
+<a name="l00096"></a>00096 
+<a name="l00100"></a>00100         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">int</span> pendingEvents() <span class="keyword">const</span>;
+<a name="l00101"></a>00101 
+<a name="l00105"></a>00105         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> getAgentCount() <span class="keyword">const</span>;
+<a name="l00106"></a>00106         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> Agent getAgent(<a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> agentIndex) <span class="keyword">const</span>;
+<a name="l00107"></a>00107 
+<a name="l00111"></a>00111         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> Agent getConnectedBrokerAgent() <span class="keyword">const</span>;
+<a name="l00112"></a>00112 
+<a name="l00120"></a>00120         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> Subscription subscribe(<span class="keyword">const</span> Query&amp; query,       <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; agentFilter = <span class="stringliteral">&quot;&quot;</span>, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; options = <span class="stringliteral">&quot;&quot;</span>);
+<a name="l00121"></a>00121         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> Subscription subscribe(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; query, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; agentFilter = <span class="stringliteral">&quot;&quot;</span>, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; options = <span class="stringliteral">&quot;&quot;</span>);
+<a name="l00122"></a>00122 
+<a name="l00123"></a>00123 <span class="preprocessor">#ifndef SWIG</span>
+<a name="l00124"></a>00124 <span class="preprocessor"></span>    <span class="keyword">private</span>:
+<a name="l00125"></a><a class="code" href="a00073.html#a61c2cec385ce1542652627c712fc5445">00125</a>         <span class="keyword">friend</span> <span class="keyword">class </span>qmf::PrivateImplRef&lt;<a class="code" href="a00073.html">ConsoleSession</a>&gt;;
+<a name="l00126"></a><a class="code" href="a00073.html#a2c413429dd57277f33c84f8ca696a797">00126</a>         <span class="keyword">friend</span> <span class="keyword">struct </span>ConsoleSessionImplAccess;
+<a name="l00127"></a>00127 <span class="preprocessor">#endif</span>
+<a name="l00128"></a>00128 <span class="preprocessor"></span>    };
+<a name="l00129"></a>00129 
+<a name="l00130"></a>00130 }
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--
@@ -156,7 +168,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

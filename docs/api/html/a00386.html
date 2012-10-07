@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>std::vector Class Reference</title>
+    <title>qpid::types::Variant Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,38 +60,1398 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><b>std</b>      </li>
-      <li class="navelem"><a class="el" href="a00386.html">vector</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00596.html">types</a>      </li>
+      <li class="navelem"><a class="el" href="a00386.html">Variant</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">std::vector Class Reference</div>  </div>
+<div class="title">qpid::types::Variant Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="std::vector" -->
-<p>STL class.  
+<!-- doxytag: class="qpid::types::Variant" -->
+<p>Represents a value of variable type.  
  <a href="a00386.html#details">More...</a></p>
 
-<p><a href="a00907.html">List of all members.</a></p>
+<p><code>#include &lt;<a class="el" href="a00571_source.html">qpid/types/Variant.h</a>&gt;</code></p>
+
+<p><a href="a00901.html">List of all members.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00082.html">const_iterator</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">STL iterator class.  <a href="a00082.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00092.html">const_reverse_iterator</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">STL iterator class.  <a href="a00092.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00183.html">iterator</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">STL iterator class.  <a href="a00183.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00291.html">reverse_iterator</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">STL iterator class.  <a href="a00291.html#details">More...</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00203.html">std::map</a>&lt; <a class="el" href="a00346.html">std::string</a>, <br class="typebreak"/>
+<a class="el" href="a00386.html">Variant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">Map</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00191.html">std::list</a>&lt; <a class="el" href="a00386.html">Variant</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a8603092790e51851bc2166e9562a2e11">List</a></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a1d1514205ebd981b764ce190c78a2a7f">Variant</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a40e4354f290c717ff0cf8793e5ddce74">Variant</a> (bool)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a191104ace1f896a44cafa40501886e20">Variant</a> (<a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a0ad50ff5b14904ddb2df386210ea1617">Variant</a> (<a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a9cf38698c638ff5a98266a25cb9cacd5">Variant</a> (<a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a9387f121e09b09db45449565f36e239a">Variant</a> (uint64_t)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#ad3f92c2487d3fed531c2881b2bbcd9e8">Variant</a> (int8_t)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a8950df90d615d610600a0fb754d2d923">Variant</a> (<a class="el" href="a00558.html#aa343fa3b3d06292b959ffdd4c4703b06">int16_t</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a154c908bf9d3121342fc32bcaaab8b97">Variant</a> (<a class="el" href="a00558.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#af39fa4c88448d3be2ec2e3e0827b5e1a">Variant</a> (int64_t)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a28dfabd861c7b4faf91d1062993b9172">Variant</a> (float)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#ad63bc95281ae423a1790b676450dc26f">Variant</a> (double)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a706e959524f8bf36037db181cef6cc9b">Variant</a> (const <a class="el" href="a00346.html">std::string</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#aebde1e755649820b840bb627b9e88e89">Variant</a> (const char *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a7a50e44e1701f6ed368bd2025f91cf52">Variant</a> (const <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">Map</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a42541a03fd42df33076aa23868ad9c51">Variant</a> (const <a class="el" href="a00386.html#a8603092790e51851bc2166e9562a2e11">List</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a760721d1db05da274cbcfe3bcfd82cfa">Variant</a> (const <a class="el" href="a00386.html">Variant</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a38c52d1b69bc8a490878cf8f7ef66b89">Variant</a> (const <a class="el" href="a00375.html">Uuid</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a89977f55dd4cb9eaadf90595dbfa9653">~Variant</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16">VariantType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a8d5b19af1848a2a2a454be9439bdbdbe">getType</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a5570248042b8b62f5f3c5186e336a34f">isVoid</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a98db938a88d782eeb7299e1ffe6d48fd">operator=</a> (bool)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a01bcf88764d428367699c5394b00f131">operator=</a> (<a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a6b0ec26fbd6bcc9994b1d9401f6a90dd">operator=</a> (<a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#ae3335f37cffe70c871544e82d2e1c21a">operator=</a> (<a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a01f5ee0877d83c73e39b574334ece93d">operator=</a> (uint64_t)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a297e90d438a8a04c7f3ec2062d7b8a6a">operator=</a> (int8_t)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a9e5d89a39b6295d64cdf8a07f0e42e9a">operator=</a> (<a class="el" href="a00558.html#aa343fa3b3d06292b959ffdd4c4703b06">int16_t</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a3cf5562295cd320645db68193215afe3">operator=</a> (<a class="el" href="a00558.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a>)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a578bd534a13ac7c786a3fe658d1ecb89">operator=</a> (int64_t)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a38d725c897b0802b25e2cb5234e057bc">operator=</a> (float)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#abb8fa6cd87bdc189e2e8fe01e1032850">operator=</a> (double)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#ad0e57d65f6f036c9af1a5b5b71a1efba">operator=</a> (const <a class="el" href="a00346.html">std::string</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#abd639fae97c8713df398dd3f55f62936">operator=</a> (const char *)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a8f7c9f52d6c662e2735e9c0647796858">operator=</a> (const <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">Map</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#aebd0df180eba7fa4b8ad96183727364a">operator=</a> (const <a class="el" href="a00386.html#a8603092790e51851bc2166e9562a2e11">List</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a0ee5825038f43bccb621e6f415f0a59b">operator=</a> (const <a class="el" href="a00386.html">Variant</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a34e659bd6d4e396dedd653943b1364f8">operator=</a> (const <a class="el" href="a00375.html">Uuid</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#afe8749ffa406f413549399a02b378b45">parse</a> (const <a class="el" href="a00346.html">std::string</a> &amp;)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses the argument and assigns itself the appropriate value.  <a href="#afe8749ffa406f413549399a02b378b45"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a6685a9459ea37041dc8d6d8405ab76a5">asBool</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#aa58ccfbd015793418a7a675f0d2f29c0">asUint8</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#af49d4763551ba67e5b392055004e3340">asUint16</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#ab8cfe06fcafaa17f447efc3ba60be951">asUint32</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a46d36d22eaee3f95880685159dae2971">asUint64</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a6abfc347f66be010061eeb76c84c72a6">asInt8</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00558.html#aa343fa3b3d06292b959ffdd4c4703b06">int16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a961cdc14472fa35e0fe91beb695a7c8f">asInt16</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00558.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a0306b3423c2948a521c802dd1ce64f24">asInt32</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a1d638158e3f252622c023df7e5ab5aa5">asInt64</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#ad0215577abd856accc17146d1b98da43">asFloat</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a84615d796c7bea1fdb624d6443c1b000">asDouble</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#afbbba4337eb9edfacff5b7e92b32cff5">asString</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00375.html">Uuid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a56d16ac10ffd0a134480aea6feb6ef59">asUuid</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#abc53cb86d2f7858f544bb1643342f5be">operator bool</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a882cac2f4efdf868c612fbea56ac655b">operator uint8_t</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a066b7416b28d037aed0370c12edbfa60">operator uint16_t</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a3ec830b65a7bb775722bb43ed88e2133">operator uint32_t</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#ae7cf5646536ac7bac4994150f8659ed3">operator uint64_t</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a026862c05f40460e2e5b425eb6086b3e">operator int8_t</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a25251d0560f8ca9a4ce8b040ca8bfc54">operator int16_t</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a3b833d6d38f498bf5e728bc8d6ce1ca3">operator int32_t</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#aeb768d96439b62ffc2ebd8a6c4248052">operator int64_t</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a0a56026068580e108fbc77d2e75992d3">operator float</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a37f7ab493851e222aca8ade3f08be65a">operator double</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#af198c8d23a13bf9bfa96c84be5241dd6">operator std::string</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a2329d85f57fbfb83e565121f9dbcd837">operator Uuid</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN const <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">Map</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a3f964dfc4bc3db1d6e72c30cfc75953a">asMap</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">Map</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#aa379a62d5eab055bbde3aa1a262e555b">asMap</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN const <a class="el" href="a00386.html#a8603092790e51851bc2166e9562a2e11">List</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#af3e28b4fb15e9f2cfa0cca34021b3f27">asList</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00386.html#a8603092790e51851bc2166e9562a2e11">List</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a7f57bc9a27aa9568bb86a003d326ecc3">asList</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN const <br class="typebreak"/>
+<a class="el" href="a00346.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a40632d7034fbdd23f208edf81f8b5fa6">getString</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlike <a class="el" href="a00386.html#afbbba4337eb9edfacff5b7e92b32cff5">asString()</a>, <a class="el" href="a00386.html#ac8605b8561b2c3012a84078d56275140">getString()</a> will not do any conversions and will throw <a class="el" href="a00164.html" title="Thrown when an illegal conversion of a variant is attempted.">InvalidConversion</a> if the type is not STRING.  <a href="#a40632d7034fbdd23f208edf81f8b5fa6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#ac8605b8561b2c3012a84078d56275140">getString</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a05f177447a728ff17cd83bc22d9a79c2">setEncoding</a> (const <a class="el" href="a00346.html">std::string</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN const <br class="typebreak"/>
+<a class="el" href="a00346.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#ab6563961bd21d3e0549b4e185cb0f75b">getEncoding</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a97dd59214dd27a6e475b5770ea41317d">isEqualTo</a> (const <a class="el" href="a00386.html">Variant</a> &amp;a) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html#a7c454d14b3246a4c7fd8859318dd05c1">reset</a> ()</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>STL class. </p>
-</div><hr/>The documentation for this class was generated from the following files:</div>
+<div class="textblock"><p>Represents a value of variable type. </p>
+</div><hr/><h2>Member Typedef Documentation</h2>
+<a class="anchor" id="a8603092790e51851bc2166e9562a2e11"></a><!-- doxytag: member="qpid::types::Variant::List" ref="a8603092790e51851bc2166e9562a2e11" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a00191.html">std::list</a>&lt;<a class="el" href="a00386.html">Variant</a>&gt; <a class="el" href="a00386.html#a8603092790e51851bc2166e9562a2e11">qpid::types::Variant::List</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00571_source.html#l00076">76</a> of file <a class="el" href="a00571_source.html">Variant.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae4e24d890f56397299a6ebadb2dfa7f0"></a><!-- doxytag: member="qpid::types::Variant::Map" ref="ae4e24d890f56397299a6ebadb2dfa7f0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="a00203.html">std::map</a>&lt;<a class="el" href="a00346.html">std::string</a>, <a class="el" href="a00386.html">Variant</a>&gt; <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00571_source.html#l00075">75</a> of file <a class="el" href="a00571_source.html">Variant.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a1d1514205ebd981b764ce190c78a2a7f"></a><!-- doxytag: member="qpid::types::Variant::Variant" ref="a1d1514205ebd981b764ce190c78a2a7f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::Variant </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a40e4354f290c717ff0cf8793e5ddce74"></a><!-- doxytag: member="qpid::types::Variant::Variant" ref="a40e4354f290c717ff0cf8793e5ddce74" args="(bool)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::Variant </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a191104ace1f896a44cafa40501886e20"></a><!-- doxytag: member="qpid::types::Variant::Variant" ref="a191104ace1f896a44cafa40501886e20" args="(uint8_t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::Variant </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0ad50ff5b14904ddb2df386210ea1617"></a><!-- doxytag: member="qpid::types::Variant::Variant" ref="a0ad50ff5b14904ddb2df386210ea1617" args="(uint16_t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::Variant </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9cf38698c638ff5a98266a25cb9cacd5"></a><!-- doxytag: member="qpid::types::Variant::Variant" ref="a9cf38698c638ff5a98266a25cb9cacd5" args="(uint32_t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::Variant </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9387f121e09b09db45449565f36e239a"></a><!-- doxytag: member="qpid::types::Variant::Variant" ref="a9387f121e09b09db45449565f36e239a" args="(uint64_t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::Variant </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad3f92c2487d3fed531c2881b2bbcd9e8"></a><!-- doxytag: member="qpid::types::Variant::Variant" ref="ad3f92c2487d3fed531c2881b2bbcd9e8" args="(int8_t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::Variant </td>
+          <td>(</td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8950df90d615d610600a0fb754d2d923"></a><!-- doxytag: member="qpid::types::Variant::Variant" ref="a8950df90d615d610600a0fb754d2d923" args="(int16_t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::Variant </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#aa343fa3b3d06292b959ffdd4c4703b06">int16_t</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a154c908bf9d3121342fc32bcaaab8b97"></a><!-- doxytag: member="qpid::types::Variant::Variant" ref="a154c908bf9d3121342fc32bcaaab8b97" args="(int32_t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::Variant </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af39fa4c88448d3be2ec2e3e0827b5e1a"></a><!-- doxytag: member="qpid::types::Variant::Variant" ref="af39fa4c88448d3be2ec2e3e0827b5e1a" args="(int64_t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::Variant </td>
+          <td>(</td>
+          <td class="paramtype">int64_t&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a28dfabd861c7b4faf91d1062993b9172"></a><!-- doxytag: member="qpid::types::Variant::Variant" ref="a28dfabd861c7b4faf91d1062993b9172" args="(float)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::Variant </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad63bc95281ae423a1790b676450dc26f"></a><!-- doxytag: member="qpid::types::Variant::Variant" ref="ad63bc95281ae423a1790b676450dc26f" args="(double)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::Variant </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a706e959524f8bf36037db181cef6cc9b"></a><!-- doxytag: member="qpid::types::Variant::Variant" ref="a706e959524f8bf36037db181cef6cc9b" args="(const std::string &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::Variant </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aebde1e755649820b840bb627b9e88e89"></a><!-- doxytag: member="qpid::types::Variant::Variant" ref="aebde1e755649820b840bb627b9e88e89" args="(const char *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::Variant </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7a50e44e1701f6ed368bd2025f91cf52"></a><!-- doxytag: member="qpid::types::Variant::Variant" ref="a7a50e44e1701f6ed368bd2025f91cf52" args="(const Map &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::Variant </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">Map</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a42541a03fd42df33076aa23868ad9c51"></a><!-- doxytag: member="qpid::types::Variant::Variant" ref="a42541a03fd42df33076aa23868ad9c51" args="(const List &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::Variant </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00386.html#a8603092790e51851bc2166e9562a2e11">List</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a760721d1db05da274cbcfe3bcfd82cfa"></a><!-- doxytag: member="qpid::types::Variant::Variant" ref="a760721d1db05da274cbcfe3bcfd82cfa" args="(const Variant &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::Variant </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a38c52d1b69bc8a490878cf8f7ef66b89"></a><!-- doxytag: member="qpid::types::Variant::Variant" ref="a38c52d1b69bc8a490878cf8f7ef66b89" args="(const Uuid &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::Variant </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00375.html">Uuid</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a89977f55dd4cb9eaadf90595dbfa9653"></a><!-- doxytag: member="qpid::types::Variant::~Variant" ref="a89977f55dd4cb9eaadf90595dbfa9653" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::~Variant </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a6685a9459ea37041dc8d6d8405ab76a5"></a><!-- doxytag: member="qpid::types::Variant::asBool" ref="a6685a9459ea37041dc8d6d8405ab76a5" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::Variant::asBool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a84615d796c7bea1fdb624d6443c1b000"></a><!-- doxytag: member="qpid::types::Variant::asDouble" ref="a84615d796c7bea1fdb624d6443c1b000" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN double qpid::types::Variant::asDouble </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad0215577abd856accc17146d1b98da43"></a><!-- doxytag: member="qpid::types::Variant::asFloat" ref="ad0215577abd856accc17146d1b98da43" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN float qpid::types::Variant::asFloat </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a961cdc14472fa35e0fe91beb695a7c8f"></a><!-- doxytag: member="qpid::types::Variant::asInt16" ref="a961cdc14472fa35e0fe91beb695a7c8f" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00558.html#aa343fa3b3d06292b959ffdd4c4703b06">int16_t</a> qpid::types::Variant::asInt16 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0306b3423c2948a521c802dd1ce64f24"></a><!-- doxytag: member="qpid::types::Variant::asInt32" ref="a0306b3423c2948a521c802dd1ce64f24" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00558.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a> qpid::types::Variant::asInt32 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1d638158e3f252622c023df7e5ab5aa5"></a><!-- doxytag: member="qpid::types::Variant::asInt64" ref="a1d638158e3f252622c023df7e5ab5aa5" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN int64_t qpid::types::Variant::asInt64 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6abfc347f66be010061eeb76c84c72a6"></a><!-- doxytag: member="qpid::types::Variant::asInt8" ref="a6abfc347f66be010061eeb76c84c72a6" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN int8_t qpid::types::Variant::asInt8 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af3e28b4fb15e9f2cfa0cca34021b3f27"></a><!-- doxytag: member="qpid::types::Variant::asList" ref="af3e28b4fb15e9f2cfa0cca34021b3f27" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN const <a class="el" href="a00386.html#a8603092790e51851bc2166e9562a2e11">List</a>&amp; qpid::types::Variant::asList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7f57bc9a27aa9568bb86a003d326ecc3"></a><!-- doxytag: member="qpid::types::Variant::asList" ref="a7f57bc9a27aa9568bb86a003d326ecc3" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html#a8603092790e51851bc2166e9562a2e11">List</a>&amp; qpid::types::Variant::asList </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3f964dfc4bc3db1d6e72c30cfc75953a"></a><!-- doxytag: member="qpid::types::Variant::asMap" ref="a3f964dfc4bc3db1d6e72c30cfc75953a" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN const <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">Map</a>&amp; qpid::types::Variant::asMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Referenced by <a class="el" href="a00540_source.html#l00062">qpid::management::ObjectId::ObjectId()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa379a62d5eab055bbde3aa1a262e555b"></a><!-- doxytag: member="qpid::types::Variant::asMap" ref="aa379a62d5eab055bbde3aa1a262e555b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">Map</a>&amp; qpid::types::Variant::asMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afbbba4337eb9edfacff5b7e92b32cff5"></a><!-- doxytag: member="qpid::types::Variant::asString" ref="afbbba4337eb9edfacff5b7e92b32cff5" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00346.html">std::string</a> qpid::types::Variant::asString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af49d4763551ba67e5b392055004e3340"></a><!-- doxytag: member="qpid::types::Variant::asUint16" ref="af49d4763551ba67e5b392055004e3340" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> qpid::types::Variant::asUint16 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab8cfe06fcafaa17f447efc3ba60be951"></a><!-- doxytag: member="qpid::types::Variant::asUint32" ref="ab8cfe06fcafaa17f447efc3ba60be951" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::types::Variant::asUint32 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a46d36d22eaee3f95880685159dae2971"></a><!-- doxytag: member="qpid::types::Variant::asUint64" ref="a46d36d22eaee3f95880685159dae2971" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN uint64_t qpid::types::Variant::asUint64 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa58ccfbd015793418a7a675f0d2f29c0"></a><!-- doxytag: member="qpid::types::Variant::asUint8" ref="aa58ccfbd015793418a7a675f0d2f29c0" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> qpid::types::Variant::asUint8 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a56d16ac10ffd0a134480aea6feb6ef59"></a><!-- doxytag: member="qpid::types::Variant::asUuid" ref="a56d16ac10ffd0a134480aea6feb6ef59" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00375.html">Uuid</a> qpid::types::Variant::asUuid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab6563961bd21d3e0549b4e185cb0f75b"></a><!-- doxytag: member="qpid::types::Variant::getEncoding" ref="ab6563961bd21d3e0549b4e185cb0f75b" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN const <a class="el" href="a00346.html">std::string</a>&amp; qpid::types::Variant::getEncoding </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a40632d7034fbdd23f208edf81f8b5fa6"></a><!-- doxytag: member="qpid::types::Variant::getString" ref="a40632d7034fbdd23f208edf81f8b5fa6" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN const <a class="el" href="a00346.html">std::string</a>&amp; qpid::types::Variant::getString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Unlike <a class="el" href="a00386.html#afbbba4337eb9edfacff5b7e92b32cff5">asString()</a>, <a class="el" href="a00386.html#ac8605b8561b2c3012a84078d56275140">getString()</a> will not do any conversions and will throw <a class="el" href="a00164.html" title="Thrown when an illegal conversion of a variant is attempted.">InvalidConversion</a> if the type is not STRING. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac8605b8561b2c3012a84078d56275140"></a><!-- doxytag: member="qpid::types::Variant::getString" ref="ac8605b8561b2c3012a84078d56275140" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00346.html">std::string</a>&amp; qpid::types::Variant::getString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8d5b19af1848a2a2a454be9439bdbdbe"></a><!-- doxytag: member="qpid::types::Variant::getType" ref="a8d5b19af1848a2a2a454be9439bdbdbe" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16">VariantType</a> qpid::types::Variant::getType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a97dd59214dd27a6e475b5770ea41317d"></a><!-- doxytag: member="qpid::types::Variant::isEqualTo" ref="a97dd59214dd27a6e475b5770ea41317d" args="(const Variant &amp;a) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::Variant::isEqualTo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5570248042b8b62f5f3c5186e336a34f"></a><!-- doxytag: member="qpid::types::Variant::isVoid" ref="a5570248042b8b62f5f3c5186e336a34f" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::Variant::isVoid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abc53cb86d2f7858f544bb1643342f5be"></a><!-- doxytag: member="qpid::types::Variant::operator bool" ref="abc53cb86d2f7858f544bb1643342f5be" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::operator bool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a37f7ab493851e222aca8ade3f08be65a"></a><!-- doxytag: member="qpid::types::Variant::operator double" ref="a37f7ab493851e222aca8ade3f08be65a" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::operator double </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0a56026068580e108fbc77d2e75992d3"></a><!-- doxytag: member="qpid::types::Variant::operator float" ref="a0a56026068580e108fbc77d2e75992d3" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::operator float </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a25251d0560f8ca9a4ce8b040ca8bfc54"></a><!-- doxytag: member="qpid::types::Variant::operator int16_t" ref="a25251d0560f8ca9a4ce8b040ca8bfc54" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::operator <a class="el" href="a00558.html#aa343fa3b3d06292b959ffdd4c4703b06">int16_t</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3b833d6d38f498bf5e728bc8d6ce1ca3"></a><!-- doxytag: member="qpid::types::Variant::operator int32_t" ref="a3b833d6d38f498bf5e728bc8d6ce1ca3" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::operator <a class="el" href="a00558.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aeb768d96439b62ffc2ebd8a6c4248052"></a><!-- doxytag: member="qpid::types::Variant::operator int64_t" ref="aeb768d96439b62ffc2ebd8a6c4248052" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::operator int64_t </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a026862c05f40460e2e5b425eb6086b3e"></a><!-- doxytag: member="qpid::types::Variant::operator int8_t" ref="a026862c05f40460e2e5b425eb6086b3e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::operator int8_t </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af198c8d23a13bf9bfa96c84be5241dd6"></a><!-- doxytag: member="qpid::types::Variant::operator std::string" ref="af198c8d23a13bf9bfa96c84be5241dd6" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::operator <a class="el" href="a00346.html">std::string</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a066b7416b28d037aed0370c12edbfa60"></a><!-- doxytag: member="qpid::types::Variant::operator uint16_t" ref="a066b7416b28d037aed0370c12edbfa60" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::operator <a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3ec830b65a7bb775722bb43ed88e2133"></a><!-- doxytag: member="qpid::types::Variant::operator uint32_t" ref="a3ec830b65a7bb775722bb43ed88e2133" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::operator <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae7cf5646536ac7bac4994150f8659ed3"></a><!-- doxytag: member="qpid::types::Variant::operator uint64_t" ref="ae7cf5646536ac7bac4994150f8659ed3" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::operator uint64_t </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a882cac2f4efdf868c612fbea56ac655b"></a><!-- doxytag: member="qpid::types::Variant::operator uint8_t" ref="a882cac2f4efdf868c612fbea56ac655b" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::operator <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2329d85f57fbfb83e565121f9dbcd837"></a><!-- doxytag: member="qpid::types::Variant::operator Uuid" ref="a2329d85f57fbfb83e565121f9dbcd837" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN qpid::types::Variant::operator <a class="el" href="a00375.html">Uuid</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a98db938a88d782eeb7299e1ffe6d48fd"></a><!-- doxytag: member="qpid::types::Variant::operator=" ref="a98db938a88d782eeb7299e1ffe6d48fd" args="(bool)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a>&amp; qpid::types::Variant::operator= </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a01bcf88764d428367699c5394b00f131"></a><!-- doxytag: member="qpid::types::Variant::operator=" ref="a01bcf88764d428367699c5394b00f131" args="(uint8_t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a>&amp; qpid::types::Variant::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6b0ec26fbd6bcc9994b1d9401f6a90dd"></a><!-- doxytag: member="qpid::types::Variant::operator=" ref="a6b0ec26fbd6bcc9994b1d9401f6a90dd" args="(uint16_t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a>&amp; qpid::types::Variant::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae3335f37cffe70c871544e82d2e1c21a"></a><!-- doxytag: member="qpid::types::Variant::operator=" ref="ae3335f37cffe70c871544e82d2e1c21a" args="(uint32_t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a>&amp; qpid::types::Variant::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a01f5ee0877d83c73e39b574334ece93d"></a><!-- doxytag: member="qpid::types::Variant::operator=" ref="a01f5ee0877d83c73e39b574334ece93d" args="(uint64_t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a>&amp; qpid::types::Variant::operator= </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a297e90d438a8a04c7f3ec2062d7b8a6a"></a><!-- doxytag: member="qpid::types::Variant::operator=" ref="a297e90d438a8a04c7f3ec2062d7b8a6a" args="(int8_t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a>&amp; qpid::types::Variant::operator= </td>
+          <td>(</td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9e5d89a39b6295d64cdf8a07f0e42e9a"></a><!-- doxytag: member="qpid::types::Variant::operator=" ref="a9e5d89a39b6295d64cdf8a07f0e42e9a" args="(int16_t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a>&amp; qpid::types::Variant::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#aa343fa3b3d06292b959ffdd4c4703b06">int16_t</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3cf5562295cd320645db68193215afe3"></a><!-- doxytag: member="qpid::types::Variant::operator=" ref="a3cf5562295cd320645db68193215afe3" args="(int32_t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a>&amp; qpid::types::Variant::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a>&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a578bd534a13ac7c786a3fe658d1ecb89"></a><!-- doxytag: member="qpid::types::Variant::operator=" ref="a578bd534a13ac7c786a3fe658d1ecb89" args="(int64_t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a>&amp; qpid::types::Variant::operator= </td>
+          <td>(</td>
+          <td class="paramtype">int64_t&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a38d725c897b0802b25e2cb5234e057bc"></a><!-- doxytag: member="qpid::types::Variant::operator=" ref="a38d725c897b0802b25e2cb5234e057bc" args="(float)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a>&amp; qpid::types::Variant::operator= </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abb8fa6cd87bdc189e2e8fe01e1032850"></a><!-- doxytag: member="qpid::types::Variant::operator=" ref="abb8fa6cd87bdc189e2e8fe01e1032850" args="(double)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a>&amp; qpid::types::Variant::operator= </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad0e57d65f6f036c9af1a5b5b71a1efba"></a><!-- doxytag: member="qpid::types::Variant::operator=" ref="ad0e57d65f6f036c9af1a5b5b71a1efba" args="(const std::string &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a>&amp; qpid::types::Variant::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abd639fae97c8713df398dd3f55f62936"></a><!-- doxytag: member="qpid::types::Variant::operator=" ref="abd639fae97c8713df398dd3f55f62936" args="(const char *)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a>&amp; qpid::types::Variant::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8f7c9f52d6c662e2735e9c0647796858"></a><!-- doxytag: member="qpid::types::Variant::operator=" ref="a8f7c9f52d6c662e2735e9c0647796858" args="(const Map &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a>&amp; qpid::types::Variant::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">Map</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aebd0df180eba7fa4b8ad96183727364a"></a><!-- doxytag: member="qpid::types::Variant::operator=" ref="aebd0df180eba7fa4b8ad96183727364a" args="(const List &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a>&amp; qpid::types::Variant::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00386.html#a8603092790e51851bc2166e9562a2e11">List</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0ee5825038f43bccb621e6f415f0a59b"></a><!-- doxytag: member="qpid::types::Variant::operator=" ref="a0ee5825038f43bccb621e6f415f0a59b" args="(const Variant &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a>&amp; qpid::types::Variant::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00386.html">Variant</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a34e659bd6d4e396dedd653943b1364f8"></a><!-- doxytag: member="qpid::types::Variant::operator=" ref="a34e659bd6d4e396dedd653943b1364f8" args="(const Uuid &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a>&amp; qpid::types::Variant::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00375.html">Uuid</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afe8749ffa406f413549399a02b378b45"></a><!-- doxytag: member="qpid::types::Variant::parse" ref="afe8749ffa406f413549399a02b378b45" args="(const std::string &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00386.html">Variant</a>&amp; qpid::types::Variant::parse </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Parses the argument and assigns itself the appropriate value. </p>
+<p>Recognises integers, doubles and booleans. </p>
+
+</div>
+</div>
+<a class="anchor" id="a7c454d14b3246a4c7fd8859318dd05c1"></a><!-- doxytag: member="qpid::types::Variant::reset" ref="a7c454d14b3246a4c7fd8859318dd05c1" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN void qpid::types::Variant::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a05f177447a728ff17cd83bc22d9a79c2"></a><!-- doxytag: member="qpid::types::Variant::setEncoding" ref="a05f177447a728ff17cd83bc22d9a79c2" args="(const std::string &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN void qpid::types::Variant::setEncoding </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qpid/types/<a class="el" href="a00571_source.html">Variant.h</a></li>
+</ul>
+</div>
 <!--
  
  Licensed to the Apache Software Foundation (ASF) under one
@@ -119,7 +1479,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

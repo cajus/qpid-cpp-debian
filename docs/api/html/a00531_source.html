@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/Options.h Source File</title>
+    <title>qpid/log/Logger.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,126 +58,92 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/Options.h</div>  </div>
+<div class="title">qpid/log/Logger.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00531.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_COMMONOPTIONS_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_COMMONOPTIONS_H</span>
+<a href="a00531.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_LOG_LOGGER_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_LOG_LOGGER_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="comment">/*</span>
-<a name="l00005"></a>00005 <span class="comment"> *</span>
-<a name="l00006"></a>00006 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
-<a name="l00007"></a>00007 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
-<a name="l00008"></a>00008 <span class="comment"> * distributed with this work for additional information</span>
-<a name="l00009"></a>00009 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
-<a name="l00010"></a>00010 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
-<a name="l00011"></a>00011 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
-<a name="l00012"></a>00012 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
-<a name="l00013"></a>00013 <span class="comment"> *</span>
-<a name="l00014"></a>00014 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
-<a name="l00015"></a>00015 <span class="comment"> *</span>
-<a name="l00016"></a>00016 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
-<a name="l00017"></a>00017 <span class="comment"> * software distributed under the License is distributed on an</span>
-<a name="l00018"></a>00018 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
-<a name="l00019"></a>00019 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
-<a name="l00020"></a>00020 <span class="comment"> * specific language governing permissions and limitations</span>
-<a name="l00021"></a>00021 <span class="comment"> * under the License.</span>
-<a name="l00022"></a>00022 <span class="comment"> *</span>
-<a name="l00023"></a>00023 <span class="comment"> */</span>
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00490.html">qpid/Exception.h</a>&quot;</span>
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 <span class="comment">// Disable warnings triggered by boost.</span>
-<a name="l00028"></a>00028 <span class="preprocessor">#ifdef _MSC_VER</span>
-<a name="l00029"></a>00029 <span class="preprocessor"></span><span class="preprocessor">#  pragma warning(push)</span>
-<a name="l00030"></a>00030 <span class="preprocessor"></span><span class="preprocessor">#  pragma warning(disable : 4251 4275)</span>
-<a name="l00031"></a>00031 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00032"></a>00032 <span class="preprocessor"></span>
-<a name="l00033"></a>00033 <span class="preprocessor">#include &lt;boost/program_options.hpp&gt;</span>
-<a name="l00034"></a>00034 <span class="preprocessor">#include &lt;boost/format.hpp&gt;</span>
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036 <span class="preprocessor">#ifdef _MSC_VER</span>
-<a name="l00037"></a>00037 <span class="preprocessor"></span><span class="preprocessor">#  pragma warning(pop)</span>
-<a name="l00038"></a>00038 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00039"></a>00039 <span class="preprocessor"></span>
-<a name="l00040"></a>00040 <span class="preprocessor">#include &lt;sstream&gt;</span>
-<a name="l00041"></a>00041 <span class="preprocessor">#include &lt;iterator&gt;</span>
-<a name="l00042"></a>00042 <span class="preprocessor">#include &lt;algorithm&gt;</span>
-<a name="l00043"></a>00043 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00044"></a>00044 <span class="preprocessor">#include &quot;<a class="code" href="a00482.html">qpid/CommonImportExport.h</a>&quot;</span>
-<a name="l00045"></a>00045 
-<a name="l00046"></a>00046 <span class="keyword">namespace </span>qpid {
-<a name="l00047"></a>00047 <span class="keyword">namespace </span>po=boost::program_options;
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 
-<a name="l00052"></a>00052 <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> std::string <a class="code" href="a00574.html#aa82987134f1b58966a77bca596e25d9f">prettyArg</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp;);
-<a name="l00053"></a>00053 
-<a name="l00055"></a>00055 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
-<a name="l00056"></a>00056 <span class="keyword">class </span>OptionValue : <span class="keyword">public</span> po::typed_value&lt;T&gt; {
-<a name="l00057"></a>00057   <span class="keyword">public</span>:
-<a name="l00058"></a><a class="code" href="a00242.html#a86d03d69e47f4b8a4a8038fadf258652">00058</a>     <a class="code" href="a00242.html#a86d03d69e47f4b8a4a8038fadf258652">OptionValue</a>(T&amp; value, <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; arg)
-<a name="l00059"></a>00059         : po::typed_value&lt;T&gt;(&amp;value), argName(arg) {}
-<a name="l00060"></a><a class="code" href="a00242.html#a53287ecd6aae220bde26b1eccd879e85">00060</a>     std::string <a class="code" href="a00242.html#a53287ecd6aae220bde26b1eccd879e85">name</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> argName; }
-<a name="l00061"></a>00061 
-<a name="l00062"></a>00062   <span class="keyword">private</span>:
-<a name="l00063"></a>00063     std::string argName;
-<a name="l00064"></a>00064 };
+<a name="l00005"></a>00005 <span class="comment"> *    http://www.apache.org/licenses/LICENSE-2.0</span>
+<a name="l00006"></a>00006 <span class="comment"> *</span>
+<a name="l00007"></a>00007 <span class="comment"> * Unless required by applicable law or agreed to in writing, software</span>
+<a name="l00008"></a>00008 <span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<a name="l00009"></a>00009 <span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<a name="l00010"></a>00010 <span class="comment"> * See the License for the specific language governing permissions and</span>
+<a name="l00011"></a>00011 <span class="comment"> * limitations under the License.</span>
+<a name="l00012"></a>00012 <span class="comment"> *</span>
+<a name="l00013"></a>00013 <span class="comment"> */</span>
+<a name="l00014"></a>00014 
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;<a class="code" href="a00534.html">qpid/log/Selector.h</a>&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="a00532.html">qpid/log/Options.h</a>&quot;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="a00542.html">qpid/sys/Mutex.h</a>&quot;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &lt;boost/ptr_container/ptr_vector.hpp&gt;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &lt;boost/noncopyable.hpp&gt;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &lt;set&gt;</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;<a class="code" href="a00484.html">qpid/CommonImportExport.h</a>&quot;</span>
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="keyword">namespace </span>qpid {
+<a name="l00024"></a><a class="code" href="a00591.html">00024</a> <span class="keyword">namespace </span>log {
+<a name="l00025"></a>00025 
+<a name="l00036"></a>00036 <span class="keyword">class </span><a class="code" href="a00484.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> Logger : <span class="keyword">private</span> boost::noncopyable {
+<a name="l00037"></a>00037   <span class="keyword">public</span>:
+<a name="l00039"></a><a class="code" href="a00195.html#ac508e01bd3e624fded92ce2f9800e12ba09e5c56b2aa5c110fcaf5b00232def1d">00039</a>     <span class="keyword">enum</span> <a class="code" href="a00195.html#ac508e01bd3e624fded92ce2f9800e12b" title="Flags indicating what to include in the log output.">FormatFlag</a> { FILE=1, LINE=2, FUNCTION=4, LEVEL=8, TIME=16, THREAD=32, HIRES=64, CATEGORY=128};
+<a name="l00040"></a>00040 
+<a name="l00050"></a>00050     <span class="keyword">class </span>Output {
+<a name="l00051"></a>00051       <span class="keyword">public</span>:
+<a name="l00052"></a>00052         <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> Output();
+<a name="l00053"></a>00053         <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">virtual</span> ~Output();
+<a name="l00055"></a>00055         <span class="keyword">virtual</span> <span class="keywordtype">void</span> log(<span class="keyword">const</span> <a class="code" href="a00341.html" title="POD struct representing a logging statement in source code.">Statement</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;) =0;
+<a name="l00056"></a>00056     };
+<a name="l00057"></a>00057 
+<a name="l00058"></a>00058     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">static</span> Logger&amp; instance();
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> Logger();
+<a name="l00061"></a>00061     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> ~Logger();
+<a name="l00062"></a>00062 
+<a name="l00064"></a>00064     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> select(<span class="keyword">const</span> Selector&amp; s);
 <a name="l00065"></a>00065 
-<a name="l00066"></a>00066 
-<a name="l00073"></a>00073 <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;
-<a name="l00074"></a><a class="code" href="a00574.html#a8528c6a24f1a699f1cad39814cc34880">00074</a> po::value_semantic* <a class="code" href="a00574.html#a8528c6a24f1a699f1cad39814cc34880" title="Create an option value.">optValue</a>(T&amp; value, <span class="keyword">const</span> <span class="keywordtype">char</span>* name) {
-<a name="l00075"></a>00075     std::string valstr(boost::lexical_cast&lt;std::string&gt;(value));
-<a name="l00076"></a>00076     <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="a00242.html">OptionValue&lt;T&gt;</a>(value, <a class="code" href="a00574.html#aa82987134f1b58966a77bca596e25d9f">prettyArg</a>(name, valstr));
-<a name="l00077"></a>00077 }
-<a name="l00078"></a>00078 
-<a name="l00082"></a>00082 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;
-<a name="l00083"></a><a class="code" href="a00574.html#afcd1a6083d6ac7b47e213a67035fb998">00083</a> po::value_semantic* <a class="code" href="a00574.html#a8528c6a24f1a699f1cad39814cc34880" title="Create an option value.">optValue</a>(<a class="code" href="a00386.html" title="STL class.">std::vector&lt;T&gt;</a>&amp; value, <span class="keyword">const</span> <span class="keywordtype">char</span>* name) {
-<a name="l00084"></a>00084     <span class="keyword">using namespace </span>std;
-<a name="l00085"></a>00085     <a class="code" href="a00244.html" title="STL class.">ostringstream</a> os;
-<a name="l00086"></a>00086     copy(value.begin(), value.end(), ostream_iterator&lt;T&gt;(os, <span class="stringliteral">&quot; &quot;</span>));
-<a name="l00087"></a>00087     <span class="keywordtype">string</span> val=os.str();
-<a name="l00088"></a>00088     <span class="keywordflow">if</span> (!val.empty())
-<a name="l00089"></a>00089         val.erase(val.end()-1); <span class="comment">// Remove trailing &quot; &quot;</span>
-<a name="l00090"></a>00090     <span class="keywordflow">return</span> (<span class="keyword">new</span> <a class="code" href="a00242.html">OptionValue</a>&lt;<a class="code" href="a00386.html" title="STL class.">vector&lt;T&gt;</a> &gt;(value, <a class="code" href="a00574.html#aa82987134f1b58966a77bca596e25d9f">prettyArg</a>(name, val)));
-<a name="l00091"></a>00091 }
-<a name="l00092"></a>00092 
-<a name="l00094"></a><a class="code" href="a00574.html#a2a4f0c2a95d060596552187971260c09">00094</a> <span class="keyword">inline</span> po::value_semantic* <a class="code" href="a00574.html#a8528c6a24f1a699f1cad39814cc34880" title="Create an option value.">optValue</a>(<span class="keywordtype">bool</span>&amp; value) { <span class="keywordflow">return</span> po::bool_switch(&amp;value); }
-<a name="l00095"></a>00095 
-<a name="l00136"></a>00136 <span class="keyword">struct </span>Options : <span class="keyword">public</span> po::options_description {
-<a name="l00137"></a>00137 
-<a name="l00138"></a>00138     <span class="keyword">struct </span>Exception : <span class="keyword">public</span> qpid::Exception {
-<a name="l00139"></a><a class="code" href="a00111.html#a1425dcadeb34356581709b69b9bbf447">00139</a>         <a class="code" href="a00111.html#a1425dcadeb34356581709b69b9bbf447">Exception</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; msg) : qpid::<a class="code" href="a00111.html">Exception</a>(msg) {}
-<a name="l00140"></a>00140     };
-<a name="l00141"></a>00141 
-<a name="l00142"></a>00142     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00240.html#a9fd5f68ddce6bb8b8172777e45c42564">Options</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; name=<a class="code" href="a00345.html" title="STL class.">std::string</a>());
-<a name="l00143"></a>00143 
-<a name="l00149"></a>00149     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00240.html#a9ab9ee7e214162e52a022c9ae92b0a6c" title="Parses options from argc/argv, environment variables and config file.">parse</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> <span class="keyword">const</span>* <span class="keyword">const</span>* argv,
-<a name="l00150"></a>00150                <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; configfile=<a class="code" href="a00345.html" title="STL class.">std::string</a>(),
-<a name="l00151"></a>00151                <span class="keywordtype">bool</span>  allowUnknown = <span class="keyword">false</span>);
-<a name="l00152"></a>00152 
-<a name="l00153"></a>00153 
-<a name="l00154"></a><a class="code" href="a00240.html#a9ee2ebed980f7a1dcf3a5781555a5b70">00154</a>   boost::program_options::options_description_easy_init <a class="code" href="a00240.html#a9ee2ebed980f7a1dcf3a5781555a5b70">addOptions</a>() {
-<a name="l00155"></a>00155       <span class="keywordflow">return</span> add_options();
-<a name="l00156"></a>00156   }
-<a name="l00157"></a>00157 };
-<a name="l00158"></a>00158 
-<a name="l00159"></a>00159 
-<a name="l00160"></a>00160 
-<a name="l00164"></a>00164 <span class="keyword">struct </span>CommonOptions : <span class="keyword">public</span> Options {
-<a name="l00165"></a>00165     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00053.html#a69b4454044f5c32401d094aa183c9184">CommonOptions</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; name=<a class="code" href="a00345.html" title="STL class.">std::string</a>(),
-<a name="l00166"></a>00166                   <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; configfile=<a class="code" href="a00345.html" title="STL class.">std::string</a>());
-<a name="l00167"></a><a class="code" href="a00053.html#a4da9117bc413eabac211f5f145d5624a">00167</a>     <span class="keywordtype">bool</span> <a class="code" href="a00053.html#a4da9117bc413eabac211f5f145d5624a">help</a>;
-<a name="l00168"></a><a class="code" href="a00053.html#ab2848d96982519b109fd726564808a02">00168</a>     <span class="keywordtype">bool</span> <a class="code" href="a00053.html#ab2848d96982519b109fd726564808a02">version</a>;
-<a name="l00169"></a><a class="code" href="a00053.html#ac8367c1bcefda933b41d28a35862f34f">00169</a>     std<a class="code" href="a00345.html" title="STL class.">::string</a> <a class="code" href="a00053.html#ac8367c1bcefda933b41d28a35862f34f">config</a>;
-<a name="l00170"></a>00170 };
-<a name="l00171"></a>00171 
-<a name="l00172"></a>00172 
-<a name="l00173"></a>00173 
-<a name="l00174"></a>00174 
-<a name="l00175"></a>00175 } <span class="comment">// namespace qpid</span>
-<a name="l00176"></a>00176 
-<a name="l00177"></a>00177 <span class="preprocessor">#endif  </span>
+<a name="l00067"></a>00067     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> format(<span class="keywordtype">int</span> formatFlags);
+<a name="l00068"></a>00068 
+<a name="l00072"></a>00072     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">int</span> format(<span class="keyword">const</span> <a class="code" href="a00241.html" title="Base class for options.">Options</a>&amp;);
+<a name="l00073"></a>00073 
+<a name="l00075"></a>00075     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> configure(<span class="keyword">const</span> <a class="code" href="a00241.html" title="Base class for options.">Options</a>&amp; o);
+<a name="l00076"></a>00076 
+<a name="l00078"></a>00078     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> reconfigure(<span class="keyword">const</span> <a class="code" href="a00387.html">std::vector&lt;std::string&gt;</a>&amp; selectors);
+<a name="l00079"></a>00079 
+<a name="l00081"></a>00081     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> add(Statement&amp; s);
+<a name="l00082"></a>00082 
+<a name="l00084"></a>00084     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> log(<span class="keyword">const</span> Statement&amp;, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;);
+<a name="l00085"></a>00085 
+<a name="l00087"></a>00087     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> output(<a class="code" href="a00022.html" title="STL class.">std::auto_ptr&lt;Output&gt;</a> out);
+<a name="l00088"></a>00088 
+<a name="l00090"></a>00090     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> setPrefix(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; prefix);
+<a name="l00091"></a>00091 
+<a name="l00093"></a>00093     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> clear();
+<a name="l00094"></a>00094 
+<a name="l00096"></a><a class="code" href="a00195.html#a8129a037aa8a6a9ac7d4176b189db1da">00096</a>     <a class="code" href="a00484.html#a22b814cc5ef605d90a1295eae41f4ee4">QPID_COMMON_INLINE_EXTERN</a> <span class="keyword">const</span> <a class="code" href="a00242.html" title="Logging options for config parser.">Options</a>&amp; <a class="code" href="a00195.html#a8129a037aa8a6a9ac7d4176b189db1da" title="Get the options used to configure the logger.">getOptions</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> options; }
+<a name="l00097"></a>00097 
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099   <span class="keyword">private</span>:
+<a name="l00100"></a>00100     <span class="keyword">typedef</span> boost::ptr_vector&lt;Output&gt; Outputs;
+<a name="l00101"></a>00101     <span class="keyword">typedef</span> std::set&lt;Statement*&gt; Statements;
+<a name="l00102"></a>00102 
+<a name="l00103"></a>00103     sys::Mutex lock;
+<a name="l00104"></a>00104     <span class="keyword">inline</span> <span class="keywordtype">void</span> enable_unlocked(<a class="code" href="a00341.html" title="POD struct representing a logging statement in source code.">Statement</a>* s);
+<a name="l00105"></a>00105 
+<a name="l00106"></a>00106     Statements statements;
+<a name="l00107"></a>00107     Outputs outputs;
+<a name="l00108"></a>00108     <a class="code" href="a00319.html" title="A selector identifies the set of log messages to enable.">Selector</a> selector;
+<a name="l00109"></a>00109     <span class="keywordtype">int</span> flags;
+<a name="l00110"></a>00110     std::string prefix;
+<a name="l00111"></a>00111     <a class="code" href="a00242.html" title="Logging options for config parser.">Options</a> options;
+<a name="l00112"></a>00112 };
+<a name="l00113"></a>00113 
+<a name="l00114"></a>00114 }} <span class="comment">// namespace qpid::log</span>
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -207,7 +173,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

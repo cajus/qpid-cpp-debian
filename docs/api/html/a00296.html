@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf::Schema Class Reference</title>
+    <title>qpid::sys::RWlock Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,119 +60,184 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00571.html">qmf</a>      </li>
-      <li class="navelem"><a class="el" href="a00296.html">Schema</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00594.html">sys</a>      </li>
+      <li class="navelem"><a class="el" href="a00296.html">RWlock</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-types">Protected Types</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qmf::Schema Class Reference</div>  </div>
+<div class="title">qpid::sys::RWlock Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qmf::Schema" --><!-- doxytag: inherits="Handle&lt; SchemaImpl &gt;" -->
-<p><code>#include &lt;<a class="el" href="a00430_source.html">qmf/Schema.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::sys::RWlock" -->
+<p>RW lock.  
+ <a href="a00296.html#details">More...</a></p>
 
-<p><a href="a00613.html">List of all members.</a></p>
+<p><code>#include &lt;<a class="el" href="a00543_source.html">qpid/sys/posix/Mutex.h</a>&gt;</code></p>
+
+<p><a href="a00889.html">List of all members.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+::<a class="el" href="a00315.html">qpid::sys::ScopedRlock</a><br class="typebreak"/>
+&lt; <a class="el" href="a00296.html">RWlock</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a07b2376ee17fef2d8cf50606805d1d38">ScopedRlock</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+::<a class="el" href="a00318.html">qpid::sys::ScopedWlock</a><br class="typebreak"/>
+&lt; <a class="el" href="a00296.html">RWlock</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#aecbfbba3d6eb73f00bb30bef34556124">ScopedWlock</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+::<a class="el" href="a00315.html">qpid::sys::ScopedRlock</a><br class="typebreak"/>
+&lt; <a class="el" href="a00296.html">RWlock</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a07b2376ee17fef2d8cf50606805d1d38">ScopedRlock</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+::<a class="el" href="a00318.html">qpid::sys::ScopedWlock</a><br class="typebreak"/>
+&lt; <a class="el" href="a00296.html">RWlock</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#aecbfbba3d6eb73f00bb30bef34556124">ScopedWlock</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#aa1990348901a066933211a6288e018df">Schema</a> (SchemaImpl *<a class="el" href="a00141.html#a0effa7fbf9c8ae45a927102af0b25679">impl</a>=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a30ea168d12c548167f2e0ff9aa86169f">Schema</a> (const <a class="el" href="a00296.html">Schema</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00296.html">Schema</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a92495e8391a4484b5d290c624afdd103">operator=</a> (const <a class="el" href="a00296.html">Schema</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#aa07c1be72fdc681b0dbd09e764c20cb5">~Schema</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a0fac2dbb3f5e5d1e32155170d9100ab1">Schema</a> (int, const <a class="el" href="a00345.html">std::string</a> &amp;, const <a class="el" href="a00345.html">std::string</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00302.html">SchemaId</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#ad9e4efee57a8cf185780010d2b24feea">getSchemaId</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#ae477b9b412a9d1d1272bbb1df97939f5">finalize</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a662827bad480c9ad99f2682c4decad31">isFinalized</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#ac291c95d91f9025f9993ef4c8f22bce5">addProperty</a> (const <a class="el" href="a00309.html">SchemaProperty</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#acd72c56ce929454de262e7b127edb746">addMethod</a> (const <a class="el" href="a00304.html">SchemaMethod</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a2f604956ac9bdce0e81a4788e17773f0">setDesc</a> (const <a class="el" href="a00345.html">std::string</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#afc8246fb92a5bd425c1831f422b59ae0">getDesc</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#aba4251aed2e51a90d354d637c25689af">setDefaultSeverity</a> (int)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a19dbcd27ee17091bed867074673a4d6d">getDefaultSeverity</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a0177d4ab8368a8bca54fc13c76f9e61e">getPropertyCount</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00309.html">SchemaProperty</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a142fd3db44e784984c5395351e813924">getProperty</a> (<a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a6849c387f03e2a156af637a58be69443">getMethodCount</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00304.html">SchemaMethod</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#adcc6b40b0eb87f28bc59da486f75143a">getMethod</a> (<a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#a39749de38a4fc07f8401696d497a0d3c">isValid</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#a015fea48a0cd370654102196b8972b0c">isNull</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#ac1b6422c4626a1a630ac5cc13b41ad9a">operator bool</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to bool supports idiom if (handle) { handle-&gt;...  <a href="#ac1b6422c4626a1a630ac5cc13b41ad9a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#a5f7fe4689daf51182ceb8db1c5a7b85f">operator!</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }.  <a href="#a5f7fe4689daf51182ceb8db1c5a7b85f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#aa5de6b64fd036c74cbc332ac2c5d1377">swap</a> (<a class="el" href="a00141.html">Handle</a>&lt; T &gt; &amp;h)</td></tr>
-<tr><td colspan="2"><h2><a name="pro-types"></a>
-Protected Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#a15c17b50788ef3057bf2c7a99e7c39b2">Impl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#aa6fa88fc8debe5d24e1710938ab53ad7">RWlock</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#af3b5d29ea15322a291588c4ec9b86307">~RWlock</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#ae6a0e0f9bd8fb353d8ae269beb184b8b">wlock</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#abf8700d293ecaecbab313f56e91fac13">rlock</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#aac75a58d42e0c9c37a9f9767c1e36d4a">unlock</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a866ce893519e2bd330976d582f8a60f8">trywlock</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a2f7b1f6ff9bdef23f99112912b9152a6">tryrlock</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#aa6fa88fc8debe5d24e1710938ab53ad7">RWlock</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#af3b5d29ea15322a291588c4ec9b86307">~RWlock</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#ae6a0e0f9bd8fb353d8ae269beb184b8b">wlock</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#abf8700d293ecaecbab313f56e91fac13">rlock</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#aac75a58d42e0c9c37a9f9767c1e36d4a">unlock</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a866ce893519e2bd330976d582f8a60f8">trywlock</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a2f7b1f6ff9bdef23f99112912b9152a6">tryrlock</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a3ce151d4e2352f101beb12d8d7df2aaa">write</a> (void)</td></tr>
 <tr><td colspan="2"><h2><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00141.html#a15c17b50788ef3057bf2c7a99e7c39b2">Impl</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html#a0effa7fbf9c8ae45a927102af0b25679">impl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">pthread_rwlock_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a9d71190070867420bcd5d98c58b5c4f6">rwlock</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">boost::shared_mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a2cbce729df0f879aae9bf419466d09fc">rwMutex</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">boost::thread_specific_ptr&lt; bool &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html#a7578091a268fa512f5d9d6350d49b4bf">haveWrite</a></td></tr>
 </table>
-<hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="a15c17b50788ef3057bf2c7a99e7c39b2"></a><!-- doxytag: member="qmf::Schema::Impl" ref="a15c17b50788ef3057bf2c7a99e7c39b2" args="" -->
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>RW lock. </p>
+
+<p>Definition at line <a class="el" href="a00544_source.html#l00064">64</a> of file <a class="el" href="a00544_source.html">Mutex.h</a>.</p>
+</div><hr/><h2>Member Typedef Documentation</h2>
+<a class="anchor" id="a07b2376ee17fef2d8cf50606805d1d38"></a><!-- doxytag: member="qpid::sys::RWlock::ScopedRlock" ref="a07b2376ee17fef2d8cf50606805d1d38" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef T <a class="el" href="a00141.html#a15c17b50788ef3057bf2c7a99e7c39b2">qmf::Handle::Impl</a><code> [protected, inherited]</code></td>
+          <td class="memname">typedef ::<a class="el" href="a00315.html">qpid::sys::ScopedRlock</a>&lt;<a class="el" href="a00296.html">RWlock</a>&gt; <a class="el" href="a00296.html#a07b2376ee17fef2d8cf50606805d1d38">qpid::sys::RWlock::ScopedRlock</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00437_source.html#l00056">56</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
+<p>Definition at line <a class="el" href="a00543_source.html#l00061">61</a> of file <a class="el" href="a00543_source.html">Mutex.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a07b2376ee17fef2d8cf50606805d1d38"></a><!-- doxytag: member="qpid::sys::RWlock::ScopedRlock" ref="a07b2376ee17fef2d8cf50606805d1d38" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef ::<a class="el" href="a00315.html">qpid::sys::ScopedRlock</a>&lt;<a class="el" href="a00296.html">RWlock</a>&gt; <a class="el" href="a00296.html#a07b2376ee17fef2d8cf50606805d1d38">qpid::sys::RWlock::ScopedRlock</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00544_source.html#l00068">68</a> of file <a class="el" href="a00544_source.html">Mutex.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aecbfbba3d6eb73f00bb30bef34556124"></a><!-- doxytag: member="qpid::sys::RWlock::ScopedWlock" ref="aecbfbba3d6eb73f00bb30bef34556124" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef ::<a class="el" href="a00318.html">qpid::sys::ScopedWlock</a>&lt;<a class="el" href="a00296.html">RWlock</a>&gt; <a class="el" href="a00296.html#aecbfbba3d6eb73f00bb30bef34556124">qpid::sys::RWlock::ScopedWlock</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00543_source.html#l00062">62</a> of file <a class="el" href="a00543_source.html">Mutex.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aecbfbba3d6eb73f00bb30bef34556124"></a><!-- doxytag: member="qpid::sys::RWlock::ScopedWlock" ref="aecbfbba3d6eb73f00bb30bef34556124" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef ::<a class="el" href="a00318.html">qpid::sys::ScopedWlock</a>&lt;<a class="el" href="a00296.html">RWlock</a>&gt; <a class="el" href="a00296.html#aecbfbba3d6eb73f00bb30bef34556124">qpid::sys::RWlock::ScopedWlock</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00544_source.html#l00069">69</a> of file <a class="el" href="a00544_source.html">Mutex.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aa1990348901a066933211a6288e018df"></a><!-- doxytag: member="qmf::Schema::Schema" ref="aa1990348901a066933211a6288e018df" args="(SchemaImpl *impl=0)" -->
+<a class="anchor" id="aa6fa88fc8debe5d24e1710938ab53ad7"></a><!-- doxytag: member="qpid::sys::RWlock::RWlock" ref="aa6fa88fc8debe5d24e1710938ab53ad7" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qmf::Schema::Schema </td>
-          <td>(</td>
-          <td class="paramtype">SchemaImpl *&#160;</td>
-          <td class="paramname"><em>impl</em> = <code>0</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a30ea168d12c548167f2e0ff9aa86169f"></a><!-- doxytag: member="qmf::Schema::Schema" ref="a30ea168d12c548167f2e0ff9aa86169f" args="(const Schema &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qmf::Schema::Schema </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00296.html">Schema</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa07c1be72fdc681b0dbd09e764c20cb5"></a><!-- doxytag: member="qmf::Schema::~Schema" ref="aa07c1be72fdc681b0dbd09e764c20cb5" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qmf::Schema::~Schema </td>
+          <td class="memname">qpid::sys::RWlock::RWlock </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00543_source.html#l00128">128</a> of file <a class="el" href="a00543_source.html">Mutex.h</a>.</p>
+
+<p>References <a class="el" href="a00561_source.html#l00047">QPID_POSIX_ASSERT_THROW_IF</a>, and <a class="el" href="a00543_source.html#l00073">rwlock</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af3b5d29ea15322a291588c4ec9b86307"></a><!-- doxytag: member="qpid::sys::RWlock::~RWlock" ref="af3b5d29ea15322a291588c4ec9b86307" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::sys::RWlock::~RWlock </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00543_source.html#l00132">132</a> of file <a class="el" href="a00543_source.html">Mutex.h</a>.</p>
+
+<p>References <a class="el" href="a00561_source.html#l00051">QPID_POSIX_ABORT_IF</a>, and <a class="el" href="a00543_source.html#l00073">rwlock</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa6fa88fc8debe5d24e1710938ab53ad7"></a><!-- doxytag: member="qpid::sys::RWlock::RWlock" ref="aa6fa88fc8debe5d24e1710938ab53ad7" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::sys::RWlock::RWlock </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -180,32 +245,15 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a0fac2dbb3f5e5d1e32155170d9100ab1"></a><!-- doxytag: member="qmf::Schema::Schema" ref="a0fac2dbb3f5e5d1e32155170d9100ab1" args="(int, const std::string &amp;, const std::string &amp;)" -->
+<a class="anchor" id="af3b5d29ea15322a291588c4ec9b86307"></a><!-- doxytag: member="qpid::sys::RWlock::~RWlock" ref="af3b5d29ea15322a291588c4ec9b86307" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qmf::Schema::Schema </td>
+          <td class="memname">qpid::sys::RWlock::~RWlock </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -214,65 +262,35 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="acd72c56ce929454de262e7b127edb746"></a><!-- doxytag: member="qmf::Schema::addMethod" ref="acd72c56ce929454de262e7b127edb746" args="(const SchemaMethod &amp;)" -->
+<a class="anchor" id="abf8700d293ecaecbab313f56e91fac13"></a><!-- doxytag: member="qpid::sys::RWlock::rlock" ref="abf8700d293ecaecbab313f56e91fac13" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qmf::Schema::addMethod </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00304.html">SchemaMethod</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac291c95d91f9025f9993ef4c8f22bce5"></a><!-- doxytag: member="qmf::Schema::addProperty" ref="ac291c95d91f9025f9993ef4c8f22bce5" args="(const SchemaProperty &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qmf::Schema::addProperty </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00309.html">SchemaProperty</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae477b9b412a9d1d1272bbb1df97939f5"></a><!-- doxytag: member="qmf::Schema::finalize" ref="ae477b9b412a9d1d1272bbb1df97939f5" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qmf::Schema::finalize </td>
+          <td class="memname">void qpid::sys::RWlock::rlock </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Definition at line <a class="el" href="a00543_source.html#l00140">140</a> of file <a class="el" href="a00543_source.html">Mutex.h</a>.</p>
+
+<p>References <a class="el" href="a00561_source.html#l00047">QPID_POSIX_ASSERT_THROW_IF</a>, and <a class="el" href="a00543_source.html#l00073">rwlock</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a19dbcd27ee17091bed867074673a4d6d"></a><!-- doxytag: member="qmf::Schema::getDefaultSeverity" ref="a19dbcd27ee17091bed867074673a4d6d" args="() const " -->
+<a class="anchor" id="abf8700d293ecaecbab313f56e91fac13"></a><!-- doxytag: member="qpid::sys::RWlock::rlock" ref="abf8700d293ecaecbab313f56e91fac13" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int qmf::Schema::getDefaultSeverity </td>
+          <td class="memname">void qpid::sys::RWlock::rlock </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -280,48 +298,35 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="afc8246fb92a5bd425c1831f422b59ae0"></a><!-- doxytag: member="qmf::Schema::getDesc" ref="afc8246fb92a5bd425c1831f422b59ae0" args="() const " -->
+<a class="anchor" id="a2f7b1f6ff9bdef23f99112912b9152a6"></a><!-- doxytag: member="qpid::sys::RWlock::tryrlock" ref="a2f7b1f6ff9bdef23f99112912b9152a6" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a>&amp; qmf::Schema::getDesc </td>
+          <td class="memname">void qpid::sys::RWlock::tryrlock </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="adcc6b40b0eb87f28bc59da486f75143a"></a><!-- doxytag: member="qmf::Schema::getMethod" ref="adcc6b40b0eb87f28bc59da486f75143a" args="(uint32_t) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00304.html">SchemaMethod</a> qmf::Schema::getMethod </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Definition at line <a class="el" href="a00543_source.html#l00152">152</a> of file <a class="el" href="a00543_source.html">Mutex.h</a>.</p>
+
+<p>References <a class="el" href="a00561_source.html#l00047">QPID_POSIX_ASSERT_THROW_IF</a>, and <a class="el" href="a00543_source.html#l00073">rwlock</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6849c387f03e2a156af637a58be69443"></a><!-- doxytag: member="qmf::Schema::getMethodCount" ref="a6849c387f03e2a156af637a58be69443" args="() const " -->
+<a class="anchor" id="a2f7b1f6ff9bdef23f99112912b9152a6"></a><!-- doxytag: member="qpid::sys::RWlock::tryrlock" ref="a2f7b1f6ff9bdef23f99112912b9152a6" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qmf::Schema::getMethodCount </td>
+          <td class="memname">void qpid::sys::RWlock::tryrlock </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -329,48 +334,35 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a142fd3db44e784984c5395351e813924"></a><!-- doxytag: member="qmf::Schema::getProperty" ref="a142fd3db44e784984c5395351e813924" args="(uint32_t) const " -->
+<a class="anchor" id="a866ce893519e2bd330976d582f8a60f8"></a><!-- doxytag: member="qpid::sys::RWlock::trywlock" ref="a866ce893519e2bd330976d582f8a60f8" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00309.html">SchemaProperty</a> qmf::Schema::getProperty </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0177d4ab8368a8bca54fc13c76f9e61e"></a><!-- doxytag: member="qmf::Schema::getPropertyCount" ref="a0177d4ab8368a8bca54fc13c76f9e61e" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qmf::Schema::getPropertyCount </td>
+          <td class="memname">void qpid::sys::RWlock::trywlock </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Definition at line <a class="el" href="a00543_source.html#l00148">148</a> of file <a class="el" href="a00543_source.html">Mutex.h</a>.</p>
+
+<p>References <a class="el" href="a00561_source.html#l00047">QPID_POSIX_ASSERT_THROW_IF</a>, and <a class="el" href="a00543_source.html#l00073">rwlock</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="ad9e4efee57a8cf185780010d2b24feea"></a><!-- doxytag: member="qmf::Schema::getSchemaId" ref="ad9e4efee57a8cf185780010d2b24feea" args="() const " -->
+<a class="anchor" id="a866ce893519e2bd330976d582f8a60f8"></a><!-- doxytag: member="qpid::sys::RWlock::trywlock" ref="a866ce893519e2bd330976d582f8a60f8" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00302.html">SchemaId</a>&amp; qmf::Schema::getSchemaId </td>
+          <td class="memname">void qpid::sys::RWlock::trywlock </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
@@ -378,189 +370,152 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a662827bad480c9ad99f2682c4decad31"></a><!-- doxytag: member="qmf::Schema::isFinalized" ref="a662827bad480c9ad99f2682c4decad31" args="() const " -->
+<a class="anchor" id="aac75a58d42e0c9c37a9f9767c1e36d4a"></a><!-- doxytag: member="qpid::sys::RWlock::unlock" ref="aac75a58d42e0c9c37a9f9767c1e36d4a" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool qmf::Schema::isFinalized </td>
+          <td class="memname">void qpid::sys::RWlock::unlock </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Definition at line <a class="el" href="a00543_source.html#l00144">144</a> of file <a class="el" href="a00543_source.html">Mutex.h</a>.</p>
+
+<p>References <a class="el" href="a00561_source.html#l00047">QPID_POSIX_ASSERT_THROW_IF</a>, and <a class="el" href="a00543_source.html#l00073">rwlock</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a015fea48a0cd370654102196b8972b0c"></a><!-- doxytag: member="qmf::Schema::isNull" ref="a015fea48a0cd370654102196b8972b0c" args="() const " -->
+<a class="anchor" id="aac75a58d42e0c9c37a9f9767c1e36d4a"></a><!-- doxytag: member="qpid::sys::RWlock::unlock" ref="aac75a58d42e0c9c37a9f9767c1e36d4a" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QMF_INLINE_EXTERN bool qmf::Handle::isNull </td>
+          <td class="memname">void qpid::sys::RWlock::unlock </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is null. It is an error to call any function on a null handle. </dd></dl>
-
-<p>Definition at line <a class="el" href="a00437_source.html#l00045">45</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a39749de38a4fc07f8401696d497a0d3c"></a><!-- doxytag: member="qmf::Schema::isValid" ref="a39749de38a4fc07f8401696d497a0d3c" args="() const " -->
+<a class="anchor" id="ae6a0e0f9bd8fb353d8ae269beb184b8b"></a><!-- doxytag: member="qpid::sys::RWlock::wlock" ref="ae6a0e0f9bd8fb353d8ae269beb184b8b" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QMF_INLINE_EXTERN bool qmf::Handle::isValid </td>
+          <td class="memname">void qpid::sys::RWlock::wlock </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is valid, i.e. not null. </dd></dl>
 
-<p>Definition at line <a class="el" href="a00437_source.html#l00042">42</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
+<p>Definition at line <a class="el" href="a00543_source.html#l00136">136</a> of file <a class="el" href="a00543_source.html">Mutex.h</a>.</p>
+
+<p>References <a class="el" href="a00561_source.html#l00047">QPID_POSIX_ASSERT_THROW_IF</a>, and <a class="el" href="a00543_source.html#l00073">rwlock</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ac1b6422c4626a1a630ac5cc13b41ad9a"></a><!-- doxytag: member="qmf::Schema::operator bool" ref="ac1b6422c4626a1a630ac5cc13b41ad9a" args="() const " -->
+<a class="anchor" id="ae6a0e0f9bd8fb353d8ae269beb184b8b"></a><!-- doxytag: member="qpid::sys::RWlock::wlock" ref="ae6a0e0f9bd8fb353d8ae269beb184b8b" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QMF_INLINE_EXTERN qmf::Handle::operator bool </td>
+          <td class="memname">void qpid::sys::RWlock::wlock </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Conversion to bool supports idiom if (handle) { handle-&gt;... </p>
-<p>} </p>
-
-<p>Definition at line <a class="el" href="a00437_source.html#l00048">48</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a5f7fe4689daf51182ceb8db1c5a7b85f"></a><!-- doxytag: member="qmf::Schema::operator!" ref="a5f7fe4689daf51182ceb8db1c5a7b85f" args="() const " -->
+<a class="anchor" id="a3ce151d4e2352f101beb12d8d7df2aaa"></a><!-- doxytag: member="qpid::sys::RWlock::write" ref="a3ce151d4e2352f101beb12d8d7df2aaa" args="(void)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QMF_INLINE_EXTERN bool qmf::Handle::operator! </td>
+          <td class="memname">bool &amp; qpid::sys::RWlock::write </td>
           <td>(</td>
+          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
+          <td><code> [inline, protected]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }. </p>
+<p>Definition at line <a class="el" href="a00544_source.html#l00177">177</a> of file <a class="el" href="a00544_source.html">Mutex.h</a>.</p>
 
-<p>Definition at line <a class="el" href="a00437_source.html#l00051">51</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a92495e8391a4484b5d290c624afdd103"></a><!-- doxytag: member="qmf::Schema::operator=" ref="a92495e8391a4484b5d290c624afdd103" args="(const Schema &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00296.html">Schema</a>&amp; qmf::Schema::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00296.html">Schema</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aba4251aed2e51a90d354d637c25689af"></a><!-- doxytag: member="qmf::Schema::setDefaultSeverity" ref="aba4251aed2e51a90d354d637c25689af" args="(int)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qmf::Schema::setDefaultSeverity </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2f604956ac9bdce0e81a4788e17773f0"></a><!-- doxytag: member="qmf::Schema::setDesc" ref="a2f604956ac9bdce0e81a4788e17773f0" args="(const std::string &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qmf::Schema::setDesc </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa5de6b64fd036c74cbc332ac2c5d1377"></a><!-- doxytag: member="qmf::Schema::swap" ref="aa5de6b64fd036c74cbc332ac2c5d1377" args="(Handle&lt; T &gt; &amp;h)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qmf::Handle::swap </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00141.html">Handle</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>h</em></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00437_source.html#l00053">53</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
+<p>References <a class="el" href="a00544_source.html#l00081">haveWrite</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a0effa7fbf9c8ae45a927102af0b25679"></a><!-- doxytag: member="qmf::Schema::impl" ref="a0effa7fbf9c8ae45a927102af0b25679" args="" -->
+<a class="anchor" id="a7578091a268fa512f5d9d6350d49b4bf"></a><!-- doxytag: member="qpid::sys::RWlock::haveWrite" ref="a7578091a268fa512f5d9d6350d49b4bf" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00141.html#a15c17b50788ef3057bf2c7a99e7c39b2">Impl</a>* <a class="el" href="a00141.html#a0effa7fbf9c8ae45a927102af0b25679">qmf::Handle::impl</a><code> [protected, inherited]</code></td>
+          <td class="memname">boost::thread_specific_ptr&lt;bool&gt; <a class="el" href="a00296.html#a7578091a268fa512f5d9d6350d49b4bf">qpid::sys::RWlock::haveWrite</a><code> [protected]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00437_source.html#l00063">63</a> of file <a class="el" href="a00437_source.html">Handle.h</a>.</p>
+<p>Definition at line <a class="el" href="a00544_source.html#l00081">81</a> of file <a class="el" href="a00544_source.html">Mutex.h</a>.</p>
+
+<p>Referenced by <a class="el" href="a00544_source.html#l00177">write()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qmf/<a class="el" href="a00430_source.html">Schema.h</a></li>
+<a class="anchor" id="a9d71190070867420bcd5d98c58b5c4f6"></a><!-- doxytag: member="qpid::sys::RWlock::rwlock" ref="a9d71190070867420bcd5d98c58b5c4f6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">pthread_rwlock_t <a class="el" href="a00296.html#a9d71190070867420bcd5d98c58b5c4f6">qpid::sys::RWlock::rwlock</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00543_source.html#l00073">73</a> of file <a class="el" href="a00543_source.html">Mutex.h</a>.</p>
+
+<p>Referenced by <a class="el" href="a00543_source.html#l00128">RWlock()</a>, <a class="el" href="a00543_source.html#l00132">~RWlock()</a>, <a class="el" href="a00543_source.html#l00136">wlock()</a>, <a class="el" href="a00543_source.html#l00140">rlock()</a>, <a class="el" href="a00543_source.html#l00144">unlock()</a>, <a class="el" href="a00543_source.html#l00148">trywlock()</a>, and <a class="el" href="a00543_source.html#l00152">tryrlock()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2cbce729df0f879aae9bf419466d09fc"></a><!-- doxytag: member="qpid::sys::RWlock::rwMutex" ref="a2cbce729df0f879aae9bf419466d09fc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">boost::shared_mutex <a class="el" href="a00296.html#a2cbce729df0f879aae9bf419466d09fc">qpid::sys::RWlock::rwMutex</a><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00544_source.html#l00080">80</a> of file <a class="el" href="a00544_source.html">Mutex.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li>qpid/sys/posix/<a class="el" href="a00543_source.html">Mutex.h</a></li>
+<li>qpid/sys/windows/<a class="el" href="a00544_source.html">Mutex.h</a></li>
 </ul>
 </div>
 <!--
@@ -590,7 +545,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

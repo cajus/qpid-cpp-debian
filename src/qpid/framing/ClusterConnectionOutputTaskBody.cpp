@@ -26,7 +26,7 @@
 
 
 #include "qpid/framing/ClusterConnectionOutputTaskBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
@@ -41,6 +41,7 @@ void ClusterConnectionOutputTaskBody::clearChannelFlag() { flags &= ~(1 << 8); }
 void ClusterConnectionOutputTaskBody::setName(const std::string& _name) {
     name = _name;
     flags |= (1 << 9);
+    if (name.size() >= 256) throw IllegalArgumentException("Value for name is too large");
 }
 const std::string& ClusterConnectionOutputTaskBody::getName() const { return name; }
 bool ClusterConnectionOutputTaskBody::hasName() const { return flags & (1 << 9); }

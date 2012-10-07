@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::framing::ProtocolVersion Class Reference</title>
+    <title>std::priority_queue Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,214 +60,24 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00580.html">framing</a>      </li>
-      <li class="navelem"><a class="el" href="a00255.html">ProtocolVersion</a>      </li>
+      <li class="navelem"><b>std</b>      </li>
+      <li class="navelem"><a class="el" href="a00255.html">priority_queue</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::framing::ProtocolVersion Class Reference</div>  </div>
+<div class="title">std::priority_queue Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::framing::ProtocolVersion" -->
-<p><code>#include &lt;<a class="el" href="a00514_source.html">qpid/framing/ProtocolVersion.h</a>&gt;</code></p>
+<!-- doxytag: class="std::priority_queue" -->
+<p>STL class.  
+ <a href="a00255.html#details">More...</a></p>
 
-<p><a href="a00787.html">List of all members.</a></p>
-<table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00255.html#aec4487f8a14f7a75278d290fe4171df3">ProtocolVersion</a> (<a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> _major=0, <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> _minor=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00255.html#a56138cad3374e3334eef1f480a3b9adc">getMajor</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00255.html#a9ada3572fc504c924e50f6485b98dda4">setMajor</a> (<a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> major)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00255.html#a6fbd79076e3cd4a805ef8b4e309c49e9">getMinor</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00255.html#a545a4fccd976967aeb85e7814d4db6cd">setMinor</a> (<a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> minor)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00255.html#a7e4c444a0f9f24894e9814a7cd143f66">toString</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00255.html">ProtocolVersion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00255.html#a7dd02399365c66e5e9f2496fe8ea321a">operator=</a> (<a class="el" href="a00255.html">ProtocolVersion</a> p)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00255.html#ae1e823f190fc0a0acf64c81902b6581b">operator==</a> (<a class="el" href="a00255.html">ProtocolVersion</a> p) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00255.html#a50ccec1e435371c8e6f6888173ecff69">operator!=</a> (<a class="el" href="a00255.html">ProtocolVersion</a> p) const </td></tr>
-</table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aec4487f8a14f7a75278d290fe4171df3"></a><!-- doxytag: member="qpid::framing::ProtocolVersion::ProtocolVersion" ref="aec4487f8a14f7a75278d290fe4171df3" args="(uint8_t _major=0, uint8_t _minor=0)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::framing::ProtocolVersion::ProtocolVersion </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
-          <td class="paramname"><em>_major</em> = <code>0</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
-          <td class="paramname"><em>_minor</em> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inline, explicit]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00514_source.html#l00039">39</a> of file <a class="el" href="a00514_source.html">ProtocolVersion.h</a>.</p>
-
-</div>
-</div>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a56138cad3374e3334eef1f480a3b9adc"></a><!-- doxytag: member="qpid::framing::ProtocolVersion::getMajor" ref="a56138cad3374e3334eef1f480a3b9adc" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> qpid::framing::ProtocolVersion::getMajor </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00514_source.html#l00042">42</a> of file <a class="el" href="a00514_source.html">ProtocolVersion.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6fbd79076e3cd4a805ef8b4e309c49e9"></a><!-- doxytag: member="qpid::framing::ProtocolVersion::getMinor" ref="a6fbd79076e3cd4a805ef8b4e309c49e9" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> qpid::framing::ProtocolVersion::getMinor </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00514_source.html#l00044">44</a> of file <a class="el" href="a00514_source.html">ProtocolVersion.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a50ccec1e435371c8e6f6888173ecff69"></a><!-- doxytag: member="qpid::framing::ProtocolVersion::operator!=" ref="a50ccec1e435371c8e6f6888173ecff69" args="(ProtocolVersion p) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN bool qpid::framing::ProtocolVersion::operator!= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00255.html">ProtocolVersion</a>&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00514_source.html#l00051">51</a> of file <a class="el" href="a00514_source.html">ProtocolVersion.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7dd02399365c66e5e9f2496fe8ea321a"></a><!-- doxytag: member="qpid::framing::ProtocolVersion::operator=" ref="a7dd02399365c66e5e9f2496fe8ea321a" args="(ProtocolVersion p)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00255.html">ProtocolVersion</a>&amp; qpid::framing::ProtocolVersion::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00255.html">ProtocolVersion</a>&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ae1e823f190fc0a0acf64c81902b6581b"></a><!-- doxytag: member="qpid::framing::ProtocolVersion::operator==" ref="ae1e823f190fc0a0acf64c81902b6581b" args="(ProtocolVersion p) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::ProtocolVersion::operator== </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00255.html">ProtocolVersion</a>&#160;</td>
-          <td class="paramname"><em>p</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a9ada3572fc504c924e50f6485b98dda4"></a><!-- doxytag: member="qpid::framing::ProtocolVersion::setMajor" ref="a9ada3572fc504c924e50f6485b98dda4" args="(uint8_t major)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN void qpid::framing::ProtocolVersion::setMajor </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
-          <td class="paramname"><em>major</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00514_source.html#l00043">43</a> of file <a class="el" href="a00514_source.html">ProtocolVersion.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a545a4fccd976967aeb85e7814d4db6cd"></a><!-- doxytag: member="qpid::framing::ProtocolVersion::setMinor" ref="a545a4fccd976967aeb85e7814d4db6cd" args="(uint8_t minor)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN void qpid::framing::ProtocolVersion::setMinor </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
-          <td class="paramname"><em>minor</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00514_source.html#l00045">45</a> of file <a class="el" href="a00514_source.html">ProtocolVersion.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a7e4c444a0f9f24894e9814a7cd143f66"></a><!-- doxytag: member="qpid::framing::ProtocolVersion::toString" ref="a7e4c444a0f9f24894e9814a7cd143f66" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a> qpid::framing::ProtocolVersion::toString </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/framing/<a class="el" href="a00514_source.html">ProtocolVersion.h</a></li>
-</ul>
-</div>
+<p><a href="a00912.html">List of all members.</a></p>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>STL class. </p>
+</div><hr/>The documentation for this class was generated from the following files:</div>
 <!--
  
  Licensed to the Apache Software Foundation (ASF) under one
@@ -295,7 +105,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

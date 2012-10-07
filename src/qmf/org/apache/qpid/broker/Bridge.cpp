@@ -30,6 +30,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
 
 using namespace qmf::org::apache::qpid::broker;
 using           qpid::management::ManagementAgent;
@@ -42,12 +43,13 @@ using           std::string;
 string  Bridge::packageName  = string ("org.apache.qpid.broker");
 string  Bridge::className    = string ("bridge");
 uint8_t Bridge::md5Sum[MD5_LEN]   =
-    {0xa2,0x51,0xe2,0x3,0x3d,0x1a,0xc,0xed,0x6e,0x98,0x6e,0xd5,0x68,0x28,0xf4,0x7a};
+    {0xca,0xa6,0x69,0xd2,0xa8,0x12,0x9,0x1f,0x12,0xbc,0x0,0xb9,0x4d,0x57,0xc6,0xf5};
 
-Bridge::Bridge (ManagementAgent*, Manageable* _core, ::qpid::management::Manageable* _parent, uint16_t _channelId, bool _durable, const std::string& _src, const std::string& _dest, const std::string& _key, bool _srcIsQueue, bool _srcIsLocal, const std::string& _tag, const std::string& _excludes, bool _dynamic, uint16_t _sync) :
-    ManagementObject(_core),channelId(_channelId),durable(_durable),src(_src),dest(_dest),key(_key),srcIsQueue(_srcIsQueue),srcIsLocal(_srcIsLocal),tag(_tag),excludes(_excludes),dynamic(_dynamic),sync(_sync)
+Bridge::Bridge (ManagementAgent*, Manageable* _core, ::qpid::management::Manageable* _parent, const std::string& _name, bool _durable, const std::string& _src, const std::string& _dest, const std::string& _key, bool _srcIsQueue, bool _srcIsLocal, const std::string& _tag, const std::string& _excludes, bool _dynamic, uint16_t _sync) :
+    ManagementObject(_core),name(_name),durable(_durable),src(_src),dest(_dest),key(_key),srcIsQueue(_srcIsQueue),srcIsLocal(_srcIsLocal),tag(_tag),excludes(_excludes),dynamic(_dynamic),sync(_sync)
 {
     linkRef = _parent->GetManagementObject ()->getObjectId ();
+    channelId = 0;
 
 
 
@@ -92,7 +94,7 @@ void Bridge::writeSchema (std::string& schema)
     buf.putShortString (packageName); // Package Name
     buf.putShortString (className);   // Class Name
     buf.putBin128      (md5Sum);      // Schema Hash
-    buf.putShort       (12); // Config Element Count
+    buf.putShort       (13); // Config Element Count
     buf.putShort       (0); // Inst Element Count
     buf.putShort       (1); // Method Count
 
@@ -106,10 +108,18 @@ void Bridge::writeSchema (std::string& schema)
     buf.putMap(ft);
 
     ft.clear();
-    ft[NAME] = "channelId";
-    ft[TYPE] = TYPE_U16;
+    ft[NAME] = "name";
+    ft[TYPE] = TYPE_SSTR;
     ft[ACCESS] = ACCESS_RC;
     ft[IS_INDEX] = 1;
+    ft[IS_OPTIONAL] = 0;
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "channelId";
+    ft[TYPE] = TYPE_U16;
+    ft[ACCESS] = ACCESS_RO;
+    ft[IS_INDEX] = 0;
     ft[IS_OPTIONAL] = 0;
     buf.putMap(ft);
 
@@ -218,6 +228,7 @@ uint32_t Bridge::writePropertiesSize() const
     uint32_t size = writeTimestampsSize();
 
     size += 16;  // linkRef
+    size += (1 + name.length());  // name
     size += 2;  // channelId
     size += 1;  // durable
     size += (1 + src.length());  // src
@@ -248,6 +259,7 @@ void Bridge::readProperties (const std::string& _sBuf)
 
 
     {std::string _s; buf.getRawData(_s, linkRef.encodedSize()); linkRef.decode(_s);};
+    buf.getShortString(name);
     channelId = buf.getShort();
     durable = buf.getOctet()==1;
     buf.getShortString(src);
@@ -282,6 +294,7 @@ void Bridge::writeProperties (std::string& _sBuf) const
 
 
     {std::string _s; linkRef.encode(_s); buf.putRawData(_s);};
+    buf.putShortString(name);
     buf.putShort(channelId);
     buf.putOctet(durable?1:0);
     buf.putShortString(src);
@@ -371,7 +384,7 @@ std::string Bridge::getKey() const
     std::stringstream key;
 
     key << linkRef.getV2Key() << ",";
-    key << channelId;
+    key << name;
     return key.str();
 }
 
@@ -387,6 +400,7 @@ void Bridge::mapEncodeValues (::qpid::types::Variant::Map& _map,
     if (includeProperties) {
         configChanged = false;
     _map["linkRef"] = ::qpid::types::Variant(linkRef);
+    _map["name"] = ::qpid::types::Variant(name);
     _map["channelId"] = ::qpid::types::Variant(channelId);
     _map["durable"] = ::qpid::types::Variant(durable);
     _map["src"] = ::qpid::types::Variant(src);
@@ -422,39 +436,68 @@ void Bridge::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
 
     if ((_i = _map.find("linkRef")) != _map.end()) {
         linkRef = _i->second;
+    } else {
+        linkRef = ::qpid::management::ObjectId();
+    }
+    if ((_i = _map.find("name")) != _map.end()) {
+        name = (_i->second).getString();
+    } else {
+        name = "";
     }
     if ((_i = _map.find("channelId")) != _map.end()) {
         channelId = _i->second;
+    } else {
+        channelId = 0;
     }
     if ((_i = _map.find("durable")) != _map.end()) {
         durable = _i->second;
+    } else {
+        durable = false;
     }
     if ((_i = _map.find("src")) != _map.end()) {
         src = (_i->second).getString();
+    } else {
+        src = "";
     }
     if ((_i = _map.find("dest")) != _map.end()) {
         dest = (_i->second).getString();
+    } else {
+        dest = "";
     }
     if ((_i = _map.find("key")) != _map.end()) {
         key = (_i->second).getString();
+    } else {
+        key = "";
     }
     if ((_i = _map.find("srcIsQueue")) != _map.end()) {
         srcIsQueue = _i->second;
+    } else {
+        srcIsQueue = false;
     }
     if ((_i = _map.find("srcIsLocal")) != _map.end()) {
         srcIsLocal = _i->second;
+    } else {
+        srcIsLocal = false;
     }
     if ((_i = _map.find("tag")) != _map.end()) {
         tag = (_i->second).getString();
+    } else {
+        tag = "";
     }
     if ((_i = _map.find("excludes")) != _map.end()) {
         excludes = (_i->second).getString();
+    } else {
+        excludes = "";
     }
     if ((_i = _map.find("dynamic")) != _map.end()) {
         dynamic = _i->second;
+    } else {
+        dynamic = false;
     }
     if ((_i = _map.find("sync")) != _map.end()) {
         sync = _i->second;
+    } else {
+        sync = 0;
     }
 
 }

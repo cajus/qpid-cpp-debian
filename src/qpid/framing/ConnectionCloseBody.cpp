@@ -26,7 +26,7 @@
 
 
 #include "qpid/framing/ConnectionCloseBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
@@ -41,6 +41,7 @@ void ConnectionCloseBody::clearReplyCodeFlag() { flags &= ~(1 << 8); }
 void ConnectionCloseBody::setReplyText(const std::string& _replyText) {
     replyText = _replyText;
     flags |= (1 << 9);
+    if (replyText.size() >= 256) throw IllegalArgumentException("Value for replyText is too large");
 }
 const std::string& ConnectionCloseBody::getReplyText() const { return replyText; }
 bool ConnectionCloseBody::hasReplyText() const { return flags & (1 << 9); }

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::framing::EncodedValue Class Reference</title>
+    <title>qpid::sys::Duration Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,9 +60,9 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00580.html">framing</a>      </li>
-      <li class="navelem"><a class="el" href="a00105.html">EncodedValue</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00594.html">sys</a>      </li>
+      <li class="navelem"><a class="el" href="a00105.html">Duration</a>      </li>
     </ul>
   </div>
 </div>
@@ -70,236 +70,80 @@
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::framing::EncodedValue Class Reference</div>  </div>
+<div class="title">qpid::sys::Duration Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::framing::EncodedValue" --><!-- doxytag: inherits="qpid::framing::FieldValue::Data" -->
-<p><code>#include &lt;<a class="el" href="a00506_source.html">qpid/framing/FieldValue.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::sys::Duration" -->
+<p>Class to represent the duration between instants of time.  
+ <a href="a00105.html#details">More...</a></p>
 
-<p><a href="a00757.html">List of all members.</a></p>
+<p><code>#include &lt;<a class="el" href="a00565_source.html">qpid/sys/Time.h</a>&gt;</code></p>
+
+<p><a href="a00897.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#abea45f119f0de49df91bea17bc445197">EncodedValue</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a677a66cdcac0665ff27767dbf2bc14ce">EncodedValue</a> (const T &amp;v)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a3a17267d063743a490f6f9a7e31e7084">getValue</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#adb2239f151e0529d4f7bad8ff1c60220">getValue</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a90533a55744d798dbae401f1cdc306e5">encodedSize</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a418de4d67d3f702c5f5b729b498a4b08">encode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;buffer)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a5d27f5f35d648686bbd44069eadaf28e">decode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;buffer)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#ad01f0c25d7bd31493d71f55a5c9f87dd">operator==</a> (const Data &amp;d) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#aecb5b3350b60f2489e2ba1d7be7a8338">print</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;o) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00093.html#a6ec9b4ccb03b25d37c24375f90faac91">operator==</a> (const Data &amp;) const =0</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00093.html#abb5d08280b70316f1436794288b61064">convertsToInt</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00093.html#ad3a689467bb1a0bdd2f87770002cdd24">convertsToString</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00093.html#acc9e6fbe00b767c6924c485619f547df">getInt</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00093.html#ae56f9ff6c3c6260b42de28132d6e0720">getString</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#ac0e8512da981ae5950d5716b016cc464">Duration</a> (int64_t time0=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#a7f14f9a71494ead309f96a49a5b1864c">Duration</a> (const <a class="el" href="a00001.html">AbsTime</a> &amp;start, const <a class="el" href="a00001.html">AbsTime</a> &amp;finish)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html#ada92cfc5a1a0270e101b208b651c5d9f">operator int64_t</a> () const </td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="abea45f119f0de49df91bea17bc445197"></a><!-- doxytag: member="qpid::framing::EncodedValue::EncodedValue" ref="abea45f119f0de49df91bea17bc445197" args="()" -->
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Class to represent the duration between instants of time. </p>
+<p>As <a class="el" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a>, this class also uses nanosecs for its time resolution where possible. For the most part a duration can be dealt with like a 64 bit integer, and indeed there is an implicit conversion which makes this quite convenient. </p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ac0e8512da981ae5950d5716b016cc464"></a><!-- doxytag: member="qpid::sys::Duration::Duration" ref="ac0e8512da981ae5950d5716b016cc464" args="(int64_t time0=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::framing::EncodedValue::EncodedValue </td>
+          <td class="memname">qpid::sys::Duration::Duration </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int64_t&#160;</td>
+          <td class="paramname"><em>time0</em> = <code>0</code></td><td>)</td>
           <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00506_source.html#l00297">297</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
+<p>Definition at line <a class="el" href="a00565_source.html#l00136">136</a> of file <a class="el" href="a00565_source.html">Time.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a677a66cdcac0665ff27767dbf2bc14ce"></a><!-- doxytag: member="qpid::framing::EncodedValue::EncodedValue" ref="a677a66cdcac0665ff27767dbf2bc14ce" args="(const T &amp;v)" -->
+<a class="anchor" id="a7f14f9a71494ead309f96a49a5b1864c"></a><!-- doxytag: member="qpid::sys::Duration::Duration" ref="a7f14f9a71494ead309f96a49a5b1864c" args="(const AbsTime &amp;start, const AbsTime &amp;finish)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::framing::EncodedValue::EncodedValue </td>
+          <td class="memname">qpid::sys::Duration::Duration </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td class="paramtype">const <a class="el" href="a00001.html">AbsTime</a> &amp;&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00001.html">AbsTime</a> &amp;&#160;</td>
+          <td class="paramname"><em>finish</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [explicit]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00506_source.html#l00298">298</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="abb5d08280b70316f1436794288b61064"></a><!-- doxytag: member="qpid::framing::EncodedValue::convertsToInt" ref="abb5d08280b70316f1436794288b61064" args="() const " -->
+<a class="anchor" id="ada92cfc5a1a0270e101b208b651c5d9f"></a><!-- doxytag: member="qpid::sys::Duration::operator int64_t" ref="ada92cfc5a1a0270e101b208b651c5d9f" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool qpid::framing::FieldValue::Data::convertsToInt </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, virtual, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Reimplemented in <a class="el" href="a00128.html#af0d7e7818a7dd01ceb4257272e12a0c6">qpid::framing::FixedWidthValue</a>.</p>
-
-<p>Definition at line <a class="el" href="a00506_source.html#l00075">75</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad3a689467bb1a0bdd2f87770002cdd24"></a><!-- doxytag: member="qpid::framing::EncodedValue::convertsToString" ref="ad3a689467bb1a0bdd2f87770002cdd24" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool qpid::framing::FieldValue::Data::convertsToString </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, virtual, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Reimplemented in <a class="el" href="a00384.html#adf79e896afbe2be10c04cd2030eb1efb">qpid::framing::VariableWidthValue</a>.</p>
-
-<p>Definition at line <a class="el" href="a00506_source.html#l00076">76</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5d27f5f35d648686bbd44069eadaf28e"></a><!-- doxytag: member="qpid::framing::EncodedValue::decode" ref="a5d27f5f35d648686bbd44069eadaf28e" args="(Buffer &amp;buffer)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::EncodedValue::decode </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Implements <a class="el" href="a00093.html#ae7226538da498dd2c3d41299985523d0">qpid::framing::FieldValue::Data</a>.</p>
-
-<p>Definition at line <a class="el" href="a00506_source.html#l00308">308</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a418de4d67d3f702c5f5b729b498a4b08"></a><!-- doxytag: member="qpid::framing::EncodedValue::encode" ref="a418de4d67d3f702c5f5b729b498a4b08" args="(Buffer &amp;buffer)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::EncodedValue::encode </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Implements <a class="el" href="a00093.html#a9cd866da7032f4a30d22484719af7331">qpid::framing::FieldValue::Data</a>.</p>
-
-<p>Definition at line <a class="el" href="a00506_source.html#l00305">305</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a90533a55744d798dbae401f1cdc306e5"></a><!-- doxytag: member="qpid::framing::EncodedValue::encodedSize" ref="a90533a55744d798dbae401f1cdc306e5" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::EncodedValue::encodedSize </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Implements <a class="el" href="a00093.html#a84f414dc478683847245f126db1bdfb8">qpid::framing::FieldValue::Data</a>.</p>
-
-<p>Definition at line <a class="el" href="a00506_source.html#l00303">303</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="acc9e6fbe00b767c6924c485619f547df"></a><!-- doxytag: member="qpid::framing::EncodedValue::getInt" ref="acc9e6fbe00b767c6924c485619f547df" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual int64_t qpid::framing::FieldValue::Data::getInt </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, virtual, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Reimplemented in <a class="el" href="a00128.html#a934eaa6a8072e176f78ddee8222e1132">qpid::framing::FixedWidthValue</a>.</p>
-
-<p>Definition at line <a class="el" href="a00506_source.html#l00077">77</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ae56f9ff6c3c6260b42de28132d6e0720"></a><!-- doxytag: member="qpid::framing::EncodedValue::getString" ref="ae56f9ff6c3c6260b42de28132d6e0720" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00345.html">std::string</a> qpid::framing::FieldValue::Data::getString </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, virtual, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Reimplemented in <a class="el" href="a00384.html#af38a70b3af1b9b1bda144dadd5cea1d3">qpid::framing::VariableWidthValue</a>.</p>
-
-<p>Definition at line <a class="el" href="a00506_source.html#l00078">78</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3a17267d063743a490f6f9a7e31e7084"></a><!-- doxytag: member="qpid::framing::EncodedValue::getValue" ref="a3a17267d063743a490f6f9a7e31e7084" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">T&amp; qpid::framing::EncodedValue::getValue </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00506_source.html#l00300">300</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="adb2239f151e0529d4f7bad8ff1c60220"></a><!-- doxytag: member="qpid::framing::EncodedValue::getValue" ref="adb2239f151e0529d4f7bad8ff1c60220" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const T&amp; qpid::framing::EncodedValue::getValue </td>
+          <td class="memname">qpid::sys::Duration::operator int64_t </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const<code> [inline]</code></td>
@@ -308,69 +152,12 @@ Public Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00506_source.html#l00301">301</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6ec9b4ccb03b25d37c24375f90faac91"></a><!-- doxytag: member="qpid::framing::EncodedValue::operator==" ref="a6ec9b4ccb03b25d37c24375f90faac91" args="(const Data &amp;) const =0" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool qpid::framing::FieldValue::Data::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00093.html">Data</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [pure virtual, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad01f0c25d7bd31493d71f55a5c9f87dd"></a><!-- doxytag: member="qpid::framing::EncodedValue::operator==" ref="ad01f0c25d7bd31493d71f55a5c9f87dd" args="(const Data &amp;d) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::EncodedValue::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const Data &amp;&#160;</td>
-          <td class="paramname"><em>d</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00506_source.html#l00311">311</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aecb5b3350b60f2489e2ba1d7be7a8338"></a><!-- doxytag: member="qpid::framing::EncodedValue::print" ref="aecb5b3350b60f2489e2ba1d7be7a8338" args="(std::ostream &amp;o) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::EncodedValue::print </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname"><em>o</em></td><td>)</td>
-          <td> const<code> [inline, virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Implements <a class="el" href="a00093.html#a7e87bea834cd5be55a8b8b3d527a7d10">qpid::framing::FieldValue::Data</a>.</p>
-
-<p>Definition at line <a class="el" href="a00506_source.html#l00317">317</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
+<p>Definition at line <a class="el" href="a00565_source.html#l00140">140</a> of file <a class="el" href="a00565_source.html">Time.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/framing/<a class="el" href="a00506_source.html">FieldValue.h</a></li>
+<li>qpid/sys/<a class="el" href="a00565_source.html">Time.h</a></li>
 </ul>
 </div>
 <!--
@@ -400,7 +187,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

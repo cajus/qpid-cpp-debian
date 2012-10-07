@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/management/Mutex.h Source File</title>
+    <title>qpid/management/ManagementEvent.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,72 +58,62 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/management/Mutex.h</div>  </div>
+<div class="title">qpid/management/ManagementEvent.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00539.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _management_Mutex_h</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _management_Mutex_h</span>
+<a href="a00539.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _ManagementEvent_</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _ManagementEvent_</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="comment">/*</span>
 <a name="l00005"></a>00005 <span class="comment"> *</span>
-<a name="l00006"></a>00006 <span class="comment"> * Copyright (c) 2008 The Apache Software Foundation</span>
-<a name="l00007"></a>00007 <span class="comment"> *</span>
-<a name="l00008"></a>00008 <span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
-<a name="l00009"></a>00009 <span class="comment"> * you may not use this file except in compliance with the License.</span>
-<a name="l00010"></a>00010 <span class="comment"> * You may obtain a copy of the License at</span>
-<a name="l00011"></a>00011 <span class="comment"> *</span>
-<a name="l00012"></a>00012 <span class="comment"> *    http://www.apache.org/licenses/LICENSE-2.0</span>
+<a name="l00006"></a>00006 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
+<a name="l00007"></a>00007 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
+<a name="l00008"></a>00008 <span class="comment"> * distributed with this work for additional information</span>
+<a name="l00009"></a>00009 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
+<a name="l00010"></a>00010 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
+<a name="l00011"></a>00011 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
+<a name="l00012"></a>00012 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
 <a name="l00013"></a>00013 <span class="comment"> *</span>
-<a name="l00014"></a>00014 <span class="comment"> * Unless required by applicable law or agreed to in writing, software</span>
-<a name="l00015"></a>00015 <span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
-<a name="l00016"></a>00016 <span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
-<a name="l00017"></a>00017 <span class="comment"> * See the License for the specific language governing permissions and</span>
-<a name="l00018"></a>00018 <span class="comment"> * limitations under the License.</span>
-<a name="l00019"></a>00019 <span class="comment"> *</span>
-<a name="l00020"></a>00020 <span class="comment"> */</span>
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="a00482.html">qpid/CommonImportExport.h</a>&quot;</span>
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="keyword">namespace </span>qpid {
-<a name="l00025"></a>00025     <span class="keyword">namespace </span>sys {
-<a name="l00026"></a>00026         <span class="keyword">class </span>Mutex;
-<a name="l00027"></a>00027     }
+<a name="l00014"></a>00014 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
+<a name="l00015"></a>00015 <span class="comment"> *</span>
+<a name="l00016"></a>00016 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
+<a name="l00017"></a>00017 <span class="comment"> * software distributed under the License is distributed on an</span>
+<a name="l00018"></a>00018 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<a name="l00019"></a>00019 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
+<a name="l00020"></a>00020 <span class="comment"> * specific language governing permissions and limitations</span>
+<a name="l00021"></a>00021 <span class="comment"> * under the License.</span>
+<a name="l00022"></a>00022 <span class="comment"> *</span>
+<a name="l00023"></a>00023 <span class="comment"> */</span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00540.html">qpid/management/ManagementObject.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00571.html">qpid/types/Variant.h</a>&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &lt;string&gt;</span>
 <a name="l00028"></a>00028 
-<a name="l00029"></a>00029     <span class="keyword">namespace </span>management {
-<a name="l00030"></a>00030 
-<a name="l00035"></a>00035         <span class="keyword">template</span> &lt;<span class="keyword">class</span> L&gt; <span class="keyword">class </span>ScopedLockTemplate {
-<a name="l00036"></a>00036         <span class="keyword">public</span>:
-<a name="l00037"></a><a class="code" href="a00313.html#adb9afa5e40c31da3c111c92c268f6367">00037</a>             <a class="code" href="a00313.html#adb9afa5e40c31da3c111c92c268f6367">ScopedLockTemplate</a>(L&amp; l) : mutex(l) { mutex.lock(); }
-<a name="l00038"></a><a class="code" href="a00313.html#ac8598a35236a606160306aff04a7a505">00038</a>             <a class="code" href="a00313.html#ac8598a35236a606160306aff04a7a505">~ScopedLockTemplate</a>() { mutex.unlock(); }
-<a name="l00039"></a>00039         <span class="keyword">private</span>:
-<a name="l00040"></a>00040             L&amp; mutex;
-<a name="l00041"></a>00041         };
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043         <span class="keyword">template</span> &lt;<span class="keyword">class</span> L&gt; <span class="keyword">class </span>ScopedUnlockTemplate {
-<a name="l00044"></a>00044         <span class="keyword">public</span>:
-<a name="l00045"></a><a class="code" href="a00316.html#a078c06464e1bee22a3ccf076cb502d7b">00045</a>             <a class="code" href="a00316.html#a078c06464e1bee22a3ccf076cb502d7b">ScopedUnlockTemplate</a>(L&amp; l) : mutex(l) { mutex.unlock(); }
-<a name="l00046"></a><a class="code" href="a00316.html#a3da741c8a113f3c0f62fc3bc6ebe9573">00046</a>             <a class="code" href="a00316.html#a3da741c8a113f3c0f62fc3bc6ebe9573">~ScopedUnlockTemplate</a>() { mutex.lock(); }
-<a name="l00047"></a>00047         <span class="keyword">private</span>:
-<a name="l00048"></a>00048             L&amp; mutex;
-<a name="l00049"></a>00049         };
+<a name="l00029"></a>00029 <span class="keyword">namespace </span>qpid {
+<a name="l00030"></a>00030 <span class="keyword">namespace </span><a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca819da084b6e5d2f6fea2e9189ad658ea">management</a> {
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="keyword">class </span>ManagementAgent;
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 <span class="keyword">class </span>ManagementEvent : <span class="keyword">public</span> ManagementItem {
+<a name="l00035"></a>00035  <span class="keyword">public</span>:
+<a name="l00036"></a><a class="code" href="a00200.html#aff98b0ebb6c2f80ea79f3552a2e1a9dc">00036</a>     <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="code" href="a00200.html#aff98b0ebb6c2f80ea79f3552a2e1a9dc">MD5_LEN</a> = 16;
+<a name="l00037"></a>00037     <span class="comment">//typedef void (*writeSchemaCall_t)(qpid::framing::Buffer&amp;);</span>
+<a name="l00038"></a><a class="code" href="a00200.html#ad7c8a4efa36a1285c1f75e48efe4ac88">00038</a>     <span class="keyword">typedef</span> void (*<a class="code" href="a00200.html#ad7c8a4efa36a1285c1f75e48efe4ac88">writeSchemaCall_t</a>)(std::string&amp;);
+<a name="l00039"></a><a class="code" href="a00200.html#af19a5613ae434686086cd7fb57fc4cdb">00039</a>     <span class="keyword">virtual</span> <a class="code" href="a00200.html#af19a5613ae434686086cd7fb57fc4cdb">~ManagementEvent</a>() {}
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041     <span class="keyword">virtual</span> <a class="code" href="a00200.html#ad7c8a4efa36a1285c1f75e48efe4ac88">writeSchemaCall_t</a> <a class="code" href="a00200.html#aa94540fea95d78e8dca2ce8e10c6b16e">getWriteSchemaCall</a>(<span class="keywordtype">void</span>) = 0;
+<a name="l00042"></a>00042     <span class="comment">//virtual mapEncodeSchemaCall_t getMapEncodeSchemaCall(void) = 0;</span>
+<a name="l00043"></a>00043     <span class="keyword">virtual</span> std::string&amp; <a class="code" href="a00200.html#a15098210370c4cb2842d39a226e04a2e">getEventName</a>() <span class="keyword">const</span> = 0;
+<a name="l00044"></a>00044     <span class="keyword">virtual</span> std::string&amp; <a class="code" href="a00200.html#a71c3717bef680f5a7543b738f1b8226b">getPackageName</a>() <span class="keyword">const</span> = 0;
+<a name="l00045"></a>00045     <span class="keyword">virtual</span> <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* <a class="code" href="a00200.html#a696252473e24756e48abc9241efa0f9e">getMd5Sum</a>() <span class="keyword">const</span> = 0;
+<a name="l00046"></a>00046     <span class="keyword">virtual</span> <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="code" href="a00200.html#ab0166fe27082618ea7000b6ec4f743ba">getSeverity</a>() <span class="keyword">const</span> = 0;
+<a name="l00047"></a>00047     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00200.html#a4373ee1759da887f676b2b65fb40feb9">encode</a>(<a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;) <span class="keyword">const</span> = 0;
+<a name="l00048"></a>00048     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00200.html#a4b2239112ae62564d87321e810e63b26">mapEncode</a>(<a class="code" href="a00203.html" title="STL class.">qpid::types::Variant::Map</a>&amp;) <span class="keyword">const</span> = 0;
+<a name="l00049"></a>00049 };
 <a name="l00050"></a>00050 
-<a name="l00051"></a>00051         <span class="keyword">class </span>Mutex {
-<a name="l00052"></a>00052         <span class="keyword">public</span>:
-<a name="l00053"></a><a class="code" href="a00221.html#a8cfba91482b4729689466412c5074c1a">00053</a>             <span class="keyword">typedef</span> <a class="code" href="a00313.html" title="Scoped lock template: calls lock() in ctor, unlock() in dtor.">ScopedLockTemplate&lt;Mutex&gt;</a> <a class="code" href="a00221.html#a8cfba91482b4729689466412c5074c1a">ScopedLock</a>;
-<a name="l00054"></a><a class="code" href="a00221.html#aec57578543abf9548b0b16e33970e4b0">00054</a>             <span class="keyword">typedef</span> <a class="code" href="a00316.html">ScopedUnlockTemplate&lt;Mutex&gt;</a> <a class="code" href="a00221.html#aec57578543abf9548b0b16e33970e4b0">ScopedUnlock</a>;
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056             <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00221.html#aff6e82313d36306893ab8261af0a8e16">Mutex</a>();
-<a name="l00057"></a>00057             <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00221.html#a3221e20cede10eb16c882795aed28b9d">~Mutex</a>();
-<a name="l00058"></a>00058             <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00221.html#aed82fb410b9aa3e829d6888ad609a0e3">lock</a>();
-<a name="l00059"></a>00059             <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00221.html#ab452542951470b6dad9510088193c74c">unlock</a>();
-<a name="l00060"></a>00060         <span class="keyword">private</span>:
-<a name="l00061"></a>00061             sys<a class="code" href="a00221.html">::Mutex</a>* impl;
-<a name="l00062"></a>00062         };
-<a name="l00063"></a>00063     }
-<a name="l00064"></a>00064 }
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066 <span class="preprocessor">#endif</span>
-<a name="l00067"></a>00067 <span class="preprocessor"></span>
+<a name="l00051"></a>00051 }}
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -153,7 +143,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

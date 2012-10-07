@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ExchangeBindBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ExchangeBindBody::setQueue(const std::string& _queue) {
     queue = _queue;
     flags |= (1 << 8);
+    if (queue.size() >= 256) throw IllegalArgumentException("Value for queue is too large");
 }
 const std::string& ExchangeBindBody::getQueue() const { return queue; }
 bool ExchangeBindBody::hasQueue() const { return flags & (1 << 8); }
@@ -41,6 +42,7 @@ void ExchangeBindBody::clearQueueFlag() { flags &= ~(1 << 8); }
 void ExchangeBindBody::setExchange(const std::string& _exchange) {
     exchange = _exchange;
     flags |= (1 << 9);
+    if (exchange.size() >= 256) throw IllegalArgumentException("Value for exchange is too large");
 }
 const std::string& ExchangeBindBody::getExchange() const { return exchange; }
 bool ExchangeBindBody::hasExchange() const { return flags & (1 << 9); }
@@ -49,6 +51,7 @@ void ExchangeBindBody::clearExchangeFlag() { flags &= ~(1 << 9); }
 void ExchangeBindBody::setBindingKey(const std::string& _bindingKey) {
     bindingKey = _bindingKey;
     flags |= (1 << 10);
+    if (bindingKey.size() >= 256) throw IllegalArgumentException("Value for bindingKey is too large");
 }
 const std::string& ExchangeBindBody::getBindingKey() const { return bindingKey; }
 bool ExchangeBindBody::hasBindingKey() const { return flags & (1 << 10); }

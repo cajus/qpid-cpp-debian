@@ -60,27 +60,24 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00576.html">client</a>      </li>
-      <li class="navelem"><a class="el" href="a00138.html">FutureResult</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00138.html">Future</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid::client::FutureResult Member List</div>  </div>
+<div class="title">qpid::client::Future Member List</div>  </div>
 </div>
 <div class="contents">
-This is the complete list of members for <a class="el" href="a00138.html">qpid::client::FutureResult</a>, including all inherited members.<table>
-  <tr class="memlist"><td><a class="el" href="a00137.html#ab9fa51a05b9b4963c83d4398e5154b7c">complete</a></td><td><a class="el" href="a00137.html">qpid::client::FutureCompletion</a></td><td><code> [protected]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00137.html#acde085d450d03013d5452de3ca95d111">completed</a>()</td><td><a class="el" href="a00137.html">qpid::client::FutureCompletion</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00137.html#a7acffb6cf9739c78f88bf4493da06522">FutureCompletion</a>()</td><td><a class="el" href="a00137.html">qpid::client::FutureCompletion</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00138.html#a80c11827d77a5b2c3d2f9479daf72497">getResult</a>(SessionImpl &amp;session) const </td><td><a class="el" href="a00138.html">qpid::client::FutureResult</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00137.html#a6f8e55487bdad258de630084b04a55ed">isComplete</a>() const </td><td><a class="el" href="a00137.html">qpid::client::FutureCompletion</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00137.html#a6737752913f4c59065681833de5af8ed">lock</a></td><td><a class="el" href="a00137.html">qpid::client::FutureCompletion</a></td><td><code> [mutable, protected]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00138.html#a82c621ed1e9a8e453994cde46c9f0bea">received</a>(const std::string &amp;result)</td><td><a class="el" href="a00138.html">qpid::client::FutureResult</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00137.html#a7d1e8ef6b3470e8c8d0267b48a25650c">waitForCompletion</a>() const </td><td><a class="el" href="a00137.html">qpid::client::FutureCompletion</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00137.html#a2e895022fe74aa580a38227e0f3a67f3">~FutureCompletion</a>()</td><td><a class="el" href="a00137.html">qpid::client::FutureCompletion</a></td><td><code> [inline, virtual]</code></td></tr>
+This is the complete list of members for <a class="el" href="a00138.html">qpid::client::Future</a>, including all inherited members.<table>
+  <tr class="memlist"><td><a class="el" href="a00138.html#ac64e86abfa72c291078edb08431d2824">Future</a>()</td><td><a class="el" href="a00138.html">qpid::client::Future</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00138.html#a5a669962fd5a78af51b94022bae53eef">Future</a>(const framing::SequenceNumber &amp;id)</td><td><a class="el" href="a00138.html">qpid::client::Future</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00138.html#a5eb5b4c9f5f0fc0548bb9bcc45297a6c">getResult</a>(SessionImpl &amp;session)</td><td><a class="el" href="a00138.html">qpid::client::Future</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00138.html#a7d1e1bf7b100e42dd2496ab3370ac039">isComplete</a>(SessionImpl &amp;session)</td><td><a class="el" href="a00138.html">qpid::client::Future</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00138.html#a76e9e8efce1474485bf523bacd512308">setFutureResult</a>(boost::shared_ptr&lt; FutureResult &gt; r)</td><td><a class="el" href="a00138.html">qpid::client::Future</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00138.html#afd62369a637b17070ea5ca35b8f5dc1a">wait</a>(SessionImpl &amp;session)</td><td><a class="el" href="a00138.html">qpid::client::Future</a></td><td></td></tr>
 </table></div>
 <!--
  
@@ -109,7 +106,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -34,6 +34,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -54,6 +55,8 @@ public:
         flags(0){
         flags |= (1 << 8);
         flags |= (1 << 9);
+        if (destination.size() >= 256) throw IllegalArgumentException("Value for destination is too large");
+        if (resumeId.size() >= 65536) throw IllegalArgumentException("Value for resumeId is too large");
     }
     MessageResumeBody(ProtocolVersion=ProtocolVersion())  : flags(0) {}
     

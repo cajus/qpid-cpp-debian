@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf::engine::SchemaEventClass Class Reference</title>
+    <title>qmf::engine::SchemaClassKey Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,9 +60,9 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00571.html">qmf</a>      </li>
-      <li class="navelem"><a class="el" href="a00572.html">engine</a>      </li>
-      <li class="navelem"><a class="el" href="a00301.html">SchemaEventClass</a>      </li>
+      <li class="navelem"><a class="el" href="a00573.html">qmf</a>      </li>
+      <li class="navelem"><a class="el" href="a00574.html">engine</a>      </li>
+      <li class="navelem"><a class="el" href="a00301.html">SchemaClassKey</a>      </li>
     </ul>
   </div>
 </div>
@@ -70,68 +70,34 @@
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qmf::engine::SchemaEventClass Class Reference</div>  </div>
+<div class="title">qmf::engine::SchemaClassKey Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qmf::engine::SchemaEventClass" -->
-<p><code>#include &lt;<a class="el" href="a00429_source.html">qmf/engine/Schema.h</a>&gt;</code></p>
+<!-- doxytag: class="qmf::engine::SchemaClassKey" -->
+<p><code>#include &lt;<a class="el" href="a00431_source.html">qmf/engine/Schema.h</a>&gt;</code></p>
 
 <p><a href="a00646.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00301.html#a26a2ddc047c062b0798656cec041a0a2">SchemaEventClass</a> (const char *package, const char *name, <a class="el" href="a00572.html#a794d89d0cda5d645a410695e29f81c12">Severity</a> severity)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00301.html#a8e88a79a00322099c1b9384c7ac90674">SchemaEventClass</a> (const <a class="el" href="a00301.html">SchemaEventClass</a> &amp;from)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00301.html#a6b20877d39ba05207b9f2d0eeba3c13b">~SchemaEventClass</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00301.html#ab98ee2a41367da615c83b3fb23f96c59">addArgument</a> (const <a class="el" href="a00298.html">SchemaArgument</a> *argument)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00301.html#a4f844eff51584b110cea33e0f0d1d62f">setDesc</a> (const char *desc)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00300.html">SchemaClassKey</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00301.html#adc8dfb3af6bc5706cafe6519d47d8298">getClassKey</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00572.html#a794d89d0cda5d645a410695e29f81c12">Severity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00301.html#a6120665d2ad213908aa13a8ff0d4c2f6">getSeverity</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00301.html#ab57c92b2c0360609c51e392d27009c87">getArgumentCount</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00298.html">SchemaArgument</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00301.html#a7e891f38e85546313aa9aafb7fa32774">getArgument</a> (int idx) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00301.html#a88865a9d98d68f141e55cdc19e3b1ae2">SchemaClassKey</a> (const <a class="el" href="a00301.html">SchemaClassKey</a> &amp;from)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00301.html#a8912fd747b98e95a88618daed31d2326">~SchemaClassKey</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00301.html#a8cc154305b90617c866e090439b1675d">getPackageName</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00301.html#abd7af90ada70251a05a6e98bcb9a9ce0">getClassName</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00301.html#a611552a60d73d76b5405e5592f013167">getHash</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00301.html#a2071d25ea8a63a791945c64bec8ef9c5">asString</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00301.html#a2977d911393cfefc89e0f73863b70e28">operator==</a> (const <a class="el" href="a00301.html">SchemaClassKey</a> &amp;other) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00301.html#ac20624f76e5ed295e95003f0dc9f0952">operator&lt;</a> (const <a class="el" href="a00301.html">SchemaClassKey</a> &amp;other) const </td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a26a2ddc047c062b0798656cec041a0a2"></a><!-- doxytag: member="qmf::engine::SchemaEventClass::SchemaEventClass" ref="a26a2ddc047c062b0798656cec041a0a2" args="(const char *package, const char *name, Severity severity)" -->
+<a class="anchor" id="a88865a9d98d68f141e55cdc19e3b1ae2"></a><!-- doxytag: member="qmf::engine::SchemaClassKey::SchemaClassKey" ref="a88865a9d98d68f141e55cdc19e3b1ae2" args="(const SchemaClassKey &amp;from)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qmf::engine::SchemaEventClass::SchemaEventClass </td>
+          <td class="memname">qmf::engine::SchemaClassKey::SchemaClassKey </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>package</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00572.html#a794d89d0cda5d645a410695e29f81c12">Severity</a>&#160;</td>
-          <td class="paramname"><em>severity</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8e88a79a00322099c1b9384c7ac90674"></a><!-- doxytag: member="qmf::engine::SchemaEventClass::SchemaEventClass" ref="a8e88a79a00322099c1b9384c7ac90674" args="(const SchemaEventClass &amp;from)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qmf::engine::SchemaEventClass::SchemaEventClass </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00301.html">SchemaEventClass</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00301.html">SchemaClassKey</a> &amp;&#160;</td>
           <td class="paramname"><em>from</em></td><td>)</td>
           <td></td>
         </tr>
@@ -141,12 +107,12 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a6b20877d39ba05207b9f2d0eeba3c13b"></a><!-- doxytag: member="qmf::engine::SchemaEventClass::~SchemaEventClass" ref="a6b20877d39ba05207b9f2d0eeba3c13b" args="()" -->
+<a class="anchor" id="a8912fd747b98e95a88618daed31d2326"></a><!-- doxytag: member="qmf::engine::SchemaClassKey::~SchemaClassKey" ref="a8912fd747b98e95a88618daed31d2326" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qmf::engine::SchemaEventClass::~SchemaEventClass </td>
+          <td class="memname">qmf::engine::SchemaClassKey::~SchemaClassKey </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -158,46 +124,12 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ab98ee2a41367da615c83b3fb23f96c59"></a><!-- doxytag: member="qmf::engine::SchemaEventClass::addArgument" ref="ab98ee2a41367da615c83b3fb23f96c59" args="(const SchemaArgument *argument)" -->
+<a class="anchor" id="a2071d25ea8a63a791945c64bec8ef9c5"></a><!-- doxytag: member="qmf::engine::SchemaClassKey::asString" ref="a2071d25ea8a63a791945c64bec8ef9c5" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qmf::engine::SchemaEventClass::addArgument </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00298.html">SchemaArgument</a> *&#160;</td>
-          <td class="paramname"><em>argument</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7e891f38e85546313aa9aafb7fa32774"></a><!-- doxytag: member="qmf::engine::SchemaEventClass::getArgument" ref="a7e891f38e85546313aa9aafb7fa32774" args="(int idx) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00298.html">SchemaArgument</a>* qmf::engine::SchemaEventClass::getArgument </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>idx</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ab57c92b2c0360609c51e392d27009c87"></a><!-- doxytag: member="qmf::engine::SchemaEventClass::getArgumentCount" ref="ab57c92b2c0360609c51e392d27009c87" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int qmf::engine::SchemaEventClass::getArgumentCount </td>
+          <td class="memname">const char* qmf::engine::SchemaClassKey::asString </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -208,12 +140,12 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="adc8dfb3af6bc5706cafe6519d47d8298"></a><!-- doxytag: member="qmf::engine::SchemaEventClass::getClassKey" ref="adc8dfb3af6bc5706cafe6519d47d8298" args="() const " -->
+<a class="anchor" id="abd7af90ada70251a05a6e98bcb9a9ce0"></a><!-- doxytag: member="qmf::engine::SchemaClassKey::getClassName" ref="abd7af90ada70251a05a6e98bcb9a9ce0" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00300.html">SchemaClassKey</a>* qmf::engine::SchemaEventClass::getClassKey </td>
+          <td class="memname">const char* qmf::engine::SchemaClassKey::getClassName </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -224,12 +156,12 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a6120665d2ad213908aa13a8ff0d4c2f6"></a><!-- doxytag: member="qmf::engine::SchemaEventClass::getSeverity" ref="a6120665d2ad213908aa13a8ff0d4c2f6" args="() const " -->
+<a class="anchor" id="a611552a60d73d76b5405e5592f013167"></a><!-- doxytag: member="qmf::engine::SchemaClassKey::getHash" ref="a611552a60d73d76b5405e5592f013167" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00572.html#a794d89d0cda5d645a410695e29f81c12">Severity</a> qmf::engine::SchemaEventClass::getSeverity </td>
+          <td class="memname">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* qmf::engine::SchemaClassKey::getHash </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -240,16 +172,49 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a4f844eff51584b110cea33e0f0d1d62f"></a><!-- doxytag: member="qmf::engine::SchemaEventClass::setDesc" ref="a4f844eff51584b110cea33e0f0d1d62f" args="(const char *desc)" -->
+<a class="anchor" id="a8cc154305b90617c866e090439b1675d"></a><!-- doxytag: member="qmf::engine::SchemaClassKey::getPackageName" ref="a8cc154305b90617c866e090439b1675d" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qmf::engine::SchemaEventClass::setDesc </td>
+          <td class="memname">const char* qmf::engine::SchemaClassKey::getPackageName </td>
           <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>desc</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac20624f76e5ed295e95003f0dc9f0952"></a><!-- doxytag: member="qmf::engine::SchemaClassKey::operator&lt;" ref="ac20624f76e5ed295e95003f0dc9f0952" args="(const SchemaClassKey &amp;other) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qmf::engine::SchemaClassKey::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00301.html">SchemaClassKey</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2977d911393cfefc89e0f73863b70e28"></a><!-- doxytag: member="qmf::engine::SchemaClassKey::operator==" ref="a2977d911393cfefc89e0f73863b70e28" args="(const SchemaClassKey &amp;other) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qmf::engine::SchemaClassKey::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00301.html">SchemaClassKey</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div>
@@ -258,7 +223,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qmf/engine/<a class="el" href="a00429_source.html">Schema.h</a></li>
+<li>qmf/engine/<a class="el" href="a00431_source.html">Schema.h</a></li>
 </ul>
 </div>
 <!--
@@ -288,7 +253,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

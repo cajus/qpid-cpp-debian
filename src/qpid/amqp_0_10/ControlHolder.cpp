@@ -107,6 +107,7 @@ void ControlHolder::set(uint8_t classCode, uint8_t code) {
         case 0x8139: *this=in_place<cluster-connection::QueueObserverState>(); break;
         case 0x8140: *this=in_place<cluster-connection::Clock>(); break;
         case 0x8141: *this=in_place<cluster-connection::QueueDequeueSincePurgeState>(); break;
+        case 0x8142: *this=in_place<cluster-connection::InternalState>(); break;
         default: 
             throw CommandInvalidException(QPID_MSG("Invalid class-control key " << std::hex << key));
     }

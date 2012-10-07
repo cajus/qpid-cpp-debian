@@ -167,7 +167,8 @@ struct ControlHandler:
     public cluster-connection::QueueFairshareState::Handler,
     public cluster-connection::QueueObserverState::Handler,
     public cluster-connection::Clock::Handler,
-    public cluster-connection::QueueDequeueSincePurgeState::Handler
+    public cluster-connection::QueueDequeueSincePurgeState::Handler,
+    public cluster-connection::InternalState::Handler
 {
 };
 

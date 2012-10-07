@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/framing/SequenceNumber.h Source File</title>
+    <title>qpid/framing/reply_exceptions.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,85 +58,192 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/framing/SequenceNumber.h</div>  </div>
+<div class="title">qpid/framing/reply_exceptions.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00518.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
-<a name="l00002"></a>00002 <span class="comment"> *</span>
-<a name="l00003"></a>00003 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
-<a name="l00004"></a>00004 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
-<a name="l00005"></a>00005 <span class="comment"> * distributed with this work for additional information</span>
-<a name="l00006"></a>00006 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
-<a name="l00007"></a>00007 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
-<a name="l00008"></a>00008 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
-<a name="l00009"></a>00009 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
-<a name="l00010"></a>00010 <span class="comment"> *</span>
-<a name="l00011"></a>00011 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
+<a href="a00518.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_FRAMING_REPLY_EXCEPTIONS_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_FRAMING_REPLY_EXCEPTIONS_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="comment">/*</span>
+<a name="l00004"></a>00004 <span class="comment"> *</span>
+<a name="l00005"></a>00005 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
+<a name="l00006"></a>00006 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
+<a name="l00007"></a>00007 <span class="comment"> * distributed with this work for additional information</span>
+<a name="l00008"></a>00008 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
+<a name="l00009"></a>00009 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
+<a name="l00010"></a>00010 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
+<a name="l00011"></a>00011 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
 <a name="l00012"></a>00012 <span class="comment"> *</span>
-<a name="l00013"></a>00013 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
-<a name="l00014"></a>00014 <span class="comment"> * software distributed under the License is distributed on an</span>
-<a name="l00015"></a>00015 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
-<a name="l00016"></a>00016 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
-<a name="l00017"></a>00017 <span class="comment"> * specific language governing permissions and limitations</span>
-<a name="l00018"></a>00018 <span class="comment"> * under the License.</span>
-<a name="l00019"></a>00019 <span class="comment"> *</span>
-<a name="l00020"></a>00020 <span class="comment"> */</span>
-<a name="l00021"></a>00021 <span class="preprocessor">#ifndef _framing_SequenceNumber_h</span>
-<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define _framing_SequenceNumber_h</span>
-<a name="l00023"></a>00023 <span class="preprocessor"></span>
-<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="a00493.html" title="Definitions and forward declarations of all types used in AMQP messages.">qpid/framing/amqp_types.h</a>&quot;</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &lt;boost/operators.hpp&gt;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &lt;iosfwd&gt;</span>
-<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00482.html">qpid/CommonImportExport.h</a>&quot;</span>
+<a name="l00013"></a>00013 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
+<a name="l00014"></a>00014 <span class="comment"> *</span>
+<a name="l00015"></a>00015 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
+<a name="l00016"></a>00016 <span class="comment"> * software distributed under the License is distributed on an</span>
+<a name="l00017"></a>00017 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<a name="l00018"></a>00018 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
+<a name="l00019"></a>00019 <span class="comment"> * specific language governing permissions and limitations</span>
+<a name="l00020"></a>00020 <span class="comment"> * under the License.</span>
+<a name="l00021"></a>00021 <span class="comment"> *</span>
+<a name="l00022"></a>00022 <span class="comment"> */</span>
+<a name="l00023"></a>00023 
 <a name="l00028"></a>00028 
-<a name="l00029"></a>00029 <span class="keyword">namespace </span>qpid {
-<a name="l00030"></a>00030 <span class="keyword">namespace </span>framing {
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032 <span class="keyword">class </span>Buffer;
-<a name="l00033"></a>00033 
-<a name="l00037"></a>00037 <span class="keyword">class </span><a class="code" href="a00482.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> SequenceNumber : <span class="keyword">public</span>
-<a name="l00038"></a>00038 boost::equality_comparable&lt;
-<a name="l00039"></a>00039     SequenceNumber, boost::less_than_comparable&lt;
-<a name="l00040"></a>00040         SequenceNumber, boost::incrementable&lt;
-<a name="l00041"></a>00041         SequenceNumber, boost::decrementable&lt;SequenceNumber&gt; &gt; &gt; &gt;
-<a name="l00042"></a>00042 {
-<a name="l00043"></a>00043     <a class="code" href="a00556.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a> value;
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045   <span class="keyword">public</span>:
-<a name="l00046"></a><a class="code" href="a00323.html#a0cdec3cfd375c267c59540640b32ddb0">00046</a>     <a class="code" href="a00323.html#a0cdec3cfd375c267c59540640b32ddb0">SequenceNumber</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> v=0) : value(v) {}
-<a name="l00047"></a>00047 
-<a name="l00048"></a><a class="code" href="a00323.html#ac02c581a5bd0ef423d250b40a0c8768c">00048</a>     <a class="code" href="a00323.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&amp; <a class="code" href="a00323.html#ac02c581a5bd0ef423d250b40a0c8768c">operator++</a>() { ++value; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
-<a name="l00049"></a><a class="code" href="a00323.html#ae9e38468ab49e3e6e4f37cab8e98fc8b">00049</a>     <a class="code" href="a00323.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&amp; <a class="code" href="a00323.html#ae9e38468ab49e3e6e4f37cab8e98fc8b">operator--</a>() { --value; <span class="keywordflow">return</span> *<span class="keyword">this</span>; }
-<a name="l00050"></a><a class="code" href="a00323.html#a849b2de79b2f8890bb1e00fa049c813d">00050</a>     <span class="keywordtype">bool</span> <a class="code" href="a00323.html#a849b2de79b2f8890bb1e00fa049c813d">operator==</a>(<span class="keyword">const</span> <a class="code" href="a00323.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&amp; other)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> value == other.value; }
-<a name="l00051"></a><a class="code" href="a00323.html#ade995b8e29557278b8d8765084d197af">00051</a>     <span class="keywordtype">bool</span> <a class="code" href="a00323.html#ade995b8e29557278b8d8765084d197af">operator&lt;</a>(<span class="keyword">const</span> <a class="code" href="a00323.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&amp; other)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (value - other.value) &lt; 0; }
-<a name="l00052"></a><a class="code" href="a00323.html#aa371122849be6b4bc7f0ddc54f7f777a">00052</a>     <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00323.html#aa371122849be6b4bc7f0ddc54f7f777a">getValue</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>(value); }
-<a name="l00053"></a><a class="code" href="a00323.html#ab90c707b20e6054575ef7e5019e28534">00053</a>     <a class="code" href="a00323.html#ab90c707b20e6054575ef7e5019e28534">operator uint32_t</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>(value); }
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00591.html#afefbffac1ba55c37a1f7ab3a85ca753b" title="Encodes a Variant::Map into a message.">encode</a>(<a class="code" href="a00045.html">Buffer</a>&amp; buffer) <span class="keyword">const</span>;
-<a name="l00056"></a>00056     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00591.html#ad37dfc262612bfde8fdc73e3a85ddf95" title="Decodes message content into a Variant::Map.">decode</a>(<a class="code" href="a00045.html">Buffer</a>&amp; buffer);
-<a name="l00057"></a>00057     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> encodedSize() <span class="keyword">const</span>;
-<a name="l00058"></a>00058 
-<a name="l00059"></a><a class="code" href="a00323.html#a3d51c80829b79b3c2ecc49f599d5901c">00059</a>     <span class="keyword">template</span> &lt;<span class="keyword">class</span> S&gt; <span class="keywordtype">void</span> <a class="code" href="a00323.html#a3d51c80829b79b3c2ecc49f599d5901c">serialize</a>(S&amp; s) { s(value); }
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061   <span class="keyword">friend</span> <span class="keyword">inline</span> <a class="code" href="a00556.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a> <a class="code" href="a00580.html#aa7d527eb2a07781a2a2d1f9d72a310c6">operator-</a>(<span class="keyword">const</span> <a class="code" href="a00323.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&amp; a, <span class="keyword">const</span> <a class="code" href="a00323.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&amp; b);
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="preprocessor">#include &quot;<a class="code" href="a00492.html">qpid/Exception.h</a>&quot;</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#include &quot;<a class="code" href="a00555.html">qpid/sys/ExceptionHolder.h</a>&quot;</span>
+<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="a00504.html">qpid/framing/enum.h</a>&quot;</span>
+<a name="l00033"></a>00033 <span class="preprocessor">#include &quot;<a class="code" href="a00484.html">qpid/CommonImportExport.h</a>&quot;</span>
+<a name="l00034"></a>00034 
+<a name="l00035"></a>00035 <span class="keyword">namespace </span>qpid {
+<a name="l00036"></a>00036 <span class="keyword">namespace </span>framing {
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 
+<a name="l00045"></a>00045 <span class="keyword">struct </span>UnauthorizedAccessException:
+<a name="l00046"></a>00046     SessionException
+<a name="l00047"></a>00047 {
+<a name="l00048"></a><a class="code" href="a00367.html#a3d960f4967e25321280d70daeb95e38b">00048</a>     std::string <a class="code" href="a00367.html#a3d960f4967e25321280d70daeb95e38b">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;unauthorized-access&quot;</span>; }
+<a name="l00049"></a><a class="code" href="a00367.html#a400d47a7da6a1c74185c8818f576cd74">00049</a>     <a class="code" href="a00367.html#a400d47a7da6a1c74185c8818f576cd74">UnauthorizedAccessException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00332.html">SessionException</a>(execution::<a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18ad05a0982952c914662bc03e28c47f2ca">ERROR_CODE_UNAUTHORIZED_ACCESS</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00050"></a>00050 };
+<a name="l00051"></a>00051 
+<a name="l00057"></a>00057 <span class="keyword">struct </span>NotFoundException:
+<a name="l00058"></a>00058     <a class="code" href="a00332.html">SessionException</a>
+<a name="l00059"></a>00059 {
+<a name="l00060"></a><a class="code" href="a00229.html#a3183173cc8af2c9f13a76bedb1dec855">00060</a>     std::string <a class="code" href="a00229.html#a3183173cc8af2c9f13a76bedb1dec855">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;not-found&quot;</span>; }
+<a name="l00061"></a><a class="code" href="a00229.html#acacd8ab4b48db462061bdf584d07c02d">00061</a>     <a class="code" href="a00229.html#acacd8ab4b48db462061bdf584d07c02d">NotFoundException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00332.html">SessionException</a>(execution::<a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18ac840d86bba1f18657e470d772ee413e7">ERROR_CODE_NOT_FOUND</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
 <a name="l00062"></a>00062 };
 <a name="l00063"></a>00063 
-<a name="l00064"></a><a class="code" href="a00580.html#aa7d527eb2a07781a2a2d1f9d72a310c6">00064</a> <span class="keyword">inline</span> <a class="code" href="a00556.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a> <a class="code" href="a00580.html#aa7d527eb2a07781a2a2d1f9d72a310c6">operator-</a>(<span class="keyword">const</span> <a class="code" href="a00323.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&amp; a, <span class="keyword">const</span> <a class="code" href="a00323.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&amp; b) {
-<a name="l00065"></a>00065     <span class="keywordflow">return</span> <a class="code" href="a00556.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a>(a.value - b.value);
-<a name="l00066"></a>00066 }
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068 <span class="keyword">struct </span>Window
-<a name="l00069"></a>00069 {
-<a name="l00070"></a><a class="code" href="a00390.html#a02484eff10c991ae4b7a3825c4a1daa5">00070</a>     <a class="code" href="a00323.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a> <a class="code" href="a00390.html#a02484eff10c991ae4b7a3825c4a1daa5">hwm</a>;
-<a name="l00071"></a><a class="code" href="a00390.html#a0d2e0d7419689744762b5e5aa1e79682">00071</a>     <a class="code" href="a00323.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a> <a class="code" href="a00390.html#a0d2e0d7419689744762b5e5aa1e79682">lwm</a>;
-<a name="l00072"></a>00072 };
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074 <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> std::ostream&amp; <a class="code" href="a00580.html#a26b5aa4aa3e48e044e86832a401304b7">operator&lt;&lt;</a>(<a class="code" href="a00243.html" title="STL class.">std::ostream</a>&amp; o, <span class="keyword">const</span> <a class="code" href="a00323.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&amp; n);
-<a name="l00075"></a>00075 
-<a name="l00076"></a>00076 }} <span class="comment">// namespace qpid::framing</span>
-<a name="l00077"></a>00077 
-<a name="l00078"></a>00078 
-<a name="l00079"></a>00079 <span class="preprocessor">#endif</span>
+<a name="l00070"></a>00070 <span class="keyword">struct </span>ResourceLockedException:
+<a name="l00071"></a>00071     <a class="code" href="a00332.html">SessionException</a>
+<a name="l00072"></a>00072 {
+<a name="l00073"></a><a class="code" href="a00283.html#a074ad096de110ad2e2f9a6e819ac1304">00073</a>     std::string <a class="code" href="a00283.html#a074ad096de110ad2e2f9a6e819ac1304">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;resource-locked&quot;</span>; }
+<a name="l00074"></a><a class="code" href="a00283.html#a8cf28f12551cb1ac767c237ec5fc0a15">00074</a>     <a class="code" href="a00283.html#a8cf28f12551cb1ac767c237ec5fc0a15">ResourceLockedException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00332.html">SessionException</a>(execution::<a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a320e69337b5a92b1098c212c9705c3fb">ERROR_CODE_RESOURCE_LOCKED</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00075"></a>00075 };
+<a name="l00076"></a>00076 
+<a name="l00082"></a>00082 <span class="keyword">struct </span>PreconditionFailedException:
+<a name="l00083"></a>00083     <a class="code" href="a00332.html">SessionException</a>
+<a name="l00084"></a>00084 {
+<a name="l00085"></a><a class="code" href="a00254.html#a2540228a5234ec04e85a63cf6441b10a">00085</a>     std::string <a class="code" href="a00254.html#a2540228a5234ec04e85a63cf6441b10a">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;precondition-failed&quot;</span>; }
+<a name="l00086"></a><a class="code" href="a00254.html#a700d6e70dc224a1cf92e0ad2cccf632e">00086</a>     <a class="code" href="a00254.html#a700d6e70dc224a1cf92e0ad2cccf632e">PreconditionFailedException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00332.html">SessionException</a>(execution::<a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a796aa6dd0dd827060f15aafb9d0efee0">ERROR_CODE_PRECONDITION_FAILED</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00087"></a>00087 };
+<a name="l00088"></a>00088 
+<a name="l00094"></a>00094 <span class="keyword">struct </span>ResourceDeletedException:
+<a name="l00095"></a>00095     <a class="code" href="a00332.html">SessionException</a>
+<a name="l00096"></a>00096 {
+<a name="l00097"></a><a class="code" href="a00281.html#ac2fdd5327c3696d9ad3e2bea65cc39ee">00097</a>     std::string <a class="code" href="a00281.html#ac2fdd5327c3696d9ad3e2bea65cc39ee">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;resource-deleted&quot;</span>; }
+<a name="l00098"></a><a class="code" href="a00281.html#a8b1e481bd627497bc708f93f1411837b">00098</a>     <a class="code" href="a00281.html#a8b1e481bd627497bc708f93f1411837b">ResourceDeletedException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00332.html">SessionException</a>(execution::<a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a501baa9a8a83954a1b11010f53c484fb">ERROR_CODE_RESOURCE_DELETED</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00099"></a>00099 };
+<a name="l00100"></a>00100 
+<a name="l00106"></a>00106 <span class="keyword">struct </span>IllegalStateException:
+<a name="l00107"></a>00107     <a class="code" href="a00332.html">SessionException</a>
+<a name="l00108"></a>00108 {
+<a name="l00109"></a><a class="code" href="a00147.html#a58c3f099ba425ccf96223676ad8a0f59">00109</a>     std::string <a class="code" href="a00147.html#a58c3f099ba425ccf96223676ad8a0f59">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;illegal-state&quot;</span>; }
+<a name="l00110"></a><a class="code" href="a00147.html#af2f7877433c3c8922336a888ad9572dc">00110</a>     <a class="code" href="a00147.html#af2f7877433c3c8922336a888ad9572dc">IllegalStateException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00332.html">SessionException</a>(execution::<a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a9adbcda0445b885c53e5922d210556c2">ERROR_CODE_ILLEGAL_STATE</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00111"></a>00111 };
+<a name="l00112"></a>00112 
+<a name="l00118"></a>00118 <span class="keyword">struct </span>CommandInvalidException:
+<a name="l00119"></a>00119     <a class="code" href="a00332.html">SessionException</a>
+<a name="l00120"></a>00120 {
+<a name="l00121"></a><a class="code" href="a00054.html#ae0f4432e4b8a2e42e2c5808e6d3ad5d2">00121</a>     std::string <a class="code" href="a00054.html#ae0f4432e4b8a2e42e2c5808e6d3ad5d2">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;command-invalid&quot;</span>; }
+<a name="l00122"></a><a class="code" href="a00054.html#a0699346f447490e62be53d58d0e1fea4">00122</a>     <a class="code" href="a00054.html#a0699346f447490e62be53d58d0e1fea4">CommandInvalidException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00332.html">SessionException</a>(execution::<a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18af2aad1b70109e91adc2096e66b03c3b7">ERROR_CODE_COMMAND_INVALID</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00123"></a>00123 };
+<a name="l00124"></a>00124 
+<a name="l00130"></a>00130 <span class="keyword">struct </span>ResourceLimitExceededException:
+<a name="l00131"></a>00131     <a class="code" href="a00332.html">SessionException</a>
+<a name="l00132"></a>00132 {
+<a name="l00133"></a><a class="code" href="a00282.html#a82adefb368554e09b2e5c9432f98336e">00133</a>     std::string <a class="code" href="a00282.html#a82adefb368554e09b2e5c9432f98336e">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;resource-limit-exceeded&quot;</span>; }
+<a name="l00134"></a><a class="code" href="a00282.html#acc623bcf2cf0434f3adc120b45081ca4">00134</a>     <a class="code" href="a00282.html#acc623bcf2cf0434f3adc120b45081ca4">ResourceLimitExceededException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00332.html">SessionException</a>(execution::<a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a0f3ee74a9bac88519f0c820a485552ac">ERROR_CODE_RESOURCE_LIMIT_EXCEEDED</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00135"></a>00135 };
+<a name="l00136"></a>00136 
+<a name="l00143"></a>00143 <span class="keyword">struct </span>NotAllowedException:
+<a name="l00144"></a>00144     <a class="code" href="a00332.html">SessionException</a>
+<a name="l00145"></a>00145 {
+<a name="l00146"></a><a class="code" href="a00226.html#adc44ba31830bd0327d1a977a24de0112">00146</a>     std::string <a class="code" href="a00226.html#adc44ba31830bd0327d1a977a24de0112">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;not-allowed&quot;</span>; }
+<a name="l00147"></a><a class="code" href="a00226.html#ad20ac375cc3f2f46fa4790d21a6652ab">00147</a>     <a class="code" href="a00226.html#ad20ac375cc3f2f46fa4790d21a6652ab">NotAllowedException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00332.html">SessionException</a>(execution::<a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18aeeb980808996116f4527048e5bc6b9ab">ERROR_CODE_NOT_ALLOWED</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00148"></a>00148 };
+<a name="l00149"></a>00149 
+<a name="l00157"></a>00157 <span class="keyword">struct </span>IllegalArgumentException:
+<a name="l00158"></a>00158     <a class="code" href="a00332.html">SessionException</a>
+<a name="l00159"></a>00159 {
+<a name="l00160"></a><a class="code" href="a00146.html#a3fe0033d91b8067780110c202066b117">00160</a>     std::string <a class="code" href="a00146.html#a3fe0033d91b8067780110c202066b117">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;illegal-argument&quot;</span>; }
+<a name="l00161"></a><a class="code" href="a00146.html#aef703884f52f4dbbad3f98377e08b91e">00161</a>     <a class="code" href="a00146.html#aef703884f52f4dbbad3f98377e08b91e">IllegalArgumentException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00332.html">SessionException</a>(execution::<a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a22540476656c4aa523a0b0f291a9fcd2">ERROR_CODE_ILLEGAL_ARGUMENT</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00162"></a>00162 };
+<a name="l00163"></a>00163 
+<a name="l00169"></a>00169 <span class="keyword">struct </span>NotImplementedException:
+<a name="l00170"></a>00170     <a class="code" href="a00332.html">SessionException</a>
+<a name="l00171"></a>00171 {
+<a name="l00172"></a><a class="code" href="a00231.html#a6b04f2753b351971edbb842f7b0cfab5">00172</a>     std::string <a class="code" href="a00231.html#a6b04f2753b351971edbb842f7b0cfab5">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;not-implemented&quot;</span>; }
+<a name="l00173"></a><a class="code" href="a00231.html#a78f9f83d8423a88634269557e770e755">00173</a>     <a class="code" href="a00231.html#a78f9f83d8423a88634269557e770e755">NotImplementedException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00332.html">SessionException</a>(execution::<a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a3d7c576df0fedf94f7f154ce2cebc98f">ERROR_CODE_NOT_IMPLEMENTED</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00174"></a>00174 };
+<a name="l00175"></a>00175 
+<a name="l00182"></a>00182 <span class="keyword">struct </span>InternalErrorException:
+<a name="l00183"></a>00183     <a class="code" href="a00332.html">SessionException</a>
+<a name="l00184"></a>00184 {
+<a name="l00185"></a><a class="code" href="a00159.html#a7abb408867ff45af4d52d98f40a7255f">00185</a>     std::string <a class="code" href="a00159.html#a7abb408867ff45af4d52d98f40a7255f">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;internal-error&quot;</span>; }
+<a name="l00186"></a><a class="code" href="a00159.html#a19d9c0c6f6a135953833d82fce2cd71c">00186</a>     <a class="code" href="a00159.html#a19d9c0c6f6a135953833d82fce2cd71c">InternalErrorException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00332.html">SessionException</a>(execution::<a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a111f1958e93db2688277cbfd63d1b9b0">ERROR_CODE_INTERNAL_ERROR</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00187"></a>00187 };
+<a name="l00188"></a>00188 
+<a name="l00196"></a>00196 <span class="keyword">struct </span>InvalidArgumentException:
+<a name="l00197"></a>00197     <a class="code" href="a00332.html">SessionException</a>
+<a name="l00198"></a>00198 {
+<a name="l00199"></a><a class="code" href="a00163.html#a64a5f314238c65a88cbf40a5167802dd">00199</a>     std::string <a class="code" href="a00163.html#a64a5f314238c65a88cbf40a5167802dd">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;invalid-argument&quot;</span>; }
+<a name="l00200"></a><a class="code" href="a00163.html#a5165f3ca529d565ef511556c2f78a50f">00200</a>     <a class="code" href="a00163.html#a5165f3ca529d565ef511556c2f78a50f">InvalidArgumentException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00332.html">SessionException</a>(execution::<a class="code" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18a7305d771865e3222f669f3ce786b08aa">ERROR_CODE_INVALID_ARGUMENT</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00201"></a>00201 };
+<a name="l00202"></a>00202 
+<a name="l00203"></a>00203 <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> sys::ExceptionHolder <a class="code" href="a00582.html#af2b76817bad697f3aff512ab2c1ee885">createSessionException</a>(<span class="keywordtype">int</span> code, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; text);
+<a name="l00204"></a>00204 
+<a name="l00211"></a>00211 <span class="keyword">struct </span>ConnectionForcedException:
+<a name="l00212"></a>00212     <a class="code" href="a00063.html">ConnectionException</a>
+<a name="l00213"></a>00213 {
+<a name="l00214"></a><a class="code" href="a00064.html#a8908ed76d6ee75405e54a0c9ec05fdc2">00214</a>     std::string <a class="code" href="a00064.html#a8908ed76d6ee75405e54a0c9ec05fdc2">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;connection-forced&quot;</span>; }
+<a name="l00215"></a><a class="code" href="a00064.html#af254f606aee59467e6848e9aa0fd964a">00215</a>     <a class="code" href="a00064.html#af254f606aee59467e6848e9aa0fd964a">ConnectionForcedException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00063.html">ConnectionException</a>(connection::<a class="code" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4ae2866192665d2637d25a7a4c3b3677f7">CLOSE_CODE_CONNECTION_FORCED</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00216"></a>00216 };
+<a name="l00217"></a>00217 
+<a name="l00223"></a>00223 <span class="keyword">struct </span>InvalidPathException:
+<a name="l00224"></a>00224     <a class="code" href="a00063.html">ConnectionException</a>
+<a name="l00225"></a>00225 {
+<a name="l00226"></a><a class="code" href="a00167.html#a4c7d1b105617c905e70b93be1d3344d5">00226</a>     std::string <a class="code" href="a00167.html#a4c7d1b105617c905e70b93be1d3344d5">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;invalid-path&quot;</span>; }
+<a name="l00227"></a><a class="code" href="a00167.html#ac3736231b06f434fb74dccfc720e29e8">00227</a>     <a class="code" href="a00167.html#ac3736231b06f434fb74dccfc720e29e8">InvalidPathException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00063.html">ConnectionException</a>(connection::<a class="code" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4a975c0002da29ebb4a042295f5d450ab7">CLOSE_CODE_INVALID_PATH</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00228"></a>00228 };
+<a name="l00229"></a>00229 
+<a name="l00235"></a>00235 <span class="keyword">struct </span>FramingErrorException:
+<a name="l00236"></a>00236     <a class="code" href="a00063.html">ConnectionException</a>
+<a name="l00237"></a>00237 {
+<a name="l00238"></a><a class="code" href="a00136.html#ad2d071fded654f988803a78f0d10c606">00238</a>     std::string <a class="code" href="a00136.html#ad2d071fded654f988803a78f0d10c606">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;framing-error&quot;</span>; }
+<a name="l00239"></a><a class="code" href="a00136.html#aa8887977f8c41c6e8303f6a8c852163f">00239</a>     <a class="code" href="a00136.html#aa8887977f8c41c6e8303f6a8c852163f">FramingErrorException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00063.html">ConnectionException</a>(connection::<a class="code" href="a00584.html#a55823c03444bbbbb1c9671dfc713aad4a9638d7bf712ad146adebafcb7efe72a0">CLOSE_CODE_FRAMING_ERROR</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00240"></a>00240 };
+<a name="l00241"></a>00241 
+<a name="l00242"></a>00242 <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> sys::ExceptionHolder <a class="code" href="a00582.html#af7b53c53ef4ae24311b4007efbd187bd">createConnectionException</a>(<span class="keywordtype">int</span> code, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; text);
+<a name="l00243"></a>00243 
+<a name="l00249"></a>00249 <span class="keyword">struct </span>SessionBusyException:
+<a name="l00250"></a>00250     <a class="code" href="a00050.html">ChannelException</a>
+<a name="l00251"></a>00251 {
+<a name="l00252"></a><a class="code" href="a00330.html#a276d6be7f637e2983a0f81d1a471ce58">00252</a>     std::string <a class="code" href="a00330.html#a276d6be7f637e2983a0f81d1a471ce58">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;session-busy&quot;</span>; }
+<a name="l00253"></a><a class="code" href="a00330.html#a79022eb68941dbedfe203367fd9ab072">00253</a>     <a class="code" href="a00330.html#a79022eb68941dbedfe203367fd9ab072">SessionBusyException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00050.html">ChannelException</a>(session::<a class="code" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540aee5045fa3748a8dcf899288de457741c">DETACH_CODE_SESSION_BUSY</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00254"></a>00254 };
+<a name="l00255"></a>00255 
+<a name="l00261"></a>00261 <span class="keyword">struct </span>TransportBusyException:
+<a name="l00262"></a>00262     <a class="code" href="a00050.html">ChannelException</a>
+<a name="l00263"></a>00263 {
+<a name="l00264"></a><a class="code" href="a00360.html#a0b3a8d5112a65cd06d0ba4e057df852b">00264</a>     std::string <a class="code" href="a00360.html#a0b3a8d5112a65cd06d0ba4e057df852b">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;transport-busy&quot;</span>; }
+<a name="l00265"></a><a class="code" href="a00360.html#a81e0c4c546579e418f53f561bcc4eb71">00265</a>     <a class="code" href="a00360.html#a81e0c4c546579e418f53f561bcc4eb71">TransportBusyException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00050.html">ChannelException</a>(session::<a class="code" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540ab660f691aa9683149ba04e0175351a41">DETACH_CODE_TRANSPORT_BUSY</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00266"></a>00266 };
+<a name="l00267"></a>00267 
+<a name="l00273"></a>00273 <span class="keyword">struct </span>NotAttachedException:
+<a name="l00274"></a>00274     <a class="code" href="a00050.html">ChannelException</a>
+<a name="l00275"></a>00275 {
+<a name="l00276"></a><a class="code" href="a00227.html#a74a6fa53c98ada3d89397b5befe23704">00276</a>     std::string <a class="code" href="a00227.html#a74a6fa53c98ada3d89397b5befe23704">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;not-attached&quot;</span>; }
+<a name="l00277"></a><a class="code" href="a00227.html#aff7f3d0f5b74209d2a2b76ee8f940b8e">00277</a>     <a class="code" href="a00227.html#aff7f3d0f5b74209d2a2b76ee8f940b8e">NotAttachedException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00050.html">ChannelException</a>(session::<a class="code" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540ad49c675a24dc8474110f6d567bbb3283">DETACH_CODE_NOT_ATTACHED</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00278"></a>00278 };
+<a name="l00279"></a>00279 
+<a name="l00285"></a>00285 <span class="keyword">struct </span>UnknownIdsException:
+<a name="l00286"></a>00286     <a class="code" href="a00050.html">ChannelException</a>
+<a name="l00287"></a>00287 {
+<a name="l00288"></a><a class="code" href="a00369.html#a2b396d56db865b062fd1971fb203ea79">00288</a>     std::string <a class="code" href="a00369.html#a2b396d56db865b062fd1971fb203ea79">getPrefix</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;unknown-ids&quot;</span>; }
+<a name="l00289"></a><a class="code" href="a00369.html#afccf8f27bd1531f2e3a077a14cb87067">00289</a>     <a class="code" href="a00369.html#afccf8f27bd1531f2e3a077a14cb87067">UnknownIdsException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; msg=<a class="code" href="a00346.html" title="STL class.">std::string</a>()) : <a class="code" href="a00050.html">ChannelException</a>(session::<a class="code" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540aecc25c880105bad2f8e9e15e2548f3a5">DETACH_CODE_UNKNOWN_IDS</a>, <span class="stringliteral">&quot;&quot;</span>+msg) {}
+<a name="l00290"></a>00290 };
+<a name="l00291"></a>00291 
+<a name="l00292"></a>00292 <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> sys::ExceptionHolder <a class="code" href="a00582.html#a07bcbe85fcf21bb7c4ab273049b1209b">createChannelException</a>(<span class="keywordtype">int</span> code, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; text);
+<a name="l00293"></a>00293 
+<a name="l00294"></a>00294 }} <span class="comment">// namespace qpid::framing</span>
+<a name="l00295"></a>00295 
+<a name="l00296"></a>00296 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -166,7 +273,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

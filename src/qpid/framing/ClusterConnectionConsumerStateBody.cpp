@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ClusterConnectionConsumerStateBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ClusterConnectionConsumerStateBody::setName(const std::string& _name) {
     name = _name;
     flags |= (1 << 8);
+    if (name.size() >= 256) throw IllegalArgumentException("Value for name is too large");
 }
 const std::string& ClusterConnectionConsumerStateBody::getName() const { return name; }
 bool ClusterConnectionConsumerStateBody::hasName() const { return flags & (1 << 8); }
@@ -74,6 +75,14 @@ uint32_t ClusterConnectionConsumerStateBody::getUsedByteCredit() const { return 
 bool ClusterConnectionConsumerStateBody::hasUsedByteCredit() const { return flags & (1 << 13); }
 void ClusterConnectionConsumerStateBody::clearUsedByteCreditFlag() { flags &= ~(1 << 13); }
 
+void ClusterConnectionConsumerStateBody::setDeliveryCount(uint32_t _deliveryCount) {
+    deliveryCount = _deliveryCount;
+    flags |= (1 << 14);
+}
+uint32_t ClusterConnectionConsumerStateBody::getDeliveryCount() const { return deliveryCount; }
+bool ClusterConnectionConsumerStateBody::hasDeliveryCount() const { return flags & (1 << 14); }
+void ClusterConnectionConsumerStateBody::clearDeliveryCountFlag() { flags &= ~(1 << 14); }
+
 void ClusterConnectionConsumerStateBody::encodeStructBody(Buffer& buffer) const
 {
 encodeHeader(buffer);
@@ -86,6 +95,8 @@ encodeHeader(buffer);
         buffer.putLong(usedMsgCredit);
     if (flags & (1 << 13))
         buffer.putLong(usedByteCredit);
+    if (flags & (1 << 14))
+        buffer.putLong(deliveryCount);
 }
 
 void ClusterConnectionConsumerStateBody::encode(Buffer& buffer) const
@@ -105,6 +116,8 @@ decodeHeader(buffer);
         usedMsgCredit = buffer.getLong();
     if (flags & (1 << 13))
         usedByteCredit = buffer.getLong();
+    if (flags & (1 << 14))
+        deliveryCount = buffer.getLong();
 }
 
 void ClusterConnectionConsumerStateBody::decode(Buffer& buffer, uint32_t /*size*/)
@@ -125,6 +138,8 @@ total += headerSize();
         total += 4;//usedMsgCredit
     if (flags & (1 << 13))
         total += 4;//usedByteCredit
+    if (flags & (1 << 14))
+        total += 4;//deliveryCount
     return total;
 }
 
@@ -148,5 +163,7 @@ void ClusterConnectionConsumerStateBody::print(std::ostream& out) const
         out << "used-msg-credit=" << usedMsgCredit << "; ";
     if (flags & (1 << 13))
         out << "used-byte-credit=" << usedByteCredit << "; ";
+    if (flags & (1 << 14))
+        out << "deliveryCount=" << deliveryCount << "; ";
     out << "}";
 }

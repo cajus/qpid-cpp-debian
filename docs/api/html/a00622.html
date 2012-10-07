@@ -60,23 +60,32 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00571.html">qmf</a>      </li>
-      <li class="navelem"><a class="el" href="a00572.html">engine</a>      </li>
-      <li class="navelem"><a class="el" href="a00262.html">QueryResponse</a>      </li>
+      <li class="navelem"><a class="el" href="a00573.html">qmf</a>      </li>
+      <li class="navelem"><a class="el" href="a00574.html">engine</a>      </li>
+      <li class="navelem"><a class="el" href="a00065.html">ConnectionSettings</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qmf::engine::QueryResponse Member List</div>  </div>
+<div class="title">qmf::engine::ConnectionSettings Member List</div>  </div>
 </div>
 <div class="contents">
-This is the complete list of members for <a class="el" href="a00262.html">qmf::engine::QueryResponse</a>, including all inherited members.<table>
-  <tr class="memlist"><td><a class="el" href="a00262.html#abd2aeda37267f90ec93126f3b0d6f468">getException</a>() const </td><td><a class="el" href="a00262.html">qmf::engine::QueryResponse</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00262.html#a3f53106a6ed3cb2ce2810debf27137f6">getObject</a>(uint32_t idx) const </td><td><a class="el" href="a00262.html">qmf::engine::QueryResponse</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00262.html#aa717aac7a90b88e92e45c845965d7260">getObjectCount</a>() const </td><td><a class="el" href="a00262.html">qmf::engine::QueryResponse</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00262.html#a6908d8326921ea24a2e388a8ee3a235c">getStatus</a>() const </td><td><a class="el" href="a00262.html">qmf::engine::QueryResponse</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00262.html#a00de44cfdd5e20d51ce45d81f748089b">~QueryResponse</a>()</td><td><a class="el" href="a00262.html">qmf::engine::QueryResponse</a></td><td></td></tr>
+This is the complete list of members for <a class="el" href="a00065.html">qmf::engine::ConnectionSettings</a>, including all inherited members.<table>
+  <tr class="memlist"><td><a class="el" href="a00065.html#a856e023a0b6049e1062715f8c489e883">authAnonymous</a>(const char *username=0)</td><td><a class="el" href="a00065.html">qmf::engine::ConnectionSettings</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00065.html#a605d147ce87dea1e28606aeb1e90c92a">authGssapi</a>(const char *serviceName, uint32_t minSsf=0, uint32_t maxSsf=256)</td><td><a class="el" href="a00065.html">qmf::engine::ConnectionSettings</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00065.html#addc2670c8c817ea5b3e79a3655b05325">authPlain</a>(const char *username=0, const char *password=0)</td><td><a class="el" href="a00065.html">qmf::engine::ConnectionSettings</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00065.html#aea78e918e8dda307c5c9fd8b3b04d3fb">ConnectionSettings</a>()</td><td><a class="el" href="a00065.html">qmf::engine::ConnectionSettings</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00065.html#af35a1acc062867f38e8435ccd0475d91">ConnectionSettings</a>(const char *url)</td><td><a class="el" href="a00065.html">qmf::engine::ConnectionSettings</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00065.html#a7725e0c613f5922cb89c69f3fdbf7bde">ConnectionSettings</a>(const ConnectionSettings &amp;from)</td><td><a class="el" href="a00065.html">qmf::engine::ConnectionSettings</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00065.html#a9e2145d574800034c45359b42db4e912">getAttr</a>(const char *key) const </td><td><a class="el" href="a00065.html">qmf::engine::ConnectionSettings</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00065.html#af4dec6d5a34d2726e01fc37ed7a790ea">getAttrString</a>() const </td><td><a class="el" href="a00065.html">qmf::engine::ConnectionSettings</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00065.html#a1090b956ae91747aac5da112f3a46c40">setAttr</a>(const char *key, const Value &amp;value)</td><td><a class="el" href="a00065.html">qmf::engine::ConnectionSettings</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00065.html#ac61a76357e2112e633f34e39b2099e6a">setRetry</a>(int delayMin=1, int delayMax=128, int delayFactor=2)</td><td><a class="el" href="a00065.html">qmf::engine::ConnectionSettings</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00065.html#a9490ed2471e89f58ae02a86ae6131288">transportRdma</a>(uint16_t port=5672)</td><td><a class="el" href="a00065.html">qmf::engine::ConnectionSettings</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00065.html#a2e4eab15b2a4107948f3b998b5fbd9ac">transportSsl</a>(uint16_t port=5671)</td><td><a class="el" href="a00065.html">qmf::engine::ConnectionSettings</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00065.html#ae3191fdbbe68f189f6ff357706448cf6">transportTcp</a>(uint16_t port=5672)</td><td><a class="el" href="a00065.html">qmf::engine::ConnectionSettings</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00065.html#a5a5920938a19f8625edd7487cf56b664">~ConnectionSettings</a>()</td><td><a class="el" href="a00065.html">qmf::engine::ConnectionSettings</a></td><td></td></tr>
 </table></div>
 <!--
  
@@ -105,7 +114,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

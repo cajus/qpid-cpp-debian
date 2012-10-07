@@ -31,6 +31,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
 
 using namespace qmf::org::apache::qpid::broker;
 using           qpid::management::ManagementAgent;
@@ -43,12 +44,16 @@ using           std::string;
 string  Link::packageName  = string ("org.apache.qpid.broker");
 string  Link::className    = string ("link");
 uint8_t Link::md5Sum[MD5_LEN]   =
-    {0xbc,0x33,0xc1,0xb3,0x25,0xcd,0xe0,0xce,0x4,0xd7,0xad,0x68,0x4e,0xd3,0x6d,0x91};
+    {0x77,0x7c,0x70,0x3b,0x8d,0xb3,0x8e,0x55,0x14,0x1c,0x63,0xcb,0x4f,0x2f,0xf2,0x52};
 
-Link::Link (ManagementAgent*, Manageable* _core, ::qpid::management::Manageable* _parent, const std::string& _host, uint16_t _port, const std::string& _transport, bool _durable) :
-    ManagementObject(_core),host(_host),port(_port),transport(_transport),durable(_durable)
+Link::Link (ManagementAgent*, Manageable* _core, ::qpid::management::Manageable* _parent, const std::string& _name, bool _durable) :
+    ManagementObject(_core),name(_name),durable(_durable)
 {
     vhostRef = _parent->GetManagementObject ()->getObjectId ();
+    host = "";
+    port = 0;
+    transport = "";
+    connectionRef = ::qpid::management::ObjectId();
     state = "";
     lastError = "";
 
@@ -95,7 +100,7 @@ void Link::writeSchema (std::string& schema)
     buf.putShortString (packageName); // Package Name
     buf.putShortString (className);   // Class Name
     buf.putBin128      (md5Sum);      // Schema Hash
-    buf.putShort       (5); // Config Element Count
+    buf.putShort       (7); // Config Element Count
     buf.putShort       (2); // Inst Element Count
     buf.putShort       (2); // Method Count
 
@@ -109,25 +114,33 @@ void Link::writeSchema (std::string& schema)
     buf.putMap(ft);
 
     ft.clear();
-    ft[NAME] = "host";
+    ft[NAME] = "name";
     ft[TYPE] = TYPE_SSTR;
     ft[ACCESS] = ACCESS_RC;
     ft[IS_INDEX] = 1;
+    ft[IS_OPTIONAL] = 0;
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "host";
+    ft[TYPE] = TYPE_SSTR;
+    ft[ACCESS] = ACCESS_RO;
+    ft[IS_INDEX] = 0;
     ft[IS_OPTIONAL] = 0;
     buf.putMap(ft);
 
     ft.clear();
     ft[NAME] = "port";
     ft[TYPE] = TYPE_U16;
-    ft[ACCESS] = ACCESS_RC;
-    ft[IS_INDEX] = 1;
+    ft[ACCESS] = ACCESS_RO;
+    ft[IS_INDEX] = 0;
     ft[IS_OPTIONAL] = 0;
     buf.putMap(ft);
 
     ft.clear();
     ft[NAME] = "transport";
     ft[TYPE] = TYPE_SSTR;
-    ft[ACCESS] = ACCESS_RC;
+    ft[ACCESS] = ACCESS_RO;
     ft[IS_INDEX] = 0;
     ft[IS_OPTIONAL] = 0;
     buf.putMap(ft);
@@ -136,6 +149,14 @@ void Link::writeSchema (std::string& schema)
     ft[NAME] = "durable";
     ft[TYPE] = TYPE_BOOL;
     ft[ACCESS] = ACCESS_RC;
+    ft[IS_INDEX] = 0;
+    ft[IS_OPTIONAL] = 0;
+    buf.putMap(ft);
+
+    ft.clear();
+    ft[NAME] = "connectionRef";
+    ft[TYPE] = TYPE_REF;
+    ft[ACCESS] = ACCESS_RO;
     ft[IS_INDEX] = 0;
     ft[IS_OPTIONAL] = 0;
     buf.putMap(ft);
@@ -243,10 +264,12 @@ uint32_t Link::writePropertiesSize() const
     uint32_t size = writeTimestampsSize();
 
     size += 16;  // vhostRef
+    size += (1 + name.length());  // name
     size += (1 + host.length());  // host
     size += 2;  // port
     size += (1 + transport.length());  // transport
     size += 1;  // durable
+    size += 16;  // connectionRef
 
     return size;
 }
@@ -266,10 +289,12 @@ void Link::readProperties (const std::string& _sBuf)
 
 
     {std::string _s; buf.getRawData(_s, vhostRef.encodedSize()); vhostRef.decode(_s);};
+    buf.getShortString(name);
     buf.getShortString(host);
     port = buf.getShort();
     buf.getShortString(transport);
     durable = buf.getOctet()==1;
+    {std::string _s; buf.getRawData(_s, connectionRef.encodedSize()); connectionRef.decode(_s);};
 
 
     delete [] _tmpBuf;
@@ -293,10 +318,12 @@ void Link::writeProperties (std::string& _sBuf) const
 
 
     {std::string _s; vhostRef.encode(_s); buf.putRawData(_s);};
+    buf.putShortString(name);
     buf.putShortString(host);
     buf.putShort(port);
     buf.putShortString(transport);
     buf.putOctet(durable?1:0);
+    {std::string _s; connectionRef.encode(_s); buf.putRawData(_s);};
 
 
     uint32_t _bufLen = buf.getPosition();
@@ -404,8 +431,7 @@ std::string Link::getKey() const
 {
     std::stringstream key;
 
-    key << host << ",";
-    key << port;
+    key << name;
     return key.str();
 }
 
@@ -421,10 +447,12 @@ void Link::mapEncodeValues (::qpid::types::Variant::Map& _map,
     if (includeProperties) {
         configChanged = false;
     _map["vhostRef"] = ::qpid::types::Variant(vhostRef);
+    _map["name"] = ::qpid::types::Variant(name);
     _map["host"] = ::qpid::types::Variant(host);
     _map["port"] = ::qpid::types::Variant(port);
     _map["transport"] = ::qpid::types::Variant(transport);
     _map["durable"] = ::qpid::types::Variant(durable);
+    _map["connectionRef"] = ::qpid::types::Variant(connectionRef);
 
     }
 
@@ -451,18 +479,38 @@ void Link::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
 
     if ((_i = _map.find("vhostRef")) != _map.end()) {
         vhostRef = _i->second;
+    } else {
+        vhostRef = ::qpid::management::ObjectId();
+    }
+    if ((_i = _map.find("name")) != _map.end()) {
+        name = (_i->second).getString();
+    } else {
+        name = "";
     }
     if ((_i = _map.find("host")) != _map.end()) {
         host = (_i->second).getString();
+    } else {
+        host = "";
     }
     if ((_i = _map.find("port")) != _map.end()) {
         port = _i->second;
+    } else {
+        port = 0;
     }
     if ((_i = _map.find("transport")) != _map.end()) {
         transport = (_i->second).getString();
+    } else {
+        transport = "";
     }
     if ((_i = _map.find("durable")) != _map.end()) {
         durable = _i->second;
+    } else {
+        durable = false;
+    }
+    if ((_i = _map.find("connectionRef")) != _map.end()) {
+        connectionRef = _i->second;
+    } else {
+        connectionRef = ::qpid::management::ObjectId();
     }
 
 }
@@ -490,33 +538,53 @@ void Link::doMethod (string& methodName, const ::qpid::types::Variant::Map& inMa
         ::qpid::types::Variant::Map::const_iterator _i;
         if ((_i = inMap.find("durable")) != inMap.end()) {
             ioArgs.i_durable = _i->second;
+        } else {
+            ioArgs.i_durable = false;
         }
         if ((_i = inMap.find("src")) != inMap.end()) {
             ioArgs.i_src = (_i->second).getString();
+        } else {
+            ioArgs.i_src = "";
         }
         if ((_i = inMap.find("dest")) != inMap.end()) {
             ioArgs.i_dest = (_i->second).getString();
+        } else {
+            ioArgs.i_dest = "";
         }
         if ((_i = inMap.find("key")) != inMap.end()) {
             ioArgs.i_key = (_i->second).getString();
+        } else {
+            ioArgs.i_key = "";
         }
         if ((_i = inMap.find("tag")) != inMap.end()) {
             ioArgs.i_tag = (_i->second).getString();
+        } else {
+            ioArgs.i_tag = "";
         }
         if ((_i = inMap.find("excludes")) != inMap.end()) {
             ioArgs.i_excludes = (_i->second).getString();
+        } else {
+            ioArgs.i_excludes = "";
         }
         if ((_i = inMap.find("srcIsQueue")) != inMap.end()) {
             ioArgs.i_srcIsQueue = _i->second;
+        } else {
+            ioArgs.i_srcIsQueue = false;
         }
         if ((_i = inMap.find("srcIsLocal")) != inMap.end()) {
             ioArgs.i_srcIsLocal = _i->second;
+        } else {
+            ioArgs.i_srcIsLocal = false;
         }
         if ((_i = inMap.find("dynamic")) != inMap.end()) {
             ioArgs.i_dynamic = _i->second;
+        } else {
+            ioArgs.i_dynamic = false;
         }
         if ((_i = inMap.find("sync")) != inMap.end()) {
             ioArgs.i_sync = _i->second;
+        } else {
+            ioArgs.i_sync = 0;
         }
         bool allow = coreObject->AuthorizeMethod(METHOD_BRIDGE, ioArgs, userId);
         if (allow)

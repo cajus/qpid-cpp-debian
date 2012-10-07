@@ -30,6 +30,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -53,6 +54,8 @@ public:
         flags |= (1 << 8);
         flags |= (1 << 9);
         flags |= (1 << 10);
+        if (globalId.size() >= 256) throw IllegalArgumentException("Value for globalId is too large");
+        if (branchId.size() >= 256) throw IllegalArgumentException("Value for branchId is too large");
     }
     Xid()  : format(0), flags(0) {}
     

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf/engine/ResilientConnection.h File Reference</title>
+    <title>qmf/engine/Query.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,28 +60,49 @@
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">qmf/engine/ResilientConnection.h File Reference</div>  </div>
+<div class="title">qmf/engine/Query.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="a00418_source.html">qmf/engine/Message.h</a>&gt;</code><br/>
-<code>#include &lt;<a class="el" href="a00412_source.html">qmf/engine/ConnectionSettings.h</a>&gt;</code><br/>
-<code>#include &lt;string&gt;</code><br/>
+<div class="textblock"><code>#include &lt;<a class="el" href="a00425_source.html">qmf/engine/ObjectId.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="a00435_source.html">qmf/engine/Value.h</a>&gt;</code><br/>
 </div>
 <p><a href="a00428_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00278.html">qmf::engine::ResilientConnectionEvent</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents events that occur, unsolicited, from <a class="el" href="a00277.html" title="ResilientConnection represents a Qpid connection that is resilient.">ResilientConnection</a>.  <a href="a00278.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html">qmf::engine::SessionHandle</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00277.html">qmf::engine::ResilientConnection</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00277.html" title="ResilientConnection represents a Qpid connection that is resilient.">ResilientConnection</a> represents a Qpid connection that is resilient.  <a href="a00277.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00262.html">qmf::engine::QueryOperand</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00260.html">qmf::engine::QueryElement</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00261.html">qmf::engine::QueryExpression</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00259.html">qmf::engine::Query</a></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00571.html">qmf</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00572.html">qmf::engine</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00573.html">qmf</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html">qmf::engine</a></td></tr>
+<tr><td colspan="2"><h2><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html#a8866b1c92089872d8b418105687b8b4d">qmf::engine::ValueOper</a> { <br/>
+&#160;&#160;<a class="el" href="a00574.html#a8866b1c92089872d8b418105687b8b4da91c07f3d25054266750e0f1e9ddc2898">qmf::engine::O_EQ</a> =  1, 
+<a class="el" href="a00574.html#a8866b1c92089872d8b418105687b8b4daa3832c1c6abfac3f14f135afb0d1564a">qmf::engine::O_NE</a> =  2, 
+<a class="el" href="a00574.html#a8866b1c92089872d8b418105687b8b4dab1892dfa5ac3e5dede4eee5a69ec20fa">qmf::engine::O_LT</a> =  3, 
+<a class="el" href="a00574.html#a8866b1c92089872d8b418105687b8b4da66832c22c555d1ab7174112c07328970">qmf::engine::O_LE</a> =  4, 
+<br/>
+&#160;&#160;<a class="el" href="a00574.html#a8866b1c92089872d8b418105687b8b4da8e565405707fecefa69628ebe6eee2d5">qmf::engine::O_GT</a> =  5, 
+<a class="el" href="a00574.html#a8866b1c92089872d8b418105687b8b4dafe73b3c7048ef180c9a13a49316ae0ec">qmf::engine::O_GE</a> =  6, 
+<a class="el" href="a00574.html#a8866b1c92089872d8b418105687b8b4da9a386c6ea7741bb9eadb3e136f3b27dc">qmf::engine::O_RE_MATCH</a> =  7, 
+<a class="el" href="a00574.html#a8866b1c92089872d8b418105687b8b4daeb8acb79bb18f4569f48ec4ada0821f3">qmf::engine::O_RE_NOMATCH</a> =  8, 
+<br/>
+&#160;&#160;<a class="el" href="a00574.html#a8866b1c92089872d8b418105687b8b4da8e60ba482cd95b5158ec2977b81f001a">qmf::engine::O_PRESENT</a> =  9, 
+<a class="el" href="a00574.html#a8866b1c92089872d8b418105687b8b4da04401081e0910198e6068f6b4e807229">qmf::engine::O_NOT_PRESENT</a> =  10
+<br/>
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html#a1ceb9b4335b824a50ac067c37c19eedc">qmf::engine::ExprOper</a> { <a class="el" href="a00574.html#a1ceb9b4335b824a50ac067c37c19eedcae7490559c1da8c220a7e0895f3aca454">qmf::engine::E_NOT</a> =  1, 
+<a class="el" href="a00574.html#a1ceb9b4335b824a50ac067c37c19eedca78fe0097deeb87a9c33daa1b23af49fc">qmf::engine::E_AND</a> =  2, 
+<a class="el" href="a00574.html#a1ceb9b4335b824a50ac067c37c19eedca5cf5e54493ca72eebde728c7440968d4">qmf::engine::E_OR</a> =  3, 
+<a class="el" href="a00574.html#a1ceb9b4335b824a50ac067c37c19eedcab3f4608274a6f6ed625c7c194feb29f9">qmf::engine::E_XOR</a> =  4
+ }</td></tr>
 </table>
 </div>
 <!--
@@ -111,7 +132,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

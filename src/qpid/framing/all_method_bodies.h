@@ -157,4 +157,5 @@
 #include "qpid/framing/ClusterConnectionQueueObserverStateBody.h"
 #include "qpid/framing/ClusterConnectionClockBody.h"
 #include "qpid/framing/ClusterConnectionQueueDequeueSincePurgeStateBody.h"
+#include "qpid/framing/ClusterConnectionInternalStateBody.h"
 #endif  /*!QPID_FRAMING_ALL_METHOD_BODIES_H*/

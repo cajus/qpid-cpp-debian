@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::sys::Monitor Class Reference</title>
+    <title>qpid::console::MethodResponse Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,434 +60,79 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00592.html">sys</a>      </li>
-      <li class="navelem"><a class="el" href="a00216.html">Monitor</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00581.html">console</a>      </li>
+      <li class="navelem"><a class="el" href="a00216.html">MethodResponse</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::sys::Monitor Class Reference</div>  </div>
+<div class="title">qpid::console::MethodResponse Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::sys::Monitor" --><!-- doxytag: inherits="qpid::sys::Mutex,qpid::sys::Condition" -->
-<p>A monitor is a condition variable and a mutex.  
- <a href="a00216.html#details">More...</a></p>
+<!-- doxytag: class="qpid::console::MethodResponse" -->
+<p><code>#include &lt;<a class="el" href="a00424_source.html">qpid/console/Object.h</a>&gt;</code></p>
 
-<p><code>#include &lt;<a class="el" href="a00558_source.html">qpid/sys/Monitor.h</a>&gt;</code></p>
-
-<p><a href="a00878.html">List of all members.</a></p>
+<p><a href="a00713.html">List of all members.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-::<a class="el" href="a00312.html">qpid::sys::ScopedLock</a>&lt; <a class="el" href="a00220.html">Mutex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#a173572e73b28c52e4b0841634a8f75b9">ScopedLock</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-::<a class="el" href="a00312.html">qpid::sys::ScopedLock</a>&lt; <a class="el" href="a00220.html">Mutex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#a173572e73b28c52e4b0841634a8f75b9">ScopedLock</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-::<a class="el" href="a00315.html">qpid::sys::ScopedUnlock</a><br class="typebreak"/>
-&lt; <a class="el" href="a00220.html">Mutex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#a01fdb72e06ec6cd4b2d02258fbe19470">ScopedUnlock</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-::<a class="el" href="a00315.html">qpid::sys::ScopedUnlock</a><br class="typebreak"/>
-&lt; <a class="el" href="a00220.html">Mutex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#a01fdb72e06ec6cd4b2d02258fbe19470">ScopedUnlock</a></td></tr>
-<tr><td colspan="2"><h2><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00216.html#af6c362817b38a461be5838702f46ea91">wait</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00216.html#a4670c89fa78d9b07a931f14b196b6710">wait</a> (const <a class="el" href="a00001.html">AbsTime</a> &amp;absoluteTime)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#a915aa25a7544637b727f256af589d9b6">lock</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#a915aa25a7544637b727f256af589d9b6">lock</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#aab850ae6eb425b1c40e307d4a4fe4eca">unlock</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#aab850ae6eb425b1c40e307d4a4fe4eca">unlock</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#af0ff34c2c5b755c232817874818948d5">trylock</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#af0ff34c2c5b755c232817874818948d5">trylock</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00056.html#a30f9675f0109f4039c1d3fdc389cad89">wait</a> (<a class="el" href="a00220.html">Mutex</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00056.html#a099ff6d5dcc5bb05ec6fec0325586680">wait</a> (<a class="el" href="a00220.html">Mutex</a> &amp;, const <a class="el" href="a00001.html">AbsTime</a> &amp;absoluteTime)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00056.html#ad356babe156de41ff5950de9d5698ae9">notify</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00056.html#ad356babe156de41ff5950de9d5698ae9">notify</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00056.html#ac42f174b3f5be7d45253a9c441718334">notifyAll</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00056.html#ac42f174b3f5be7d45253a9c441718334">notifyAll</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#afa07a7a4341670aadc1e887a53153d24">mutex</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">boost::recursive_mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#a354b0a01e3d5d070bde4f0adff22a70d">mutex</a></td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00216.html#a42bc7248a48297dafb95065e5f2217b3">code</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00216.html#a2abd45d8fd292290dd130ecba7ed6a9c">text</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00203.html">std::map</a>&lt; <a class="el" href="a00346.html">std::string</a>, <br class="typebreak"/>
+boost::shared_ptr&lt; <a class="el" href="a00380.html">Value</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00216.html#af465e2151b45999f48ce632b7c87650d">arguments</a></td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>A monitor is a condition variable and a mutex. </p>
-</div><hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="a173572e73b28c52e4b0841634a8f75b9"></a><!-- doxytag: member="qpid::sys::Monitor::ScopedLock" ref="a173572e73b28c52e4b0841634a8f75b9" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef ::<a class="el" href="a00312.html">qpid::sys::ScopedLock</a>&lt;<a class="el" href="a00220.html">Mutex</a>&gt; <a class="el" href="a00220.html#a173572e73b28c52e4b0841634a8f75b9">qpid::sys::Mutex::ScopedLock</a><code> [inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00541_source.html#l00040">40</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a173572e73b28c52e4b0841634a8f75b9"></a><!-- doxytag: member="qpid::sys::Monitor::ScopedLock" ref="a173572e73b28c52e4b0841634a8f75b9" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef ::<a class="el" href="a00312.html">qpid::sys::ScopedLock</a>&lt;<a class="el" href="a00220.html">Mutex</a>&gt; <a class="el" href="a00220.html#a173572e73b28c52e4b0841634a8f75b9">qpid::sys::Mutex::ScopedLock</a><code> [inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00542_source.html#l00047">47</a> of file <a class="el" href="a00542_source.html">Mutex.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a01fdb72e06ec6cd4b2d02258fbe19470"></a><!-- doxytag: member="qpid::sys::Monitor::ScopedUnlock" ref="a01fdb72e06ec6cd4b2d02258fbe19470" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef ::<a class="el" href="a00315.html">qpid::sys::ScopedUnlock</a>&lt;<a class="el" href="a00220.html">Mutex</a>&gt; <a class="el" href="a00220.html#a01fdb72e06ec6cd4b2d02258fbe19470">qpid::sys::Mutex::ScopedUnlock</a><code> [inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00541_source.html#l00041">41</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a01fdb72e06ec6cd4b2d02258fbe19470"></a><!-- doxytag: member="qpid::sys::Monitor::ScopedUnlock" ref="a01fdb72e06ec6cd4b2d02258fbe19470" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef ::<a class="el" href="a00315.html">qpid::sys::ScopedUnlock</a>&lt;<a class="el" href="a00220.html">Mutex</a>&gt; <a class="el" href="a00220.html#a01fdb72e06ec6cd4b2d02258fbe19470">qpid::sys::Mutex::ScopedUnlock</a><code> [inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00542_source.html#l00048">48</a> of file <a class="el" href="a00542_source.html">Mutex.h</a>.</p>
-
-</div>
-</div>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a915aa25a7544637b727f256af589d9b6"></a><!-- doxytag: member="qpid::sys::Monitor::lock" ref="a915aa25a7544637b727f256af589d9b6" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::Mutex::lock </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00541_source.html#l00115">115</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-<p>References <a class="el" href="a00559_source.html#l00047">QPID_POSIX_ASSERT_THROW_IF</a>, and <a class="el" href="a00541_source.html#l00051">qpid::sys::Mutex::mutex</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a915aa25a7544637b727f256af589d9b6"></a><!-- doxytag: member="qpid::sys::Monitor::lock" ref="a915aa25a7544637b727f256af589d9b6" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::Mutex::lock </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad356babe156de41ff5950de9d5698ae9"></a><!-- doxytag: member="qpid::sys::Monitor::notify" ref="ad356babe156de41ff5950de9d5698ae9" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::Condition::notify </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00551_source.html#l00077">77</a> of file <a class="el" href="a00551_source.html">Condition.h</a>.</p>
-
-<p>References <a class="el" href="a00559_source.html#l00047">QPID_POSIX_ASSERT_THROW_IF</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ad356babe156de41ff5950de9d5698ae9"></a><!-- doxytag: member="qpid::sys::Monitor::notify" ref="ad356babe156de41ff5950de9d5698ae9" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::Condition::notify </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac42f174b3f5be7d45253a9c441718334"></a><!-- doxytag: member="qpid::sys::Monitor::notifyAll" ref="ac42f174b3f5be7d45253a9c441718334" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::Condition::notifyAll </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00551_source.html#l00081">81</a> of file <a class="el" href="a00551_source.html">Condition.h</a>.</p>
-
-<p>References <a class="el" href="a00559_source.html#l00047">QPID_POSIX_ASSERT_THROW_IF</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ac42f174b3f5be7d45253a9c441718334"></a><!-- doxytag: member="qpid::sys::Monitor::notifyAll" ref="ac42f174b3f5be7d45253a9c441718334" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::Condition::notifyAll </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af0ff34c2c5b755c232817874818948d5"></a><!-- doxytag: member="qpid::sys::Monitor::trylock" ref="af0ff34c2c5b755c232817874818948d5" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::sys::Mutex::trylock </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00541_source.html#l00123">123</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-<p>References <a class="el" href="a00541_source.html#l00051">qpid::sys::Mutex::mutex</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af0ff34c2c5b755c232817874818948d5"></a><!-- doxytag: member="qpid::sys::Monitor::trylock" ref="af0ff34c2c5b755c232817874818948d5" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::sys::Mutex::trylock </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aab850ae6eb425b1c40e307d4a4fe4eca"></a><!-- doxytag: member="qpid::sys::Monitor::unlock" ref="aab850ae6eb425b1c40e307d4a4fe4eca" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::Mutex::unlock </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00541_source.html#l00119">119</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-<p>References <a class="el" href="a00559_source.html#l00047">QPID_POSIX_ASSERT_THROW_IF</a>, and <a class="el" href="a00541_source.html#l00051">qpid::sys::Mutex::mutex</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aab850ae6eb425b1c40e307d4a4fe4eca"></a><!-- doxytag: member="qpid::sys::Monitor::unlock" ref="aab850ae6eb425b1c40e307d4a4fe4eca" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::Mutex::unlock </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af6c362817b38a461be5838702f46ea91"></a><!-- doxytag: member="qpid::sys::Monitor::wait" ref="af6c362817b38a461be5838702f46ea91" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::Monitor::wait </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00558_source.html#l00040">40</a> of file <a class="el" href="a00558_source.html">Monitor.h</a>.</p>
-
-<p>Referenced by <a class="el" href="a00558_source.html#l00044">wait()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a4670c89fa78d9b07a931f14b196b6710"></a><!-- doxytag: member="qpid::sys::Monitor::wait" ref="a4670c89fa78d9b07a931f14b196b6710" args="(const AbsTime &amp;absoluteTime)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::sys::Monitor::wait </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00001.html">AbsTime</a> &amp;&#160;</td>
-          <td class="paramname"><em>absoluteTime</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00558_source.html#l00044">44</a> of file <a class="el" href="a00558_source.html">Monitor.h</a>.</p>
-
-<p>References <a class="el" href="a00558_source.html#l00040">wait()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a30f9675f0109f4039c1d3fdc389cad89"></a><!-- doxytag: member="qpid::sys::Monitor::wait" ref="a30f9675f0109f4039c1d3fdc389cad89" args="(Mutex &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::Condition::wait </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00220.html">Mutex</a> &amp;&#160;</td>
-          <td class="paramname"><em>mutex</em></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00551_source.html#l00062">62</a> of file <a class="el" href="a00551_source.html">Condition.h</a>.</p>
-
-<p>References <a class="el" href="a00559_source.html#l00047">QPID_POSIX_ASSERT_THROW_IF</a>, and <a class="el" href="a00541_source.html#l00051">qpid::sys::Mutex::mutex</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a099ff6d5dcc5bb05ec6fec0325586680"></a><!-- doxytag: member="qpid::sys::Monitor::wait" ref="a099ff6d5dcc5bb05ec6fec0325586680" args="(Mutex &amp;, const AbsTime &amp;absoluteTime)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::sys::Condition::wait </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00220.html">Mutex</a> &amp;&#160;</td>
-          <td class="paramname"><em>mutex</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00001.html">AbsTime</a> &amp;&#160;</td>
-          <td class="paramname"><em>absoluteTime</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00551_source.html#l00066">66</a> of file <a class="el" href="a00551_source.html">Condition.h</a>.</p>
-
-<p>References <a class="el" href="a00592.html#a65e4ddcfe78c70b4cb1aa1aa91bbda18">qpid::sys::toTimespec()</a>, <a class="el" href="a00563_source.html#l00156">qpid::sys::EPOCH</a>, <a class="el" href="a00541_source.html#l00051">qpid::sys::Mutex::mutex</a>, and <a class="el" href="a00559_source.html#l00033">QPID_POSIX_ERROR</a>.</p>
-
-</div>
-</div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="afa07a7a4341670aadc1e887a53153d24"></a><!-- doxytag: member="qpid::sys::Monitor::mutex" ref="afa07a7a4341670aadc1e887a53153d24" args="" -->
+<a class="anchor" id="af465e2151b45999f48ce632b7c87650d"></a><!-- doxytag: member="qpid::console::MethodResponse::arguments" ref="af465e2151b45999f48ce632b7c87650d" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">pthread_mutex_t <a class="el" href="a00220.html#afa07a7a4341670aadc1e887a53153d24">qpid::sys::Mutex::mutex</a><code> [protected, inherited]</code></td>
+          <td class="memname"><a class="el" href="a00203.html">std::map</a>&lt;<a class="el" href="a00346.html">std::string</a>, boost::shared_ptr&lt;<a class="el" href="a00380.html">Value</a>&gt; &gt; <a class="el" href="a00216.html#af465e2151b45999f48ce632b7c87650d">qpid::console::MethodResponse::arguments</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00541_source.html#l00051">51</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-<p>Referenced by <a class="el" href="a00541_source.html#l00107">qpid::sys::Mutex::Mutex()</a>, <a class="el" href="a00541_source.html#l00111">qpid::sys::Mutex::~Mutex()</a>, <a class="el" href="a00541_source.html#l00115">qpid::sys::Mutex::lock()</a>, <a class="el" href="a00541_source.html#l00119">qpid::sys::Mutex::unlock()</a>, <a class="el" href="a00541_source.html#l00123">qpid::sys::Mutex::trylock()</a>, and <a class="el" href="a00551_source.html#l00062">qpid::sys::Condition::wait()</a>.</p>
+<p>Definition at line <a class="el" href="a00424_source.html#l00052">52</a> of file <a class="el" href="a00424_source.html">Object.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a354b0a01e3d5d070bde4f0adff22a70d"></a><!-- doxytag: member="qpid::sys::Monitor::mutex" ref="a354b0a01e3d5d070bde4f0adff22a70d" args="" -->
+<a class="anchor" id="a42bc7248a48297dafb95065e5f2217b3"></a><!-- doxytag: member="qpid::console::MethodResponse::code" ref="a42bc7248a48297dafb95065e5f2217b3" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">boost::recursive_mutex <a class="el" href="a00220.html#afa07a7a4341670aadc1e887a53153d24">qpid::sys::Mutex::mutex</a><code> [protected, inherited]</code></td>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="el" href="a00216.html#a42bc7248a48297dafb95065e5f2217b3">qpid::console::MethodResponse::code</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00542_source.html#l00058">58</a> of file <a class="el" href="a00542_source.html">Mutex.h</a>.</p>
+<p>Definition at line <a class="el" href="a00424_source.html#l00050">50</a> of file <a class="el" href="a00424_source.html">Object.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/sys/<a class="el" href="a00558_source.html">Monitor.h</a></li>
+<a class="anchor" id="a2abd45d8fd292290dd130ecba7ed6a9c"></a><!-- doxytag: member="qpid::console::MethodResponse::text" ref="a2abd45d8fd292290dd130ecba7ed6a9c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> <a class="el" href="a00216.html#a2abd45d8fd292290dd130ecba7ed6a9c">qpid::console::MethodResponse::text</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00424_source.html#l00051">51</a> of file <a class="el" href="a00424_source.html">Object.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>qpid/console/<a class="el" href="a00424_source.html">Object.h</a></li>
 </ul>
 </div>
 <!--
@@ -517,7 +162,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

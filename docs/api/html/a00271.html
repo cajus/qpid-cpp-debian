@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::messaging::Receiver Class Reference</title>
+    <title>qpid::InlineAllocator::rebind Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,527 +60,48 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00591.html">messaging</a>      </li>
-      <li class="navelem"><a class="el" href="a00271.html">Receiver</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00150.html">InlineAllocator</a>      </li>
+      <li class="navelem"><a class="el" href="a00271.html">rebind</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-types">Protected Types</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pub-types">Public Types</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::messaging::Receiver Class Reference<div class="ingroups"><a class="el" href="a00596.html">Qpid C++ Client API</a></div></div>  </div>
+<div class="title">qpid::InlineAllocator::rebind Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::messaging::Receiver" --><!-- doxytag: inherits="Handle&lt; ReceiverImpl &gt;" -->
-<p>Interface through which messages are received.  
- <a href="a00271.html#details">More...</a></p>
+<!-- doxytag: class="qpid::InlineAllocator::rebind" -->
+<p><code>#include &lt;<a class="el" href="a00529_source.html">qpid/InlineAllocator.h</a>&gt;</code></p>
 
-<p><code>#include &lt;<a class="el" href="a00545_source.html">qpid/messaging/Receiver.h</a>&gt;</code></p>
-
-<p><a href="a00871.html">List of all members.</a></p>
+<p><a href="a00660.html">List of all members.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html#aea936c3f5db96bdf3ec079921f7d98f8">Receiver</a> (ReceiverImpl *<a class="el" href="a00139.html#aa4b861c288ed3546405a0e334a2c7ae9">impl</a>=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html#a68f5166a5f167598b899cfe4d54952d3">Receiver</a> (const <a class="el" href="a00271.html">Receiver</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html#afe745ecd136458bf328b03d4cc5c427a">~Receiver</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00271.html">Receiver</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html#a77220dc4d800c06f306023b0be2c19e9">operator=</a> (const <a class="el" href="a00271.html">Receiver</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html#a1d708f9763a9b1f5aefb41002e7446e6">get</a> (<a class="el" href="a00205.html">Message</a> &amp;message, <a class="el" href="a00104.html">Duration</a> timeout=<a class="el" href="a00104.html#a873e249777ffd59f9ebb263cd0c15dbe">Duration::FOREVER</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a message from this receivers local queue, or waits for upto the specified timeout for a message to become available.  <a href="#a1d708f9763a9b1f5aefb41002e7446e6"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00205.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html#a5fe6961b80f6fa15e297a6d78e5bd452">get</a> (<a class="el" href="a00104.html">Duration</a> timeout=<a class="el" href="a00104.html#a873e249777ffd59f9ebb263cd0c15dbe">Duration::FOREVER</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a message from this receivers local queue, or waits for up to the specified timeout for a message to become available.  <a href="#a5fe6961b80f6fa15e297a6d78e5bd452"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html#ac0819f612dfc58de03cbc95a39420925">fetch</a> (<a class="el" href="a00205.html">Message</a> &amp;message, <a class="el" href="a00104.html">Duration</a> timeout=<a class="el" href="a00104.html#a873e249777ffd59f9ebb263cd0c15dbe">Duration::FOREVER</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a message for this receivers subscription or waits for up to the specified timeout for one to become available.  <a href="#ac0819f612dfc58de03cbc95a39420925"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00205.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html#afa9df212a2aa070ee75eace3e72fd77a">fetch</a> (<a class="el" href="a00104.html">Duration</a> timeout=<a class="el" href="a00104.html#a873e249777ffd59f9ebb263cd0c15dbe">Duration::FOREVER</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves a message for this receivers subscription or waits for up to the specified timeout for one to become available.  <a href="#afa9df212a2aa070ee75eace3e72fd77a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html#add89dbea867b9603593063f23124e53c">setCapacity</a> (<a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the capacity for the receiver.  <a href="#add89dbea867b9603593063f23124e53c"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html#aa341eee76bbaeef91dba9d0c43c43d43">getCapacity</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html#af67796cf2cd5cd3633475f0247db2e54">getAvailable</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html#af1636abefb724b20722ba0c3b31dcb84">getUnsettled</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html#a9d81586132f41c91576f07493f821259">close</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Cancels this receiver.  <a href="#a9d81586132f41c91576f07493f821259"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html#aa10a444e2120b6bfb50cbb732d8455e9">isClosed</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if the receiver was closed by a call to <a class="el" href="a00271.html#a9d81586132f41c91576f07493f821259" title="Cancels this receiver.">close()</a>  <a href="#aa10a444e2120b6bfb50cbb732d8455e9"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html#ac94d3de795f49ef4df3879a93ad84e5e">getName</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of this receiver.  <a href="#ac94d3de795f49ef4df3879a93ad84e5e"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00325.html">Session</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html#aa0804187245ceca907627d1bce360354">getSession</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a handle to the session associated with this receiver.  <a href="#aa0804187245ceca907627d1bce360354"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_MESSAGING_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a96a040ee9deb2b6534f6ac03fe60ffa4">isValid</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_MESSAGING_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a1f4f3033223421f914db98fbb7ac1704">isNull</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_MESSAGING_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a35cfc26f8be13a312dd9de7cf475a962">operator bool</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to bool supports idiom if (handle) { handle-&gt;...  <a href="#a35cfc26f8be13a312dd9de7cf475a962"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_MESSAGING_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a0bf2de9ff2609eb03d4a350ef5179156">operator!</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }.  <a href="#a0bf2de9ff2609eb03d4a350ef5179156"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a9eb61a86144e01a2683da2ad36137c54">swap</a> (<a class="el" href="a00139.html">Handle</a>&lt; T &gt; &amp;h)</td></tr>
-<tr><td colspan="2"><h2><a name="pro-types"></a>
-Protected Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a51b69551a689a063cd575ae3f81c9775">Impl</a></td></tr>
-<tr><td colspan="2"><h2><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00139.html#a51b69551a689a063cd575ae3f81c9775">Impl</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#aa4b861c288ed3546405a0e334a2c7ae9">impl</a></td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00151.html">InlineRebind</a>&lt; T1, <br class="typebreak"/>
+<a class="el" href="a00150.html#a15f2dd9f8dceae1d64f5347b7d0bc1ca">value_type</a>, BaseAllocator, Max &gt;<br class="typebreak"/>
+::<a class="el" href="a00271.html#a272f12e8b27b882d0a73adbaf59ad594">other</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html#a272f12e8b27b882d0a73adbaf59ad594">other</a></td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Interface through which messages are received. </p>
-</div><hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="a51b69551a689a063cd575ae3f81c9775"></a><!-- doxytag: member="qpid::messaging::Receiver::Impl" ref="a51b69551a689a063cd575ae3f81c9775" args="" -->
+<hr/><h2>Member Typedef Documentation</h2>
+<a class="anchor" id="a272f12e8b27b882d0a73adbaf59ad594"></a><!-- doxytag: member="qpid::InlineAllocator::rebind::other" ref="a272f12e8b27b882d0a73adbaf59ad594" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef T <a class="el" href="a00139.html#a51b69551a689a063cd575ae3f81c9775">qpid::messaging::Handle::Impl</a><code> [protected, inherited]</code></td>
+          <td class="memname">typedef <a class="el" href="a00151.html">InlineRebind</a>&lt;T1, <a class="el" href="a00150.html#a15f2dd9f8dceae1d64f5347b7d0bc1ca">value_type</a>, BaseAllocator, Max&gt;::<a class="el" href="a00271.html#a272f12e8b27b882d0a73adbaf59ad594">other</a> <a class="el" href="a00271.html#a272f12e8b27b882d0a73adbaf59ad594">qpid::InlineAllocator::rebind::other</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00439_source.html#l00057">57</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
+<p>Definition at line <a class="el" href="a00529_source.html#l00070">70</a> of file <a class="el" href="a00529_source.html">InlineAllocator.h</a>.</p>
 
 </div>
 </div>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="aea936c3f5db96bdf3ec079921f7d98f8"></a><!-- doxytag: member="qpid::messaging::Receiver::Receiver" ref="aea936c3f5db96bdf3ec079921f7d98f8" args="(ReceiverImpl *impl=0)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::messaging::Receiver::Receiver </td>
-          <td>(</td>
-          <td class="paramtype">ReceiverImpl *&#160;</td>
-          <td class="paramname"><em>impl</em> = <code>0</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a68f5166a5f167598b899cfe4d54952d3"></a><!-- doxytag: member="qpid::messaging::Receiver::Receiver" ref="a68f5166a5f167598b899cfe4d54952d3" args="(const Receiver &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::messaging::Receiver::Receiver </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00271.html">Receiver</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="afe745ecd136458bf328b03d4cc5c427a"></a><!-- doxytag: member="qpid::messaging::Receiver::~Receiver" ref="afe745ecd136458bf328b03d4cc5c427a" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::messaging::Receiver::~Receiver </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a9d81586132f41c91576f07493f821259"></a><!-- doxytag: member="qpid::messaging::Receiver::close" ref="a9d81586132f41c91576f07493f821259" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::messaging::Receiver::close </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Cancels this receiver. </p>
-
-</div>
-</div>
-<a class="anchor" id="ac0819f612dfc58de03cbc95a39420925"></a><!-- doxytag: member="qpid::messaging::Receiver::fetch" ref="ac0819f612dfc58de03cbc95a39420925" args="(Message &amp;message, Duration timeout=Duration::FOREVER)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::messaging::Receiver::fetch </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00205.html">Message</a> &amp;&#160;</td>
-          <td class="paramname"><em>message</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00104.html">Duration</a>&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="a00104.html#a873e249777ffd59f9ebb263cd0c15dbe">Duration::FOREVER</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Retrieves a message for this receivers subscription or waits for up to the specified timeout for one to become available. </p>
-<p>Unlike <a class="el" href="a00271.html#a1d708f9763a9b1f5aefb41002e7446e6" title="Retrieves a message from this receivers local queue, or waits for upto the specified timeout for a me...">get()</a> this method will check with the server that there is no message for the subscription this receiver is serving before returning false.</p>
-<dl class="return"><dt><b>Returns:</b></dt><dd>false if there is no message to give after waiting for the specified timeout, or if the <a class="el" href="a00271.html" title="Interface through which messages are received.">Receiver</a> is closed, in which case isClose() will be true. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="afa9df212a2aa070ee75eace3e72fd77a"></a><!-- doxytag: member="qpid::messaging::Receiver::fetch" ref="afa9df212a2aa070ee75eace3e72fd77a" args="(Duration timeout=Duration::FOREVER)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00205.html">Message</a> qpid::messaging::Receiver::fetch </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00104.html">Duration</a>&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="a00104.html#a873e249777ffd59f9ebb263cd0c15dbe">Duration::FOREVER</a></code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Retrieves a message for this receivers subscription or waits for up to the specified timeout for one to become available. </p>
-<p>Unlike <a class="el" href="a00271.html#a1d708f9763a9b1f5aefb41002e7446e6" title="Retrieves a message from this receivers local queue, or waits for upto the specified timeout for a me...">get()</a> this method will check with the server that there is no message for the subscription this receiver is serving before throwing an exception.</p>
-<dl><dt><b>Exceptions:</b></dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="a00224.html" title="Thrown by Receiver::fetch(), Receiver::get() and Session::nextReceiver() to indicate that there no me...">NoMessageAvailable</a></td><td>if there is no message to give after waiting for the specified timeout, or if the <a class="el" href="a00271.html" title="Interface through which messages are received.">Receiver</a> is closed, in which case isClose() will be true. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a1d708f9763a9b1f5aefb41002e7446e6"></a><!-- doxytag: member="qpid::messaging::Receiver::get" ref="a1d708f9763a9b1f5aefb41002e7446e6" args="(Message &amp;message, Duration timeout=Duration::FOREVER)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::messaging::Receiver::get </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00205.html">Message</a> &amp;&#160;</td>
-          <td class="paramname"><em>message</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00104.html">Duration</a>&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="a00104.html#a873e249777ffd59f9ebb263cd0c15dbe">Duration::FOREVER</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Retrieves a message from this receivers local queue, or waits for upto the specified timeout for a message to become available. </p>
-
-</div>
-</div>
-<a class="anchor" id="a5fe6961b80f6fa15e297a6d78e5bd452"></a><!-- doxytag: member="qpid::messaging::Receiver::get" ref="a5fe6961b80f6fa15e297a6d78e5bd452" args="(Duration timeout=Duration::FOREVER)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00205.html">Message</a> qpid::messaging::Receiver::get </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00104.html">Duration</a>&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="a00104.html#a873e249777ffd59f9ebb263cd0c15dbe">Duration::FOREVER</a></code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Retrieves a message from this receivers local queue, or waits for up to the specified timeout for a message to become available. </p>
-<dl><dt><b>Exceptions:</b></dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="a00224.html" title="Thrown by Receiver::fetch(), Receiver::get() and Session::nextReceiver() to indicate that there no me...">NoMessageAvailable</a></td><td>if there is no message to give after waiting for the specified timeout, or if the <a class="el" href="a00271.html" title="Interface through which messages are received.">Receiver</a> is closed, in which case isClose() will be true. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="af67796cf2cd5cd3633475f0247db2e54"></a><!-- doxytag: member="qpid::messaging::Receiver::getAvailable" ref="af67796cf2cd5cd3633475f0247db2e54" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::messaging::Receiver::getAvailable </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>the number of messages received and waiting to be fetched. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="aa341eee76bbaeef91dba9d0c43c43d43"></a><!-- doxytag: member="qpid::messaging::Receiver::getCapacity" ref="aa341eee76bbaeef91dba9d0c43c43d43" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::messaging::Receiver::getCapacity </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>the capacity of the receiver. The capacity determines how many incoming messages can be held in the receiver before being requested by a client via <a class="el" href="a00271.html#ac0819f612dfc58de03cbc95a39420925" title="Retrieves a message for this receivers subscription or waits for up to the specified timeout for one ...">fetch()</a> (or pushed to a listener). </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="ac94d3de795f49ef4df3879a93ad84e5e"></a><!-- doxytag: member="qpid::messaging::Receiver::getName" ref="ac94d3de795f49ef4df3879a93ad84e5e" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a>&amp; qpid::messaging::Receiver::getName </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Returns the name of this receiver. </p>
-
-</div>
-</div>
-<a class="anchor" id="aa0804187245ceca907627d1bce360354"></a><!-- doxytag: member="qpid::messaging::Receiver::getSession" ref="aa0804187245ceca907627d1bce360354" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00325.html">Session</a> qpid::messaging::Receiver::getSession </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Returns a handle to the session associated with this receiver. </p>
-
-</div>
-</div>
-<a class="anchor" id="af1636abefb724b20722ba0c3b31dcb84"></a><!-- doxytag: member="qpid::messaging::Receiver::getUnsettled" ref="af1636abefb724b20722ba0c3b31dcb84" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::messaging::Receiver::getUnsettled </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>a count of the number of messages received on this receiver that have been acknowledged, but for which that acknowledgement has not yet been confirmed as processed by the server. </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="aa10a444e2120b6bfb50cbb732d8455e9"></a><!-- doxytag: member="qpid::messaging::Receiver::isClosed" ref="aa10a444e2120b6bfb50cbb732d8455e9" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::messaging::Receiver::isClosed </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Return true if the receiver was closed by a call to <a class="el" href="a00271.html#a9d81586132f41c91576f07493f821259" title="Cancels this receiver.">close()</a> </p>
-
-</div>
-</div>
-<a class="anchor" id="a1f4f3033223421f914db98fbb7ac1704"></a><!-- doxytag: member="qpid::messaging::Receiver::isNull" ref="a1f4f3033223421f914db98fbb7ac1704" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_MESSAGING_INLINE_EXTERN bool qpid::messaging::Handle::isNull </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is null. It is an error to call any function on a null handle. </dd></dl>
-
-<p>Definition at line <a class="el" href="a00439_source.html#l00046">46</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a96a040ee9deb2b6534f6ac03fe60ffa4"></a><!-- doxytag: member="qpid::messaging::Receiver::isValid" ref="a96a040ee9deb2b6534f6ac03fe60ffa4" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_MESSAGING_INLINE_EXTERN bool qpid::messaging::Handle::isValid </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is valid, i.e. not null. </dd></dl>
-
-<p>Definition at line <a class="el" href="a00439_source.html#l00043">43</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a35cfc26f8be13a312dd9de7cf475a962"></a><!-- doxytag: member="qpid::messaging::Receiver::operator bool" ref="a35cfc26f8be13a312dd9de7cf475a962" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_MESSAGING_INLINE_EXTERN qpid::messaging::Handle::operator bool </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Conversion to bool supports idiom if (handle) { handle-&gt;... </p>
-<p>} </p>
-
-<p>Definition at line <a class="el" href="a00439_source.html#l00049">49</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0bf2de9ff2609eb03d4a350ef5179156"></a><!-- doxytag: member="qpid::messaging::Receiver::operator!" ref="a0bf2de9ff2609eb03d4a350ef5179156" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_MESSAGING_INLINE_EXTERN bool qpid::messaging::Handle::operator! </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }. </p>
-
-<p>Definition at line <a class="el" href="a00439_source.html#l00052">52</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a77220dc4d800c06f306023b0be2c19e9"></a><!-- doxytag: member="qpid::messaging::Receiver::operator=" ref="a77220dc4d800c06f306023b0be2c19e9" args="(const Receiver &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00271.html">Receiver</a>&amp; qpid::messaging::Receiver::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00271.html">Receiver</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="add89dbea867b9603593063f23124e53c"></a><!-- doxytag: member="qpid::messaging::Receiver::setCapacity" ref="add89dbea867b9603593063f23124e53c" args="(uint32_t)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::messaging::Receiver::setCapacity </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Sets the capacity for the receiver. </p>
-<p>The capacity determines how many incoming messages can be held in the receiver before being requested by a client via <a class="el" href="a00271.html#ac0819f612dfc58de03cbc95a39420925" title="Retrieves a message for this receivers subscription or waits for up to the specified timeout for one ...">fetch()</a> (or pushed to a listener). </p>
-
-</div>
-</div>
-<a class="anchor" id="a9eb61a86144e01a2683da2ad36137c54"></a><!-- doxytag: member="qpid::messaging::Receiver::swap" ref="a9eb61a86144e01a2683da2ad36137c54" args="(Handle&lt; T &gt; &amp;h)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::messaging::Handle::swap </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00139.html">Handle</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>h</em></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00439_source.html#l00054">54</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="aa4b861c288ed3546405a0e334a2c7ae9"></a><!-- doxytag: member="qpid::messaging::Receiver::impl" ref="aa4b861c288ed3546405a0e334a2c7ae9" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00139.html#a51b69551a689a063cd575ae3f81c9775">Impl</a>* <a class="el" href="a00139.html#aa4b861c288ed3546405a0e334a2c7ae9">qpid::messaging::Handle::impl</a><code> [protected, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00439_source.html#l00064">64</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/messaging/<a class="el" href="a00545_source.html">Receiver.h</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>qpid/<a class="el" href="a00529_source.html">InlineAllocator.h</a></li>
 </ul>
 </div>
 <!--
@@ -610,7 +131,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

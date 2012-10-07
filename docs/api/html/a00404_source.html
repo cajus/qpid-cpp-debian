@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf/engine/Agent.h Source File</title>
+    <title>qmf/Agent.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,13 +58,13 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qmf/engine/Agent.h</div>  </div>
+<div class="title">qmf/Agent.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00404.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _QmfEngineAgent_</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _QmfEngineAgent_</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="comment">/*</span>
+<a href="a00404.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QMF_AGENT_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QMF_AGENT_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="comment">/*</span>
+<a name="l00004"></a>00004 <span class="comment"> *</span>
 <a name="l00005"></a>00005 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
 <a name="l00006"></a>00006 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
 <a name="l00007"></a>00007 <span class="comment"> * distributed with this work for additional information</span>
@@ -81,100 +81,79 @@
 <a name="l00018"></a>00018 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
 <a name="l00019"></a>00019 <span class="comment"> * specific language governing permissions and limitations</span>
 <a name="l00020"></a>00020 <span class="comment"> * under the License.</span>
-<a name="l00021"></a>00021 <span class="comment"> */</span>
-<a name="l00022"></a>00022 
-<a name="l00023"></a>00023 <span class="preprocessor">#include &lt;<a class="code" href="a00429.html">qmf/engine/Schema.h</a>&gt;</span>
-<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;<a class="code" href="a00423.html">qmf/engine/ObjectId.h</a>&gt;</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &lt;<a class="code" href="a00421.html">qmf/engine/Object.h</a>&gt;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &lt;<a class="code" href="a00416.html">qmf/engine/Event.h</a>&gt;</span>
-<a name="l00027"></a>00027 <span class="preprocessor">#include &lt;<a class="code" href="a00426.html">qmf/engine/Query.h</a>&gt;</span>
-<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;<a class="code" href="a00433.html">qmf/engine/Value.h</a>&gt;</span>
-<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;<a class="code" href="a00418.html">qmf/engine/Message.h</a>&gt;</span>
-<a name="l00030"></a>00030 
-<a name="l00031"></a>00031 <span class="keyword">namespace </span>qmf {
-<a name="l00032"></a><a class="code" href="a00572.html">00032</a> <span class="keyword">namespace </span>engine {
+<a name="l00021"></a>00021 <span class="comment"> *</span>
+<a name="l00022"></a>00022 <span class="comment"> */</span>
+<a name="l00023"></a>00023 
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;<a class="code" href="a00442.html">qmf/ImportExport.h</a>&gt;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00439.html">qmf/Handle.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="comment">//#include &quot;qmf/Subscription.h&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00437.html">qmf/exceptions.h</a>&quot;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="a00545.html">qpid/messaging/Duration.h</a>&quot;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="a00571.html">qpid/types/Variant.h</a>&quot;</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00031"></a>00031 
+<a name="l00032"></a><a class="code" href="a00573.html">00032</a> <span class="keyword">namespace </span>qmf {
 <a name="l00033"></a>00033 
-<a name="l00040"></a>00040     <span class="keyword">struct </span><a class="code" href="a00010.html" title="AgentEvent.">AgentEvent</a> {
-<a name="l00041"></a><a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257">00041</a>         <span class="keyword">enum</span> <a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257">EventKind</a> {
-<a name="l00042"></a><a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257a3f38e18339d4975863a834e7fc41f671">00042</a>             <a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257a3f38e18339d4975863a834e7fc41f671">GET_QUERY</a>      = 1,
-<a name="l00043"></a><a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257a72550740d687e6dd4c64e7a8066cd91d">00043</a>             <a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257a72550740d687e6dd4c64e7a8066cd91d">START_SYNC</a>     = 2,
-<a name="l00044"></a><a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257a051cfac5a8af94d305c230c74aeb2229">00044</a>             <a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257a051cfac5a8af94d305c230c74aeb2229">END_SYNC</a>       = 3,
-<a name="l00045"></a><a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257aa5b68a83a003e2c7228c38080ef865cd">00045</a>             <a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257aa5b68a83a003e2c7228c38080ef865cd">METHOD_CALL</a>    = 4,
-<a name="l00046"></a><a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257a899258d9114c36a8fc89a70c32481c75">00046</a>             <a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257a899258d9114c36a8fc89a70c32481c75">DECLARE_QUEUE</a>  = 5,
-<a name="l00047"></a><a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257a9d18df9f4a33fa424acf459d27b9741f">00047</a>             <a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257a9d18df9f4a33fa424acf459d27b9741f">DELETE_QUEUE</a>   = 6,
-<a name="l00048"></a><a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257ad1e770b2ac7c912dc915a85cbd9dd5e5">00048</a>             <a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257ad1e770b2ac7c912dc915a85cbd9dd5e5">BIND</a>           = 7,
-<a name="l00049"></a><a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257aca971924978973a8dadde8aabc35ec83">00049</a>             <a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257aca971924978973a8dadde8aabc35ec83">UNBIND</a>         = 8,
-<a name="l00050"></a><a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257a028171c068f1f5aee19d654b0e1d4a94">00050</a>             <a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257a028171c068f1f5aee19d654b0e1d4a94">SETUP_COMPLETE</a> = 9
-<a name="l00051"></a>00051         };
-<a name="l00052"></a>00052 
-<a name="l00053"></a><a class="code" href="a00010.html#a351c9a169ebc29633202109371f93776">00053</a>         <a class="code" href="a00010.html#a6af28ff526149ae20289112a25659257">EventKind</a>    <a class="code" href="a00010.html#a351c9a169ebc29633202109371f93776">kind</a>;
-<a name="l00054"></a><a class="code" href="a00010.html#a6de579394692ae8f84e39df7f20a0093">00054</a>         <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>     <a class="code" href="a00010.html#a6de579394692ae8f84e39df7f20a0093">sequence</a>;    <span class="comment">// Protocol sequence (for all kinds)</span>
-<a name="l00055"></a><a class="code" href="a00010.html#a57b2273ac8295b2297a8a34eaea6a019">00055</a>         <span class="keywordtype">char</span>*        <a class="code" href="a00010.html#a57b2273ac8295b2297a8a34eaea6a019">authUserId</a>;  <span class="comment">// Authenticated user ID (for all kinds)</span>
-<a name="l00056"></a><a class="code" href="a00010.html#a24cfbd90e4a281c8d69059aff53ab29b">00056</a>         <span class="keywordtype">char</span>*        <a class="code" href="a00010.html#a24cfbd90e4a281c8d69059aff53ab29b">authToken</a>;   <span class="comment">// Authentication token if issued (for all kinds)</span>
-<a name="l00057"></a><a class="code" href="a00010.html#aa989009b0adae9fbc876675fed85dd73">00057</a>         <span class="keywordtype">char</span>*        <a class="code" href="a00010.html#aa989009b0adae9fbc876675fed85dd73">name</a>;        <span class="comment">// Name of the method/sync query</span>
-<a name="l00058"></a>00058                                   <span class="comment">//    (METHOD_CALL, START_SYNC, END_SYNC, DECLARE_QUEUE, BIND, UNBIND)</span>
-<a name="l00059"></a><a class="code" href="a00010.html#a8022d8bb67473edbe17f708e7f9dc75d">00059</a>         <a class="code" href="a00233.html">Object</a>*      <a class="code" href="a00010.html#a8022d8bb67473edbe17f708e7f9dc75d">object</a>;      <span class="comment">// Object involved in method call (METHOD_CALL)</span>
-<a name="l00060"></a><a class="code" href="a00010.html#a6da1dba167508872776ec419c2ecce1e">00060</a>         <a class="code" href="a00236.html">ObjectId</a>*    <a class="code" href="a00010.html#a6da1dba167508872776ec419c2ecce1e">objectId</a>;    <span class="comment">// ObjectId for method call (METHOD_CALL)</span>
-<a name="l00061"></a><a class="code" href="a00010.html#a2b06fcbbdd9cd82982bada5c10c2e000">00061</a>         <a class="code" href="a00258.html">Query</a>*       <a class="code" href="a00010.html#a2b06fcbbdd9cd82982bada5c10c2e000">query</a>;       <span class="comment">// Query parameters (GET_QUERY, START_SYNC)</span>
-<a name="l00062"></a><a class="code" href="a00010.html#a6e94ff5223e0637aaa0d3da563062f58">00062</a>         <a class="code" href="a00379.html">Value</a>*       <a class="code" href="a00010.html#a6e94ff5223e0637aaa0d3da563062f58">arguments</a>;   <span class="comment">// Method parameters (METHOD_CALL)</span>
-<a name="l00063"></a><a class="code" href="a00010.html#a340fc0dbe9701d9ae54a3d5143bb8ee2">00063</a>         <span class="keywordtype">char</span>*        <a class="code" href="a00010.html#a340fc0dbe9701d9ae54a3d5143bb8ee2">exchange</a>;    <span class="comment">// Exchange for bind (BIND, UNBIND)</span>
-<a name="l00064"></a><a class="code" href="a00010.html#a1148be15d98d06590e560466fef4f35e">00064</a>         <span class="keywordtype">char</span>*        <a class="code" href="a00010.html#a1148be15d98d06590e560466fef4f35e">bindingKey</a>;  <span class="comment">// Key for bind (BIND, UNBIND)</span>
-<a name="l00065"></a><a class="code" href="a00010.html#a0138f4312e97262b8574948bbfaa4efb">00065</a>         <span class="keyword">const</span> <a class="code" href="a00306.html">SchemaObjectClass</a>* <a class="code" href="a00010.html#a0138f4312e97262b8574948bbfaa4efb">objectClass</a>; <span class="comment">// (METHOD_CALL)</span>
-<a name="l00066"></a>00066     };
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068     <span class="keyword">class </span>AgentImpl;
-<a name="l00069"></a>00069 
-<a name="l00073"></a>00073     <span class="keyword">class </span><a class="code" href="a00005.html" title="Agent - Protocol engine for the QMF agent.">Agent</a> {
-<a name="l00074"></a>00074     <span class="keyword">public</span>:
-<a name="l00075"></a>00075         <a class="code" href="a00005.html#a44efc142d9c889bb9640cee573cc19fc">Agent</a>(<span class="keywordtype">char</span>* label, <span class="keywordtype">bool</span> internalStore=<span class="keyword">true</span>);
-<a name="l00076"></a>00076         <a class="code" href="a00005.html#a4939abdaa0d08dbf23100000d22b3f22">~Agent</a>();
-<a name="l00077"></a>00077 
-<a name="l00084"></a>00084         <span class="keywordtype">void</span> <a class="code" href="a00005.html#a481ccd6a73ced7d1a8e524350f2f09e9" title="Configure the directory path for storing persistent data.">setStoreDir</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* path);
-<a name="l00085"></a>00085 
-<a name="l00092"></a>00092         <span class="keywordtype">void</span> <a class="code" href="a00005.html#a489c88f95a56dbf716abaa4b30beda6e" title="Configure the directory path for files transferred over QMF.">setTransferDir</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* path);
-<a name="l00093"></a>00093 
-<a name="l00098"></a>00098         <span class="keywordtype">void</span> <a class="code" href="a00005.html#ac3884711b7deb275ade4c29fff567bee" title="Pass messages received from the AMQP session to the Agent engine.">handleRcvMessage</a>(<a class="code" href="a00207.html">Message</a>&amp; message);
-<a name="l00099"></a>00099 
-<a name="l00105"></a>00105         <span class="keywordtype">bool</span> <a class="code" href="a00005.html#acc8b2035af16616624247263ed3ec5ce" title="Get the next message to be sent to the AMQP network.">getXmtMessage</a>(<a class="code" href="a00207.html">Message</a>&amp; item) <span class="keyword">const</span>;
-<a name="l00106"></a>00106 
-<a name="l00110"></a>00110         <span class="keywordtype">void</span> <a class="code" href="a00005.html#aafcde4dd6ea395e5b9f8200310c6d03b" title="Remove and discard one message from the head of the transmit queue.">popXmt</a>();
-<a name="l00111"></a>00111 
-<a name="l00117"></a>00117         <span class="keywordtype">bool</span> <a class="code" href="a00005.html#a15c19f43b28f63a826562d1a1dabd7e7" title="Get the next application event from the agent engine.">getEvent</a>(<a class="code" href="a00010.html" title="AgentEvent.">AgentEvent</a>&amp; event) <span class="keyword">const</span>;
-<a name="l00118"></a>00118 
-<a name="l00122"></a>00122         <span class="keywordtype">void</span> <a class="code" href="a00005.html#a85425603a2456369632069399a29f5fc" title="Remove and discard one event from the head of the event queue.">popEvent</a>();
+<a name="l00034"></a>00034 <span class="preprocessor">#ifndef SWIG</span>
+<a name="l00035"></a>00035 <span class="preprocessor"></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span>&gt; <span class="keyword">class </span>PrivateImplRef;
+<a name="l00036"></a>00036 <span class="preprocessor">#endif</span>
+<a name="l00037"></a>00037 <span class="preprocessor"></span>
+<a name="l00038"></a>00038     <span class="keyword">class </span>AgentImpl;
+<a name="l00039"></a>00039     <span class="keyword">class </span><a class="code" href="a00070.html">ConsoleEvent</a>;
+<a name="l00040"></a>00040     <span class="keyword">class </span><a class="code" href="a00258.html">Query</a>;
+<a name="l00041"></a>00041     <span class="keyword">class </span><a class="code" href="a00097.html">DataAddr</a>;
+<a name="l00042"></a>00042     <span class="keyword">class </span><a class="code" href="a00303.html">SchemaId</a>;
+<a name="l00043"></a>00043     <span class="keyword">class </span><a class="code" href="a00297.html">Schema</a>;
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045     <span class="keyword">class </span><a class="code" href="a00442.html#aa6143d1e586807dc556687a007c92b69">QMF_CLASS_EXTERN</a> Agent : <span class="keyword">public</span> qmf::<a class="code" href="a00143.html" title="A handle is like a pointer: refers to an underlying implementation object.">Handle</a>&lt;AgentImpl&gt; {
+<a name="l00046"></a>00046     <span class="keyword">public</span>:
+<a name="l00047"></a>00047         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> Agent(AgentImpl* impl = 0);
+<a name="l00048"></a>00048         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> Agent(<span class="keyword">const</span> Agent&amp;);
+<a name="l00049"></a>00049         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> Agent&amp; operator=(<span class="keyword">const</span> Agent&amp;);
+<a name="l00050"></a>00050         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> ~Agent();
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> std::string getName() <span class="keyword">const</span>;
+<a name="l00053"></a>00053         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> getEpoch() <span class="keyword">const</span>;
+<a name="l00054"></a>00054         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> std::string getVendor() <span class="keyword">const</span>;
+<a name="l00055"></a>00055         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> std::string getProduct() <span class="keyword">const</span>;
+<a name="l00056"></a>00056         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> std::string getInstance() <span class="keyword">const</span>;
+<a name="l00057"></a>00057         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keyword">const</span> qpid::types::Variant&amp; getAttribute(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;) <span class="keyword">const</span>;
+<a name="l00058"></a>00058         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keyword">const</span> qpid::types::Variant::Map&amp; getAttributes() <span class="keyword">const</span>;
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00070.html">ConsoleEvent</a> query(<span class="keyword">const</span> <a class="code" href="a00258.html">Query</a>&amp;, <a class="code" href="a00106.html" title="A duration is a time in milliseconds.">qpid::messaging::Duration</a> timeout=<a class="code" href="a00106.html#a9c781de15ddc7f6477e53e771558dfcb">qpid::messaging::Duration::MINUTE</a>);
+<a name="l00061"></a>00061         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00070.html">ConsoleEvent</a> query(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;, <a class="code" href="a00106.html" title="A duration is a time in milliseconds.">qpid::messaging::Duration</a> timeout=<a class="code" href="a00106.html#a9c781de15ddc7f6477e53e771558dfcb">qpid::messaging::Duration::MINUTE</a>);
+<a name="l00062"></a>00062         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> queryAsync(<span class="keyword">const</span> <a class="code" href="a00258.html">Query</a>&amp;);
+<a name="l00063"></a>00063         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> queryAsync(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;);
+<a name="l00064"></a>00064 
+<a name="l00068"></a>00068         <span class="comment">//QMF_EXTERN Subscription subscribe(const Query&amp;, const std::string&amp; options = &quot;&quot;);</span>
+<a name="l00069"></a>00069         <span class="comment">//QMF_EXTERN Subscription subscribe(const std::string&amp;, const std::string&amp; options = &quot;&quot;);</span>
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00070.html">ConsoleEvent</a> callMethod(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00203.html" title="STL class.">qpid::types::Variant::Map</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00097.html">DataAddr</a>&amp;,
+<a name="l00072"></a>00072                                            <a class="code" href="a00106.html" title="A duration is a time in milliseconds.">qpid::messaging::Duration</a> timeout=<a class="code" href="a00106.html#a9c781de15ddc7f6477e53e771558dfcb">qpid::messaging::Duration::MINUTE</a>);
+<a name="l00073"></a>00073         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> callMethodAsync(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00203.html" title="STL class.">qpid::types::Variant::Map</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00097.html">DataAddr</a>&amp;);
+<a name="l00074"></a>00074 
+<a name="l00085"></a>00085         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00070.html">ConsoleEvent</a> querySchema(<a class="code" href="a00106.html" title="A duration is a time in milliseconds.">qpid::messaging::Duration</a> timeout=<a class="code" href="a00106.html#a9c781de15ddc7f6477e53e771558dfcb">qpid::messaging::Duration::MINUTE</a>);
+<a name="l00086"></a>00086         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> querySchemaAsync();
+<a name="l00087"></a>00087 
+<a name="l00098"></a>00098         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> getPackageCount() <span class="keyword">const</span>;
+<a name="l00099"></a>00099         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keyword">const</span> std::string&amp; getPackage(<a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>) <span class="keyword">const</span>;
+<a name="l00100"></a>00100 
+<a name="l00111"></a>00111         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> getSchemaIdCount(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;) <span class="keyword">const</span>;
+<a name="l00112"></a>00112         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00303.html">SchemaId</a> getSchemaId(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;, <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>) <span class="keyword">const</span>;
+<a name="l00113"></a>00113 
+<a name="l00121"></a>00121         <a class="code" href="a00442.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00297.html">Schema</a> getSchema(<span class="keyword">const</span> <a class="code" href="a00303.html">SchemaId</a>&amp;, <a class="code" href="a00106.html" title="A duration is a time in milliseconds.">qpid::messaging::Duration</a> timeout=<a class="code" href="a00106.html#a9c781de15ddc7f6477e53e771558dfcb">qpid::messaging::Duration::MINUTE</a>);
+<a name="l00122"></a>00122 
 <a name="l00123"></a>00123 
-<a name="l00127"></a>00127         <span class="keywordtype">void</span> <a class="code" href="a00005.html#a126d7a08de068af40544a207b1e5c15f" title="A new AMQP session has been established for Agent communication.">newSession</a>();
-<a name="l00128"></a>00128 
-<a name="l00133"></a>00133         <span class="keywordtype">void</span> <a class="code" href="a00005.html#a5e693ba92e2dcc74b6b2ce181f0be34f" title="Start the QMF Agent protocol.">startProtocol</a>();
-<a name="l00134"></a>00134 
-<a name="l00138"></a>00138         <span class="keywordtype">void</span> <a class="code" href="a00005.html#a4796c9caa8b20c770ec4c439f9c03ad2" title="This method is called periodically so the agent can supply a heartbeat.">heartbeat</a>();
-<a name="l00139"></a>00139 
-<a name="l00147"></a>00147         <span class="keywordtype">void</span> <a class="code" href="a00005.html#a1df18fdb59e5f9ed134e90ea65b130f5" title="Respond to a method request.">methodResponse</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> sequence, <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> status, <span class="keywordtype">char</span>* text, <span class="keyword">const</span> <a class="code" href="a00379.html">Value</a>&amp; arguments);
-<a name="l00148"></a>00148 
-<a name="l00158"></a>00158         <span class="keywordtype">void</span> <a class="code" href="a00005.html#a069c7ade6ea8606dbb6d5cfb6c3eca63" title="Send a content indication to the QMF bus.">queryResponse</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> sequence, <a class="code" href="a00233.html">Object</a>&amp; <span class="keywordtype">object</span>, <span class="keywordtype">bool</span> prop = <span class="keyword">true</span>, <span class="keywordtype">bool</span> stat = <span class="keyword">true</span>);
-<a name="l00159"></a>00159 
-<a name="l00164"></a>00164         <span class="keywordtype">void</span> <a class="code" href="a00005.html#abb5d659981b2e6bde14d7fe4dcd38d75" title="Indicate the completion of a query.">queryComplete</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> sequence);
-<a name="l00165"></a>00165 
-<a name="l00170"></a>00170         <span class="keywordtype">void</span> <a class="code" href="a00005.html#a9e1adfb2d9558d344df9eb266f961f9b" title="Register a schema class with the Agent.">registerClass</a>(<a class="code" href="a00306.html">SchemaObjectClass</a>* cls);
-<a name="l00171"></a>00171 
-<a name="l00176"></a>00176         <span class="keywordtype">void</span> <a class="code" href="a00005.html#a9e1adfb2d9558d344df9eb266f961f9b" title="Register a schema class with the Agent.">registerClass</a>(<a class="code" href="a00301.html">SchemaEventClass</a>* cls);
-<a name="l00177"></a>00177 
-<a name="l00185"></a>00185         <span class="keyword">const</span> <a class="code" href="a00236.html">ObjectId</a>* <a class="code" href="a00005.html#adb7f72867b184e94f16a0c7c8df10f20" title="Give an object to the Agent for storage and management.">addObject</a>(<a class="code" href="a00233.html">Object</a>&amp; obj, uint64_t persistId);
-<a name="l00186"></a>00186         <span class="comment">//        const ObjectId* addObject(Object&amp; obj, uint32_t persistIdLo, uint32_t persistIdHi);</span>
-<a name="l00187"></a>00187 
-<a name="l00193"></a>00193         <span class="keyword">const</span> <a class="code" href="a00236.html">ObjectId</a>* <a class="code" href="a00005.html#a7ed1a242f908bb3288fcd7e2050a8a12" title="Allocate an object-id for an object that will be managed by the application.">allocObjectId</a>(uint64_t persistId);
-<a name="l00194"></a>00194         <span class="keyword">const</span> <a class="code" href="a00236.html">ObjectId</a>* <a class="code" href="a00005.html#a7ed1a242f908bb3288fcd7e2050a8a12" title="Allocate an object-id for an object that will be managed by the application.">allocObjectId</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> persistIdLo, <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> persistIdHi);
-<a name="l00195"></a>00195 
-<a name="l00200"></a>00200         <span class="keywordtype">void</span> <a class="code" href="a00005.html#a439626a88dad21ae5395a06f2dade862" title="Raise an event into the QMF network.">raiseEvent</a>(<a class="code" href="a00108.html">Event</a>&amp; event);
-<a name="l00201"></a>00201 
-<a name="l00202"></a>00202     <span class="keyword">private</span>:
-<a name="l00203"></a>00203         AgentImpl* impl;
-<a name="l00204"></a>00204     };
-<a name="l00205"></a>00205 }
-<a name="l00206"></a>00206 }
-<a name="l00207"></a>00207 
-<a name="l00208"></a>00208 <span class="preprocessor">#endif</span>
-<a name="l00209"></a>00209 <span class="preprocessor"></span>
+<a name="l00124"></a>00124 <span class="preprocessor">#ifndef SWIG</span>
+<a name="l00125"></a>00125 <span class="preprocessor"></span>    <span class="keyword">private</span>:
+<a name="l00126"></a><a class="code" href="a00007.html#ae523c2a48dca617f362670bbbccfff3f">00126</a>         <span class="keyword">friend</span> <span class="keyword">class </span>qmf::PrivateImplRef&lt;Agent&gt;;
+<a name="l00127"></a><a class="code" href="a00007.html#a378fa32c77898161af4c52ddba30f075">00127</a>         <span class="keyword">friend</span> <span class="keyword">struct </span>AgentImplAccess;
+<a name="l00128"></a>00128 <span class="preprocessor">#endif</span>
+<a name="l00129"></a>00129 <span class="preprocessor"></span>    };
+<a name="l00130"></a>00130 
+<a name="l00131"></a>00131 }
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--
@@ -204,7 +183,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

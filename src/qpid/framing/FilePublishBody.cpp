@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/FilePublishBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void FilePublishBody::setExchange(const std::string& _exchange) {
     exchange = _exchange;
     flags |= (1 << 8);
+    if (exchange.size() >= 256) throw IllegalArgumentException("Value for exchange is too large");
 }
 const std::string& FilePublishBody::getExchange() const { return exchange; }
 bool FilePublishBody::hasExchange() const { return flags & (1 << 8); }
@@ -41,6 +42,7 @@ void FilePublishBody::clearExchangeFlag() { flags &= ~(1 << 8); }
 void FilePublishBody::setRoutingKey(const std::string& _routingKey) {
     routingKey = _routingKey;
     flags |= (1 << 9);
+    if (routingKey.size() >= 256) throw IllegalArgumentException("Value for routingKey is too large");
 }
 const std::string& FilePublishBody::getRoutingKey() const { return routingKey; }
 bool FilePublishBody::hasRoutingKey() const { return flags & (1 << 9); }
@@ -61,6 +63,7 @@ bool FilePublishBody::getImmediate() const { return flags & (1 << 11); }
 void FilePublishBody::setIdentifier(const std::string& _identifier) {
     identifier = _identifier;
     flags |= (1 << 12);
+    if (identifier.size() >= 256) throw IllegalArgumentException("Value for identifier is too large");
 }
 const std::string& FilePublishBody::getIdentifier() const { return identifier; }
 bool FilePublishBody::hasIdentifier() const { return flags & (1 << 12); }

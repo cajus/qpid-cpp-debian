@@ -30,6 +30,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
 
 using namespace qmf::org::apache::qpid::broker;
 using           qpid::management::ManagementAgent;
@@ -49,8 +50,8 @@ Exchange::Exchange (ManagementAgent*, Manageable* _core, ::qpid::management::Man
 {
     vhostRef = _parent->GetManagementObject ()->getObjectId ();
     type = "";
-    durable = 0;
-    autoDelete = 0;
+    durable = false;
+    autoDelete = false;
     altExchange = ::qpid::management::ObjectId();
     arguments = ::qpid::types::Variant::Map();
     producerCount = 0;
@@ -520,29 +521,43 @@ void Exchange::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
 
     if ((_i = _map.find("vhostRef")) != _map.end()) {
         vhostRef = _i->second;
+    } else {
+        vhostRef = ::qpid::management::ObjectId();
     }
     if ((_i = _map.find("name")) != _map.end()) {
         name = (_i->second).getString();
+    } else {
+        name = "";
     }
     if ((_i = _map.find("type")) != _map.end()) {
         type = (_i->second).getString();
+    } else {
+        type = "";
     }
     if ((_i = _map.find("durable")) != _map.end()) {
         durable = _i->second;
+    } else {
+        durable = false;
     }
     if ((_i = _map.find("autoDelete")) != _map.end()) {
         autoDelete = _i->second;
+    } else {
+        autoDelete = false;
     }
     _found = false;
     if ((_i = _map.find("altExchange")) != _map.end()) {
         altExchange = _i->second;
         _found = true;
+    } else {
+        altExchange = ::qpid::management::ObjectId();
     }
     if (_found) {
         presenceMask[presenceByte_altExchange] |= presenceMask_altExchange;
     }
     if ((_i = _map.find("arguments")) != _map.end()) {
         arguments = (_i->second).asMap();
+    } else {
+        arguments = ::qpid::types::Variant::Map();
     }
 
 }

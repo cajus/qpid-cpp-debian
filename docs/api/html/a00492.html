@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/framing/amqp_structs.h File Reference</title>
+    <title>qpid/Exception.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,28 +58,41 @@
   </div>
 </div>
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/framing/amqp_structs.h File Reference</div>  </div>
+<div class="title">qpid/Exception.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00509_source.html">qpid/framing/Header.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00499_source.html">qpid/framing/DeliveryProperties.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00508_source.html">qpid/framing/FragmentProperties.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00517_source.html">qpid/framing/ReplyTo.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00512_source.html">qpid/framing/MessageProperties.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00511_source.html">qpid/framing/MessageAcquireResult.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00513_source.html">qpid/framing/MessageResumeResult.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00525_source.html">qpid/framing/XaResult.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00526_source.html">qpid/framing/Xid.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00500_source.html">qpid/framing/DtxGetTimeoutResult.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00501_source.html">qpid/framing/DtxRecoverResult.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00504_source.html">qpid/framing/ExchangeQueryResult.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00503_source.html">qpid/framing/ExchangeBoundResult.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00515_source.html">qpid/framing/QueueQueryResult.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00507_source.html">qpid/framing/FileProperties.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00520_source.html">qpid/framing/StreamProperties.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00495_source.html">qpid/framing/amqp_types.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00500_source.html">qpid/framing/constants.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00504_source.html">qpid/framing/enum.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00568_source.html">qpid/sys/StrError.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00484_source.html">qpid/CommonImportExport.h</a>&quot;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
+<code>#include &lt;errno.h&gt;</code><br/>
 </div>
 <p><a href="a00492_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html">qpid::Exception</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for Qpid runtime exceptions.  <a href="a00116.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00109.html">qpid::ErrnoException</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00116.html" title="Base class for Qpid runtime exceptions.">Exception</a> that includes an errno message.  <a href="a00109.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html">qpid::SessionException</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00050.html">qpid::ChannelException</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00063.html">qpid::ConnectionException</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00052.html">qpid::ClosedException</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00362.html">qpid::TransportFailure</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00116.html" title="Base class for Qpid runtime exceptions.">Exception</a> representing transport failure.  <a href="a00362.html#details">More...</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
+<br/></td></tr>
+</table>
 </div>
 <!--
  
@@ -108,7 +121,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

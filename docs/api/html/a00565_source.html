@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/sys/Runnable.h Source File</title>
+    <title>qpid/sys/Time.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,54 +58,130 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/sys/Runnable.h</div>  </div>
+<div class="title">qpid/sys/Time.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00565.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _Runnable_</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _Runnable_</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="comment">/*</span>
-<a name="l00004"></a>00004 <span class="comment"> *</span>
-<a name="l00005"></a>00005 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
-<a name="l00006"></a>00006 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
-<a name="l00007"></a>00007 <span class="comment"> * distributed with this work for additional information</span>
-<a name="l00008"></a>00008 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
-<a name="l00009"></a>00009 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
-<a name="l00010"></a>00010 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
-<a name="l00011"></a>00011 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
-<a name="l00012"></a>00012 <span class="comment"> *</span>
-<a name="l00013"></a>00013 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
-<a name="l00014"></a>00014 <span class="comment"> *</span>
-<a name="l00015"></a>00015 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
-<a name="l00016"></a>00016 <span class="comment"> * software distributed under the License is distributed on an</span>
-<a name="l00017"></a>00017 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
-<a name="l00018"></a>00018 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
-<a name="l00019"></a>00019 <span class="comment"> * specific language governing permissions and limitations</span>
-<a name="l00020"></a>00020 <span class="comment"> * under the License.</span>
-<a name="l00021"></a>00021 <span class="comment"> *</span>
-<a name="l00022"></a>00022 <span class="comment"> */</span>
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;boost/function.hpp&gt;</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00482.html">qpid/CommonImportExport.h</a>&quot;</span>
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 <span class="keyword">namespace </span>qpid {
-<a name="l00028"></a>00028 <span class="keyword">namespace </span>sys {
-<a name="l00029"></a>00029 
-<a name="l00033"></a>00033 <span class="keyword">class </span><a class="code" href="a00482.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> Runnable
-<a name="l00034"></a>00034 {
-<a name="l00035"></a>00035   <span class="keyword">public</span>:
-<a name="l00037"></a><a class="code" href="a00293.html#ae6dd30caad64962b36e826fb505cc626">00037</a>     <span class="keyword">typedef</span> boost::function0&lt;void&gt; <a class="code" href="a00293.html#ae6dd30caad64962b36e826fb505cc626" title="Type to represent a runnable as a Functor.">Functor</a>;
-<a name="l00038"></a>00038 
-<a name="l00039"></a>00039     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">virtual</span> ~<a class="code" href="a00293.html" title="Interface for objects that can be run, e.g.">Runnable</a>();
+<a href="a00565.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _sys_Time_h</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _sys_Time_h</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="comment">/*</span>
+<a name="l00005"></a>00005 <span class="comment"> *</span>
+<a name="l00006"></a>00006 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
+<a name="l00007"></a>00007 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
+<a name="l00008"></a>00008 <span class="comment"> * distributed with this work for additional information</span>
+<a name="l00009"></a>00009 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
+<a name="l00010"></a>00010 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
+<a name="l00011"></a>00011 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
+<a name="l00012"></a>00012 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
+<a name="l00013"></a>00013 <span class="comment"> *</span>
+<a name="l00014"></a>00014 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
+<a name="l00015"></a>00015 <span class="comment"> *</span>
+<a name="l00016"></a>00016 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
+<a name="l00017"></a>00017 <span class="comment"> * software distributed under the License is distributed on an</span>
+<a name="l00018"></a>00018 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<a name="l00019"></a>00019 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
+<a name="l00020"></a>00020 <span class="comment"> * specific language governing permissions and limitations</span>
+<a name="l00021"></a>00021 <span class="comment"> * under the License.</span>
+<a name="l00022"></a>00022 <span class="comment"> *</span>
+<a name="l00023"></a>00023 <span class="comment"> */</span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00556.html">qpid/sys/IntegerTypes.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="comment">/*</span>
+<a name="l00027"></a>00027 <span class="comment"> * The platform defines its notion of time as a TimePrivate type. The</span>
+<a name="l00028"></a>00028 <span class="comment"> * platform&#39;s implementation knows how to handle this type.</span>
+<a name="l00029"></a>00029 <span class="comment"> */</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#if defined (_WIN32)</span>
+<a name="l00031"></a>00031 <span class="preprocessor"></span><span class="preprocessor">#  include &quot;<a class="code" href="a00566.html">windows/Time.h</a>&quot;</span>
+<a name="l00032"></a>00032 <span class="preprocessor">#else</span>
+<a name="l00033"></a>00033 <span class="preprocessor"></span><span class="preprocessor">#  include &quot;<a class="code" href="a00564.html">posix/Time.h</a>&quot;</span>
+<a name="l00034"></a>00034 <span class="preprocessor">#endif</span>
+<a name="l00035"></a>00035 <span class="preprocessor"></span>
+<a name="l00036"></a>00036 <span class="preprocessor">#include &quot;<a class="code" href="a00484.html">qpid/CommonImportExport.h</a>&quot;</span>
+<a name="l00037"></a>00037 
+<a name="l00038"></a>00038 <span class="preprocessor">#include &lt;limits&gt;</span>
+<a name="l00039"></a>00039 <span class="preprocessor">#include &lt;iosfwd&gt;</span>
 <a name="l00040"></a>00040 
-<a name="l00042"></a>00042     <span class="keyword">virtual</span> <span class="keywordtype">void</span> run() = 0;
+<a name="l00041"></a>00041 <span class="keyword">namespace </span>qpid {
+<a name="l00042"></a>00042 <span class="keyword">namespace </span>sys {
 <a name="l00043"></a>00043 
-<a name="l00045"></a>00045     <a class="code" href="a00293.html#ae6dd30caad64962b36e826fb505cc626" title="Type to represent a runnable as a Functor.">Functor</a> functor();
-<a name="l00046"></a>00046 };
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048 }}
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051 <span class="preprocessor">#endif</span>
+<a name="l00044"></a><a class="code" href="a00001.html">00044</a> <span class="keyword">class </span><a class="code" href="a00105.html" title="Class to represent the duration between instants of time.">Duration</a>;
+<a name="l00045"></a>00045 
+<a name="l00080"></a>00080 <span class="keyword">class </span><a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a> {
+<a name="l00081"></a><a class="code" href="a00001.html#a9ece26aff25b10ae9deb98d509478cba">00081</a>     <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a00105.html" title="Class to represent the duration between instants of time.">Duration</a>;
+<a name="l00082"></a><a class="code" href="a00001.html#a0705c7682858f6dcf7fe85cba92f0a5c">00082</a>     <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a00058.html" title="A condition variable for thread synchronization.">Condition</a>;
+<a name="l00083"></a>00083 
+<a name="l00084"></a>00084     <a class="code" href="a00594.html#a4e0478fec86975db052a4c87ac13739b" title="Class to represent an instant in time.">TimePrivate</a> timepoint;
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086 <span class="keyword">public</span>:
+<a name="l00087"></a>00087 
+<a name="l00088"></a><a class="code" href="a00001.html#acf3a166cb6df2d823a415d3c6ef2e137">00088</a>     <span class="keyword">inline</span> <a class="code" href="a00001.html#acf3a166cb6df2d823a415d3c6ef2e137">AbsTime</a>() : timepoint() {}
+<a name="l00089"></a>00089     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00001.html#acf3a166cb6df2d823a415d3c6ef2e137">AbsTime</a>(<span class="keyword">const</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a>&amp; time0, <span class="keyword">const</span> <a class="code" href="a00105.html" title="Class to represent the duration between instants of time.">Duration</a>&amp; duration);
+<a name="l00090"></a>00090     <span class="comment">// Default assignment operation fine</span>
+<a name="l00091"></a>00091     <span class="comment">// Default copy constructor fine</span>
+<a name="l00092"></a>00092 
+<a name="l00093"></a>00093     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">static</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a> <a class="code" href="a00001.html#a0ed4b5707126f2efe347ee9627d0ada7">now</a>();
+<a name="l00094"></a>00094     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">static</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a> <a class="code" href="a00001.html#af7016ce54c65f48a69eeb89e724cb9d4">FarFuture</a>();
+<a name="l00095"></a>00095     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">static</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a> <a class="code" href="a00001.html#a555e78f7c6826c7a4afabc5c9355b7de">Epoch</a>();
+<a name="l00096"></a>00096 
+<a name="l00097"></a><a class="code" href="a00001.html#a6ef078995d9a68036402a71e59607466">00097</a>     <span class="keywordtype">bool</span> <a class="code" href="a00001.html#a6ef078995d9a68036402a71e59607466">operator==</a>(<span class="keyword">const</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a>&amp; t)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> t.timepoint == timepoint; }
+<a name="l00098"></a>00098 
+<a name="l00099"></a>00099     <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code" href="a00001.html#ab362ae8135e030b4c798ae7c022a4bdd">operator&lt;</a>(<span class="keyword">const</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a>&amp; a, <span class="keyword">const</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a>&amp; b);
+<a name="l00100"></a>00100     <span class="keyword">friend</span> <span class="keywordtype">bool</span> <a class="code" href="a00001.html#ac51bbeb0df704f6ce1764e517bf0fbc6">operator&gt;</a>(<span class="keyword">const</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a>&amp; a, <span class="keyword">const</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a>&amp; b);
+<a name="l00101"></a>00101     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="a00001.html#a1ed078452bd3db4988f97830c7f60edd">operator &lt;&lt; </a>(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a>&amp;);
+<a name="l00102"></a>00102 };
+<a name="l00103"></a>00103 
+<a name="l00104"></a>00104 <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> std::ostream&amp; <a class="code" href="a00594.html#ac79736a813e496e74a981b2e272a92c0">operator &lt;&lt; </a>(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp;, <span class="keyword">const</span> AbsTime&amp;);
+<a name="l00105"></a>00105 
+<a name="l00115"></a>00115 <span class="keyword">class </span>Duration {
+<a name="l00116"></a>00116     <span class="keyword">static</span> int64_t max() { <span class="keywordflow">return</span> std::numeric_limits&lt;int64_t&gt;::max(); }
+<a name="l00117"></a>00117     int64_t nanosecs;
+<a name="l00118"></a>00118 
+<a name="l00119"></a><a class="code" href="a00105.html#aa0722033ff24a378ab21be8f2082e34e">00119</a>     <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a>;
+<a name="l00120"></a>00120 
+<a name="l00121"></a>00121 <span class="keyword">public</span>:
+<a name="l00122"></a>00122     <a class="code" href="a00484.html#a22b814cc5ef605d90a1295eae41f4ee4">QPID_COMMON_INLINE_EXTERN</a> <span class="keyword">inline</span> <a class="code" href="a00105.html#ac0e8512da981ae5950d5716b016cc464">Duration</a>(int64_t time0 = 0);
+<a name="l00123"></a>00123     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keyword">explicit</span> <a class="code" href="a00105.html#ac0e8512da981ae5950d5716b016cc464">Duration</a>(<span class="keyword">const</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a>&amp; start, <span class="keyword">const</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a>&amp; finish);
+<a name="l00124"></a>00124     <span class="keyword">inline</span> <a class="code" href="a00105.html#ada92cfc5a1a0270e101b208b651c5d9f">operator int64_t</a>() <span class="keyword">const</span>;
+<a name="l00125"></a>00125 };
+<a name="l00126"></a>00126 
+<a name="l00127"></a>00127 std::ostream&amp; <a class="code" href="a00594.html#ac79736a813e496e74a981b2e272a92c0">operator &lt;&lt; </a>(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00105.html" title="Class to represent the duration between instants of time.">Duration</a>&amp;);
+<a name="l00128"></a>00128 
+<a name="l00129"></a><a class="code" href="a00594.html#a30c32821719110ad9f1a040db14bbf04">00129</a> <span class="keyword">inline</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a> <a class="code" href="a00594.html#a30c32821719110ad9f1a040db14bbf04">now</a>() { <span class="keywordflow">return</span> <a class="code" href="a00001.html#a0ed4b5707126f2efe347ee9627d0ada7">AbsTime::now</a>(); }
+<a name="l00130"></a>00130 
+<a name="l00131"></a><a class="code" href="a00594.html#a65509dc2edc1f45418191a21bd433b0a">00131</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="a00594.html#a65509dc2edc1f45418191a21bd433b0a">operator&lt;</a>(<span class="keyword">const</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a>&amp; a, <span class="keyword">const</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a>&amp; b)
+<a name="l00132"></a>00132 { <span class="keywordflow">return</span> a.timepoint &lt; b.timepoint; }
+<a name="l00133"></a><a class="code" href="a00594.html#ac3c77cc92c43c529cdb904b30b8edaf6">00133</a> <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="a00594.html#ac3c77cc92c43c529cdb904b30b8edaf6">operator&gt;</a>(<span class="keyword">const</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a>&amp; a, <span class="keyword">const</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a>&amp; b)
+<a name="l00134"></a>00134 { <span class="keywordflow">return</span> a.timepoint &gt; b.timepoint; }
+<a name="l00135"></a>00135 
+<a name="l00136"></a><a class="code" href="a00105.html#ac0e8512da981ae5950d5716b016cc464">00136</a> <a class="code" href="a00105.html#ac0e8512da981ae5950d5716b016cc464">Duration::Duration</a>(int64_t time0) :
+<a name="l00137"></a>00137     nanosecs(time0)
+<a name="l00138"></a>00138 {}
+<a name="l00139"></a>00139 
+<a name="l00140"></a><a class="code" href="a00105.html#ada92cfc5a1a0270e101b208b651c5d9f">00140</a> <a class="code" href="a00105.html#ada92cfc5a1a0270e101b208b651c5d9f">Duration::operator int64_t</a>()<span class="keyword"> const</span>
+<a name="l00141"></a>00141 <span class="keyword"></span>{ <span class="keywordflow">return</span> nanosecs; }
+<a name="l00142"></a>00142 
+<a name="l00144"></a><a class="code" href="a00594.html#a26856754378fb87f1fe132ebe1f95267">00144</a> <span class="keyword">const</span> <a class="code" href="a00105.html" title="Class to represent the duration between instants of time.">Duration</a> <a class="code" href="a00594.html#a26856754378fb87f1fe132ebe1f95267" title="Nanoseconds per second.">TIME_SEC</a>  = 1000*1000*1000;
+<a name="l00146"></a><a class="code" href="a00594.html#a7d29b9443ed52ad7fb8a866bb415f9a0">00146</a> <span class="keyword">const</span> <a class="code" href="a00105.html" title="Class to represent the duration between instants of time.">Duration</a> <a class="code" href="a00594.html#a7d29b9443ed52ad7fb8a866bb415f9a0" title="Nanoseconds per millisecond.">TIME_MSEC</a> = 1000*1000;
+<a name="l00148"></a><a class="code" href="a00594.html#a4dce4509e1d0c59783a56b8ccf03f59f">00148</a> <span class="keyword">const</span> <a class="code" href="a00105.html" title="Class to represent the duration between instants of time.">Duration</a> <a class="code" href="a00594.html#a4dce4509e1d0c59783a56b8ccf03f59f" title="Nanoseconds per microseconds.">TIME_USEC</a> = 1000;
+<a name="l00150"></a><a class="code" href="a00594.html#a9c6c2f454252b1e3ae4995662835990c">00150</a> <span class="keyword">const</span> <a class="code" href="a00105.html" title="Class to represent the duration between instants of time.">Duration</a> <a class="code" href="a00594.html#a9c6c2f454252b1e3ae4995662835990c" title="Nanoseconds per nanosecond.">TIME_NSEC</a> = 1;
+<a name="l00151"></a>00151 
+<a name="l00153"></a><a class="code" href="a00594.html#a3aa132e281f66ba27d5fd25d71043bc0">00153</a> <span class="keyword">const</span> <a class="code" href="a00105.html" title="Class to represent the duration between instants of time.">Duration</a> <a class="code" href="a00594.html#a3aa132e281f66ba27d5fd25d71043bc0" title="Value to represent an infinite timeout.">TIME_INFINITE</a> = std::numeric_limits&lt;int64_t&gt;::max();
+<a name="l00154"></a>00154 
+<a name="l00156"></a><a class="code" href="a00594.html#a848c1c7e84bfc6321240b89caf4a50eb">00156</a> <span class="keyword">const</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a> <a class="code" href="a00594.html#a848c1c7e84bfc6321240b89caf4a50eb" title="Absolute time point for the Unix epoch: 1970-01-01T00:00:00.">EPOCH</a> = <a class="code" href="a00001.html#a555e78f7c6826c7a4afabc5c9355b7de">AbsTime::Epoch</a>();
+<a name="l00157"></a>00157 
+<a name="l00159"></a><a class="code" href="a00594.html#a2f812cf237347eabf03aeb424a5d7672">00159</a> <span class="keyword">const</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a> <a class="code" href="a00594.html#a2f812cf237347eabf03aeb424a5d7672" title="Time greater than any other time.">FAR_FUTURE</a> = <a class="code" href="a00001.html#af7016ce54c65f48a69eeb89e724cb9d4">AbsTime::FarFuture</a>();
+<a name="l00160"></a>00160 
+<a name="l00162"></a>00162 <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00594.html#a9365c22cb8b0357b1dcf4708f54ef6e9" title="Portable sleep for a number of seconds.">sleep</a>(<span class="keywordtype">int</span> secs);
+<a name="l00163"></a>00163 
+<a name="l00165"></a>00165 <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00594.html#a50712e5d9ed65546bb8b68c95de60d71" title="Portable sleep for a number of microseconds.">usleep</a>(uint64_t usecs);
+<a name="l00166"></a>00166 
+<a name="l00168"></a>00168 <span class="keywordtype">void</span> <a class="code" href="a00594.html#ab4cae85aae24aa15abab5a56f1307738" title="Output formatted date/time for now.">outputFormattedNow</a>(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp;);
+<a name="l00169"></a>00169 
+<a name="l00171"></a>00171 <span class="keywordtype">void</span> <a class="code" href="a00594.html#ab9e3ddd19698382ef3644dbafdb4e6ec" title="Output unformatted nanosecond-resolution time for now.">outputHiresNow</a>(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp;);
+<a name="l00172"></a>00172 
+<a name="l00173"></a>00173 }}
+<a name="l00174"></a>00174 
+<a name="l00175"></a>00175 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -135,7 +211,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

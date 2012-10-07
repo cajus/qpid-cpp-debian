@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::log::Statement::Initializer Struct Reference</title>
+    <title>qpid::framing::IllegalStateException Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,10 +60,9 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00589.html">log</a>      </li>
-      <li class="navelem"><a class="el" href="a00340.html">Statement</a>      </li>
-      <li class="navelem"><a class="el" href="a00147.html">Initializer</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00582.html">framing</a>      </li>
+      <li class="navelem"><a class="el" href="a00147.html">IllegalStateException</a>      </li>
     </ul>
   </div>
 </div>
@@ -72,32 +71,95 @@
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::log::Statement::Initializer Struct Reference</div>  </div>
+<div class="title">qpid::framing::IllegalStateException Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::log::Statement::Initializer" -->
-<p><code>#include &lt;<a class="el" href="a00534_source.html">qpid/log/Statement.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::framing::IllegalStateException" --><!-- doxytag: inherits="qpid::SessionException" -->
+<p>The peer sent a command that is not permitted in the current state of the session.  
+ <a href="a00147.html#details">More...</a></p>
 
-<p><a href="a00825.html">List of all members.</a></p>
+<p><code>#include &lt;<a class="el" href="a00518_source.html">qpid/framing/reply_exceptions.h</a>&gt;</code></p>
+
+<p><a href="a00795.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00147.html#ae3b56902e0db678aff2d235dc14c27c9">Initializer</a> (<a class="el" href="a00340.html">Statement</a> &amp;s)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00147.html#a58c3f099ba425ccf96223676ad8a0f59">getPrefix</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00147.html#af2f7877433c3c8922336a888ad9572dc">IllegalStateException</a> (const <a class="el" href="a00346.html">std::string</a> &amp;msg=<a class="el" href="a00346.html">std::string</a>())</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html#a1319c2877b78e71fb5ded050298be31a">what</a> () const   throw ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00116.html#a5fd1b7dd26ec0e2742c54b2b7da6c6b0">getMessage</a> () const </td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00340.html">Statement</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00147.html#a7bdf329e2e285f66a6fb828a4f087a33">statement</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18">framing::execution::ErrorCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00332.html#ac6ca6f797da33e069db68ab50da18615">code</a></td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ae3b56902e0db678aff2d235dc14c27c9"></a><!-- doxytag: member="qpid::log::Statement::Initializer::Initializer" ref="ae3b56902e0db678aff2d235dc14c27c9" args="(Statement &amp;s)" -->
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>The peer sent a command that is not permitted in the current state of the session. </p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="af2f7877433c3c8922336a888ad9572dc"></a><!-- doxytag: member="qpid::framing::IllegalStateException::IllegalStateException" ref="af2f7877433c3c8922336a888ad9572dc" args="(const std::string &amp;msg=std::string())" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::log::Statement::Initializer::Initializer </td>
+          <td class="memname">qpid::framing::IllegalStateException::IllegalStateException </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00340.html">Statement</a> &amp;&#160;</td>
-          <td class="paramname"><em>s</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>msg</em> = <code><a class="el" href="a00346.html">std::string</a>()</code></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00518_source.html#l00110">110</a> of file <a class="el" href="a00518_source.html">reply_exceptions.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a5fd1b7dd26ec0e2742c54b2b7da6c6b0"></a><!-- doxytag: member="qpid::framing::IllegalStateException::getMessage" ref="a5fd1b7dd26ec0e2742c54b2b7da6c6b0" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00346.html">std::string</a> qpid::Exception::getMessage </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a58c3f099ba425ccf96223676ad8a0f59"></a><!-- doxytag: member="qpid::framing::IllegalStateException::getPrefix" ref="a58c3f099ba425ccf96223676ad8a0f59" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::framing::IllegalStateException::getPrefix </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="a00116.html#a8680803b228ba1036624fd5cee183d36">qpid::Exception</a>.</p>
+
+<p>Definition at line <a class="el" href="a00518_source.html#l00109">109</a> of file <a class="el" href="a00518_source.html">reply_exceptions.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1319c2877b78e71fb5ded050298be31a"></a><!-- doxytag: member="qpid::framing::IllegalStateException::what" ref="a1319c2877b78e71fb5ded050298be31a" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const char* qpid::Exception::what </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const  throw ()<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -106,23 +168,23 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a7bdf329e2e285f66a6fb828a4f087a33"></a><!-- doxytag: member="qpid::log::Statement::Initializer::statement" ref="a7bdf329e2e285f66a6fb828a4f087a33" args="" -->
+<a class="anchor" id="ac6ca6f797da33e069db68ab50da18615"></a><!-- doxytag: member="qpid::framing::IllegalStateException::code" ref="ac6ca6f797da33e069db68ab50da18615" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00340.html">Statement</a>&amp; <a class="el" href="a00147.html#a7bdf329e2e285f66a6fb828a4f087a33">qpid::log::Statement::Initializer::statement</a></td>
+          <td class="memname">const <a class="el" href="a00586.html#aa6a7c8b476f3cff908115ab1645e2c18">framing::execution::ErrorCode</a> <a class="el" href="a00332.html#ac6ca6f797da33e069db68ab50da18615">qpid::SessionException::code</a><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00534_source.html#l00070">70</a> of file <a class="el" href="a00534_source.html">Statement.h</a>.</p>
+<p>Definition at line <a class="el" href="a00492_source.html#l00060">60</a> of file <a class="el" href="a00492_source.html">Exception.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/log/<a class="el" href="a00534_source.html">Statement.h</a></li>
+<li>qpid/framing/<a class="el" href="a00518_source.html">reply_exceptions.h</a></li>
 </ul>
 </div>
 <!--
@@ -152,7 +214,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

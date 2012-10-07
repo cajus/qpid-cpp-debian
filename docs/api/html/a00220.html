@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::sys::Mutex Class Reference</title>
+    <title>std::multiset Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,343 +60,38 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00592.html">sys</a>      </li>
-      <li class="navelem"><a class="el" href="a00220.html">Mutex</a>      </li>
+      <li class="navelem"><b>std</b>      </li>
+      <li class="navelem"><a class="el" href="a00220.html">multiset</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::sys::Mutex Class Reference</div>  </div>
+<div class="title">std::multiset Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::sys::Mutex" -->
-<p><a class="el" href="a00220.html" title="Mutex lock.">Mutex</a> lock.  
+<!-- doxytag: class="std::multiset" -->
+<p>STL class.  
  <a href="a00220.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00541_source.html">qpid/sys/posix/Mutex.h</a>&gt;</code></p>
-
-<p><a href="a00885.html">List of all members.</a></p>
+<p><a href="a00909.html">List of all members.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-::<a class="el" href="a00312.html">qpid::sys::ScopedLock</a>&lt; <a class="el" href="a00220.html">Mutex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#a173572e73b28c52e4b0841634a8f75b9">ScopedLock</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-::<a class="el" href="a00315.html">qpid::sys::ScopedUnlock</a><br class="typebreak"/>
-&lt; <a class="el" href="a00220.html">Mutex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#a01fdb72e06ec6cd4b2d02258fbe19470">ScopedUnlock</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-::<a class="el" href="a00312.html">qpid::sys::ScopedLock</a>&lt; <a class="el" href="a00220.html">Mutex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#a173572e73b28c52e4b0841634a8f75b9">ScopedLock</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
-::<a class="el" href="a00315.html">qpid::sys::ScopedUnlock</a><br class="typebreak"/>
-&lt; <a class="el" href="a00220.html">Mutex</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#a01fdb72e06ec6cd4b2d02258fbe19470">ScopedUnlock</a></td></tr>
-<tr><td colspan="2"><h2><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#a0b765f0ddd4a743cc62bfbe706c0e24e">Mutex</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#afb48c9bf070468afd6290baf4bed3f06">~Mutex</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#a915aa25a7544637b727f256af589d9b6">lock</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#aab850ae6eb425b1c40e307d4a4fe4eca">unlock</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#af0ff34c2c5b755c232817874818948d5">trylock</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#a0b765f0ddd4a743cc62bfbe706c0e24e">Mutex</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#afb48c9bf070468afd6290baf4bed3f06">~Mutex</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#a915aa25a7544637b727f256af589d9b6">lock</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#aab850ae6eb425b1c40e307d4a4fe4eca">unlock</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#af0ff34c2c5b755c232817874818948d5">trylock</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">pthread_mutex_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#afa07a7a4341670aadc1e887a53153d24">mutex</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">boost::recursive_mutex&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00220.html#a354b0a01e3d5d070bde4f0adff22a70d">mutex</a></td></tr>
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00083.html">const_iterator</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">STL iterator class.  <a href="a00083.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00093.html">const_reverse_iterator</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">STL iterator class.  <a href="a00093.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html">iterator</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">STL iterator class.  <a href="a00180.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00292.html">reverse_iterator</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">STL iterator class.  <a href="a00292.html#details">More...</a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="a00220.html" title="Mutex lock.">Mutex</a> lock. </p>
-
-<p>Definition at line <a class="el" href="a00542_source.html#l00043">43</a> of file <a class="el" href="a00542_source.html">Mutex.h</a>.</p>
-</div><hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="a173572e73b28c52e4b0841634a8f75b9"></a><!-- doxytag: member="qpid::sys::Mutex::ScopedLock" ref="a173572e73b28c52e4b0841634a8f75b9" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef ::<a class="el" href="a00312.html">qpid::sys::ScopedLock</a>&lt;<a class="el" href="a00220.html">Mutex</a>&gt; <a class="el" href="a00220.html#a173572e73b28c52e4b0841634a8f75b9">qpid::sys::Mutex::ScopedLock</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00541_source.html#l00040">40</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a173572e73b28c52e4b0841634a8f75b9"></a><!-- doxytag: member="qpid::sys::Mutex::ScopedLock" ref="a173572e73b28c52e4b0841634a8f75b9" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef ::<a class="el" href="a00312.html">qpid::sys::ScopedLock</a>&lt;<a class="el" href="a00220.html">Mutex</a>&gt; <a class="el" href="a00220.html#a173572e73b28c52e4b0841634a8f75b9">qpid::sys::Mutex::ScopedLock</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00542_source.html#l00047">47</a> of file <a class="el" href="a00542_source.html">Mutex.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a01fdb72e06ec6cd4b2d02258fbe19470"></a><!-- doxytag: member="qpid::sys::Mutex::ScopedUnlock" ref="a01fdb72e06ec6cd4b2d02258fbe19470" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef ::<a class="el" href="a00315.html">qpid::sys::ScopedUnlock</a>&lt;<a class="el" href="a00220.html">Mutex</a>&gt; <a class="el" href="a00220.html#a01fdb72e06ec6cd4b2d02258fbe19470">qpid::sys::Mutex::ScopedUnlock</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00541_source.html#l00041">41</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a01fdb72e06ec6cd4b2d02258fbe19470"></a><!-- doxytag: member="qpid::sys::Mutex::ScopedUnlock" ref="a01fdb72e06ec6cd4b2d02258fbe19470" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef ::<a class="el" href="a00315.html">qpid::sys::ScopedUnlock</a>&lt;<a class="el" href="a00220.html">Mutex</a>&gt; <a class="el" href="a00220.html#a01fdb72e06ec6cd4b2d02258fbe19470">qpid::sys::Mutex::ScopedUnlock</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00542_source.html#l00048">48</a> of file <a class="el" href="a00542_source.html">Mutex.h</a>.</p>
-
-</div>
-</div>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a0b765f0ddd4a743cc62bfbe706c0e24e"></a><!-- doxytag: member="qpid::sys::Mutex::Mutex" ref="a0b765f0ddd4a743cc62bfbe706c0e24e" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::sys::Mutex::Mutex </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00541_source.html#l00107">107</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-<p>References <a class="el" href="a00559_source.html#l00047">QPID_POSIX_ASSERT_THROW_IF</a>, and <a class="el" href="a00541_source.html#l00051">mutex</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="afb48c9bf070468afd6290baf4bed3f06"></a><!-- doxytag: member="qpid::sys::Mutex::~Mutex" ref="afb48c9bf070468afd6290baf4bed3f06" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::sys::Mutex::~Mutex </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00541_source.html#l00111">111</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-<p>References <a class="el" href="a00559_source.html#l00051">QPID_POSIX_ABORT_IF</a>, and <a class="el" href="a00541_source.html#l00051">mutex</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0b765f0ddd4a743cc62bfbe706c0e24e"></a><!-- doxytag: member="qpid::sys::Mutex::Mutex" ref="a0b765f0ddd4a743cc62bfbe706c0e24e" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::sys::Mutex::Mutex </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="afb48c9bf070468afd6290baf4bed3f06"></a><!-- doxytag: member="qpid::sys::Mutex::~Mutex" ref="afb48c9bf070468afd6290baf4bed3f06" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::sys::Mutex::~Mutex </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a915aa25a7544637b727f256af589d9b6"></a><!-- doxytag: member="qpid::sys::Mutex::lock" ref="a915aa25a7544637b727f256af589d9b6" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::Mutex::lock </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00541_source.html#l00115">115</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-<p>References <a class="el" href="a00559_source.html#l00047">QPID_POSIX_ASSERT_THROW_IF</a>, and <a class="el" href="a00541_source.html#l00051">mutex</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a915aa25a7544637b727f256af589d9b6"></a><!-- doxytag: member="qpid::sys::Mutex::lock" ref="a915aa25a7544637b727f256af589d9b6" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::Mutex::lock </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af0ff34c2c5b755c232817874818948d5"></a><!-- doxytag: member="qpid::sys::Mutex::trylock" ref="af0ff34c2c5b755c232817874818948d5" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::sys::Mutex::trylock </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00541_source.html#l00123">123</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-<p>References <a class="el" href="a00541_source.html#l00051">mutex</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af0ff34c2c5b755c232817874818948d5"></a><!-- doxytag: member="qpid::sys::Mutex::trylock" ref="af0ff34c2c5b755c232817874818948d5" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::sys::Mutex::trylock </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aab850ae6eb425b1c40e307d4a4fe4eca"></a><!-- doxytag: member="qpid::sys::Mutex::unlock" ref="aab850ae6eb425b1c40e307d4a4fe4eca" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::Mutex::unlock </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00541_source.html#l00119">119</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-<p>References <a class="el" href="a00559_source.html#l00047">QPID_POSIX_ASSERT_THROW_IF</a>, and <a class="el" href="a00541_source.html#l00051">mutex</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aab850ae6eb425b1c40e307d4a4fe4eca"></a><!-- doxytag: member="qpid::sys::Mutex::unlock" ref="aab850ae6eb425b1c40e307d4a4fe4eca" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::Mutex::unlock </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="afa07a7a4341670aadc1e887a53153d24"></a><!-- doxytag: member="qpid::sys::Mutex::mutex" ref="afa07a7a4341670aadc1e887a53153d24" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">pthread_mutex_t <a class="el" href="a00220.html#afa07a7a4341670aadc1e887a53153d24">qpid::sys::Mutex::mutex</a><code> [protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00541_source.html#l00051">51</a> of file <a class="el" href="a00541_source.html">Mutex.h</a>.</p>
-
-<p>Referenced by <a class="el" href="a00541_source.html#l00107">Mutex()</a>, <a class="el" href="a00541_source.html#l00111">~Mutex()</a>, <a class="el" href="a00541_source.html#l00115">lock()</a>, <a class="el" href="a00541_source.html#l00119">unlock()</a>, <a class="el" href="a00541_source.html#l00123">trylock()</a>, and <a class="el" href="a00551_source.html#l00062">qpid::sys::Condition::wait()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a354b0a01e3d5d070bde4f0adff22a70d"></a><!-- doxytag: member="qpid::sys::Mutex::mutex" ref="a354b0a01e3d5d070bde4f0adff22a70d" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">boost::recursive_mutex <a class="el" href="a00220.html#afa07a7a4341670aadc1e887a53153d24">qpid::sys::Mutex::mutex</a><code> [protected]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00542_source.html#l00058">58</a> of file <a class="el" href="a00542_source.html">Mutex.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li>qpid/sys/posix/<a class="el" href="a00541_source.html">Mutex.h</a></li>
-<li>qpid/sys/windows/<a class="el" href="a00542_source.html">Mutex.h</a></li>
-</ul>
-</div>
+<div class="textblock"><p>STL class. </p>
+</div><hr/>The documentation for this class was generated from the following files:</div>
 <!--
  
  Licensed to the Apache Software Foundation (ASF) under one
@@ -424,7 +119,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

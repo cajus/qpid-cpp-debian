@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/agent/ManagementAgent.h Source File</title>
+    <title>qpid/Address.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,214 +58,61 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/agent/ManagementAgent.h</div>  </div>
+<div class="title">qpid/Address.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00453.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _qpid_agent_ManagementAgent_</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _qpid_agent_ManagementAgent_</span>
+<a href="a00453.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_ADDRESS_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_ADDRESS_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="comment">//</span>
-<a name="l00005"></a>00005 <span class="comment">// Licensed to the Apache Software Foundation (ASF) under one</span>
-<a name="l00006"></a>00006 <span class="comment">// or more contributor license agreements.  See the NOTICE file</span>
-<a name="l00007"></a>00007 <span class="comment">// distributed with this work for additional information</span>
-<a name="l00008"></a>00008 <span class="comment">// regarding copyright ownership.  The ASF licenses this file</span>
-<a name="l00009"></a>00009 <span class="comment">// to you under the Apache License, Version 2.0 (the</span>
-<a name="l00010"></a>00010 <span class="comment">// &quot;License&quot;); you may not use this file except in compliance</span>
-<a name="l00011"></a>00011 <span class="comment">// with the License.  You may obtain a copy of the License at</span>
-<a name="l00012"></a>00012 <span class="comment">//</span>
-<a name="l00013"></a>00013 <span class="comment">//   http://www.apache.org/licenses/LICENSE-2.0</span>
-<a name="l00014"></a>00014 <span class="comment">//</span>
-<a name="l00015"></a>00015 <span class="comment">// Unless required by applicable law or agreed to in writing,</span>
-<a name="l00016"></a>00016 <span class="comment">// software distributed under the License is distributed on an</span>
-<a name="l00017"></a>00017 <span class="comment">// &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
-<a name="l00018"></a>00018 <span class="comment">// KIND, either express or implied.  See the License for the</span>
-<a name="l00019"></a>00019 <span class="comment">// specific language governing permissions and limitations</span>
-<a name="l00020"></a>00020 <span class="comment">// under the License.</span>
-<a name="l00021"></a>00021 <span class="comment">//</span>
-<a name="l00022"></a>00022 
-<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;<a class="code" href="a00454.html">qpid/agent/QmfAgentImportExport.h</a>&quot;</span>
-<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="a00538.html">qpid/management/ManagementObject.h</a>&quot;</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00537.html">qpid/management/ManagementEvent.h</a>&quot;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00536.html">qpid/management/Manageable.h</a>&quot;</span>
-<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00414.html">qpid/management/ConnectionSettings.h</a>&quot;</span>
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029 <span class="keyword">namespace </span>qpid {
-<a name="l00030"></a><a class="code" href="a00590.html">00030</a> <span class="keyword">namespace </span>management {
-<a name="l00031"></a>00031 
-<a name="l00032"></a>00032 <span class="keyword">class </span><a class="code" href="a00229.html">Notifyable</a> {
-<a name="l00033"></a>00033 <span class="keyword">public</span>:
-<a name="l00034"></a><a class="code" href="a00229.html#ab6e89deea0fe4269411f359e0cfbefdf">00034</a>     <span class="keyword">virtual</span> <a class="code" href="a00229.html#ab6e89deea0fe4269411f359e0cfbefdf">~Notifyable</a>() {}
-<a name="l00035"></a>00035     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00229.html#acc7ac7b4f30b6dcc8ff5fcee6deb311c">notify</a>() = 0;
-<a name="l00036"></a>00036 };
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038 <span class="keyword">class </span>ManagementAgent
-<a name="l00039"></a>00039 {
-<a name="l00040"></a>00040   <span class="keyword">public</span>:
-<a name="l00041"></a>00041 
-<a name="l00042"></a>00042     <span class="keyword">class </span>Singleton {
-<a name="l00043"></a>00043     <span class="keyword">public</span>:
-<a name="l00044"></a>00044         <a class="code" href="a00454.html#a81f76c120023532a1fb2527ed02073b7">QMF_AGENT_EXTERN</a> <a class="code" href="a00337.html#a0348b15d17fae3a570896127ba9f38e6">Singleton</a>(<span class="keywordtype">bool</span> disableManagement = <span class="keyword">false</span>);
-<a name="l00045"></a>00045         <a class="code" href="a00454.html#a81f76c120023532a1fb2527ed02073b7">QMF_AGENT_EXTERN</a> <a class="code" href="a00337.html#a1946f5444011f966b26cec261d48b26d">~Singleton</a>();
-<a name="l00046"></a>00046         <a class="code" href="a00454.html#a81f76c120023532a1fb2527ed02073b7">QMF_AGENT_EXTERN</a> <span class="keyword">static</span> <a class="code" href="a00198.html#a9ba8ee339f2c41cb9273877d93091778">ManagementAgent</a>* <a class="code" href="a00337.html#ac35e2b11a9c265c544755d1130d7d982">getInstance</a>();
-<a name="l00047"></a>00047     };
-<a name="l00048"></a>00048 
-<a name="l00049"></a><a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71">00049</a>     <span class="keyword">typedef</span> <span class="keyword">enum</span> {
-<a name="l00050"></a><a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71a4cfb6cde4eb0ed49442aab1ccfe2f084">00050</a>     <a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71a4cfb6cde4eb0ed49442aab1ccfe2f084">SEV_EMERG</a> = 0,
-<a name="l00051"></a><a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71ad453ca58d7973fb315e749b90c813630">00051</a>     <a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71ad453ca58d7973fb315e749b90c813630">SEV_ALERT</a> = 1,
-<a name="l00052"></a><a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71a9a860673610c639fe04a0f34a8b1075a">00052</a>     <a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71a9a860673610c639fe04a0f34a8b1075a">SEV_CRIT</a>  = 2,
-<a name="l00053"></a><a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71a2b7eb29fcec04154b189def808481ba9">00053</a>     <a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71a2b7eb29fcec04154b189def808481ba9">SEV_ERROR</a> = 3,
-<a name="l00054"></a><a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71af87695ef52e46ab6f7c485d371b04a24">00054</a>     <a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71af87695ef52e46ab6f7c485d371b04a24">SEV_WARN</a>  = 4,
-<a name="l00055"></a><a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71a3742fa39ff1b7ff3bd91ca442afa2d6c">00055</a>     <a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71a3742fa39ff1b7ff3bd91ca442afa2d6c">SEV_NOTE</a>  = 5,
-<a name="l00056"></a><a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71a20b493310033839b87e4514997f2051c">00056</a>     <a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71a20b493310033839b87e4514997f2051c">SEV_INFO</a>  = 6,
-<a name="l00057"></a><a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71ac87b6f4637a800100d5b7669de0deabb">00057</a>     <a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71ac87b6f4637a800100d5b7669de0deabb">SEV_DEBUG</a> = 7,
-<a name="l00058"></a><a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71ada0ed585ff4fa6b8c399ef914322819b">00058</a>     <a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71ada0ed585ff4fa6b8c399ef914322819b">SEV_DEFAULT</a> = 8
-<a name="l00059"></a>00059     } <a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71">severity_t</a>;
-<a name="l00060"></a>00060 
-<a name="l00061"></a><a class="code" href="a00198.html#a9ba8ee339f2c41cb9273877d93091778">00061</a>     <a class="code" href="a00198.html#a9ba8ee339f2c41cb9273877d93091778">ManagementAgent</a>() {}
-<a name="l00062"></a><a class="code" href="a00198.html#a53d2d915022ae97fee7825fbfd8b0a07">00062</a>     <span class="keyword">virtual</span> <a class="code" href="a00198.html#a53d2d915022ae97fee7825fbfd8b0a07">~ManagementAgent</a>() {}
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064     <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="a00198.html#a39cb51367c8e02411d9ca0d953e25b92">getMaxThreads</a>() = 0;
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066     <span class="comment">// Set the name of the agent</span>
-<a name="l00067"></a>00067     <span class="comment">//</span>
-<a name="l00068"></a>00068     <span class="comment">//   vendor   - Vendor name or domain (i.e. &quot;apache.org&quot;)</span>
-<a name="l00069"></a>00069     <span class="comment">//   product  - Product name (i.e. &quot;qpid&quot;)</span>
-<a name="l00070"></a>00070     <span class="comment">//   instance - A unique identifier for this instance of the agent.</span>
-<a name="l00071"></a>00071     <span class="comment">//              If empty, the agent will create a GUID for the instance.</span>
-<a name="l00072"></a>00072     <span class="comment">//   Note: the &quot;:&quot; character is reserved - do no use it in the vendor or product name.</span>
-<a name="l00073"></a>00073     <span class="comment">//</span>
-<a name="l00074"></a>00074     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00198.html#a4bbc4b69d147df1f41c58446f5d3603f">setName</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; vendor,
-<a name="l00075"></a>00075                          <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; product,
-<a name="l00076"></a>00076                          <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; instance=<span class="stringliteral">&quot;&quot;</span>) = 0;
-<a name="l00077"></a>00077 
-<a name="l00078"></a>00078     <span class="comment">// Retrieve the name of the agent as assigned by setName()</span>
-<a name="l00079"></a>00079     <span class="comment">//</span>
-<a name="l00080"></a>00080     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00198.html#a77672c7a9cab08436a10c5fdc42cc2f9">getName</a>(<a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; vendor,
-<a name="l00081"></a>00081                          <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; product,
-<a name="l00082"></a>00082                          <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; instance) = 0;
-<a name="l00083"></a>00083 
-<a name="l00084"></a>00084     <span class="comment">// Obtain the fully qualified name of the agent</span>
-<a name="l00085"></a>00085     <span class="comment">//</span>
-<a name="l00086"></a>00086     <span class="keyword">virtual</span> <span class="keyword">const</span> std::string&amp; <a class="code" href="a00198.html#a7a0bcc875d00c77944e6f8ce7eb024e5">getAddress</a>() = 0;
-<a name="l00087"></a>00087 
-<a name="l00088"></a>00088     <span class="comment">// Connect to a management broker</span>
-<a name="l00089"></a>00089     <span class="comment">//</span>
-<a name="l00090"></a>00090     <span class="comment">//   brokerHost        - Hostname or IP address (dotted-quad) of broker.</span>
-<a name="l00091"></a>00091     <span class="comment">//</span>
-<a name="l00092"></a>00092     <span class="comment">//   brokerPort        - TCP port of broker.</span>
-<a name="l00093"></a>00093     <span class="comment">//</span>
-<a name="l00094"></a>00094     <span class="comment">//   intervalSeconds   - The interval (in seconds) that this agent shall use</span>
-<a name="l00095"></a>00095     <span class="comment">//                       between broadcast updates to the broker.</span>
-<a name="l00096"></a>00096     <span class="comment">//</span>
-<a name="l00097"></a>00097     <span class="comment">//   useExternalThread - If true, the thread of control used for callbacks</span>
-<a name="l00098"></a>00098     <span class="comment">//                       must be supplied by the user of the object (via the</span>
-<a name="l00099"></a>00099     <span class="comment">//                       pollCallbacks method).</span>
-<a name="l00100"></a>00100     <span class="comment">//</span>
-<a name="l00101"></a>00101     <span class="comment">//                       If false, callbacks shall be invoked on the management</span>
-<a name="l00102"></a>00102     <span class="comment">//                       agent&#39;s thread.  In this case, the callback implementations</span>
-<a name="l00103"></a>00103     <span class="comment">//                       MUST be thread safe.</span>
-<a name="l00104"></a>00104     <span class="comment">//</span>
-<a name="l00105"></a>00105     <span class="comment">//   storeFile         - File where this process has read and write access.  This</span>
-<a name="l00106"></a>00106     <span class="comment">//                       file shall be used to store persistent state.</span>
-<a name="l00107"></a>00107     <span class="comment">//</span>
-<a name="l00108"></a>00108     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00198.html#aa67b15d15c7d65e4feb83bf02569a1d3">init</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; brokerHost = <span class="stringliteral">&quot;localhost&quot;</span>,
-<a name="l00109"></a>00109                       <a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> brokerPort = 5672,
-<a name="l00110"></a>00110                       <a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> intervalSeconds = 10,
-<a name="l00111"></a>00111                       <span class="keywordtype">bool</span> useExternalThread = <span class="keyword">false</span>,
-<a name="l00112"></a>00112                       <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; storeFile = <span class="stringliteral">&quot;&quot;</span>,
-<a name="l00113"></a>00113                       <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; uid = <span class="stringliteral">&quot;&quot;</span>,
-<a name="l00114"></a>00114                       <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; pwd = <span class="stringliteral">&quot;&quot;</span>,
-<a name="l00115"></a>00115                       <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; mech = <span class="stringliteral">&quot;PLAIN&quot;</span>,
-<a name="l00116"></a>00116                       <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; proto = <span class="stringliteral">&quot;tcp&quot;</span>) = 0;
-<a name="l00117"></a>00117 
-<a name="l00118"></a>00118     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00198.html#aa67b15d15c7d65e4feb83bf02569a1d3">init</a>(<span class="keyword">const</span> <a class="code" href="a00064.html" title="Settings for a Connection.">management::ConnectionSettings</a>&amp; settings,
-<a name="l00119"></a>00119                       <a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> intervalSeconds = 10,
-<a name="l00120"></a>00120                       <span class="keywordtype">bool</span> useExternalThread = <span class="keyword">false</span>,
-<a name="l00121"></a>00121                       <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; storeFile = <span class="stringliteral">&quot;&quot;</span>) = 0;
-<a name="l00122"></a>00122 
-<a name="l00123"></a>00123 
-<a name="l00124"></a>00124     <span class="comment">// Register a schema with the management agent.  This is normally called by the</span>
-<a name="l00125"></a>00125     <span class="comment">// package initializer generated by the management code generator.</span>
-<a name="l00126"></a>00126     <span class="comment">//</span>
-<a name="l00127"></a>00127     <span class="keyword">virtual</span> <span class="keywordtype">void</span>
-<a name="l00128"></a>00128     <a class="code" href="a00198.html#a87236f51bbe3815af6da479314998f2f">registerClass</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; packageName,
-<a name="l00129"></a>00129                   <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; className,
-<a name="l00130"></a>00130                   <a class="code" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>*    md5Sum,
-<a name="l00131"></a>00131                   <a class="code" href="a00201.html#aec4753f5ac06d72f6d11e620f348b134">management::ManagementObject::writeSchemaCall_t</a> schemaCall) = 0;
-<a name="l00132"></a>00132 
-<a name="l00133"></a>00133     <span class="keyword">virtual</span> <span class="keywordtype">void</span>
-<a name="l00134"></a>00134     <a class="code" href="a00198.html#a0cbd7e974994c9b4c0d3af67450db326">registerEvent</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; packageName,
-<a name="l00135"></a>00135                   <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; eventName,
-<a name="l00136"></a>00136                   <a class="code" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>*    md5Sum,
-<a name="l00137"></a>00137                   <a class="code" href="a00199.html#ad7c8a4efa36a1285c1f75e48efe4ac88">management::ManagementEvent::writeSchemaCall_t</a> schemaCall) = 0;
-<a name="l00138"></a>00138 
-<a name="l00139"></a>00139     <span class="comment">// Add a management object to the agent.  Once added, this object shall be visible</span>
-<a name="l00140"></a>00140     <span class="comment">// in the greater management context.</span>
-<a name="l00141"></a>00141     <span class="comment">//</span>
-<a name="l00142"></a>00142     <span class="comment">// Please note that ManagementObject instances are not explicitly deleted from</span>
-<a name="l00143"></a>00143     <span class="comment">// the management agent.  When the core object represented by a management object</span>
-<a name="l00144"></a>00144     <span class="comment">// is deleted, the &quot;resourceDestroy&quot; method on the management object must be called.</span>
-<a name="l00145"></a>00145     <span class="comment">// It will then be reclaimed in due course by the management agent.</span>
-<a name="l00146"></a>00146     <span class="comment">//</span>
-<a name="l00147"></a>00147     <span class="comment">// Once a ManagementObject instance is added to the agent, the agent then owns the</span>
-<a name="l00148"></a>00148     <span class="comment">// instance.  The caller MUST NOT free the resources of the instance at any time.</span>
-<a name="l00149"></a>00149     <span class="comment">// When it is no longer needed, invoke its &quot;resourceDestroy&quot; method and discard the</span>
-<a name="l00150"></a>00150     <span class="comment">// pointer.  This allows the management agent to report the deletion of the object</span>
-<a name="l00151"></a>00151     <span class="comment">// in an orderly way.</span>
-<a name="l00152"></a>00152     <span class="comment">//</span>
-<a name="l00153"></a>00153     <span class="keyword">virtual</span> <a class="code" href="a00237.html">ObjectId</a> <a class="code" href="a00198.html#a2f2f0f42d660db81dffaf437721a2121">addObject</a>(<a class="code" href="a00201.html">ManagementObject</a>* objectPtr, uint64_t persistId = 0) = 0;
-<a name="l00154"></a>00154     <span class="keyword">virtual</span> <a class="code" href="a00237.html">ObjectId</a> <a class="code" href="a00198.html#a2f2f0f42d660db81dffaf437721a2121">addObject</a>(<a class="code" href="a00201.html">ManagementObject</a>* objectPtr,
-<a name="l00155"></a>00155                                <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; key,
-<a name="l00156"></a>00156                                <span class="keywordtype">bool</span> persistent = <span class="keyword">true</span>) = 0;
-<a name="l00157"></a>00157 
-<a name="l00158"></a>00158     <span class="comment">//</span>
-<a name="l00159"></a>00159     <span class="comment">//</span>
-<a name="l00160"></a>00160     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00198.html#a74707aff4e61f03ed56436e36d5d625d">raiseEvent</a>(<span class="keyword">const</span> <a class="code" href="a00199.html">ManagementEvent</a>&amp; event,
-<a name="l00161"></a>00161                             <a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71">severity_t</a> severity = <a class="code" href="a00198.html#aa4177d1c4067bbd14aa25f0240db7e71ada0ed585ff4fa6b8c399ef914322819b">SEV_DEFAULT</a>) = 0;
-<a name="l00162"></a>00162 
-<a name="l00163"></a>00163     <span class="comment">// If &quot;useExternalThread&quot; was set to true in init, this method must</span>
-<a name="l00164"></a>00164     <span class="comment">// be called to provide a thread for any pending method calls that have arrived.</span>
-<a name="l00165"></a>00165     <span class="comment">// The method calls for ManagementObject instances shall be invoked synchronously</span>
-<a name="l00166"></a>00166     <span class="comment">// during the execution of this method.</span>
-<a name="l00167"></a>00167     <span class="comment">//</span>
-<a name="l00168"></a>00168     <span class="comment">// callLimit may optionally be used to limit the number of callbacks invoked.</span>
-<a name="l00169"></a>00169     <span class="comment">// if 0, no limit is imposed.</span>
-<a name="l00170"></a>00170     <span class="comment">//</span>
-<a name="l00171"></a>00171     <span class="comment">// The return value is the number of callbacks that remain queued after this</span>
-<a name="l00172"></a>00172     <span class="comment">// call is complete.  It can be used to determine whether or not further calls</span>
-<a name="l00173"></a>00173     <span class="comment">// to pollCallbacks are necessary to clear the backlog.  If callLimit is zero,</span>
-<a name="l00174"></a>00174     <span class="comment">// the return value will also be zero.</span>
-<a name="l00175"></a>00175     <span class="comment">//</span>
-<a name="l00176"></a>00176     <span class="keyword">virtual</span> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00198.html#ae83c9925dbea0823c80916ca01adef9d">pollCallbacks</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> callLimit = 0) = 0;
-<a name="l00177"></a>00177 
-<a name="l00178"></a>00178     <span class="comment">// In the &quot;useExternalThread&quot; scenario, there are three ways that an application can</span>
-<a name="l00179"></a>00179     <span class="comment">// use to be notified that there is work to do.  Of course the application may periodically</span>
-<a name="l00180"></a>00180     <span class="comment">// call pollCallbacks if it wishes, but this will cause long latencies in the responses</span>
-<a name="l00181"></a>00181     <span class="comment">// to method calls.</span>
-<a name="l00182"></a>00182     <span class="comment">//</span>
-<a name="l00183"></a>00183     <span class="comment">// The notification methods are:</span>
-<a name="l00184"></a>00184     <span class="comment">//</span>
-<a name="l00185"></a>00185     <span class="comment">//  1) Register a C-style callback by providing a pointer to a function</span>
-<a name="l00186"></a>00186     <span class="comment">//  2) Register a C++-style callback by providing an object of a class that is derived</span>
-<a name="l00187"></a>00187     <span class="comment">//     from Notifyable</span>
-<a name="l00188"></a>00188     <span class="comment">//  3) Call getSignalFd() to get a file descriptor that can be used in a select</span>
-<a name="l00189"></a>00189     <span class="comment">//     call.  The file descriptor shall become readable when the agent has work to</span>
-<a name="l00190"></a>00190     <span class="comment">//     do.  Note that this mechanism is specific to Posix-based operating environments.</span>
-<a name="l00191"></a>00191     <span class="comment">//     getSignalFd will probably not function correctly on Windows.</span>
-<a name="l00192"></a>00192     <span class="comment">//</span>
-<a name="l00193"></a>00193     <span class="comment">// If a callback is registered, the callback function will be called on the agent&#39;s</span>
-<a name="l00194"></a>00194     <span class="comment">// thread.  The callback function must perform no work other than to signal the application</span>
-<a name="l00195"></a>00195     <span class="comment">// thread to call pollCallbacks.</span>
-<a name="l00196"></a>00196     <span class="comment">//</span>
-<a name="l00197"></a><a class="code" href="a00198.html#a99a1c515c1decb0d610288b9a2d043cc">00197</a>     <span class="keyword">typedef</span> void (*<a class="code" href="a00198.html#a99a1c515c1decb0d610288b9a2d043cc">cb_t</a>)(<span class="keywordtype">void</span>*);
-<a name="l00198"></a>00198     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00198.html#acad55ce01a6f2a8a7f7712adfb6e01bd">setSignalCallback</a>(<a class="code" href="a00198.html#a99a1c515c1decb0d610288b9a2d043cc">cb_t</a> callback, <span class="keywordtype">void</span>* context) = 0;
-<a name="l00199"></a>00199     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00198.html#acad55ce01a6f2a8a7f7712adfb6e01bd">setSignalCallback</a>(<a class="code" href="a00229.html">Notifyable</a>&amp; notifyable) = 0;
-<a name="l00200"></a>00200     <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code" href="a00198.html#a3ec4168095bedec6905ef3ab06d27ab8">getSignalFd</a>() = 0;
-<a name="l00201"></a>00201 };
-<a name="l00202"></a>00202 
-<a name="l00203"></a>00203 }}
-<a name="l00204"></a>00204 
-<a name="l00205"></a>00205 <span class="preprocessor">#endif  </span>
+<a name="l00004"></a>00004 <span class="comment">/*</span>
+<a name="l00005"></a>00005 <span class="comment"> *</span>
+<a name="l00006"></a>00006 <span class="comment"> * Copyright (c) 2006 The Apache Software Foundation</span>
+<a name="l00007"></a>00007 <span class="comment"> *</span>
+<a name="l00008"></a>00008 <span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<a name="l00009"></a>00009 <span class="comment"> * you may not use this file except in compliance with the License.</span>
+<a name="l00010"></a>00010 <span class="comment"> * You may obtain a copy of the License at</span>
+<a name="l00011"></a>00011 <span class="comment"> *</span>
+<a name="l00012"></a>00012 <span class="comment"> *    http://www.apache.org/licenses/LICENSE-2.0</span>
+<a name="l00013"></a>00013 <span class="comment"> *</span>
+<a name="l00014"></a>00014 <span class="comment"> * Unless required by applicable law or agreed to in writing, software</span>
+<a name="l00015"></a>00015 <span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<a name="l00016"></a>00016 <span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<a name="l00017"></a>00017 <span class="comment"> * See the License for the specific language governing permissions and</span>
+<a name="l00018"></a>00018 <span class="comment"> * limitations under the License.</span>
+<a name="l00019"></a>00019 <span class="comment"> *</span>
+<a name="l00020"></a>00020 <span class="comment"> */</span>
+<a name="l00021"></a>00021 
+<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="a00556.html">qpid/sys/IntegerTypes.h</a>&quot;</span>
+<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;<a class="code" href="a00484.html">qpid/CommonImportExport.h</a>&quot;</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;iosfwd&gt;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00026"></a>00026 
+<a name="l00027"></a><a class="code" href="a00576.html">00027</a> <span class="keyword">namespace </span>qpid {
+<a name="l00028"></a><a class="code" href="a00578.html">00028</a> <span class="keyword">namespace </span><a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca8a6e04ce91f4d365de37ccc1a4ef0dc9">client</a> { <span class="keyword">struct </span><a class="code" href="a00067.html" title="Settings for a Connection.">ConnectionSettings</a>; }
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 
+<a name="l00034"></a>00034 <span class="keyword">struct </span><a class="code" href="a00002.html" title="Contains the protocol address of an AMQP broker.">Address</a>  {
+<a name="l00035"></a>00035 <span class="keyword">public</span>:
+<a name="l00036"></a><a class="code" href="a00002.html#a219516ec586c6c4ffff15647c02b7fd9">00036</a>     <span class="keyword">static</span> <span class="keyword">const</span> std::string <a class="code" href="a00002.html#a219516ec586c6c4ffff15647c02b7fd9">TCP</a>; <span class="comment">// Default TCP protocol tag.</span>
+<a name="l00037"></a><a class="code" href="a00002.html#af84a297b944429ebeed1fe54bb4f58f9">00037</a>     <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code" href="a00002.html#af84a297b944429ebeed1fe54bb4f58f9">AMQP_PORT</a>=5672; <span class="comment">// Default AMQP port.</span>
+<a name="l00038"></a>00038     
+<a name="l00039"></a><a class="code" href="a00002.html#a53f61c6bdd826888dbcb522bb6855d49">00039</a>     <a class="code" href="a00484.html#a22b814cc5ef605d90a1295eae41f4ee4">QPID_COMMON_INLINE_EXTERN</a> <span class="keyword">explicit</span> <a class="code" href="a00002.html#a53f61c6bdd826888dbcb522bb6855d49">Address</a>(
+<a name="l00040"></a>00040         <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; protocol_=<a class="code" href="a00346.html" title="STL class.">std::string</a>(),
+<a name="l00041"></a>00041         <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; host_=<a class="code" href="a00346.html" title="STL class.">std::string</a>(),
+<a name="l00042"></a>00042         <a class="code" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> port_=0
+<a name="l00043"></a>00043     ) : <a class="code" href="a00002.html#a5cc94e7cb0917c315b0c2aa5b5dd3cc3">protocol</a>(protocol_), <a class="code" href="a00002.html#a1c7ee5193bc55ae8e93ffd50be750248">host</a>(host_), <a class="code" href="a00002.html#a03915eb5ff8c53ce99dcb13392daf7cf">port</a>(port_) {}
+<a name="l00044"></a>00044 
+<a name="l00045"></a><a class="code" href="a00002.html#a5cc94e7cb0917c315b0c2aa5b5dd3cc3">00045</a>     std::string <a class="code" href="a00002.html#a5cc94e7cb0917c315b0c2aa5b5dd3cc3">protocol</a>;
+<a name="l00046"></a><a class="code" href="a00002.html#a1c7ee5193bc55ae8e93ffd50be750248">00046</a>     std::string <a class="code" href="a00002.html#a1c7ee5193bc55ae8e93ffd50be750248">host</a>;
+<a name="l00047"></a><a class="code" href="a00002.html#a03915eb5ff8c53ce99dcb13392daf7cf">00047</a>     <a class="code" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="code" href="a00002.html#a03915eb5ff8c53ce99dcb13392daf7cf">port</a>;
+<a name="l00048"></a>00048 };
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> std::ostream&amp; <a class="code" href="a00576.html#a365c9037931e1445c06e0e66ec94f615">operator&lt;&lt;</a>(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp; os, <span class="keyword">const</span> <a class="code" href="a00002.html" title="Contains the protocol address of an AMQP broker.">Address</a>&amp; addr);
+<a name="l00051"></a>00051 <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> <a class="code" href="a00576.html#aacf454d1ba7d16ccf9ecd4037c4c47f3">operator==</a>(<span class="keyword">const</span> <a class="code" href="a00002.html" title="Contains the protocol address of an AMQP broker.">Address</a>&amp; x, <span class="keyword">const</span> <a class="code" href="a00002.html" title="Contains the protocol address of an AMQP broker.">Address</a>&amp; y);
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053 } <span class="comment">// namespace qpid</span>
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -295,7 +142,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

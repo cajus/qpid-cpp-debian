@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ConnectionOpenBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ConnectionOpenBody::setVirtualHost(const std::string& _virtualHost) {
     virtualHost = _virtualHost;
     flags |= (1 << 8);
+    if (virtualHost.size() >= 256) throw IllegalArgumentException("Value for virtualHost is too large");
 }
 const std::string& ConnectionOpenBody::getVirtualHost() const { return virtualHost; }
 bool ConnectionOpenBody::hasVirtualHost() const { return flags & (1 << 8); }

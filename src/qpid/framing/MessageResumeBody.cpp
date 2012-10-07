@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/MessageResumeBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void MessageResumeBody::setDestination(const std::string& _destination) {
     destination = _destination;
     flags |= (1 << 8);
+    if (destination.size() >= 256) throw IllegalArgumentException("Value for destination is too large");
 }
 const std::string& MessageResumeBody::getDestination() const { return destination; }
 bool MessageResumeBody::hasDestination() const { return flags & (1 << 8); }
@@ -41,6 +42,7 @@ void MessageResumeBody::clearDestinationFlag() { flags &= ~(1 << 8); }
 void MessageResumeBody::setResumeId(const std::string& _resumeId) {
     resumeId = _resumeId;
     flags |= (1 << 9);
+    if (resumeId.size() >= 65536) throw IllegalArgumentException("Value for resumeId is too large");
 }
 const std::string& MessageResumeBody::getResumeId() const { return resumeId; }
 bool MessageResumeBody::hasResumeId() const { return flags & (1 << 9); }

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/console/SequenceManager.h Source File</title>
+    <title>qpid/console/ConsoleListener.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,7 +58,7 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/console/SequenceManager.h</div>  </div>
+<div class="title">qpid/console/ConsoleListener.h</div>  </div>
 </div>
 <div class="contents">
 <a href="a00488.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
@@ -81,36 +81,52 @@
 <a name="l00018"></a>00018 <span class="comment"> * under the License.</span>
 <a name="l00019"></a>00019 <span class="comment"> *</span>
 <a name="l00020"></a>00020 <span class="comment"> */</span>
-<a name="l00021"></a>00021 <span class="preprocessor">#ifndef _QPID_CONSOLE_SEQUENCEMANAGER_H_</span>
-<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define _QPID_CONSOLE_SEQUENCEMANAGER_H_</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#ifndef _QPID_CONSOLE_CONSOLE_LISTENER_H_</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define _QPID_CONSOLE_CONSOLE_LISTENER_H_</span>
 <a name="l00023"></a>00023 <span class="preprocessor"></span>
-<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="a00485.html">qpid/console/ConsoleImportExport.h</a>&quot;</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00540.html">qpid/sys/Mutex.h</a>&quot;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &lt;map&gt;</span>
-<a name="l00027"></a>00027 <span class="preprocessor">#include &lt;string&gt;</span>
-<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;set&gt;</span>
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 <span class="keyword">namespace </span>qpid {
-<a name="l00031"></a>00031 <span class="keyword">namespace </span>console {
-<a name="l00032"></a>00032 
-<a name="l00037"></a>00037     <span class="keyword">class </span>SequenceManager {
-<a name="l00038"></a>00038     <span class="keyword">public</span>:
-<a name="l00039"></a><a class="code" href="a00322.html#acc9772b064acf69654e122c9fcdb664b">00039</a>         <span class="keyword">typedef</span> std<a class="code" href="a00335.html">::set&lt;uint32_t&gt;</a> <span class="keyword">set</span>;
-<a name="l00040"></a>00040 
-<a name="l00041"></a><a class="code" href="a00322.html#a8e4dc1229064d1b842cf7e472d39433f">00041</a>         <a class="code" href="a00322.html#a8e4dc1229064d1b842cf7e472d39433f">SequenceManager</a>() : sequence(0) {}
-<a name="l00042"></a>00042         <a class="code" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00322.html#a069df5495231102a9501708ca1a14a73">reserve</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; context = <span class="stringliteral">&quot;&quot;</span>);
-<a name="l00043"></a>00043         <a class="code" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> std::string <a class="code" href="a00322.html#a4139701785e9a6e517c0681ebc18649d">release</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> seq);
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045     <span class="keyword">private</span>:
-<a name="l00046"></a>00046         sys::Mutex lock;
-<a name="l00047"></a>00047         <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> sequence;
-<a name="l00048"></a>00048         std::map&lt;uint32_t, std::string&gt; pending;
-<a name="l00049"></a>00049     };
-<a name="l00050"></a>00050 }
-<a name="l00051"></a>00051 }
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 <span class="preprocessor">#endif</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00487.html">qpid/console/ConsoleImportExport.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00485.html">qpid/console/Broker.h</a>&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00486.html">qpid/console/ClassKey.h</a>&quot;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="a00424.html">qpid/console/Object.h</a>&quot;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="a00419.html">qpid/console/Event.h</a>&quot;</span>
+<a name="l00030"></a>00030 
+<a name="l00031"></a>00031 <span class="keyword">namespace </span>qpid {
+<a name="l00032"></a>00032 <span class="keyword">namespace </span>console {
+<a name="l00033"></a>00033 
+<a name="l00040"></a>00040     <span class="keyword">class </span><a class="code" href="a00487.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> ConsoleListener{
+<a name="l00041"></a>00041     <span class="keyword">public</span>:
+<a name="l00042"></a><a class="code" href="a00072.html#a679ca82ed2d89f8aa871a6d548a2df9c">00042</a>         <span class="keyword">virtual</span> <a class="code" href="a00072.html#a679ca82ed2d89f8aa871a6d548a2df9c">~ConsoleListener</a>() {};
+<a name="l00043"></a>00043 
+<a name="l00046"></a><a class="code" href="a00072.html#a6ea207b75052f1c24f39f9529a6dbe36">00046</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00072.html#a6ea207b75052f1c24f39f9529a6dbe36" title="Invoked when a connection is established to a broker.">brokerConnected</a>(<span class="keyword">const</span> <a class="code" href="a00042.html">Broker</a>&amp;) {}
+<a name="l00047"></a>00047 
+<a name="l00050"></a><a class="code" href="a00072.html#a3e63201b084b9f8ef205a6d9ce9604d2">00050</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00072.html#a3e63201b084b9f8ef205a6d9ce9604d2" title="Invoked when the connection to a broker is lost.">brokerDisconnected</a>(<span class="keyword">const</span> <a class="code" href="a00042.html">Broker</a>&amp;) {}
+<a name="l00051"></a>00051 
+<a name="l00054"></a><a class="code" href="a00072.html#a2f97fe3a71ed11090abd60bce6451846">00054</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00072.html#a2f97fe3a71ed11090abd60bce6451846" title="Invoked when a QMF package is discovered.">newPackage</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;) {}
+<a name="l00055"></a>00055 
+<a name="l00059"></a><a class="code" href="a00072.html#a30a7db9cfbf7a10e858b561c87622b5c">00059</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00072.html#a30a7db9cfbf7a10e858b561c87622b5c" title="Invoked when a new class is discovered.">newClass</a>(<span class="keyword">const</span> <a class="code" href="a00051.html">ClassKey</a>&amp;) {}
+<a name="l00060"></a>00060 
+<a name="l00063"></a><a class="code" href="a00072.html#a9732002a23e48f37199aa96885f770ee">00063</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00072.html#a9732002a23e48f37199aa96885f770ee" title="Invoked when a QMF agent is discovered.">newAgent</a>(<span class="keyword">const</span> <a class="code" href="a00006.html">Agent</a>&amp;) {}
+<a name="l00064"></a>00064 
+<a name="l00067"></a><a class="code" href="a00072.html#ab8036869c9c8847a03843cc3f84e7e81">00067</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00072.html#ab8036869c9c8847a03843cc3f84e7e81" title="Invoked when a QMF agent disconects.">delAgent</a>(<span class="keyword">const</span> <a class="code" href="a00006.html">Agent</a>&amp;) {}
+<a name="l00068"></a>00068 
+<a name="l00071"></a><a class="code" href="a00072.html#a09af4ba277ff021204c4864dd9d28193">00071</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00072.html#a09af4ba277ff021204c4864dd9d28193" title="Invoked when an object is updated.">objectProps</a>(<a class="code" href="a00042.html">Broker</a>&amp;, <a class="code" href="a00235.html">Object</a>&amp;) {}
+<a name="l00072"></a>00072 
+<a name="l00075"></a><a class="code" href="a00072.html#ad047d395612b224c7d5cca528d3c5656">00075</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00072.html#ad047d395612b224c7d5cca528d3c5656" title="Invoked when an object is updated.">objectStats</a>(<a class="code" href="a00042.html">Broker</a>&amp;, <a class="code" href="a00235.html">Object</a>&amp;) {}
+<a name="l00076"></a>00076 
+<a name="l00079"></a><a class="code" href="a00072.html#ae88feb01e4da8ac5c6c977d9420cb932">00079</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00072.html#ae88feb01e4da8ac5c6c977d9420cb932" title="Invoked when an event is raised.">event</a>(<a class="code" href="a00111.html">Event</a>&amp;) {}
+<a name="l00080"></a>00080 
+<a name="l00083"></a>00083         <span class="comment">//virtual void heartbeat(Agent&amp;, uint64_t) {}</span>
+<a name="l00084"></a>00084 
+<a name="l00087"></a><a class="code" href="a00072.html#a3fd22f86f65b169b3d206206d308874b">00087</a>         <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="a00072.html#a3fd22f86f65b169b3d206206d308874b">brokerInfo</a>(<a class="code" href="a00042.html">Broker</a>&amp;) {}
+<a name="l00088"></a>00088 
+<a name="l00091"></a>00091         <span class="comment">//virtual void methodResponse(Broker&amp;, uint32_t seq, MethodResponse&amp;) {}</span>
+<a name="l00092"></a>00092     };
+<a name="l00093"></a>00093 }
+<a name="l00094"></a>00094 }
+<a name="l00095"></a>00095 
+<a name="l00096"></a>00096 
+<a name="l00097"></a>00097 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--
@@ -140,7 +156,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

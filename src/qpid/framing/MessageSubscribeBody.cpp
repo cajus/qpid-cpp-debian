@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/MessageSubscribeBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void MessageSubscribeBody::setQueue(const std::string& _queue) {
     queue = _queue;
     flags |= (1 << 8);
+    if (queue.size() >= 256) throw IllegalArgumentException("Value for queue is too large");
 }
 const std::string& MessageSubscribeBody::getQueue() const { return queue; }
 bool MessageSubscribeBody::hasQueue() const { return flags & (1 << 8); }
@@ -41,6 +42,7 @@ void MessageSubscribeBody::clearQueueFlag() { flags &= ~(1 << 8); }
 void MessageSubscribeBody::setDestination(const std::string& _destination) {
     destination = _destination;
     flags |= (1 << 9);
+    if (destination.size() >= 256) throw IllegalArgumentException("Value for destination is too large");
 }
 const std::string& MessageSubscribeBody::getDestination() const { return destination; }
 bool MessageSubscribeBody::hasDestination() const { return flags & (1 << 9); }
@@ -71,6 +73,7 @@ bool MessageSubscribeBody::getExclusive() const { return flags & (1 << 12); }
 void MessageSubscribeBody::setResumeId(const std::string& _resumeId) {
     resumeId = _resumeId;
     flags |= (1 << 13);
+    if (resumeId.size() >= 65536) throw IllegalArgumentException("Value for resumeId is too large");
 }
 const std::string& MessageSubscribeBody::getResumeId() const { return resumeId; }
 bool MessageSubscribeBody::hasResumeId() const { return flags & (1 << 13); }

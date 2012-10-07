@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf::engine::Event Class Reference</title>
+    <title>qpid::messaging::EncodingException Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,9 +60,9 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00571.html">qmf</a>      </li>
-      <li class="navelem"><a class="el" href="a00572.html">engine</a>      </li>
-      <li class="navelem"><a class="el" href="a00108.html">Event</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00593.html">messaging</a>      </li>
+      <li class="navelem"><a class="el" href="a00108.html">EncodingException</a>      </li>
     </ul>
   </div>
 </div>
@@ -70,65 +70,30 @@
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qmf::engine::Event Class Reference</div>  </div>
+<div class="title">qpid::messaging::EncodingException Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qmf::engine::Event" -->
-<p><code>#include &lt;<a class="el" href="a00416_source.html">qmf/engine/Event.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::messaging::EncodingException" --><!-- doxytag: inherits="qpid::types::Exception" -->
+<p><code>#include &lt;<a class="el" href="a00422_source.html">qpid/messaging/Message.h</a>&gt;</code></p>
 
-<p><a href="a00629.html">List of all members.</a></p>
+<p><a href="a00873.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#a13ab62852ede7ae179b754bfc0e422d4">Event</a> (const <a class="el" href="a00301.html">SchemaEventClass</a> *type)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#acfb6bfcf6af82a7c135647bd83476b6c">Event</a> (const <a class="el" href="a00108.html">Event</a> &amp;from)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#a9beb8f6dbc3d7a730359073db96b23a7">~Event</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00301.html">SchemaEventClass</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#ac0041cc4dd9be54bc2391ddb0c4591de">getClass</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00379.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#adbcc50937ed977ec89da10cee0ea62db">getValue</a> (const char *key) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html#ae69f019bf8415a6d67306561b2592c84">EncodingException</a> (const <a class="el" href="a00346.html">std::string</a> &amp;msg)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual QPID_TYPES_EXTERN <br class="typebreak"/>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00114.html#a96ddb3fe10a2b9d059cb78832a64751d">what</a> () const   throw ()</td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a13ab62852ede7ae179b754bfc0e422d4"></a><!-- doxytag: member="qmf::engine::Event::Event" ref="a13ab62852ede7ae179b754bfc0e422d4" args="(const SchemaEventClass *type)" -->
+<a class="anchor" id="ae69f019bf8415a6d67306561b2592c84"></a><!-- doxytag: member="qpid::messaging::EncodingException::EncodingException" ref="ae69f019bf8415a6d67306561b2592c84" args="(const std::string &amp;msg)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qmf::engine::Event::Event </td>
+          <td class="memname">qpid::messaging::EncodingException::EncodingException </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00301.html">SchemaEventClass</a> *&#160;</td>
-          <td class="paramname"><em>type</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="acfb6bfcf6af82a7c135647bd83476b6c"></a><!-- doxytag: member="qmf::engine::Event::Event" ref="acfb6bfcf6af82a7c135647bd83476b6c" args="(const Event &amp;from)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qmf::engine::Event::Event </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00108.html">Event</a> &amp;&#160;</td>
-          <td class="paramname"><em>from</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a9beb8f6dbc3d7a730359073db96b23a7"></a><!-- doxytag: member="qmf::engine::Event::~Event" ref="a9beb8f6dbc3d7a730359073db96b23a7" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qmf::engine::Event::~Event </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -138,15 +103,15 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="ac0041cc4dd9be54bc2391ddb0c4591de"></a><!-- doxytag: member="qmf::engine::Event::getClass" ref="ac0041cc4dd9be54bc2391ddb0c4591de" args="() const " -->
+<a class="anchor" id="a96ddb3fe10a2b9d059cb78832a64751d"></a><!-- doxytag: member="qpid::messaging::EncodingException::what" ref="a96ddb3fe10a2b9d059cb78832a64751d" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00301.html">SchemaEventClass</a>* qmf::engine::Event::getClass </td>
+          <td class="memname">virtual QPID_TYPES_EXTERN const char* qpid::types::Exception::what </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const  throw ()<code> [virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -154,25 +119,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="adbcc50937ed977ec89da10cee0ea62db"></a><!-- doxytag: member="qmf::engine::Event::getValue" ref="adbcc50937ed977ec89da10cee0ea62db" args="(const char *key) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00379.html">Value</a>* qmf::engine::Event::getValue </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qmf/engine/<a class="el" href="a00416_source.html">Event.h</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>qpid/messaging/<a class="el" href="a00422_source.html">Message.h</a></li>
 </ul>
 </div>
 <!--
@@ -202,7 +150,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

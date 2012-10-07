@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>std::multimap Class Reference</title>
+    <title>qpid::Msg Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,38 +60,392 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><b>std</b>      </li>
-      <li class="navelem"><a class="el" href="a00218.html">multimap</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00218.html">Msg</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">std::multimap Class Reference</div>  </div>
+<div class="title">qpid::Msg Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="std::multimap" -->
-<p>STL class.  
+<!-- doxytag: class="qpid::Msg" -->
+<p>A simple wrapper for <a class="el" href="a00245.html" title="STL class.">std::ostringstream</a> that allows in place construction of a message and automatic conversion to string.  
  <a href="a00218.html#details">More...</a></p>
 
-<p><a href="a00904.html">List of all members.</a></p>
+<p><code>#include &lt;<a class="el" href="a00549_source.html">qpid/Msg.h</a>&gt;</code></p>
+
+<p><a href="a00665.html">List of all members.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00079.html">const_iterator</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">STL iterator class.  <a href="a00079.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00089.html">const_reverse_iterator</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">STL iterator class.  <a href="a00089.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00180.html">iterator</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">STL iterator class.  <a href="a00180.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00290.html">reverse_iterator</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">STL iterator class.  <a href="a00290.html#details">More...</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#aae2a3900caf98d8509e5c857f2f8d839">Msg</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a360606246c8eef9ece49d5006de76e89">Msg</a> (const <a class="el" href="a00218.html">Msg</a> &amp;m)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#acb0dad1c437dff4aaa03ce44dd4d9b50">str</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a824d03e8bb394531b8f3ee6847ece9f0">operator std::string</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00218.html">Msg</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a8552622c67e6a5a95989a0493d64a95e">operator&lt;&lt;</a> (long n)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00218.html">Msg</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a784e1debaf9a6d7bd875632e909c4df3">operator&lt;&lt;</a> (unsigned long n)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00218.html">Msg</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a1792d10d4c7c40da2e8f03370791dae0">operator&lt;&lt;</a> (bool n)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00218.html">Msg</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#afe5b9e5570116c1e48ce9dc0e062318e">operator&lt;&lt;</a> (short n)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00218.html">Msg</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a5477d21263fd5e5bfedaeeb2be6909f5">operator&lt;&lt;</a> (unsigned short n)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00218.html">Msg</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a91efa5552bd7f29a833be0155f50bcfe">operator&lt;&lt;</a> (int n)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00218.html">Msg</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#afd5612ffe4d50174d2e55a809a518895">operator&lt;&lt;</a> (unsigned int n)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00218.html">Msg</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a530bb1eca99600589eb734b6f9d42e66">operator&lt;&lt;</a> (double n)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00218.html">Msg</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a2ea000bf0cc1e61b376be8de1257a4c8">operator&lt;&lt;</a> (float n)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00218.html">Msg</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a62d888b7de2becd82b4fb085c9554ca7">operator&lt;&lt;</a> (long double n)</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a00218.html">Msg</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00218.html#a1d8c277fc686a184c25e3017065df857">operator&lt;&lt;</a> (const T &amp;t)</td></tr>
+<tr><td colspan="2"><h2><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00245.html">std::ostringstream</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a3cbda882ac7551d009ba1cccd22cd114">os</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>STL class. </p>
-</div><hr/>The documentation for this class was generated from the following files:</div>
+<div class="textblock"><p>A simple wrapper for <a class="el" href="a00245.html" title="STL class.">std::ostringstream</a> that allows in place construction of a message and automatic conversion to string. </p>
+<p>E.g. </p>
+<div class="fragment"><pre class="fragment"> <span class="keywordtype">void</span> foo(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;);
+ foo(<a class="code" href="a00218.html#aae2a3900caf98d8509e5c857f2f8d839">Msg</a>() &lt;&lt; <span class="stringliteral">&quot;hello &quot;</span> &lt;&lt; 32);
+ *
+</pre></div><p> Will construct the string "hello 32" and pass it to foo() </p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aae2a3900caf98d8509e5c857f2f8d839"></a><!-- doxytag: member="qpid::Msg::Msg" ref="aae2a3900caf98d8509e5c857f2f8d839" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::Msg::Msg </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00043">43</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a360606246c8eef9ece49d5006de76e89"></a><!-- doxytag: member="qpid::Msg::Msg" ref="a360606246c8eef9ece49d5006de76e89" args="(const Msg &amp;m)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::Msg::Msg </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00218.html">Msg</a> &amp;&#160;</td>
+          <td class="paramname"><em>m</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00044">44</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a824d03e8bb394531b8f3ee6847ece9f0"></a><!-- doxytag: member="qpid::Msg::operator std::string" ref="a824d03e8bb394531b8f3ee6847ece9f0" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::Msg::operator <a class="el" href="a00346.html">std::string</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00046">46</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+<p>References <a class="el" href="a00549_source.html#l00045">str()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8552622c67e6a5a95989a0493d64a95e"></a><!-- doxytag: member="qpid::Msg::operator&lt;&lt;" ref="a8552622c67e6a5a95989a0493d64a95e" args="(long n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00218.html">Msg</a>&amp; qpid::Msg::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">long&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00048">48</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+<p>References <a class="el" href="a00549_source.html#l00042">os</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a784e1debaf9a6d7bd875632e909c4df3"></a><!-- doxytag: member="qpid::Msg::operator&lt;&lt;" ref="a784e1debaf9a6d7bd875632e909c4df3" args="(unsigned long n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00218.html">Msg</a>&amp; qpid::Msg::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00049">49</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+<p>References <a class="el" href="a00549_source.html#l00042">os</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1792d10d4c7c40da2e8f03370791dae0"></a><!-- doxytag: member="qpid::Msg::operator&lt;&lt;" ref="a1792d10d4c7c40da2e8f03370791dae0" args="(bool n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00218.html">Msg</a>&amp; qpid::Msg::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00050">50</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+<p>References <a class="el" href="a00549_source.html#l00042">os</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afe5b9e5570116c1e48ce9dc0e062318e"></a><!-- doxytag: member="qpid::Msg::operator&lt;&lt;" ref="afe5b9e5570116c1e48ce9dc0e062318e" args="(short n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00218.html">Msg</a>&amp; qpid::Msg::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">short&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00051">51</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+<p>References <a class="el" href="a00549_source.html#l00042">os</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5477d21263fd5e5bfedaeeb2be6909f5"></a><!-- doxytag: member="qpid::Msg::operator&lt;&lt;" ref="a5477d21263fd5e5bfedaeeb2be6909f5" args="(unsigned short n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00218.html">Msg</a>&amp; qpid::Msg::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">unsigned short&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00052">52</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+<p>References <a class="el" href="a00549_source.html#l00042">os</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a91efa5552bd7f29a833be0155f50bcfe"></a><!-- doxytag: member="qpid::Msg::operator&lt;&lt;" ref="a91efa5552bd7f29a833be0155f50bcfe" args="(int n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00218.html">Msg</a>&amp; qpid::Msg::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00053">53</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+<p>References <a class="el" href="a00549_source.html#l00042">os</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afd5612ffe4d50174d2e55a809a518895"></a><!-- doxytag: member="qpid::Msg::operator&lt;&lt;" ref="afd5612ffe4d50174d2e55a809a518895" args="(unsigned int n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00218.html">Msg</a>&amp; qpid::Msg::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00054">54</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+<p>References <a class="el" href="a00549_source.html#l00042">os</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a530bb1eca99600589eb734b6f9d42e66"></a><!-- doxytag: member="qpid::Msg::operator&lt;&lt;" ref="a530bb1eca99600589eb734b6f9d42e66" args="(double n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00218.html">Msg</a>&amp; qpid::Msg::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00059">59</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+<p>References <a class="el" href="a00549_source.html#l00042">os</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2ea000bf0cc1e61b376be8de1257a4c8"></a><!-- doxytag: member="qpid::Msg::operator&lt;&lt;" ref="a2ea000bf0cc1e61b376be8de1257a4c8" args="(float n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00218.html">Msg</a>&amp; qpid::Msg::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00060">60</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+<p>References <a class="el" href="a00549_source.html#l00042">os</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a62d888b7de2becd82b4fb085c9554ca7"></a><!-- doxytag: member="qpid::Msg::operator&lt;&lt;" ref="a62d888b7de2becd82b4fb085c9554ca7" args="(long double n)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00218.html">Msg</a>&amp; qpid::Msg::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">long double&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00061">61</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+<p>References <a class="el" href="a00549_source.html#l00042">os</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1d8c277fc686a184c25e3017065df857"></a><!-- doxytag: member="qpid::Msg::operator&lt;&lt;" ref="a1d8c277fc686a184c25e3017065df857" args="(const T &amp;t)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00218.html">Msg</a>&amp; qpid::Msg::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00063">63</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+<p>References <a class="el" href="a00549_source.html#l00042">os</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acb0dad1c437dff4aaa03ce44dd4d9b50"></a><!-- doxytag: member="qpid::Msg::str" ref="acb0dad1c437dff4aaa03ce44dd4d9b50" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::Msg::str </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00045">45</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+<p>References <a class="el" href="a00549_source.html#l00042">os</a>.</p>
+
+<p>Referenced by <a class="el" href="a00549_source.html#l00046">operator std::string()</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a3cbda882ac7551d009ba1cccd22cd114"></a><!-- doxytag: member="qpid::Msg::os" ref="a3cbda882ac7551d009ba1cccd22cd114" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00245.html">std::ostringstream</a> <a class="el" href="a00218.html#a3cbda882ac7551d009ba1cccd22cd114">qpid::Msg::os</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00042">42</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+<p>Referenced by <a class="el" href="a00549_source.html#l00045">str()</a>, and <a class="el" href="a00549_source.html#l00048">operator&lt;&lt;()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>qpid/<a class="el" href="a00549_source.html">Msg.h</a></li>
+</ul>
+</div>
 <!--
  
  Licensed to the Apache Software Foundation (ASF) under one
@@ -119,7 +473,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

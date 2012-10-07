@@ -30,6 +30,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
 
 using namespace qmf::org::apache::qpid::broker;
 using           qpid::management::ManagementAgent;
@@ -397,27 +398,43 @@ void Subscription::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
 
     if ((_i = _map.find("sessionRef")) != _map.end()) {
         sessionRef = _i->second;
+    } else {
+        sessionRef = ::qpid::management::ObjectId();
     }
     if ((_i = _map.find("queueRef")) != _map.end()) {
         queueRef = _i->second;
+    } else {
+        queueRef = ::qpid::management::ObjectId();
     }
     if ((_i = _map.find("name")) != _map.end()) {
         name = (_i->second).getString();
+    } else {
+        name = "";
     }
     if ((_i = _map.find("browsing")) != _map.end()) {
         browsing = _i->second;
+    } else {
+        browsing = false;
     }
     if ((_i = _map.find("acknowledged")) != _map.end()) {
         acknowledged = _i->second;
+    } else {
+        acknowledged = false;
     }
     if ((_i = _map.find("exclusive")) != _map.end()) {
         exclusive = _i->second;
+    } else {
+        exclusive = false;
     }
     if ((_i = _map.find("creditMode")) != _map.end()) {
         creditMode = (_i->second).getString();
+    } else {
+        creditMode = "";
     }
     if ((_i = _map.find("arguments")) != _map.end()) {
         arguments = (_i->second).asMap();
+    } else {
+        arguments = ::qpid::types::Variant::Map();
     }
 
 }

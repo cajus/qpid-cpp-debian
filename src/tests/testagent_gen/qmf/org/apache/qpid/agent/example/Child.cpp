@@ -30,6 +30,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
 
 using namespace qmf::org::apache::qpid::agent::example;
 using           qpid::management::ManagementAgent;
@@ -212,9 +213,13 @@ void Child::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
 
     if ((_i = _map.find("ParentRef")) != _map.end()) {
         ParentRef = _i->second;
+    } else {
+        ParentRef = ::qpid::management::ObjectId();
     }
     if ((_i = _map.find("name")) != _map.end()) {
         name = (_i->second).getString();
+    } else {
+        name = "";
     }
 
 }

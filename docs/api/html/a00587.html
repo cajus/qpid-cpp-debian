@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::framing::session Namespace Reference</title>
+    <title>qpid::framing::file Namespace Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,9 +58,9 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00580.html">framing</a>      </li>
-      <li class="navelem"><a class="el" href="a00587.html">session</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00582.html">framing</a>      </li>
+      <li class="navelem"><a class="el" href="a00587.html">file</a>      </li>
     </ul>
   </div>
 </div>
@@ -68,49 +68,40 @@
   <div class="summary">
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::framing::session Namespace Reference</div>  </div>
+<div class="title">qpid::framing::file Namespace Reference</div>  </div>
 </div>
 <div class="contents">
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00587.html#a72cab85d605bd808e8ab1078df3d4540">DetachCode</a> { <br/>
-&#160;&#160;<a class="el" href="a00587.html#a72cab85d605bd808e8ab1078df3d4540a0b5ac5eec3a6d192ccba5e9212cfbb47">DETACH_CODE_NORMAL</a> = 0, 
-<a class="el" href="a00587.html#a72cab85d605bd808e8ab1078df3d4540aee5045fa3748a8dcf899288de457741c">DETACH_CODE_SESSION_BUSY</a> = 1, 
-<a class="el" href="a00587.html#a72cab85d605bd808e8ab1078df3d4540ab660f691aa9683149ba04e0175351a41">DETACH_CODE_TRANSPORT_BUSY</a> = 2, 
-<a class="el" href="a00587.html#a72cab85d605bd808e8ab1078df3d4540ad49c675a24dc8474110f6d567bbb3283">DETACH_CODE_NOT_ATTACHED</a> = 3, 
-<br/>
-&#160;&#160;<a class="el" href="a00587.html#a72cab85d605bd808e8ab1078df3d4540aecc25c880105bad2f8e9e15e2548f3a5">DETACH_CODE_UNKNOWN_IDS</a> = 4
-<br/>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00587.html#af93e0aa19b21742f9c4a9e2c3a37454e">ReturnCode</a> { <a class="el" href="a00587.html#af93e0aa19b21742f9c4a9e2c3a37454ea821e09f2bee9786b613c2f14243e9073">RETURN_CODE_CONTENT_TOO_LARGE</a> = 311, 
+<a class="el" href="a00587.html#af93e0aa19b21742f9c4a9e2c3a37454ea7e0275964855671439006b4a481e2f19">RETURN_CODE_NO_ROUTE</a> = 312, 
+<a class="el" href="a00587.html#af93e0aa19b21742f9c4a9e2c3a37454eabbdc86842b396d40be46a065f349d093">RETURN_CODE_NO_CONSUMERS</a> = 313
  }</td></tr>
 </table>
 <hr/><h2>Enumeration Type Documentation</h2>
-<a class="anchor" id="a72cab85d605bd808e8ab1078df3d4540"></a><!-- doxytag: member="qpid::framing::session::DetachCode" ref="a72cab85d605bd808e8ab1078df3d4540" args="" -->
+<a class="anchor" id="af93e0aa19b21742f9c4a9e2c3a37454e"></a><!-- doxytag: member="qpid::framing::file::ReturnCode" ref="af93e0aa19b21742f9c4a9e2c3a37454e" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00587.html#a72cab85d605bd808e8ab1078df3d4540">qpid::framing::session::DetachCode</a></td>
+          <td class="memname">enum <a class="el" href="a00587.html#af93e0aa19b21742f9c4a9e2c3a37454e">qpid::framing::file::ReturnCode</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="a72cab85d605bd808e8ab1078df3d4540a0b5ac5eec3a6d192ccba5e9212cfbb47"></a><!-- doxytag: member="DETACH_CODE_NORMAL" ref="a72cab85d605bd808e8ab1078df3d4540a0b5ac5eec3a6d192ccba5e9212cfbb47" args="" -->DETACH_CODE_NORMAL</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="af93e0aa19b21742f9c4a9e2c3a37454ea821e09f2bee9786b613c2f14243e9073"></a><!-- doxytag: member="RETURN_CODE_CONTENT_TOO_LARGE" ref="af93e0aa19b21742f9c4a9e2c3a37454ea821e09f2bee9786b613c2f14243e9073" args="" -->RETURN_CODE_CONTENT_TOO_LARGE</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a72cab85d605bd808e8ab1078df3d4540aee5045fa3748a8dcf899288de457741c"></a><!-- doxytag: member="DETACH_CODE_SESSION_BUSY" ref="a72cab85d605bd808e8ab1078df3d4540aee5045fa3748a8dcf899288de457741c" args="" -->DETACH_CODE_SESSION_BUSY</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="af93e0aa19b21742f9c4a9e2c3a37454ea7e0275964855671439006b4a481e2f19"></a><!-- doxytag: member="RETURN_CODE_NO_ROUTE" ref="af93e0aa19b21742f9c4a9e2c3a37454ea7e0275964855671439006b4a481e2f19" args="" -->RETURN_CODE_NO_ROUTE</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a72cab85d605bd808e8ab1078df3d4540ab660f691aa9683149ba04e0175351a41"></a><!-- doxytag: member="DETACH_CODE_TRANSPORT_BUSY" ref="a72cab85d605bd808e8ab1078df3d4540ab660f691aa9683149ba04e0175351a41" args="" -->DETACH_CODE_TRANSPORT_BUSY</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a72cab85d605bd808e8ab1078df3d4540ad49c675a24dc8474110f6d567bbb3283"></a><!-- doxytag: member="DETACH_CODE_NOT_ATTACHED" ref="a72cab85d605bd808e8ab1078df3d4540ad49c675a24dc8474110f6d567bbb3283" args="" -->DETACH_CODE_NOT_ATTACHED</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a72cab85d605bd808e8ab1078df3d4540aecc25c880105bad2f8e9e15e2548f3a5"></a><!-- doxytag: member="DETACH_CODE_UNKNOWN_IDS" ref="a72cab85d605bd808e8ab1078df3d4540aecc25c880105bad2f8e9e15e2548f3a5" args="" -->DETACH_CODE_UNKNOWN_IDS</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="af93e0aa19b21742f9c4a9e2c3a37454eabbdc86842b396d40be46a065f349d093"></a><!-- doxytag: member="RETURN_CODE_NO_CONSUMERS" ref="af93e0aa19b21742f9c4a9e2c3a37454eabbdc86842b396d40be46a065f349d093" args="" -->RETURN_CODE_NO_CONSUMERS</em>&nbsp;</td><td>
 </td></tr>
 </table>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="a00502_source.html#l00059">59</a> of file <a class="el" href="a00502_source.html">enum.h</a>.</p>
+<p>Definition at line <a class="el" href="a00504_source.html#l00152">152</a> of file <a class="el" href="a00504_source.html">enum.h</a>.</p>
 
 </div>
 </div>
@@ -142,7 +133,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

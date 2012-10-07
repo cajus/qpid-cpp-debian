@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/SessionId.h File Reference</title>
+    <title>qpid/Msg.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -61,30 +61,97 @@
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Defines</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/SessionId.h File Reference</div>  </div>
+<div class="title">qpid/Msg.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &lt;boost/operators.hpp&gt;</code><br/>
-<code>#include &lt;string&gt;</code><br/>
-<code>#include &lt;<a class="el" href="a00482_source.html">qpid/CommonImportExport.h</a>&gt;</code><br/>
+<div class="textblock"><code>#include &lt;sstream&gt;</code><br/>
+<code>#include &lt;iostream&gt;</code><br/>
+<code>#include &quot;<a class="el" href="a00445_source.html">qpid/types/ImportExport.h</a>&quot;</code><br/>
 </div>
 <p><a href="a00549_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00333.html">qpid::SessionId</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifier for a session.  <a href="a00333.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html">qpid::Msg</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple wrapper for <a class="el" href="a00245.html" title="STL class.">std::ostringstream</a> that allows in place construction of a message and automatic conversion to string.  <a href="a00218.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html">qpid</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
 <br/></td></tr>
+<tr><td colspan="2"><h2><a name="define-members"></a>
+Defines</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html#a6959c1bc4585740b15772d9e17312371">QUOTE_</a>(x)&#160;&#160;&#160;#x</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a message using operator &lt;&lt; and append (<a href="file:line">file:line</a>)  <a href="#a6959c1bc4585740b15772d9e17312371"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html#a2117b58e19182dff91ad3558e650541d">QUOTE</a>(x)&#160;&#160;&#160;QUOTE_(x)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00549.html#a6852471b830c79460930fbbcfad5bb2b">QPID_MSG</a>(message)&#160;&#160;&#160;(::<a class="el" href="a00218.html">qpid::Msg</a>() &lt;&lt; message &lt;&lt; &quot; (&quot; __FILE__ &quot;:&quot; QUOTE(__LINE__) &quot;)&quot;)</td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html#a62a73b8a9bbaa8ffd9d3dd9a20a76565">qpid::operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;, const SessionId &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html#a6b4ca4bfc4efedb85d1d0be2005d179a">qpid::operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;o, const Msg &amp;m)</td></tr>
 </table>
+<hr/><h2>Define Documentation</h2>
+<a class="anchor" id="a6852471b830c79460930fbbcfad5bb2b"></a><!-- doxytag: member="Msg.h::QPID_MSG" ref="a6852471b830c79460930fbbcfad5bb2b" args="(message)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define QPID_MSG</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">message</td><td>)</td>
+          <td>&#160;&#160;&#160;(::<a class="el" href="a00218.html">qpid::Msg</a>() &lt;&lt; message &lt;&lt; &quot; (&quot; __FILE__ &quot;:&quot; QUOTE(__LINE__) &quot;)&quot;)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00075">75</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2117b58e19182dff91ad3558e650541d"></a><!-- doxytag: member="Msg.h::QUOTE" ref="a2117b58e19182dff91ad3558e650541d" args="(x)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define QUOTE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td>&#160;&#160;&#160;QUOTE_(x)</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00074">74</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6959c1bc4585740b15772d9e17312371"></a><!-- doxytag: member="Msg.h::QUOTE_" ref="a6959c1bc4585740b15772d9e17312371" args="(x)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define QUOTE_</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td>&#160;&#160;&#160;#x</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Construct a message using operator &lt;&lt; and append (<a href="file:line">file:line</a>) </p>
+
+<p>Definition at line <a class="el" href="a00549_source.html#l00073">73</a> of file <a class="el" href="a00549_source.html">Msg.h</a>.</p>
+
+</div>
+</div>
 </div>
 <!--
  
@@ -113,7 +180,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

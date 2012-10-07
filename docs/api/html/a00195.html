@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>std::logic_error Class Reference</title>
+    <title>qpid::log::Logger Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,22 +60,396 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><b>std</b>      </li>
-      <li class="navelem"><a class="el" href="a00195.html">logic_error</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00591.html">log</a>      </li>
+      <li class="navelem"><a class="el" href="a00195.html">Logger</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">std::logic_error Class Reference</div>  </div>
+<div class="title">qpid::log::Logger Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="std::logic_error" --><!-- doxytag: inherits="std::exception" -->
-<p>STL class.  
+<!-- doxytag: class="qpid::log::Logger" -->
+<p>Central logging agent.  
  <a href="a00195.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00531_source.html">qpid/log/Logger.h</a>&gt;</code></p>
+
+<p><a href="a00819.html">List of all members.</a></p>
+<table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00249.html">Output</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Logging output sink.  <a href="a00249.html#details">More...</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#ac508e01bd3e624fded92ce2f9800e12b">FormatFlag</a> { <br/>
+&#160;&#160;<a class="el" href="a00195.html#ac508e01bd3e624fded92ce2f9800e12bab98210c0bfae79fb2532a7fa744fcb63">FILE</a> = 1, 
+<a class="el" href="a00195.html#ac508e01bd3e624fded92ce2f9800e12baa2d536406d3a385db1819d22d67d1760">LINE</a> = 2, 
+<a class="el" href="a00195.html#ac508e01bd3e624fded92ce2f9800e12ba182dc2a197411177de0239b3fde6cbf8">FUNCTION</a> = 4, 
+<a class="el" href="a00195.html#ac508e01bd3e624fded92ce2f9800e12ba9a5dd04e9771e67eb8f97689146f785f">LEVEL</a> = 8, 
+<br/>
+&#160;&#160;<a class="el" href="a00195.html#ac508e01bd3e624fded92ce2f9800e12ba09e5c56b2aa5c110fcaf5b00232def1d">TIME</a> = 16, 
+<a class="el" href="a00195.html#ac508e01bd3e624fded92ce2f9800e12ba189fae3798d0b010384b9010bace065a">THREAD</a> = 32, 
+<a class="el" href="a00195.html#ac508e01bd3e624fded92ce2f9800e12ba765ea7d8bcf89495bb6396c87e813ce0">HIRES</a> = 64, 
+<a class="el" href="a00195.html#ac508e01bd3e624fded92ce2f9800e12baf48071291b1d21ebff06557a839da406">CATEGORY</a> = 128
+<br/>
+ }</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Flags indicating what to include in the log output.  <a href="a00195.html#ac508e01bd3e624fded92ce2f9800e12b">More...</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#a019324448139672bf84c745aabf9b53a">Logger</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#a0887e68a123f200f6089612da6a0756d">~Logger</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#adccae2b2d7d84cbc07a9b56ebb65d194">select</a> (const <a class="el" href="a00319.html">Selector</a> &amp;s)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Select the messages to be logged.  <a href="#adccae2b2d7d84cbc07a9b56ebb65d194"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#aefcef8508020a35036b6e92afe5c633c">format</a> (int formatFlags)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the formatting flags, bitwise OR of FormatFlag values.  <a href="#aefcef8508020a35036b6e92afe5c633c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#adb1a8a89d98cb9dcc840f2ef454804b6">format</a> (const <a class="el" href="a00242.html">Options</a> &amp;)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set format flags from options object.  <a href="#adb1a8a89d98cb9dcc840f2ef454804b6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#a4d17bb55ad352b296010b9b856f1c108">configure</a> (const <a class="el" href="a00242.html">Options</a> &amp;o)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure logger from <a class="el" href="a00242.html" title="Logging options for config parser.">Options</a>.  <a href="#a4d17bb55ad352b296010b9b856f1c108"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#a95a3e039bd6aebb14a20b44f9e451c4d">reconfigure</a> (const <a class="el" href="a00387.html">std::vector</a>&lt; <a class="el" href="a00346.html">std::string</a> &gt; &amp;selectors)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the log selectors.  <a href="#a95a3e039bd6aebb14a20b44f9e451c4d"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#af7b47bbee7f64cb1d52bccb46fa8b5d9">add</a> (<a class="el" href="a00341.html">Statement</a> &amp;s)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a statement.  <a href="#af7b47bbee7f64cb1d52bccb46fa8b5d9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#aeb461434305029bd82416a3b7d474be4">log</a> (const <a class="el" href="a00341.html">Statement</a> &amp;, const <a class="el" href="a00346.html">std::string</a> &amp;)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Log a message.  <a href="#aeb461434305029bd82416a3b7d474be4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#ac3e8b1f5e4babe3f3112b703bf6cb7c8">output</a> (<a class="el" href="a00022.html">std::auto_ptr</a>&lt; <a class="el" href="a00249.html">Output</a> &gt; out)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an output destination for messages.  <a href="#ac3e8b1f5e4babe3f3112b703bf6cb7c8"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#aada642b53b33feaf2e26646ceefa2046">setPrefix</a> (const <a class="el" href="a00346.html">std::string</a> &amp;prefix)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a prefix for all messages.  <a href="#aada642b53b33feaf2e26646ceefa2046"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#aa982cb9fc8e0828fd708ca263d03b534">clear</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the logger.  <a href="#aa982cb9fc8e0828fd708ca263d03b534"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN <br class="typebreak"/>
+const <a class="el" href="a00242.html">Options</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#a8129a037aa8a6a9ac7d4176b189db1da">getOptions</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the options used to configure the logger.  <a href="#a8129a037aa8a6a9ac7d4176b189db1da"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00195.html">Logger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html#a43c49b514bd2973cd5131a96e6a1e270">instance</a> ()</td></tr>
+</table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>STL class. </p>
-</div><hr/>The documentation for this class was generated from the following file:</div>
+<div class="textblock"><p>Central logging agent. </p>
+<p>Thread safe, singleton.</p>
+<p>The <a class="el" href="a00195.html" title="Central logging agent.">Logger</a> provides all needed functionality for selecting and formatting logging output. The actual outputting of log records is handled by <a class="el" href="a00249.html" title="Logging output sink.">Logger::Output</a>-derived classes instantiated by the platform's sink-related options. </p>
+</div><hr/><h2>Member Enumeration Documentation</h2>
+<a class="anchor" id="ac508e01bd3e624fded92ce2f9800e12b"></a><!-- doxytag: member="qpid::log::Logger::FormatFlag" ref="ac508e01bd3e624fded92ce2f9800e12b" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00195.html#ac508e01bd3e624fded92ce2f9800e12b">qpid::log::Logger::FormatFlag</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Flags indicating what to include in the log output. </p>
+<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="ac508e01bd3e624fded92ce2f9800e12bab98210c0bfae79fb2532a7fa744fcb63"></a><!-- doxytag: member="FILE" ref="ac508e01bd3e624fded92ce2f9800e12bab98210c0bfae79fb2532a7fa744fcb63" args="" -->FILE</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ac508e01bd3e624fded92ce2f9800e12baa2d536406d3a385db1819d22d67d1760"></a><!-- doxytag: member="LINE" ref="ac508e01bd3e624fded92ce2f9800e12baa2d536406d3a385db1819d22d67d1760" args="" -->LINE</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ac508e01bd3e624fded92ce2f9800e12ba182dc2a197411177de0239b3fde6cbf8"></a><!-- doxytag: member="FUNCTION" ref="ac508e01bd3e624fded92ce2f9800e12ba182dc2a197411177de0239b3fde6cbf8" args="" -->FUNCTION</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ac508e01bd3e624fded92ce2f9800e12ba9a5dd04e9771e67eb8f97689146f785f"></a><!-- doxytag: member="LEVEL" ref="ac508e01bd3e624fded92ce2f9800e12ba9a5dd04e9771e67eb8f97689146f785f" args="" -->LEVEL</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ac508e01bd3e624fded92ce2f9800e12ba09e5c56b2aa5c110fcaf5b00232def1d"></a><!-- doxytag: member="TIME" ref="ac508e01bd3e624fded92ce2f9800e12ba09e5c56b2aa5c110fcaf5b00232def1d" args="" -->TIME</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ac508e01bd3e624fded92ce2f9800e12ba189fae3798d0b010384b9010bace065a"></a><!-- doxytag: member="THREAD" ref="ac508e01bd3e624fded92ce2f9800e12ba189fae3798d0b010384b9010bace065a" args="" -->THREAD</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ac508e01bd3e624fded92ce2f9800e12ba765ea7d8bcf89495bb6396c87e813ce0"></a><!-- doxytag: member="HIRES" ref="ac508e01bd3e624fded92ce2f9800e12ba765ea7d8bcf89495bb6396c87e813ce0" args="" -->HIRES</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="ac508e01bd3e624fded92ce2f9800e12baf48071291b1d21ebff06557a839da406"></a><!-- doxytag: member="CATEGORY" ref="ac508e01bd3e624fded92ce2f9800e12baf48071291b1d21ebff06557a839da406" args="" -->CATEGORY</em>&nbsp;</td><td>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00531_source.html#l00039">39</a> of file <a class="el" href="a00531_source.html">Logger.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a019324448139672bf84c745aabf9b53a"></a><!-- doxytag: member="qpid::log::Logger::Logger" ref="a019324448139672bf84c745aabf9b53a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::log::Logger::Logger </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0887e68a123f200f6089612da6a0756d"></a><!-- doxytag: member="qpid::log::Logger::~Logger" ref="a0887e68a123f200f6089612da6a0756d" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::log::Logger::~Logger </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="af7b47bbee7f64cb1d52bccb46fa8b5d9"></a><!-- doxytag: member="qpid::log::Logger::add" ref="af7b47bbee7f64cb1d52bccb46fa8b5d9" args="(Statement &amp;s)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::log::Logger::add </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00341.html">Statement</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Add a statement. </p>
+
+</div>
+</div>
+<a class="anchor" id="aa982cb9fc8e0828fd708ca263d03b534"></a><!-- doxytag: member="qpid::log::Logger::clear" ref="aa982cb9fc8e0828fd708ca263d03b534" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::log::Logger::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reset the logger. </p>
+
+</div>
+</div>
+<a class="anchor" id="a4d17bb55ad352b296010b9b856f1c108"></a><!-- doxytag: member="qpid::log::Logger::configure" ref="a4d17bb55ad352b296010b9b856f1c108" args="(const Options &amp;o)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::log::Logger::configure </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00242.html">Options</a> &amp;&#160;</td>
+          <td class="paramname"><em>o</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Configure logger from <a class="el" href="a00242.html" title="Logging options for config parser.">Options</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="aefcef8508020a35036b6e92afe5c633c"></a><!-- doxytag: member="qpid::log::Logger::format" ref="aefcef8508020a35036b6e92afe5c633c" args="(int formatFlags)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::log::Logger::format </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>formatFlags</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set the formatting flags, bitwise OR of FormatFlag values. </p>
+
+</div>
+</div>
+<a class="anchor" id="adb1a8a89d98cb9dcc840f2ef454804b6"></a><!-- doxytag: member="qpid::log::Logger::format" ref="adb1a8a89d98cb9dcc840f2ef454804b6" args="(const Options &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int qpid::log::Logger::format </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00242.html">Options</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set format flags from options object. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>computed flags. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a8129a037aa8a6a9ac7d4176b189db1da"></a><!-- doxytag: member="qpid::log::Logger::getOptions" ref="a8129a037aa8a6a9ac7d4176b189db1da" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_COMMON_INLINE_EXTERN const <a class="el" href="a00242.html">Options</a>&amp; qpid::log::Logger::getOptions </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get the options used to configure the logger. </p>
+
+<p>Definition at line <a class="el" href="a00531_source.html#l00096">96</a> of file <a class="el" href="a00531_source.html">Logger.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a43c49b514bd2973cd5131a96e6a1e270"></a><!-- doxytag: member="qpid::log::Logger::instance" ref="a43c49b514bd2973cd5131a96e6a1e270" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00195.html">Logger</a>&amp; qpid::log::Logger::instance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aeb461434305029bd82416a3b7d474be4"></a><!-- doxytag: member="qpid::log::Logger::log" ref="aeb461434305029bd82416a3b7d474be4" args="(const Statement &amp;, const std::string &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::log::Logger::log </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00341.html">Statement</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Log a message. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac3e8b1f5e4babe3f3112b703bf6cb7c8"></a><!-- doxytag: member="qpid::log::Logger::output" ref="ac3e8b1f5e4babe3f3112b703bf6cb7c8" args="(std::auto_ptr&lt; Output &gt; out)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::log::Logger::output </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00022.html">std::auto_ptr</a>&lt; <a class="el" href="a00249.html">Output</a> &gt;&#160;</td>
+          <td class="paramname"><em>out</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Add an output destination for messages. </p>
+
+</div>
+</div>
+<a class="anchor" id="a95a3e039bd6aebb14a20b44f9e451c4d"></a><!-- doxytag: member="qpid::log::Logger::reconfigure" ref="a95a3e039bd6aebb14a20b44f9e451c4d" args="(const std::vector&lt; std::string &gt; &amp;selectors)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::log::Logger::reconfigure </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00387.html">std::vector</a>&lt; <a class="el" href="a00346.html">std::string</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>selectors</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reset the log selectors. </p>
+
+</div>
+</div>
+<a class="anchor" id="adccae2b2d7d84cbc07a9b56ebb65d194"></a><!-- doxytag: member="qpid::log::Logger::select" ref="adccae2b2d7d84cbc07a9b56ebb65d194" args="(const Selector &amp;s)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::log::Logger::select </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00319.html">Selector</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Select the messages to be logged. </p>
+
+</div>
+</div>
+<a class="anchor" id="aada642b53b33feaf2e26646ceefa2046"></a><!-- doxytag: member="qpid::log::Logger::setPrefix" ref="aada642b53b33feaf2e26646ceefa2046" args="(const std::string &amp;prefix)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::log::Logger::setPrefix </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>prefix</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set a prefix for all messages. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qpid/log/<a class="el" href="a00531_source.html">Logger.h</a></li>
+</ul>
+</div>
 <!--
  
  Licensed to the Apache Software Foundation (ASF) under one
@@ -103,7 +477,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

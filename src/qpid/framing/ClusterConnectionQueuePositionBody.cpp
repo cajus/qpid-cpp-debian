@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ClusterConnectionQueuePositionBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ClusterConnectionQueuePositionBody::setQueue(const std::string& _queue) {
     queue = _queue;
     flags |= (1 << 8);
+    if (queue.size() >= 256) throw IllegalArgumentException("Value for queue is too large");
 }
 const std::string& ClusterConnectionQueuePositionBody::getQueue() const { return queue; }
 bool ClusterConnectionQueuePositionBody::hasQueue() const { return flags & (1 << 8); }

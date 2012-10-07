@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/console/ConsoleImportExport.h Source File</title>
+    <title>qpid/console/Broker.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,44 +58,138 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/console/ConsoleImportExport.h</div>  </div>
+<div class="title">qpid/console/Broker.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00485.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_CONSOLE_IMPORT_EXPORT_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_CONSOLE_IMPORT_EXPORT_H</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span>
-<a name="l00004"></a>00004 <span class="comment">/*</span>
-<a name="l00005"></a>00005 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
-<a name="l00006"></a>00006 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
-<a name="l00007"></a>00007 <span class="comment"> * distributed with this work for additional information</span>
-<a name="l00008"></a>00008 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
-<a name="l00009"></a>00009 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
-<a name="l00010"></a>00010 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
-<a name="l00011"></a>00011 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
+<a href="a00485.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment"> *</span>
+<a name="l00003"></a>00003 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
+<a name="l00004"></a>00004 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
+<a name="l00005"></a>00005 <span class="comment"> * distributed with this work for additional information</span>
+<a name="l00006"></a>00006 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
+<a name="l00007"></a>00007 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
+<a name="l00008"></a>00008 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
+<a name="l00009"></a>00009 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
+<a name="l00010"></a>00010 <span class="comment"> *</span>
+<a name="l00011"></a>00011 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
 <a name="l00012"></a>00012 <span class="comment"> *</span>
-<a name="l00013"></a>00013 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
-<a name="l00014"></a>00014 <span class="comment"> *</span>
-<a name="l00015"></a>00015 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
-<a name="l00016"></a>00016 <span class="comment"> * software distributed under the License is distributed on an</span>
-<a name="l00017"></a>00017 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
-<a name="l00018"></a>00018 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
-<a name="l00019"></a>00019 <span class="comment"> * specific language governing permissions and limitations</span>
-<a name="l00020"></a>00020 <span class="comment"> * under the License.</span>
-<a name="l00021"></a>00021 <span class="comment"> */</span>
-<a name="l00022"></a>00022 
-<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;<a class="code" href="a00441.html">qpid/ImportExport.h</a>&quot;</span>
-<a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="preprocessor">#if defined(CONSOLE_EXPORT) || defined (qmfconsole_EXPORTS)</span>
-<a name="l00026"></a>00026 <span class="preprocessor"></span><span class="preprocessor">#  define QPID_CONSOLE_EXTERN QPID_EXPORT</span>
-<a name="l00027"></a>00027 <span class="preprocessor"></span><span class="preprocessor">#  define QPID_CONSOLE_CLASS_EXTERN QPID_CLASS_EXPORT</span>
-<a name="l00028"></a>00028 <span class="preprocessor"></span><span class="preprocessor">#  define QPID_CONSOLE_INLINE_EXTERN QPID_INLINE_EXPORT</span>
-<a name="l00029"></a>00029 <span class="preprocessor"></span><span class="preprocessor">#else</span>
-<a name="l00030"></a><a class="code" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">00030</a> <span class="preprocessor"></span><span class="preprocessor">#  define QPID_CONSOLE_EXTERN QPID_IMPORT</span>
-<a name="l00031"></a><a class="code" href="a00485.html#a605423c5ca3e6697ff3ef1949ca042f0">00031</a> <span class="preprocessor"></span><span class="preprocessor">#  define QPID_CONSOLE_CLASS_EXTERN QPID_CLASS_IMPORT</span>
-<a name="l00032"></a><a class="code" href="a00485.html#a11f7cb8e03cd49ebeb8f1514a81e81c2">00032</a> <span class="preprocessor"></span><span class="preprocessor">#  define QPID_CONSOLE_INLINE_EXTERN QPID_INLINE_IMPORT</span>
-<a name="l00033"></a>00033 <span class="preprocessor"></span><span class="preprocessor">#endif</span>
-<a name="l00034"></a>00034 <span class="preprocessor"></span>
-<a name="l00035"></a>00035 <span class="preprocessor">#endif</span>
+<a name="l00013"></a>00013 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
+<a name="l00014"></a>00014 <span class="comment"> * software distributed under the License is distributed on an</span>
+<a name="l00015"></a>00015 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<a name="l00016"></a>00016 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
+<a name="l00017"></a>00017 <span class="comment"> * specific language governing permissions and limitations</span>
+<a name="l00018"></a>00018 <span class="comment"> * under the License.</span>
+<a name="l00019"></a>00019 <span class="comment"> *</span>
+<a name="l00020"></a>00020 <span class="comment"> */</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#ifndef _QPID_CONSOLE_BROKER_H_</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define _QPID_CONSOLE_BROKER_H_</span>
+<a name="l00023"></a>00023 <span class="preprocessor"></span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="a00487.html">qpid/console/ConsoleImportExport.h</a>&quot;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00464.html">qpid/client/Connection.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00415.html">qpid/client/ConnectionSettings.h</a>&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00481.html">qpid/client/SubscriptionManager.h</a>&quot;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="a00478.html">qpid/client/Session.h</a>&quot;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="a00459.html">qpid/client/AsyncSession.h</a>&quot;</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &quot;<a class="code" href="a00421.html">qpid/client/Message.h</a>&quot;</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#include &quot;<a class="code" href="a00473.html">qpid/client/MessageListener.h</a>&quot;</span>
+<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="a00570.html">qpid/sys/Thread.h</a>&quot;</span>
+<a name="l00033"></a>00033 <span class="preprocessor">#include &quot;<a class="code" href="a00567.html">qpid/sys/Runnable.h</a>&quot;</span>
+<a name="l00034"></a>00034 <span class="preprocessor">#include &quot;<a class="code" href="a00542.html">qpid/sys/Mutex.h</a>&quot;</span>
+<a name="l00035"></a>00035 <span class="preprocessor">#include &quot;<a class="code" href="a00552.html">qpid/sys/Condition.h</a>&quot;</span>
+<a name="l00036"></a>00036 <span class="preprocessor">#include &quot;<a class="code" href="a00572.html">qpid/Url.h</a>&quot;</span>
+<a name="l00037"></a>00037 <span class="preprocessor">#include &quot;<a class="code" href="a00498.html">qpid/framing/Buffer.h</a>&quot;</span>
+<a name="l00038"></a>00038 <span class="preprocessor">#include &quot;<a class="code" href="a00525.html">qpid/framing/Uuid.h</a>&quot;</span>
+<a name="l00039"></a>00039 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00040"></a>00040 <span class="preprocessor">#include &lt;iostream&gt;</span>
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042 <span class="keyword">namespace </span>qpid {
+<a name="l00043"></a>00043 <span class="keyword">namespace </span>console {
+<a name="l00044"></a>00044     <span class="keyword">class </span>SessionManager;
+<a name="l00045"></a>00045     <span class="keyword">class </span>Agent;
+<a name="l00046"></a>00046     <span class="keyword">class </span>Object;
+<a name="l00047"></a>00047 
+<a name="l00052"></a>00052     <span class="keyword">class </span>Broker : <span class="keyword">public</span> <a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca8a6e04ce91f4d365de37ccc1a4ef0dc9">client</a>::MessageListener {
+<a name="l00053"></a>00053     <span class="keyword">public</span>:
+<a name="l00054"></a>00054         <a class="code" href="a00487.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> <a class="code" href="a00042.html#ab4c07ebb764b9ff1443c403f07f3ebf7">Broker</a>(<a class="code" href="a00042.html#ac01f2e55f53ab751ca060dd59189c930">SessionManager</a>&amp; sm,
+<a name="l00055"></a>00055                                    client::ConnectionSettings&amp; settings);
+<a name="l00056"></a>00056         <a class="code" href="a00487.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> <a class="code" href="a00042.html#a1b8ffb8e4de032a49c3c28660772fc39">~Broker</a>();
+<a name="l00057"></a>00057 
+<a name="l00058"></a><a class="code" href="a00042.html#aa292827121dd5052ccb949bcf74b2f1f">00058</a>         <a class="code" href="a00487.html#a11f7cb8e03cd49ebeb8f1514a81e81c2">QPID_CONSOLE_INLINE_EXTERN</a> <span class="keywordtype">bool</span> <a class="code" href="a00042.html#aa292827121dd5052ccb949bcf74b2f1f">isConnected</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> connected; }
+<a name="l00059"></a><a class="code" href="a00042.html#a29737aed2f237bc41115f323498eac3f">00059</a>         <a class="code" href="a00487.html#a11f7cb8e03cd49ebeb8f1514a81e81c2">QPID_CONSOLE_INLINE_EXTERN</a> <span class="keyword">const</span> std::string&amp; <a class="code" href="a00042.html#a29737aed2f237bc41115f323498eac3f">getError</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> error; }
+<a name="l00060"></a><a class="code" href="a00042.html#a93db3b969b1cc3ddc7c967a22ca45074">00060</a>         <a class="code" href="a00487.html#a11f7cb8e03cd49ebeb8f1514a81e81c2">QPID_CONSOLE_INLINE_EXTERN</a> <span class="keyword">const</span> std::string&amp; <a class="code" href="a00042.html#a93db3b969b1cc3ddc7c967a22ca45074">getSessionId</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> amqpSessionId; }
+<a name="l00061"></a><a class="code" href="a00042.html#a8326e548027290f66d47172c40735337">00061</a>         <a class="code" href="a00487.html#a11f7cb8e03cd49ebeb8f1514a81e81c2">QPID_CONSOLE_INLINE_EXTERN</a> <span class="keyword">const</span> framing::Uuid&amp; <a class="code" href="a00042.html#a8326e548027290f66d47172c40735337">getBrokerId</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> brokerId; }
+<a name="l00062"></a><a class="code" href="a00042.html#a34a262d9e5ff614f3a985e1cf51b6c0c">00062</a>         <a class="code" href="a00487.html#a11f7cb8e03cd49ebeb8f1514a81e81c2">QPID_CONSOLE_INLINE_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00042.html#a34a262d9e5ff614f3a985e1cf51b6c0c">getBrokerBank</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 1; }
+<a name="l00063"></a><a class="code" href="a00042.html#add626831a9a326a8dfc003fa218318f4">00063</a>         <a class="code" href="a00487.html#a11f7cb8e03cd49ebeb8f1514a81e81c2">QPID_CONSOLE_INLINE_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00042.html#add626831a9a326a8dfc003fa218318f4">addBinding</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; key) {
+<a name="l00064"></a>00064             connThreadBody.<a class="code" href="a00068.html#af70b312a49214ec81d0856bcb7c5ec99">bindExchange</a>(<span class="stringliteral">&quot;qpid.management&quot;</span>, key);
+<a name="l00065"></a>00065         }
+<a name="l00066"></a>00066         <a class="code" href="a00487.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> std::string <a class="code" href="a00042.html#a852cce0a1d4430c4713869010e7ed634">getUrl</a>() <span class="keyword">const</span>;
+<a name="l00067"></a>00067         <a class="code" href="a00487.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00042.html#a8b6c3327ce8f7b21fc2c1e2c61c08efa">waitForStable</a>();
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069     <span class="keyword">private</span>:
+<a name="l00070"></a><a class="code" href="a00042.html#ac01f2e55f53ab751ca060dd59189c930">00070</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a00335.html">SessionManager</a>;
+<a name="l00071"></a><a class="code" href="a00042.html#a0720b5f434e636e22a3ed34f847eec57">00071</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a00235.html">Object</a>;
+<a name="l00072"></a>00072         <span class="keyword">typedef</span> std::map&lt;uint64_t,Agent*&gt; <a class="code" href="a00203.html">AgentMap</a>;
+<a name="l00073"></a>00073         <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> SYNC_TIME = 60;
+<a name="l00074"></a>00074 
+<a name="l00075"></a>00075         <a class="code" href="a00335.html">SessionManager</a>&amp; sessionManager;
+<a name="l00076"></a>00076         <a class="code" href="a00203.html">AgentMap</a> agents;
+<a name="l00077"></a>00077         <span class="keywordtype">bool</span> connected;
+<a name="l00078"></a>00078         std::string <a class="code" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587ea3b827b7f174d3318795eaab4e3a3616a">error</a>;
+<a name="l00079"></a>00079         std::string amqpSessionId;
+<a name="l00080"></a>00080         <a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca8a6e04ce91f4d365de37ccc1a4ef0dc9">client</a>::ConnectionSettings connectionSettings;
+<a name="l00081"></a>00081         sys::Mutex lock;
+<a name="l00082"></a>00082         sys::Condition cond;
+<a name="l00083"></a>00083         framing::Uuid brokerId;
+<a name="l00084"></a>00084         <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> reqsOutstanding;
+<a name="l00085"></a>00085         <span class="keywordtype">bool</span> syncInFlight;
+<a name="l00086"></a>00086         <span class="keywordtype">bool</span> topicBound;
+<a name="l00087"></a>00087         <a class="code" href="a00235.html">Object</a>* methodObject;
+<a name="l00088"></a>00088 
+<a name="l00089"></a><a class="code" href="a00042.html#ac38c8114bd8f713753b8d5b75dfae44d">00089</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a00068.html">ConnectionThread</a>;
+<a name="l00090"></a>00090         <span class="keyword">class </span><a class="code" href="a00068.html">ConnectionThread</a> : <span class="keyword">public</span> sys::Runnable {
+<a name="l00091"></a>00091             <span class="keywordtype">bool</span> operational;
+<a name="l00092"></a>00092             <span class="keywordtype">bool</span> shuttingDown;
+<a name="l00093"></a>00093             <a class="code" href="a00042.html">Broker</a>&amp;              broker;
+<a name="l00094"></a>00094             framing::Uuid        sessionId;
+<a name="l00095"></a>00095             <a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca8a6e04ce91f4d365de37ccc1a4ef0dc9">client</a>::Connection   connection;
+<a name="l00096"></a>00096             <a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca8a6e04ce91f4d365de37ccc1a4ef0dc9">client</a><a class="code" href="a00578.html#aa15500ce0ba4cea17f4226bebe584a67" title="Session is an alias for Session_0_10.">::Session</a>      session;
+<a name="l00097"></a>00097             <a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca8a6e04ce91f4d365de37ccc1a4ef0dc9">client</a>::SubscriptionManager* subscriptions;
+<a name="l00098"></a>00098             std::stringstream queueName;
+<a name="l00099"></a>00099             sys::Mutex        connLock;
+<a name="l00100"></a>00100             <span class="keywordtype">void</span> run();
+<a name="l00101"></a>00101         <span class="keyword">public</span>:
+<a name="l00102"></a><a class="code" href="a00068.html#abfc07f86b011cea1f35ff5894c1417e7">00102</a>             <a class="code" href="a00068.html#abfc07f86b011cea1f35ff5894c1417e7">ConnectionThread</a>(<a class="code" href="a00042.html">Broker</a>&amp; _broker) :
+<a name="l00103"></a>00103                 operational(false), shuttingDown(false), broker(_broker), subscriptions(0) {}
+<a name="l00104"></a>00104             <a class="code" href="a00068.html#a3d94d5006d9203729ba127dde0f2ab0e">~ConnectionThread</a>();
+<a name="l00105"></a>00105             <span class="keywordtype">void</span> <a class="code" href="a00068.html#a370380acad3d7192b17eb1a0b74c1af9">sendBuffer</a>(<a class="code" href="a00045.html">qpid::framing::Buffer</a>&amp; buf,
+<a name="l00106"></a>00106                             <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>               length,
+<a name="l00107"></a>00107                             <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;     exchange = <span class="stringliteral">&quot;qpid.management&quot;</span>,
+<a name="l00108"></a>00108                             <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp;     routingKey = <span class="stringliteral">&quot;broker&quot;</span>);
+<a name="l00109"></a>00109             <span class="keywordtype">void</span> <a class="code" href="a00068.html#af70b312a49214ec81d0856bcb7c5ec99">bindExchange</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; exchange, <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; key);
+<a name="l00110"></a>00110             <span class="keywordtype">void</span> <a class="code" href="a00068.html#ae5b071d7b38fa6d0db2b6a5de97554e3">shutdown</a>();
+<a name="l00111"></a>00111         };
+<a name="l00112"></a>00112 
+<a name="l00113"></a>00113         <a class="code" href="a00042.html#ac38c8114bd8f713753b8d5b75dfae44d">ConnectionThread</a> connThreadBody;
+<a name="l00114"></a>00114         sys::Thread      connThread;
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116         <span class="keywordtype">void</span> encodeHeader(<a class="code" href="a00045.html">framing::Buffer</a>&amp; buf, <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> opcode, <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> seq = 0) <span class="keyword">const</span>;
+<a name="l00117"></a>00117         <span class="keywordtype">bool</span> checkHeader(<a class="code" href="a00045.html">framing::Buffer</a>&amp; buf, <a class="code" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *opcode, <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> *seq) <span class="keyword">const</span>;
+<a name="l00118"></a>00118         <span class="keywordtype">void</span> received(<a class="code" href="a00208.html" title="A message sent to or received from the broker.">client::Message</a>&amp; msg);
+<a name="l00119"></a>00119         <span class="keywordtype">void</span> resetAgents();
+<a name="l00120"></a>00120         <span class="keywordtype">void</span> updateAgent(<span class="keyword">const</span> <a class="code" href="a00235.html">Object</a>&amp; <span class="keywordtype">object</span>);
+<a name="l00121"></a>00121         <span class="keywordtype">void</span> incOutstanding();
+<a name="l00122"></a>00122         <span class="keywordtype">void</span> decOutstanding();
+<a name="l00123"></a>00123         <span class="keywordtype">void</span> setBrokerId(<span class="keyword">const</span> <a class="code" href="a00376.html" title="A UUID is represented as a boost::array of 16 bytes.">framing::Uuid</a>&amp; <span class="keywordtype">id</span>) { brokerId = id; }
+<a name="l00124"></a>00124         <span class="keywordtype">void</span> appendAgents(<a class="code" href="a00387.html" title="STL class.">std::vector&lt;Agent*&gt;</a>&amp; agents) <span class="keyword">const</span>;
+<a name="l00125"></a>00125 
+<a name="l00126"></a>00126         <span class="keyword">friend</span> std::ostream&amp; <a class="code" href="a00042.html#a5d0b1ef03b271cf0adfd7059116e287d">operator&lt;&lt;</a>(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp; o, <span class="keyword">const</span> <a class="code" href="a00042.html#ab4c07ebb764b9ff1443c403f07f3ebf7">Broker</a>&amp; k);
+<a name="l00127"></a>00127     };
+<a name="l00128"></a>00128 
+<a name="l00129"></a>00129     std::ostream&amp; <a class="code" href="a00581.html#a763bc9be304a9da97f6446b8ff47eef5">operator&lt;&lt;</a>(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp; o, <span class="keyword">const</span> Broker&amp; k);
+<a name="l00130"></a>00130 }
+<a name="l00131"></a>00131 }
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--
@@ -125,7 +219,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

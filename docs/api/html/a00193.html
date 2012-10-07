@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::client::LocalQueue Class Reference</title>
+    <title>qpid::framing::ListValue Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,151 +60,86 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00576.html">client</a>      </li>
-      <li class="navelem"><a class="el" href="a00193.html">LocalQueue</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00582.html">framing</a>      </li>
+      <li class="navelem"><a class="el" href="a00193.html">ListValue</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pro-static-methods">Static Protected Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::client::LocalQueue Class Reference</div>  </div>
+<div class="title">qpid::framing::ListValue Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::client::LocalQueue" --><!-- doxytag: inherits="Handle&lt; LocalQueueImpl &gt;" -->
-<p>A local queue to collect messages retrieved from a remote broker queue.  
- <a href="a00193.html#details">More...</a></p>
+<!-- doxytag: class="qpid::framing::ListValue" --><!-- doxytag: inherits="qpid::framing::FieldValue" -->
+<p><code>#include &lt;<a class="el" href="a00508_source.html">qpid/framing/FieldValue.h</a>&gt;</code></p>
 
-<p><code>#include &lt;<a class="el" href="a00470_source.html">qpid/client/LocalQueue.h</a>&gt;</code></p>
-
-<p><a href="a00690.html">List of all members.</a></p>
+<p><a href="a00779.html">List of all members.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00190.html">List</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html#af14940981c8ae3e5ade6e0e591cf8d83">ValueType</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html#a86b2fcbc65e5a4c03a1f09d85583d4c7">LocalQueue</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a local queue.  <a href="#a86b2fcbc65e5a4c03a1f09d85583d4c7"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html#aef94543e815bd2bc817fad4845a30a35">LocalQueue</a> (const <a class="el" href="a00193.html">LocalQueue</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html#a672042b5faba2af8ac355467b338f656">~LocalQueue</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00193.html">LocalQueue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html#abc7977374204ae9a7d743b2c08f05d3a">operator=</a> (const <a class="el" href="a00193.html">LocalQueue</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html#a6280a01fd2b01069412909225d7f503f">get</a> (<a class="el" href="a00206.html">Message</a> &amp;result, <a class="el" href="a00103.html">sys::Duration</a> timeout=0)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait up to timeout for the next message from the local queue.  <a href="#a6280a01fd2b01069412909225d7f503f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00206.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html#af35cc1d347d6ffc94416b1ea33fdc38f">get</a> (<a class="el" href="a00103.html">sys::Duration</a> timeout=<a class="el" href="a00592.html#a3aa132e281f66ba27d5fd25d71043bc0">sys::TIME_INFINITE</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the next message off the local queue, or wait up to the timeout for message from the broker queue.  <a href="#af35cc1d347d6ffc94416b1ea33fdc38f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00206.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html#abf6253c5f4a8da967e0d3e57eeab2317">pop</a> (<a class="el" href="a00103.html">sys::Duration</a> timeout=<a class="el" href="a00592.html#a3aa132e281f66ba27d5fd25d71043bc0">sys::TIME_INFINITE</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Synonym for <a class="el" href="a00193.html#a6280a01fd2b01069412909225d7f503f" title="Wait up to timeout for the next message from the local queue.">get()</a>  <a href="#abf6253c5f4a8da967e0d3e57eeab2317"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html#a93e7eae407ac6149ad30ea5d21f1963d">empty</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if local queue is empty.  <a href="#a93e7eae407ac6149ad30ea5d21f1963d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html#ae4c1886fb9c9a5660d7297a92a26ccc6">size</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of messages on the local queue.  <a href="#ae4c1886fb9c9a5660d7297a92a26ccc6"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html#a8057ecce82d9220868b9c30ee4c7a9cc">LocalQueue</a> (LocalQueueImpl *)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#a57379e651d725b0f73edcb714e9efbc7">isValid</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#ae6f5dd2c23bdf3016f4afcd32057b9c5">isNull</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#a00461424a31faee8e158a6502a014c3d">operator bool</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to bool supports idiom if (handle) { handle-&gt;...  <a href="#a00461424a31faee8e158a6502a014c3d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_CLIENT_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#a6e69e13fa5ed709abebdbf6868b5eff4">operator!</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }.  <a href="#a6e69e13fa5ed709abebdbf6868b5eff4"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#a5092920190f6ad01c851996395cf33b5">swap</a> (<a class="el" href="a00140.html">Handle</a>&lt; T &gt; &amp;h)</td></tr>
-<tr><td colspan="2"><h2><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">Impl *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00140.html#adf6d72d2a888cabcd0b60178419aad59">impl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00193.html#a8a6d603b0920f7d879727736495314db">ListValue</a> (const <a class="el" href="a00190.html">List</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#afbfa57a2201cbf1cbdacf9348a151836">setType</a> (<a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> type)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#a04733582a526cc63041584f826986fdd">getType</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00095.html">Data</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#a2b86b28664416550394345eaad87c27a">getData</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#ac3c945b063162e969a83696e58faa940">encodedSize</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#a01492e48a30259f9a01fe68c2a797a55">empty</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#a3bfecf0212e14ce84613f1bfff4af991">encode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;buffer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#ab6f20bc5872620ce13c32ddc9c90aa2c">decode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;buffer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#a38c77de4637465a9be0d981afe12009e">operator==</a> (const <a class="el" href="a00127.html">FieldValue</a> &amp;) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#affd3877cde74370c5c3a1d3f9ddbd164">operator!=</a> (const <a class="el" href="a00127.html">FieldValue</a> &amp;v) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#ad5c51d404ce77bec34caa72673fefcad">print</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;out) const </td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00127.html#abacc2b0d7a0514fd8d0de7cb71c0f786">convertsTo</a> () const </td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00127.html#aeff9f97cc00e08c176abd5787ab57d46">get</a> () const </td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00127.html#a21f6bd8d2f902aeebd72a6eef8dc6089">get</a> (T &amp;) const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor that can be used to get values of type <a class="el" href="a00125.html" title="A set of name-value pairs.">FieldTable</a>, <a class="el" href="a00016.html">Array</a> and <a class="el" href="a00190.html" title="Representation of an AMQP 0-10 list.">List</a>.  <a href="#a21f6bd8d2f902aeebd72a6eef8dc6089"></a><br/></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T , int W&gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00127.html#a694aa76d11fb72c08e14d784387f964f">getIntegerValue</a> () const </td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00127.html#a64fc6a55e7b5d9c2ef484c2fc1d2c7d3">getIntegerValue</a> () const </td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class T , int W&gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00127.html#ae1e2adfd64967f7599ff08bac240f0d6">getFloatingPointValue</a> () const </td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;int W&gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00127.html#a0c9ff7e35026d5b05b1aa66ceaaf233c">getFixedWidthValue</a> (unsigned char *) const </td></tr>
+<tr><td colspan="2"><h2><a name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00127.html#a74c8b51fa57fa8e0707defd20cf8975f">convertIfRequired</a> (<a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *const octets, int width)</td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>A local queue to collect messages retrieved from a remote broker queue. </p>
-<p>Create a queue and subscribe it using the <a class="el" href="a00352.html" title="A class to help create and manage subscriptions.">SubscriptionManager</a>. Messages from the remote queue on the broker will be stored in the local queue until you retrieve them.</p>
-<p>Using a Local Queue</p>
-<pre>
- <a class="el" href="a00193.html" title="A local queue to collect messages retrieved from a remote broker queue.">LocalQueue</a> local_queue;
- subscriptions.subscribe(local_queue, string("message_queue"));
- for (int i=0; i&lt;10; i++) {
-   <a class="el" href="a00206.html" title="A message sent to or received from the broker.">Message</a> message = local_queue.get();
-   std::cout &lt;&lt; message.getData() &lt;&lt; std::endl;
- }
- </pre><h2>Getting Messages</h2>
-<ul>
-<li>
-<p class="startli"></p>
-<p class="endli"><a class="el" href="a00193.html#a6280a01fd2b01069412909225d7f503f" title="Wait up to timeout for the next message from the local queue.">get()</a> </p>
-<pre><a class="el" href="a00206.html" title="A message sent to or received from the broker.">Message</a> message = local_queue.get();</pre> <pre>// Specifying timeouts (TIME_SEC, TIME_MSEC, TIME_USEC, TIME_NSEC)
-#include &lt;<a class="el" href="a00563.html">qpid/sys/Time.h</a>&gt;
-<a class="el" href="a00206.html" title="A message sent to or received from the broker.">Message</a> message;
-local_queue.get(message, 5*sys::TIME_SEC);</pre></li>
-</ul>
-<h2>Checking size</h2>
-<ul>
-<li>
-<p class="startli"></p>
-<p class="endli"><a class="el" href="a00193.html#a93e7eae407ac6149ad30ea5d21f1963d" title="Return true if local queue is empty.">empty()</a> </p>
-<pre>if (local_queue.empty()) { ... }</pre> </li>
-<li>
-<p class="startli"></p>
-<p class="endli"><a class="el" href="a00193.html#ae4c1886fb9c9a5660d7297a92a26ccc6" title="Number of messages on the local queue.">size()</a> </p>
-<pre>std::cout &lt;&lt; local_queue.size();</pre> </li>
-</ul>
-</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a86b2fcbc65e5a4c03a1f09d85583d4c7"></a><!-- doxytag: member="qpid::client::LocalQueue::LocalQueue" ref="a86b2fcbc65e5a4c03a1f09d85583d4c7" args="()" -->
+<hr/><h2>Member Typedef Documentation</h2>
+<a class="anchor" id="af14940981c8ae3e5ade6e0e591cf8d83"></a><!-- doxytag: member="qpid::framing::ListValue::ValueType" ref="af14940981c8ae3e5ade6e0e591cf8d83" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::client::LocalQueue::LocalQueue </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">typedef <a class="el" href="a00190.html">List</a> <a class="el" href="a00193.html#af14940981c8ae3e5ade6e0e591cf8d83">qpid::framing::ListValue::ValueType</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Create a local queue. </p>
-<p>Subscribe the local queue to a remote broker queue with a <a class="el" href="a00352.html" title="A class to help create and manage subscriptions.">SubscriptionManager</a>.</p>
-<p><a class="el" href="a00193.html" title="A local queue to collect messages retrieved from a remote broker queue.">LocalQueue</a> is an alternative to implementing a <a class="el" href="a00209.html" title="Implement a subclass of MessageListener and subscribe it using the SubscriptionManager to receive mes...">MessageListener</a>. </p>
+<p>Definition at line <a class="el" href="a00508_source.html#l00450">450</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aef94543e815bd2bc817fad4845a30a35"></a><!-- doxytag: member="qpid::client::LocalQueue::LocalQueue" ref="aef94543e815bd2bc817fad4845a30a35" args="(const LocalQueue &amp;)" -->
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a8a6d603b0920f7d879727736495314db"></a><!-- doxytag: member="qpid::framing::ListValue::ListValue" ref="a8a6d603b0920f7d879727736495314db" args="(const List &amp;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::client::LocalQueue::LocalQueue </td>
+          <td class="memname">qpid::framing::ListValue::ListValue </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00193.html">LocalQueue</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a672042b5faba2af8ac355467b338f656"></a><!-- doxytag: member="qpid::client::LocalQueue::~LocalQueue" ref="a672042b5faba2af8ac355467b338f656" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::client::LocalQueue::~LocalQueue </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a8057ecce82d9220868b9c30ee4c7a9cc"></a><!-- doxytag: member="qpid::client::LocalQueue::LocalQueue" ref="a8057ecce82d9220868b9c30ee4c7a9cc" args="(LocalQueueImpl *)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::client::LocalQueue::LocalQueue </td>
-          <td>(</td>
-          <td class="paramtype">LocalQueueImpl *&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00190.html">List</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -215,137 +150,41 @@ local_queue.get(message, 5*sys::TIME_SEC);</pre></li>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a93e7eae407ac6149ad30ea5d21f1963d"></a><!-- doxytag: member="qpid::client::LocalQueue::empty" ref="a93e7eae407ac6149ad30ea5d21f1963d" args="() const " -->
+<a class="anchor" id="a74c8b51fa57fa8e0707defd20cf8975f"></a><!-- doxytag: member="qpid::framing::ListValue::convertIfRequired" ref="a74c8b51fa57fa8e0707defd20cf8975f" args="(uint8_t *const octets, int width)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool qpid::client::LocalQueue::empty </td>
+          <td class="memname">static <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* qpid::framing::FieldValue::convertIfRequired </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Return true if local queue is empty. </p>
-
-</div>
-</div>
-<a class="anchor" id="a6280a01fd2b01069412909225d7f503f"></a><!-- doxytag: member="qpid::client::LocalQueue::get" ref="a6280a01fd2b01069412909225d7f503f" args="(Message &amp;result, sys::Duration timeout=0)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::client::LocalQueue::get </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00206.html">Message</a> &amp;&#160;</td>
-          <td class="paramname"><em>result</em>, </td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *const&#160;</td>
+          <td class="paramname"><em>octets</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00103.html">sys::Duration</a>&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code>0</code>&#160;</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>width</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td><code> [static, protected, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Wait up to timeout for the next message from the local queue. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">result</td><td>Set to the message from the queue. </td></tr>
-    <tr><td class="paramname">timeout</td><td>wait up this timeout for a message to appear. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if result was set, false if queue was empty after timeout. </dd></dl>
+<p>Referenced by <a class="el" href="a00508_source.html#l00213">qpid::framing::FieldValue::getFloatingPointValue()</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="af35cc1d347d6ffc94416b1ea33fdc38f"></a><!-- doxytag: member="qpid::client::LocalQueue::get" ref="af35cc1d347d6ffc94416b1ea33fdc38f" args="(sys::Duration timeout=sys::TIME_INFINITE)" -->
+<a class="anchor" id="abacc2b0d7a0514fd8d0de7cb71c0f786"></a><!-- doxytag: member="qpid::framing::ListValue::convertsTo" ref="abacc2b0d7a0514fd8d0de7cb71c0f786" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00206.html">Message</a> qpid::client::LocalQueue::get </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00103.html">sys::Duration</a>&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="a00592.html#a3aa132e281f66ba27d5fd25d71043bc0">sys::TIME_INFINITE</a></code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Get the next message off the local queue, or wait up to the timeout for message from the broker queue. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">timeout</td><td>wait up this timeout for a message to appear. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>message from the queue. </dd></dl>
-<dl><dt><b>Exceptions:</b></dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="a00050.html">ClosedException</a></td><td>if subscription is closed or timeout exceeded. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="ae6f5dd2c23bdf3016f4afcd32057b9c5"></a><!-- doxytag: member="qpid::client::LocalQueue::isNull" ref="ae6f5dd2c23bdf3016f4afcd32057b9c5" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_CLIENT_INLINE_EXTERN bool qpid::client::Handle::isNull </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is null. It is an error to call any function on a null handle. </dd></dl>
-
-<p>Definition at line <a class="el" href="a00438_source.html#l00046">46</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a57379e651d725b0f73edcb714e9efbc7"></a><!-- doxytag: member="qpid::client::LocalQueue::isValid" ref="a57379e651d725b0f73edcb714e9efbc7" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_CLIENT_INLINE_EXTERN bool qpid::client::Handle::isValid </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is valid, i.e. not null. </dd></dl>
-
-<p>Definition at line <a class="el" href="a00438_source.html#l00043">43</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a00461424a31faee8e158a6502a014c3d"></a><!-- doxytag: member="qpid::client::LocalQueue::operator bool" ref="a00461424a31faee8e158a6502a014c3d" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_CLIENT_INLINE_EXTERN qpid::client::Handle::operator bool </td>
+          <td class="memname">bool qpid::framing::FieldValue::convertsTo&lt; int64_t &gt; </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const<code> [inline, inherited]</code></td>
@@ -354,19 +193,33 @@ local_queue.get(message, 5*sys::TIME_SEC);</pre></li>
 </div>
 <div class="memdoc">
 
-<p>Conversion to bool supports idiom if (handle) { handle-&gt;... </p>
-<p>} </p>
-
-<p>Definition at line <a class="el" href="a00438_source.html#l00049">49</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
+<p>Definition at line <a class="el" href="a00508_source.html#l00097">97</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a6e69e13fa5ed709abebdbf6868b5eff4"></a><!-- doxytag: member="qpid::client::LocalQueue::operator!" ref="a6e69e13fa5ed709abebdbf6868b5eff4" args="() const " -->
+<a class="anchor" id="ab6f20bc5872620ce13c32ddc9c90aa2c"></a><!-- doxytag: member="qpid::framing::ListValue::decode" ref="ab6f20bc5872620ce13c32ddc9c90aa2c" args="(Buffer &amp;buffer)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QPID_CLIENT_INLINE_EXTERN bool qpid::client::Handle::operator! </td>
+          <td class="memname">void qpid::framing::FieldValue::decode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a01492e48a30259f9a01fe68c2a797a55"></a><!-- doxytag: member="qpid::framing::ListValue::empty" ref="a01492e48a30259f9a01fe68c2a797a55" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::FieldValue::empty </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const<code> [inline, inherited]</code></td>
@@ -375,22 +228,20 @@ local_queue.get(message, 5*sys::TIME_SEC);</pre></li>
 </div>
 <div class="memdoc">
 
-<p>Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }. </p>
-
-<p>Definition at line <a class="el" href="a00438_source.html#l00052">52</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
+<p>Definition at line <a class="el" href="a00508_source.html#l00089">89</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="abc7977374204ae9a7d743b2c08f05d3a"></a><!-- doxytag: member="qpid::client::LocalQueue::operator=" ref="abc7977374204ae9a7d743b2c08f05d3a" args="(const LocalQueue &amp;)" -->
+<a class="anchor" id="a3bfecf0212e14ce84613f1bfff4af991"></a><!-- doxytag: member="qpid::framing::ListValue::encode" ref="a3bfecf0212e14ce84613f1bfff4af991" args="(Buffer &amp;buffer)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00193.html">LocalQueue</a>&amp; qpid::client::LocalQueue::operator= </td>
+          <td class="memname">void qpid::framing::FieldValue::encode </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00193.html">LocalQueue</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
@@ -398,80 +249,254 @@ local_queue.get(message, 5*sys::TIME_SEC);</pre></li>
 
 </div>
 </div>
-<a class="anchor" id="abf6253c5f4a8da967e0d3e57eeab2317"></a><!-- doxytag: member="qpid::client::LocalQueue::pop" ref="abf6253c5f4a8da967e0d3e57eeab2317" args="(sys::Duration timeout=sys::TIME_INFINITE)" -->
+<a class="anchor" id="ac3c945b063162e969a83696e58faa940"></a><!-- doxytag: member="qpid::framing::ListValue::encodedSize" ref="ac3c945b063162e969a83696e58faa940" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00206.html">Message</a> qpid::client::LocalQueue::pop </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00103.html">sys::Duration</a>&#160;</td>
-          <td class="paramname"><em>timeout</em> = <code><a class="el" href="a00592.html#a3aa132e281f66ba27d5fd25d71043bc0">sys::TIME_INFINITE</a></code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Synonym for <a class="el" href="a00193.html#a6280a01fd2b01069412909225d7f503f" title="Wait up to timeout for the next message from the local queue.">get()</a> </p>
-
-</div>
-</div>
-<a class="anchor" id="ae4c1886fb9c9a5660d7297a92a26ccc6"></a><!-- doxytag: member="qpid::client::LocalQueue::size" ref="ae4c1886fb9c9a5660d7297a92a26ccc6" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t qpid::client::LocalQueue::size </td>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::FieldValue::encodedSize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Number of messages on the local queue. </p>
+<p>Definition at line <a class="el" href="a00508_source.html#l00088">88</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a5092920190f6ad01c851996395cf33b5"></a><!-- doxytag: member="qpid::client::LocalQueue::swap" ref="a5092920190f6ad01c851996395cf33b5" args="(Handle&lt; T &gt; &amp;h)" -->
+<a class="anchor" id="aeff9f97cc00e08c176abd5787ab57d46"></a><!-- doxytag: member="qpid::framing::ListValue::get" ref="aeff9f97cc00e08c176abd5787ab57d46" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::client::Handle::swap </td>
+          <td class="memname">double qpid::framing::FieldValue::get&lt; double &gt; </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00140.html">Handle</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>h</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00098">98</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a21f6bd8d2f902aeebd72a6eef8dc6089"></a><!-- doxytag: member="qpid::framing::ListValue::get" ref="a21f6bd8d2f902aeebd72a6eef8dc6089" args="(T &amp;) const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::FieldValue::get </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Accessor that can be used to get values of type <a class="el" href="a00125.html" title="A set of name-value pairs.">FieldTable</a>, <a class="el" href="a00016.html">Array</a> and <a class="el" href="a00190.html" title="Representation of an AMQP 0-10 list.">List</a>. </p>
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00325">325</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2b86b28664416550394345eaad87c27a"></a><!-- doxytag: member="qpid::framing::ListValue::getData" ref="a2b86b28664416550394345eaad87c27a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00095.html">Data</a>&amp; qpid::framing::FieldValue::getData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td><code> [inline, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00438_source.html#l00054">54</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
+<p>Definition at line <a class="el" href="a00508_source.html#l00087">87</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="adf6d72d2a888cabcd0b60178419aad59"></a><!-- doxytag: member="qpid::client::LocalQueue::impl" ref="adf6d72d2a888cabcd0b60178419aad59" args="" -->
+<a class="anchor" id="a0c9ff7e35026d5b05b1aa66ceaaf233c"></a><!-- doxytag: member="qpid::framing::ListValue::getFixedWidthValue" ref="a0c9ff7e35026d5b05b1aa66ceaaf233c" args="(unsigned char *) const " -->
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;int W&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">Impl* <a class="el" href="a00140.html#adf6d72d2a888cabcd0b60178419aad59">qpid::client::Handle::impl</a><code> [protected, inherited]</code></td>
+          <td class="memname">void qpid::framing::FieldValue::getFixedWidthValue </td>
+          <td>(</td>
+          <td class="paramtype">unsigned char *&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00438_source.html#l00064">64</a> of file <a class="el" href="a00438_source.html">Handle.h</a>.</p>
+<p>Definition at line <a class="el" href="a00508_source.html#l00226">226</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae1e2adfd64967f7599ff08bac240f0d6"></a><!-- doxytag: member="qpid::framing::ListValue::getFloatingPointValue" ref="ae1e2adfd64967f7599ff08bac240f0d6" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , int W&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T qpid::framing::FieldValue::getFloatingPointValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00213">213</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
+
+<p>References <a class="el" href="a00127.html#a74c8b51fa57fa8e0707defd20cf8975f">qpid::framing::FieldValue::convertIfRequired()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a694aa76d11fb72c08e14d784387f964f"></a><!-- doxytag: member="qpid::framing::ListValue::getIntegerValue" ref="a694aa76d11fb72c08e14d784387f964f" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T qpid::framing::FieldValue::getIntegerValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00184">184</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a64fc6a55e7b5d9c2ef484c2fc1d2c7d3"></a><!-- doxytag: member="qpid::framing::ListValue::getIntegerValue" ref="a64fc6a55e7b5d9c2ef484c2fc1d2c7d3" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">T qpid::framing::FieldValue::getIntegerValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a04733582a526cc63041584f826986fdd"></a><!-- doxytag: member="qpid::framing::ListValue::getType" ref="a04733582a526cc63041584f826986fdd" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> qpid::framing::FieldValue::getType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="affd3877cde74370c5c3a1d3f9ddbd164"></a><!-- doxytag: member="qpid::framing::ListValue::operator!=" ref="affd3877cde74370c5c3a1d3f9ddbd164" args="(const FieldValue &amp;v) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_COMMON_INLINE_EXTERN bool qpid::framing::FieldValue::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00127.html">FieldValue</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00093">93</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a38c77de4637465a9be0d981afe12009e"></a><!-- doxytag: member="qpid::framing::ListValue::operator==" ref="a38c77de4637465a9be0d981afe12009e" args="(const FieldValue &amp;) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::FieldValue::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00127.html">FieldValue</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad5c51d404ce77bec34caa72673fefcad"></a><!-- doxytag: member="qpid::framing::ListValue::print" ref="ad5c51d404ce77bec34caa72673fefcad" args="(std::ostream &amp;out) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FieldValue::print </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>out</em></td><td>)</td>
+          <td> const<code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Referenced by <a class="el" href="a00508_source.html#l00135">qpid::framing::operator&lt;&lt;()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afbfa57a2201cbf1cbdacf9348a151836"></a><!-- doxytag: member="qpid::framing::ListValue::setType" ref="afbfa57a2201cbf1cbdacf9348a151836" args="(uint8_t type)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FieldValue::setType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/client/<a class="el" href="a00470_source.html">LocalQueue.h</a></li>
+<li>qpid/framing/<a class="el" href="a00508_source.html">FieldValue.h</a></li>
 </ul>
 </div>
 <!--
@@ -501,7 +526,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

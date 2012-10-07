@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::client::FailoverListener Class Reference</title>
+    <title>qpid::framing::ExchangeBoundResult Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,96 +60,152 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00576.html">client</a>      </li>
-      <li class="navelem"><a class="el" href="a00118.html">FailoverListener</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00582.html">framing</a>      </li>
+      <li class="navelem"><a class="el" href="a00118.html">ExchangeBoundResult</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="#pri-types">Private Types</a> &#124;
-<a href="#pri-methods">Private Member Functions</a>  </div>
+<a href="#friends">Friends</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::client::FailoverListener Class Reference</div>  </div>
+<div class="title">qpid::framing::ExchangeBoundResult Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::client::FailoverListener" --><!-- doxytag: inherits="qpid::client::MessageListener,qpid::sys::Runnable" -->
-<p>Listen for updates from the amq.failover exchange.  
- <a href="a00118.html#details">More...</a></p>
+<!-- doxytag: class="qpid::framing::ExchangeBoundResult" -->
+<p><code>#include &lt;<a class="el" href="a00505_source.html">qpid/framing/ExchangeBoundResult.h</a>&gt;</code></p>
 
-<p><code>#include &lt;<a class="el" href="a00464_source.html">qpid/client/FailoverListener.h</a>&gt;</code></p>
-
-<p><a href="a00680.html">List of all members.</a></p>
+<p><a href="a00748.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#a68b519623a0a4d3b17cae8261164980d">FailoverListener</a> (<a class="el" href="a00058.html">Connection</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribe to amq.failover exchange.  <a href="#a68b519623a0a4d3b17cae8261164980d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#a99ee8bbe5c3d95a7ff7e633f25824832">FailoverListener</a> (<a class="el" href="a00058.html">Connection</a>, bool useInitial)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Subscribe to amq.failover exchange.  <a href="#a99ee8bbe5c3d95a7ff7e633f25824832"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#ae1ab635dbb52e5db8c230d8f6d683ae8">~FailoverListener</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00386.html">std::vector</a>&lt; <a class="el" href="a00373.html">Url</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#ab02a17be815ff38783b0f539f3cc16b4">getKnownBrokers</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the latest list of known broker URLs.  <a href="#ab02a17be815ff38783b0f539f3cc16b4"></a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00386.html">std::vector</a>&lt; <a class="el" href="a00373.html">Url</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#a882650870f3aef8515fb79116fd4183e">getKnownBrokers</a> (const <a class="el" href="a00206.html">Message</a> &amp;m)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the broker list from a failover exchange message.  <a href="#a882650870f3aef8515fb79116fd4183e"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#a3e8a64f77a4dac3a10c052fe696c4811">ExchangeBoundResult</a> (bool _exchangeNotFound, bool _queueNotFound, bool _queueNotMatched, bool _keyNotMatched, bool _argsNotMatched)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#a985bc5f303fe8cefd895894c1301762d">ExchangeBoundResult</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#a9a6442471a8023becbc5c5ea1e90bf4b">setExchangeNotFound</a> (bool _exchangeNotFound)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#a5c09af54374afa9533ce27df1703f22f">getExchangeNotFound</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#aaa7ba13213212e6926f6ccac22b7c3c7">setQueueNotFound</a> (bool _queueNotFound)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#ac17d61ce6c699e41aa29535143112fb5">getQueueNotFound</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#a5a85816995c76d3b186acc5833f31274">setQueueNotMatched</a> (bool _queueNotMatched)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#a6b9aebf0980f2ac1199b057a387c09ae">getQueueNotMatched</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#a3c3bd7b97c08b349995c1aea2bf25bff">setKeyNotMatched</a> (bool _keyNotMatched)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#ac6136ca99437fc75a2c03067159a4a2c">getKeyNotMatched</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#a1621ade50fe97df796db3a95ff238873">setArgsNotMatched</a> (bool _argsNotMatched)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#a41adf677601c83bd1e9718418f23c66d">getArgsNotMatched</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#a3856a2cb0ddb93cf3630f6e8c7e70db3">encode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#afd1b3f2755745b9a1363675af67d307c">decode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;, <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#a3ee743c432dd48ec51e3b71d52d33718">encodeStructBody</a> (<a class="el" href="a00045.html">Buffer</a> &amp;) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#a9d4d4f4d0247ba53063188070e5c0a3f">decodeStructBody</a> (<a class="el" href="a00045.html">Buffer</a> &amp;, <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#ab6bb1080636e54adec44c365576ef86d">encodedSize</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#aab9d4fba82f6700e624ff28a4071e4b8">bodySize</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#a8050d70a92a9c4142dc2746f011af630">print</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;out) const </td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#ae7881f50027f0f303b9b3ff070bc5728">AMQ_FAILOVER</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">The name of the standard failover exchange amq.failover.  <a href="#ae7881f50027f0f303b9b3ff070bc5728"></a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="pri-types"></a>
-Private Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef boost::function0&lt; void &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00293.html#ae6dd30caad64962b36e826fb505cc626">Functor</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Type to represent a runnable as a Functor.  <a href="#ae6dd30caad64962b36e826fb505cc626"></a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00293.html#ae6dd30caad64962b36e826fb505cc626">Functor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00293.html#ac0af11e62e346d8295ddb9ee40620eb0">functor</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a functor object that will call this-&gt;<a class="el" href="a00293.html#a8c8296f61a69c142ad7afecca2578ea1" title="Derived classes override run().">run()</a>.  <a href="#ac0af11e62e346d8295ddb9ee40620eb0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#a862c85e2690c8e7e69501e83d4bbebf2">TYPE</a> = 1794</td></tr>
+<tr><td colspan="2"><h2><a name="friends"></a>
+Friends</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00118.html#accbf87612c37baeb77f2b46611f30636">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;, const <a class="el" href="a00118.html">ExchangeBoundResult</a> &amp;)</td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Listen for updates from the amq.failover exchange. </p>
-<p>In a cluster, the amq.failover exchange provides updates whenever the cluster membership changes. This class subscribes to the failover exchange and providees the latest list of known brokers.</p>
-<p>You can also subscribe to amq.failover yourself and use FailoverListener::decode to extract a list of broker URLs from a failover exchange message. </p>
-</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a68b519623a0a4d3b17cae8261164980d"></a><!-- doxytag: member="qpid::client::FailoverListener::FailoverListener" ref="a68b519623a0a4d3b17cae8261164980d" args="(Connection)" -->
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a3e8a64f77a4dac3a10c052fe696c4811"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::ExchangeBoundResult" ref="a3e8a64f77a4dac3a10c052fe696c4811" args="(bool _exchangeNotFound, bool _queueNotFound, bool _queueNotMatched, bool _keyNotMatched, bool _argsNotMatched)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::client::FailoverListener::FailoverListener </td>
+          <td class="memname">qpid::framing::ExchangeBoundResult::ExchangeBoundResult </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00058.html">Connection</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Subscribe to amq.failover exchange. </p>
-
-</div>
-</div>
-<a class="anchor" id="a99ee8bbe5c3d95a7ff7e633f25824832"></a><!-- doxytag: member="qpid::client::FailoverListener::FailoverListener" ref="a99ee8bbe5c3d95a7ff7e633f25824832" args="(Connection, bool useInitial)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::client::FailoverListener::FailoverListener </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00058.html">Connection</a>&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_exchangeNotFound</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>useInitial</em>&#160;</td>
+          <td class="paramname"><em>_queueNotFound</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_queueNotMatched</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_keyNotMatched</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_argsNotMatched</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00505_source.html#l00043">43</a> of file <a class="el" href="a00505_source.html">ExchangeBoundResult.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a985bc5f303fe8cefd895894c1301762d"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::ExchangeBoundResult" ref="a985bc5f303fe8cefd895894c1301762d" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::framing::ExchangeBoundResult::ExchangeBoundResult </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00505_source.html#l00056">56</a> of file <a class="el" href="a00505_source.html">ExchangeBoundResult.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="aab9d4fba82f6700e624ff28a4071e4b8"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::bodySize" ref="aab9d4fba82f6700e624ff28a4071e4b8" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::ExchangeBoundResult::bodySize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afd1b3f2755745b9a1363675af67d307c"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::decode" ref="afd1b3f2755745b9a1363675af67d307c" args="(Buffer &amp;, uint32_t=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::ExchangeBoundResult::decode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -160,25 +216,28 @@ Private Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Subscribe to amq.failover exchange. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">useInitial</td><td>If true use the connection's initial brokers as the initial value of getKnownBrokers </td></tr>
-  </table>
-  </dd>
-</dl>
-
 </div>
 </div>
-<a class="anchor" id="ae1ab635dbb52e5db8c230d8f6d683ae8"></a><!-- doxytag: member="qpid::client::FailoverListener::~FailoverListener" ref="ae1ab635dbb52e5db8c230d8f6d683ae8" args="()" -->
+<a class="anchor" id="a9d4d4f4d0247ba53063188070e5c0a3f"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::decodeStructBody" ref="a9d4d4f4d0247ba53063188070e5c0a3f" args="(Buffer &amp;, uint32_t=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::client::FailoverListener::~FailoverListener </td>
+          <td class="memname">void qpid::framing::ExchangeBoundResult::decodeStructBody </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
@@ -186,32 +245,29 @@ Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a882650870f3aef8515fb79116fd4183e"></a><!-- doxytag: member="qpid::client::FailoverListener::getKnownBrokers" ref="a882650870f3aef8515fb79116fd4183e" args="(const Message &amp;m)" -->
+<a class="anchor" id="a3856a2cb0ddb93cf3630f6e8c7e70db3"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::encode" ref="a3856a2cb0ddb93cf3630f6e8c7e70db3" args="(Buffer &amp;) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="a00386.html">std::vector</a>&lt;<a class="el" href="a00373.html">Url</a>&gt; qpid::client::FailoverListener::getKnownBrokers </td>
+          <td class="memname">void qpid::framing::ExchangeBoundResult::encode </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00206.html">Message</a> &amp;&#160;</td>
-          <td class="paramname"><em>m</em></td><td>)</td>
-          <td><code> [static]</code></td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Extract the broker list from a failover exchange message. </p>
-
 </div>
 </div>
-<a class="anchor" id="ab02a17be815ff38783b0f539f3cc16b4"></a><!-- doxytag: member="qpid::client::FailoverListener::getKnownBrokers" ref="ab02a17be815ff38783b0f539f3cc16b4" args="() const " -->
+<a class="anchor" id="ab6bb1080636e54adec44c365576ef86d"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::encodedSize" ref="ab6bb1080636e54adec44c365576ef86d" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00386.html">std::vector</a>&lt;<a class="el" href="a00373.html">Url</a>&gt; qpid::client::FailoverListener::getKnownBrokers </td>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::ExchangeBoundResult::encodedSize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -220,30 +276,253 @@ Private Member Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Returns the latest list of known broker URLs. </p>
-
 </div>
 </div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="ae7881f50027f0f303b9b3ff070bc5728"></a><!-- doxytag: member="qpid::client::FailoverListener::AMQ_FAILOVER" ref="ae7881f50027f0f303b9b3ff070bc5728" args="" -->
+<a class="anchor" id="a3ee743c432dd48ec51e3b71d52d33718"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::encodeStructBody" ref="a3ee743c432dd48ec51e3b71d52d33718" args="(Buffer &amp;) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a> <a class="el" href="a00118.html#ae7881f50027f0f303b9b3ff070bc5728">qpid::client::FailoverListener::AMQ_FAILOVER</a><code> [static]</code></td>
+          <td class="memname">void qpid::framing::ExchangeBoundResult::encodeStructBody </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>The name of the standard failover exchange amq.failover. </p>
+</div>
+</div>
+<a class="anchor" id="a41adf677601c83bd1e9718418f23c66d"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::getArgsNotMatched" ref="a41adf677601c83bd1e9718418f23c66d" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::ExchangeBoundResult::getArgsNotMatched </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00464_source.html#l00055">55</a> of file <a class="el" href="a00464_source.html">FailoverListener.h</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a5c09af54374afa9533ce27df1703f22f"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::getExchangeNotFound" ref="a5c09af54374afa9533ce27df1703f22f" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::ExchangeBoundResult::getExchangeNotFound </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac6136ca99437fc75a2c03067159a4a2c"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::getKeyNotMatched" ref="ac6136ca99437fc75a2c03067159a4a2c" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::ExchangeBoundResult::getKeyNotMatched </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac17d61ce6c699e41aa29535143112fb5"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::getQueueNotFound" ref="ac17d61ce6c699e41aa29535143112fb5" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::ExchangeBoundResult::getQueueNotFound </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6b9aebf0980f2ac1199b057a387c09ae"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::getQueueNotMatched" ref="a6b9aebf0980f2ac1199b057a387c09ae" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::ExchangeBoundResult::getQueueNotMatched </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8050d70a92a9c4142dc2746f011af630"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::print" ref="a8050d70a92a9c4142dc2746f011af630" args="(std::ostream &amp;out) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::ExchangeBoundResult::print </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>out</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1621ade50fe97df796db3a95ff238873"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::setArgsNotMatched" ref="a1621ade50fe97df796db3a95ff238873" args="(bool _argsNotMatched)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::ExchangeBoundResult::setArgsNotMatched </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_argsNotMatched</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9a6442471a8023becbc5c5ea1e90bf4b"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::setExchangeNotFound" ref="a9a6442471a8023becbc5c5ea1e90bf4b" args="(bool _exchangeNotFound)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::ExchangeBoundResult::setExchangeNotFound </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_exchangeNotFound</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3c3bd7b97c08b349995c1aea2bf25bff"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::setKeyNotMatched" ref="a3c3bd7b97c08b349995c1aea2bf25bff" args="(bool _keyNotMatched)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::ExchangeBoundResult::setKeyNotMatched </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_keyNotMatched</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aaa7ba13213212e6926f6ccac22b7c3c7"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::setQueueNotFound" ref="aaa7ba13213212e6926f6ccac22b7c3c7" args="(bool _queueNotFound)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::ExchangeBoundResult::setQueueNotFound </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_queueNotFound</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5a85816995c76d3b186acc5833f31274"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::setQueueNotMatched" ref="a5a85816995c76d3b186acc5833f31274" args="(bool _queueNotMatched)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::ExchangeBoundResult::setQueueNotMatched </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>_queueNotMatched</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Friends And Related Function Documentation</h2>
+<a class="anchor" id="accbf87612c37baeb77f2b46611f30636"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::operator&lt;&lt;" ref="accbf87612c37baeb77f2b46611f30636" args="(std::ostream &amp;, const ExchangeBoundResult &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00118.html">ExchangeBoundResult</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [friend]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a862c85e2690c8e7e69501e83d4bbebf2"></a><!-- doxytag: member="qpid::framing::ExchangeBoundResult::TYPE" ref="a862c85e2690c8e7e69501e83d4bbebf2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="el" href="a00118.html#a862c85e2690c8e7e69501e83d4bbebf2">qpid::framing::ExchangeBoundResult::TYPE</a> = 1794<code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00505_source.html#l00042">42</a> of file <a class="el" href="a00505_source.html">ExchangeBoundResult.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/client/<a class="el" href="a00464_source.html">FailoverListener.h</a></li>
+<li>qpid/framing/<a class="el" href="a00505_source.html">ExchangeBoundResult.h</a></li>
 </ul>
 </div>
 <!--
@@ -273,7 +552,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

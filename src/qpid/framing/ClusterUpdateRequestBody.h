@@ -34,6 +34,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -50,6 +51,7 @@ public:
         url(_url),
         flags(0){
         flags |= (1 << 8);
+        if (url.size() >= 65536) throw IllegalArgumentException("Value for url is too large");
     }
     ClusterUpdateRequestBody(ProtocolVersion=ProtocolVersion())  : flags(0) {}
     

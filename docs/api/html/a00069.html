@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf::engine::ConsoleEvent Struct Reference</title>
+    <title>qmf::engine::Console Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,254 +60,392 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00571.html">qmf</a>      </li>
-      <li class="navelem"><a class="el" href="a00572.html">engine</a>      </li>
-      <li class="navelem"><a class="el" href="a00069.html">ConsoleEvent</a>      </li>
+      <li class="navelem"><a class="el" href="a00573.html">qmf</a>      </li>
+      <li class="navelem"><a class="el" href="a00574.html">engine</a>      </li>
+      <li class="navelem"><a class="el" href="a00069.html">Console</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-attribs">Public Attributes</a>  </div>
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qmf::engine::ConsoleEvent Struct Reference</div>  </div>
+<div class="title">qmf::engine::Console Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qmf::engine::ConsoleEvent" -->
-<p><code>#include &lt;<a class="el" href="a00415_source.html">qmf/engine/Console.h</a>&gt;</code></p>
+<!-- doxytag: class="qmf::engine::Console" -->
+<p><code>#include &lt;<a class="el" href="a00417_source.html">qmf/engine/Console.h</a>&gt;</code></p>
 
-<p><a href="a00623.html">List of all members.</a></p>
+<p><a href="a00630.html">List of all members.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#adcf94d5dc2aa560da1dcfac075cfdcc4">EventKind</a> { <br/>
-&#160;&#160;<a class="el" href="a00069.html#adcf94d5dc2aa560da1dcfac075cfdcc4ade243b175b4c7c78b2cd9460c259ac99">AGENT_ADDED</a> =  1, 
-<a class="el" href="a00069.html#adcf94d5dc2aa560da1dcfac075cfdcc4a8c003988176f0d5f56ec021a75007446">AGENT_DELETED</a> =  2, 
-<a class="el" href="a00069.html#adcf94d5dc2aa560da1dcfac075cfdcc4a23c0572a46e3c72ee69e0d0ac63307d6">NEW_PACKAGE</a> =  3, 
-<a class="el" href="a00069.html#adcf94d5dc2aa560da1dcfac075cfdcc4a127458c9918454e80f5d30ed8a33d6b9">NEW_CLASS</a> =  4, 
-<br/>
-&#160;&#160;<a class="el" href="a00069.html#adcf94d5dc2aa560da1dcfac075cfdcc4a8920dbe68cb92d6804e5c5fd5ca2d706">OBJECT_UPDATE</a> =  5, 
-<a class="el" href="a00069.html#adcf94d5dc2aa560da1dcfac075cfdcc4ad02e70b8eae957603ae4fb8289cf69f0">EVENT_RECEIVED</a> =  7, 
-<a class="el" href="a00069.html#adcf94d5dc2aa560da1dcfac075cfdcc4a02d29fa869e213fccacb6aded65301aa">AGENT_HEARTBEAT</a> =  8
-<br/>
- }</td></tr>
-<tr><td colspan="2"><h2><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00069.html#adcf94d5dc2aa560da1dcfac075cfdcc4">EventKind</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#ac330c665d0c4aadd421420e5c1b153ac">kind</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00011.html">AgentProxy</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a758ddef6306f80076ca0fa8342b13503">agent</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a361e028f2413ddb0e5b92fa7c95d1092">name</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00300.html">SchemaClassKey</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#aec48c159a3d47988411da4781f0ae499">classKey</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00233.html">Object</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a5b672c0819eb4b7f64f39bb72c421cb9">object</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a32d4c869930537172568e1f7e7371d31">context</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00108.html">Event</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#aaedbca7e0c5ab02240c0620cfb4d8bea">event</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a1731cbf66b9126b563da2f6943e28220">timestamp</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00262.html">QueryResponse</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a7f6b89b382513cdd64e94a6961bb6de3">queryResponse</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a70a0faf668c60da3cd25b2b00ec8b6c2">hasProps</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a32fa9a219c0f3cbdb42b1c38cf9028b3">hasStats</a></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#aba6118318d68b6ddde1ec75c9ebc2203">Console</a> (const <a class="el" href="a00074.html">ConsoleSettings</a> &amp;settings=<a class="el" href="a00074.html">ConsoleSettings</a>())</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a8533cafac0900a32c5fb1c7803accf12">~Console</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a613e1ef1be744c772d8cb08c6177265b">getEvent</a> (<a class="el" href="a00071.html">ConsoleEvent</a> &amp;event) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a32748ea5ff196ac60251ce0741367281">popEvent</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#ab39ef0953f4003462b1ebd3bc1c0560d">addConnection</a> (<a class="el" href="a00044.html">BrokerProxy</a> &amp;broker, void *context)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a51595c2b0c280799d9ccf441a68e5416">delConnection</a> (<a class="el" href="a00044.html">BrokerProxy</a> &amp;broker)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#ac4761bc526597fbaf1ecaad82431abb7">packageCount</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a3d778a813d3eff0827559b84798335f9">getPackageName</a> (<a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> idx) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a3e9e5961796b29b5e2fad71b0c727127">classCount</a> (const char *packageName) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00301.html">SchemaClassKey</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a837852649d21de89d33eee7dbfb3ba28">getClass</a> (const char *packageName, <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> idx) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00574.html#a743bf8024ee99e49b1e847fc3c26d59c">ClassKind</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#aafefd76bf47b8dcca214082321859a98">getClassKind</a> (const <a class="el" href="a00301.html">SchemaClassKey</a> *key) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00307.html">SchemaObjectClass</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a8e616082aaab47330ff5cf2914513c20">getObjectClass</a> (const <a class="el" href="a00301.html">SchemaClassKey</a> *key) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00302.html">SchemaEventClass</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#af3d48f037b26b1d0a3c3d7acf4c487f7">getEventClass</a> (const <a class="el" href="a00301.html">SchemaClassKey</a> *key) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a6bc07f51ed4517746cc381ddc1759b3b">bindPackage</a> (const char *packageName)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a824285d45981817dab73560debc61e42">bindClass</a> (const <a class="el" href="a00301.html">SchemaClassKey</a> *key)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a0dbb8f30db0e101c184bddcb3120889e">bindClass</a> (const char *packageName, const char *className)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a60b016834b399f770dc9413ee7f80481">bindEvent</a> (const <a class="el" href="a00301.html">SchemaClassKey</a> *key)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00069.html#a4abeca74e8b2be96e6c6a3b6a7db8776">bindEvent</a> (const char *packageName, const char *eventName)</td></tr>
 </table>
-<hr/><h2>Member Enumeration Documentation</h2>
-<a class="anchor" id="adcf94d5dc2aa560da1dcfac075cfdcc4"></a><!-- doxytag: member="qmf::engine::ConsoleEvent::EventKind" ref="adcf94d5dc2aa560da1dcfac075cfdcc4" args="" -->
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="aba6118318d68b6ddde1ec75c9ebc2203"></a><!-- doxytag: member="qmf::engine::Console::Console" ref="aba6118318d68b6ddde1ec75c9ebc2203" args="(const ConsoleSettings &amp;settings=ConsoleSettings())" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00069.html#adcf94d5dc2aa560da1dcfac075cfdcc4">qmf::engine::ConsoleEvent::EventKind</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="adcf94d5dc2aa560da1dcfac075cfdcc4ade243b175b4c7c78b2cd9460c259ac99"></a><!-- doxytag: member="AGENT_ADDED" ref="adcf94d5dc2aa560da1dcfac075cfdcc4ade243b175b4c7c78b2cd9460c259ac99" args="" -->AGENT_ADDED</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="adcf94d5dc2aa560da1dcfac075cfdcc4a8c003988176f0d5f56ec021a75007446"></a><!-- doxytag: member="AGENT_DELETED" ref="adcf94d5dc2aa560da1dcfac075cfdcc4a8c003988176f0d5f56ec021a75007446" args="" -->AGENT_DELETED</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="adcf94d5dc2aa560da1dcfac075cfdcc4a23c0572a46e3c72ee69e0d0ac63307d6"></a><!-- doxytag: member="NEW_PACKAGE" ref="adcf94d5dc2aa560da1dcfac075cfdcc4a23c0572a46e3c72ee69e0d0ac63307d6" args="" -->NEW_PACKAGE</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="adcf94d5dc2aa560da1dcfac075cfdcc4a127458c9918454e80f5d30ed8a33d6b9"></a><!-- doxytag: member="NEW_CLASS" ref="adcf94d5dc2aa560da1dcfac075cfdcc4a127458c9918454e80f5d30ed8a33d6b9" args="" -->NEW_CLASS</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="adcf94d5dc2aa560da1dcfac075cfdcc4a8920dbe68cb92d6804e5c5fd5ca2d706"></a><!-- doxytag: member="OBJECT_UPDATE" ref="adcf94d5dc2aa560da1dcfac075cfdcc4a8920dbe68cb92d6804e5c5fd5ca2d706" args="" -->OBJECT_UPDATE</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="adcf94d5dc2aa560da1dcfac075cfdcc4ad02e70b8eae957603ae4fb8289cf69f0"></a><!-- doxytag: member="EVENT_RECEIVED" ref="adcf94d5dc2aa560da1dcfac075cfdcc4ad02e70b8eae957603ae4fb8289cf69f0" args="" -->EVENT_RECEIVED</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="adcf94d5dc2aa560da1dcfac075cfdcc4a02d29fa869e213fccacb6aded65301aa"></a><!-- doxytag: member="AGENT_HEARTBEAT" ref="adcf94d5dc2aa560da1dcfac075cfdcc4a02d29fa869e213fccacb6aded65301aa" args="" -->AGENT_HEARTBEAT</em>&nbsp;</td><td>
-</td></tr>
-</table>
-</dd>
-</dl>
-
-<p>Definition at line <a class="el" href="a00415_source.html#l00084">84</a> of file <a class="el" href="a00415_source.html">Console.h</a>.</p>
-
-</div>
-</div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a758ddef6306f80076ca0fa8342b13503"></a><!-- doxytag: member="qmf::engine::ConsoleEvent::agent" ref="a758ddef6306f80076ca0fa8342b13503" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00011.html">AgentProxy</a>* <a class="el" href="a00069.html#a758ddef6306f80076ca0fa8342b13503">qmf::engine::ConsoleEvent::agent</a></td>
+          <td class="memname">qmf::engine::Console::Console </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00074.html">ConsoleSettings</a> &amp;&#160;</td>
+          <td class="paramname"><em>settings</em> = <code><a class="el" href="a00074.html">ConsoleSettings</a>()</code></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00415_source.html#l00095">95</a> of file <a class="el" href="a00415_source.html">Console.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="aec48c159a3d47988411da4781f0ae499"></a><!-- doxytag: member="qmf::engine::ConsoleEvent::classKey" ref="aec48c159a3d47988411da4781f0ae499" args="" -->
+<a class="anchor" id="a8533cafac0900a32c5fb1c7803accf12"></a><!-- doxytag: member="qmf::engine::Console::~Console" ref="a8533cafac0900a32c5fb1c7803accf12" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00300.html">SchemaClassKey</a>* <a class="el" href="a00069.html#aec48c159a3d47988411da4781f0ae499">qmf::engine::ConsoleEvent::classKey</a></td>
+          <td class="memname">qmf::engine::Console::~Console </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00415_source.html#l00097">97</a> of file <a class="el" href="a00415_source.html">Console.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a32d4c869930537172568e1f7e7371d31"></a><!-- doxytag: member="qmf::engine::ConsoleEvent::context" ref="a32d4c869930537172568e1f7e7371d31" args="" -->
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ab39ef0953f4003462b1ebd3bc1c0560d"></a><!-- doxytag: member="qmf::engine::Console::addConnection" ref="ab39ef0953f4003462b1ebd3bc1c0560d" args="(BrokerProxy &amp;broker, void *context)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void* <a class="el" href="a00069.html#a32d4c869930537172568e1f7e7371d31">qmf::engine::ConsoleEvent::context</a></td>
+          <td class="memname">void qmf::engine::Console::addConnection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00044.html">BrokerProxy</a> &amp;&#160;</td>
+          <td class="paramname"><em>broker</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>context</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00415_source.html#l00099">99</a> of file <a class="el" href="a00415_source.html">Console.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="aaedbca7e0c5ab02240c0620cfb4d8bea"></a><!-- doxytag: member="qmf::engine::ConsoleEvent::event" ref="aaedbca7e0c5ab02240c0620cfb4d8bea" args="" -->
+<a class="anchor" id="a824285d45981817dab73560debc61e42"></a><!-- doxytag: member="qmf::engine::Console::bindClass" ref="a824285d45981817dab73560debc61e42" args="(const SchemaClassKey *key)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00108.html">Event</a>* <a class="el" href="a00069.html#aaedbca7e0c5ab02240c0620cfb4d8bea">qmf::engine::ConsoleEvent::event</a></td>
+          <td class="memname">void qmf::engine::Console::bindClass </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00301.html">SchemaClassKey</a> *&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00415_source.html#l00100">100</a> of file <a class="el" href="a00415_source.html">Console.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a70a0faf668c60da3cd25b2b00ec8b6c2"></a><!-- doxytag: member="qmf::engine::ConsoleEvent::hasProps" ref="a70a0faf668c60da3cd25b2b00ec8b6c2" args="" -->
+<a class="anchor" id="a0dbb8f30db0e101c184bddcb3120889e"></a><!-- doxytag: member="qmf::engine::Console::bindClass" ref="a0dbb8f30db0e101c184bddcb3120889e" args="(const char *packageName, const char *className)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="a00069.html#a70a0faf668c60da3cd25b2b00ec8b6c2">qmf::engine::ConsoleEvent::hasProps</a></td>
+          <td class="memname">void qmf::engine::Console::bindClass </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>packageName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>className</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00415_source.html#l00103">103</a> of file <a class="el" href="a00415_source.html">Console.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a32fa9a219c0f3cbdb42b1c38cf9028b3"></a><!-- doxytag: member="qmf::engine::ConsoleEvent::hasStats" ref="a32fa9a219c0f3cbdb42b1c38cf9028b3" args="" -->
+<a class="anchor" id="a60b016834b399f770dc9413ee7f80481"></a><!-- doxytag: member="qmf::engine::Console::bindEvent" ref="a60b016834b399f770dc9413ee7f80481" args="(const SchemaClassKey *key)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="a00069.html#a32fa9a219c0f3cbdb42b1c38cf9028b3">qmf::engine::ConsoleEvent::hasStats</a></td>
+          <td class="memname">void qmf::engine::Console::bindEvent </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00301.html">SchemaClassKey</a> *&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00415_source.html#l00104">104</a> of file <a class="el" href="a00415_source.html">Console.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="ac330c665d0c4aadd421420e5c1b153ac"></a><!-- doxytag: member="qmf::engine::ConsoleEvent::kind" ref="ac330c665d0c4aadd421420e5c1b153ac" args="" -->
+<a class="anchor" id="a4abeca74e8b2be96e6c6a3b6a7db8776"></a><!-- doxytag: member="qmf::engine::Console::bindEvent" ref="a4abeca74e8b2be96e6c6a3b6a7db8776" args="(const char *packageName, const char *eventName)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00069.html#adcf94d5dc2aa560da1dcfac075cfdcc4">EventKind</a> <a class="el" href="a00069.html#ac330c665d0c4aadd421420e5c1b153ac">qmf::engine::ConsoleEvent::kind</a></td>
+          <td class="memname">void qmf::engine::Console::bindEvent </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>packageName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>eventName</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00415_source.html#l00094">94</a> of file <a class="el" href="a00415_source.html">Console.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a361e028f2413ddb0e5b92fa7c95d1092"></a><!-- doxytag: member="qmf::engine::ConsoleEvent::name" ref="a361e028f2413ddb0e5b92fa7c95d1092" args="" -->
+<a class="anchor" id="a6bc07f51ed4517746cc381ddc1759b3b"></a><!-- doxytag: member="qmf::engine::Console::bindPackage" ref="a6bc07f51ed4517746cc381ddc1759b3b" args="(const char *packageName)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char* <a class="el" href="a00069.html#a361e028f2413ddb0e5b92fa7c95d1092">qmf::engine::ConsoleEvent::name</a></td>
+          <td class="memname">void qmf::engine::Console::bindPackage </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>packageName</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00415_source.html#l00096">96</a> of file <a class="el" href="a00415_source.html">Console.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a5b672c0819eb4b7f64f39bb72c421cb9"></a><!-- doxytag: member="qmf::engine::ConsoleEvent::object" ref="a5b672c0819eb4b7f64f39bb72c421cb9" args="" -->
+<a class="anchor" id="a3e9e5961796b29b5e2fad71b0c727127"></a><!-- doxytag: member="qmf::engine::Console::classCount" ref="a3e9e5961796b29b5e2fad71b0c727127" args="(const char *packageName) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00233.html">Object</a>* <a class="el" href="a00069.html#a5b672c0819eb4b7f64f39bb72c421cb9">qmf::engine::ConsoleEvent::object</a></td>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qmf::engine::Console::classCount </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>packageName</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00415_source.html#l00098">98</a> of file <a class="el" href="a00415_source.html">Console.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a7f6b89b382513cdd64e94a6961bb6de3"></a><!-- doxytag: member="qmf::engine::ConsoleEvent::queryResponse" ref="a7f6b89b382513cdd64e94a6961bb6de3" args="" -->
+<a class="anchor" id="a51595c2b0c280799d9ccf441a68e5416"></a><!-- doxytag: member="qmf::engine::Console::delConnection" ref="a51595c2b0c280799d9ccf441a68e5416" args="(BrokerProxy &amp;broker)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00262.html">QueryResponse</a>* <a class="el" href="a00069.html#a7f6b89b382513cdd64e94a6961bb6de3">qmf::engine::ConsoleEvent::queryResponse</a></td>
+          <td class="memname">void qmf::engine::Console::delConnection </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00044.html">BrokerProxy</a> &amp;&#160;</td>
+          <td class="paramname"><em>broker</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00415_source.html#l00102">102</a> of file <a class="el" href="a00415_source.html">Console.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a1731cbf66b9126b563da2f6943e28220"></a><!-- doxytag: member="qmf::engine::ConsoleEvent::timestamp" ref="a1731cbf66b9126b563da2f6943e28220" args="" -->
+<a class="anchor" id="a837852649d21de89d33eee7dbfb3ba28"></a><!-- doxytag: member="qmf::engine::Console::getClass" ref="a837852649d21de89d33eee7dbfb3ba28" args="(const char *packageName, uint32_t idx) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint64_t <a class="el" href="a00069.html#a1731cbf66b9126b563da2f6943e28220">qmf::engine::ConsoleEvent::timestamp</a></td>
+          <td class="memname">const <a class="el" href="a00301.html">SchemaClassKey</a>* qmf::engine::Console::getClass </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>packageName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>idx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00415_source.html#l00101">101</a> of file <a class="el" href="a00415_source.html">Console.h</a>.</p>
+</div>
+</div>
+<a class="anchor" id="aafefd76bf47b8dcca214082321859a98"></a><!-- doxytag: member="qmf::engine::Console::getClassKind" ref="aafefd76bf47b8dcca214082321859a98" args="(const SchemaClassKey *key) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00574.html#a743bf8024ee99e49b1e847fc3c26d59c">ClassKind</a> qmf::engine::Console::getClassKind </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00301.html">SchemaClassKey</a> *&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qmf/engine/<a class="el" href="a00415_source.html">Console.h</a></li>
+<a class="anchor" id="a613e1ef1be744c772d8cb08c6177265b"></a><!-- doxytag: member="qmf::engine::Console::getEvent" ref="a613e1ef1be744c772d8cb08c6177265b" args="(ConsoleEvent &amp;event) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qmf::engine::Console::getEvent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00071.html">ConsoleEvent</a> &amp;&#160;</td>
+          <td class="paramname"><em>event</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af3d48f037b26b1d0a3c3d7acf4c487f7"></a><!-- doxytag: member="qmf::engine::Console::getEventClass" ref="af3d48f037b26b1d0a3c3d7acf4c487f7" args="(const SchemaClassKey *key) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00302.html">SchemaEventClass</a>* qmf::engine::Console::getEventClass </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00301.html">SchemaClassKey</a> *&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8e616082aaab47330ff5cf2914513c20"></a><!-- doxytag: member="qmf::engine::Console::getObjectClass" ref="a8e616082aaab47330ff5cf2914513c20" args="(const SchemaClassKey *key) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00307.html">SchemaObjectClass</a>* qmf::engine::Console::getObjectClass </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00301.html">SchemaClassKey</a> *&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3d778a813d3eff0827559b84798335f9"></a><!-- doxytag: member="qmf::engine::Console::getPackageName" ref="a3d778a813d3eff0827559b84798335f9" args="(uint32_t idx) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* qmf::engine::Console::getPackageName </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"><em>idx</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac4761bc526597fbaf1ecaad82431abb7"></a><!-- doxytag: member="qmf::engine::Console::packageCount" ref="ac4761bc526597fbaf1ecaad82431abb7" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qmf::engine::Console::packageCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a32748ea5ff196ac60251ce0741367281"></a><!-- doxytag: member="qmf::engine::Console::popEvent" ref="a32748ea5ff196ac60251ce0741367281" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qmf::engine::Console::popEvent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qmf/engine/<a class="el" href="a00417_source.html">Console.h</a></li>
 </ul>
 </div>
 <!--
@@ -337,7 +475,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

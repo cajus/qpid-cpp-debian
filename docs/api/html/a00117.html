@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::framing::ExchangeQueryResult Class Reference</title>
+    <title>qpid::sys::ExceptionHolder Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,105 +60,55 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00580.html">framing</a>      </li>
-      <li class="navelem"><a class="el" href="a00117.html">ExchangeQueryResult</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00594.html">sys</a>      </li>
+      <li class="navelem"><a class="el" href="a00117.html">ExceptionHolder</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="#friends">Friends</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::framing::ExchangeQueryResult Class Reference</div>  </div>
+<div class="title">qpid::sys::ExceptionHolder Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::framing::ExchangeQueryResult" -->
-<p><code>#include &lt;<a class="el" href="a00504_source.html">qpid/framing/ExchangeQueryResult.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::sys::ExceptionHolder" --><!-- doxytag: inherits="qpid::sys::Raisable" -->
+<p>Holder for exceptions.  
+ <a href="a00117.html#details">More...</a></p>
 
-<p><a href="a00748.html">List of all members.</a></p>
+<p><code>#include &lt;<a class="el" href="a00555_source.html">qpid/sys/ExceptionHolder.h</a>&gt;</code></p>
+
+<p><a href="a00878.html">List of all members.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00398.html">Wrapper</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#a7fb21d0d48260fa20c95845f841f1953">ExchangeQueryResult</a> (const <a class="el" href="a00345.html">std::string</a> &amp;_type, bool _durable, bool _notFound, const <a class="el" href="a00123.html">FieldTable</a> &amp;_arguments)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#a314930e7565eaf34f36db62ecaff748d">ExchangeQueryResult</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#add07525555a2d412b60e60bac9cb6168">setType</a> (const <a class="el" href="a00345.html">std::string</a> &amp;_type)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#a6af7d117d3a035197ce06664e0c64790">getType</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#aa673c0bc6df7e187c52cedecddad36b2">hasType</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#a796d444a9bba8a197c92a5416c3df170">clearTypeFlag</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#a9fd7f24f84e9070ee518827245ff9daa">setDurable</a> (bool _durable)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#ac10e7d91880e9fe5e7c11dd652b56816">getDurable</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#aaf7c1de1cb8e97c2a361c09e05797c82">setNotFound</a> (bool _notFound)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#aff1536de60cc3898881970711903b154">getNotFound</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#abdc39b55880cfd7561466c968d0e5a26">setArguments</a> (const <a class="el" href="a00123.html">FieldTable</a> &amp;_arguments)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00123.html">FieldTable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#a383b4b9b8edc2861c6cdd78f928b68d6">getArguments</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00123.html">FieldTable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#aa7f27f68cc959a3d8500184b14e983ef">getArguments</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#acf9606f3b7a53b9e2b671f5b74c95ec3">hasArguments</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#ae9a47427719dfc115c7942d553177911">clearArgumentsFlag</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#a7b057399a02aca5513fbec0b7f62a9b6">encode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#afa48245a0aabe48ad6743dd162dd73b0">decode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;, <a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#abf5c6ceea25ae2df4601fa81c92724ba">encodeStructBody</a> (<a class="el" href="a00045.html">Buffer</a> &amp;) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#a4946bb4864cf538eefbf84d763f128ef">decodeStructBody</a> (<a class="el" href="a00045.html">Buffer</a> &amp;, <a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#aecb3a4bf954792c96a02ab03d16f83e9">encodedSize</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#a178ae18ef3f7b24d4860ae0b92ea9fbb">bodySize</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#ade0628b5585e4be98496452f2760fe39">print</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;out) const </td></tr>
-<tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#a8de57f4e86b3588061725e3798692261">TYPE</a> = 1793</td></tr>
-<tr><td colspan="2"><h2><a name="friends"></a>
-Friends</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#aecde5430b0daeb2a7e702c723647c9e7">operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;, const <a class="el" href="a00117.html">ExchangeQueryResult</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#a511d54d7e54896bd65fdca90c03cc5af">ExceptionHolder</a> ()</td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class Ex &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00117.html#a885bce7b36af8b67ece9f81d4221189d">ExceptionHolder</a> (Ex *ex)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Take ownership of ex.  <a href="#a885bce7b36af8b67ece9f81d4221189d"></a><br/></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;class Ex &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="a00117.html">ExceptionHolder</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00117.html#a26e92ee930d666785b3ce258ecdca8d2">operator=</a> (Ex *ex)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#afa5405fea078f64f1ea61632bfcc53c2">raise</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#a5ea9f8c2e5ec8d9d4753d293e0b5947b">what</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#ad8220fb7c12d2ff6b49eddeabeb7a725">empty</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#ad5c5a2a6d1a680ee7c0ff7ddc08d7934">operator bool</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html#a44364a53d74db44f7251c755421332e1">reset</a> ()</td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a7fb21d0d48260fa20c95845f841f1953"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::ExchangeQueryResult" ref="a7fb21d0d48260fa20c95845f841f1953" args="(const std::string &amp;_type, bool _durable, bool _notFound, const FieldTable &amp;_arguments)" -->
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Holder for exceptions. </p>
+<p>Allows the thread that notices an error condition to create an exception and store it to be thrown by another thread. </p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a511d54d7e54896bd65fdca90c03cc5af"></a><!-- doxytag: member="qpid::sys::ExceptionHolder::ExceptionHolder" ref="a511d54d7e54896bd65fdca90c03cc5af" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::framing::ExchangeQueryResult::ExchangeQueryResult </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>_type</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>_durable</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>_notFound</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00123.html">FieldTable</a> &amp;&#160;</td>
-          <td class="paramname"><em>_arguments</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00504_source.html#l00044">44</a> of file <a class="el" href="a00504_source.html">ExchangeQueryResult.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a314930e7565eaf34f36db62ecaff748d"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::ExchangeQueryResult" ref="a314930e7565eaf34f36db62ecaff748d" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::framing::ExchangeQueryResult::ExchangeQueryResult </td>
+          <td class="memname">qpid::sys::ExceptionHolder::ExceptionHolder </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td><code> [inline]</code></td>
@@ -167,406 +117,155 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00504_source.html#l00057">57</a> of file <a class="el" href="a00504_source.html">ExchangeQueryResult.h</a>.</p>
+<p>Definition at line <a class="el" href="a00555_source.html#l00043">43</a> of file <a class="el" href="a00555_source.html">ExceptionHolder.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a885bce7b36af8b67ece9f81d4221189d"></a><!-- doxytag: member="qpid::sys::ExceptionHolder::ExceptionHolder" ref="a885bce7b36af8b67ece9f81d4221189d" args="(Ex *ex)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Ex &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::sys::ExceptionHolder::ExceptionHolder </td>
+          <td>(</td>
+          <td class="paramtype">Ex *&#160;</td>
+          <td class="paramname"><em>ex</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Take ownership of ex. </p>
+
+<p>Definition at line <a class="el" href="a00555_source.html#l00047">47</a> of file <a class="el" href="a00555_source.html">ExceptionHolder.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a178ae18ef3f7b24d4860ae0b92ea9fbb"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::bodySize" ref="a178ae18ef3f7b24d4860ae0b92ea9fbb" args="() const " -->
+<a class="anchor" id="ad8220fb7c12d2ff6b49eddeabeb7a725"></a><!-- doxytag: member="qpid::sys::ExceptionHolder::empty" ref="ad8220fb7c12d2ff6b49eddeabeb7a725" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::ExchangeQueryResult::bodySize </td>
+          <td class="memname">bool qpid::sys::ExceptionHolder::empty </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Definition at line <a class="el" href="a00555_source.html#l00052">52</a> of file <a class="el" href="a00555_source.html">ExceptionHolder.h</a>.</p>
+
+<p>Referenced by <a class="el" href="a00555_source.html#l00053">operator bool()</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="ae9a47427719dfc115c7942d553177911"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::clearArgumentsFlag" ref="ae9a47427719dfc115c7942d553177911" args="()" -->
+<a class="anchor" id="ad5c5a2a6d1a680ee7c0ff7ddc08d7934"></a><!-- doxytag: member="qpid::sys::ExceptionHolder::operator bool" ref="ad5c5a2a6d1a680ee7c0ff7ddc08d7934" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::ExchangeQueryResult::clearArgumentsFlag </td>
+          <td class="memname">qpid::sys::ExceptionHolder::operator bool </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Definition at line <a class="el" href="a00555_source.html#l00053">53</a> of file <a class="el" href="a00555_source.html">ExceptionHolder.h</a>.</p>
+
+<p>References <a class="el" href="a00555_source.html#l00052">empty()</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a796d444a9bba8a197c92a5416c3df170"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::clearTypeFlag" ref="a796d444a9bba8a197c92a5416c3df170" args="()" -->
+<a class="anchor" id="a26e92ee930d666785b3ce258ecdca8d2"></a><!-- doxytag: member="qpid::sys::ExceptionHolder::operator=" ref="a26e92ee930d666785b3ce258ecdca8d2" args="(Ex *ex)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Ex &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00117.html">ExceptionHolder</a>&amp; qpid::sys::ExceptionHolder::operator= </td>
+          <td>(</td>
+          <td class="paramtype">Ex *&#160;</td>
+          <td class="paramname"><em>ex</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00555_source.html#l00048">48</a> of file <a class="el" href="a00555_source.html">ExceptionHolder.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afa5405fea078f64f1ea61632bfcc53c2"></a><!-- doxytag: member="qpid::sys::ExceptionHolder::raise" ref="afa5405fea078f64f1ea61632bfcc53c2" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::ExchangeQueryResult::clearTypeFlag </td>
+          <td class="memname">void qpid::sys::ExceptionHolder::raise </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const<code> [inline, virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="afa48245a0aabe48ad6743dd162dd73b0"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::decode" ref="afa48245a0aabe48ad6743dd162dd73b0" args="(Buffer &amp;, uint32_t=0)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::ExchangeQueryResult::decode </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Implements <a class="el" href="a00267.html#a1b085255823be94934e9c8314b859d9e">qpid::sys::Raisable</a>.</p>
+
+<p>Definition at line <a class="el" href="a00555_source.html#l00050">50</a> of file <a class="el" href="a00555_source.html">ExceptionHolder.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a4946bb4864cf538eefbf84d763f128ef"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::decodeStructBody" ref="a4946bb4864cf538eefbf84d763f128ef" args="(Buffer &amp;, uint32_t=0)" -->
+<a class="anchor" id="a44364a53d74db44f7251c755421332e1"></a><!-- doxytag: member="qpid::sys::ExceptionHolder::reset" ref="a44364a53d74db44f7251c755421332e1" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::ExchangeQueryResult::decodeStructBody </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7b057399a02aca5513fbec0b7f62a9b6"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::encode" ref="a7b057399a02aca5513fbec0b7f62a9b6" args="(Buffer &amp;) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::ExchangeQueryResult::encode </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aecb3a4bf954792c96a02ab03d16f83e9"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::encodedSize" ref="aecb3a4bf954792c96a02ab03d16f83e9" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::ExchangeQueryResult::encodedSize </td>
+          <td class="memname">void qpid::sys::ExceptionHolder::reset </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="abf5c6ceea25ae2df4601fa81c92724ba"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::encodeStructBody" ref="abf5c6ceea25ae2df4601fa81c92724ba" args="(Buffer &amp;) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::ExchangeQueryResult::encodeStructBody </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Definition at line <a class="el" href="a00555_source.html#l00054">54</a> of file <a class="el" href="a00555_source.html">ExceptionHolder.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a383b4b9b8edc2861c6cdd78f928b68d6"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::getArguments" ref="a383b4b9b8edc2861c6cdd78f928b68d6" args="() const " -->
+<a class="anchor" id="a5ea9f8c2e5ec8d9d4753d293e0b5947b"></a><!-- doxytag: member="qpid::sys::ExceptionHolder::what" ref="a5ea9f8c2e5ec8d9d4753d293e0b5947b" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00123.html">FieldTable</a>&amp; qpid::framing::ExchangeQueryResult::getArguments </td>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::sys::ExceptionHolder::what </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td> const<code> [inline, virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="aa7f27f68cc959a3d8500184b14e983ef"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::getArguments" ref="aa7f27f68cc959a3d8500184b14e983ef" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00123.html">FieldTable</a>&amp; qpid::framing::ExchangeQueryResult::getArguments </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Implements <a class="el" href="a00267.html#af8b358e28789ca81734afd0b8b6474ee">qpid::sys::Raisable</a>.</p>
 
-</div>
-</div>
-<a class="anchor" id="ac10e7d91880e9fe5e7c11dd652b56816"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::getDurable" ref="ac10e7d91880e9fe5e7c11dd652b56816" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::ExchangeQueryResult::getDurable </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aff1536de60cc3898881970711903b154"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::getNotFound" ref="aff1536de60cc3898881970711903b154" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::ExchangeQueryResult::getNotFound </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6af7d117d3a035197ce06664e0c64790"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::getType" ref="a6af7d117d3a035197ce06664e0c64790" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a>&amp; qpid::framing::ExchangeQueryResult::getType </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="acf9606f3b7a53b9e2b671f5b74c95ec3"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::hasArguments" ref="acf9606f3b7a53b9e2b671f5b74c95ec3" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::ExchangeQueryResult::hasArguments </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa673c0bc6df7e187c52cedecddad36b2"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::hasType" ref="aa673c0bc6df7e187c52cedecddad36b2" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::ExchangeQueryResult::hasType </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ade0628b5585e4be98496452f2760fe39"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::print" ref="ade0628b5585e4be98496452f2760fe39" args="(std::ostream &amp;out) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::ExchangeQueryResult::print </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="abdc39b55880cfd7561466c968d0e5a26"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::setArguments" ref="abdc39b55880cfd7561466c968d0e5a26" args="(const FieldTable &amp;_arguments)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::ExchangeQueryResult::setArguments </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00123.html">FieldTable</a> &amp;&#160;</td>
-          <td class="paramname"><em>_arguments</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a9fd7f24f84e9070ee518827245ff9daa"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::setDurable" ref="a9fd7f24f84e9070ee518827245ff9daa" args="(bool _durable)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::ExchangeQueryResult::setDurable </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>_durable</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aaf7c1de1cb8e97c2a361c09e05797c82"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::setNotFound" ref="aaf7c1de1cb8e97c2a361c09e05797c82" args="(bool _notFound)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::ExchangeQueryResult::setNotFound </td>
-          <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>_notFound</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="add07525555a2d412b60e60bac9cb6168"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::setType" ref="add07525555a2d412b60e60bac9cb6168" args="(const std::string &amp;_type)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::ExchangeQueryResult::setType </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>_type</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/><h2>Friends And Related Function Documentation</h2>
-<a class="anchor" id="aecde5430b0daeb2a7e702c723647c9e7"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::operator&lt;&lt;" ref="aecde5430b0daeb2a7e702c723647c9e7" args="(std::ostream &amp;, const ExchangeQueryResult &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00243.html">std::ostream</a>&amp; operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00117.html">ExchangeQueryResult</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [friend]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a8de57f4e86b3588061725e3798692261"></a><!-- doxytag: member="qpid::framing::ExchangeQueryResult::TYPE" ref="a8de57f4e86b3588061725e3798692261" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="el" href="a00117.html#a8de57f4e86b3588061725e3798692261">qpid::framing::ExchangeQueryResult::TYPE</a> = 1793<code> [static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00504_source.html#l00043">43</a> of file <a class="el" href="a00504_source.html">ExchangeQueryResult.h</a>.</p>
+<p>Definition at line <a class="el" href="a00555_source.html#l00051">51</a> of file <a class="el" href="a00555_source.html">ExceptionHolder.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/framing/<a class="el" href="a00504_source.html">ExchangeQueryResult.h</a></li>
+<li>qpid/sys/<a class="el" href="a00555_source.html">ExceptionHolder.h</a></li>
 </ul>
 </div>
 <!--
@@ -596,7 +295,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

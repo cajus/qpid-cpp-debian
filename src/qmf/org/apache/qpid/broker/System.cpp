@@ -30,6 +30,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
 
 using namespace qmf::org::apache::qpid::broker;
 using           qpid::management::ManagementAgent;
@@ -339,21 +340,33 @@ void System::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
 
     if ((_i = _map.find("systemId")) != _map.end()) {
         systemId = (_i->second).asUuid().data();
+    } else {
+        systemId = ::qpid::types::Uuid();
     }
     if ((_i = _map.find("osName")) != _map.end()) {
         osName = (_i->second).getString();
+    } else {
+        osName = "";
     }
     if ((_i = _map.find("nodeName")) != _map.end()) {
         nodeName = (_i->second).getString();
+    } else {
+        nodeName = "";
     }
     if ((_i = _map.find("release")) != _map.end()) {
         release = (_i->second).getString();
+    } else {
+        release = "";
     }
     if ((_i = _map.find("version")) != _map.end()) {
         version = (_i->second).getString();
+    } else {
+        version = "";
     }
     if ((_i = _map.find("machine")) != _map.end()) {
         machine = (_i->second).getString();
+    } else {
+        machine = "";
     }
 
 }

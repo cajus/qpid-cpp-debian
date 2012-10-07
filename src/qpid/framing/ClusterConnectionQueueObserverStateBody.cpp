@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ClusterConnectionQueueObserverStateBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ClusterConnectionQueueObserverStateBody::setQueue(const std::string& _queue) {
     queue = _queue;
     flags |= (1 << 8);
+    if (queue.size() >= 256) throw IllegalArgumentException("Value for queue is too large");
 }
 const std::string& ClusterConnectionQueueObserverStateBody::getQueue() const { return queue; }
 bool ClusterConnectionQueueObserverStateBody::hasQueue() const { return flags & (1 << 8); }
@@ -41,6 +42,7 @@ void ClusterConnectionQueueObserverStateBody::clearQueueFlag() { flags &= ~(1 <<
 void ClusterConnectionQueueObserverStateBody::setObserverId(const std::string& _observerId) {
     observerId = _observerId;
     flags |= (1 << 9);
+    if (observerId.size() >= 256) throw IllegalArgumentException("Value for observerId is too large");
 }
 const std::string& ClusterConnectionQueueObserverStateBody::getObserverId() const { return observerId; }
 bool ClusterConnectionQueueObserverStateBody::hasObserverId() const { return flags & (1 << 9); }

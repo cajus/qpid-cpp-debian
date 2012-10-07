@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/client/TypedResult.h File Reference</title>
+    <title>qpid/client/SubscriptionManager.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -62,24 +62,33 @@
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/client/TypedResult.h File Reference</div>  </div>
+<div class="title">qpid/client/SubscriptionManager.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00461_source.html">qpid/client/Completion.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00521_source.html">qpid/framing/StructHelper.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00478_source.html">qpid/client/Session.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00452_source.html">qpid/client/Subscription.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00567_source.html">qpid/sys/Runnable.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00570_source.html">qpid/sys/Thread.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00462_source.html">qpid/client/ClientImportExport.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00473_source.html">qpid/client/MessageListener.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00472_source.html">qpid/client/LocalQueue.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00440_source.html">qpid/client/Handle.h</a>&quot;</code><br/>
+<code>#include &lt;string&gt;</code><br/>
 </div>
 <p><a href="a00481_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00362.html">qpid::client::TypedResult</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returned by asynchronous commands that return a result.  <a href="a00362.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00353.html">qpid::client::SubscriptionManager</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A class to help create and manage subscriptions.  <a href="a00353.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00023.html">qpid::client::AutoCancel</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00023.html" title="AutoCancel cancels a subscription in its destructor.">AutoCancel</a> cancels a subscription in its destructor.  <a href="a00023.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html">qpid</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
 <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid::client</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00578.html">qpid::client</a></td></tr>
 </table>
 </div>
 <!--
@@ -109,7 +118,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

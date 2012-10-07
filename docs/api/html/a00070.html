@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::console::ConsoleListener Class Reference</title>
+    <title>qmf::ConsoleEvent Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,303 +60,452 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00579.html">console</a>      </li>
-      <li class="navelem"><a class="el" href="a00070.html">ConsoleListener</a>      </li>
+      <li class="navelem"><a class="el" href="a00573.html">qmf</a>      </li>
+      <li class="navelem"><a class="el" href="a00070.html">ConsoleEvent</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-types">Protected Types</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::console::ConsoleListener Class Reference</div>  </div>
+<div class="title">qmf::ConsoleEvent Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::console::ConsoleListener" -->
-<p>Implement a subclass of <a class="el" href="a00070.html" title="Implement a subclass of ConsoleListener and subscribe it using the SessionManager to receive indicati...">ConsoleListener</a> and subscribe it using the <a class="el" href="a00334.html">SessionManager</a> to receive indications.  
- <a href="a00070.html#details">More...</a></p>
+<!-- doxytag: class="qmf::ConsoleEvent" --><!-- doxytag: inherits="Handle&lt; ConsoleEventImpl &gt;" -->
+<p><code>#include &lt;<a class="el" href="a00410_source.html">qmf/ConsoleEvent.h</a>&gt;</code></p>
 
-<p><code>#include &lt;<a class="el" href="a00486_source.html">qpid/console/ConsoleListener.h</a>&gt;</code></p>
-
-<p><a href="a00709.html">List of all members.</a></p>
+<p><a href="a00605.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#a679ca82ed2d89f8aa871a6d548a2df9c">~ConsoleListener</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#a6ea207b75052f1c24f39f9529a6dbe36">brokerConnected</a> (const <a class="el" href="a00042.html">Broker</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoked when a connection is established to a broker.  <a href="#a6ea207b75052f1c24f39f9529a6dbe36"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#a3e63201b084b9f8ef205a6d9ce9604d2">brokerDisconnected</a> (const <a class="el" href="a00042.html">Broker</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoked when the connection to a broker is lost.  <a href="#a3e63201b084b9f8ef205a6d9ce9604d2"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#a2f97fe3a71ed11090abd60bce6451846">newPackage</a> (const <a class="el" href="a00345.html">std::string</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoked when a QMF package is discovered.  <a href="#a2f97fe3a71ed11090abd60bce6451846"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#a30a7db9cfbf7a10e858b561c87622b5c">newClass</a> (const <a class="el" href="a00049.html">ClassKey</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoked when a new class is discovered.  <a href="#a30a7db9cfbf7a10e858b561c87622b5c"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#a9732002a23e48f37199aa96885f770ee">newAgent</a> (const <a class="el" href="a00006.html">Agent</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoked when a QMF agent is discovered.  <a href="#a9732002a23e48f37199aa96885f770ee"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#ab8036869c9c8847a03843cc3f84e7e81">delAgent</a> (const <a class="el" href="a00006.html">Agent</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoked when a QMF agent disconects.  <a href="#ab8036869c9c8847a03843cc3f84e7e81"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#a09af4ba277ff021204c4864dd9d28193">objectProps</a> (<a class="el" href="a00042.html">Broker</a> &amp;, <a class="el" href="a00234.html">Object</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoked when an object is updated.  <a href="#a09af4ba277ff021204c4864dd9d28193"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#ad047d395612b224c7d5cca528d3c5656">objectStats</a> (<a class="el" href="a00042.html">Broker</a> &amp;, <a class="el" href="a00234.html">Object</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoked when an object is updated.  <a href="#ad047d395612b224c7d5cca528d3c5656"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#ae88feb01e4da8ac5c6c977d9420cb932">event</a> (<a class="el" href="a00109.html">Event</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Invoked when an event is raised.  <a href="#ae88feb01e4da8ac5c6c977d9420cb932"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#a3fd22f86f65b169b3d206206d308874b">brokerInfo</a> (<a class="el" href="a00042.html">Broker</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#abae9c024846044fe0184b6401f71d354">ConsoleEvent</a> (ConsoleEventImpl *<a class="el" href="a00143.html#a0effa7fbf9c8ae45a927102af0b25679">impl</a>=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#a98d3b8db2caf8a4dc5ac783a311444a8">ConsoleEvent</a> (const <a class="el" href="a00070.html">ConsoleEvent</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00070.html">ConsoleEvent</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#ad86911a605c3308d9a789131d672d43f">operator=</a> (const <a class="el" href="a00070.html">ConsoleEvent</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#a68d8dcfb4b9b2c027436ca52099d7edc">~ConsoleEvent</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00573.html#afd1ee9f7145ae76c3e2d6ac3d79a8a54">ConsoleEventCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#affb63d772b92d3a3e568e6470c49edc4">getType</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#ad62fdf501dc955e89552c1dcc2a404da">getCorrelator</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00007.html">Agent</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#a2b0b0a646cc90a8cbda12dc75f451f25">getAgent</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00573.html#af4a478cbc9584a8e99e1f0dcc5e03764">AgentDelReason</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#aeb73abdf18819865103e03eb28d20ad5">getAgentDelReason</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#a7605a6cd6fef5660d91a1522882e7cdc">getSchemaIdCount</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00303.html">SchemaId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#abe85b75d00f6f73e82c6043707db8427">getSchemaId</a> (<a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#a312b716197c6a59e09596af086ce84eb">getDataCount</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00096.html">Data</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#a65f66312fc563896d05c7940354dd28f">getData</a> (<a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#a4dbe6503d00141551f9e2efe08f003bd">isFinal</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#a9d3596883c4d0265e5d5bf87be171473">getArguments</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#aa20e5d09c2204587c17a662676e8e2e6">getSeverity</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00070.html#a8ded88a41967e8e58eadd26350250099">getTimestamp</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00143.html#a39749de38a4fc07f8401696d497a0d3c">isValid</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00143.html#a015fea48a0cd370654102196b8972b0c">isNull</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00143.html#ac1b6422c4626a1a630ac5cc13b41ad9a">operator bool</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to bool supports idiom if (handle) { handle-&gt;...  <a href="#ac1b6422c4626a1a630ac5cc13b41ad9a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00143.html#a5f7fe4689daf51182ceb8db1c5a7b85f">operator!</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }.  <a href="#a5f7fe4689daf51182ceb8db1c5a7b85f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00143.html#aa5de6b64fd036c74cbc332ac2c5d1377">swap</a> (<a class="el" href="a00143.html">Handle</a>&lt; T &gt; &amp;h)</td></tr>
+<tr><td colspan="2"><h2><a name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00143.html#a15c17b50788ef3057bf2c7a99e7c39b2">Impl</a></td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00143.html#a15c17b50788ef3057bf2c7a99e7c39b2">Impl</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00143.html#a0effa7fbf9c8ae45a927102af0b25679">impl</a></td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Implement a subclass of <a class="el" href="a00070.html" title="Implement a subclass of ConsoleListener and subscribe it using the SessionManager to receive indicati...">ConsoleListener</a> and subscribe it using the <a class="el" href="a00334.html">SessionManager</a> to receive indications. </p>
-</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a679ca82ed2d89f8aa871a6d548a2df9c"></a><!-- doxytag: member="qpid::console::ConsoleListener::~ConsoleListener" ref="a679ca82ed2d89f8aa871a6d548a2df9c" args="()" -->
+<hr/><h2>Member Typedef Documentation</h2>
+<a class="anchor" id="a15c17b50788ef3057bf2c7a99e7c39b2"></a><!-- doxytag: member="qmf::ConsoleEvent::Impl" ref="a15c17b50788ef3057bf2c7a99e7c39b2" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual qpid::console::ConsoleListener::~ConsoleListener </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
+          <td class="memname">typedef T <a class="el" href="a00143.html#a15c17b50788ef3057bf2c7a99e7c39b2">qmf::Handle::Impl</a><code> [protected, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00486_source.html#l00042">42</a> of file <a class="el" href="a00486_source.html">ConsoleListener.h</a>.</p>
+<p>Definition at line <a class="el" href="a00439_source.html#l00056">56</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="abae9c024846044fe0184b6401f71d354"></a><!-- doxytag: member="qmf::ConsoleEvent::ConsoleEvent" ref="abae9c024846044fe0184b6401f71d354" args="(ConsoleEventImpl *impl=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qmf::ConsoleEvent::ConsoleEvent </td>
+          <td>(</td>
+          <td class="paramtype">ConsoleEventImpl *&#160;</td>
+          <td class="paramname"><em>impl</em> = <code>0</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a98d3b8db2caf8a4dc5ac783a311444a8"></a><!-- doxytag: member="qmf::ConsoleEvent::ConsoleEvent" ref="a98d3b8db2caf8a4dc5ac783a311444a8" args="(const ConsoleEvent &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qmf::ConsoleEvent::ConsoleEvent </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00070.html">ConsoleEvent</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a68d8dcfb4b9b2c027436ca52099d7edc"></a><!-- doxytag: member="qmf::ConsoleEvent::~ConsoleEvent" ref="a68d8dcfb4b9b2c027436ca52099d7edc" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qmf::ConsoleEvent::~ConsoleEvent </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a6ea207b75052f1c24f39f9529a6dbe36"></a><!-- doxytag: member="qpid::console::ConsoleListener::brokerConnected" ref="a6ea207b75052f1c24f39f9529a6dbe36" args="(const Broker &amp;)" -->
+<a class="anchor" id="a2b0b0a646cc90a8cbda12dc75f451f25"></a><!-- doxytag: member="qmf::ConsoleEvent::getAgent" ref="a2b0b0a646cc90a8cbda12dc75f451f25" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void qpid::console::ConsoleListener::brokerConnected </td>
+          <td class="memname"><a class="el" href="a00007.html">Agent</a> qmf::ConsoleEvent::getAgent </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00042.html">Broker</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Invoked when a connection is established to a broker. </p>
-
-<p>Definition at line <a class="el" href="a00486_source.html#l00046">46</a> of file <a class="el" href="a00486_source.html">ConsoleListener.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a3e63201b084b9f8ef205a6d9ce9604d2"></a><!-- doxytag: member="qpid::console::ConsoleListener::brokerDisconnected" ref="a3e63201b084b9f8ef205a6d9ce9604d2" args="(const Broker &amp;)" -->
+<a class="anchor" id="aeb73abdf18819865103e03eb28d20ad5"></a><!-- doxytag: member="qmf::ConsoleEvent::getAgentDelReason" ref="aeb73abdf18819865103e03eb28d20ad5" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void qpid::console::ConsoleListener::brokerDisconnected </td>
+          <td class="memname"><a class="el" href="a00573.html#af4a478cbc9584a8e99e1f0dcc5e03764">AgentDelReason</a> qmf::ConsoleEvent::getAgentDelReason </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00042.html">Broker</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Invoked when the connection to a broker is lost. </p>
-
-<p>Definition at line <a class="el" href="a00486_source.html#l00050">50</a> of file <a class="el" href="a00486_source.html">ConsoleListener.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a3fd22f86f65b169b3d206206d308874b"></a><!-- doxytag: member="qpid::console::ConsoleListener::brokerInfo" ref="a3fd22f86f65b169b3d206206d308874b" args="(Broker &amp;)" -->
+<a class="anchor" id="a9d3596883c4d0265e5d5bf87be171473"></a><!-- doxytag: member="qmf::ConsoleEvent::getArguments" ref="a9d3596883c4d0265e5d5bf87be171473" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void qpid::console::ConsoleListener::brokerInfo </td>
+          <td class="memname">const <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a>&amp; qmf::ConsoleEvent::getArguments </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00042.html">Broker</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00486_source.html#l00087">87</a> of file <a class="el" href="a00486_source.html">ConsoleListener.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="ab8036869c9c8847a03843cc3f84e7e81"></a><!-- doxytag: member="qpid::console::ConsoleListener::delAgent" ref="ab8036869c9c8847a03843cc3f84e7e81" args="(const Agent &amp;)" -->
+<a class="anchor" id="ad62fdf501dc955e89552c1dcc2a404da"></a><!-- doxytag: member="qmf::ConsoleEvent::getCorrelator" ref="ad62fdf501dc955e89552c1dcc2a404da" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void qpid::console::ConsoleListener::delAgent </td>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qmf::ConsoleEvent::getCorrelator </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00006.html">Agent</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Invoked when a QMF agent disconects. </p>
-
-<p>Definition at line <a class="el" href="a00486_source.html#l00067">67</a> of file <a class="el" href="a00486_source.html">ConsoleListener.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="ae88feb01e4da8ac5c6c977d9420cb932"></a><!-- doxytag: member="qpid::console::ConsoleListener::event" ref="ae88feb01e4da8ac5c6c977d9420cb932" args="(Event &amp;)" -->
+<a class="anchor" id="a65f66312fc563896d05c7940354dd28f"></a><!-- doxytag: member="qmf::ConsoleEvent::getData" ref="a65f66312fc563896d05c7940354dd28f" args="(uint32_t) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void qpid::console::ConsoleListener::event </td>
+          <td class="memname"><a class="el" href="a00096.html">Data</a> qmf::ConsoleEvent::getData </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00109.html">Event</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Invoked when an event is raised. </p>
-
-<p>Definition at line <a class="el" href="a00486_source.html#l00079">79</a> of file <a class="el" href="a00486_source.html">ConsoleListener.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a9732002a23e48f37199aa96885f770ee"></a><!-- doxytag: member="qpid::console::ConsoleListener::newAgent" ref="a9732002a23e48f37199aa96885f770ee" args="(const Agent &amp;)" -->
+<a class="anchor" id="a312b716197c6a59e09596af086ce84eb"></a><!-- doxytag: member="qmf::ConsoleEvent::getDataCount" ref="a312b716197c6a59e09596af086ce84eb" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void qpid::console::ConsoleListener::newAgent </td>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qmf::ConsoleEvent::getDataCount </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00006.html">Agent</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Invoked when a QMF agent is discovered. </p>
-
-<p>Definition at line <a class="el" href="a00486_source.html#l00063">63</a> of file <a class="el" href="a00486_source.html">ConsoleListener.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a30a7db9cfbf7a10e858b561c87622b5c"></a><!-- doxytag: member="qpid::console::ConsoleListener::newClass" ref="a30a7db9cfbf7a10e858b561c87622b5c" args="(const ClassKey &amp;)" -->
+<a class="anchor" id="abe85b75d00f6f73e82c6043707db8427"></a><!-- doxytag: member="qmf::ConsoleEvent::getSchemaId" ref="abe85b75d00f6f73e82c6043707db8427" args="(uint32_t) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void qpid::console::ConsoleListener::newClass </td>
+          <td class="memname"><a class="el" href="a00303.html">SchemaId</a> qmf::ConsoleEvent::getSchemaId </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00049.html">ClassKey</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Invoked when a new class is discovered. </p>
-<p>Session.getSchema can be used to obtain details about the class. </p>
-
-<p>Definition at line <a class="el" href="a00486_source.html#l00059">59</a> of file <a class="el" href="a00486_source.html">ConsoleListener.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a2f97fe3a71ed11090abd60bce6451846"></a><!-- doxytag: member="qpid::console::ConsoleListener::newPackage" ref="a2f97fe3a71ed11090abd60bce6451846" args="(const std::string &amp;)" -->
+<a class="anchor" id="a7605a6cd6fef5660d91a1522882e7cdc"></a><!-- doxytag: member="qmf::ConsoleEvent::getSchemaIdCount" ref="a7605a6cd6fef5660d91a1522882e7cdc" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void qpid::console::ConsoleListener::newPackage </td>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qmf::ConsoleEvent::getSchemaIdCount </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline, virtual]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Invoked when a QMF package is discovered. </p>
-
-<p>Definition at line <a class="el" href="a00486_source.html#l00054">54</a> of file <a class="el" href="a00486_source.html">ConsoleListener.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a09af4ba277ff021204c4864dd9d28193"></a><!-- doxytag: member="qpid::console::ConsoleListener::objectProps" ref="a09af4ba277ff021204c4864dd9d28193" args="(Broker &amp;, Object &amp;)" -->
+<a class="anchor" id="aa20e5d09c2204587c17a662676e8e2e6"></a><!-- doxytag: member="qmf::ConsoleEvent::getSeverity" ref="aa20e5d09c2204587c17a662676e8e2e6" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void qpid::console::ConsoleListener::objectProps </td>
+          <td class="memname">int qmf::ConsoleEvent::getSeverity </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00042.html">Broker</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8ded88a41967e8e58eadd26350250099"></a><!-- doxytag: member="qmf::ConsoleEvent::getTimestamp" ref="a8ded88a41967e8e58eadd26350250099" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
         <tr>
-          <td class="paramkey"></td>
+          <td class="memname">uint64_t qmf::ConsoleEvent::getTimestamp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="affb63d772b92d3a3e568e6470c49edc4"></a><!-- doxytag: member="qmf::ConsoleEvent::getType" ref="affb63d772b92d3a3e568e6470c49edc4" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00573.html#afd1ee9f7145ae76c3e2d6ac3d79a8a54">ConsoleEventCode</a> qmf::ConsoleEvent::getType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4dbe6503d00141551f9e2efe08f003bd"></a><!-- doxytag: member="qmf::ConsoleEvent::isFinal" ref="a4dbe6503d00141551f9e2efe08f003bd" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qmf::ConsoleEvent::isFinal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a015fea48a0cd370654102196b8972b0c"></a><!-- doxytag: member="qmf::ConsoleEvent::isNull" ref="a015fea48a0cd370654102196b8972b0c" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMF_INLINE_EXTERN bool qmf::Handle::isNull </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is null. It is an error to call any function on a null handle. </dd></dl>
+
+<p>Definition at line <a class="el" href="a00439_source.html#l00045">45</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a39749de38a4fc07f8401696d497a0d3c"></a><!-- doxytag: member="qmf::ConsoleEvent::isValid" ref="a39749de38a4fc07f8401696d497a0d3c" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMF_INLINE_EXTERN bool qmf::Handle::isValid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is valid, i.e. not null. </dd></dl>
+
+<p>Definition at line <a class="el" href="a00439_source.html#l00042">42</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac1b6422c4626a1a630ac5cc13b41ad9a"></a><!-- doxytag: member="qmf::ConsoleEvent::operator bool" ref="ac1b6422c4626a1a630ac5cc13b41ad9a" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMF_INLINE_EXTERN qmf::Handle::operator bool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Conversion to bool supports idiom if (handle) { handle-&gt;... </p>
+<p>} </p>
+
+<p>Definition at line <a class="el" href="a00439_source.html#l00048">48</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5f7fe4689daf51182ceb8db1c5a7b85f"></a><!-- doxytag: member="qmf::ConsoleEvent::operator!" ref="a5f7fe4689daf51182ceb8db1c5a7b85f" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMF_INLINE_EXTERN bool qmf::Handle::operator! </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }. </p>
+
+<p>Definition at line <a class="el" href="a00439_source.html#l00051">51</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad86911a605c3308d9a789131d672d43f"></a><!-- doxytag: member="qmf::ConsoleEvent::operator=" ref="ad86911a605c3308d9a789131d672d43f" args="(const ConsoleEvent &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00070.html">ConsoleEvent</a>&amp; qmf::ConsoleEvent::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00070.html">ConsoleEvent</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00234.html">Object</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inline, virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Invoked when an object is updated. </p>
-
-<p>Definition at line <a class="el" href="a00486_source.html#l00071">71</a> of file <a class="el" href="a00486_source.html">ConsoleListener.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="ad047d395612b224c7d5cca528d3c5656"></a><!-- doxytag: member="qpid::console::ConsoleListener::objectStats" ref="ad047d395612b224c7d5cca528d3c5656" args="(Broker &amp;, Object &amp;)" -->
+<a class="anchor" id="aa5de6b64fd036c74cbc332ac2c5d1377"></a><!-- doxytag: member="qmf::ConsoleEvent::swap" ref="aa5de6b64fd036c74cbc332ac2c5d1377" args="(Handle&lt; T &gt; &amp;h)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void qpid::console::ConsoleListener::objectStats </td>
+          <td class="memname">void qmf::Handle::swap </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00042.html">Broker</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00234.html">Object</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inline, virtual]</code></td>
+          <td class="paramtype"><a class="el" href="a00143.html">Handle</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>h</em></td><td>)</td>
+          <td><code> [inline, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Invoked when an object is updated. </p>
+<p>Definition at line <a class="el" href="a00439_source.html#l00053">53</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
 
-<p>Definition at line <a class="el" href="a00486_source.html#l00075">75</a> of file <a class="el" href="a00486_source.html">ConsoleListener.h</a>.</p>
+</div>
+</div>
+<hr/><h2>Member Data Documentation</h2>
+<a class="anchor" id="a0effa7fbf9c8ae45a927102af0b25679"></a><!-- doxytag: member="qmf::ConsoleEvent::impl" ref="a0effa7fbf9c8ae45a927102af0b25679" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00143.html#a15c17b50788ef3057bf2c7a99e7c39b2">Impl</a>* <a class="el" href="a00143.html#a0effa7fbf9c8ae45a927102af0b25679">qmf::Handle::impl</a><code> [protected, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00439_source.html#l00063">63</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/console/<a class="el" href="a00486_source.html">ConsoleListener.h</a></li>
+<li>qmf/<a class="el" href="a00410_source.html">ConsoleEvent.h</a></li>
 </ul>
 </div>
 <!--
@@ -386,7 +535,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/client/FlowControl.h Source File</title>
+    <title>qpid/client/FailoverListener.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,11 +58,11 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/client/FlowControl.h</div>  </div>
+<div class="title">qpid/client/FailoverListener.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00466.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_CLIENT_FLOWCONTROL_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_CLIENT_FLOWCONTROL_H</span>
+<a href="a00466.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_CLIENT_FAILOVERLISTENER_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_CLIENT_FAILOVERLISTENER_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="comment">/*</span>
 <a name="l00005"></a>00005 <span class="comment"> *</span>
@@ -73,9 +73,9 @@
 <a name="l00010"></a>00010 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
 <a name="l00011"></a>00011 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
 <a name="l00012"></a>00012 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
-<a name="l00013"></a>00013 <span class="comment"> *</span>
+<a name="l00013"></a>00013 <span class="comment"> * </span>
 <a name="l00014"></a>00014 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
-<a name="l00015"></a>00015 <span class="comment"> *</span>
+<a name="l00015"></a>00015 <span class="comment"> * </span>
 <a name="l00016"></a>00016 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
 <a name="l00017"></a>00017 <span class="comment"> * software distributed under the License is distributed on an</span>
 <a name="l00018"></a>00018 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
@@ -85,35 +85,51 @@
 <a name="l00022"></a>00022 <span class="comment"> *</span>
 <a name="l00023"></a>00023 <span class="comment"> */</span>
 <a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="preprocessor">#include &lt;<a class="code" href="a00554.html">qpid/sys/IntegerTypes.h</a>&gt;</span>
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 <span class="keyword">namespace </span>qpid {
-<a name="l00028"></a>00028 <span class="keyword">namespace </span>client {
-<a name="l00029"></a>00029 
-<a name="l00049"></a>00049 <span class="keyword">struct </span>FlowControl {
-<a name="l00050"></a><a class="code" href="a00132.html#afee588b945f5edbf4a6108dfd3fe3a70">00050</a>     <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00132.html#afee588b945f5edbf4a6108dfd3fe3a70">UNLIMITED</a>=0xFFFFFFFF;
-<a name="l00051"></a><a class="code" href="a00132.html#a70a9cd61b9e475c3d1978a3d15742863">00051</a>     <a class="code" href="a00132.html#a70a9cd61b9e475c3d1978a3d15742863">FlowControl</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> messages_=0, <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> bytes_=0, <span class="keywordtype">bool</span> window_=<span class="keyword">false</span>)
-<a name="l00052"></a>00052         : <a class="code" href="a00132.html#a6d69bece2668a3781975501fe4275404" title="Message credit: subscription can accept up to this many messages.">messages</a>(messages_), <a class="code" href="a00132.html#a91155edfa05bff8c5b186d40ffdd1445" title="Byte credit: subscription can accept up to this many bytes of message content.">bytes</a>(bytes_), <a class="code" href="a00132.html#a6b85045fe5866ac8f66a738401d05768" title="Window mode.">window</a>(window_) {}
-<a name="l00053"></a>00053 
-<a name="l00054"></a><a class="code" href="a00132.html#ad70c11ee99f9c3e2d98ff96acb011efc">00054</a>     <span class="keyword">static</span> <a class="code" href="a00132.html" title="Flow control works by associating a finite amount of &quot;credit&quot; with a subscription.">FlowControl</a> <a class="code" href="a00132.html#ad70c11ee99f9c3e2d98ff96acb011efc">messageCredit</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> messages_) { <span class="keywordflow">return</span> <a class="code" href="a00132.html#a70a9cd61b9e475c3d1978a3d15742863">FlowControl</a>(messages_,<a class="code" href="a00132.html#afee588b945f5edbf4a6108dfd3fe3a70">UNLIMITED</a>,<span class="keyword">false</span>); }
-<a name="l00055"></a><a class="code" href="a00132.html#a9e79a3b0299c43718010b35009016678">00055</a>     <span class="keyword">static</span> <a class="code" href="a00132.html" title="Flow control works by associating a finite amount of &quot;credit&quot; with a subscription.">FlowControl</a> <a class="code" href="a00132.html#a9e79a3b0299c43718010b35009016678">messageWindow</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> messages_) { <span class="keywordflow">return</span> <a class="code" href="a00132.html#a70a9cd61b9e475c3d1978a3d15742863">FlowControl</a>(messages_,<a class="code" href="a00132.html#afee588b945f5edbf4a6108dfd3fe3a70">UNLIMITED</a>,<span class="keyword">true</span>); }
-<a name="l00056"></a><a class="code" href="a00132.html#a121aeaaac832c22255af480795f04b66">00056</a>     <span class="keyword">static</span> <a class="code" href="a00132.html" title="Flow control works by associating a finite amount of &quot;credit&quot; with a subscription.">FlowControl</a> <a class="code" href="a00132.html#a121aeaaac832c22255af480795f04b66">byteCredit</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> bytes_) { <span class="keywordflow">return</span> <a class="code" href="a00132.html#a70a9cd61b9e475c3d1978a3d15742863">FlowControl</a>(<a class="code" href="a00132.html#afee588b945f5edbf4a6108dfd3fe3a70">UNLIMITED</a>,bytes_,<span class="keyword">false</span>); }
-<a name="l00057"></a><a class="code" href="a00132.html#a071925adc0dfffe2497a1897493343b3">00057</a>     <span class="keyword">static</span> <a class="code" href="a00132.html" title="Flow control works by associating a finite amount of &quot;credit&quot; with a subscription.">FlowControl</a> <a class="code" href="a00132.html#a071925adc0dfffe2497a1897493343b3">byteWindow</a>(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> bytes_) { <span class="keywordflow">return</span> <a class="code" href="a00132.html#a70a9cd61b9e475c3d1978a3d15742863">FlowControl</a>(<a class="code" href="a00132.html#afee588b945f5edbf4a6108dfd3fe3a70">UNLIMITED</a>,bytes_,<span class="keyword">true</span>); }
-<a name="l00058"></a><a class="code" href="a00132.html#a4e07036ab42cf4a593fcb578edd4b7bd">00058</a>     <span class="keyword">static</span> <a class="code" href="a00132.html" title="Flow control works by associating a finite amount of &quot;credit&quot; with a subscription.">FlowControl</a> <a class="code" href="a00132.html#a4e07036ab42cf4a593fcb578edd4b7bd">unlimited</a>() { <span class="keywordflow">return</span> <a class="code" href="a00132.html#a70a9cd61b9e475c3d1978a3d15742863">FlowControl</a>(<a class="code" href="a00132.html#afee588b945f5edbf4a6108dfd3fe3a70">UNLIMITED</a>, <a class="code" href="a00132.html#afee588b945f5edbf4a6108dfd3fe3a70">UNLIMITED</a>, <span class="keyword">false</span>); }
-<a name="l00059"></a><a class="code" href="a00132.html#a2ca4cadfaee543ab80bab25f6176f784">00059</a>     <span class="keyword">static</span> <a class="code" href="a00132.html" title="Flow control works by associating a finite amount of &quot;credit&quot; with a subscription.">FlowControl</a> <a class="code" href="a00132.html#a2ca4cadfaee543ab80bab25f6176f784">zero</a>() { <span class="keywordflow">return</span> <a class="code" href="a00132.html#a70a9cd61b9e475c3d1978a3d15742863">FlowControl</a>(0, 0, <span class="keyword">false</span>); }
-<a name="l00060"></a>00060 
-<a name="l00062"></a><a class="code" href="a00132.html#a6d69bece2668a3781975501fe4275404">00062</a>     <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00132.html#a6d69bece2668a3781975501fe4275404" title="Message credit: subscription can accept up to this many messages.">messages</a>;
-<a name="l00064"></a><a class="code" href="a00132.html#a91155edfa05bff8c5b186d40ffdd1445">00064</a>     <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00132.html#a91155edfa05bff8c5b186d40ffdd1445" title="Byte credit: subscription can accept up to this many bytes of message content.">bytes</a>;
-<a name="l00066"></a><a class="code" href="a00132.html#a6b85045fe5866ac8f66a738401d05768">00066</a>     <span class="keywordtype">bool</span> <a class="code" href="a00132.html#a6b85045fe5866ac8f66a738401d05768" title="Window mode.">window</a>;
-<a name="l00067"></a>00067 
-<a name="l00068"></a><a class="code" href="a00132.html#a9faa2fcf29b06be1a3230108b0c4aa97">00068</a>     <span class="keywordtype">bool</span> <a class="code" href="a00132.html#a9faa2fcf29b06be1a3230108b0c4aa97">operator==</a>(<span class="keyword">const</span> <a class="code" href="a00132.html" title="Flow control works by associating a finite amount of &quot;credit&quot; with a subscription.">FlowControl</a>&amp; x) {
-<a name="l00069"></a>00069         <span class="keywordflow">return</span> <a class="code" href="a00132.html#a6d69bece2668a3781975501fe4275404" title="Message credit: subscription can accept up to this many messages.">messages</a> == x.messages &amp;&amp; <a class="code" href="a00132.html#a91155edfa05bff8c5b186d40ffdd1445" title="Byte credit: subscription can accept up to this many bytes of message content.">bytes</a> == x.bytes &amp;&amp; <a class="code" href="a00132.html#a6b85045fe5866ac8f66a738401d05768" title="Window mode.">window</a> == x.window;
-<a name="l00070"></a>00070     };
-<a name="l00071"></a>00071 };
-<a name="l00072"></a>00072 
-<a name="l00073"></a>00073 }} <span class="comment">// namespace qpid::client</span>
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075 <span class="preprocessor">#endif  </span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00462.html">qpid/client/ClientImportExport.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00473.html">qpid/client/MessageListener.h</a>&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00464.html">qpid/client/Connection.h</a>&quot;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="a00478.html">qpid/client/Session.h</a>&quot;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="a00481.html">qpid/client/SubscriptionManager.h</a>&quot;</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &quot;<a class="code" href="a00572.html">qpid/Url.h</a>&quot;</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#include &quot;<a class="code" href="a00542.html">qpid/sys/Mutex.h</a>&quot;</span>
+<a name="l00032"></a>00032 <span class="preprocessor">#include &quot;<a class="code" href="a00567.html">qpid/sys/Runnable.h</a>&quot;</span>
+<a name="l00033"></a>00033 <span class="preprocessor">#include &quot;<a class="code" href="a00570.html">qpid/sys/Thread.h</a>&quot;</span>
+<a name="l00034"></a>00034 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00035"></a>00035 
+<a name="l00036"></a>00036 <span class="keyword">namespace </span>qpid {
+<a name="l00037"></a>00037 <span class="keyword">namespace </span><a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca8a6e04ce91f4d365de37ccc1a4ef0dc9">client</a> {
+<a name="l00038"></a>00038 
+<a name="l00039"></a>00039 
+<a name="l00051"></a>00051 <span class="keyword">class </span><a class="code" href="a00462.html#a79998e3c253eb090fed36f2f89ca2e91">QPID_CLIENT_CLASS_EXTERN</a> FailoverListener : <span class="keyword">private</span> MessageListener, <span class="keyword">private</span> qpid::sys::Runnable 
+<a name="l00052"></a>00052 {
+<a name="l00053"></a>00053   <span class="keyword">public</span>:
+<a name="l00055"></a><a class="code" href="a00120.html#ae7881f50027f0f303b9b3ff070bc5728">00055</a>     <span class="keyword">static</span> <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keyword">const</span> std::string <a class="code" href="a00120.html#ae7881f50027f0f303b9b3ff070bc5728" title="The name of the standard failover exchange amq.failover.">AMQ_FAILOVER</a>;
+<a name="l00056"></a>00056 
+<a name="l00058"></a>00058     <span class="keyword">static</span> <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> std::vector&lt;Url&gt; getKnownBrokers(<span class="keyword">const</span> <a class="code" href="a00208.html" title="A message sent to or received from the broker.">Message</a>&amp; m);
+<a name="l00059"></a>00059     
+<a name="l00061"></a>00061     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <a class="code" href="a00120.html" title="Listen for updates from the amq.failover exchange.">FailoverListener</a>(<a class="code" href="a00060.html" title="Represents a connection to an AMQP broker.">Connection</a>);
+<a name="l00062"></a>00062 
+<a name="l00067"></a>00067     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <a class="code" href="a00120.html" title="Listen for updates from the amq.failover exchange.">FailoverListener</a>(<a class="code" href="a00060.html" title="Represents a connection to an AMQP broker.">Connection</a>, <span class="keywordtype">bool</span> useInitial);
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> ~<a class="code" href="a00120.html" title="Listen for updates from the amq.failover exchange.">FailoverListener</a>();
+<a name="l00070"></a>00070 
+<a name="l00072"></a>00072     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> std::vector&lt;Url&gt; getKnownBrokers() <span class="keyword">const</span>;
+<a name="l00073"></a>00073     
+<a name="l00074"></a>00074   <span class="keyword">private</span>:
+<a name="l00075"></a>00075     <span class="keywordtype">void</span> received(<a class="code" href="a00208.html" title="A message sent to or received from the broker.">Message</a>&amp; msg);
+<a name="l00076"></a>00076     <span class="keywordtype">void</span> run();
+<a name="l00077"></a>00077     <span class="keywordtype">void</span> init(<span class="keywordtype">bool</span>);
+<a name="l00078"></a>00078     
+<a name="l00079"></a>00079     <span class="keyword">mutable</span> sys::Mutex lock;
+<a name="l00080"></a>00080     <a class="code" href="a00060.html" title="Represents a connection to an AMQP broker.">Connection</a> connection;
+<a name="l00081"></a>00081     <a class="code" href="a00327.html" title="AMQP 0-10 session API with keyword arguments.">Session</a> session;
+<a name="l00082"></a>00082     <a class="code" href="a00353.html" title="A class to help create and manage subscriptions.">SubscriptionManager</a> subscriptions;
+<a name="l00083"></a>00083     sys::Thread thread;
+<a name="l00084"></a>00084     std::vector&lt;Url&gt; knownBrokers;
+<a name="l00085"></a>00085 };
+<a name="l00086"></a>00086 }} <span class="comment">// namespace qpid::client</span>
+<a name="l00087"></a>00087 
+<a name="l00088"></a>00088 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -143,7 +159,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

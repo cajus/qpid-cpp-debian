@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/MessageCancelBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void MessageCancelBody::setDestination(const std::string& _destination) {
     destination = _destination;
     flags |= (1 << 8);
+    if (destination.size() >= 256) throw IllegalArgumentException("Value for destination is too large");
 }
 const std::string& MessageCancelBody::getDestination() const { return destination; }
 bool MessageCancelBody::hasDestination() const { return flags & (1 << 8); }

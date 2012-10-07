@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::InlineVector Class Reference</title>
+    <title>qpid::InlineRebind Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,168 +60,47 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00151.html">InlineVector</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00151.html">InlineRebind</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-types">Public Types</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::InlineVector Class Reference</div>  </div>
+<div class="title">qpid::InlineRebind Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::InlineVector" --><!-- doxytag: inherits="vector&lt; T, InlineAllocator&lt; Alloc, Max &gt; &gt;" -->
-<p>A vector that stores up to Max elements in inline storage, otherwise uses normal vector allocation.  
- <a href="a00151.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00528_source.html">qpid/InlineVector.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::InlineRebind" -->
+<p><code>#include &lt;<a class="el" href="a00529_source.html">qpid/InlineAllocator.h</a>&gt;</code></p>
 
 <p><a href="a00662.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef Base::allocator_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00151.html#a44422373633bdf1ac15e8e89a4b6b3a5">allocator_type</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef Base::value_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00151.html#a81f23ad8175ad772ec2a1c5435924e45">value_type</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef Base::size_type&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00151.html#a2e44664882c3375f74cf99148aebd963">size_type</a></td></tr>
-<tr><td colspan="2"><h2><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00151.html#a5f47993adcd95c8b5b34d06a955ae23c">InlineVector</a> (const <a class="el" href="a00151.html#a44422373633bdf1ac15e8e89a4b6b3a5">allocator_type</a> &amp;a=<a class="el" href="a00151.html#a44422373633bdf1ac15e8e89a4b6b3a5">allocator_type</a>())</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00151.html#a5ca6cf286fb99392663d1773d4b1fd25">InlineVector</a> (<a class="el" href="a00151.html#a2e44664882c3375f74cf99148aebd963">size_type</a> n, const <a class="el" href="a00151.html#a81f23ad8175ad772ec2a1c5435924e45">value_type</a> &amp;x=<a class="el" href="a00151.html#a81f23ad8175ad772ec2a1c5435924e45">value_type</a>(), const <a class="el" href="a00151.html#a44422373633bdf1ac15e8e89a4b6b3a5">allocator_type</a> &amp;a=<a class="el" href="a00151.html#a44422373633bdf1ac15e8e89a4b6b3a5">allocator_type</a>())</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00151.html#a3aa919cfd7e62752b8153949d245068c">InlineVector</a> (const <a class="el" href="a00151.html">InlineVector</a> &amp;x)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <br class="typebreak"/>
+BaseAllocator::template rebind<br class="typebreak"/>
+&lt; RequestedType &gt;::<a class="el" href="a00151.html#ad5e27c280455b47325dac9ed8a62d2b9">other</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00151.html#ad5e27c280455b47325dac9ed8a62d2b9">other</a></td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>A vector that stores up to Max elements in inline storage, otherwise uses normal vector allocation. </p>
-<p>NOTE: depends on some non-standard but highly probably assumptions about how <a class="el" href="a00386.html" title="STL class.">std::vector</a> uses its allocator, they are true for g++.</p>
-<ul>
-<li>default constructor does not allocate.</li>
-<li>reserve(N) does not allocate more than N elements.</li>
-<li>vector never re-allocates when size() &lt; capacity() </li>
-</ul>
-</div><hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="a44422373633bdf1ac15e8e89a4b6b3a5"></a><!-- doxytag: member="qpid::InlineVector::allocator_type" ref="a44422373633bdf1ac15e8e89a4b6b3a5" args="" -->
+<hr/><h2>Member Typedef Documentation</h2>
+<a class="anchor" id="ad5e27c280455b47325dac9ed8a62d2b9"></a><!-- doxytag: member="qpid::InlineRebind::other" ref="ad5e27c280455b47325dac9ed8a62d2b9" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef Base::allocator_type <a class="el" href="a00151.html#a44422373633bdf1ac15e8e89a4b6b3a5">qpid::InlineVector::allocator_type</a></td>
+          <td class="memname">typedef BaseAllocator::template rebind&lt;RequestedType&gt;::<a class="el" href="a00151.html#ad5e27c280455b47325dac9ed8a62d2b9">other</a> <a class="el" href="a00151.html#ad5e27c280455b47325dac9ed8a62d2b9">qpid::InlineRebind::other</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00528_source.html#l00045">45</a> of file <a class="el" href="a00528_source.html">InlineVector.h</a>.</p>
+<p>Definition at line <a class="el" href="a00529_source.html#l00091">91</a> of file <a class="el" href="a00529_source.html">InlineAllocator.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a2e44664882c3375f74cf99148aebd963"></a><!-- doxytag: member="qpid::InlineVector::size_type" ref="a2e44664882c3375f74cf99148aebd963" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef Base::size_type <a class="el" href="a00151.html#a2e44664882c3375f74cf99148aebd963">qpid::InlineVector::size_type</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00528_source.html#l00047">47</a> of file <a class="el" href="a00528_source.html">InlineVector.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a81f23ad8175ad772ec2a1c5435924e45"></a><!-- doxytag: member="qpid::InlineVector::value_type" ref="a81f23ad8175ad772ec2a1c5435924e45" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef Base::value_type <a class="el" href="a00151.html#a81f23ad8175ad772ec2a1c5435924e45">qpid::InlineVector::value_type</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00528_source.html#l00046">46</a> of file <a class="el" href="a00528_source.html">InlineVector.h</a>.</p>
-
-</div>
-</div>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a5f47993adcd95c8b5b34d06a955ae23c"></a><!-- doxytag: member="qpid::InlineVector::InlineVector" ref="a5f47993adcd95c8b5b34d06a955ae23c" args="(const allocator_type &amp;a=allocator_type())" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::InlineVector::InlineVector </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00151.html#a44422373633bdf1ac15e8e89a4b6b3a5">allocator_type</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em> = <code><a class="el" href="a00151.html#a44422373633bdf1ac15e8e89a4b6b3a5">allocator_type</a>()</code></td><td>)</td>
-          <td><code> [inline, explicit]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00528_source.html#l00049">49</a> of file <a class="el" href="a00528_source.html">InlineVector.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a5ca6cf286fb99392663d1773d4b1fd25"></a><!-- doxytag: member="qpid::InlineVector::InlineVector" ref="a5ca6cf286fb99392663d1773d4b1fd25" args="(size_type n, const value_type &amp;x=value_type(), const allocator_type &amp;a=allocator_type())" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::InlineVector::InlineVector </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00151.html#a2e44664882c3375f74cf99148aebd963">size_type</a>&#160;</td>
-          <td class="paramname"><em>n</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00151.html#a81f23ad8175ad772ec2a1c5435924e45">value_type</a> &amp;&#160;</td>
-          <td class="paramname"><em>x</em> = <code><a class="el" href="a00151.html#a81f23ad8175ad772ec2a1c5435924e45">value_type</a>()</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00151.html#a44422373633bdf1ac15e8e89a4b6b3a5">allocator_type</a> &amp;&#160;</td>
-          <td class="paramname"><em>a</em> = <code><a class="el" href="a00151.html#a44422373633bdf1ac15e8e89a4b6b3a5">allocator_type</a>()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [inline, explicit]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00528_source.html#l00053">53</a> of file <a class="el" href="a00528_source.html">InlineVector.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3aa919cfd7e62752b8153949d245068c"></a><!-- doxytag: member="qpid::InlineVector::InlineVector" ref="a3aa919cfd7e62752b8153949d245068c" args="(const InlineVector &amp;x)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::InlineVector::InlineVector </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00151.html">InlineVector</a> &amp;&#160;</td>
-          <td class="paramname"><em>x</em></td><td>)</td>
-          <td><code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00528_source.html#l00060">60</a> of file <a class="el" href="a00528_source.html">InlineVector.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/<a class="el" href="a00528_source.html">InlineVector.h</a></li>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>qpid/<a class="el" href="a00529_source.html">InlineAllocator.h</a></li>
 </ul>
 </div>
 <!--
@@ -251,7 +130,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ExchangeQueryBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ExchangeQueryBody::setName(const std::string& _name) {
     name = _name;
     flags |= (1 << 8);
+    if (name.size() >= 256) throw IllegalArgumentException("Value for name is too large");
 }
 const std::string& ExchangeQueryBody::getName() const { return name; }
 bool ExchangeQueryBody::hasName() const { return flags & (1 << 8); }

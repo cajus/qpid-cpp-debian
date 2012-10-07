@@ -60,26 +60,26 @@
 <ul>
 <li>
 <p class="startli"></p>
-<p class="endli"><a class="el" href="a00596.html">Qpid C++ Client API</a> </p>
+<p class="endli"><a class="el" href="a00598.html">Qpid C++ Client API</a> </p>
 </li>
 <li>
 <p class="startli"></p>
-<p class="endli"><a class="el" href="a00597.html">Qpid Management Framework C++ API</a> </p>
+<p class="endli"><a class="el" href="a00599.html">Qpid Management Framework C++ API</a> </p>
 </li>
 </ul>
 <h2>Code for common tasks</h2>
 <h3>Includes and Namespaces</h3>
 <pre>
- #include &lt;<a class="el" href="a00463.html">qpid/messaging/Connection.h</a>&gt;
- #include &lt;<a class="el" href="a00420.html">qpid/messaging/Message.h</a>&gt;
- #include &lt;<a class="el" href="a00545.html">qpid/messaging/Receiver.h</a>&gt;
- #include &lt;<a class="el" href="a00546.html">qpid/messaging/Sender.h</a>&gt;
- #include &lt;<a class="el" href="a00477.html">qpid/messaging/Session.h</a>&gt;</pre><pre> #include &lt;iostream&gt;</pre><pre> using namespace <a class="el" href="a00591.html">qpid::messaging</a>;
+ #include &lt;<a class="el" href="a00465.html">qpid/messaging/Connection.h</a>&gt;
+ #include &lt;<a class="el" href="a00422.html">qpid/messaging/Message.h</a>&gt;
+ #include &lt;<a class="el" href="a00547.html">qpid/messaging/Receiver.h</a>&gt;
+ #include &lt;<a class="el" href="a00548.html">qpid/messaging/Sender.h</a>&gt;
+ #include &lt;<a class="el" href="a00479.html">qpid/messaging/Session.h</a>&gt;</pre><pre> #include &lt;iostream&gt;</pre><pre> using namespace <a class="el" href="a00593.html">qpid::messaging</a>;
  </pre><h3>Opening Sessions and Connections</h3>
 <pre>
  int main(int argc, char** argv) {
-     <a class="el" href="a00345.html" title="STL class.">std::string</a> broker = argc &gt; 1 ? argv[1] : "localhost:5672";
-     <a class="el" href="a00345.html" title="STL class.">std::string</a> address = argc &gt; 2 ? argv[2] : "amq.topic";
+     <a class="el" href="a00346.html" title="STL class.">std::string</a> broker = argc &gt; 1 ? argv[1] : "localhost:5672";
+     <a class="el" href="a00346.html" title="STL class.">std::string</a> address = argc &gt; 2 ? argv[2] : "amq.topic";
      Connection connection(broker);
      try {
          connection.open();
@@ -151,8 +151,8 @@
  	  &lt;&lt; "Durability: " &lt;&lt; message.getDurable();
  </pre><h3>Getting and Setting Application-Defined Message Properties</h3>
 <pre>
- <a class="el" href="a00345.html" title="STL class.">std::string</a> name = "weekday";
- <a class="el" href="a00345.html" title="STL class.">std::string</a> value = "Thursday";
+ <a class="el" href="a00346.html" title="STL class.">std::string</a> name = "weekday";
+ <a class="el" href="a00346.html" title="STL class.">std::string</a> value = "Thursday";
  message.getProperties()[name] = value;</pre><pre> std:string s = message.getProperties()["weekday"];
  </pre><h3>Transparent Failover</h3>
 <p>If a connection opened using the reconnect option, it will transparently reconnect if the connection is lost.</p>
@@ -238,7 +238,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

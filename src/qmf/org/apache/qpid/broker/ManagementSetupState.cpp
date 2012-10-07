@@ -30,6 +30,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
 
 using namespace qmf::org::apache::qpid::broker;
 using           qpid::management::ManagementAgent;
@@ -286,9 +287,13 @@ void ManagementSetupState::mapDecodeValues (const ::qpid::types::Variant::Map& _
 
     if ((_i = _map.find("objectNum")) != _map.end()) {
         objectNum = _i->second;
+    } else {
+        objectNum = 0;
     }
     if ((_i = _map.find("bootSequence")) != _map.end()) {
         bootSequence = _i->second;
+    } else {
+        bootSequence = 0;
     }
 
 }

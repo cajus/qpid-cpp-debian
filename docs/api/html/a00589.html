@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::log Namespace Reference</title>
+    <title>qpid::framing::session Namespace Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,90 +58,59 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00589.html">log</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00582.html">framing</a>      </li>
+      <li class="navelem"><a class="el" href="a00589.html">session</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::log Namespace Reference</div>  </div>
+<div class="title">qpid::framing::session Namespace Reference</div>  </div>
 </div>
 <div class="contents">
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00194.html">Logger</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Central logging agent.  <a href="a00194.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00241.html">Options</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Logging options for config parser.  <a href="a00241.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00318.html">Selector</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A selector identifies the set of log messages to enable.  <a href="a00318.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00338.html">SinkOptions</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Logging sink options.  <a href="a00338.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00187.html">LevelTraits</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00340.html">Statement</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">POD struct representing a logging statement in source code.  <a href="a00340.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587e">Level</a> { <br/>
-&#160;&#160;<a class="el" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587ead112aed39622ff72d2129fbe9011e807">trace</a>, 
-<a class="el" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587eaed32fb0ecec461827baa7352bcc5742e">debug</a>, 
-<a class="el" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587eacea94907e695feb2e619d0985a98990f">info</a>, 
-<a class="el" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587ea2d9db56e94bfa85cd3d10389ff32ba14">notice</a>, 
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540">DetachCode</a> { <br/>
+&#160;&#160;<a class="el" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540a0b5ac5eec3a6d192ccba5e9212cfbb47">DETACH_CODE_NORMAL</a> = 0, 
+<a class="el" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540aee5045fa3748a8dcf899288de457741c">DETACH_CODE_SESSION_BUSY</a> = 1, 
+<a class="el" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540ab660f691aa9683149ba04e0175351a41">DETACH_CODE_TRANSPORT_BUSY</a> = 2, 
+<a class="el" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540ad49c675a24dc8474110f6d567bbb3283">DETACH_CODE_NOT_ATTACHED</a> = 3, 
 <br/>
-&#160;&#160;<a class="el" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587ea9fbc1fd8e080b35db485d0a7b5894a05">warning</a>, 
-<a class="el" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587ea3b827b7f174d3318795eaab4e3a3616a">error</a>, 
-<a class="el" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587ea08e0eee29ce0eadc035a2e5605f58ef5">critical</a>
+&#160;&#160;<a class="el" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540aecc25c880105bad2f8e9e15e2548f3a5">DETACH_CODE_UNKNOWN_IDS</a> = 4
 <br/>
  }</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Debugging severity levels.  <a href="a00589.html#aa048da8f9d1639c5a9195578b0e8587e">More...</a><br/></td></tr>
 </table>
 <hr/><h2>Enumeration Type Documentation</h2>
-<a class="anchor" id="aa048da8f9d1639c5a9195578b0e8587e"></a><!-- doxytag: member="qpid::log::Level" ref="aa048da8f9d1639c5a9195578b0e8587e" args="" -->
+<a class="anchor" id="a72cab85d605bd808e8ab1078df3d4540"></a><!-- doxytag: member="qpid::framing::session::DetachCode" ref="a72cab85d605bd808e8ab1078df3d4540" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587e">qpid::log::Level</a></td>
+          <td class="memname">enum <a class="el" href="a00589.html#a72cab85d605bd808e8ab1078df3d4540">qpid::framing::session::DetachCode</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Debugging severity levels. </p>
-<ul>
-<li>trace: High-volume debugging messages.</li>
-<li>debug: Debugging messages.</li>
-<li>info: Informational messages.</li>
-<li>notice: Normal but significant condition.</li>
-<li>warning: Warn of a possible problem.</li>
-<li>error: A definite error has occured.</li>
-<li>critical: System in danger of severe failure. </li>
-</ul>
 <dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="aa048da8f9d1639c5a9195578b0e8587ead112aed39622ff72d2129fbe9011e807"></a><!-- doxytag: member="trace" ref="aa048da8f9d1639c5a9195578b0e8587ead112aed39622ff72d2129fbe9011e807" args="" -->trace</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="a72cab85d605bd808e8ab1078df3d4540a0b5ac5eec3a6d192ccba5e9212cfbb47"></a><!-- doxytag: member="DETACH_CODE_NORMAL" ref="a72cab85d605bd808e8ab1078df3d4540a0b5ac5eec3a6d192ccba5e9212cfbb47" args="" -->DETACH_CODE_NORMAL</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aa048da8f9d1639c5a9195578b0e8587eaed32fb0ecec461827baa7352bcc5742e"></a><!-- doxytag: member="debug" ref="aa048da8f9d1639c5a9195578b0e8587eaed32fb0ecec461827baa7352bcc5742e" args="" -->debug</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="a72cab85d605bd808e8ab1078df3d4540aee5045fa3748a8dcf899288de457741c"></a><!-- doxytag: member="DETACH_CODE_SESSION_BUSY" ref="a72cab85d605bd808e8ab1078df3d4540aee5045fa3748a8dcf899288de457741c" args="" -->DETACH_CODE_SESSION_BUSY</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aa048da8f9d1639c5a9195578b0e8587eacea94907e695feb2e619d0985a98990f"></a><!-- doxytag: member="info" ref="aa048da8f9d1639c5a9195578b0e8587eacea94907e695feb2e619d0985a98990f" args="" -->info</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="a72cab85d605bd808e8ab1078df3d4540ab660f691aa9683149ba04e0175351a41"></a><!-- doxytag: member="DETACH_CODE_TRANSPORT_BUSY" ref="a72cab85d605bd808e8ab1078df3d4540ab660f691aa9683149ba04e0175351a41" args="" -->DETACH_CODE_TRANSPORT_BUSY</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aa048da8f9d1639c5a9195578b0e8587ea2d9db56e94bfa85cd3d10389ff32ba14"></a><!-- doxytag: member="notice" ref="aa048da8f9d1639c5a9195578b0e8587ea2d9db56e94bfa85cd3d10389ff32ba14" args="" -->notice</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="a72cab85d605bd808e8ab1078df3d4540ad49c675a24dc8474110f6d567bbb3283"></a><!-- doxytag: member="DETACH_CODE_NOT_ATTACHED" ref="a72cab85d605bd808e8ab1078df3d4540ad49c675a24dc8474110f6d567bbb3283" args="" -->DETACH_CODE_NOT_ATTACHED</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aa048da8f9d1639c5a9195578b0e8587ea9fbc1fd8e080b35db485d0a7b5894a05"></a><!-- doxytag: member="warning" ref="aa048da8f9d1639c5a9195578b0e8587ea9fbc1fd8e080b35db485d0a7b5894a05" args="" -->warning</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aa048da8f9d1639c5a9195578b0e8587ea3b827b7f174d3318795eaab4e3a3616a"></a><!-- doxytag: member="error" ref="aa048da8f9d1639c5a9195578b0e8587ea3b827b7f174d3318795eaab4e3a3616a" args="" -->error</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="aa048da8f9d1639c5a9195578b0e8587ea08e0eee29ce0eadc035a2e5605f58ef5"></a><!-- doxytag: member="critical" ref="aa048da8f9d1639c5a9195578b0e8587ea08e0eee29ce0eadc035a2e5605f58ef5" args="" -->critical</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="a72cab85d605bd808e8ab1078df3d4540aecc25c880105bad2f8e9e15e2548f3a5"></a><!-- doxytag: member="DETACH_CODE_UNKNOWN_IDS" ref="a72cab85d605bd808e8ab1078df3d4540aecc25c880105bad2f8e9e15e2548f3a5" args="" -->DETACH_CODE_UNKNOWN_IDS</em>&nbsp;</td><td>
 </td></tr>
 </table>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="a00534_source.html#l00038">38</a> of file <a class="el" href="a00534_source.html">Statement.h</a>.</p>
+<p>Definition at line <a class="el" href="a00504_source.html#l00059">59</a> of file <a class="el" href="a00504_source.html">enum.h</a>.</p>
 
 </div>
 </div>
@@ -173,7 +142,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

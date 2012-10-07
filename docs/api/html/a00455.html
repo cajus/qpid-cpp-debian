@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/amqp_0_10/Codecs.h File Reference</title>
+    <title>qpid/agent/ManagementAgent.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,36 +60,30 @@
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/amqp_0_10/Codecs.h File Reference</div>  </div>
+<div class="title">qpid/agent/ManagementAgent.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00482_source.html">qpid/CommonImportExport.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00569_source.html">qpid/types/Variant.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00456_source.html">qpid/agent/QmfAgentImportExport.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00540_source.html">qpid/management/ManagementObject.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00539_source.html">qpid/management/ManagementEvent.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00538_source.html">qpid/management/Manageable.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00416_source.html">qpid/management/ConnectionSettings.h</a>&quot;</code><br/>
 </div>
 <p><a href="a00455_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00203.html">qpid::amqp_0_10::MapCodec</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Codec for encoding/decoding a map of Variants using the AMQP 0-10 map encoding.  <a href="a00203.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html">qpid::amqp_0_10::ListCodec</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Codec for encoding/decoding a list of Variants using the AMQP 0-10 list encoding.  <a href="a00191.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00230.html">qpid::management::Notifyable</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00199.html">qpid::management::ManagementAgent</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00338.html">qpid::management::ManagementAgent::Singleton</a></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html">qpid</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
 <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00580.html">qpid::framing</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>The framing namespace contains classes that are used to create, send and receive the basic packets from which AMQP is built. </p>
-<br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00575.html">qpid::amqp_0_10</a></td></tr>
-<tr><td colspan="2"><h2><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00575.html#a0a9eabd8b904d29a29cf7fabaa3cbe4e">qpid::amqp_0_10::translate</a> (const <a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;from, <a class="el" href="a00123.html">qpid::framing::FieldTable</a> &amp;to)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00575.html#ab4eabc93bb268b8b17737c29afb5249c">qpid::amqp_0_10::translate</a> (const <a class="el" href="a00123.html">qpid::framing::FieldTable</a> &amp;from, <a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;to)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html">qpid::management</a></td></tr>
 </table>
 </div>
 <!--
@@ -119,7 +113,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

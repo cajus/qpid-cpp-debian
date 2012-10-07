@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::framing::dtx Namespace Reference</title>
+    <title>qpid::framing::cluster Namespace Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,9 +58,9 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00580.html">framing</a>      </li>
-      <li class="navelem"><a class="el" href="a00583.html">dtx</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00582.html">framing</a>      </li>
+      <li class="navelem"><a class="el" href="a00583.html">cluster</a>      </li>
     </ul>
   </div>
 </div>
@@ -68,58 +68,72 @@
   <div class="summary">
 <a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::framing::dtx Namespace Reference</div>  </div>
+<div class="title">qpid::framing::cluster Namespace Reference</div>  </div>
 </div>
 <div class="contents">
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00583.html#a662b9c8e054bdd1d302c4da8df5ca106">XaStatus</a> { <br/>
-&#160;&#160;<a class="el" href="a00583.html#a662b9c8e054bdd1d302c4da8df5ca106ab1bfa28507ea90a04c510643912c5a77">XA_STATUS_XA_OK</a> = 0, 
-<a class="el" href="a00583.html#a662b9c8e054bdd1d302c4da8df5ca106a9b243cde1c4b8a43b083043e2461ea92">XA_STATUS_XA_RBROLLBACK</a> = 1, 
-<a class="el" href="a00583.html#a662b9c8e054bdd1d302c4da8df5ca106a61831d30b4dde298330186f7803ed6bd">XA_STATUS_XA_RBTIMEOUT</a> = 2, 
-<a class="el" href="a00583.html#a662b9c8e054bdd1d302c4da8df5ca106a43d175dfcec0c27e69bf763176fa9718">XA_STATUS_XA_HEURHAZ</a> = 3, 
-<br/>
-&#160;&#160;<a class="el" href="a00583.html#a662b9c8e054bdd1d302c4da8df5ca106aefaedcec538994a97f7bbe58721fa6b6">XA_STATUS_XA_HEURCOM</a> = 4, 
-<a class="el" href="a00583.html#a662b9c8e054bdd1d302c4da8df5ca106a6f1cb0f46b55d72d1f48a79f199a89c5">XA_STATUS_XA_HEURRB</a> = 5, 
-<a class="el" href="a00583.html#a662b9c8e054bdd1d302c4da8df5ca106ab46635e4385092bdce867d5a84ad4e14">XA_STATUS_XA_HEURMIX</a> = 6, 
-<a class="el" href="a00583.html#a662b9c8e054bdd1d302c4da8df5ca106a914a388ca583a00f54159cdf05d31f38">XA_STATUS_XA_RDONLY</a> = 7
-<br/>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7">StoreState</a> { <a class="el" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7aa3eb6571aa48877729a0f367509a70c4">STORE_STATE_NO_STORE</a> = 0, 
+<a class="el" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7a20f56190d72e28ffa08382a852df3a12">STORE_STATE_EMPTY_STORE</a> = 1, 
+<a class="el" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7a9d4ed02a67fd5628db255baa90da85e1">STORE_STATE_CLEAN_STORE</a> = 2, 
+<a class="el" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7a5516eb694b7d73feda7028fab75f6ec3">STORE_STATE_DIRTY_STORE</a> = 3
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00583.html#a1f0c00f95b3402b5ffdafd94f1bda53a">ErrorType</a> { <a class="el" href="a00583.html#a1f0c00f95b3402b5ffdafd94f1bda53aa2c7e16fbd015d7cab61b0e325a2a674b">ERROR_TYPE_NONE</a> = 0, 
+<a class="el" href="a00583.html#a1f0c00f95b3402b5ffdafd94f1bda53aa63975e6bfe458123e7a8ef72f19e75aa">ERROR_TYPE_SESSION</a> = 1, 
+<a class="el" href="a00583.html#a1f0c00f95b3402b5ffdafd94f1bda53aabdcdbcc564d022a7927d10a07f268eee">ERROR_TYPE_CONNECTION</a> = 2
  }</td></tr>
 </table>
 <hr/><h2>Enumeration Type Documentation</h2>
-<a class="anchor" id="a662b9c8e054bdd1d302c4da8df5ca106"></a><!-- doxytag: member="qpid::framing::dtx::XaStatus" ref="a662b9c8e054bdd1d302c4da8df5ca106" args="" -->
+<a class="anchor" id="a1f0c00f95b3402b5ffdafd94f1bda53a"></a><!-- doxytag: member="qpid::framing::cluster::ErrorType" ref="a1f0c00f95b3402b5ffdafd94f1bda53a" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00583.html#a662b9c8e054bdd1d302c4da8df5ca106">qpid::framing::dtx::XaStatus</a></td>
+          <td class="memname">enum <a class="el" href="a00583.html#a1f0c00f95b3402b5ffdafd94f1bda53a">qpid::framing::cluster::ErrorType</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 <dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="a662b9c8e054bdd1d302c4da8df5ca106ab1bfa28507ea90a04c510643912c5a77"></a><!-- doxytag: member="XA_STATUS_XA_OK" ref="a662b9c8e054bdd1d302c4da8df5ca106ab1bfa28507ea90a04c510643912c5a77" args="" -->XA_STATUS_XA_OK</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="a1f0c00f95b3402b5ffdafd94f1bda53aa2c7e16fbd015d7cab61b0e325a2a674b"></a><!-- doxytag: member="ERROR_TYPE_NONE" ref="a1f0c00f95b3402b5ffdafd94f1bda53aa2c7e16fbd015d7cab61b0e325a2a674b" args="" -->ERROR_TYPE_NONE</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a662b9c8e054bdd1d302c4da8df5ca106a9b243cde1c4b8a43b083043e2461ea92"></a><!-- doxytag: member="XA_STATUS_XA_RBROLLBACK" ref="a662b9c8e054bdd1d302c4da8df5ca106a9b243cde1c4b8a43b083043e2461ea92" args="" -->XA_STATUS_XA_RBROLLBACK</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="a1f0c00f95b3402b5ffdafd94f1bda53aa63975e6bfe458123e7a8ef72f19e75aa"></a><!-- doxytag: member="ERROR_TYPE_SESSION" ref="a1f0c00f95b3402b5ffdafd94f1bda53aa63975e6bfe458123e7a8ef72f19e75aa" args="" -->ERROR_TYPE_SESSION</em>&nbsp;</td><td>
 </td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a662b9c8e054bdd1d302c4da8df5ca106a61831d30b4dde298330186f7803ed6bd"></a><!-- doxytag: member="XA_STATUS_XA_RBTIMEOUT" ref="a662b9c8e054bdd1d302c4da8df5ca106a61831d30b4dde298330186f7803ed6bd" args="" -->XA_STATUS_XA_RBTIMEOUT</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a662b9c8e054bdd1d302c4da8df5ca106a43d175dfcec0c27e69bf763176fa9718"></a><!-- doxytag: member="XA_STATUS_XA_HEURHAZ" ref="a662b9c8e054bdd1d302c4da8df5ca106a43d175dfcec0c27e69bf763176fa9718" args="" -->XA_STATUS_XA_HEURHAZ</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a662b9c8e054bdd1d302c4da8df5ca106aefaedcec538994a97f7bbe58721fa6b6"></a><!-- doxytag: member="XA_STATUS_XA_HEURCOM" ref="a662b9c8e054bdd1d302c4da8df5ca106aefaedcec538994a97f7bbe58721fa6b6" args="" -->XA_STATUS_XA_HEURCOM</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a662b9c8e054bdd1d302c4da8df5ca106a6f1cb0f46b55d72d1f48a79f199a89c5"></a><!-- doxytag: member="XA_STATUS_XA_HEURRB" ref="a662b9c8e054bdd1d302c4da8df5ca106a6f1cb0f46b55d72d1f48a79f199a89c5" args="" -->XA_STATUS_XA_HEURRB</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a662b9c8e054bdd1d302c4da8df5ca106ab46635e4385092bdce867d5a84ad4e14"></a><!-- doxytag: member="XA_STATUS_XA_HEURMIX" ref="a662b9c8e054bdd1d302c4da8df5ca106ab46635e4385092bdce867d5a84ad4e14" args="" -->XA_STATUS_XA_HEURMIX</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a662b9c8e054bdd1d302c4da8df5ca106a914a388ca583a00f54159cdf05d31f38"></a><!-- doxytag: member="XA_STATUS_XA_RDONLY" ref="a662b9c8e054bdd1d302c4da8df5ca106a914a388ca583a00f54159cdf05d31f38" args="" -->XA_STATUS_XA_RDONLY</em>&nbsp;</td><td>
+<tr><td valign="top"><em><a class="anchor" id="a1f0c00f95b3402b5ffdafd94f1bda53aabdcdbcc564d022a7927d10a07f268eee"></a><!-- doxytag: member="ERROR_TYPE_CONNECTION" ref="a1f0c00f95b3402b5ffdafd94f1bda53aabdcdbcc564d022a7927d10a07f268eee" args="" -->ERROR_TYPE_CONNECTION</em>&nbsp;</td><td>
 </td></tr>
 </table>
 </dd>
 </dl>
 
-<p>Definition at line <a class="el" href="a00502_source.html#l00136">136</a> of file <a class="el" href="a00502_source.html">enum.h</a>.</p>
+<p>Definition at line <a class="el" href="a00504_source.html#l00180">180</a> of file <a class="el" href="a00504_source.html">enum.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a53f12298fdcef1b60abb5275bb9907b7"></a><!-- doxytag: member="qpid::framing::cluster::StoreState" ref="a53f12298fdcef1b60abb5275bb9907b7" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00583.html#a53f12298fdcef1b60abb5275bb9907b7">qpid::framing::cluster::StoreState</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="a53f12298fdcef1b60abb5275bb9907b7aa3eb6571aa48877729a0f367509a70c4"></a><!-- doxytag: member="STORE_STATE_NO_STORE" ref="a53f12298fdcef1b60abb5275bb9907b7aa3eb6571aa48877729a0f367509a70c4" args="" -->STORE_STATE_NO_STORE</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a53f12298fdcef1b60abb5275bb9907b7a20f56190d72e28ffa08382a852df3a12"></a><!-- doxytag: member="STORE_STATE_EMPTY_STORE" ref="a53f12298fdcef1b60abb5275bb9907b7a20f56190d72e28ffa08382a852df3a12" args="" -->STORE_STATE_EMPTY_STORE</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a53f12298fdcef1b60abb5275bb9907b7a9d4ed02a67fd5628db255baa90da85e1"></a><!-- doxytag: member="STORE_STATE_CLEAN_STORE" ref="a53f12298fdcef1b60abb5275bb9907b7a9d4ed02a67fd5628db255baa90da85e1" args="" -->STORE_STATE_CLEAN_STORE</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a53f12298fdcef1b60abb5275bb9907b7a5516eb694b7d73feda7028fab75f6ec3"></a><!-- doxytag: member="STORE_STATE_DIRTY_STORE" ref="a53f12298fdcef1b60abb5275bb9907b7a5516eb694b7d73feda7028fab75f6ec3" args="" -->STORE_STATE_DIRTY_STORE</em>&nbsp;</td><td>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00504_source.html#l00174">174</a> of file <a class="el" href="a00504_source.html">enum.h</a>.</p>
 
 </div>
 </div>
@@ -151,7 +165,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -26,7 +26,7 @@
 
 
 #include "qpid/framing/MessageProperties.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
@@ -49,6 +49,7 @@ void MessageProperties::clearMessageIdFlag() { flags &= ~(1 << 9); }
 void MessageProperties::setCorrelationId(const std::string& _correlationId) {
     correlationId = _correlationId;
     flags |= (1 << 10);
+    if (correlationId.size() >= 65536) throw IllegalArgumentException("Value for correlationId is too large");
 }
 const std::string& MessageProperties::getCorrelationId() const { return correlationId; }
 bool MessageProperties::hasCorrelationId() const { return flags & (1 << 10); }
@@ -65,6 +66,7 @@ void MessageProperties::clearReplyToFlag() { flags &= ~(1 << 11); }
 void MessageProperties::setContentType(const std::string& _contentType) {
     contentType = _contentType;
     flags |= (1 << 12);
+    if (contentType.size() >= 256) throw IllegalArgumentException("Value for contentType is too large");
 }
 const std::string& MessageProperties::getContentType() const { return contentType; }
 bool MessageProperties::hasContentType() const { return flags & (1 << 12); }
@@ -73,6 +75,7 @@ void MessageProperties::clearContentTypeFlag() { flags &= ~(1 << 12); }
 void MessageProperties::setContentEncoding(const std::string& _contentEncoding) {
     contentEncoding = _contentEncoding;
     flags |= (1 << 13);
+    if (contentEncoding.size() >= 256) throw IllegalArgumentException("Value for contentEncoding is too large");
 }
 const std::string& MessageProperties::getContentEncoding() const { return contentEncoding; }
 bool MessageProperties::hasContentEncoding() const { return flags & (1 << 13); }
@@ -81,6 +84,7 @@ void MessageProperties::clearContentEncodingFlag() { flags &= ~(1 << 13); }
 void MessageProperties::setUserId(const std::string& _userId) {
     userId = _userId;
     flags |= (1 << 14);
+    if (userId.size() >= 65536) throw IllegalArgumentException("Value for userId is too large");
 }
 const std::string& MessageProperties::getUserId() const { return userId; }
 bool MessageProperties::hasUserId() const { return flags & (1 << 14); }
@@ -89,6 +93,7 @@ void MessageProperties::clearUserIdFlag() { flags &= ~(1 << 14); }
 void MessageProperties::setAppId(const std::string& _appId) {
     appId = _appId;
     flags |= (1 << 15);
+    if (appId.size() >= 65536) throw IllegalArgumentException("Value for appId is too large");
 }
 const std::string& MessageProperties::getAppId() const { return appId; }
 bool MessageProperties::hasAppId() const { return flags & (1 << 15); }

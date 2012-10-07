@@ -32,6 +32,7 @@
 #include "qpid/framing/ExchangeBoundResult.h"
 #include "qpid/framing/ExchangeQueryResult.h"
 #include "qpid/framing/FieldTable.h"
+#include "qpid/framing/FieldValue.h"
 #include "qpid/framing/QueueQueryResult.h"
 #include "qpid/framing/ReplyTo.h"
 #include "qpid/framing/reply_exceptions.h"
@@ -240,6 +241,7 @@ class Subscription : public Exchange, public MessageSource
     const std::string actualType;
     const bool exclusiveQueue;
     const bool exclusiveSubscription;
+    const std::string alternateExchange;
     FieldTable queueOptions;
     FieldTable subscriptionOptions;
     Bindings bindings;
@@ -506,7 +508,8 @@ Subscription::Subscription(const Address& address, const std::string& type)
       durable(Opt(address)/LINK/DURABLE),
       actualType(type.empty() ? (specifiedType.empty() ? TOPIC_EXCHANGE : specifiedType) : type),
       exclusiveQueue((Opt(address)/LINK/X_DECLARE/EXCLUSIVE).asBool(true)),
-      exclusiveSubscription((Opt(address)/LINK/X_SUBSCRIBE/EXCLUSIVE).asBool(exclusiveQueue))
+      exclusiveSubscription((Opt(address)/LINK/X_SUBSCRIBE/EXCLUSIVE).asBool(exclusiveQueue)),
+      alternateExchange((Opt(address)/LINK/X_DECLARE/ALTERNATE_EXCHANGE).str())
 {
     (Opt(address)/LINK/X_DECLARE/ARGUMENTS).collect(queueOptions);
     (Opt(address)/LINK/X_SUBSCRIBE/ARGUMENTS).collect(subscriptionOptions);
@@ -567,7 +570,9 @@ void Subscription::subscribe(qpid::client::AsyncSession& session, const std::str
 
     //create subscription queue:
     session.queueDeclare(arg::queue=queue, arg::exclusive=exclusiveQueue,
-                         arg::autoDelete=!reliable, arg::durable=durable, arg::arguments=queueOptions);
+                         arg::autoDelete=!reliable, arg::durable=durable,
+                         arg::alternateExchange=alternateExchange,
+                         arg::arguments=queueOptions);
     //'default' binding:
     bindings.bind(session);
     //any explicit bindings:

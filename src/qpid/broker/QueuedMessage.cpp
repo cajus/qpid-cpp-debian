@@ -18,12 +18,17 @@
  * under the License.
  *
  */
+#include "QueuedMessage.h"
+#include "Queue.h"
+#include <iostream>
 
-#include "qpid/sys/MemStat.h"
+namespace qpid {
+namespace broker {
 
-void qpid::sys::MemStat::loadMemInfo(qmf::org::apache::qpid::broker::Memory*)
-{
-    // TODO: Add Windows-specific memory stats to the object and load them here.
+std::ostream& operator<<(std::ostream& o, const QueuedMessage& qm) {
+    o << (qm.queue ? qm.queue->getName() : std::string()) << "[" << qm.position <<"]";
+    return o;
 }
 
 
+}} // namespace qpid::broker

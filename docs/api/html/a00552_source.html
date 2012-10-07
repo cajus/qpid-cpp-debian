@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/sys/windows/Condition.h Source File</title>
+    <title>qpid/sys/Condition.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,11 +58,11 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/sys/windows/Condition.h</div>  </div>
+<div class="title">qpid/sys/Condition.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00552.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _sys_windows_Condition_h</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _sys_windows_Condition_h</span>
+<a href="a00552.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _sys_Condition_h</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _sys_Condition_h</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="comment">/*</span>
 <a name="l00005"></a>00005 <span class="comment"> *</span>
@@ -73,9 +73,9 @@
 <a name="l00010"></a>00010 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
 <a name="l00011"></a>00011 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
 <a name="l00012"></a>00012 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
-<a name="l00013"></a>00013 <span class="comment"> * </span>
+<a name="l00013"></a>00013 <span class="comment"> *</span>
 <a name="l00014"></a>00014 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
-<a name="l00015"></a>00015 <span class="comment"> * </span>
+<a name="l00015"></a>00015 <span class="comment"> *</span>
 <a name="l00016"></a>00016 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
 <a name="l00017"></a>00017 <span class="comment"> * software distributed under the License is distributed on an</span>
 <a name="l00018"></a>00018 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
@@ -85,56 +85,15 @@
 <a name="l00022"></a>00022 <span class="comment"> *</span>
 <a name="l00023"></a>00023 <span class="comment"> */</span>
 <a name="l00024"></a>00024 
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00540.html">qpid/sys/Mutex.h</a>&quot;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00563.html">qpid/sys/Time.h</a>&quot;</span>
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;time.h&gt;</span>
-<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;boost/noncopyable.hpp&gt;</span>
-<a name="l00030"></a>00030 <span class="preprocessor">#include &lt;boost/thread/condition.hpp&gt;</span>
-<a name="l00031"></a>00031 <span class="preprocessor">#include &lt;boost/thread/thread_time.hpp&gt;</span>
-<a name="l00032"></a>00032 <span class="preprocessor">#include &lt;windows.h&gt;</span>
-<a name="l00033"></a>00033 
-<a name="l00034"></a>00034 <span class="keyword">namespace </span>qpid {
-<a name="l00035"></a>00035 <span class="keyword">namespace </span>sys {
-<a name="l00036"></a>00036 
-<a name="l00040"></a><a class="code" href="a00056.html">00040</a> <span class="keyword">class </span><a class="code" href="a00056.html" title="A condition variable for thread synchronization.">Condition</a> : <span class="keyword">private</span> boost::noncopyable
-<a name="l00041"></a>00041 {
-<a name="l00042"></a>00042   <span class="keyword">public</span>:
-<a name="l00043"></a>00043     <span class="keyword">inline</span> <a class="code" href="a00056.html#a304369e9ae4f1ce1c92ac85aed4c6c2a">Condition</a>();
-<a name="l00044"></a>00044     <span class="keyword">inline</span> <a class="code" href="a00056.html#afbf0fee30d52e4e7a0ee1ad30287e93f">~Condition</a>();
-<a name="l00045"></a>00045     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00056.html#a30f9675f0109f4039c1d3fdc389cad89">wait</a>(<a class="code" href="a00220.html" title="Mutex lock.">Mutex</a>&amp;);
-<a name="l00046"></a>00046     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="a00056.html#a30f9675f0109f4039c1d3fdc389cad89">wait</a>(<a class="code" href="a00220.html" title="Mutex lock.">Mutex</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a>&amp; absoluteTime);
-<a name="l00047"></a>00047     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00056.html#ad356babe156de41ff5950de9d5698ae9">notify</a>();
-<a name="l00048"></a>00048     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="a00056.html#ac42f174b3f5be7d45253a9c441718334">notifyAll</a>();
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050   <span class="keyword">private</span>:
-<a name="l00051"></a>00051     boost::condition_variable_any condition;
-<a name="l00052"></a>00052 };
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054 <a class="code" href="a00056.html#a304369e9ae4f1ce1c92ac85aed4c6c2a">Condition::Condition</a>() {
-<a name="l00055"></a>00055 }
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057 <a class="code" href="a00056.html#afbf0fee30d52e4e7a0ee1ad30287e93f">Condition::~Condition</a>() {
-<a name="l00058"></a>00058 }
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060 <span class="keywordtype">void</span> <a class="code" href="a00056.html#a30f9675f0109f4039c1d3fdc389cad89">Condition::wait</a>(Mutex&amp; mutex) {
-<a name="l00061"></a>00061     condition.wait(mutex.mutex);
-<a name="l00062"></a>00062 }
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064 <span class="keywordtype">bool</span> <a class="code" href="a00056.html#a30f9675f0109f4039c1d3fdc389cad89">Condition::wait</a>(Mutex&amp; mutex, <span class="keyword">const</span> AbsTime&amp; absoluteTime){
-<a name="l00065"></a>00065     <span class="keywordflow">return</span> condition.timed_wait(mutex.mutex, absoluteTime.timepoint);
-<a name="l00066"></a>00066 }
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068 <span class="keywordtype">void</span> <a class="code" href="a00056.html#ad356babe156de41ff5950de9d5698ae9">Condition::notify</a>(){
-<a name="l00069"></a>00069     condition.notify_one();
-<a name="l00070"></a>00070 }
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072 <span class="keywordtype">void</span> <a class="code" href="a00056.html#ac42f174b3f5be7d45253a9c441718334">Condition::notifyAll</a>(){
-<a name="l00073"></a>00073     condition.notify_all();
-<a name="l00074"></a>00074 }
-<a name="l00075"></a>00075 
-<a name="l00076"></a>00076 }}
-<a name="l00077"></a>00077 <span class="preprocessor">#endif  </span>
+<a name="l00025"></a>00025 <span class="preprocessor">#ifdef USE_APR_PLATFORM</span>
+<a name="l00026"></a>00026 <span class="preprocessor"></span><span class="preprocessor">#include &quot;apr/Condition.h&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#elif defined (_WIN32)</span>
+<a name="l00028"></a>00028 <span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="a00554.html">windows/Condition.h</a>&quot;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#else</span>
+<a name="l00030"></a>00030 <span class="preprocessor"></span><span class="preprocessor">#include &quot;<a class="code" href="a00553.html">posix/Condition.h</a>&quot;</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#endif</span>
+<a name="l00032"></a>00032 <span class="preprocessor"></span>
+<a name="l00033"></a>00033 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -164,7 +123,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

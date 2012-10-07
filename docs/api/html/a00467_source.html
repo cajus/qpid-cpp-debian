@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/client/Future.h Source File</title>
+    <title>qpid/client/FailoverManager.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,67 +58,86 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/client/Future.h</div>  </div>
+<div class="title">qpid/client/FailoverManager.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00467.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
-<a name="l00002"></a>00002 <span class="comment"> *</span>
-<a name="l00003"></a>00003 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
-<a name="l00004"></a>00004 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
-<a name="l00005"></a>00005 <span class="comment"> * distributed with this work for additional information</span>
-<a name="l00006"></a>00006 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
-<a name="l00007"></a>00007 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
-<a name="l00008"></a>00008 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
-<a name="l00009"></a>00009 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
-<a name="l00010"></a>00010 <span class="comment"> *</span>
-<a name="l00011"></a>00011 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
-<a name="l00012"></a>00012 <span class="comment"> *</span>
-<a name="l00013"></a>00013 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
-<a name="l00014"></a>00014 <span class="comment"> * software distributed under the License is distributed on an</span>
-<a name="l00015"></a>00015 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
-<a name="l00016"></a>00016 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
-<a name="l00017"></a>00017 <span class="comment"> * specific language governing permissions and limitations</span>
-<a name="l00018"></a>00018 <span class="comment"> * under the License.</span>
-<a name="l00019"></a>00019 <span class="comment"> *</span>
-<a name="l00020"></a>00020 <span class="comment"> */</span>
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022 <span class="preprocessor">#ifndef _Future_</span>
-<a name="l00023"></a>00023 <span class="preprocessor"></span><span class="preprocessor">#define _Future_</span>
-<a name="l00024"></a>00024 <span class="preprocessor"></span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &lt;boost/bind.hpp&gt;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &lt;boost/shared_ptr.hpp&gt;</span>
-<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00490.html">qpid/Exception.h</a>&quot;</span>
-<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="a00518.html">qpid/framing/SequenceNumber.h</a>&quot;</span>
-<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="a00468.html">qpid/client/FutureCompletion.h</a>&quot;</span>
-<a name="l00030"></a>00030 <span class="preprocessor">#include &quot;<a class="code" href="a00469.html">qpid/client/FutureResult.h</a>&quot;</span>
-<a name="l00031"></a>00031 <span class="preprocessor">#include &quot;<a class="code" href="a00460.html">qpid/client/ClientImportExport.h</a>&quot;</span>
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033 <span class="keyword">namespace </span>qpid {
-<a name="l00034"></a>00034 <span class="keyword">namespace </span>client {
-<a name="l00035"></a>00035 
-<a name="l00037"></a>00037 <span class="keyword">class </span><a class="code" href="a00460.html#a79998e3c253eb090fed36f2f89ca2e91">QPID_CLIENT_CLASS_EXTERN</a> Future
+<a href="a00467.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_CLIENT_FAILOVERMANAGER_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_CLIENT_FAILOVERMANAGER_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="comment">/*</span>
+<a name="l00005"></a>00005 <span class="comment"> *</span>
+<a name="l00006"></a>00006 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
+<a name="l00007"></a>00007 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
+<a name="l00008"></a>00008 <span class="comment"> * distributed with this work for additional information</span>
+<a name="l00009"></a>00009 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
+<a name="l00010"></a>00010 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
+<a name="l00011"></a>00011 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
+<a name="l00012"></a>00012 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
+<a name="l00013"></a>00013 <span class="comment"> *</span>
+<a name="l00014"></a>00014 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
+<a name="l00015"></a>00015 <span class="comment"> *</span>
+<a name="l00016"></a>00016 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
+<a name="l00017"></a>00017 <span class="comment"> * software distributed under the License is distributed on an</span>
+<a name="l00018"></a>00018 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<a name="l00019"></a>00019 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
+<a name="l00020"></a>00020 <span class="comment"> * specific language governing permissions and limitations</span>
+<a name="l00021"></a>00021 <span class="comment"> * under the License.</span>
+<a name="l00022"></a>00022 <span class="comment"> *</span>
+<a name="l00023"></a>00023 <span class="comment"> */</span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00492.html">qpid/Exception.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00459.html">qpid/client/AsyncSession.h</a>&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00462.html">qpid/client/ClientImportExport.h</a>&quot;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="a00464.html">qpid/client/Connection.h</a>&quot;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &quot;<a class="code" href="a00415.html">qpid/client/ConnectionSettings.h</a>&quot;</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &quot;<a class="code" href="a00466.html">qpid/client/FailoverListener.h</a>&quot;</span>
+<a name="l00031"></a>00031 <span class="preprocessor">#include &quot;<a class="code" href="a00560.html">qpid/sys/Monitor.h</a>&quot;</span>
+<a name="l00032"></a>00032 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00033"></a>00033 
+<a name="l00034"></a>00034 <span class="keyword">namespace </span>qpid {
+<a name="l00035"></a>00035 <span class="keyword">namespace </span><a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca8a6e04ce91f4d365de37ccc1a4ef0dc9">client</a> {
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037 <span class="keyword">struct </span>CannotConnectException : qpid::Exception
 <a name="l00038"></a>00038 {
-<a name="l00039"></a>00039     framing::SequenceNumber command;
-<a name="l00040"></a>00040     boost::shared_ptr&lt;FutureResult&gt; result;
-<a name="l00041"></a>00041     <span class="keywordtype">bool</span> complete;
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043 <span class="keyword">public</span>:
-<a name="l00044"></a><a class="code" href="a00136.html#ac64e86abfa72c291078edb08431d2824">00044</a>     <a class="code" href="a00136.html#ac64e86abfa72c291078edb08431d2824">Future</a>() : complete(false) {}
-<a name="l00045"></a><a class="code" href="a00136.html#a5a669962fd5a78af51b94022bae53eef">00045</a>     <a class="code" href="a00136.html#a5a669962fd5a78af51b94022bae53eef">Future</a>(<span class="keyword">const</span> <a class="code" href="a00323.html" title="4-byte sequence number that &#39;wraps around&#39;.">framing::SequenceNumber</a>&amp; <span class="keywordtype">id</span>) : command(id), complete(false) {}
-<a name="l00046"></a>00046 
-<a name="l00047"></a><a class="code" href="a00136.html#a5eb5b4c9f5f0fc0548bb9bcc45297a6c">00047</a>     std<a class="code" href="a00345.html" title="STL class.">::string</a> <a class="code" href="a00136.html#a5eb5b4c9f5f0fc0548bb9bcc45297a6c">getResult</a>(SessionImpl&amp; session) {
-<a name="l00048"></a>00048         <span class="keywordflow">if</span> (result) <span class="keywordflow">return</span> result-&gt;getResult(session);
-<a name="l00049"></a>00049         <span class="keywordflow">else</span> <span class="keywordflow">throw</span> <a class="code" href="a00114.html" title="Base class for Qpid runtime exceptions.">Exception</a>(<span class="stringliteral">&quot;Result not expected&quot;</span>);
-<a name="l00050"></a>00050     }
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052     <a class="code" href="a00460.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> wait(SessionImpl&amp; session);
-<a name="l00053"></a>00053     <a class="code" href="a00460.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">bool</span> isComplete(SessionImpl&amp; session);
-<a name="l00054"></a>00054     <a class="code" href="a00460.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> setFutureResult(boost::shared_ptr&lt;FutureResult&gt; r);
-<a name="l00055"></a>00055 };
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057 }}
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059 <span class="preprocessor">#endif</span>
+<a name="l00039"></a><a class="code" href="a00047.html#aa75949fa7197a6e7ae0bc14abb6ad453">00039</a>     <a class="code" href="a00047.html#aa75949fa7197a6e7ae0bc14abb6ad453">CannotConnectException</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; m) : qpid::<a class="code" href="a00116.html" title="Base class for Qpid runtime exceptions.">Exception</a>(m) {}
+<a name="l00040"></a>00040 };
+<a name="l00041"></a>00041 
+<a name="l00045"></a>00045 <span class="keyword">class </span><a class="code" href="a00462.html#a79998e3c253eb090fed36f2f89ca2e91">QPID_CLIENT_CLASS_EXTERN</a> FailoverManager
+<a name="l00046"></a>00046 {
+<a name="l00047"></a>00047   <span class="keyword">public</span>:
+<a name="l00052"></a>00052     <span class="keyword">struct </span>Command
+<a name="l00053"></a>00053     {
+<a name="l00064"></a>00064         <span class="keyword">virtual</span> <span class="keywordtype">void</span> execute(<a class="code" href="a00578.html#aaa363d2dd092eb7f790126a8f9333c8c" title="AsyncSession is an alias for Session_0_10.">AsyncSession</a>&amp; session, <span class="keywordtype">bool</span> isRetry) = 0;
+<a name="l00065"></a><a class="code" href="a00053.html#a50bbb9fab2dabb30725abd01d373b84f">00065</a>         <span class="keyword">virtual</span> <a class="code" href="a00053.html#a50bbb9fab2dabb30725abd01d373b84f">~Command</a>() {}
+<a name="l00066"></a>00066     };
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068     <span class="keyword">struct </span>ReconnectionStrategy
+<a name="l00069"></a>00069     {
+<a name="l00077"></a>00077         <span class="keyword">virtual</span> <span class="keywordtype">void</span> editUrlList(<a class="code" href="a00387.html">std::vector&lt;Url&gt;</a>&amp;  urls) = 0;
+<a name="l00078"></a><a class="code" href="a00274.html#ad546f593a6e577cd4eb91ceaae0d7230">00078</a>         <span class="keyword">virtual</span> <a class="code" href="a00274.html#ad546f593a6e577cd4eb91ceaae0d7230">~ReconnectionStrategy</a>() {}
+<a name="l00079"></a>00079     };
+<a name="l00080"></a>00080 
+<a name="l00089"></a>00089     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <a class="code" href="a00121.html" title="Utility to manage failover.">FailoverManager</a>(<span class="keyword">const</span> <a class="code" href="a00067.html" title="Settings for a Connection.">ConnectionSettings</a>&amp; settings, ReconnectionStrategy* strategy = 0);
+<a name="l00100"></a>00100     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <a class="code" href="a00060.html" title="Represents a connection to an AMQP broker.">Connection</a>&amp; connect(<a class="code" href="a00387.html">std::vector&lt;Url&gt;</a> brokers = <a class="code" href="a00387.html">std::vector&lt;Url&gt;</a>());
+<a name="l00104"></a>00104     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <a class="code" href="a00060.html" title="Represents a connection to an AMQP broker.">Connection</a>&amp; getConnection();
+<a name="l00108"></a>00108     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> close();
+<a name="l00121"></a>00121     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> execute(Command&amp;);
+<a name="l00122"></a>00122   <span class="keyword">private</span>:
+<a name="l00123"></a>00123     <span class="keyword">enum</span> State {IDLE, CONNECTING, CANT_CONNECT};
+<a name="l00124"></a>00124 
+<a name="l00125"></a>00125     qpid<a class="code" href="a00217.html" title="A monitor is a condition variable and a mutex.">::sys::Monitor</a> lock;
+<a name="l00126"></a>00126     Connection connection;
+<a name="l00127"></a>00127     std::auto_ptr&lt;FailoverListener&gt; failoverListener;
+<a name="l00128"></a>00128     ConnectionSettings settings;
+<a name="l00129"></a>00129     ReconnectionStrategy* strategy;
+<a name="l00130"></a>00130     State state;
+<a name="l00131"></a>00131 
+<a name="l00132"></a>00132     <span class="keywordtype">void</span> attempt(Connection&amp;, ConnectionSettings settings, <a class="code" href="a00387.html">std::vector&lt;Url&gt;</a> urls);
+<a name="l00133"></a>00133     <span class="keywordtype">void</span> attempt(Connection&amp;, ConnectionSettings settings);
+<a name="l00134"></a>00134 };
+<a name="l00135"></a>00135 }} <span class="comment">// namespace qpid::client</span>
+<a name="l00136"></a>00136 
+<a name="l00137"></a>00137 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -148,7 +167,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

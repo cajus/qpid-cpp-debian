@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::messaging::ResolutionError Struct Reference</title>
+    <title>qmf::engine::ResilientConnectionEvent Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,92 +60,135 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00591.html">messaging</a>      </li>
-      <li class="navelem"><a class="el" href="a00279.html">ResolutionError</a>      </li>
+      <li class="navelem"><a class="el" href="a00573.html">qmf</a>      </li>
+      <li class="navelem"><a class="el" href="a00574.html">engine</a>      </li>
+      <li class="navelem"><a class="el" href="a00279.html">ResilientConnectionEvent</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::messaging::ResolutionError Struct Reference</div>  </div>
+<div class="title">qmf::engine::ResilientConnectionEvent Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::messaging::ResolutionError" --><!-- doxytag: inherits="qpid::messaging::AddressError" -->
-<p>Thrown when a syntactically correct address cannot be resolved or used.  
+<!-- doxytag: class="qmf::engine::ResilientConnectionEvent" -->
+<p>Represents events that occur, unsolicited, from <a class="el" href="a00278.html" title="ResilientConnection represents a Qpid connection that is resilient.">ResilientConnection</a>.  
  <a href="a00279.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00436_source.html">qpid/messaging/exceptions.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00430_source.html">qmf/engine/ResilientConnection.h</a>&gt;</code></p>
 
-<p><a href="a00851.html">List of all members.</a></p>
+<p><a href="a00639.html">List of all members.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00279.html#a5f199b61cdfa945f57247188efa2b4af">ResolutionError</a> (const <a class="el" href="a00345.html">std::string</a> &amp;msg)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual QPID_TYPES_EXTERN <br class="typebreak"/>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00112.html#a96ddb3fe10a2b9d059cb78832a64751d">what</a> () const   throw ()</td></tr>
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00279.html#aef38f8198676de314ec76bf454a30555">EventKind</a> { <a class="el" href="a00279.html#aef38f8198676de314ec76bf454a30555a5f3c4d49bf4f35f6378ed78aae12174e">CONNECTED</a> =  1, 
+<a class="el" href="a00279.html#aef38f8198676de314ec76bf454a30555adfec37e21ad482f941e3b1005b1cffbf">DISCONNECTED</a> =  2, 
+<a class="el" href="a00279.html#aef38f8198676de314ec76bf454a30555acc364fb1f142d2f9e90511f1f9005018">SESSION_CLOSED</a> =  3, 
+<a class="el" href="a00279.html#aef38f8198676de314ec76bf454a30555aee23ee9cd9f53cdcf34aa9f783eed74a">RECV</a> =  4
+ }</td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#ad2a0464e06d10b0ba61a4520bac1cfa7">detail</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00279.html#aef38f8198676de314ec76bf454a30555">EventKind</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00279.html#a1c9119eae96e800684cacd491f905d18">kind</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00279.html#afc67b7178943dd260a8e73da11f6bde1">sessionContext</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00279.html#adeeeb6753be3ee21d420b3808396c1ad">errorText</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00207.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00279.html#a1a594034b67004581b21b916a71159c3">message</a></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Thrown when a syntactically correct address cannot be resolved or used. </p>
-</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a5f199b61cdfa945f57247188efa2b4af"></a><!-- doxytag: member="qpid::messaging::ResolutionError::ResolutionError" ref="a5f199b61cdfa945f57247188efa2b4af" args="(const std::string &amp;msg)" -->
+<div class="textblock"><p>Represents events that occur, unsolicited, from <a class="el" href="a00278.html" title="ResilientConnection represents a Qpid connection that is resilient.">ResilientConnection</a>. </p>
+</div><hr/><h2>Member Enumeration Documentation</h2>
+<a class="anchor" id="aef38f8198676de314ec76bf454a30555"></a><!-- doxytag: member="qmf::engine::ResilientConnectionEvent::EventKind" ref="aef38f8198676de314ec76bf454a30555" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::messaging::ResolutionError::ResolutionError </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>msg</em></td><td>)</td>
-          <td></td>
+          <td class="memname">enum <a class="el" href="a00279.html#aef38f8198676de314ec76bf454a30555">qmf::engine::ResilientConnectionEvent::EventKind</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="aef38f8198676de314ec76bf454a30555a5f3c4d49bf4f35f6378ed78aae12174e"></a><!-- doxytag: member="CONNECTED" ref="aef38f8198676de314ec76bf454a30555a5f3c4d49bf4f35f6378ed78aae12174e" args="" -->CONNECTED</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aef38f8198676de314ec76bf454a30555adfec37e21ad482f941e3b1005b1cffbf"></a><!-- doxytag: member="DISCONNECTED" ref="aef38f8198676de314ec76bf454a30555adfec37e21ad482f941e3b1005b1cffbf" args="" -->DISCONNECTED</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aef38f8198676de314ec76bf454a30555acc364fb1f142d2f9e90511f1f9005018"></a><!-- doxytag: member="SESSION_CLOSED" ref="aef38f8198676de314ec76bf454a30555acc364fb1f142d2f9e90511f1f9005018" args="" -->SESSION_CLOSED</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aef38f8198676de314ec76bf454a30555aee23ee9cd9f53cdcf34aa9f783eed74a"></a><!-- doxytag: member="RECV" ref="aef38f8198676de314ec76bf454a30555aee23ee9cd9f53cdcf34aa9f783eed74a" args="" -->RECV</em>&nbsp;</td><td>
+</td></tr>
+</table>
+</dd>
+</dl>
 
-</div>
-</div>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a96ddb3fe10a2b9d059cb78832a64751d"></a><!-- doxytag: member="qpid::messaging::ResolutionError::what" ref="a96ddb3fe10a2b9d059cb78832a64751d" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual QPID_TYPES_EXTERN const char* qpid::types::Exception::what </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const  throw ()<code> [virtual, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Definition at line <a class="el" href="a00430_source.html#l00036">36</a> of file <a class="el" href="a00430_source.html">ResilientConnection.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="ad2a0464e06d10b0ba61a4520bac1cfa7"></a><!-- doxytag: member="qpid::messaging::ResolutionError::detail" ref="ad2a0464e06d10b0ba61a4520bac1cfa7" args="" -->
+<a class="anchor" id="adeeeb6753be3ee21d420b3808396c1ad"></a><!-- doxytag: member="qmf::engine::ResilientConnectionEvent::errorText" ref="adeeeb6753be3ee21d420b3808396c1ad" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> <a class="el" href="a00213.html#ad2a0464e06d10b0ba61a4520bac1cfa7">qpid::messaging::MessagingException::detail</a><code> [inherited]</code></td>
+          <td class="memname">char* <a class="el" href="a00279.html#adeeeb6753be3ee21d420b3808396c1ad">qmf::engine::ResilientConnectionEvent::errorText</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00436_source.html#l00044">44</a> of file <a class="el" href="a00436_source.html">exceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="a00430_source.html#l00045">45</a> of file <a class="el" href="a00430_source.html">ResilientConnection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1c9119eae96e800684cacd491f905d18"></a><!-- doxytag: member="qmf::engine::ResilientConnectionEvent::kind" ref="a1c9119eae96e800684cacd491f905d18" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00279.html#aef38f8198676de314ec76bf454a30555">EventKind</a> <a class="el" href="a00279.html#a1c9119eae96e800684cacd491f905d18">qmf::engine::ResilientConnectionEvent::kind</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00430_source.html#l00043">43</a> of file <a class="el" href="a00430_source.html">ResilientConnection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1a594034b67004581b21b916a71159c3"></a><!-- doxytag: member="qmf::engine::ResilientConnectionEvent::message" ref="a1a594034b67004581b21b916a71159c3" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00207.html">Message</a> <a class="el" href="a00279.html#a1a594034b67004581b21b916a71159c3">qmf::engine::ResilientConnectionEvent::message</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00430_source.html#l00046">46</a> of file <a class="el" href="a00430_source.html">ResilientConnection.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afc67b7178943dd260a8e73da11f6bde1"></a><!-- doxytag: member="qmf::engine::ResilientConnectionEvent::sessionContext" ref="afc67b7178943dd260a8e73da11f6bde1" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* <a class="el" href="a00279.html#afc67b7178943dd260a8e73da11f6bde1">qmf::engine::ResilientConnectionEvent::sessionContext</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00430_source.html#l00044">44</a> of file <a class="el" href="a00430_source.html">ResilientConnection.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/messaging/<a class="el" href="a00436_source.html">exceptions.h</a></li>
+<li>qmf/engine/<a class="el" href="a00430_source.html">ResilientConnection.h</a></li>
 </ul>
 </div>
 <!--
@@ -175,7 +218,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

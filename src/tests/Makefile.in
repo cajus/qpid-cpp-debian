@@ -157,21 +157,21 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-check_PROGRAMS = unit_test$(EXEEXT) $(am__EXEEXT_1) echotest$(EXEEXT) \
-	publish$(EXEEXT) consume$(EXEEXT) header_test$(EXEEXT) \
-	failover_soak$(EXEEXT) declare_queues$(EXEEXT) \
-	replaying_sender$(EXEEXT) resuming_receiver$(EXEEXT) \
-	txshift$(EXEEXT) txjob$(EXEEXT) PollerTest$(EXEEXT) \
-	DispatcherTest$(EXEEXT) datagen$(EXEEXT) qpid-stream$(EXEEXT) \
-	msg_group_test$(EXEEXT)
-TESTS = unit_test$(EXEEXT) $(am__append_2) $(am__append_9) \
-	$(am__append_12) start_broker $(am__EXEEXT_3) python_tests \
-	stop_broker run_ha_tests run_federation_tests \
+check_PROGRAMS = unit_test$(EXEEXT) $(am__EXEEXT_1) $(am__EXEEXT_2) \
+	echotest$(EXEEXT) publish$(EXEEXT) consume$(EXEEXT) \
+	header_test$(EXEEXT) failover_soak$(EXEEXT) \
+	declare_queues$(EXEEXT) replaying_sender$(EXEEXT) \
+	resuming_receiver$(EXEEXT) txshift$(EXEEXT) txjob$(EXEEXT) \
+	PollerTest$(EXEEXT) DispatcherTest$(EXEEXT) datagen$(EXEEXT) \
+	qpid-stream$(EXEEXT) msg_group_test$(EXEEXT)
+TESTS = unit_test$(EXEEXT) $(am__append_2) $(am__append_10) \
+	$(am__append_11) $(am__append_14) start_broker $(am__EXEEXT_4) \
+	python_tests stop_broker run_ha_tests run_federation_tests \
 	run_federation_sys_tests run_acl_tests run_cli_tests \
 	replication_test dynamic_log_level_test \
 	run_queue_flow_limit_tests ipv6_test
 qpidexec_PROGRAMS =
-qpidexectest_PROGRAMS = $(am__EXEEXT_2) receiver$(EXEEXT) \
+qpidexectest_PROGRAMS = $(am__EXEEXT_3) receiver$(EXEEXT) \
 	sender$(EXEEXT) qpid-receive$(EXEEXT) qpid-send$(EXEEXT) \
 	qpid-perftest$(EXEEXT) qpid-txtest$(EXEEXT) \
 	qpid-latency-test$(EXEEXT) qpid-client-test$(EXEEXT) \
@@ -180,18 +180,17 @@ qpidexectest_PROGRAMS = $(am__EXEEXT_2) receiver$(EXEEXT) \
 @HAVE_XML_TRUE@am__append_1 = XmlClientSessionTest.cpp
 DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 	$(srcdir)/brokermgmt.mk $(srcdir)/cluster.mk \
-	$(srcdir)/install_env.sh.in $(srcdir)/sasl.mk $(srcdir)/ssl.mk \
-	$(srcdir)/test_env.sh.in $(srcdir)/testagent.mk
+	$(srcdir)/cpg_check.sh.in $(srcdir)/install_env.sh.in \
+	$(srcdir)/sasl.mk $(srcdir)/ssl.mk $(srcdir)/test_env.sh.in \
+	$(srcdir)/testagent.mk
 
 #
 # Cluster tests makefile fragment, to be included in Makefile.am
-# 
+#
 
 # NOTE: Programs using the openais library must be run with gid=ais
 # You should do "newgrp ais" before running the tests to run these.
-# 
-
-# ais_check checks pre-requisites for cluster tests and runs them if ok.
+#
 @HAVE_LIBCPG_TRUE@am__append_2 = \
 @HAVE_LIBCPG_TRUE@	run_cluster_test			\
 @HAVE_LIBCPG_TRUE@	cluster_read_credit			\
@@ -221,13 +220,19 @@ DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 @HAVE_LIBCPG_TRUE@	$(CLUSTER_TEST_SCRIPTS_LIST)
 
 # Test that are only relevant if SASL is enabled.
+@HAVE_LIBCPG_TRUE@@HAVE_SASL_TRUE@am__append_8 = cluster_authentication_soak
 
 # Note: sasl_version is not a test -- it is a tool used by tests.
-@HAVE_SASL_TRUE@am__append_8 = cluster_authentication_soak \
-@HAVE_SASL_TRUE@	sasl_version
-@HAVE_SASL_TRUE@am__append_9 = run_cluster_authentication_test sasl_fed sasl_fed_ex_dynamic sasl_fed_ex_link sasl_fed_ex_queue sasl_fed_ex_route sasl_fed_ex_route_cluster sasl_fed_ex_link_cluster sasl_fed_ex_queue_cluster sasl_fed_ex_dynamic_cluster sasl_no_dir
-@HAVE_SASL_TRUE@am__append_10 = run_cluster_authentication_soak
-@HAVE_SASL_TRUE@am__append_11 = run_cluster_authentication_test \
+@HAVE_SASL_TRUE@am__append_9 = sasl_version
+@HAVE_SASL_TRUE@am__append_10 = sasl_fed
+@HAVE_LIBCPG_TRUE@@HAVE_SASL_TRUE@am__append_11 = run_cluster_authentication_test 	\
+@HAVE_LIBCPG_TRUE@@HAVE_SASL_TRUE@		sasl_fed_ex_route_cluster		\
+@HAVE_LIBCPG_TRUE@@HAVE_SASL_TRUE@		sasl_fed_ex_link_cluster		\
+@HAVE_LIBCPG_TRUE@@HAVE_SASL_TRUE@		sasl_fed_ex_queue_cluster		\
+@HAVE_LIBCPG_TRUE@@HAVE_SASL_TRUE@		sasl_fed_ex_dynamic_cluster
+
+@HAVE_LIBCPG_TRUE@@HAVE_SASL_TRUE@am__append_12 = run_cluster_authentication_soak
+@HAVE_SASL_TRUE@am__append_13 = run_cluster_authentication_test \
 @HAVE_SASL_TRUE@              sasl_fed                        \
 @HAVE_SASL_TRUE@              sasl_fed_ex                     \
 @HAVE_SASL_TRUE@              run_cluster_authentication_soak \
@@ -241,9 +246,13 @@ DIST_COMMON = $(srcdir)/Makefile.am $(srcdir)/Makefile.in \
 @HAVE_SASL_TRUE@              sasl_fed_ex_route_cluster       \
 @HAVE_SASL_TRUE@              sasl_no_dir
 
-@SSL_TRUE@am__append_12 = ssl_test
-@SSL_TRUE@am__append_13 = ssl_test
-@SSL_TRUE@am__append_14 = test_cert_db cert.password
+@SSL_TRUE@am__append_14 = ssl_test
+@SSL_TRUE@am__append_15 = ssl_test
+@SSL_TRUE@am__append_16 = test_cert_db cert.password
+@HAVE_LIBCPG_TRUE@am__append_17 = federated_cluster_test_with_node_failure	\
+@HAVE_LIBCPG_TRUE@		run_failover_soak				\
+@HAVE_LIBCPG_TRUE@		reliable_replication_test
+
 subdir = src/tests
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ac_pkg_swig.m4 \
@@ -255,7 +264,7 @@ am__configure_deps = $(am__aclocal_m4_deps) $(CONFIGURE_DEPENDENCIES) \
 	$(ACLOCAL_M4)
 mkinstalldirs = $(install_sh) -d
 CONFIG_HEADER = $(top_builddir)/src/config.h
-CONFIG_CLEAN_FILES = test_env.sh install_env.sh
+CONFIG_CLEAN_FILES = cpg_check.sh test_env.sh install_env.sh
 CONFIG_CLEAN_VPATH_FILES =
 am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
 am__vpath_adj = case $$p in \
@@ -300,9 +309,9 @@ test_store_la_OBJECTS = $(am_test_store_la_OBJECTS)
 test_store_la_LINK = $(LIBTOOL) --tag=CXX $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CXXLD) $(AM_CXXFLAGS) \
 	$(CXXFLAGS) $(test_store_la_LDFLAGS) $(LDFLAGS) -o $@
-@HAVE_SASL_TRUE@am__EXEEXT_1 = cluster_authentication_soak$(EXEEXT) \
-@HAVE_SASL_TRUE@	sasl_version$(EXEEXT)
-@HAVE_LIBCPG_TRUE@am__EXEEXT_2 = cluster_test$(EXEEXT)
+@HAVE_LIBCPG_TRUE@@HAVE_SASL_TRUE@am__EXEEXT_1 = cluster_authentication_soak$(EXEEXT)
+@HAVE_SASL_TRUE@am__EXEEXT_2 = sasl_version$(EXEEXT)
+@HAVE_LIBCPG_TRUE@am__EXEEXT_3 = cluster_test$(EXEEXT)
 PROGRAMS = $(qpidexec_PROGRAMS) $(qpidexectest_PROGRAMS)
 am_DispatcherTest_OBJECTS = DispatcherTest.$(OBJEXT)
 DispatcherTest_OBJECTS = $(am_DispatcherTest_OBJECTS)
@@ -316,13 +325,12 @@ PollerTest_DEPENDENCIES = $(lib_common) $(lib_client) \
 am__cluster_authentication_soak_SOURCES_DIST =  \
 	cluster_authentication_soak.cpp ForkedBroker.h \
 	ForkedBroker.cpp
-@HAVE_SASL_TRUE@am_cluster_authentication_soak_OBJECTS =  \
-@HAVE_SASL_TRUE@	cluster_authentication_soak.$(OBJEXT) \
-@HAVE_SASL_TRUE@	ForkedBroker.$(OBJEXT)
+@HAVE_LIBCPG_TRUE@@HAVE_SASL_TRUE@am_cluster_authentication_soak_OBJECTS = cluster_authentication_soak.$(OBJEXT) \
+@HAVE_LIBCPG_TRUE@@HAVE_SASL_TRUE@	ForkedBroker.$(OBJEXT)
 cluster_authentication_soak_OBJECTS =  \
 	$(am_cluster_authentication_soak_OBJECTS)
-@HAVE_SASL_TRUE@cluster_authentication_soak_DEPENDENCIES =  \
-@HAVE_SASL_TRUE@	$(lib_client) $(lib_broker)
+@HAVE_LIBCPG_TRUE@@HAVE_SASL_TRUE@cluster_authentication_soak_DEPENDENCIES =  \
+@HAVE_LIBCPG_TRUE@@HAVE_SASL_TRUE@	$(lib_client) $(lib_broker)
 am__cluster_test_SOURCES_DIST = cluster_test.cpp unit_test.cpp \
 	ClusterFixture.cpp ClusterFixture.h ForkedBroker.h \
 	ForkedBroker.cpp PartialFailure.cpp ClusterFailover.cpp \
@@ -444,7 +452,7 @@ am__unit_test_SOURCES_DIST = unit_test.cpp unit_test.h \
 	ConsoleTest.cpp QueueEvents.cpp ProxyTest.cpp RetryList.cpp \
 	FrameDecoder.cpp ReplicationTest.cpp ClientMessageTest.cpp \
 	PollableCondition.cpp Variant.cpp Address.cpp \
-	ClientMessage.cpp Qmf2.cpp BrokerOptions.cpp \
+	ClientMessage.cpp Qmf2.cpp BrokerOptions.cpp SystemInfo.cpp \
 	XmlClientSessionTest.cpp BrokerMgmtAgent.cpp \
 	brokermgmt_gen/qmf/org/apache/qpid/broker/mgmt/test/Package.cpp \
 	brokermgmt_gen/qmf/org/apache/qpid/broker/mgmt/test/Package.h \
@@ -478,7 +486,7 @@ am_unit_test_OBJECTS = unit_test.$(OBJEXT) \
 	ReplicationTest.$(OBJEXT) ClientMessageTest.$(OBJEXT) \
 	PollableCondition.$(OBJEXT) Variant.$(OBJEXT) \
 	Address.$(OBJEXT) ClientMessage.$(OBJEXT) Qmf2.$(OBJEXT) \
-	BrokerOptions.$(OBJEXT) $(am__objects_2) \
+	BrokerOptions.$(OBJEXT) SystemInfo.$(OBJEXT) $(am__objects_2) \
 	BrokerMgmtAgent.$(OBJEXT) $(am__objects_3)
 unit_test_OBJECTS = $(am_unit_test_OBJECTS)
 unit_test_DEPENDENCIES = $(lib_messaging) $(lib_broker) $(lib_console) \
@@ -544,7 +552,7 @@ ETAGS = etags
 CTAGS = ctags
 am__tty_colors = \
 red=; grn=; lgn=; blu=; std=
-am__EXEEXT_3 = qpid-client-test$(EXEEXT) quick_perftest \
+am__EXEEXT_4 = qpid-client-test$(EXEEXT) quick_perftest \
 	quick_topictest run_header_test quick_txtest \
 	run_msg_group_tests
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
@@ -652,6 +660,7 @@ SUNCC_RUNTIME_LIBS = @SUNCC_RUNTIME_LIBS@
 SWIG = @SWIG@
 SWIG_LIB = @SWIG_LIB@
 URL = @URL@
+USE_CPG = @USE_CPG@
 VALGRIND = @VALGRIND@
 VERSION = @VERSION@
 WARNING_CFLAGS = @WARNING_CFLAGS@
@@ -726,24 +735,25 @@ lib_broker = $(abs_builddir)/../libqpidbroker.la
 lib_console = $(abs_builddir)/../libqmfconsole.la
 lib_qmf2 = $(abs_builddir)/../libqmf2.la
 check_LTLIBRARIES = libshlibtest.la libdlclose_noop.la
-EXTRA_DIST = $(CLUSTER_TEST_SCRIPTS_LIST) ais_check run_cluster_test \
-	cluster_read_credit test_watchdog start_cluster stop_cluster \
-	restart_cluster cluster_python_tests \
-	cluster_python_tests_failing.txt federated_cluster_test \
-	clustered_replication_test run_cluster_tests \
-	run_long_cluster_tests testlib.py brokertest.py \
-	cluster_tests.py cluster_test_logs.py long_cluster_tests.py \
-	cluster_tests.fail $(am__append_6) $(am__append_11) \
-	$(am__append_13) qpid-cpp-benchmark qpid-cluster-benchmark \
-	install_env.sh run_test vg_check run-unit-tests start_broker \
-	python_tests stop_broker quick_topictest quick_perftest \
-	quick_txtest topictest run_header_test header_test.py ssl_test \
-	config.null ais_check run_federation_tests \
-	run_federation_sys_tests run_long_federation_sys_tests \
-	run_cli_tests run_acl_tests .valgrind.supp MessageUtils.h \
-	TestMessageStore.h TxMocks.h replication_test run_perftest \
-	ring_queue_test run_ring_queue_test dynamic_log_level_test \
-	qpid-ctrl CMakeLists.txt cluster.cmake \
+EXTRA_DIST = $(CLUSTER_TEST_SCRIPTS_LIST) cpg_check.sh.in \
+	run_cluster_test cluster_read_credit test_watchdog \
+	start_cluster stop_cluster restart_cluster \
+	cluster_python_tests cluster_python_tests_failing.txt \
+	federated_cluster_test clustered_replication_test \
+	run_cluster_tests run_long_cluster_tests testlib.py \
+	brokertest.py cluster_tests.py cluster_test_logs.py \
+	long_cluster_tests.py cluster_tests.fail $(am__append_6) \
+	$(am__append_13) $(am__append_15) qpid-cpp-benchmark \
+	qpid-cluster-benchmark install_env.sh run_test vg_check \
+	run-unit-tests start_broker python_tests stop_broker \
+	quick_topictest quick_perftest quick_txtest topictest \
+	run_header_test header_test.py ssl_test config.null \
+	cpg_check.sh.in run_federation_tests run_federation_sys_tests \
+	run_long_federation_sys_tests run_cli_tests run_acl_tests \
+	.valgrind.supp MessageUtils.h TestMessageStore.h TxMocks.h \
+	replication_test run_perftest ring_queue_test \
+	run_ring_queue_test dynamic_log_level_test qpid-ctrl \
+	CMakeLists.txt cluster.cmake \
 	windows/DisableWin32ErrorWindows.cpp background.ps1 \
 	find_prog.ps1 python_tests.ps1 quick_topictest.ps1 \
 	run_federation_tests.ps1 run_header_test.ps1 run_test.ps1 \
@@ -753,7 +763,8 @@ EXTRA_DIST = $(CLUSTER_TEST_SCRIPTS_LIST) ais_check run_cluster_test \
 	shared_perftest multiq_perftest topic_perftest \
 	run_failover_soak reliable_replication_test \
 	federated_cluster_test_with_node_failure sasl_test_setup.sh \
-	run_msg_group_tests_soak testagent.xml BrokerMgmtAgent.xml
+	run_msg_group_tests_soak qpidd-empty.conf testagent.xml \
+	BrokerMgmtAgent.xml
 CLEANFILES = $(am__append_3) valgrind.out *.log *.vglog* dummy_test \
 	qpidd.port $(unit_wrappers) $(TESTAGENT_GEN_SRC) \
 	testagent_gen.timestamp $(BROKERMGMT_GEN_SRC) \
@@ -761,13 +772,11 @@ CLEANFILES = $(am__append_3) valgrind.out *.log *.vglog* dummy_test \
 
 # Longer running stability tests, not run by default check: target.
 # Not run under valgrind, too slow
-LONG_TESTS = $(am__append_4) $(am__append_10) start_broker \
+LONG_TESTS = $(am__append_4) $(am__append_12) start_broker \
 	fanout_perftest shared_perftest multiq_perftest topic_perftest \
 	run_ring_queue_test run_msg_group_tests_soak stop_broker \
-	run_long_federation_sys_tests run_failover_soak \
-	reliable_replication_test \
-	federated_cluster_test_with_node_failure
-CLEAN_LOCAL = $(am__append_14) sasl_config
+	run_long_federation_sys_tests $(am__append_17)
+CLEAN_LOCAL = $(am__append_16) sasl_config
 
 #
 # Destination for intalled programs and tests defined here
@@ -778,10 +787,10 @@ qpidexectestdir = $(qpidexecdir)/tests
 
 # Test programs that are installed and therefore built as part of make, not make check
 qpidexectest_SCRIPTS = $(am__append_7) qpid-cpp-benchmark \
-	install_env.sh
+	qpid-cluster-benchmark install_env.sh
 tmoduledir = $(libdir)/qpid/tests
 tmodule_LTLIBRARIES = test_store.la
-unit_test_LDADD = -lboost_unit_test_framework \
+unit_test_LDADD = -lboost_unit_test_framework -lpthread \
 	$(lib_messaging) $(lib_broker) $(lib_console) $(lib_qmf2)
 
 unit_test_SOURCES = unit_test.cpp unit_test.h \
@@ -803,8 +812,8 @@ unit_test_SOURCES = unit_test.cpp unit_test.h \
 	ConsoleTest.cpp QueueEvents.cpp ProxyTest.cpp RetryList.cpp \
 	FrameDecoder.cpp ReplicationTest.cpp ClientMessageTest.cpp \
 	PollableCondition.cpp Variant.cpp Address.cpp \
-	ClientMessage.cpp Qmf2.cpp BrokerOptions.cpp $(am__append_1) \
-	BrokerMgmtAgent.cpp ${BROKERMGMT_GEN_SRC}
+	ClientMessage.cpp Qmf2.cpp BrokerOptions.cpp SystemInfo.cpp \
+	$(am__append_1) BrokerMgmtAgent.cpp ${BROKERMGMT_GEN_SRC}
 TESTLIBFLAGS = -module -rpath $(abs_builddir)
 libshlibtest_la_LDFLAGS = $(TESTLIBFLAGS)
 libshlibtest_la_SOURCES = shlibtest.cpp
@@ -816,8 +825,7 @@ test_store_la_LDFLAGS = -module
 CLUSTER_TEST_SCRIPTS_LIST = \
 	allhosts rsynchosts			\
 	qpid-build-rinstall qpid-src-rinstall	\
-	qpid-test-cluster			\
-	qpid-cluster-benchmark
+	qpid-test-cluster
 
 @HAVE_LIBCPG_TRUE@cluster_test_SOURCES = \
 @HAVE_LIBCPG_TRUE@    cluster_test.cpp			\
@@ -831,9 +839,9 @@ CLUSTER_TEST_SCRIPTS_LIST = \
 @HAVE_LIBCPG_TRUE@    InitialStatusMap.cpp
 
 @HAVE_LIBCPG_TRUE@cluster_test_LDADD = $(lib_client) $(lib_broker) ../cluster.la -lboost_unit_test_framework
-@HAVE_SASL_TRUE@cluster_authentication_soak_INCLUDES = $(PUBLIC_INCLUDES)
-@HAVE_SASL_TRUE@cluster_authentication_soak_SOURCES = cluster_authentication_soak.cpp  ForkedBroker.h ForkedBroker.cpp
-@HAVE_SASL_TRUE@cluster_authentication_soak_LDADD = $(lib_client) $(lib_broker)
+@HAVE_LIBCPG_TRUE@@HAVE_SASL_TRUE@cluster_authentication_soak_INCLUDES = $(PUBLIC_INCLUDES)
+@HAVE_LIBCPG_TRUE@@HAVE_SASL_TRUE@cluster_authentication_soak_SOURCES = cluster_authentication_soak.cpp  ForkedBroker.h ForkedBroker.cpp
+@HAVE_LIBCPG_TRUE@@HAVE_SASL_TRUE@cluster_authentication_soak_LDADD = $(lib_client) $(lib_broker)
 @HAVE_SASL_TRUE@sasl_version_SOURCES = sasl_version.cpp
 @HAVE_SASL_TRUE@sasl_version_LDADD = $(lib_client)
 receiver_SOURCES = \
@@ -999,6 +1007,8 @@ $(top_srcdir)/configure:  $(am__configure_deps)
 $(ACLOCAL_M4):  $(am__aclocal_m4_deps)
 	cd $(top_builddir) && $(MAKE) $(AM_MAKEFLAGS) am--refresh
 $(am__aclocal_m4_deps):
+cpg_check.sh: $(top_builddir)/config.status $(srcdir)/cpg_check.sh.in
+	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@
 test_env.sh: $(top_builddir)/config.status $(srcdir)/test_env.sh.in
 	cd $(top_builddir) && $(SHELL) ./config.status $(subdir)/$@
 install_env.sh: $(top_builddir)/config.status $(srcdir)/install_env.sh.in
@@ -1399,6 +1409,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Shlib.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/Statistics.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/StringUtils.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/SystemInfo.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TimerTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TopicExchangeTest.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TxBufferTest.Po@am__quote@
@@ -1899,6 +1910,11 @@ uninstall-am: uninstall-qpidexecPROGRAMS uninstall-qpidexecSCRIPTS \
 	uninstall-qpidexecSCRIPTS uninstall-qpidexectestPROGRAMS \
 	uninstall-qpidexectestSCRIPTS uninstall-tmoduleLTLIBRARIES
 
+@HAVE_SASL_TRUE@		sasl_fed_ex_dynamic
+@HAVE_SASL_TRUE@		sasl_fed_ex_link
+@HAVE_SASL_TRUE@		sasl_fed_ex_queue
+@HAVE_SASL_TRUE@		sasl_fed_ex_route
+@HAVE_SASL_TRUE@		sasl_no_dir
 
 check-long:
 	$(MAKE) check TESTS="$(LONG_TESTS)" VALGRIND=

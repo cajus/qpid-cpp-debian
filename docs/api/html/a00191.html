@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::amqp_0_10::ListCodec Class Reference</title>
+    <title>std::list Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,151 +60,38 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00575.html">amqp_0_10</a>      </li>
-      <li class="navelem"><a class="el" href="a00191.html">ListCodec</a>      </li>
+      <li class="navelem"><b>std</b>      </li>
+      <li class="navelem"><a class="el" href="a00191.html">list</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a>  </div>
+<a href="#nested-classes">Classes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::amqp_0_10::ListCodec Class Reference</div>  </div>
+<div class="title">std::list Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::amqp_0_10::ListCodec" -->
-<p>Codec for encoding/decoding a list of Variants using the AMQP 0-10 list encoding.  
+<!-- doxytag: class="std::list" -->
+<p>STL class.  
  <a href="a00191.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00455_source.html">qpid/amqp_0_10/Codecs.h</a>&gt;</code></p>
-
-<p><a href="a00675.html">List of all members.</a></p>
+<p><a href="a00905.html">List of all members.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00385.html#a8603092790e51851bc2166e9562a2e11">qpid::types::Variant::List</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#ab3cec1d174ba6b532e586cc36cea957d">ObjectType</a></td></tr>
-<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a7c5147e5f390caf25b46ef5be377b679">encode</a> (const <a class="el" href="a00191.html#ab3cec1d174ba6b532e586cc36cea957d">ObjectType</a> &amp;, <a class="el" href="a00345.html">std::string</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a0bb0de410d8aba3bb86681ea266d0d62">decode</a> (const <a class="el" href="a00345.html">std::string</a> &amp;, <a class="el" href="a00191.html#ab3cec1d174ba6b532e586cc36cea957d">ObjectType</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a008bd99efd35997d9012b3e72446acea">encodedSize</a> (const <a class="el" href="a00191.html#ab3cec1d174ba6b532e586cc36cea957d">ObjectType</a> &amp;)</td></tr>
-<tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00191.html#a702e914aa7bba0616b2c66164eb8eb7a">contentType</a></td></tr>
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00079.html">const_iterator</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">STL iterator class.  <a href="a00079.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00089.html">const_reverse_iterator</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">STL iterator class.  <a href="a00089.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00179.html">iterator</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">STL iterator class.  <a href="a00179.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00285.html">reverse_iterator</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">STL iterator class.  <a href="a00285.html#details">More...</a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Codec for encoding/decoding a list of Variants using the AMQP 0-10 list encoding. </p>
-</div><hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="ab3cec1d174ba6b532e586cc36cea957d"></a><!-- doxytag: member="qpid::amqp_0_10::ListCodec::ObjectType" ref="ab3cec1d174ba6b532e586cc36cea957d" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a00385.html#a8603092790e51851bc2166e9562a2e11">qpid::types::Variant::List</a> <a class="el" href="a00191.html#ab3cec1d174ba6b532e586cc36cea957d">qpid::amqp_0_10::ListCodec::ObjectType</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00455_source.html#l00055">55</a> of file <a class="el" href="a00455_source.html">Codecs.h</a>.</p>
-
-</div>
-</div>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a0bb0de410d8aba3bb86681ea266d0d62"></a><!-- doxytag: member="qpid::amqp_0_10::ListCodec::decode" ref="a0bb0de410d8aba3bb86681ea266d0d62" args="(const std::string &amp;, ObjectType &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void qpid::amqp_0_10::ListCodec::decode </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00191.html#ab3cec1d174ba6b532e586cc36cea957d">ObjectType</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7c5147e5f390caf25b46ef5be377b679"></a><!-- doxytag: member="qpid::amqp_0_10::ListCodec::encode" ref="a7c5147e5f390caf25b46ef5be377b679" args="(const ObjectType &amp;, std::string &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void qpid::amqp_0_10::ListCodec::encode </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00191.html#ab3cec1d174ba6b532e586cc36cea957d">ObjectType</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a008bd99efd35997d9012b3e72446acea"></a><!-- doxytag: member="qpid::amqp_0_10::ListCodec::encodedSize" ref="a008bd99efd35997d9012b3e72446acea" args="(const ObjectType &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">static size_t qpid::amqp_0_10::ListCodec::encodedSize </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00191.html#ab3cec1d174ba6b532e586cc36cea957d">ObjectType</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td><code> [static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a702e914aa7bba0616b2c66164eb8eb7a"></a><!-- doxytag: member="qpid::amqp_0_10::ListCodec::contentType" ref="a702e914aa7bba0616b2c66164eb8eb7a" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a> <a class="el" href="a00191.html#a702e914aa7bba0616b2c66164eb8eb7a">qpid::amqp_0_10::ListCodec::contentType</a><code> [static]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00455_source.html#l00059">59</a> of file <a class="el" href="a00455_source.html">Codecs.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/amqp_0_10/<a class="el" href="a00455_source.html">Codecs.h</a></li>
-</ul>
-</div>
+<div class="textblock"><p>STL class. </p>
+</div><hr/>The documentation for this class was generated from the following files:</div>
 <!--
  
  Licensed to the Apache Software Foundation (ASF) under one
@@ -232,7 +119,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

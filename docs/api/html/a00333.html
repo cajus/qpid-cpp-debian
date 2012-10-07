@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::SessionId Class Reference</title>
+    <title>qmf::engine::SessionHandle Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,158 +60,23 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00333.html">SessionId</a>      </li>
+      <li class="navelem"><a class="el" href="a00573.html">qmf</a>      </li>
+      <li class="navelem"><a class="el" href="a00574.html">engine</a>      </li>
+      <li class="navelem"><a class="el" href="a00333.html">SessionHandle</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::SessionId Class Reference</div>  </div>
+<div class="title">qmf::engine::SessionHandle Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::SessionId" -->
-<p>Identifier for a session.  
- <a href="a00333.html#details">More...</a></p>
+<!-- doxytag: class="qmf::engine::SessionHandle" -->
+<p><code>#include &lt;<a class="el" href="a00430_source.html">qmf/engine/ResilientConnection.h</a>&gt;</code></p>
 
-<p><code>#include &lt;<a class="el" href="a00549_source.html">qpid/SessionId.h</a>&gt;</code></p>
-
-<p><a href="a00671.html">List of all members.</a></p>
-<table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00333.html#a9e3691f8b190187b8d55c28d433d642e">SessionId</a> (const <a class="el" href="a00345.html">std::string</a> &amp;userId=<a class="el" href="a00345.html">std::string</a>(), const <a class="el" href="a00345.html">std::string</a> &amp;name=<a class="el" href="a00345.html">std::string</a>())</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00333.html#a9eb6b86fdcc383b254270f8ae46c5b1d">getUserId</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00333.html#a84fd04542b79a4d46d76bae128c4cf4d">getName</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00333.html#ab781c4bd448591e71eb478355c72f42d">operator&lt;</a> (const <a class="el" href="a00333.html">SessionId</a> &amp;) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00333.html#ac3f2ed5f14ba411b76587ff4cdd5def1">operator==</a> (const <a class="el" href="a00333.html">SessionId</a> &amp;id) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00333.html#a01e13f250b2aaceb0561becd3313e72e">str</a> () const </td></tr>
-</table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Identifier for a session. </p>
-<p>There are two parts to a session identifier:</p>
-<p><a class="el" href="a00333.html#a9eb6b86fdcc383b254270f8ae46c5b1d">getUserId()</a> returns the authentication principal associated with the session's connection.</p>
-<p><a class="el" href="a00333.html#a84fd04542b79a4d46d76bae128c4cf4d">getName()</a> returns the session name.</p>
-<p>The name must be unique among sessions with the same authentication principal. </p>
-</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a9e3691f8b190187b8d55c28d433d642e"></a><!-- doxytag: member="qpid::SessionId::SessionId" ref="a9e3691f8b190187b8d55c28d433d642e" args="(const std::string &amp;userId=std::string(), const std::string &amp;name=std::string())" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::SessionId::SessionId </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>userId</em> = <code><a class="el" href="a00345.html">std::string</a>()</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>name</em> = <code><a class="el" href="a00345.html">std::string</a>()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a84fd04542b79a4d46d76bae128c4cf4d"></a><!-- doxytag: member="qpid::SessionId::getName" ref="a84fd04542b79a4d46d76bae128c4cf4d" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> qpid::SessionId::getName </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00549_source.html#l00048">48</a> of file <a class="el" href="a00549_source.html">SessionId.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9eb6b86fdcc383b254270f8ae46c5b1d"></a><!-- doxytag: member="qpid::SessionId::getUserId" ref="a9eb6b86fdcc383b254270f8ae46c5b1d" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> qpid::SessionId::getUserId </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00549_source.html#l00047">47</a> of file <a class="el" href="a00549_source.html">SessionId.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab781c4bd448591e71eb478355c72f42d"></a><!-- doxytag: member="qpid::SessionId::operator&lt;" ref="ab781c4bd448591e71eb478355c72f42d" args="(const SessionId &amp;) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::SessionId::operator&lt; </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00333.html">SessionId</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac3f2ed5f14ba411b76587ff4cdd5def1"></a><!-- doxytag: member="qpid::SessionId::operator==" ref="ac3f2ed5f14ba411b76587ff4cdd5def1" args="(const SessionId &amp;id) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::SessionId::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00333.html">SessionId</a> &amp;&#160;</td>
-          <td class="paramname"><em>id</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a01e13f250b2aaceb0561becd3313e72e"></a><!-- doxytag: member="qpid::SessionId::str" ref="a01e13f250b2aaceb0561becd3313e72e" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> qpid::SessionId::str </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
+<p><a href="a00640.html">List of all members.</a></p>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/<a class="el" href="a00549_source.html">SessionId.h</a></li>
+<li>qmf/engine/<a class="el" href="a00430_source.html">ResilientConnection.h</a></li>
 </ul>
 </div>
 <!--
@@ -241,7 +106,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::types Namespace Reference</title>
+    <title>qpid::sys Namespace Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,137 +58,134 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00594.html">types</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00594.html">sys</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::types Namespace Reference</div>  </div>
+<div class="title">qpid::sys Namespace Reference</div>  </div>
 </div>
 <div class="contents">
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00595.html">SystemInfo</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Retrieve information about the system we are running on. </p>
+<br/></td></tr>
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00112.html">Exception</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html">Uuid</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00162.html">InvalidConversion</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown when an illegal conversion of a variant is attempted.  <a href="a00162.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00385.html">Variant</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a value of variable type.  <a href="a00385.html#details">More...</a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16">VariantType</a> { <br/>
-&#160;&#160;<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16a7676ba2aa51c62d7990234b3182cda8d">VAR_VOID</a> =  0, 
-<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16a459b6a348d780e9e0f051b58d6742446">VAR_BOOL</a>, 
-<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16afebe70b5d29e4b292a18227512aed3aa">VAR_UINT8</a>, 
-<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16a64223439b1202ebd6bb34e62d7d64ef7">VAR_UINT16</a>, 
-<br/>
-&#160;&#160;<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16ab7d539b6a29d6a00a6bd50e3c9d4eae9">VAR_UINT32</a>, 
-<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16a196a192a2191a3b500b119963c1235c1">VAR_UINT64</a>, 
-<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16a4f0446bae585ccffaf8fc56e064ef54b">VAR_INT8</a>, 
-<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16a4d0c9b0c123719d4584695185bc4b6db">VAR_INT16</a>, 
-<br/>
-&#160;&#160;<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16a33fddb08e1155588686215917619dda5">VAR_INT32</a>, 
-<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16aaef7586df8f57462bae5cba5ad2b1c2c">VAR_INT64</a>, 
-<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16a3db294177c04883245c056ab13aee788">VAR_FLOAT</a>, 
-<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16a37fba29cfc5e48d2e37c68439fc31e68">VAR_DOUBLE</a>, 
-<br/>
-&#160;&#160;<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16a2ddc3e8d840f935e022260fedc9b6160">VAR_STRING</a>, 
-<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16a063b07f094839b92a4764ae2c95601f1">VAR_MAP</a>, 
-<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16a503b9d266cf23fd4de6aff1cb75bde45">VAR_LIST</a>, 
-<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16a962364a6de33098c57a0a77c99278a07">VAR_UUID</a>
-<br/>
- }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00267.html">Raisable</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00117.html">ExceptionHolder</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Holder for exceptions.  <a href="a00117.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00168.html">IOHandle</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00217.html">Monitor</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A monitor is a condition variable and a mutex.  <a href="a00217.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00313.html">ScopedLock</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Scoped lock template: calls lock() in ctor, unlock() in dtor.  <a href="a00313.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00316.html">ScopedUnlock</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00315.html">ScopedRlock</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00318.html">ScopedWlock</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html">ConditionalScopedLock</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00058.html">Condition</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A condition variable for thread synchronization.  <a href="a00058.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00221.html">Mutex</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00221.html" title="Mutex lock.">Mutex</a> lock.  <a href="a00221.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00296.html">RWlock</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">RW lock.  <a href="a00296.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00252.html">PODMutex</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00252.html" title="PODMutex is a POD, can be static-initialized with PODMutex m = QPID_PODMUTEX_INITIALIZER.">PODMutex</a> is a POD, can be static-initialized with <a class="el" href="a00252.html" title="PODMutex is a POD, can be static-initialized with PODMutex m = QPID_PODMUTEX_INITIALIZER.">PODMutex</a> m = QPID_PODMUTEX_INITIALIZER.  <a href="a00252.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00169.html">IOHandlePrivate</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00253.html">PosixIOHandle</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00232.html">NullIOHandle</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00294.html">Runnable</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface for objects that can be run, e.g.  <a href="a00294.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00356.html">Thread</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html">AbsTime</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Class to represent an instant in time.  <a href="a00001.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00105.html">Duration</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Class to represent the duration between instants of time.  <a href="a00105.html#details">More...</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a4e0478fec86975db052a4c87ac13739b">TimePrivate</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Class to represent an instant in time.  <a href="#a4e0478fec86975db052a4c87ac13739b"></a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a7115f0349b934fbf2bda7d6eb4b49b74">operator==</a> (const <a class="el" href="a00375.html">Uuid</a> &amp;, const <a class="el" href="a00375.html">Uuid</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the uuids are equal, false otherwise.  <a href="#a7115f0349b934fbf2bda7d6eb4b49b74"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a602267e3c06bfbc277235cd5c0b3087b">operator!=</a> (const <a class="el" href="a00375.html">Uuid</a> &amp;, const <a class="el" href="a00375.html">Uuid</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the uuids are NOT equal, false if they are.  <a href="#a602267e3c06bfbc277235cd5c0b3087b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#ad0190ccb56db505fb962f6c477d84ae7">operator&lt;</a> (const <a class="el" href="a00375.html">Uuid</a> &amp;, const <a class="el" href="a00375.html">Uuid</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#ab5b33165e47cea8d69da726869ff3e23">operator&gt;</a> (const <a class="el" href="a00375.html">Uuid</a> &amp;, const <a class="el" href="a00375.html">Uuid</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#afd879d0505e716e566dd514520b0510f">operator&lt;=</a> (const <a class="el" href="a00375.html">Uuid</a> &amp;, const <a class="el" href="a00375.html">Uuid</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a63e81903d1491d3b0dd40a695448a177">operator&gt;=</a> (const <a class="el" href="a00375.html">Uuid</a> &amp;, const <a class="el" href="a00375.html">Uuid</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#af86247d266d06be5863387fc0e0c861f">operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;, <a class="el" href="a00375.html">Uuid</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Print in format 1b4e28ba-2fa1-11d2-883f-b9a761bde3fb.  <a href="#af86247d266d06be5863387fc0e0c861f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00170.html">std::istream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a891bb9ebc0abcbb75cb1f4f9c2da3342">operator&gt;&gt;</a> (<a class="el" href="a00170.html">std::istream</a> &amp;, <a class="el" href="a00375.html">Uuid</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Read from format 1b4e28ba-2fa1-11d2-883f-b9a761bde3fb.  <a href="#a891bb9ebc0abcbb75cb1f4f9c2da3342"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#abea01d998021253cc0774f9f1e68e960">getTypeName</a> (<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16">VariantType</a> type)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a8f3a2d85fa7422cca02f3a67c7c3e383">isIntegerType</a> (<a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16">VariantType</a> type)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a73d30b9f74c30cfd39839fecd9249c73">operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;out, const <a class="el" href="a00385.html">Variant</a> &amp;value)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a95e61f6c2b56dac4596c2dd833068b23">operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;out, const <a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">Variant::Map</a> &amp;map)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a15c402659610534a4338768f05c096c5">operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;out, const <a class="el" href="a00385.html#a8603092790e51851bc2166e9562a2e11">Variant::List</a> &amp;list)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#ac0b257e4f9830e1b47a0f4b732507a15">operator==</a> (const <a class="el" href="a00385.html">Variant</a> &amp;a, const <a class="el" href="a00385.html">Variant</a> &amp;b)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct timespec &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a65e4ddcfe78c70b4cb1aa1aa91bbda18">toTimespec</a> (struct timespec &amp;ts, const <a class="el" href="a00105.html">Duration</a> &amp;t)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct timeval &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#ae58ac2f33f1743f8cf5bb96708e1f872">toTimeval</a> (struct timeval &amp;tv, const <a class="el" href="a00105.html">Duration</a> &amp;t)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00105.html">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a6dd40543b6150ca7fd13ee73ca546e69">toTime</a> (const struct timespec &amp;ts)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct addrinfo &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#afa16e67cd3622db2fd4515a5ea21d50d">getAddrInfo</a> (const SocketAddress &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a4f380e3eca371bcaa90a2040a6b4f00c">toFd</a> (const <a class="el" href="a00169.html">IOHandlePrivate</a> *h)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a1e3d2be68bf02484b76148068d7818ac">strError</a> (int err)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the error message for a system number err, e.g.  <a href="#a1e3d2be68bf02484b76148068d7818ac"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#ac79736a813e496e74a981b2e272a92c0">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;, const <a class="el" href="a00001.html">AbsTime</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a4694adb1b51383a0670bc1c339f31093">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;, const <a class="el" href="a00105.html">Duration</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00001.html">AbsTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a30c32821719110ad9f1a040db14bbf04">now</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a65509dc2edc1f45418191a21bd433b0a">operator&lt;</a> (const <a class="el" href="a00001.html">AbsTime</a> &amp;a, const <a class="el" href="a00001.html">AbsTime</a> &amp;b)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#ac3c77cc92c43c529cdb904b30b8edaf6">operator&gt;</a> (const <a class="el" href="a00001.html">AbsTime</a> &amp;a, const <a class="el" href="a00001.html">AbsTime</a> &amp;b)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a9365c22cb8b0357b1dcf4708f54ef6e9">sleep</a> (int secs)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Portable sleep for a number of seconds.  <a href="#a9365c22cb8b0357b1dcf4708f54ef6e9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a50712e5d9ed65546bb8b68c95de60d71">usleep</a> (uint64_t usecs)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Portable sleep for a number of microseconds.  <a href="#a50712e5d9ed65546bb8b68c95de60d71"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#ab4cae85aae24aa15abab5a56f1307738">outputFormattedNow</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Output formatted date/time for now.  <a href="#ab4cae85aae24aa15abab5a56f1307738"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#ab9e3ddd19698382ef3644dbafdb4e6ec">outputHiresNow</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Output unformatted nanosecond-resolution time for now.  <a href="#ab9e3ddd19698382ef3644dbafdb4e6ec"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00232.html">NullIOHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a0b49411d127328a82bbcfc3bcd0ad6be">DummyIOHandle</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00105.html">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a26856754378fb87f1fe132ebe1f95267">TIME_SEC</a> = 1000*1000*1000</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Nanoseconds per second.  <a href="#a26856754378fb87f1fe132ebe1f95267"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00105.html">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a7d29b9443ed52ad7fb8a866bb415f9a0">TIME_MSEC</a> = 1000*1000</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Nanoseconds per millisecond.  <a href="#a7d29b9443ed52ad7fb8a866bb415f9a0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00105.html">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a4dce4509e1d0c59783a56b8ccf03f59f">TIME_USEC</a> = 1000</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Nanoseconds per microseconds.  <a href="#a4dce4509e1d0c59783a56b8ccf03f59f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00105.html">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a9c6c2f454252b1e3ae4995662835990c">TIME_NSEC</a> = 1</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Nanoseconds per nanosecond.  <a href="#a9c6c2f454252b1e3ae4995662835990c"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00105.html">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a3aa132e281f66ba27d5fd25d71043bc0">TIME_INFINITE</a> = std::numeric_limits&lt;int64_t&gt;::max()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Value to represent an infinite timeout.  <a href="#a3aa132e281f66ba27d5fd25d71043bc0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00001.html">AbsTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a848c1c7e84bfc6321240b89caf4a50eb">EPOCH</a> = AbsTime::Epoch()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Absolute time point for the Unix epoch: 1970-01-01T00:00:00.  <a href="#a848c1c7e84bfc6321240b89caf4a50eb"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00001.html">AbsTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a2f812cf237347eabf03aeb424a5d7672">FAR_FUTURE</a> = AbsTime::FarFuture()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Time greater than any other time.  <a href="#a2f812cf237347eabf03aeb424a5d7672"></a><br/></td></tr>
 </table>
-<hr/><h2>Enumeration Type Documentation</h2>
-<a class="anchor" id="a323b1c4216c2de54ac6383df362fde16"></a><!-- doxytag: member="qpid::types::VariantType" ref="a323b1c4216c2de54ac6383df362fde16" args="" -->
+<hr/><h2>Typedef Documentation</h2>
+<a class="anchor" id="a4e0478fec86975db052a4c87ac13739b"></a><!-- doxytag: member="qpid::sys::TimePrivate" ref="a4e0478fec86975db052a4c87ac13739b" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00594.html#a323b1c4216c2de54ac6383df362fde16">qpid::types::VariantType</a></td>
+          <td class="memname">typedef boost::posix_time::ptime <a class="el" href="a00594.html#a4e0478fec86975db052a4c87ac13739b">qpid::sys::TimePrivate</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
-<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a7676ba2aa51c62d7990234b3182cda8d"></a><!-- doxytag: member="VAR_VOID" ref="a323b1c4216c2de54ac6383df362fde16a7676ba2aa51c62d7990234b3182cda8d" args="" -->VAR_VOID</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a459b6a348d780e9e0f051b58d6742446"></a><!-- doxytag: member="VAR_BOOL" ref="a323b1c4216c2de54ac6383df362fde16a459b6a348d780e9e0f051b58d6742446" args="" -->VAR_BOOL</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16afebe70b5d29e4b292a18227512aed3aa"></a><!-- doxytag: member="VAR_UINT8" ref="a323b1c4216c2de54ac6383df362fde16afebe70b5d29e4b292a18227512aed3aa" args="" -->VAR_UINT8</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a64223439b1202ebd6bb34e62d7d64ef7"></a><!-- doxytag: member="VAR_UINT16" ref="a323b1c4216c2de54ac6383df362fde16a64223439b1202ebd6bb34e62d7d64ef7" args="" -->VAR_UINT16</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16ab7d539b6a29d6a00a6bd50e3c9d4eae9"></a><!-- doxytag: member="VAR_UINT32" ref="a323b1c4216c2de54ac6383df362fde16ab7d539b6a29d6a00a6bd50e3c9d4eae9" args="" -->VAR_UINT32</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a196a192a2191a3b500b119963c1235c1"></a><!-- doxytag: member="VAR_UINT64" ref="a323b1c4216c2de54ac6383df362fde16a196a192a2191a3b500b119963c1235c1" args="" -->VAR_UINT64</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a4f0446bae585ccffaf8fc56e064ef54b"></a><!-- doxytag: member="VAR_INT8" ref="a323b1c4216c2de54ac6383df362fde16a4f0446bae585ccffaf8fc56e064ef54b" args="" -->VAR_INT8</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a4d0c9b0c123719d4584695185bc4b6db"></a><!-- doxytag: member="VAR_INT16" ref="a323b1c4216c2de54ac6383df362fde16a4d0c9b0c123719d4584695185bc4b6db" args="" -->VAR_INT16</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a33fddb08e1155588686215917619dda5"></a><!-- doxytag: member="VAR_INT32" ref="a323b1c4216c2de54ac6383df362fde16a33fddb08e1155588686215917619dda5" args="" -->VAR_INT32</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16aaef7586df8f57462bae5cba5ad2b1c2c"></a><!-- doxytag: member="VAR_INT64" ref="a323b1c4216c2de54ac6383df362fde16aaef7586df8f57462bae5cba5ad2b1c2c" args="" -->VAR_INT64</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a3db294177c04883245c056ab13aee788"></a><!-- doxytag: member="VAR_FLOAT" ref="a323b1c4216c2de54ac6383df362fde16a3db294177c04883245c056ab13aee788" args="" -->VAR_FLOAT</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a37fba29cfc5e48d2e37c68439fc31e68"></a><!-- doxytag: member="VAR_DOUBLE" ref="a323b1c4216c2de54ac6383df362fde16a37fba29cfc5e48d2e37c68439fc31e68" args="" -->VAR_DOUBLE</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a2ddc3e8d840f935e022260fedc9b6160"></a><!-- doxytag: member="VAR_STRING" ref="a323b1c4216c2de54ac6383df362fde16a2ddc3e8d840f935e022260fedc9b6160" args="" -->VAR_STRING</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a063b07f094839b92a4764ae2c95601f1"></a><!-- doxytag: member="VAR_MAP" ref="a323b1c4216c2de54ac6383df362fde16a063b07f094839b92a4764ae2c95601f1" args="" -->VAR_MAP</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a503b9d266cf23fd4de6aff1cb75bde45"></a><!-- doxytag: member="VAR_LIST" ref="a323b1c4216c2de54ac6383df362fde16a503b9d266cf23fd4de6aff1cb75bde45" args="" -->VAR_LIST</em>&nbsp;</td><td>
-</td></tr>
-<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a962364a6de33098c57a0a77c99278a07"></a><!-- doxytag: member="VAR_UUID" ref="a323b1c4216c2de54ac6383df362fde16a962364a6de33098c57a0a77c99278a07" args="" -->VAR_UUID</em>&nbsp;</td><td>
-</td></tr>
-</table>
-</dd>
-</dl>
 
-<p>Definition at line <a class="el" href="a00569_source.html#l00044">44</a> of file <a class="el" href="a00569_source.html">Variant.h</a>.</p>
+<p>Class to represent an instant in time. </p>
+<p>Boost has this stuff already done so just reuse it. We can also grab this for quick use with the <a class="el" href="a00058.html" title="A condition variable for thread synchronization.">Condition</a> wait operations. </p>
+
+<p>Definition at line <a class="el" href="a00564_source.html#l00030">30</a> of file <a class="el" href="a00564_source.html">Time.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Function Documentation</h2>
-<a class="anchor" id="abea01d998021253cc0774f9f1e68e960"></a><!-- doxytag: member="qpid::types::getTypeName" ref="abea01d998021253cc0774f9f1e68e960" args="(VariantType type)" -->
+<a class="anchor" id="afa16e67cd3622db2fd4515a5ea21d50d"></a><!-- doxytag: member="qpid::sys::getAddrInfo" ref="afa16e67cd3622db2fd4515a5ea21d50d" args="(const SocketAddress &amp;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00345.html">std::string</a> qpid::types::getTypeName </td>
+          <td class="memname">struct addrinfo&amp; qpid::sys::getAddrInfo </td>
           <td>(</td>
-          <td class="paramtype">VariantType&#160;</td>
-          <td class="paramname"><em>type</em></td><td>)</td>
-          <td></td>
+          <td class="paramtype">const SocketAddress &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [read]</code></td>
         </tr>
       </table>
 </div>
@@ -196,286 +193,69 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8f3a2d85fa7422cca02f3a67c7c3e383"></a><!-- doxytag: member="qpid::types::isIntegerType" ref="a8f3a2d85fa7422cca02f3a67c7c3e383" args="(VariantType type)" -->
+<a class="anchor" id="a30c32821719110ad9f1a040db14bbf04"></a><!-- doxytag: member="qpid::sys::now" ref="a30c32821719110ad9f1a040db14bbf04" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::isIntegerType </td>
+          <td class="memname"><a class="el" href="a00001.html">AbsTime</a> qpid::sys::now </td>
           <td>(</td>
-          <td class="paramtype">VariantType&#160;</td>
-          <td class="paramname"><em>type</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Definition at line <a class="el" href="a00565_source.html#l00129">129</a> of file <a class="el" href="a00565_source.html">Time.h</a>.</p>
+
+<p>References <a class="el" href="a00001.html#a0ed4b5707126f2efe347ee9627d0ada7">qpid::sys::AbsTime::now()</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a602267e3c06bfbc277235cd5c0b3087b"></a><!-- doxytag: member="qpid::types::operator!=" ref="a602267e3c06bfbc277235cd5c0b3087b" args="(const Uuid &amp;, const Uuid &amp;)" -->
+<a class="anchor" id="a65509dc2edc1f45418191a21bd433b0a"></a><!-- doxytag: member="qpid::sys::operator&lt;" ref="a65509dc2edc1f45418191a21bd433b0a" args="(const AbsTime &amp;a, const AbsTime &amp;b)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::operator!= </td>
+          <td class="memname">bool qpid::sys::operator&lt; </td>
           <td>(</td>
-          <td class="paramtype">const Uuid &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Uuid &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Returns true if the uuids are NOT equal, false if they are. </p>
-
-</div>
-</div>
-<a class="anchor" id="ad0190ccb56db505fb962f6c477d84ae7"></a><!-- doxytag: member="qpid::types::operator&lt;" ref="ad0190ccb56db505fb962f6c477d84ae7" args="(const Uuid &amp;, const Uuid &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::operator&lt; </td>
-          <td>(</td>
-          <td class="paramtype">const Uuid &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Uuid &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="af86247d266d06be5863387fc0e0c861f"></a><!-- doxytag: member="qpid::types::operator&lt;&lt;" ref="af86247d266d06be5863387fc0e0c861f" args="(std::ostream &amp;, Uuid)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00243.html">std::ostream</a>&amp; qpid::types::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Uuid&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Print in format 1b4e28ba-2fa1-11d2-883f-b9a761bde3fb. </p>
-
-</div>
-</div>
-<a class="anchor" id="a73d30b9f74c30cfd39839fecd9249c73"></a><!-- doxytag: member="qpid::types::operator&lt;&lt;" ref="a73d30b9f74c30cfd39839fecd9249c73" args="(std::ostream &amp;out, const Variant &amp;value)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00243.html">std::ostream</a>&amp; qpid::types::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname"><em>out</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Variant &amp;&#160;</td>
-          <td class="paramname"><em>value</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a95e61f6c2b56dac4596c2dd833068b23"></a><!-- doxytag: member="qpid::types::operator&lt;&lt;" ref="a95e61f6c2b56dac4596c2dd833068b23" args="(std::ostream &amp;out, const Variant::Map &amp;map)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00243.html">std::ostream</a>&amp; qpid::types::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname"><em>out</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Variant::Map &amp;&#160;</td>
-          <td class="paramname"><em>map</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a15c402659610534a4338768f05c096c5"></a><!-- doxytag: member="qpid::types::operator&lt;&lt;" ref="a15c402659610534a4338768f05c096c5" args="(std::ostream &amp;out, const Variant::List &amp;list)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00243.html">std::ostream</a>&amp; qpid::types::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname"><em>out</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Variant::List &amp;&#160;</td>
-          <td class="paramname"><em>list</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="afd879d0505e716e566dd514520b0510f"></a><!-- doxytag: member="qpid::types::operator&lt;=" ref="afd879d0505e716e566dd514520b0510f" args="(const Uuid &amp;, const Uuid &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::operator&lt;= </td>
-          <td>(</td>
-          <td class="paramtype">const Uuid &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Uuid &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7115f0349b934fbf2bda7d6eb4b49b74"></a><!-- doxytag: member="qpid::types::operator==" ref="a7115f0349b934fbf2bda7d6eb4b49b74" args="(const Uuid &amp;, const Uuid &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const Uuid &amp;&#160;</td>
-          <td class="paramname">, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Uuid &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Returns true if the uuids are equal, false otherwise. </p>
-
-</div>
-</div>
-<a class="anchor" id="ac0b257e4f9830e1b47a0f4b732507a15"></a><!-- doxytag: member="qpid::types::operator==" ref="ac0b257e4f9830e1b47a0f4b732507a15" args="(const Variant &amp;a, const Variant &amp;b)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const Variant &amp;&#160;</td>
+          <td class="paramtype">const AbsTime &amp;&#160;</td>
           <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const Variant &amp;&#160;</td>
+          <td class="paramtype">const AbsTime &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Definition at line <a class="el" href="a00565_source.html#l00131">131</a> of file <a class="el" href="a00565_source.html">Time.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="ab5b33165e47cea8d69da726869ff3e23"></a><!-- doxytag: member="qpid::types::operator&gt;" ref="ab5b33165e47cea8d69da726869ff3e23" args="(const Uuid &amp;, const Uuid &amp;)" -->
+<a class="anchor" id="ac79736a813e496e74a981b2e272a92c0"></a><!-- doxytag: member="qpid::sys::operator&lt;&lt;" ref="ac79736a813e496e74a981b2e272a92c0" args="(std::ostream &amp;, const AbsTime &amp;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::operator&gt; </td>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; qpid::sys::operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramtype">const Uuid &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const Uuid &amp;&#160;</td>
+          <td class="paramtype">const AbsTime &amp;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -489,20 +269,20 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a63e81903d1491d3b0dd40a695448a177"></a><!-- doxytag: member="qpid::types::operator&gt;=" ref="a63e81903d1491d3b0dd40a695448a177" args="(const Uuid &amp;, const Uuid &amp;)" -->
+<a class="anchor" id="a4694adb1b51383a0670bc1c339f31093"></a><!-- doxytag: member="qpid::sys::operator&lt;&lt;" ref="a4694adb1b51383a0670bc1c339f31093" args="(std::ostream &amp;, const Duration &amp;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::operator&gt;= </td>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; qpid::sys::operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramtype">const Uuid &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const Uuid &amp;&#160;</td>
+          <td class="paramtype">const Duration &amp;&#160;</td>
           <td class="paramname">&#160;</td>
         </tr>
         <tr>
@@ -516,32 +296,353 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a891bb9ebc0abcbb75cb1f4f9c2da3342"></a><!-- doxytag: member="qpid::types::operator&gt;&gt;" ref="a891bb9ebc0abcbb75cb1f4f9c2da3342" args="(std::istream &amp;, Uuid &amp;)" -->
+<a class="anchor" id="ac3c77cc92c43c529cdb904b30b8edaf6"></a><!-- doxytag: member="qpid::sys::operator&gt;" ref="ac3c77cc92c43c529cdb904b30b8edaf6" args="(const AbsTime &amp;a, const AbsTime &amp;b)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00170.html">std::istream</a>&amp; qpid::types::operator&gt;&gt; </td>
+          <td class="memname">bool qpid::sys::operator&gt; </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00170.html">std::istream</a> &amp;&#160;</td>
-          <td class="paramname">, </td>
+          <td class="paramtype">const AbsTime &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Uuid &amp;&#160;</td>
-          <td class="paramname">&#160;</td>
+          <td class="paramtype">const AbsTime &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Read from format 1b4e28ba-2fa1-11d2-883f-b9a761bde3fb. </p>
+<p>Definition at line <a class="el" href="a00565_source.html#l00133">133</a> of file <a class="el" href="a00565_source.html">Time.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab4cae85aae24aa15abab5a56f1307738"></a><!-- doxytag: member="qpid::sys::outputFormattedNow" ref="ab4cae85aae24aa15abab5a56f1307738" args="(std::ostream &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::sys::outputFormattedNow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Output formatted date/time for now. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab9e3ddd19698382ef3644dbafdb4e6ec"></a><!-- doxytag: member="qpid::sys::outputHiresNow" ref="ab9e3ddd19698382ef3644dbafdb4e6ec" args="(std::ostream &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::sys::outputHiresNow </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Output unformatted nanosecond-resolution time for now. </p>
+
+</div>
+</div>
+<a class="anchor" id="a9365c22cb8b0357b1dcf4708f54ef6e9"></a><!-- doxytag: member="qpid::sys::sleep" ref="a9365c22cb8b0357b1dcf4708f54ef6e9" args="(int secs)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::sys::sleep </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>secs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Portable sleep for a number of seconds. </p>
+
+</div>
+</div>
+<a class="anchor" id="a1e3d2be68bf02484b76148068d7818ac"></a><!-- doxytag: member="qpid::sys::strError" ref="a1e3d2be68bf02484b76148068d7818ac" args="(int err)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::sys::strError </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>err</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get the error message for a system number err, e.g. </p>
+<p>errno. </p>
+
+</div>
+</div>
+<a class="anchor" id="a4f380e3eca371bcaa90a2040a6b4f00c"></a><!-- doxytag: member="qpid::sys::toFd" ref="a4f380e3eca371bcaa90a2040a6b4f00c" args="(const IOHandlePrivate *h)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int qpid::sys::toFd </td>
+          <td>(</td>
+          <td class="paramtype">const IOHandlePrivate *&#160;</td>
+          <td class="paramname"><em>h</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6dd40543b6150ca7fd13ee73ca546e69"></a><!-- doxytag: member="qpid::sys::toTime" ref="a6dd40543b6150ca7fd13ee73ca546e69" args="(const struct timespec &amp;ts)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00105.html">Duration</a> qpid::sys::toTime </td>
+          <td>(</td>
+          <td class="paramtype">const struct timespec &amp;&#160;</td>
+          <td class="paramname"><em>ts</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a65e4ddcfe78c70b4cb1aa1aa91bbda18"></a><!-- doxytag: member="qpid::sys::toTimespec" ref="a65e4ddcfe78c70b4cb1aa1aa91bbda18" args="(struct timespec &amp;ts, const Duration &amp;t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct timespec&amp; qpid::sys::toTimespec </td>
+          <td>(</td>
+          <td class="paramtype">struct timespec &amp;&#160;</td>
+          <td class="paramname"><em>ts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Duration &amp;&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [read]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Referenced by <a class="el" href="a00553_source.html#l00066">qpid::sys::Condition::wait()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae58ac2f33f1743f8cf5bb96708e1f872"></a><!-- doxytag: member="qpid::sys::toTimeval" ref="ae58ac2f33f1743f8cf5bb96708e1f872" args="(struct timeval &amp;tv, const Duration &amp;t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">struct timeval&amp; qpid::sys::toTimeval </td>
+          <td>(</td>
+          <td class="paramtype">struct timeval &amp;&#160;</td>
+          <td class="paramname"><em>tv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Duration &amp;&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [read]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a50712e5d9ed65546bb8b68c95de60d71"></a><!-- doxytag: member="qpid::sys::usleep" ref="a50712e5d9ed65546bb8b68c95de60d71" args="(uint64_t usecs)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::sys::usleep </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>usecs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Portable sleep for a number of microseconds. </p>
+
+</div>
+</div>
+<hr/><h2>Variable Documentation</h2>
+<a class="anchor" id="a0b49411d127328a82bbcfc3bcd0ad6be"></a><!-- doxytag: member="qpid::sys::DummyIOHandle" ref="a0b49411d127328a82bbcfc3bcd0ad6be" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00232.html">NullIOHandle</a> <a class="el" href="a00594.html#a0b49411d127328a82bbcfc3bcd0ad6be">qpid::sys::DummyIOHandle</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a848c1c7e84bfc6321240b89caf4a50eb"></a><!-- doxytag: member="qpid::sys::EPOCH" ref="a848c1c7e84bfc6321240b89caf4a50eb" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00001.html">AbsTime</a> <a class="el" href="a00594.html#a848c1c7e84bfc6321240b89caf4a50eb">qpid::sys::EPOCH</a> = AbsTime::Epoch()</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Absolute time point for the Unix epoch: 1970-01-01T00:00:00. </p>
+
+<p>Definition at line <a class="el" href="a00565_source.html#l00156">156</a> of file <a class="el" href="a00565_source.html">Time.h</a>.</p>
+
+<p>Referenced by <a class="el" href="a00553_source.html#l00066">qpid::sys::Condition::wait()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2f812cf237347eabf03aeb424a5d7672"></a><!-- doxytag: member="qpid::sys::FAR_FUTURE" ref="a2f812cf237347eabf03aeb424a5d7672" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00001.html">AbsTime</a> <a class="el" href="a00594.html#a2f812cf237347eabf03aeb424a5d7672">qpid::sys::FAR_FUTURE</a> = AbsTime::FarFuture()</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Time greater than any other time. </p>
+
+<p>Definition at line <a class="el" href="a00565_source.html#l00159">159</a> of file <a class="el" href="a00565_source.html">Time.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3aa132e281f66ba27d5fd25d71043bc0"></a><!-- doxytag: member="qpid::sys::TIME_INFINITE" ref="a3aa132e281f66ba27d5fd25d71043bc0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00105.html">Duration</a> <a class="el" href="a00594.html#a3aa132e281f66ba27d5fd25d71043bc0">qpid::sys::TIME_INFINITE</a> = std::numeric_limits&lt;int64_t&gt;::max()</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Value to represent an infinite timeout. </p>
+
+<p>Definition at line <a class="el" href="a00565_source.html#l00153">153</a> of file <a class="el" href="a00565_source.html">Time.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a7d29b9443ed52ad7fb8a866bb415f9a0"></a><!-- doxytag: member="qpid::sys::TIME_MSEC" ref="a7d29b9443ed52ad7fb8a866bb415f9a0" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00105.html">Duration</a> <a class="el" href="a00594.html#a7d29b9443ed52ad7fb8a866bb415f9a0">qpid::sys::TIME_MSEC</a> = 1000*1000</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Nanoseconds per millisecond. </p>
+
+<p>Definition at line <a class="el" href="a00565_source.html#l00146">146</a> of file <a class="el" href="a00565_source.html">Time.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9c6c2f454252b1e3ae4995662835990c"></a><!-- doxytag: member="qpid::sys::TIME_NSEC" ref="a9c6c2f454252b1e3ae4995662835990c" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00105.html">Duration</a> <a class="el" href="a00594.html#a9c6c2f454252b1e3ae4995662835990c">qpid::sys::TIME_NSEC</a> = 1</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Nanoseconds per nanosecond. </p>
+
+<p>Definition at line <a class="el" href="a00565_source.html#l00150">150</a> of file <a class="el" href="a00565_source.html">Time.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a26856754378fb87f1fe132ebe1f95267"></a><!-- doxytag: member="qpid::sys::TIME_SEC" ref="a26856754378fb87f1fe132ebe1f95267" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00105.html">Duration</a> <a class="el" href="a00594.html#a26856754378fb87f1fe132ebe1f95267">qpid::sys::TIME_SEC</a> = 1000*1000*1000</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Nanoseconds per second. </p>
+
+<p>Definition at line <a class="el" href="a00565_source.html#l00144">144</a> of file <a class="el" href="a00565_source.html">Time.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4dce4509e1d0c59783a56b8ccf03f59f"></a><!-- doxytag: member="qpid::sys::TIME_USEC" ref="a4dce4509e1d0c59783a56b8ccf03f59f" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00105.html">Duration</a> <a class="el" href="a00594.html#a4dce4509e1d0c59783a56b8ccf03f59f">qpid::sys::TIME_USEC</a> = 1000</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Nanoseconds per microseconds. </p>
+
+<p>Definition at line <a class="el" href="a00565_source.html#l00148">148</a> of file <a class="el" href="a00565_source.html">Time.h</a>.</p>
 
 </div>
 </div>
@@ -573,7 +674,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf/Schema.h Source File</title>
+    <title>qmf/engine/ResilientConnection.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,13 +58,13 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qmf/Schema.h</div>  </div>
+<div class="title">qmf/engine/ResilientConnection.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00430.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QMF_SCHEMA_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QMF_SCHEMA_H</span>
-<a name="l00003"></a>00003 <span class="preprocessor"></span><span class="comment">/*</span>
-<a name="l00004"></a>00004 <span class="comment"> *</span>
+<a href="a00430.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _QmfEngineResilientConnection_</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _QmfEngineResilientConnection_</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="comment">/*</span>
 <a name="l00005"></a>00005 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
 <a name="l00006"></a>00006 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
 <a name="l00007"></a>00007 <span class="comment"> * distributed with this work for additional information</span>
@@ -81,62 +81,74 @@
 <a name="l00018"></a>00018 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
 <a name="l00019"></a>00019 <span class="comment"> * specific language governing permissions and limitations</span>
 <a name="l00020"></a>00020 <span class="comment"> * under the License.</span>
-<a name="l00021"></a>00021 <span class="comment"> *</span>
-<a name="l00022"></a>00022 <span class="comment"> */</span>
-<a name="l00023"></a>00023 
-<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;<a class="code" href="a00440.html">qmf/ImportExport.h</a>&gt;</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00554.html">qpid/sys/IntegerTypes.h</a>&quot;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00437.html">qmf/Handle.h</a>&quot;</span>
-<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00448.html">qmf/SchemaTypes.h</a>&quot;</span>
-<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00021"></a>00021 <span class="comment"> */</span>
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="preprocessor">#include &lt;<a class="code" href="a00420.html">qmf/engine/Message.h</a>&gt;</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;<a class="code" href="a00414.html">qmf/engine/ConnectionSettings.h</a>&gt;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="keyword">namespace </span>qmf {
+<a name="l00028"></a>00028 <span class="keyword">namespace </span>engine {
 <a name="l00029"></a>00029 
-<a name="l00030"></a>00030 <span class="keyword">namespace </span>qmf {
+<a name="l00030"></a>00030     <span class="keyword">class </span>ResilientConnectionImpl;
 <a name="l00031"></a>00031 
-<a name="l00032"></a>00032 <span class="preprocessor">#ifndef SWIG</span>
-<a name="l00033"></a>00033 <span class="preprocessor"></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span>&gt; <span class="keyword">class </span>PrivateImplRef;
-<a name="l00034"></a>00034 <span class="preprocessor">#endif</span>
-<a name="l00035"></a>00035 <span class="preprocessor"></span>
-<a name="l00036"></a>00036     <span class="keyword">class </span>SchemaImpl;
-<a name="l00037"></a>00037     <span class="keyword">class </span>SchemaId;
-<a name="l00038"></a>00038     <span class="keyword">class </span>SchemaProperty;
-<a name="l00039"></a>00039     <span class="keyword">class </span>SchemaMethod;
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041     <span class="keyword">class </span><a class="code" href="a00440.html#aa6143d1e586807dc556687a007c92b69">QMF_CLASS_EXTERN</a> Schema : <span class="keyword">public</span> qmf::Handle&lt;SchemaImpl&gt; {
-<a name="l00042"></a>00042     <span class="keyword">public</span>:
-<a name="l00043"></a>00043         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> Schema(SchemaImpl* impl = 0);
-<a name="l00044"></a>00044         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> Schema(<span class="keyword">const</span> Schema&amp;);
-<a name="l00045"></a>00045         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> Schema&amp; operator=(<span class="keyword">const</span> Schema&amp;);
-<a name="l00046"></a>00046         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> ~Schema();
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> Schema(<span class="keywordtype">int</span>, <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp;);
-<a name="l00049"></a>00049         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keyword">const</span> SchemaId&amp; getSchemaId() <span class="keyword">const</span>;
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">void</span> finalize();
-<a name="l00052"></a>00052         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">bool</span> isFinalized() <span class="keyword">const</span>;
-<a name="l00053"></a>00053         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">void</span> addProperty(<span class="keyword">const</span> SchemaProperty&amp;);
-<a name="l00054"></a>00054         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">void</span> addMethod(<span class="keyword">const</span> SchemaMethod&amp;);
-<a name="l00055"></a>00055         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">void</span> setDesc(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp;);
-<a name="l00056"></a>00056         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keyword">const</span> std::string&amp; getDesc() <span class="keyword">const</span>;
-<a name="l00057"></a>00057 
-<a name="l00058"></a>00058         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">void</span> setDefaultSeverity(<span class="keywordtype">int</span>);
-<a name="l00059"></a>00059         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <span class="keywordtype">int</span> getDefaultSeverity() <span class="keyword">const</span>;
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> getPropertyCount() <span class="keyword">const</span>;
-<a name="l00062"></a>00062         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> SchemaProperty getProperty(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>) <span class="keyword">const</span>;
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> getMethodCount() <span class="keyword">const</span>;
-<a name="l00065"></a>00065         <a class="code" href="a00440.html#ab978cc280df4828a46ccdde01f711da2">QMF_EXTERN</a> SchemaMethod getMethod(<a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>) <span class="keyword">const</span>;
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067 <span class="preprocessor">#ifndef SWIG</span>
-<a name="l00068"></a>00068 <span class="preprocessor"></span>    <span class="keyword">private</span>:
-<a name="l00069"></a><a class="code" href="a00296.html#ab3305a1e40615b1233abb28346a6a717">00069</a>         <span class="keyword">friend</span> <span class="keyword">class </span>qmf::PrivateImplRef&lt;<a class="code" href="a00296.html">Schema</a>&gt;;
-<a name="l00070"></a><a class="code" href="a00296.html#a67106eb6fb7fb5c47f5daf22a6db5c79">00070</a>         <span class="keyword">friend</span> <span class="keyword">struct </span>SchemaImplAccess;
-<a name="l00071"></a>00071 <span class="preprocessor">#endif</span>
-<a name="l00072"></a>00072 <span class="preprocessor"></span>    };
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074 }
-<a name="l00075"></a>00075 
-<a name="l00076"></a>00076 <span class="preprocessor">#endif</span>
+<a name="l00035"></a>00035     <span class="keyword">struct </span>ResilientConnectionEvent {
+<a name="l00036"></a><a class="code" href="a00279.html#aef38f8198676de314ec76bf454a30555">00036</a>         <span class="keyword">enum</span> <a class="code" href="a00279.html#aef38f8198676de314ec76bf454a30555">EventKind</a> {
+<a name="l00037"></a><a class="code" href="a00279.html#aef38f8198676de314ec76bf454a30555a5f3c4d49bf4f35f6378ed78aae12174e">00037</a>             <a class="code" href="a00279.html#aef38f8198676de314ec76bf454a30555a5f3c4d49bf4f35f6378ed78aae12174e">CONNECTED</a>      = 1,
+<a name="l00038"></a><a class="code" href="a00279.html#aef38f8198676de314ec76bf454a30555adfec37e21ad482f941e3b1005b1cffbf">00038</a>             <a class="code" href="a00279.html#aef38f8198676de314ec76bf454a30555adfec37e21ad482f941e3b1005b1cffbf">DISCONNECTED</a>   = 2,
+<a name="l00039"></a><a class="code" href="a00279.html#aef38f8198676de314ec76bf454a30555acc364fb1f142d2f9e90511f1f9005018">00039</a>             <a class="code" href="a00279.html#aef38f8198676de314ec76bf454a30555acc364fb1f142d2f9e90511f1f9005018">SESSION_CLOSED</a> = 3,
+<a name="l00040"></a><a class="code" href="a00279.html#aef38f8198676de314ec76bf454a30555aee23ee9cd9f53cdcf34aa9f783eed74a">00040</a>             <a class="code" href="a00279.html#aef38f8198676de314ec76bf454a30555aee23ee9cd9f53cdcf34aa9f783eed74a">RECV</a>           = 4
+<a name="l00041"></a>00041         };
+<a name="l00042"></a>00042 
+<a name="l00043"></a><a class="code" href="a00279.html#a1c9119eae96e800684cacd491f905d18">00043</a>         <a class="code" href="a00279.html#aef38f8198676de314ec76bf454a30555">EventKind</a> <a class="code" href="a00279.html#a1c9119eae96e800684cacd491f905d18">kind</a>;
+<a name="l00044"></a><a class="code" href="a00279.html#afc67b7178943dd260a8e73da11f6bde1">00044</a>         <span class="keywordtype">void</span>*     <a class="code" href="a00279.html#afc67b7178943dd260a8e73da11f6bde1">sessionContext</a>; <span class="comment">// SESSION_CLOSED, RECV</span>
+<a name="l00045"></a><a class="code" href="a00279.html#adeeeb6753be3ee21d420b3808396c1ad">00045</a>         <span class="keywordtype">char</span>*     <a class="code" href="a00279.html#adeeeb6753be3ee21d420b3808396c1ad">errorText</a>;      <span class="comment">// DISCONNECTED, SESSION_CLOSED</span>
+<a name="l00046"></a><a class="code" href="a00279.html#a1a594034b67004581b21b916a71159c3">00046</a>         <a class="code" href="a00207.html">Message</a>   <a class="code" href="a00279.html#a1a594034b67004581b21b916a71159c3">message</a>;        <span class="comment">// RECV</span>
+<a name="l00047"></a>00047     };
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049     <span class="keyword">class </span><a class="code" href="a00333.html">SessionHandle</a> {
+<a name="l00050"></a><a class="code" href="a00333.html#ab79267f98ba45409d7f010745884f072">00050</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a00333.html#ab79267f98ba45409d7f010745884f072">ResilientConnectionImpl</a>;
+<a name="l00051"></a>00051         <span class="keywordtype">void</span>* impl;
+<a name="l00052"></a>00052     };
+<a name="l00053"></a>00053 
+<a name="l00062"></a>00062     <span class="keyword">class </span><a class="code" href="a00278.html" title="ResilientConnection represents a Qpid connection that is resilient.">ResilientConnection</a> {
+<a name="l00063"></a>00063     <span class="keyword">public</span>:
+<a name="l00064"></a>00064 
+<a name="l00072"></a>00072         <a class="code" href="a00278.html#a4f72b27cbd0051762f5ccceddac32750" title="Create a new resilient connection.">ResilientConnection</a>(<span class="keyword">const</span> <a class="code" href="a00065.html" title="Settings for AMQP connections to the broker.">ConnectionSettings</a>&amp; settings);
+<a name="l00073"></a>00073         <a class="code" href="a00278.html#a67a330549aa763e411634733a36c1436">~ResilientConnection</a>();
+<a name="l00074"></a>00074 
+<a name="l00079"></a>00079         <span class="keywordtype">bool</span> <a class="code" href="a00278.html#ad2e2ad25ac20b18de7b1d69043500728" title="Get the connected status of the resilient connection.">isConnected</a>() <span class="keyword">const</span>;
+<a name="l00080"></a>00080 
+<a name="l00086"></a>00086         <span class="keywordtype">bool</span> <a class="code" href="a00278.html#a37bd7af4e3fafd8f0bbf1e15bdfcdf45" title="Get the next event (if present) from the connection.">getEvent</a>(<a class="code" href="a00279.html" title="Represents events that occur, unsolicited, from ResilientConnection.">ResilientConnectionEvent</a>&amp; event);
+<a name="l00087"></a>00087 
+<a name="l00092"></a>00092         <span class="keywordtype">void</span> <a class="code" href="a00278.html#ad90bd2c5323770ba3be6da32905b8aee" title="Discard the event on the front of the queue.">popEvent</a>();
+<a name="l00093"></a>00093 
+<a name="l00103"></a>00103         <span class="keywordtype">bool</span> <a class="code" href="a00278.html#a88d4ca842466daa8d0666a1c235ab57e" title="Create a new AMQP session.">createSession</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name, <span class="keywordtype">void</span>* sessionContext, <a class="code" href="a00333.html">SessionHandle</a>&amp; handle);
+<a name="l00104"></a>00104 
+<a name="l00109"></a>00109         <span class="keywordtype">void</span> <a class="code" href="a00278.html#acb92cd4ec627554e70a35d706cc418d8" title="Destroy a created session.">destroySession</a>(<a class="code" href="a00333.html">SessionHandle</a> handle);
+<a name="l00110"></a>00110 
+<a name="l00116"></a>00116         <span class="keywordtype">void</span> <a class="code" href="a00278.html#a44b9a89c00b48b48b699e316f94d868a" title="Send a message into the AMQP broker via a session.">sendMessage</a>(<a class="code" href="a00333.html">SessionHandle</a> handle, <a class="code" href="a00207.html">Message</a>&amp; message);
+<a name="l00117"></a>00117 
+<a name="l00123"></a>00123         <span class="keywordtype">void</span> <a class="code" href="a00278.html#ac43182c6ce214344ca95734326e8bb20" title="Declare an exclusive, auto-delete queue for a session.">declareQueue</a>(<a class="code" href="a00333.html">SessionHandle</a> handle, <span class="keywordtype">char</span>* queue);
+<a name="l00124"></a>00124 
+<a name="l00130"></a>00130         <span class="keywordtype">void</span> <a class="code" href="a00278.html#a97ff0ef9c47f55ed0f167c574e951b4a" title="Delete a queue.">deleteQueue</a>(<a class="code" href="a00333.html">SessionHandle</a> handle, <span class="keywordtype">char</span>* queue);
+<a name="l00131"></a>00131 
+<a name="l00139"></a>00139         <span class="keywordtype">void</span> <a class="code" href="a00278.html#aa4ae18f367b0375094d5e081211e5c02" title="Bind a queue to an exchange.">bind</a>(<a class="code" href="a00333.html">SessionHandle</a> handle, <span class="keywordtype">char</span>* exchange, <span class="keywordtype">char</span>* queue, <span class="keywordtype">char</span>* key);
+<a name="l00140"></a>00140 
+<a name="l00148"></a>00148         <span class="keywordtype">void</span> <a class="code" href="a00278.html#ab4ae894168d4818c92d8a0b5b88e3c72" title="Remove a binding.">unbind</a>(<a class="code" href="a00333.html">SessionHandle</a> handle, <span class="keywordtype">char</span>* exchange, <span class="keywordtype">char</span>* queue, <span class="keywordtype">char</span>* key);
+<a name="l00149"></a>00149 
+<a name="l00156"></a>00156         <span class="keywordtype">void</span> <a class="code" href="a00278.html#a5308526ae75a273ccf52fa6dd0916896" title="Establish a file descriptor for event notification.">setNotifyFd</a>(<span class="keywordtype">int</span> fd);
+<a name="l00157"></a>00157 
+<a name="l00164"></a>00164         <span class="keywordtype">void</span> <a class="code" href="a00278.html#a9d0fb811692fde821d24ba33c019bd51" title="Send a byte into the notify file descriptor.">notify</a>();
+<a name="l00165"></a>00165 
+<a name="l00166"></a>00166     <span class="keyword">private</span>:
+<a name="l00167"></a>00167         ResilientConnectionImpl* impl;
+<a name="l00168"></a>00168     };
+<a name="l00169"></a>00169 }
+<a name="l00170"></a>00170 }
+<a name="l00171"></a>00171 
+<a name="l00172"></a>00172 <span class="preprocessor">#endif</span>
+<a name="l00173"></a>00173 <span class="preprocessor"></span>
 </pre></div></div>
 </div>
 <!--
@@ -166,7 +178,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

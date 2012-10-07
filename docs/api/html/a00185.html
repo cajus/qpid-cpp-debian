@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qmf::KeyNotFound Struct Reference</title>
+    <title>qpid::messaging::KeyError Struct Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,8 +60,9 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00571.html">qmf</a>      </li>
-      <li class="navelem"><a class="el" href="a00185.html">KeyNotFound</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00593.html">messaging</a>      </li>
+      <li class="navelem"><a class="el" href="a00185.html">KeyError</a>      </li>
     </ul>
   </div>
 </div>
@@ -70,34 +71,39 @@
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qmf::KeyNotFound Struct Reference</div>  </div>
+<div class="title">qpid::messaging::KeyError Struct Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qmf::KeyNotFound" --><!-- doxytag: inherits="qmf::QmfException" -->
-<p><code>#include &lt;<a class="el" href="a00435_source.html">qmf/exceptions.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::messaging::KeyError" --><!-- doxytag: inherits="qpid::messaging::MessagingException" -->
+<p>Thrown to indicate a failed lookup of some local object.  
+ <a href="a00185.html#details">More...</a></p>
 
-<p><a href="a00608.html">List of all members.</a></p>
+<p><code>#include &lt;<a class="el" href="a00438_source.html">qpid/messaging/exceptions.h</a>&gt;</code></p>
+
+<p><a href="a00851.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00185.html#a200feba27dea98b20495f16d71c88932">KeyNotFound</a> (const <a class="el" href="a00345.html">std::string</a> &amp;msg)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00185.html#aad8b8ec1d1017a2e0d518d67707ecfa9">~KeyNotFound</a> ()  throw ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00185.html#a6ab63ab02b84787b35af1dab45d14f8b">KeyError</a> (const <a class="el" href="a00346.html">std::string</a> &amp;)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">virtual QPID_TYPES_EXTERN <br class="typebreak"/>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00112.html#a96ddb3fe10a2b9d059cb78832a64751d">what</a> () const   throw ()</td></tr>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00114.html#a96ddb3fe10a2b9d059cb78832a64751d">what</a> () const   throw ()</td></tr>
 <tr><td colspan="2"><h2><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00256.html#a3a1ed05eb67ac17d99a1561d093fcaa5">detail</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00214.html#ad2a0464e06d10b0ba61a4520bac1cfa7">detail</a></td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a200feba27dea98b20495f16d71c88932"></a><!-- doxytag: member="qmf::KeyNotFound::KeyNotFound" ref="a200feba27dea98b20495f16d71c88932" args="(const std::string &amp;msg)" -->
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Thrown to indicate a failed lookup of some local object. </p>
+<p>For example when attempting to retrieve a session, sender or receiver by name. </p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a6ab63ab02b84787b35af1dab45d14f8b"></a><!-- doxytag: member="qpid::messaging::KeyError::KeyError" ref="a6ab63ab02b84787b35af1dab45d14f8b" args="(const std::string &amp;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qmf::KeyNotFound::KeyNotFound </td>
+          <td class="memname">qpid::messaging::KeyError::KeyError </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -106,24 +112,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aad8b8ec1d1017a2e0d518d67707ecfa9"></a><!-- doxytag: member="qmf::KeyNotFound::~KeyNotFound" ref="aad8b8ec1d1017a2e0d518d67707ecfa9" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual qmf::KeyNotFound::~KeyNotFound </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>  throw ()<code> [virtual]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a96ddb3fe10a2b9d059cb78832a64751d"></a><!-- doxytag: member="qmf::KeyNotFound::what" ref="a96ddb3fe10a2b9d059cb78832a64751d" args="() const " -->
+<a class="anchor" id="a96ddb3fe10a2b9d059cb78832a64751d"></a><!-- doxytag: member="qpid::messaging::KeyError::what" ref="a96ddb3fe10a2b9d059cb78832a64751d" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -140,23 +130,23 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a3a1ed05eb67ac17d99a1561d093fcaa5"></a><!-- doxytag: member="qmf::KeyNotFound::detail" ref="a3a1ed05eb67ac17d99a1561d093fcaa5" args="" -->
+<a class="anchor" id="ad2a0464e06d10b0ba61a4520bac1cfa7"></a><!-- doxytag: member="qpid::messaging::KeyError::detail" ref="ad2a0464e06d10b0ba61a4520bac1cfa7" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> <a class="el" href="a00256.html#a3a1ed05eb67ac17d99a1561d093fcaa5">qmf::QmfException::detail</a><code> [inherited]</code></td>
+          <td class="memname"><a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> <a class="el" href="a00214.html#ad2a0464e06d10b0ba61a4520bac1cfa7">qpid::messaging::MessagingException::detail</a><code> [inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00435_source.html#l00038">38</a> of file <a class="el" href="a00435_source.html">exceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="a00438_source.html#l00044">44</a> of file <a class="el" href="a00438_source.html">exceptions.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qmf/<a class="el" href="a00435_source.html">exceptions.h</a></li>
+<li>qpid/messaging/<a class="el" href="a00438_source.html">exceptions.h</a></li>
 </ul>
 </div>
 <!--
@@ -186,7 +176,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

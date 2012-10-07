@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ClusterConnectionDeliveryRecordBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ClusterConnectionDeliveryRecordBody::setQueue(const std::string& _queue) {
     queue = _queue;
     flags |= (1 << 8);
+    if (queue.size() >= 256) throw IllegalArgumentException("Value for queue is too large");
 }
 const std::string& ClusterConnectionDeliveryRecordBody::getQueue() const { return queue; }
 bool ClusterConnectionDeliveryRecordBody::hasQueue() const { return flags & (1 << 8); }
@@ -49,6 +50,7 @@ void ClusterConnectionDeliveryRecordBody::clearPositionFlag() { flags &= ~(1 << 
 void ClusterConnectionDeliveryRecordBody::setTag(const std::string& _tag) {
     tag = _tag;
     flags |= (1 << 10);
+    if (tag.size() >= 256) throw IllegalArgumentException("Value for tag is too large");
 }
 const std::string& ClusterConnectionDeliveryRecordBody::getTag() const { return tag; }
 bool ClusterConnectionDeliveryRecordBody::hasTag() const { return flags & (1 << 10); }

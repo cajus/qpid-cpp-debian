@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::sys::SystemInfo Namespace Reference</title>
+    <title>qpid::messaging Namespace Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,97 +58,112 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00592.html">sys</a>      </li>
-      <li class="navelem"><a class="el" href="a00593.html">SystemInfo</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00593.html">messaging</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::sys::SystemInfo Namespace Reference</div>  </div>
+<div class="title">qpid::messaging Namespace Reference</div>  </div>
 </div>
 <div class="contents">
-
-<p>Retrieve information about the system we are running on.  
-<a href="#details">More...</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00003.html">Address</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents an address to which messages can be sent and from which messages can be received.  <a href="a00003.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00061.html">Connection</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A connection represents a network connection to a remote endpoint.  <a href="a00061.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html">Duration</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A duration is a time in milliseconds.  <a href="a00106.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00214.html">MessagingException</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the base class for all messaging related exceptions thrown by this API.  <a href="a00214.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00166.html">InvalidOptionString</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown when the syntax of the option string used to configure a connection in not valid.  <a href="a00166.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00185.html">KeyError</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown to indicate a failed lookup of some local object.  <a href="a00185.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00189.html">LinkError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html">AddressError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00280.html">ResolutionError</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown when a syntactically correct address cannot be resolved or used.  <a href="a00280.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html">AssertionFailed</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown when creating a sender or receiver for an address for which some asserted property of the node is not matched.  <a href="a00018.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00228.html">NotFound</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown on attempts to create a sender or receiver to a non-existent node.  <a href="a00228.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00197.html">MalformedAddress</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown when an address string with invalid syntax is used.  <a href="a00197.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00273.html">ReceiverError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00124.html">FetchError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00225.html">NoMessageAvailable</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown by <a class="el" href="a00272.html#ac0819f612dfc58de03cbc95a39420925" title="Retrieves a message for this receivers subscription or waits for up to the specified timeout for one ...">Receiver::fetch()</a>, <a class="el" href="a00272.html#a1d708f9763a9b1f5aefb41002e7446e6" title="Retrieves a message from this receivers local queue, or waits for upto the specified timeout for a me...">Receiver::get()</a> and <a class="el" href="a00326.html#af633ded76d86d312c4114efa8480d3df" title="Retrieves the receiver for the next available message.">Session::nextReceiver()</a> to indicate that there no message was available before the timeout specified.  <a href="a00225.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00321.html">SenderError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00322.html">SendError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00355.html">TargetCapacityExceeded</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown to indicate that the sender attempted to send a message that would result in the target node on the peer exceeding a preconfigured capacity.  <a href="a00355.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00331.html">SessionError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00359.html">TransactionError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00358.html">TransactionAborted</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown on <a class="el" href="a00326.html#ad1135088120d995954e782dd5c8889c7" title="Commits the sessions transaction.">Session::commit()</a> if reconnection results in the transaction being automatically aborted.  <a href="a00358.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00366.html">UnauthorizedAccess</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown to indicate that the application attempted to do something for which it was not authorised by its peer.  <a href="a00366.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00062.html">ConnectionError</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00361.html">TransportFailure</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown to indicate loss of underlying connection.  <a href="a00361.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html">FailoverUpdates</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A utility to listen for updates on cluster membership and update the list of known urls for a connection accordingly.  <a href="a00122.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00141.html">Handle</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A handle is like a pointer: refers to an underlying implementation object.  <a href="a00141.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00206.html">Message</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Representation of a message.  <a href="a00206.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00108.html">EncodingException</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00272.html">Receiver</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface through which messages are received.  <a href="a00272.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00320.html">Sender</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface through which messages are sent.  <a href="a00320.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00326.html">Session</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A session represents a distinct 'conversation' which can involve sending and receiving messages to and from different addresses.  <a href="a00326.html#details">More...</a><br/></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#a03b6b12da64157edc0c015fe9dec605b">concurrency</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Estimate available concurrency, e.g.  <a href="#a03b6b12da64157edc0c015fe9dec605b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#ad108882944288a154c5a13436a6265fd">getLocalHostname</a> (<a class="el" href="a00002.html">Address</a> &amp;address)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the local host name and set it in the specified.  <a href="#ad108882944288a154c5a13436a6265fd"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#a383307c63cd08ce50f44c96248480a7f">getLocalIpAddresses</a> (<a class="el" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> port, <a class="el" href="a00386.html">std::vector</a>&lt; <a class="el" href="a00002.html">Address</a> &gt; &amp;addrList)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#a5b9675f1298c3c4c9d68fc9140701ec4">getSystemId</a> (<a class="el" href="a00345.html">std::string</a> &amp;osName, <a class="el" href="a00345.html">std::string</a> &amp;nodeName, <a class="el" href="a00345.html">std::string</a> &amp;release, <a class="el" href="a00345.html">std::string</a> &amp;version, <a class="el" href="a00345.html">std::string</a> &amp;machine)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve system identifiers and versions.  <a href="#a5b9675f1298c3c4c9d68fc9140701ec4"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#a562aa24d65c903d28706d5c8dd6f9528">getProcessId</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the process ID of the current process.  <a href="#a562aa24d65c903d28706d5c8dd6f9528"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#a1a5351e1016b5f7c32ee0899c2e3b63d">getParentProcessId</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the process ID of the parent of the current process.  <a href="#a1a5351e1016b5f7c32ee0899c2e3b63d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#a8978a4606139acf8d153676bb3c4aef9">getProcessName</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the name of the current process (i.e.  <a href="#a8978a4606139acf8d153676bb3c4aef9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#a7f0b8d91af7827b93bfeba35a843168d">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;out, const <a class="el" href="a00003.html">Address</a> &amp;address)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00106.html">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#a459c51ff9d1561bacd2bce12548d95c7">operator*</a> (const <a class="el" href="a00106.html">Duration</a> &amp;duration, uint64_t multiplier)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00106.html">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#a2b6e28b60be1fb6ca4a74f3d71c603f8">operator*</a> (uint64_t multiplier, const <a class="el" href="a00106.html">Duration</a> &amp;duration)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#ad6b3c1090c7a9c977547c3b02fb92c21">operator==</a> (const <a class="el" href="a00106.html">Duration</a> &amp;a, const <a class="el" href="a00106.html">Duration</a> &amp;b)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#a2258913affedf4b9aed1b4c63eb30b20">operator!=</a> (const <a class="el" href="a00106.html">Duration</a> &amp;a, const <a class="el" href="a00106.html">Duration</a> &amp;b)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#ad37dfc262612bfde8fdc73e3a85ddf95">decode</a> (const <a class="el" href="a00206.html">Message</a> &amp;message, <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;map, const <a class="el" href="a00346.html">std::string</a> &amp;encoding=<a class="el" href="a00346.html">std::string</a>())</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes message content into a Variant::Map.  <a href="#ad37dfc262612bfde8fdc73e3a85ddf95"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#a69fce48e522c7cf19d587786512b02d3">decode</a> (const <a class="el" href="a00206.html">Message</a> &amp;message, <a class="el" href="a00386.html#a8603092790e51851bc2166e9562a2e11">qpid::types::Variant::List</a> &amp;list, const <a class="el" href="a00346.html">std::string</a> &amp;encoding=<a class="el" href="a00346.html">std::string</a>())</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes message content into a Variant::List.  <a href="#a69fce48e522c7cf19d587786512b02d3"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#afefbffac1ba55c37a1f7ab3a85ca753b">encode</a> (const <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;map, <a class="el" href="a00206.html">Message</a> &amp;message, const <a class="el" href="a00346.html">std::string</a> &amp;encoding=<a class="el" href="a00346.html">std::string</a>())</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes a Variant::Map into a message.  <a href="#afefbffac1ba55c37a1f7ab3a85ca753b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00593.html#a4ded93ce7f9698edc896106fef23e7ae">encode</a> (const <a class="el" href="a00386.html#a8603092790e51851bc2166e9562a2e11">qpid::types::Variant::List</a> &amp;list, <a class="el" href="a00206.html">Message</a> &amp;message, const <a class="el" href="a00346.html">std::string</a> &amp;encoding=<a class="el" href="a00346.html">std::string</a>())</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes a Variant::List into a message.  <a href="#a4ded93ce7f9698edc896106fef23e7ae"></a><br/></td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Retrieve information about the system we are running on. </p>
-<p>Results may be dependent on OS/hardware. </p>
-</div><hr/><h2>Function Documentation</h2>
-<a class="anchor" id="a03b6b12da64157edc0c015fe9dec605b"></a><!-- doxytag: member="qpid::sys::SystemInfo::concurrency" ref="a03b6b12da64157edc0c015fe9dec605b" args="()" -->
+<hr/><h2>Function Documentation</h2>
+<a class="anchor" id="ad37dfc262612bfde8fdc73e3a85ddf95"></a><!-- doxytag: member="qpid::messaging::decode" ref="ad37dfc262612bfde8fdc73e3a85ddf95" args="(const Message &amp;message, qpid::types::Variant::Map &amp;map, const std::string &amp;encoding=std::string())" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">long qpid::sys::SystemInfo::concurrency </td>
+          <td class="memname">void qpid::messaging::decode </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Estimate available concurrency, e.g. </p>
-<p>number of CPU cores. -1 means estimate not available on this platform. </p>
-
-</div>
-</div>
-<a class="anchor" id="ad108882944288a154c5a13436a6265fd"></a><!-- doxytag: member="qpid::sys::SystemInfo::getLocalHostname" ref="ad108882944288a154c5a13436a6265fd" args="(Address &amp;address)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::sys::SystemInfo::getLocalHostname </td>
-          <td>(</td>
-          <td class="paramtype">Address &amp;&#160;</td>
-          <td class="paramname"><em>address</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Get the local host name and set it in the specified. </p>
-<p>Returns false if it can't be obtained and sets errno to any error value. </p>
-
-</div>
-</div>
-<a class="anchor" id="a383307c63cd08ce50f44c96248480a7f"></a><!-- doxytag: member="qpid::sys::SystemInfo::getLocalIpAddresses" ref="a383307c63cd08ce50f44c96248480a7f" args="(uint16_t port, std::vector&lt; Address &gt; &amp;addrList)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::SystemInfo::getLocalIpAddresses </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td>
-          <td class="paramname"><em>port</em>, </td>
+          <td class="paramtype">const Message &amp;&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00386.html">std::vector</a>&lt; Address &gt; &amp;&#160;</td>
-          <td class="paramname"><em>addrList</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>encoding</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -159,118 +174,303 @@ Functions</h2></td></tr>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="a1a5351e1016b5f7c32ee0899c2e3b63d"></a><!-- doxytag: member="qpid::sys::SystemInfo::getParentProcessId" ref="a1a5351e1016b5f7c32ee0899c2e3b63d" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::sys::SystemInfo::getParentProcessId </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Get the process ID of the parent of the current process. </p>
-
-</div>
-</div>
-<a class="anchor" id="a562aa24d65c903d28706d5c8dd6f9528"></a><!-- doxytag: member="qpid::sys::SystemInfo::getProcessId" ref="a562aa24d65c903d28706d5c8dd6f9528" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::sys::SystemInfo::getProcessId </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Get the process ID of the current process. </p>
-
-</div>
-</div>
-<a class="anchor" id="a8978a4606139acf8d153676bb3c4aef9"></a><!-- doxytag: member="qpid::sys::SystemInfo::getProcessName" ref="a8978a4606139acf8d153676bb3c4aef9" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> qpid::sys::SystemInfo::getProcessName </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Get the name of the current process (i.e. </p>
-<p>the name of the executable) </p>
-
-</div>
-</div>
-<a class="anchor" id="a5b9675f1298c3c4c9d68fc9140701ec4"></a><!-- doxytag: member="qpid::sys::SystemInfo::getSystemId" ref="a5b9675f1298c3c4c9d68fc9140701ec4" args="(std::string &amp;osName, std::string &amp;nodeName, std::string &amp;release, std::string &amp;version, std::string &amp;machine)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::sys::SystemInfo::getSystemId </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>osName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>nodeName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>release</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>version</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>machine</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Retrieve system identifiers and versions. </p>
-<p>This is information that can generally be retrieved via POSIX uname().</p>
+<p>Decodes message content into a Variant::Map. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">osName</td><td>Receives the OS name; e.g., GNU/Linux or Windows </td></tr>
-    <tr><td class="paramname">nodeName</td><td>Receives the nodename. This may or may not match the set hostname from <a class="el" href="a00593.html#ad108882944288a154c5a13436a6265fd" title="Get the local host name and set it in the specified.">getLocalHostname()</a>. </td></tr>
-    <tr><td class="paramname">release</td><td>Receives the OS release identifier. </td></tr>
-    <tr><td class="paramname">version</td><td>Receives the OS release version (kernel, build, sp, etc.) </td></tr>
-    <tr><td class="paramname">machine</td><td>Receives the hardware type. </td></tr>
+    <tr><td class="paramname">message</td><td>the message whose content should be decoded </td></tr>
+    <tr><td class="paramname">map</td><td>the map into which the message contents will be decoded </td></tr>
+    <tr><td class="paramname">encoding</td><td>if specified, the encoding to use - this overrides any encoding specified by the content-type of the message </td></tr>
   </table>
   </dd>
 </dl>
+<dl><dt><b>Exceptions:</b></dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="a00108.html">EncodingException</a></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a69fce48e522c7cf19d587786512b02d3"></a><!-- doxytag: member="qpid::messaging::decode" ref="a69fce48e522c7cf19d587786512b02d3" args="(const Message &amp;message, qpid::types::Variant::List &amp;list, const std::string &amp;encoding=std::string())" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::messaging::decode </td>
+          <td>(</td>
+          <td class="paramtype">const Message &amp;&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00386.html#a8603092790e51851bc2166e9562a2e11">qpid::types::Variant::List</a> &amp;&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>encoding</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Decodes message content into a Variant::List. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>the message whose content should be decoded </td></tr>
+    <tr><td class="paramname">list</td><td>the list into which the message contents will be decoded </td></tr>
+    <tr><td class="paramname">encoding</td><td>if specified, the encoding to use - this overrides any encoding specified by the content-type of the message </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Exceptions:</b></dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="a00108.html">EncodingException</a></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="afefbffac1ba55c37a1f7ab3a85ca753b"></a><!-- doxytag: member="qpid::messaging::encode" ref="afefbffac1ba55c37a1f7ab3a85ca753b" args="(const qpid::types::Variant::Map &amp;map, Message &amp;message, const std::string &amp;encoding=std::string())" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::messaging::encode </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Message &amp;&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>encoding</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Encodes a Variant::Map into a message. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>the map to be encoded </td></tr>
+    <tr><td class="paramname">message</td><td>the message whose content should be set to the encoded map </td></tr>
+    <tr><td class="paramname">encoding</td><td>if specified, the encoding to use - this overrides any encoding specified by the content-type of the message </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Exceptions:</b></dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="a00108.html">EncodingException</a></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a4ded93ce7f9698edc896106fef23e7ae"></a><!-- doxytag: member="qpid::messaging::encode" ref="a4ded93ce7f9698edc896106fef23e7ae" args="(const qpid::types::Variant::List &amp;list, Message &amp;message, const std::string &amp;encoding=std::string())" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::messaging::encode </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00386.html#a8603092790e51851bc2166e9562a2e11">qpid::types::Variant::List</a> &amp;&#160;</td>
+          <td class="paramname"><em>list</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Message &amp;&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>encoding</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Encodes a Variant::List into a message. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">list</td><td>the list to be encoded </td></tr>
+    <tr><td class="paramname">message</td><td>the message whose content should be set to the encoded list </td></tr>
+    <tr><td class="paramname">encoding</td><td>if specified, the encoding to use - this overrides any encoding specified by the content-type of the message </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl><dt><b>Exceptions:</b></dt><dd>
+  <table class="exception">
+    <tr><td class="paramname"><a class="el" href="a00108.html">EncodingException</a></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a2258913affedf4b9aed1b4c63eb30b20"></a><!-- doxytag: member="qpid::messaging::operator!=" ref="a2258913affedf4b9aed1b4c63eb30b20" args="(const Duration &amp;a, const Duration &amp;b)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::messaging::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const Duration &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Duration &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a459c51ff9d1561bacd2bce12548d95c7"></a><!-- doxytag: member="qpid::messaging::operator*" ref="a459c51ff9d1561bacd2bce12548d95c7" args="(const Duration &amp;duration, uint64_t multiplier)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00106.html">Duration</a> qpid::messaging::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const Duration &amp;&#160;</td>
+          <td class="paramname"><em>duration</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>multiplier</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2b6e28b60be1fb6ca4a74f3d71c603f8"></a><!-- doxytag: member="qpid::messaging::operator*" ref="a2b6e28b60be1fb6ca4a74f3d71c603f8" args="(uint64_t multiplier, const Duration &amp;duration)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00106.html">Duration</a> qpid::messaging::operator* </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>multiplier</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Duration &amp;&#160;</td>
+          <td class="paramname"><em>duration</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7f0b8d91af7827b93bfeba35a843168d"></a><!-- doxytag: member="qpid::messaging::operator&lt;&lt;" ref="a7f0b8d91af7827b93bfeba35a843168d" args="(std::ostream &amp;out, const Address &amp;address)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; qpid::messaging::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Address &amp;&#160;</td>
+          <td class="paramname"><em>address</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad6b3c1090c7a9c977547c3b02fb92c21"></a><!-- doxytag: member="qpid::messaging::operator==" ref="ad6b3c1090c7a9c977547c3b02fb92c21" args="(const Duration &amp;a, const Duration &amp;b)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::messaging::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const Duration &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Duration &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
@@ -302,7 +502,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

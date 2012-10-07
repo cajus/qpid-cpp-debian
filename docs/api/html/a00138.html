@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::client::FutureResult Class Reference</title>
+    <title>qpid::client::Future Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,96 +60,100 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00576.html">client</a>      </li>
-      <li class="navelem"><a class="el" href="a00138.html">FutureResult</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00138.html">Future</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::client::FutureResult Class Reference</div>  </div>
+<div class="title">qpid::client::Future Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::client::FutureResult" --><!-- doxytag: inherits="qpid::client::FutureCompletion" -->
-<p><code>#include &lt;<a class="el" href="a00469_source.html">qpid/client/FutureResult.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::client::Future" -->
+<p><code>#include &lt;<a class="el" href="a00469_source.html">qpid/client/Future.h</a>&gt;</code></p>
 
 <p><a href="a00688.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00138.html#a80c11827d77a5b2c3d2f9479daf72497">getResult</a> (SessionImpl &amp;session) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00138.html#a82c621ed1e9a8e453994cde46c9f0bea">received</a> (const <a class="el" href="a00345.html">std::string</a> &amp;result)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a6f8e55487bdad258de630084b04a55ed">isComplete</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a7d1e8ef6b3470e8c8d0267b48a25650c">waitForCompletion</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#acde085d450d03013d5452de3ca95d111">completed</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00216.html">sys::Monitor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#a6737752913f4c59065681833de5af8ed">lock</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00137.html#ab9fa51a05b9b4963c83d4398e5154b7c">complete</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00138.html#ac64e86abfa72c291078edb08431d2824">Future</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00138.html#a5a669962fd5a78af51b94022bae53eef">Future</a> (const <a class="el" href="a00324.html">framing::SequenceNumber</a> &amp;id)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00138.html#a5eb5b4c9f5f0fc0548bb9bcc45297a6c">getResult</a> (SessionImpl &amp;session)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00138.html#afd62369a637b17070ea5ca35b8f5dc1a">wait</a> (SessionImpl &amp;session)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00138.html#a7d1e1bf7b100e42dd2496ab3370ac039">isComplete</a> (SessionImpl &amp;session)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00138.html#a76e9e8efce1474485bf523bacd512308">setFutureResult</a> (boost::shared_ptr&lt; <a class="el" href="a00140.html">FutureResult</a> &gt; r)</td></tr>
 </table>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="acde085d450d03013d5452de3ca95d111"></a><!-- doxytag: member="qpid::client::FutureResult::completed" ref="acde085d450d03013d5452de3ca95d111" args="()" -->
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ac64e86abfa72c291078edb08431d2824"></a><!-- doxytag: member="qpid::client::Future::Future" ref="ac64e86abfa72c291078edb08431d2824" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::client::FutureCompletion::completed </td>
+          <td class="memname">qpid::client::Future::Future </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inherited]</code></td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Definition at line <a class="el" href="a00469_source.html#l00044">44</a> of file <a class="el" href="a00469_source.html">Future.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a80c11827d77a5b2c3d2f9479daf72497"></a><!-- doxytag: member="qpid::client::FutureResult::getResult" ref="a80c11827d77a5b2c3d2f9479daf72497" args="(SessionImpl &amp;session) const " -->
+<a class="anchor" id="a5a669962fd5a78af51b94022bae53eef"></a><!-- doxytag: member="qpid::client::Future::Future" ref="a5a669962fd5a78af51b94022bae53eef" args="(const framing::SequenceNumber &amp;id)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a>&amp; qpid::client::FutureResult::getResult </td>
+          <td class="memname">qpid::client::Future::Future </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00324.html">framing::SequenceNumber</a> &amp;&#160;</td>
+          <td class="paramname"><em>id</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00469_source.html#l00045">45</a> of file <a class="el" href="a00469_source.html">Future.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a5eb5b4c9f5f0fc0548bb9bcc45297a6c"></a><!-- doxytag: member="qpid::client::Future::getResult" ref="a5eb5b4c9f5f0fc0548bb9bcc45297a6c" args="(SessionImpl &amp;session)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::client::Future::getResult </td>
           <td>(</td>
           <td class="paramtype">SessionImpl &amp;&#160;</td>
           <td class="paramname"><em>session</em></td><td>)</td>
-          <td> const</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="a6f8e55487bdad258de630084b04a55ed"></a><!-- doxytag: member="qpid::client::FutureResult::isComplete" ref="a6f8e55487bdad258de630084b04a55ed" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::client::FutureCompletion::isComplete </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Definition at line <a class="el" href="a00469_source.html#l00047">47</a> of file <a class="el" href="a00469_source.html">Future.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a82c621ed1e9a8e453994cde46c9f0bea"></a><!-- doxytag: member="qpid::client::FutureResult::received" ref="a82c621ed1e9a8e453994cde46c9f0bea" args="(const std::string &amp;result)" -->
+<a class="anchor" id="a7d1e1bf7b100e42dd2496ab3370ac039"></a><!-- doxytag: member="qpid::client::Future::isComplete" ref="a7d1e1bf7b100e42dd2496ab3370ac039" args="(SessionImpl &amp;session)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::client::FutureResult::received </td>
+          <td class="memname">bool qpid::client::Future::isComplete </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>result</em></td><td>)</td>
+          <td class="paramtype">SessionImpl &amp;&#160;</td>
+          <td class="paramname"><em>session</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -158,15 +162,16 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a7d1e8ef6b3470e8c8d0267b48a25650c"></a><!-- doxytag: member="qpid::client::FutureResult::waitForCompletion" ref="a7d1e8ef6b3470e8c8d0267b48a25650c" args="() const " -->
+<a class="anchor" id="a76e9e8efce1474485bf523bacd512308"></a><!-- doxytag: member="qpid::client::Future::setFutureResult" ref="a76e9e8efce1474485bf523bacd512308" args="(boost::shared_ptr&lt; FutureResult &gt; r)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::client::FutureCompletion::waitForCompletion </td>
+          <td class="memname">void qpid::client::Future::setFutureResult </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inherited]</code></td>
+          <td class="paramtype">boost::shared_ptr&lt; <a class="el" href="a00140.html">FutureResult</a> &gt;&#160;</td>
+          <td class="paramname"><em>r</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
@@ -174,39 +179,25 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="ab9fa51a05b9b4963c83d4398e5154b7c"></a><!-- doxytag: member="qpid::client::FutureResult::complete" ref="ab9fa51a05b9b4963c83d4398e5154b7c" args="" -->
+<a class="anchor" id="afd62369a637b17070ea5ca35b8f5dc1a"></a><!-- doxytag: member="qpid::client::Future::wait" ref="afd62369a637b17070ea5ca35b8f5dc1a" args="(SessionImpl &amp;session)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="a00137.html#ab9fa51a05b9b4963c83d4398e5154b7c">qpid::client::FutureCompletion::complete</a><code> [protected, inherited]</code></td>
+          <td class="memname">void qpid::client::Future::wait </td>
+          <td>(</td>
+          <td class="paramtype">SessionImpl &amp;&#160;</td>
+          <td class="paramname"><em>session</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00468_source.html#l00036">36</a> of file <a class="el" href="a00468_source.html">FutureCompletion.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a6737752913f4c59065681833de5af8ed"></a><!-- doxytag: member="qpid::client::FutureResult::lock" ref="a6737752913f4c59065681833de5af8ed" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00216.html">sys::Monitor</a> <a class="el" href="a00137.html#a6737752913f4c59065681833de5af8ed">qpid::client::FutureCompletion::lock</a><code> [mutable, protected, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00468_source.html#l00035">35</a> of file <a class="el" href="a00468_source.html">FutureCompletion.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/client/<a class="el" href="a00469_source.html">FutureResult.h</a></li>
+<li>qpid/client/<a class="el" href="a00469_source.html">Future.h</a></li>
 </ul>
 </div>
 <!--
@@ -236,7 +227,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

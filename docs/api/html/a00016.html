@@ -60,8 +60,8 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00580.html">framing</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00582.html">framing</a>      </li>
       <li class="navelem"><a class="el" href="a00016.html">Array</a>      </li>
     </ul>
   </div>
@@ -70,35 +70,36 @@
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#friends">Friends</a>  </div>
   <div class="headertitle">
 <div class="title">qpid::framing::Array Class Reference</div>  </div>
 </div>
 <div class="contents">
 <!-- doxytag: class="qpid::framing::Array" -->
-<p><code>#include &lt;<a class="el" href="a00495_source.html">qpid/framing/Array.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00497_source.html">qpid/framing/Array.h</a>&gt;</code></p>
 
-<p><a href="a00740.html">List of all members.</a></p>
+<p><a href="a00742.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef boost::shared_ptr<br class="typebreak"/>
-&lt; <a class="el" href="a00125.html">FieldValue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a540b31937ee9554668f3af70bfaf8a99">ValuePtr</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00386.html">std::vector</a>&lt; <a class="el" href="a00016.html#a540b31937ee9554668f3af70bfaf8a99">ValuePtr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a4f89e22484d5e12a117b811bd64890dc">ValueVector</a></td></tr>
+&lt; <a class="el" href="a00127.html">FieldValue</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a540b31937ee9554668f3af70bfaf8a99">ValuePtr</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00387.html">std::vector</a>&lt; <a class="el" href="a00016.html#a540b31937ee9554668f3af70bfaf8a99">ValuePtr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a4f89e22484d5e12a117b811bd64890dc">ValueVector</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef ValueVector::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#acd66a203cca930faf12fca984d3ea546">const_iterator</a></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">typedef ValueVector::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a389f3288c3ca41c593a46cbbabb9c61a">iterator</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a7f641d11985189954c4723484dedd639">encodedSize</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a7f641d11985189954c4723484dedd639">encodedSize</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a11b1705cbfd8bdbb5491b0eb48b131a1">encode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;buffer) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#aa605cdcf2f546aa43536a6b1d9d48ef2">decode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;buffer)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a81ee5ffe5d9ded14571d66c6efc00f21">count</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a97e76486836ecdfffd88bbc9cdadd1dc">operator==</a> (const <a class="el" href="a00016.html">Array</a> &amp;other) const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a73f2cc51c131164c55868fea3d03494a">Array</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a4e75d1974c14769e3988f6bef9ad6163">Array</a> (<a class="el" href="a00580.html#a3f8bb3646ae83f4f071219c9f2e825fe">TypeCode</a> type)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#afeff762b87f55a1f9ec5928f61fdbddb">Array</a> (<a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> type)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a3846a35edec50af4923415fcfec92c72">Array</a> (const <a class="el" href="a00386.html">std::vector</a>&lt; <a class="el" href="a00345.html">std::string</a> &gt; &amp;in)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00580.html#a3f8bb3646ae83f4f071219c9f2e825fe">TypeCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a2d5adc4b9aaee791ebe35ce396ef69b9">getType</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a4e75d1974c14769e3988f6bef9ad6163">Array</a> (<a class="el" href="a00582.html#a3f8bb3646ae83f4f071219c9f2e825fe">TypeCode</a> type)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#afeff762b87f55a1f9ec5928f61fdbddb">Array</a> (<a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> type)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a3846a35edec50af4923415fcfec92c72">Array</a> (const <a class="el" href="a00387.html">std::vector</a>&lt; <a class="el" href="a00346.html">std::string</a> &gt; &amp;in)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00582.html#a3f8bb3646ae83f4f071219c9f2e825fe">TypeCode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a2d5adc4b9aaee791ebe35ce396ef69b9">getType</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN <br class="typebreak"/>
 <a class="el" href="a00016.html#acd66a203cca930faf12fca984d3ea546">const_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#adc515300b2001705a17560c8af8d1f4a">begin</a> () const </td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN <br class="typebreak"/>
@@ -113,11 +114,13 @@ Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a5cfe800d8b0add8fd206ebf68c986dbe">push_back</a> (<a class="el" href="a00016.html#a540b31937ee9554668f3af70bfaf8a99">ValuePtr</a> value)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#a55ac91eb39fc51c74e3c128cc270c68d">pop_back</a> ()</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#ae1dcd4242e22ad29f38fc75d56554e2a">add</a> (<a class="el" href="a00016.html#a540b31937ee9554668f3af70bfaf8a99">ValuePtr</a> value)</td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00016.html#a9377157fe2ec6b2598d8ef66d11571cb">collect</a> (<a class="el" href="a00386.html">std::vector</a>&lt; T &gt; &amp;out) const </td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr><td class="memTemplParams" colspan="2">template&lt;typename R , typename V &gt; </td></tr>
+<tr><td class="memTemplItemLeft" align="right" valign="top">static R&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00016.html#a74a7c1f3d8aa53194e95310a714c8a79">get</a> (const V &amp;v)</td></tr>
 <tr><td colspan="2"><h2><a name="friends"></a>
 Friends</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#afc32490ab555dde818a7b5b2c7179ec0">operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;out, const <a class="el" href="a00016.html">Array</a> &amp;body)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00016.html#afc32490ab555dde818a7b5b2c7179ec0">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;out, const <a class="el" href="a00016.html">Array</a> &amp;body)</td></tr>
 </table>
 <hr/><h2>Member Typedef Documentation</h2>
 <a class="anchor" id="acd66a203cca930faf12fca984d3ea546"></a><!-- doxytag: member="qpid::framing::Array::const_iterator" ref="acd66a203cca930faf12fca984d3ea546" args="" -->
@@ -131,7 +134,7 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00495_source.html#l00042">42</a> of file <a class="el" href="a00495_source.html">Array.h</a>.</p>
+<p>Definition at line <a class="el" href="a00497_source.html#l00046">46</a> of file <a class="el" href="a00497_source.html">Array.h</a>.</p>
 
 </div>
 </div>
@@ -146,7 +149,7 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00495_source.html#l00043">43</a> of file <a class="el" href="a00495_source.html">Array.h</a>.</p>
+<p>Definition at line <a class="el" href="a00497_source.html#l00047">47</a> of file <a class="el" href="a00497_source.html">Array.h</a>.</p>
 
 </div>
 </div>
@@ -155,13 +158,13 @@ Friends</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef boost::shared_ptr&lt;<a class="el" href="a00125.html">FieldValue</a>&gt; <a class="el" href="a00016.html#a540b31937ee9554668f3af70bfaf8a99">qpid::framing::Array::ValuePtr</a></td>
+          <td class="memname">typedef boost::shared_ptr&lt;<a class="el" href="a00127.html">FieldValue</a>&gt; <a class="el" href="a00016.html#a540b31937ee9554668f3af70bfaf8a99">qpid::framing::Array::ValuePtr</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00495_source.html#l00040">40</a> of file <a class="el" href="a00495_source.html">Array.h</a>.</p>
+<p>Definition at line <a class="el" href="a00497_source.html#l00044">44</a> of file <a class="el" href="a00497_source.html">Array.h</a>.</p>
 
 </div>
 </div>
@@ -170,13 +173,13 @@ Friends</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef <a class="el" href="a00386.html">std::vector</a>&lt;<a class="el" href="a00016.html#a540b31937ee9554668f3af70bfaf8a99">ValuePtr</a>&gt; <a class="el" href="a00016.html#a4f89e22484d5e12a117b811bd64890dc">qpid::framing::Array::ValueVector</a></td>
+          <td class="memname">typedef <a class="el" href="a00387.html">std::vector</a>&lt;<a class="el" href="a00016.html#a540b31937ee9554668f3af70bfaf8a99">ValuePtr</a>&gt; <a class="el" href="a00016.html#a4f89e22484d5e12a117b811bd64890dc">qpid::framing::Array::ValueVector</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00495_source.html#l00041">41</a> of file <a class="el" href="a00495_source.html">Array.h</a>.</p>
+<p>Definition at line <a class="el" href="a00497_source.html#l00045">45</a> of file <a class="el" href="a00497_source.html">Array.h</a>.</p>
 
 </div>
 </div>
@@ -204,7 +207,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">qpid::framing::Array::Array </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00580.html#a3f8bb3646ae83f4f071219c9f2e825fe">TypeCode</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00582.html#a3f8bb3646ae83f4f071219c9f2e825fe">TypeCode</a>&#160;</td>
           <td class="paramname"><em>type</em></td><td>)</td>
           <td></td>
         </tr>
@@ -221,7 +224,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">qpid::framing::Array::Array </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
           <td class="paramname"><em>type</em></td><td>)</td>
           <td></td>
         </tr>
@@ -238,7 +241,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="memname">qpid::framing::Array::Array </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00386.html">std::vector</a>&lt; <a class="el" href="a00345.html">std::string</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00387.html">std::vector</a>&lt; <a class="el" href="a00346.html">std::string</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>in</em></td><td>)</td>
           <td></td>
         </tr>
@@ -264,7 +267,7 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00495_source.html#l00076">76</a> of file <a class="el" href="a00495_source.html">Array.h</a>.</p>
+<p>Definition at line <a class="el" href="a00497_source.html#l00080">80</a> of file <a class="el" href="a00497_source.html">Array.h</a>.</p>
 
 </div>
 </div>
@@ -282,7 +285,7 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00495_source.html#l00067">67</a> of file <a class="el" href="a00495_source.html">Array.h</a>.</p>
+<p>Definition at line <a class="el" href="a00497_source.html#l00071">71</a> of file <a class="el" href="a00497_source.html">Array.h</a>.</p>
 
 </div>
 </div>
@@ -300,7 +303,7 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00495_source.html#l00061">61</a> of file <a class="el" href="a00495_source.html">Array.h</a>.</p>
+<p>Definition at line <a class="el" href="a00497_source.html#l00065">65</a> of file <a class="el" href="a00497_source.html">Array.h</a>.</p>
 
 </div>
 </div>
@@ -318,28 +321,7 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00495_source.html#l00063">63</a> of file <a class="el" href="a00495_source.html">Array.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a9377157fe2ec6b2598d8ef66d11571cb"></a><!-- doxytag: member="qpid::framing::Array::collect" ref="a9377157fe2ec6b2598d8ef66d11571cb" args="(std::vector&lt; T &gt; &amp;out) const " -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::Array::collect </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00386.html">std::vector</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00495_source.html#l00079">79</a> of file <a class="el" href="a00495_source.html">Array.h</a>.</p>
+<p>Definition at line <a class="el" href="a00497_source.html#l00067">67</a> of file <a class="el" href="a00497_source.html">Array.h</a>.</p>
 
 </div>
 </div>
@@ -398,7 +380,7 @@ template&lt;class T &gt; </div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::Array::encodedSize </td>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::Array::encodedSize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -423,7 +405,7 @@ template&lt;class T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00495_source.html#l00062">62</a> of file <a class="el" href="a00495_source.html">Array.h</a>.</p>
+<p>Definition at line <a class="el" href="a00497_source.html#l00066">66</a> of file <a class="el" href="a00497_source.html">Array.h</a>.</p>
 
 </div>
 </div>
@@ -441,7 +423,7 @@ template&lt;class T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00495_source.html#l00064">64</a> of file <a class="el" href="a00495_source.html">Array.h</a>.</p>
+<p>Definition at line <a class="el" href="a00497_source.html#l00068">68</a> of file <a class="el" href="a00497_source.html">Array.h</a>.</p>
 
 </div>
 </div>
@@ -460,7 +442,7 @@ template&lt;class T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00495_source.html#l00071">71</a> of file <a class="el" href="a00495_source.html">Array.h</a>.</p>
+<p>Definition at line <a class="el" href="a00497_source.html#l00075">75</a> of file <a class="el" href="a00497_source.html">Array.h</a>.</p>
 
 </div>
 </div>
@@ -478,7 +460,28 @@ template&lt;class T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00495_source.html#l00066">66</a> of file <a class="el" href="a00495_source.html">Array.h</a>.</p>
+<p>Definition at line <a class="el" href="a00497_source.html#l00070">70</a> of file <a class="el" href="a00497_source.html">Array.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a74a7c1f3d8aa53194e95310a714c8a79"></a><!-- doxytag: member="qpid::framing::Array::get" ref="a74a7c1f3d8aa53194e95310a714c8a79" args="(const V &amp;v)" -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename R , typename V &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">static R qpid::framing::Array::get </td>
+          <td>(</td>
+          <td class="paramtype">const V &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td><code> [inline, static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00497_source.html#l00084">84</a> of file <a class="el" href="a00497_source.html">Array.h</a>.</p>
 
 </div>
 </div>
@@ -487,7 +490,7 @@ template&lt;class T &gt; </div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00580.html#a3f8bb3646ae83f4f071219c9f2e825fe">TypeCode</a> qpid::framing::Array::getType </td>
+          <td class="memname">QPID_COMMON_INLINE_EXTERN <a class="el" href="a00582.html#a3f8bb3646ae83f4f071219c9f2e825fe">TypeCode</a> qpid::framing::Array::getType </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const<code> [inline]</code></td>
@@ -496,7 +499,7 @@ template&lt;class T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00495_source.html#l00058">58</a> of file <a class="el" href="a00495_source.html">Array.h</a>.</p>
+<p>Definition at line <a class="el" href="a00497_source.html#l00062">62</a> of file <a class="el" href="a00497_source.html">Array.h</a>.</p>
 
 </div>
 </div>
@@ -558,7 +561,7 @@ template&lt;class T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00495_source.html#l00073">73</a> of file <a class="el" href="a00495_source.html">Array.h</a>.</p>
+<p>Definition at line <a class="el" href="a00497_source.html#l00077">77</a> of file <a class="el" href="a00497_source.html">Array.h</a>.</p>
 
 </div>
 </div>
@@ -577,7 +580,7 @@ template&lt;class T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00495_source.html#l00072">72</a> of file <a class="el" href="a00495_source.html">Array.h</a>.</p>
+<p>Definition at line <a class="el" href="a00497_source.html#l00076">76</a> of file <a class="el" href="a00497_source.html">Array.h</a>.</p>
 
 </div>
 </div>
@@ -595,7 +598,7 @@ template&lt;class T &gt; </div>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00495_source.html#l00068">68</a> of file <a class="el" href="a00495_source.html">Array.h</a>.</p>
+<p>Definition at line <a class="el" href="a00497_source.html#l00072">72</a> of file <a class="el" href="a00497_source.html">Array.h</a>.</p>
 
 </div>
 </div>
@@ -605,9 +608,9 @@ template&lt;class T &gt; </div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00243.html">std::ostream</a>&amp; operator&lt;&lt; </td>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
           <td class="paramname"><em>out</em>, </td>
         </tr>
         <tr>
@@ -628,7 +631,7 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/framing/<a class="el" href="a00495_source.html">Array.h</a></li>
+<li>qpid/framing/<a class="el" href="a00497_source.html">Array.h</a></li>
 </ul>
 </div>
 <!--
@@ -658,7 +661,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

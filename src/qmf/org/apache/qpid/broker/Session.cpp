@@ -30,6 +30,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
 
 using namespace qmf::org::apache::qpid::broker;
 using           qpid::management::ManagementAgent;
@@ -42,7 +43,7 @@ using           std::string;
 string  Session::packageName  = string ("org.apache.qpid.broker");
 string  Session::className    = string ("session");
 uint8_t Session::md5Sum[MD5_LEN]   =
-    {0x9a,0x57,0xd0,0xd2,0x8b,0x17,0x8c,0x84,0x4f,0xac,0x5c,0x9a,0x96,0xc2,0xcf,0x75};
+    {0x1a,0xaa,0x8,0xd0,0xc1,0x18,0xff,0x78,0x9,0x56,0x47,0xb9,0xac,0x9c,0x68,0x49};
 
 Session::Session (ManagementAgent*, Manageable* _core, ::qpid::management::Manageable* _parent, const std::string& _name) :
     ManagementObject(_core),name(_name)
@@ -51,9 +52,10 @@ Session::Session (ManagementAgent*, Manageable* _core, ::qpid::management::Manag
     channelId = 0;
     connectionRef = ::qpid::management::ObjectId();
     detachedLifespan = 0;
-    attached = 0;
+    attached = false;
     expireTime = 0;
     maxClientRate = 0;
+    unackedMessages = 0;
 
 
     // Optional properties start out not-present
@@ -185,8 +187,10 @@ void Session::writeSchema (std::string& schema)
 
     // Statistics
     ft.clear();
-    ft[NAME] = "framesOutstanding";
-    ft[TYPE] = TYPE_U32;
+    ft[NAME] = "unackedMessages";
+    ft[TYPE] = TYPE_U64;
+    ft[UNIT] = "message";
+    ft[DESC] = "Unacknowledged messages in the session";
     buf.putMap(ft);
 
     ft.clear();
@@ -257,7 +261,6 @@ void Session::writeSchema (std::string& schema)
 
 void Session::aggregatePerThreadStats(struct PerThreadStats* totals) const
 {
-    totals->framesOutstanding = 0;
     totals->TxnStarts = 0;
     totals->TxnCommits = 0;
     totals->TxnRejects = 0;
@@ -267,7 +270,6 @@ void Session::aggregatePerThreadStats(struct PerThreadStats* totals) const
     for (int idx = 0; idx < maxThreads; idx++) {
         struct PerThreadStats* threadStats = perThreadStatsArray[idx];
         if (threadStats != 0) {
-            totals->framesOutstanding += threadStats->framesOutstanding;
             totals->TxnStarts += threadStats->TxnStarts;
             totals->TxnCommits += threadStats->TxnCommits;
             totals->TxnRejects += threadStats->TxnRejects;
@@ -396,7 +398,7 @@ void Session::writeStatistics (std::string& _sBuf, bool skipHeaders)
         buf.putRawData(_tbuf);
     }
 
-    buf.putLong(totals.framesOutstanding);
+    buf.putLongLong(unackedMessages);
     buf.putLongLong(totals.TxnStarts);
     buf.putLongLong(totals.TxnCommits);
     buf.putLongLong(totals.TxnRejects);
@@ -529,7 +531,7 @@ void Session::mapEncodeValues (::qpid::types::Variant::Map& _map,
 
 
 
-    _map["framesOutstanding"] = ::qpid::types::Variant(totals.framesOutstanding);
+    _map["unackedMessages"] = ::qpid::types::Variant(unackedMessages);
     _map["TxnStarts"] = ::qpid::types::Variant(totals.TxnStarts);
     _map["TxnCommits"] = ::qpid::types::Variant(totals.TxnCommits);
     _map["TxnRejects"] = ::qpid::types::Variant(totals.TxnRejects);
@@ -552,26 +554,40 @@ void Session::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
 
     if ((_i = _map.find("vhostRef")) != _map.end()) {
         vhostRef = _i->second;
+    } else {
+        vhostRef = ::qpid::management::ObjectId();
     }
     if ((_i = _map.find("name")) != _map.end()) {
         name = (_i->second).getString();
+    } else {
+        name = "";
     }
     if ((_i = _map.find("channelId")) != _map.end()) {
         channelId = _i->second;
+    } else {
+        channelId = 0;
     }
     if ((_i = _map.find("connectionRef")) != _map.end()) {
         connectionRef = _i->second;
+    } else {
+        connectionRef = ::qpid::management::ObjectId();
     }
     if ((_i = _map.find("detachedLifespan")) != _map.end()) {
         detachedLifespan = _i->second;
+    } else {
+        detachedLifespan = 0;
     }
     if ((_i = _map.find("attached")) != _map.end()) {
         attached = _i->second;
+    } else {
+        attached = false;
     }
     _found = false;
     if ((_i = _map.find("expireTime")) != _map.end()) {
         expireTime = _i->second;
         _found = true;
+    } else {
+        expireTime = 0;
     }
     if (_found) {
         presenceMask[presenceByte_expireTime] |= presenceMask_expireTime;
@@ -580,6 +596,8 @@ void Session::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
     if ((_i = _map.find("maxClientRate")) != _map.end()) {
         maxClientRate = _i->second;
         _found = true;
+    } else {
+        maxClientRate = 0;
     }
     if (_found) {
         presenceMask[presenceByte_maxClientRate] |= presenceMask_maxClientRate;

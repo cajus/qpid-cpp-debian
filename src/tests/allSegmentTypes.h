@@ -166,6 +166,7 @@ template <class Op> size_t allSegmentTypes(Op& op) {
     op(ControlHolder(cluster_connection::QueueObserverState()));
     op(ControlHolder(cluster_connection::Clock()));
     op(ControlHolder(cluster_connection::QueueDequeueSincePurgeState()));
+    op(ControlHolder(cluster_connection::InternalState()));
     return 26;
 }
 #endif  /*!TESTS_ALLSEGMENTTYPES_H*/

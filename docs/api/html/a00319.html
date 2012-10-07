@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::messaging::Sender Class Reference</title>
+    <title>qpid::log::Selector Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,108 +60,82 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00591.html">messaging</a>      </li>
-      <li class="navelem"><a class="el" href="a00319.html">Sender</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00591.html">log</a>      </li>
+      <li class="navelem"><a class="el" href="a00319.html">Selector</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-types">Protected Types</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a>  </div>
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::messaging::Sender Class Reference<div class="ingroups"><a class="el" href="a00596.html">Qpid C++ Client API</a></div></div>  </div>
+<div class="title">qpid::log::Selector Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::messaging::Sender" --><!-- doxytag: inherits="Handle&lt; SenderImpl &gt;" -->
-<p>Interface through which messages are sent.  
+<!-- doxytag: class="qpid::log::Selector" -->
+<p>A selector identifies the set of log messages to enable.  
  <a href="a00319.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00546_source.html">qpid/messaging/Sender.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00534_source.html">qpid/log/Selector.h</a>&gt;</code></p>
 
-<p><a href="a00872.html">List of all members.</a></p>
+<p><a href="a00822.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#a3b57076ebe6f90d8820a074403714e47">Sender</a> (SenderImpl *<a class="el" href="a00139.html#aa4b861c288ed3546405a0e334a2c7ae9">impl</a>=0)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#a1a0a1cb596807d868d26bde4b4ee3f73">Sender</a> (const <a class="el" href="a00319.html">Sender</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#ac5dbf04e5e1a0fcd982c643261a15f80">~Sender</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00319.html">Sender</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#a661a497202bb5983d05c93a16f6adee0">operator=</a> (const <a class="el" href="a00319.html">Sender</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#a99f1bbfeb2a0df22f34b3ffa8460108f">send</a> (const <a class="el" href="a00205.html">Message</a> &amp;message, bool sync=false)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message.  <a href="#a99f1bbfeb2a0df22f34b3ffa8460108f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#acf2e9ccc09e52d688c7a73530dd9487a">close</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#a18601272c6638a15a383d8c8b620f50b">setCapacity</a> (<a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the capacity for the sender.  <a href="#a18601272c6638a15a383d8c8b620f50b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#a37ab8f0efe21be2e75b24cefa0dcd1b2">getCapacity</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the capacity of the sender.  <a href="#a37ab8f0efe21be2e75b24cefa0dcd1b2"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#a6f9bf7b83dc5d40dc5bbc248d106b9b6">getUnsettled</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of sent messages pending confirmation of receipt by the broker.  <a href="#a6f9bf7b83dc5d40dc5bbc248d106b9b6"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#a220f7c0b2b015d5e8aadd0b29be6afed">getAvailable</a> ()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of messages for which there is available capacity.  <a href="#a220f7c0b2b015d5e8aadd0b29be6afed"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#a350d763f1d02b0b877d17060559b2a5a">getName</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the name of this sender.  <a href="#a350d763f1d02b0b877d17060559b2a5a"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00325.html">Session</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#aa0a7ccae048ad2f238c735c6c3edfc27">getSession</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a handle to the session associated with this sender.  <a href="#aa0a7ccae048ad2f238c735c6c3edfc27"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_MESSAGING_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a96a040ee9deb2b6534f6ac03fe60ffa4">isValid</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_MESSAGING_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a1f4f3033223421f914db98fbb7ac1704">isNull</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_MESSAGING_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a35cfc26f8be13a312dd9de7cf475a962">operator bool</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to bool supports idiom if (handle) { handle-&gt;...  <a href="#a35cfc26f8be13a312dd9de7cf475a962"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_MESSAGING_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a0bf2de9ff2609eb03d4a350ef5179156">operator!</a> () const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }.  <a href="#a0bf2de9ff2609eb03d4a350ef5179156"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a9eb61a86144e01a2683da2ad36137c54">swap</a> (<a class="el" href="a00139.html">Handle</a>&lt; T &gt; &amp;h)</td></tr>
-<tr><td colspan="2"><h2><a name="pro-types"></a>
-Protected Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#a51b69551a689a063cd575ae3f81c9775">Impl</a></td></tr>
-<tr><td colspan="2"><h2><a name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00139.html#a51b69551a689a063cd575ae3f81c9775">Impl</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html#aa4b861c288ed3546405a0e334a2c7ae9">impl</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#ab27181f8056e93322f4eb2b55973fddc">Selector</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Empty selector selects nothing.  <a href="#ab27181f8056e93322f4eb2b55973fddc"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#a4fe10f6aed259a338abf55d4a77f0980">Selector</a> (const <a class="el" href="a00242.html">Options</a> &amp;)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set selector from <a class="el" href="a00242.html" title="Logging options for config parser.">Options</a>.  <a href="#a4fe10f6aed259a338abf55d4a77f0980"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#a1e0b4421ece78acb33914d785488b6a0">Selector</a> (<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e">Level</a> l, const <a class="el" href="a00346.html">std::string</a> &amp;s=<a class="el" href="a00346.html">std::string</a>())</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Equavlient to: <a class="el" href="a00319.html" title="A selector identifies the set of log messages to enable.">Selector</a> s; s.enable(l, s)  <a href="#a1e0b4421ece78acb33914d785488b6a0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#a1bc403dc2646ceb846116dbe75c8dc53">Selector</a> (const <a class="el" href="a00346.html">std::string</a> &amp;enableStr)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#a274daac39a640bd34dbad96f67c9f66f">enable</a> (<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e">Level</a> level, const <a class="el" href="a00346.html">std::string</a> &amp;substring=<a class="el" href="a00346.html">std::string</a>())</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable messages with level in levels where the file name contains substring.  <a href="#a274daac39a640bd34dbad96f67c9f66f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#a2654b8146371125a8a99bd5138f53213">enable</a> (<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e">Level</a> level, <a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fc">Category</a> category)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable messages at this level for this category.  <a href="#a2654b8146371125a8a99bd5138f53213"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#ae6a29a21e17e18feca7b327d2d09eb8a">enable</a> (const <a class="el" href="a00346.html">std::string</a> &amp;enableStr)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable based on a 'level[+]:file' string.  <a href="#ae6a29a21e17e18feca7b327d2d09eb8a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#afbe33086dd6c8ad558e8387db23f00ba">isEnabled</a> (<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e">Level</a> level, const char *function)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">True if level is enabled for file.  <a href="#afbe33086dd6c8ad558e8387db23f00ba"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#aa1b92aad39b066fed6e137d0fa63b794">isEnabled</a> (<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e">Level</a> level, const char *function, <a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fc">Category</a> category)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html#ada424e6f0c1346d6a8adcc99cae3fb51">reset</a> ()</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the category enable flags.  <a href="#ada424e6f0c1346d6a8adcc99cae3fb51"></a><br/></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>Interface through which messages are sent. </p>
-</div><hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="a51b69551a689a063cd575ae3f81c9775"></a><!-- doxytag: member="qpid::messaging::Sender::Impl" ref="a51b69551a689a063cd575ae3f81c9775" args="" -->
+<div class="textblock"><p>A selector identifies the set of log messages to enable. </p>
+<p>Thread object unsafe, pass-by-value type. </p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ab27181f8056e93322f4eb2b55973fddc"></a><!-- doxytag: member="qpid::log::Selector::Selector" ref="ab27181f8056e93322f4eb2b55973fddc" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef T <a class="el" href="a00139.html#a51b69551a689a063cd575ae3f81c9775">qpid::messaging::Handle::Impl</a><code> [protected, inherited]</code></td>
+          <td class="memname">qpid::log::Selector::Selector </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00439_source.html#l00057">57</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
+<p>Empty selector selects nothing. </p>
+
+<p>Definition at line <a class="el" href="a00534_source.html#l00038">38</a> of file <a class="el" href="a00534_source.html">Selector.h</a>.</p>
+
+<p>References <a class="el" href="a00534_source.html#l00079">reset()</a>.</p>
 
 </div>
 </div>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a3b57076ebe6f90d8820a074403714e47"></a><!-- doxytag: member="qpid::messaging::Sender::Sender" ref="a3b57076ebe6f90d8820a074403714e47" args="(SenderImpl *impl=0)" -->
+<a class="anchor" id="a4fe10f6aed259a338abf55d4a77f0980"></a><!-- doxytag: member="qpid::log::Selector::Selector" ref="a4fe10f6aed259a338abf55d4a77f0980" args="(const Options &amp;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::messaging::Sender::Sender </td>
+          <td class="memname">qpid::log::Selector::Selector </td>
           <td>(</td>
-          <td class="paramtype">SenderImpl *&#160;</td>
-          <td class="paramname"><em>impl</em> = <code>0</code></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1a0a1cb596807d868d26bde4b4ee3f73"></a><!-- doxytag: member="qpid::messaging::Sender::Sender" ref="a1a0a1cb596807d868d26bde4b4ee3f73" args="(const Sender &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">qpid::messaging::Sender::Sender </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00319.html">Sender</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00242.html">Options</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -169,244 +143,164 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
+<p>Set selector from <a class="el" href="a00242.html" title="Logging options for config parser.">Options</a>. </p>
+
 </div>
 </div>
-<a class="anchor" id="ac5dbf04e5e1a0fcd982c643261a15f80"></a><!-- doxytag: member="qpid::messaging::Sender::~Sender" ref="ac5dbf04e5e1a0fcd982c643261a15f80" args="()" -->
+<a class="anchor" id="a1e0b4421ece78acb33914d785488b6a0"></a><!-- doxytag: member="qpid::log::Selector::Selector" ref="a1e0b4421ece78acb33914d785488b6a0" args="(Level l, const std::string &amp;s=std::string())" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::messaging::Sender::~Sender </td>
+          <td class="memname">qpid::log::Selector::Selector </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="acf2e9ccc09e52d688c7a73530dd9487a"></a><!-- doxytag: member="qpid::messaging::Sender::close" ref="acf2e9ccc09e52d688c7a73530dd9487a" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::messaging::Sender::close </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a220f7c0b2b015d5e8aadd0b29be6afed"></a><!-- doxytag: member="qpid::messaging::Sender::getAvailable" ref="a220f7c0b2b015d5e8aadd0b29be6afed" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::messaging::Sender::getAvailable </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Returns the number of messages for which there is available capacity. </p>
-
-</div>
-</div>
-<a class="anchor" id="a37ab8f0efe21be2e75b24cefa0dcd1b2"></a><!-- doxytag: member="qpid::messaging::Sender::getCapacity" ref="a37ab8f0efe21be2e75b24cefa0dcd1b2" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::messaging::Sender::getCapacity </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Returns the capacity of the sender. </p>
-<dl class="see"><dt><b>See also:</b></dt><dd><a class="el" href="a00319.html#a18601272c6638a15a383d8c8b620f50b" title="Sets the capacity for the sender.">setCapacity</a> </dd></dl>
-
-</div>
-</div>
-<a class="anchor" id="a350d763f1d02b0b877d17060559b2a5a"></a><!-- doxytag: member="qpid::messaging::Sender::getName" ref="a350d763f1d02b0b877d17060559b2a5a" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00345.html">std::string</a>&amp; qpid::messaging::Sender::getName </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Returns the name of this sender. </p>
-
-</div>
-</div>
-<a class="anchor" id="aa0a7ccae048ad2f238c735c6c3edfc27"></a><!-- doxytag: member="qpid::messaging::Sender::getSession" ref="aa0a7ccae048ad2f238c735c6c3edfc27" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00325.html">Session</a> qpid::messaging::Sender::getSession </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Returns a handle to the session associated with this sender. </p>
-
-</div>
-</div>
-<a class="anchor" id="a6f9bf7b83dc5d40dc5bbc248d106b9b6"></a><!-- doxytag: member="qpid::messaging::Sender::getUnsettled" ref="a6f9bf7b83dc5d40dc5bbc248d106b9b6" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::messaging::Sender::getUnsettled </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Returns the number of sent messages pending confirmation of receipt by the broker. </p>
-<p>(These are the 'in-doubt' messages). </p>
-
-</div>
-</div>
-<a class="anchor" id="a1f4f3033223421f914db98fbb7ac1704"></a><!-- doxytag: member="qpid::messaging::Sender::isNull" ref="a1f4f3033223421f914db98fbb7ac1704" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_MESSAGING_INLINE_EXTERN bool qpid::messaging::Handle::isNull </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is null. It is an error to call any function on a null handle. </dd></dl>
-
-<p>Definition at line <a class="el" href="a00439_source.html#l00046">46</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a96a040ee9deb2b6534f6ac03fe60ffa4"></a><!-- doxytag: member="qpid::messaging::Sender::isValid" ref="a96a040ee9deb2b6534f6ac03fe60ffa4" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_MESSAGING_INLINE_EXTERN bool qpid::messaging::Handle::isValid </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is valid, i.e. not null. </dd></dl>
-
-<p>Definition at line <a class="el" href="a00439_source.html#l00043">43</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a35cfc26f8be13a312dd9de7cf475a962"></a><!-- doxytag: member="qpid::messaging::Sender::operator bool" ref="a35cfc26f8be13a312dd9de7cf475a962" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_MESSAGING_INLINE_EXTERN qpid::messaging::Handle::operator bool </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Conversion to bool supports idiom if (handle) { handle-&gt;... </p>
-<p>} </p>
-
-<p>Definition at line <a class="el" href="a00439_source.html#l00049">49</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0bf2de9ff2609eb03d4a350ef5179156"></a><!-- doxytag: member="qpid::messaging::Sender::operator!" ref="a0bf2de9ff2609eb03d4a350ef5179156" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_MESSAGING_INLINE_EXTERN bool qpid::messaging::Handle::operator! </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }. </p>
-
-<p>Definition at line <a class="el" href="a00439_source.html#l00052">52</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a661a497202bb5983d05c93a16f6adee0"></a><!-- doxytag: member="qpid::messaging::Sender::operator=" ref="a661a497202bb5983d05c93a16f6adee0" args="(const Sender &amp;)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00319.html">Sender</a>&amp; qpid::messaging::Sender::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00319.html">Sender</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a99f1bbfeb2a0df22f34b3ffa8460108f"></a><!-- doxytag: member="qpid::messaging::Sender::send" ref="a99f1bbfeb2a0df22f34b3ffa8460108f" args="(const Message &amp;message, bool sync=false)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::messaging::Sender::send </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00205.html">Message</a> &amp;&#160;</td>
-          <td class="paramname"><em>message</em>, </td>
+          <td class="paramtype"><a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e">Level</a>&#160;</td>
+          <td class="paramname"><em>l</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>sync</em> = <code>false</code>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>s</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Equavlient to: <a class="el" href="a00319.html" title="A selector identifies the set of log messages to enable.">Selector</a> s; s.enable(l, s) </p>
+
+<p>Definition at line <a class="el" href="a00534_source.html#l00046">46</a> of file <a class="el" href="a00534_source.html">Selector.h</a>.</p>
+
+<p>References <a class="el" href="a00534_source.html#l00079">reset()</a>, and <a class="el" href="a00534_source.html#l00060">enable()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1bc403dc2646ceb846116dbe75c8dc53"></a><!-- doxytag: member="qpid::log::Selector::Selector" ref="a1bc403dc2646ceb846116dbe75c8dc53" args="(const std::string &amp;enableStr)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::log::Selector::Selector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>enableStr</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00534_source.html#l00051">51</a> of file <a class="el" href="a00534_source.html">Selector.h</a>.</p>
+
+<p>References <a class="el" href="a00534_source.html#l00079">reset()</a>, and <a class="el" href="a00534_source.html#l00060">enable()</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a274daac39a640bd34dbad96f67c9f66f"></a><!-- doxytag: member="qpid::log::Selector::enable" ref="a274daac39a640bd34dbad96f67c9f66f" args="(Level level, const std::string &amp;substring=std::string())" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::log::Selector::enable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e">Level</a>&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>substring</em> = <code><a class="el" href="a00346.html">std::string</a>()</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Enable messages with level in levels where the file name contains substring. </p>
+<p>Empty string matches all. </p>
+
+<p>Definition at line <a class="el" href="a00534_source.html#l00060">60</a> of file <a class="el" href="a00534_source.html">Selector.h</a>.</p>
+
+<p>Referenced by <a class="el" href="a00534_source.html#l00046">Selector()</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2654b8146371125a8a99bd5138f53213"></a><!-- doxytag: member="qpid::log::Selector::enable" ref="a2654b8146371125a8a99bd5138f53213" args="(Level level, Category category)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::log::Selector::enable </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e">Level</a>&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fc">Category</a>&#160;</td>
+          <td class="paramname"><em>category</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Enable messages at this level for this category. </p>
+
+<p>Definition at line <a class="el" href="a00534_source.html#l00067">67</a> of file <a class="el" href="a00534_source.html">Selector.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae6a29a21e17e18feca7b327d2d09eb8a"></a><!-- doxytag: member="qpid::log::Selector::enable" ref="ae6a29a21e17e18feca7b327d2d09eb8a" args="(const std::string &amp;enableStr)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::log::Selector::enable </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>enableStr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Enable based on a 'level[+]:file' string. </p>
+
+</div>
+</div>
+<a class="anchor" id="afbe33086dd6c8ad558e8387db23f00ba"></a><!-- doxytag: member="qpid::log::Selector::isEnabled" ref="afbe33086dd6c8ad558e8387db23f00ba" args="(Level level, const char *function)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::log::Selector::isEnabled </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e">Level</a>&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>function</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -417,74 +311,67 @@ Protected Attributes</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Sends a message. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td>the message to send </td></tr>
-    <tr><td class="paramname">sync</td><td>if true the call will block until the server confirms receipt of the messages; if false will only block for available capacity (i.e. pending == capacity) </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>True if level is enabled for file. </p>
 
 </div>
 </div>
-<a class="anchor" id="a18601272c6638a15a383d8c8b620f50b"></a><!-- doxytag: member="qpid::messaging::Sender::setCapacity" ref="a18601272c6638a15a383d8c8b620f50b" args="(uint32_t)" -->
+<a class="anchor" id="aa1b92aad39b066fed6e137d0fa63b794"></a><!-- doxytag: member="qpid::log::Selector::isEnabled" ref="aa1b92aad39b066fed6e137d0fa63b794" args="(Level level, const char *function, Category category)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::messaging::Sender::setCapacity </td>
+          <td class="memname">bool qpid::log::Selector::isEnabled </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e">Level</a>&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fc">Category</a>&#160;</td>
+          <td class="paramname"><em>category</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Sets the capacity for the sender. </p>
-<p>The capacity determines how many outgoing messages can be held pending confirmation of receipt by the broker. </p>
-
 </div>
 </div>
-<a class="anchor" id="a9eb61a86144e01a2683da2ad36137c54"></a><!-- doxytag: member="qpid::messaging::Sender::swap" ref="a9eb61a86144e01a2683da2ad36137c54" args="(Handle&lt; T &gt; &amp;h)" -->
+<a class="anchor" id="ada424e6f0c1346d6a8adcc99cae3fb51"></a><!-- doxytag: member="qpid::log::Selector::reset" ref="ada424e6f0c1346d6a8adcc99cae3fb51" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::messaging::Handle::swap </td>
+          <td class="memname">void qpid::log::Selector::reset </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00139.html">Handle</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>h</em></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00439_source.html#l00054">54</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
+<p>Reset the category enable flags. </p>
 
-</div>
-</div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="aa4b861c288ed3546405a0e334a2c7ae9"></a><!-- doxytag: member="qpid::messaging::Sender::impl" ref="aa4b861c288ed3546405a0e334a2c7ae9" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00139.html#a51b69551a689a063cd575ae3f81c9775">Impl</a>* <a class="el" href="a00139.html#aa4b861c288ed3546405a0e334a2c7ae9">qpid::messaging::Handle::impl</a><code> [protected, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Definition at line <a class="el" href="a00534_source.html#l00079">79</a> of file <a class="el" href="a00534_source.html">Selector.h</a>.</p>
 
-<p>Definition at line <a class="el" href="a00439_source.html#l00064">64</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
+<p>Referenced by <a class="el" href="a00534_source.html#l00038">Selector()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/messaging/<a class="el" href="a00546_source.html">Sender.h</a></li>
+<li>qpid/log/<a class="el" href="a00534_source.html">Selector.h</a></li>
 </ul>
 </div>
 <!--
@@ -514,7 +401,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

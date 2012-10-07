@@ -30,6 +30,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -77,6 +78,12 @@ public:
         flags |= (1 << 14);
         flags |= (1 << 15);
         flags |= (1 << 0);
+        if (contentType.size() >= 256) throw IllegalArgumentException("Value for contentType is too large");
+        if (contentEncoding.size() >= 256) throw IllegalArgumentException("Value for contentEncoding is too large");
+        if (replyTo.size() >= 256) throw IllegalArgumentException("Value for replyTo is too large");
+        if (messageId.size() >= 256) throw IllegalArgumentException("Value for messageId is too large");
+        if (filename.size() >= 256) throw IllegalArgumentException("Value for filename is too large");
+        if (clusterId.size() >= 256) throw IllegalArgumentException("Value for clusterId is too large");
     }
     FileProperties()  : priority(0), timestamp(0), flags(0) {}
     

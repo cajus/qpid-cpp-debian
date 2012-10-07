@@ -33,6 +33,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -53,6 +54,7 @@ public:
         flags(0){
         flags |= (1 << 8);
         flags |= (1 << 9);
+        if (host.size() >= 65536) throw IllegalArgumentException("Value for host is too large");
     }
     ConnectionRedirectBody(ProtocolVersion=ProtocolVersion())  : flags(0) {}
     

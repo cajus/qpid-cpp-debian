@@ -34,6 +34,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -44,6 +45,7 @@ class QPID_COMMON_CLASS_EXTERN ClusterConnectionConsumerStateBody : public Model
     SequenceNumber position;
     uint32_t usedMsgCredit;
     uint32_t usedByteCredit;
+    uint32_t deliveryCount;
     uint16_t flags;
 public:
     static const ClassId CLASS_ID = 0x81;
@@ -54,11 +56,13 @@ public:
         bool _notifyEnabled,
         const SequenceNumber& _position,
         uint32_t _usedMsgCredit,
-        uint32_t _usedByteCredit) : 
+        uint32_t _usedByteCredit,
+        uint32_t _deliveryCount) : 
         name(_name),
         position(_position),
         usedMsgCredit(_usedMsgCredit),
         usedByteCredit(_usedByteCredit),
+        deliveryCount(_deliveryCount),
         flags(0){
         setBlocked(_blocked);
         setNotifyEnabled(_notifyEnabled);
@@ -66,8 +70,10 @@ public:
         flags |= (1 << 11);
         flags |= (1 << 12);
         flags |= (1 << 13);
+        flags |= (1 << 14);
+        if (name.size() >= 256) throw IllegalArgumentException("Value for name is too large");
     }
-    ClusterConnectionConsumerStateBody(ProtocolVersion=ProtocolVersion())  : usedMsgCredit(0), usedByteCredit(0), flags(0) {}
+    ClusterConnectionConsumerStateBody(ProtocolVersion=ProtocolVersion())  : usedMsgCredit(0), usedByteCredit(0), deliveryCount(0), flags(0) {}
     
     QPID_COMMON_EXTERN void setName(const std::string& _name);
     QPID_COMMON_EXTERN const std::string& getName() const;
@@ -89,10 +95,14 @@ public:
     QPID_COMMON_EXTERN uint32_t getUsedByteCredit() const;
     QPID_COMMON_EXTERN bool hasUsedByteCredit() const;
     QPID_COMMON_EXTERN void clearUsedByteCreditFlag();
+    QPID_COMMON_EXTERN void setDeliveryCount(uint32_t _deliveryCount);
+    QPID_COMMON_EXTERN uint32_t getDeliveryCount() const;
+    QPID_COMMON_EXTERN bool hasDeliveryCount() const;
+    QPID_COMMON_EXTERN void clearDeliveryCountFlag();
     typedef void ResultType;
 
     template <class T> ResultType invoke(T& invocable) const {
-        return invocable.consumerState(getName(), getBlocked(), getNotifyEnabled(), getPosition(), getUsedMsgCredit(), getUsedByteCredit());
+        return invocable.consumerState(getName(), getBlocked(), getNotifyEnabled(), getPosition(), getUsedMsgCredit(), getUsedByteCredit(), getDeliveryCount());
     }
 
     using  AMQMethodBody::accept;

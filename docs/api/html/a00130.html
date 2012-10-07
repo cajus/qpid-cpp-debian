@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::framing::FloatValue Class Reference</title>
+    <title>qpid::framing::FixedWidthValue Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,423 +60,361 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00580.html">framing</a>      </li>
-      <li class="navelem"><a class="el" href="a00130.html">FloatValue</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00582.html">framing</a>      </li>
+      <li class="navelem"><a class="el" href="a00130.html">FixedWidthValue</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-static-methods">Static Protected Member Functions</a>  </div>
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::framing::FloatValue Class Reference</div>  </div>
+<div class="title">qpid::framing::FixedWidthValue Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::framing::FloatValue" --><!-- doxytag: inherits="qpid::framing::FieldValue" -->
-<p><code>#include &lt;<a class="el" href="a00506_source.html">qpid/framing/FieldValue.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::framing::FixedWidthValue" --><!-- doxytag: inherits="qpid::framing::FieldValue::Data" -->
+<p><code>#include &lt;<a class="el" href="a00508_source.html">qpid/framing/FieldValue.h</a>&gt;</code></p>
 
-<p><a href="a00763.html">List of all members.</a></p>
+<p><a href="a00755.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#a2438fd74cc6bd0ced7961439ec84659d">FloatValue</a> (float f)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#afbfa57a2201cbf1cbdacf9348a151836">setType</a> (<a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> type)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a04733582a526cc63041584f826986fdd">getType</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00093.html">Data</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a2b86b28664416550394345eaad87c27a">getData</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ac3c945b063162e969a83696e58faa940">encodedSize</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a01492e48a30259f9a01fe68c2a797a55">empty</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a3bfecf0212e14ce84613f1bfff4af991">encode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;buffer)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ab6f20bc5872620ce13c32ddc9c90aa2c">decode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;buffer)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a38c77de4637465a9be0d981afe12009e">operator==</a> (const <a class="el" href="a00125.html">FieldValue</a> &amp;) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">QPID_COMMON_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#affd3877cde74370c5c3a1d3f9ddbd164">operator!=</a> (const <a class="el" href="a00125.html">FieldValue</a> &amp;v) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#ad5c51d404ce77bec34caa72673fefcad">print</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;out) const </td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00125.html#abacc2b0d7a0514fd8d0de7cb71c0f786">convertsTo</a> () const </td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00125.html#aeff9f97cc00e08c176abd5787ab57d46">get</a> () const </td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00125.html#a21f6bd8d2f902aeebd72a6eef8dc6089">get</a> (T &amp;) const </td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Accessor that can be used to get values of type <a class="el" href="a00123.html" title="A set of name-value pairs.">FieldTable</a>, <a class="el" href="a00016.html">Array</a> and <a class="el" href="a00189.html" title="Representation of an AMQP 0-10 list.">List</a>.  <a href="#a21f6bd8d2f902aeebd72a6eef8dc6089"></a><br/></td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;class T , int W&gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00125.html#a694aa76d11fb72c08e14d784387f964f">getIntegerValue</a> () const </td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00125.html#a64fc6a55e7b5d9c2ef484c2fc1d2c7d3">getIntegerValue</a> () const </td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;class T , int W&gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00125.html#ae1e2adfd64967f7599ff08bac240f0d6">getFloatingPointValue</a> () const </td></tr>
-<tr><td class="memTemplParams" colspan="2">template&lt;int W&gt; </td></tr>
-<tr><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00125.html#a0c9ff7e35026d5b05b1aa66ceaaf233c">getFixedWidthValue</a> (unsigned char *) const </td></tr>
-<tr><td colspan="2"><h2><a name="pro-static-methods"></a>
-Static Protected Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00125.html#a74c8b51fa57fa8e0707defd20cf8975f">convertIfRequired</a> (<a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *const octets, int width)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#a29d4cc387e8e2e199237997c32093ec2">FixedWidthValue</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#ae252eab97e7be84e8a566cf1c87307db">FixedWidthValue</a> (const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>(&amp;data)[width])</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#a8895a8d9ae6e689f022531ea2afd4502">FixedWidthValue</a> (const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *const data)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#a77bde2038629851c413b94ed09fbf115">FixedWidthValue</a> (uint64_t v)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#a231e6317d77c0af143d74e50a8835866">encodedSize</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#a0965a57670a3eee3ab9d801b355e4673">encode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;buffer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#ac3758cf21f57c45a02d8fa22209b719b">decode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;buffer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#a03d65f7860c92f0b44986dabbd2a790a">operator==</a> (const Data &amp;d) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#af0d7e7818a7dd01ceb4257272e12a0c6">convertsToInt</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#a934eaa6a8072e176f78ddee8222e1132">getInt</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#ac50914f2af68aefd99772fa639ce2851">rawOctets</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#a6afb9dda0d164b275fcb3bd8f4361983">rawOctets</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00130.html#a7d1bac971dca37730a1827318cf51831">print</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;o) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00095.html#a6ec9b4ccb03b25d37c24375f90faac91">operator==</a> (const Data &amp;) const =0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00095.html#ad3a689467bb1a0bdd2f87770002cdd24">convertsToString</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00095.html#ae56f9ff6c3c6260b42de28132d6e0720">getString</a> () const </td></tr>
 </table>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a2438fd74cc6bd0ced7961439ec84659d"></a><!-- doxytag: member="qpid::framing::FloatValue::FloatValue" ref="a2438fd74cc6bd0ced7961439ec84659d" args="(float f)" -->
+<a class="anchor" id="a29d4cc387e8e2e199237997c32093ec2"></a><!-- doxytag: member="qpid::framing::FixedWidthValue::FixedWidthValue" ref="a29d4cc387e8e2e199237997c32093ec2" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::framing::FloatValue::FloatValue </td>
+          <td class="memname">qpid::framing::FixedWidthValue::FixedWidthValue </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00145">145</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae252eab97e7be84e8a566cf1c87307db"></a><!-- doxytag: member="qpid::framing::FixedWidthValue::FixedWidthValue" ref="ae252eab97e7be84e8a566cf1c87307db" args="(const uint8_t(&amp;data)[width])" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::framing::FixedWidthValue::FixedWidthValue </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>(&amp;)&#160;</td>
+          <td class="paramname"><em>data</em>[width]</td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00146">146</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8895a8d9ae6e689f022531ea2afd4502"></a><!-- doxytag: member="qpid::framing::FixedWidthValue::FixedWidthValue" ref="a8895a8d9ae6e689f022531ea2afd4502" args="(const uint8_t *const data)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::framing::FixedWidthValue::FixedWidthValue </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *const&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00147">147</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a77bde2038629851c413b94ed09fbf115"></a><!-- doxytag: member="qpid::framing::FixedWidthValue::FixedWidthValue" ref="a77bde2038629851c413b94ed09fbf115" args="(uint64_t v)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::framing::FixedWidthValue::FixedWidthValue </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00151">151</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a74c8b51fa57fa8e0707defd20cf8975f"></a><!-- doxytag: member="qpid::framing::FloatValue::convertIfRequired" ref="a74c8b51fa57fa8e0707defd20cf8975f" args="(uint8_t *const octets, int width)" -->
+<a class="anchor" id="af0d7e7818a7dd01ceb4257272e12a0c6"></a><!-- doxytag: member="qpid::framing::FixedWidthValue::convertsToInt" ref="af0d7e7818a7dd01ceb4257272e12a0c6" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* qpid::framing::FieldValue::convertIfRequired </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> *const&#160;</td>
-          <td class="paramname"><em>octets</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>width</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td><code> [static, protected, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Referenced by <a class="el" href="a00506_source.html#l00213">qpid::framing::FieldValue::getFloatingPointValue()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abacc2b0d7a0514fd8d0de7cb71c0f786"></a><!-- doxytag: member="qpid::framing::FloatValue::convertsTo" ref="abacc2b0d7a0514fd8d0de7cb71c0f786" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::FieldValue::convertsTo&lt; int64_t &gt; </td>
+          <td class="memname">bool qpid::framing::FixedWidthValue::convertsToInt </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
+          <td> const<code> [inline, virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00506_source.html#l00097">97</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
+<p>Reimplemented from <a class="el" href="a00095.html#abb5d08280b70316f1436794288b61064">qpid::framing::FieldValue::Data</a>.</p>
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00167">167</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ab6f20bc5872620ce13c32ddc9c90aa2c"></a><!-- doxytag: member="qpid::framing::FloatValue::decode" ref="ab6f20bc5872620ce13c32ddc9c90aa2c" args="(Buffer &amp;buffer)" -->
+<a class="anchor" id="ad3a689467bb1a0bdd2f87770002cdd24"></a><!-- doxytag: member="qpid::framing::FixedWidthValue::convertsToString" ref="ad3a689467bb1a0bdd2f87770002cdd24" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::FieldValue::decode </td>
+          <td class="memname">virtual bool qpid::framing::FieldValue::Data::convertsToString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00385.html#adf79e896afbe2be10c04cd2030eb1efb">qpid::framing::VariableWidthValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00076">76</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac3758cf21f57c45a02d8fa22209b719b"></a><!-- doxytag: member="qpid::framing::FixedWidthValue::decode" ref="ac3758cf21f57c45a02d8fa22209b719b" args="(Buffer &amp;buffer)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::FixedWidthValue::decode </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
           <td class="paramname"><em>buffer</em></td><td>)</td>
-          <td><code> [inherited]</code></td>
+          <td><code> [inline, virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Implements <a class="el" href="a00095.html#ae7226538da498dd2c3d41299985523d0">qpid::framing::FieldValue::Data</a>.</p>
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00160">160</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
+
+<p>References <a class="el" href="a00045.html#a3d5127eb73bb82dadf9b17b9b10c650c">qpid::framing::Buffer::getRawData()</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a01492e48a30259f9a01fe68c2a797a55"></a><!-- doxytag: member="qpid::framing::FloatValue::empty" ref="a01492e48a30259f9a01fe68c2a797a55" args="() const " -->
+<a class="anchor" id="a0965a57670a3eee3ab9d801b355e4673"></a><!-- doxytag: member="qpid::framing::FixedWidthValue::encode" ref="a0965a57670a3eee3ab9d801b355e4673" args="(Buffer &amp;buffer)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool qpid::framing::FieldValue::empty </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00506_source.html#l00089">89</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a3bfecf0212e14ce84613f1bfff4af991"></a><!-- doxytag: member="qpid::framing::FloatValue::encode" ref="a3bfecf0212e14ce84613f1bfff4af991" args="(Buffer &amp;buffer)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::FieldValue::encode </td>
+          <td class="memname">void qpid::framing::FixedWidthValue::encode </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
           <td class="paramname"><em>buffer</em></td><td>)</td>
-          <td><code> [inherited]</code></td>
+          <td><code> [inline, virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Implements <a class="el" href="a00095.html#a9cd866da7032f4a30d22484719af7331">qpid::framing::FieldValue::Data</a>.</p>
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00159">159</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
+
+<p>References <a class="el" href="a00045.html#a4dc07113b0aec668e18c18be5f7d40bc">qpid::framing::Buffer::putRawData()</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="ac3c945b063162e969a83696e58faa940"></a><!-- doxytag: member="qpid::framing::FloatValue::encodedSize" ref="ac3c945b063162e969a83696e58faa940" args="() const " -->
+<a class="anchor" id="a231e6317d77c0af143d74e50a8835866"></a><!-- doxytag: member="qpid::framing::FixedWidthValue::encodedSize" ref="a231e6317d77c0af143d74e50a8835866" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::FieldValue::encodedSize </td>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::FixedWidthValue::encodedSize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
+          <td> const<code> [inline, virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00506_source.html#l00088">88</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
+<p>Implements <a class="el" href="a00095.html#a84f414dc478683847245f126db1bdfb8">qpid::framing::FieldValue::Data</a>.</p>
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00158">158</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aeff9f97cc00e08c176abd5787ab57d46"></a><!-- doxytag: member="qpid::framing::FloatValue::get" ref="aeff9f97cc00e08c176abd5787ab57d46" args="() const " -->
+<a class="anchor" id="a934eaa6a8072e176f78ddee8222e1132"></a><!-- doxytag: member="qpid::framing::FixedWidthValue::getInt" ref="a934eaa6a8072e176f78ddee8222e1132" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">double qpid::framing::FieldValue::get&lt; double &gt; </td>
+          <td class="memname">int64_t qpid::framing::FixedWidthValue::getInt </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
+          <td> const<code> [inline, virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00506_source.html#l00098">98</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
+<p>Reimplemented from <a class="el" href="a00095.html#acc9e6fbe00b767c6924c485619f547df">qpid::framing::FieldValue::Data</a>.</p>
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00168">168</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a21f6bd8d2f902aeebd72a6eef8dc6089"></a><!-- doxytag: member="qpid::framing::FloatValue::get" ref="a21f6bd8d2f902aeebd72a6eef8dc6089" args="(T &amp;) const " -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::FieldValue::get </td>
-          <td>(</td>
-          <td class="paramtype">T &amp;&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Accessor that can be used to get values of type <a class="el" href="a00123.html" title="A set of name-value pairs.">FieldTable</a>, <a class="el" href="a00016.html">Array</a> and <a class="el" href="a00189.html" title="Representation of an AMQP 0-10 list.">List</a>. </p>
-
-<p>Definition at line <a class="el" href="a00506_source.html#l00325">325</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a2b86b28664416550394345eaad87c27a"></a><!-- doxytag: member="qpid::framing::FloatValue::getData" ref="a2b86b28664416550394345eaad87c27a" args="()" -->
+<a class="anchor" id="ae56f9ff6c3c6260b42de28132d6e0720"></a><!-- doxytag: member="qpid::framing::FixedWidthValue::getString" ref="ae56f9ff6c3c6260b42de28132d6e0720" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00093.html">Data</a>&amp; qpid::framing::FieldValue::getData </td>
+          <td class="memname">virtual <a class="el" href="a00346.html">std::string</a> qpid::framing::FieldValue::Data::getString </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td><code> [inline, inherited]</code></td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00506_source.html#l00087">87</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
+<p>Reimplemented in <a class="el" href="a00385.html#af38a70b3af1b9b1bda144dadd5cea1d3">qpid::framing::VariableWidthValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00078">78</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a0c9ff7e35026d5b05b1aa66ceaaf233c"></a><!-- doxytag: member="qpid::framing::FloatValue::getFixedWidthValue" ref="a0c9ff7e35026d5b05b1aa66ceaaf233c" args="(unsigned char *) const " -->
+<a class="anchor" id="a6ec9b4ccb03b25d37c24375f90faac91"></a><!-- doxytag: member="qpid::framing::FixedWidthValue::operator==" ref="a6ec9b4ccb03b25d37c24375f90faac91" args="(const Data &amp;) const =0" -->
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;int W&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::framing::FieldValue::getFixedWidthValue </td>
+          <td class="memname">virtual bool qpid::framing::FieldValue::Data::operator== </td>
           <td>(</td>
-          <td class="paramtype">unsigned char *&#160;</td>
-          <td class="paramname"><em>value</em></td><td>)</td>
-          <td> const<code> [inherited]</code></td>
+          <td class="paramtype">const <a class="el" href="a00095.html">Data</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [pure virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00506_source.html#l00226">226</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
+</div>
+</div>
+<a class="anchor" id="a03d65f7860c92f0b44986dabbd2a790a"></a><!-- doxytag: member="qpid::framing::FixedWidthValue::operator==" ref="a03d65f7860c92f0b44986dabbd2a790a" args="(const Data &amp;d) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::FixedWidthValue::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const Data &amp;&#160;</td>
+          <td class="paramname"><em>d</em></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00161">161</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ae1e2adfd64967f7599ff08bac240f0d6"></a><!-- doxytag: member="qpid::framing::FloatValue::getFloatingPointValue" ref="ae1e2adfd64967f7599ff08bac240f0d6" args="() const " -->
+<a class="anchor" id="a7d1bac971dca37730a1827318cf51831"></a><!-- doxytag: member="qpid::framing::FixedWidthValue::print" ref="a7d1bac971dca37730a1827318cf51831" args="(std::ostream &amp;o) const " -->
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class T , int W&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">T qpid::framing::FieldValue::getFloatingPointValue </td>
+          <td class="memname">void qpid::framing::FixedWidthValue::print </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>o</em></td><td>)</td>
+          <td> const<code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implements <a class="el" href="a00095.html#a7e87bea834cd5be55a8b8b3d527a7d10">qpid::framing::FieldValue::Data</a>.</p>
+
+<p>Definition at line <a class="el" href="a00508_source.html#l00180">180</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac50914f2af68aefd99772fa639ce2851"></a><!-- doxytag: member="qpid::framing::FixedWidthValue::rawOctets" ref="ac50914f2af68aefd99772fa639ce2851" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* qpid::framing::FixedWidthValue::rawOctets </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
+          <td><code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00506_source.html#l00213">213</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
-
-<p>References <a class="el" href="a00125.html#a74c8b51fa57fa8e0707defd20cf8975f">qpid::framing::FieldValue::convertIfRequired()</a>.</p>
+<p>Definition at line <a class="el" href="a00508_source.html#l00177">177</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a694aa76d11fb72c08e14d784387f964f"></a><!-- doxytag: member="qpid::framing::FloatValue::getIntegerValue" ref="a694aa76d11fb72c08e14d784387f964f" args="() const " -->
+<a class="anchor" id="a6afb9dda0d164b275fcb3bd8f4361983"></a><!-- doxytag: member="qpid::framing::FixedWidthValue::rawOctets" ref="a6afb9dda0d164b275fcb3bd8f4361983" args="() const " -->
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">T qpid::framing::FieldValue::getIntegerValue </td>
+          <td class="memname"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>* qpid::framing::FixedWidthValue::rawOctets </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
+          <td> const<code> [inline]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00506_source.html#l00184">184</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a64fc6a55e7b5d9c2ef484c2fc1d2c7d3"></a><!-- doxytag: member="qpid::framing::FloatValue::getIntegerValue" ref="a64fc6a55e7b5d9c2ef484c2fc1d2c7d3" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">T qpid::framing::FieldValue::getIntegerValue </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a04733582a526cc63041584f826986fdd"></a><!-- doxytag: member="qpid::framing::FloatValue::getType" ref="a04733582a526cc63041584f826986fdd" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> qpid::framing::FieldValue::getType </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="affd3877cde74370c5c3a1d3f9ddbd164"></a><!-- doxytag: member="qpid::framing::FloatValue::operator!=" ref="affd3877cde74370c5c3a1d3f9ddbd164" args="(const FieldValue &amp;v) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">QPID_COMMON_INLINE_EXTERN bool qpid::framing::FieldValue::operator!= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00125.html">FieldValue</a> &amp;&#160;</td>
-          <td class="paramname"><em>v</em></td><td>)</td>
-          <td> const<code> [inline, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00506_source.html#l00093">93</a> of file <a class="el" href="a00506_source.html">FieldValue.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a38c77de4637465a9be0d981afe12009e"></a><!-- doxytag: member="qpid::framing::FloatValue::operator==" ref="a38c77de4637465a9be0d981afe12009e" args="(const FieldValue &amp;) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::framing::FieldValue::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00125.html">FieldValue</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad5c51d404ce77bec34caa72673fefcad"></a><!-- doxytag: member="qpid::framing::FloatValue::print" ref="ad5c51d404ce77bec34caa72673fefcad" args="(std::ostream &amp;out) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::FieldValue::print </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname"><em>out</em></td><td>)</td>
-          <td> const<code> [inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Referenced by <a class="el" href="a00506_source.html#l00135">qpid::framing::operator&lt;&lt;()</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="afbfa57a2201cbf1cbdacf9348a151836"></a><!-- doxytag: member="qpid::framing::FloatValue::setType" ref="afbfa57a2201cbf1cbdacf9348a151836" args="(uint8_t type)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::framing::FieldValue::setType </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td>
-          <td class="paramname"><em>type</em></td><td>)</td>
-          <td><code> [inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Definition at line <a class="el" href="a00508_source.html#l00178">178</a> of file <a class="el" href="a00508_source.html">FieldValue.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/framing/<a class="el" href="a00506_source.html">FieldValue.h</a></li>
+<li>qpid/framing/<a class="el" href="a00508_source.html">FieldValue.h</a></li>
 </ul>
 </div>
 <!--
@@ -506,7 +444,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/console/Schema.h File Reference</title>
+    <title>qmf/engine/Schema.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,33 +60,55 @@
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/console/Schema.h File Reference</div>  </div>
+<div class="title">qmf/engine/Schema.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00484_source.html">qpid/console/ClassKey.h</a>&quot;</code><br/>
-<code>#include &lt;boost/shared_ptr.hpp&gt;</code><br/>
-<code>#include &lt;vector&gt;</code><br/>
+<div class="textblock"><code>#include &lt;<a class="el" href="a00434_source.html">qmf/engine/Typecode.h</a>&gt;</code><br/>
+<code>#include &lt;<a class="el" href="a00556_source.html">qpid/sys/IntegerTypes.h</a>&gt;</code><br/>
 </div>
 <p><a href="a00431_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00297.html">qpid::console::SchemaArgument</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00308.html">qpid::console::SchemaProperty</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html">qpid::console::SchemaStatistic</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html">qpid::console::SchemaMethod</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00299.html">qpid::console::SchemaClass</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00299.html">qmf::engine::SchemaArgument</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00306.html">qmf::engine::SchemaMethod</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00308.html">qmf::engine::SchemaProperty</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html">qmf::engine::SchemaStatistic</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00301.html">qmf::engine::SchemaClassKey</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00307.html">qmf::engine::SchemaObjectClass</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00302.html">qmf::engine::SchemaEventClass</a></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html">qpid</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
-<br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00580.html">qpid::framing</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>The framing namespace contains classes that are used to create, send and receive the basic packets from which AMQP is built. </p>
-<br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00579.html">qpid::console</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00573.html">qmf</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html">qmf::engine</a></td></tr>
+<tr><td colspan="2"><h2><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html#ae29be456b6797f7ef0995d5e72d817c3">qmf::engine::Access</a> { <a class="el" href="a00574.html#ae29be456b6797f7ef0995d5e72d817c3af20765a0f90aeb6943b74006692a6782">qmf::engine::ACCESS_READ_CREATE</a> =  1, 
+<a class="el" href="a00574.html#ae29be456b6797f7ef0995d5e72d817c3a897a8b36d55da2ae9952f99c0f95f845">qmf::engine::ACCESS_READ_WRITE</a> =  2, 
+<a class="el" href="a00574.html#ae29be456b6797f7ef0995d5e72d817c3a3215d1b93e17ff241518948dde34476f">qmf::engine::ACCESS_READ_ONLY</a> =  3
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html#ae863407d10ae0ac162e75b188c4e967d">qmf::engine::Direction</a> { <a class="el" href="a00574.html#ae863407d10ae0ac162e75b188c4e967da32f16e285ffabdddd176031d2eebe2a3">qmf::engine::DIR_IN</a> =  1, 
+<a class="el" href="a00574.html#ae863407d10ae0ac162e75b188c4e967da806035553df5898e34fc08f9825a4c0d">qmf::engine::DIR_OUT</a> =  2, 
+<a class="el" href="a00574.html#ae863407d10ae0ac162e75b188c4e967da9f25a9cc20588bb6d89e90079be93e7c">qmf::engine::DIR_IN_OUT</a> =  3
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html#a743bf8024ee99e49b1e847fc3c26d59c">qmf::engine::ClassKind</a> { <a class="el" href="a00574.html#a743bf8024ee99e49b1e847fc3c26d59ca6ca91f4cbbfcd5debda14ee2983f6574">qmf::engine::CLASS_OBJECT</a> =  1, 
+<a class="el" href="a00574.html#a743bf8024ee99e49b1e847fc3c26d59cac199c345dc9e10ae757b786c72014ee9">qmf::engine::CLASS_EVENT</a> =  2
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html#a794d89d0cda5d645a410695e29f81c12">qmf::engine::Severity</a> { <br/>
+&#160;&#160;<a class="el" href="a00574.html#a794d89d0cda5d645a410695e29f81c12a64719dca4f4c6294afb3dece280e4848">qmf::engine::SEV_EMERG</a> =  0, 
+<a class="el" href="a00574.html#a794d89d0cda5d645a410695e29f81c12afa15236c2f5473005371399b5db06d9f">qmf::engine::SEV_ALERT</a> =  1, 
+<a class="el" href="a00574.html#a794d89d0cda5d645a410695e29f81c12a536fb04a4868211d1b6a11aa820cdc2d">qmf::engine::SEV_CRIT</a> =  2, 
+<a class="el" href="a00574.html#a794d89d0cda5d645a410695e29f81c12a412a901862c52217b2cc40e7f8261011">qmf::engine::SEV_ERROR</a> =  3, 
+<br/>
+&#160;&#160;<a class="el" href="a00574.html#a794d89d0cda5d645a410695e29f81c12ac7d34b173c6307011a29d7b665d6cee0">qmf::engine::SEV_WARN</a> =  4, 
+<a class="el" href="a00574.html#a794d89d0cda5d645a410695e29f81c12aff75b71784bdf0cb672920faf4f3ca99">qmf::engine::SEV_NOTICE</a> =  5, 
+<a class="el" href="a00574.html#a794d89d0cda5d645a410695e29f81c12af29342a4da6a7f4cba47afc54a00dcbd">qmf::engine::SEV_INFORM</a> =  6, 
+<a class="el" href="a00574.html#a794d89d0cda5d645a410695e29f81c12a897fe4785c92b8a61f6847370df7ed08">qmf::engine::SEV_DEBUG</a> =  7
+<br/>
+ }</td></tr>
 </table>
 </div>
 <!--
@@ -116,7 +138,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ClusterUpdateRequestBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ClusterUpdateRequestBody::setUrl(const std::string& _url) {
     url = _url;
     flags |= (1 << 8);
+    if (url.size() >= 65536) throw IllegalArgumentException("Value for url is too large");
 }
 const std::string& ClusterUpdateRequestBody::getUrl() const { return url; }
 bool ClusterUpdateRequestBody::hasUrl() const { return flags & (1 << 8); }

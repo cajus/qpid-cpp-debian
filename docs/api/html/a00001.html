@@ -60,8 +60,8 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00592.html">sys</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00594.html">sys</a>      </li>
       <li class="navelem"><a class="el" href="a00001.html">AbsTime</a>      </li>
     </ul>
   </div>
@@ -79,14 +79,14 @@
 <p>Class to represent an instant in time.  
  <a href="a00001.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00563_source.html">qpid/sys/Time.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00565_source.html">qpid/sys/Time.h</a>&gt;</code></p>
 
-<p><a href="a00893.html">List of all members.</a></p>
+<p><a href="a00896.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#acf3a166cb6df2d823a415d3c6ef2e137">AbsTime</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a1e3f8ed571d1a9fd86a99788675af9c2">AbsTime</a> (const <a class="el" href="a00001.html">AbsTime</a> &amp;time0, const <a class="el" href="a00103.html">Duration</a> &amp;duration)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a1e3f8ed571d1a9fd86a99788675af9c2">AbsTime</a> (const <a class="el" href="a00001.html">AbsTime</a> &amp;time0, const <a class="el" href="a00105.html">Duration</a> &amp;duration)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a6ef078995d9a68036402a71e59607466">operator==</a> (const <a class="el" href="a00001.html">AbsTime</a> &amp;t) const </td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -97,19 +97,19 @@ Static Public Member Functions</h2></td></tr>
 Friends</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#ab362ae8135e030b4c798ae7c022a4bdd">operator&lt;</a> (const <a class="el" href="a00001.html">AbsTime</a> &amp;a, const <a class="el" href="a00001.html">AbsTime</a> &amp;b)</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#ac51bbeb0df704f6ce1764e517bf0fbc6">operator&gt;</a> (const <a class="el" href="a00001.html">AbsTime</a> &amp;a, const <a class="el" href="a00001.html">AbsTime</a> &amp;b)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a1ed078452bd3db4988f97830c7f60edd">operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;, const <a class="el" href="a00001.html">AbsTime</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html#a1ed078452bd3db4988f97830c7f60edd">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;, const <a class="el" href="a00001.html">AbsTime</a> &amp;)</td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Class to represent an instant in time. </p>
 <p>The time resolution is in nanosecs, and this is held with 64 bits giving a total time span from about 25 million years ago to 25 million years hence. As an aside the internal time can sensibly be negative meaning before the epoch (probably 1/1/1970 although this class doesn't care).</p>
 <p>The <a class="el" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a> class is a value class and so you don't need to add any accessors to its internal state. If you think you want to replace its value, you need to construct a new <a class="el" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a> and assign it, viz:</p>
 <p><a class="el" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a> when = <a class="el" href="a00001.html#a0ed4b5707126f2efe347ee9627d0ada7">now()</a>; ... when = AbsTime(when, 2*TIME_SEC); // Advance timer 2 secs</p>
-<p><a class="el" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a> is not intended to be used to represent calendar dates/times but you can construct a <a class="el" href="a00103.html" title="Class to represent the duration between instants of time.">Duration</a> since the Unix Epoch, 1970-1-1-00:00, so that you can convert to a date/time if needed:</p>
-<p>int64_t nanosec_since_epoch = <a class="el" href="a00103.html" title="Class to represent the duration between instants of time.">Duration</a>(EPOCH, <a class="el" href="a00001.html#a0ed4b5707126f2efe347ee9627d0ada7">now()</a>);</p>
+<p><a class="el" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a> is not intended to be used to represent calendar dates/times but you can construct a <a class="el" href="a00105.html" title="Class to represent the duration between instants of time.">Duration</a> since the Unix Epoch, 1970-1-1-00:00, so that you can convert to a date/time if needed:</p>
+<p>int64_t nanosec_since_epoch = <a class="el" href="a00105.html" title="Class to represent the duration between instants of time.">Duration</a>(EPOCH, <a class="el" href="a00001.html#a0ed4b5707126f2efe347ee9627d0ada7">now()</a>);</p>
 <p>There are some sensible operations that are currently missing from <a class="el" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a>, but nearly all that's needed can be done with a mixture of AbsTimes and Durations.</p>
-<p>For example, convenience operators to add a <a class="el" href="a00103.html" title="Class to represent the duration between instants of time.">Duration</a> and <a class="el" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a> returning an <a class="el" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a> would fit here (although you can already perform the operation with one of the <a class="el" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a> constructors). However trying to add 2 AbsTimes doesn't make sense. </p>
+<p>For example, convenience operators to add a <a class="el" href="a00105.html" title="Class to represent the duration between instants of time.">Duration</a> and <a class="el" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a> returning an <a class="el" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a> would fit here (although you can already perform the operation with one of the <a class="el" href="a00001.html" title="Class to represent an instant in time.">AbsTime</a> constructors). However trying to add 2 AbsTimes doesn't make sense. </p>
 
-<p>Definition at line <a class="el" href="a00563_source.html#l00044">44</a> of file <a class="el" href="a00563_source.html">Time.h</a>.</p>
+<p>Definition at line <a class="el" href="a00565_source.html#l00044">44</a> of file <a class="el" href="a00565_source.html">Time.h</a>.</p>
 </div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="acf3a166cb6df2d823a415d3c6ef2e137"></a><!-- doxytag: member="qpid::sys::AbsTime::AbsTime" ref="acf3a166cb6df2d823a415d3c6ef2e137" args="()" -->
 <div class="memitem">
@@ -125,7 +125,7 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00563_source.html#l00088">88</a> of file <a class="el" href="a00563_source.html">Time.h</a>.</p>
+<p>Definition at line <a class="el" href="a00565_source.html#l00088">88</a> of file <a class="el" href="a00565_source.html">Time.h</a>.</p>
 
 </div>
 </div>
@@ -142,7 +142,7 @@ Friends</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00103.html">Duration</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00105.html">Duration</a> &amp;&#160;</td>
           <td class="paramname"><em>duration</em>&#160;</td>
         </tr>
         <tr>
@@ -203,7 +203,7 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Referenced by <a class="el" href="a00563_source.html#l00129">qpid::sys::now()</a>.</p>
+<p>Referenced by <a class="el" href="a00565_source.html#l00129">qpid::sys::now()</a>.</p>
 
 </div>
 </div>
@@ -222,7 +222,7 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00563_source.html#l00097">97</a> of file <a class="el" href="a00563_source.html">Time.h</a>.</p>
+<p>Definition at line <a class="el" href="a00565_source.html#l00097">97</a> of file <a class="el" href="a00565_source.html">Time.h</a>.</p>
 
 </div>
 </div>
@@ -252,7 +252,7 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00563_source.html#l00131">131</a> of file <a class="el" href="a00563_source.html">Time.h</a>.</p>
+<p>Definition at line <a class="el" href="a00565_source.html#l00131">131</a> of file <a class="el" href="a00565_source.html">Time.h</a>.</p>
 
 </div>
 </div>
@@ -261,9 +261,9 @@ Friends</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00243.html">std::ostream</a>&amp; operator&lt;&lt; </td>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; operator&lt;&lt; </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
           <td class="paramname">, </td>
         </tr>
         <tr>
@@ -308,12 +308,12 @@ Friends</h2></td></tr>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00563_source.html#l00133">133</a> of file <a class="el" href="a00563_source.html">Time.h</a>.</p>
+<p>Definition at line <a class="el" href="a00565_source.html#l00133">133</a> of file <a class="el" href="a00565_source.html">Time.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/sys/<a class="el" href="a00563_source.html">Time.h</a></li>
+<li>qpid/sys/<a class="el" href="a00565_source.html">Time.h</a></li>
 </ul>
 </div>
 <!--
@@ -343,7 +343,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

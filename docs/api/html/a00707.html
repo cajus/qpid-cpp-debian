@@ -60,27 +60,24 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00579.html">console</a>      </li>
-      <li class="navelem"><a class="el" href="a00042.html">Broker</a>      </li>
-      <li class="navelem"><a class="el" href="a00066.html">ConnectionThread</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00581.html">console</a>      </li>
+      <li class="navelem"><a class="el" href="a00006.html">Agent</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid::console::Broker::ConnectionThread Member List</div>  </div>
+<div class="title">qpid::console::Agent Member List</div>  </div>
 </div>
 <div class="contents">
-This is the complete list of members for <a class="el" href="a00066.html">qpid::console::Broker::ConnectionThread</a>, including all inherited members.<table>
-  <tr class="memlist"><td><a class="el" href="a00066.html#af70b312a49214ec81d0856bcb7c5ec99">bindExchange</a>(const std::string &amp;exchange, const std::string &amp;key)</td><td><a class="el" href="a00066.html">qpid::console::Broker::ConnectionThread</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00066.html#abfc07f86b011cea1f35ff5894c1417e7">ConnectionThread</a>(Broker &amp;_broker)</td><td><a class="el" href="a00066.html">qpid::console::Broker::ConnectionThread</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00293.html#ae6dd30caad64962b36e826fb505cc626">Functor</a> typedef</td><td><a class="el" href="a00293.html">qpid::sys::Runnable</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00293.html#ac0af11e62e346d8295ddb9ee40620eb0">functor</a>()</td><td><a class="el" href="a00293.html">qpid::sys::Runnable</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00066.html#a370380acad3d7192b17eb1a0b74c1af9">sendBuffer</a>(qpid::framing::Buffer &amp;buf, uint32_t length, const std::string &amp;exchange=&quot;qpid.management&quot;, const std::string &amp;routingKey=&quot;broker&quot;)</td><td><a class="el" href="a00066.html">qpid::console::Broker::ConnectionThread</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00066.html#ae5b071d7b38fa6d0db2b6a5de97554e3">shutdown</a>()</td><td><a class="el" href="a00066.html">qpid::console::Broker::ConnectionThread</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00066.html#a3d94d5006d9203729ba127dde0f2ab0e">~ConnectionThread</a>()</td><td><a class="el" href="a00066.html">qpid::console::Broker::ConnectionThread</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00293.html#a8de9e9de2df28eb9d664ffb34ea7d133">~Runnable</a>()</td><td><a class="el" href="a00293.html">qpid::sys::Runnable</a></td><td><code> [virtual]</code></td></tr>
+This is the complete list of members for <a class="el" href="a00006.html">qpid::console::Agent</a>, including all inherited members.<table>
+  <tr class="memlist"><td><a class="el" href="a00006.html#a96a36a03d5209e76c3052b5f731dbfe8">Agent</a>(Broker *_broker, uint32_t _bank, const std::string &amp;_label)</td><td><a class="el" href="a00006.html">qpid::console::Agent</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00006.html#a0cb12596a37f68f2225e13ba370981b6">getAgentBank</a>() const </td><td><a class="el" href="a00006.html">qpid::console::Agent</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00006.html#a95ad56735453ccc4cf80187e11b4c430">getBroker</a>() const </td><td><a class="el" href="a00006.html">qpid::console::Agent</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00006.html#a74a58d8f0aa05f7bca98e6729ca9df83">getBrokerBank</a>() const </td><td><a class="el" href="a00006.html">qpid::console::Agent</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00006.html#aa59b9b2717c3ed06fa5632194f1e8629">getLabel</a>() const </td><td><a class="el" href="a00006.html">qpid::console::Agent</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00006.html#a21ba1523b7c32dcba8b8f95ae6f2e417">Vector</a> typedef</td><td><a class="el" href="a00006.html">qpid::console::Agent</a></td><td></td></tr>
 </table></div>
 <!--
  
@@ -109,7 +106,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

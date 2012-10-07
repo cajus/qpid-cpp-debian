@@ -3079,14 +3079,16 @@ ConsumerState::ConsumerState(
     Bit notifyEnabled_,
     const SequenceNo& position_,
     Uint32 usedMsgCredit_,
-    Uint32 usedByteCredit_
+    Uint32 usedByteCredit_,
+    Uint32 deliveryCount_
 ) :
     name(name_),
     blocked(blocked_),
     notifyEnabled(notifyEnabled_),
     position(position_),
     usedMsgCredit(usedMsgCredit_),
-    usedByteCredit(usedByteCredit_){
+    usedByteCredit(usedByteCredit_),
+    deliveryCount(deliveryCount_){
 }
 void ConsumerState::accept(Visitor& v) {  v.visit(*this); }
 void ConsumerState::accept(ConstVisitor& v) const { v.visit(*this); }
@@ -3099,6 +3101,7 @@ std::ostream& operator << (std::ostream& o, const ConsumerState&x) {
     o << " position=" << x.position;
     o << " used-msg-credit=" << x.usedMsgCredit;
     o << " used-byte-credit=" << x.usedByteCredit;
+    o << " deliveryCount=" << x.deliveryCount;
     o << "]";
     return o;
 }
@@ -3108,7 +3111,8 @@ void ConsumerState::Handler::clusterConnectionConsumerState(
     Bit /*notifyEnabled_*/,
     const SequenceNo& /*position_*/,
     Uint32 /*usedMsgCredit_*/,
-    Uint32 /*usedByteCredit_*/
+    Uint32 /*usedByteCredit_*/,
+    Uint32 /*deliveryCount_*/
 )
 {
     assert(0);
@@ -3947,6 +3951,39 @@ void QueueDequeueSincePurgeState::Handler::clusterConnectionQueueDequeueSincePur
 {
     assert(0);
     throw NotImplementedException(QPID_MSG("cluster-connection.queue-dequeue-since-purge-state not implemented."));
+}
+
+const char* InternalState::NAME="cluster-connection.internal-state";
+const char* InternalState::CLASS_NAME=cluster_connection::NAME;
+
+InternalState::InternalState(
+    const Str8& type_,
+    const Str8& name_,
+    const Map& state_
+) :
+    type(type_),
+    name(name_),
+    state(state_){
+}
+void InternalState::accept(Visitor& v) {  v.visit(*this); }
+void InternalState::accept(ConstVisitor& v) const { v.visit(*this); }
+
+std::ostream& operator << (std::ostream& o, const InternalState&x) {
+    o << "cluster-connection.internal-state[";
+    o << " type=" << x.type;
+    o << " name=" << x.name;
+    o << " state=" << x.state;
+    o << "]";
+    return o;
+}
+void InternalState::Handler::clusterConnectionInternalState(
+    const Str8& /*type_*/,
+    const Str8& /*name_*/,
+    const Map& /*state_*/
+)
+{
+    assert(0);
+    throw NotImplementedException(QPID_MSG("cluster-connection.internal-state not implemented."));
 }
 
 } // namespace cluster_connection

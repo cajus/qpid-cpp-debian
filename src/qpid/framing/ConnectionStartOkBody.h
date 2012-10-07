@@ -33,6 +33,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -61,6 +62,8 @@ public:
         flags |= (1 << 9);
         flags |= (1 << 10);
         flags |= (1 << 11);
+        if (mechanism.size() >= 256) throw IllegalArgumentException("Value for mechanism is too large");
+        if (locale.size() >= 256) throw IllegalArgumentException("Value for locale is too large");
     }
     ConnectionStartOkBody(ProtocolVersion=ProtocolVersion())  : flags(0) {}
     

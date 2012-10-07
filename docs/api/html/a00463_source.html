@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/messaging/Connection.h Source File</title>
+    <title>qpid/client/Completion.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,11 +58,11 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/messaging/Connection.h</div>  </div>
+<div class="title">qpid/client/Completion.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00463.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_MESSAGING_CONNECTION_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_MESSAGING_CONNECTION_H</span>
+<a href="a00463.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_CLIENT_COMPLETION_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_CLIENT_COMPLETION_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="comment">/*</span>
 <a name="l00005"></a>00005 <span class="comment"> *</span>
@@ -84,53 +84,40 @@
 <a name="l00021"></a>00021 <span class="comment"> * under the License.</span>
 <a name="l00022"></a>00022 <span class="comment"> *</span>
 <a name="l00023"></a>00023 <span class="comment"> */</span>
-<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="a00442.html">qpid/messaging/ImportExport.h</a>&quot;</span>
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00439.html">qpid/messaging/Handle.h</a>&quot;</span>
-<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00436.html">qpid/messaging/exceptions.h</a>&quot;</span>
-<a name="l00028"></a>00028 <span class="preprocessor">#include &quot;<a class="code" href="a00569.html">qpid/types/Variant.h</a>&quot;</span>
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00024"></a>00024 
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00440.html">qpid/client/Handle.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00462.html">qpid/client/ClientImportExport.h</a>&quot;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00028"></a>00028 
+<a name="l00029"></a>00029 <span class="keyword">namespace </span>qpid {
+<a name="l00030"></a>00030 <span class="keyword">namespace </span><a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca8a6e04ce91f4d365de37ccc1a4ef0dc9">client</a> {
 <a name="l00031"></a>00031 
-<a name="l00032"></a>00032 <span class="keyword">namespace </span>qpid {
-<a name="l00033"></a>00033 <span class="keyword">namespace </span>messaging {
+<a name="l00032"></a>00032 <span class="keyword">class </span>CompletionImpl;
+<a name="l00033"></a>00033 <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keyword">class </span>PrivateImplRef;
 <a name="l00034"></a>00034 
-<a name="l00035"></a>00035 <span class="preprocessor">#ifndef SWIG</span>
-<a name="l00036"></a>00036 <span class="preprocessor"></span><span class="keyword">template</span> &lt;<span class="keyword">class</span>&gt; <span class="keyword">class </span>PrivateImplRef;
-<a name="l00037"></a>00037 <span class="preprocessor">#endif</span>
-<a name="l00038"></a>00038 <span class="preprocessor"></span><span class="keyword">class </span>ConnectionImpl;
-<a name="l00039"></a>00039 <span class="keyword">class </span><a class="code" href="a00576.html#aa15500ce0ba4cea17f4226bebe584a67" title="Session is an alias for Session_0_10.">Session</a>;
-<a name="l00040"></a>00040 
-<a name="l00045"></a>00045 <span class="keyword">class </span><a class="code" href="a00442.html#af126bc8d7a4d1b70d3c8698442421cd3">QPID_MESSAGING_CLASS_EXTERN</a> Connection : <span class="keyword">public</span> qpid::messaging::Handle&lt;ConnectionImpl&gt;
-<a name="l00046"></a>00046 {
-<a name="l00047"></a>00047   <span class="keyword">public</span>:
-<a name="l00048"></a>00048     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Connection(ConnectionImpl* impl);
-<a name="l00049"></a>00049     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Connection(<span class="keyword">const</span> Connection&amp;);
-<a name="l00050"></a>00050     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Connection();
-<a name="l00082"></a>00082     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Connection(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; url, <span class="keyword">const</span> <a class="code" href="a00202.html" title="STL class.">qpid::types::Variant::Map</a>&amp; options = <a class="code" href="a00202.html" title="STL class.">qpid::types::Variant::Map</a>());
-<a name="l00089"></a>00089     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Connection(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; url, <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; options);
-<a name="l00090"></a>00090     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> ~Connection();
-<a name="l00091"></a>00091     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> Connection&amp; operator=(<span class="keyword">const</span> Connection&amp;);
-<a name="l00092"></a>00092     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">void</span> setOption(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; name, <span class="keyword">const</span> <a class="code" href="a00385.html" title="Represents a value of variable type.">qpid::types::Variant</a>&amp; value);
-<a name="l00093"></a>00093     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">void</span> open();
-<a name="l00094"></a>00094     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">bool</span> isOpen();
-<a name="l00095"></a>00095     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">bool</span> isOpen() <span class="keyword">const</span>;
-<a name="l00101"></a>00101     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <span class="keywordtype">void</span> close();
-<a name="l00102"></a>00102     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <a class="code" href="a00576.html#aa15500ce0ba4cea17f4226bebe584a67" title="Session is an alias for Session_0_10.">Session</a> createTransactionalSession(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; name = <a class="code" href="a00345.html" title="STL class.">std::string</a>());
-<a name="l00103"></a>00103     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <a class="code" href="a00576.html#aa15500ce0ba4cea17f4226bebe584a67" title="Session is an alias for Session_0_10.">Session</a> createSession(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; name = <a class="code" href="a00345.html" title="STL class.">std::string</a>());
-<a name="l00104"></a>00104 
-<a name="l00105"></a>00105     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> <a class="code" href="a00576.html#aa15500ce0ba4cea17f4226bebe584a67" title="Session is an alias for Session_0_10.">Session</a> getSession(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; name) <span class="keyword">const</span>;
-<a name="l00106"></a>00106     <a class="code" href="a00442.html#a4e23511157c5536bdeb13cc1045581f7">QPID_MESSAGING_EXTERN</a> std::string getAuthenticatedUsername();
-<a name="l00107"></a>00107 
-<a name="l00108"></a>00108 <span class="preprocessor">#ifndef SWIG</span>
-<a name="l00109"></a>00109 <span class="preprocessor"></span>  <span class="keyword">private</span>:
-<a name="l00110"></a><a class="code" href="a00059.html#afcda8a5ddde952c834a8cd1bb7771b69">00110</a>   <span class="keyword">friend</span> <span class="keyword">class </span>qpid::messaging::PrivateImplRef&lt;<a class="code" href="a00059.html" title="A connection represents a network connection to a remote endpoint.">Connection</a>&gt;;
-<a name="l00111"></a>00111 <span class="preprocessor">#endif</span>
-<a name="l00112"></a>00112 <span class="preprocessor"></span>};
-<a name="l00113"></a>00113 
-<a name="l00114"></a>00114 }} <span class="comment">// namespace qpid::messaging</span>
-<a name="l00115"></a>00115 
-<a name="l00116"></a>00116 <span class="preprocessor">#endif  </span>
+<a name="l00044"></a>00044 <span class="keyword">class </span><a class="code" href="a00462.html#a79998e3c253eb090fed36f2f89ca2e91">QPID_CLIENT_CLASS_EXTERN</a> Completion : <span class="keyword">public</span> Handle&lt;CompletionImpl&gt;
+<a name="l00045"></a>00045 {
+<a name="l00046"></a>00046 <span class="keyword">public</span>:
+<a name="l00047"></a>00047     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> Completion(CompletionImpl* = 0);
+<a name="l00048"></a>00048     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> Completion(<span class="keyword">const</span> Completion&amp;);
+<a name="l00049"></a>00049     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> ~Completion();
+<a name="l00050"></a>00050     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> Completion&amp; operator=(<span class="keyword">const</span> Completion&amp;);
+<a name="l00051"></a>00051 
+<a name="l00057"></a>00057     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">void</span> wait();
+<a name="l00058"></a>00058     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> <span class="keywordtype">bool</span> isComplete();
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060   <span class="keyword">protected</span>:
+<a name="l00061"></a>00061     <a class="code" href="a00462.html#aa2b9a3aa806646ca655254d2ce99332d">QPID_CLIENT_EXTERN</a> std::string getResult();
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063   <span class="keyword">private</span>:
+<a name="l00064"></a>00064     <span class="keyword">typedef</span> CompletionImpl Impl;
+<a name="l00065"></a><a class="code" href="a00056.html#a509344a0826f05868dcf6a351f2da69b">00065</a>     <span class="keyword">friend</span> <span class="keyword">class </span>PrivateImplRef&lt;<a class="code" href="a00056.html" title="Asynchronous commands that do not return a result will return a Completion.">Completion</a>&gt;;
+<a name="l00066"></a>00066 };
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 }}
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -160,7 +147,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

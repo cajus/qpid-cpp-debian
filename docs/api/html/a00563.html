@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/sys/Time.h File Reference</title>
+    <title>qpid/sys/posix/PrivatePosix.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -64,60 +64,35 @@
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/sys/Time.h File Reference</div>  </div>
+<div class="title">qpid/sys/posix/PrivatePosix.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00554_source.html">qpid/sys/IntegerTypes.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00562_source.html">posix/Time.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00482_source.html">qpid/CommonImportExport.h</a>&quot;</code><br/>
-<code>#include &lt;limits&gt;</code><br/>
-<code>#include &lt;iosfwd&gt;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00565_source.html">qpid/sys/Time.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00559_source.html">qpid/sys/IOHandle.h</a>&quot;</code><br/>
 </div>
 <p><a href="a00563_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00001.html">qpid::sys::AbsTime</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Class to represent an instant in time.  <a href="a00001.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00103.html">qpid::sys::Duration</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Class to represent the duration between instants of time.  <a href="a00103.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00169.html">qpid::sys::IOHandlePrivate</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00253.html">qpid::sys::PosixIOHandle</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00232.html">qpid::sys::NullIOHandle</a></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html">qpid</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
 <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html">qpid::sys</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html">qpid::sys</a></td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html#ac79736a813e496e74a981b2e272a92c0">qpid::sys::operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;, const AbsTime &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html#a4694adb1b51383a0670bc1c339f31093">qpid::sys::operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;, const Duration &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">AbsTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html#a30c32821719110ad9f1a040db14bbf04">qpid::sys::now</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html#a65509dc2edc1f45418191a21bd433b0a">qpid::sys::operator&lt;</a> (const AbsTime &amp;a, const AbsTime &amp;b)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html#ac3c77cc92c43c529cdb904b30b8edaf6">qpid::sys::operator&gt;</a> (const AbsTime &amp;a, const AbsTime &amp;b)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html#a9365c22cb8b0357b1dcf4708f54ef6e9">qpid::sys::sleep</a> (int secs)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Portable sleep for a number of seconds.  <a href="#a9365c22cb8b0357b1dcf4708f54ef6e9"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html#a50712e5d9ed65546bb8b68c95de60d71">qpid::sys::usleep</a> (uint64_t usecs)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Portable sleep for a number of microseconds.  <a href="#a50712e5d9ed65546bb8b68c95de60d71"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html#ab4cae85aae24aa15abab5a56f1307738">qpid::sys::outputFormattedNow</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Output formatted date/time for now.  <a href="#ab4cae85aae24aa15abab5a56f1307738"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html#ab9e3ddd19698382ef3644dbafdb4e6ec">qpid::sys::outputHiresNow</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Output unformatted nanosecond-resolution time for now.  <a href="#ab9e3ddd19698382ef3644dbafdb4e6ec"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct timespec &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a65e4ddcfe78c70b4cb1aa1aa91bbda18">qpid::sys::toTimespec</a> (struct timespec &amp;ts, const Duration &amp;t)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct timeval &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#ae58ac2f33f1743f8cf5bb96708e1f872">qpid::sys::toTimeval</a> (struct timeval &amp;tv, const Duration &amp;t)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">Duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a6dd40543b6150ca7fd13ee73ca546e69">qpid::sys::toTime</a> (const struct timespec &amp;ts)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct addrinfo &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#afa16e67cd3622db2fd4515a5ea21d50d">qpid::sys::getAddrInfo</a> (const SocketAddress &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a4f380e3eca371bcaa90a2040a6b4f00c">qpid::sys::toFd</a> (const IOHandlePrivate *h)</td></tr>
 <tr><td colspan="2"><h2><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const Duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html#a26856754378fb87f1fe132ebe1f95267">qpid::sys::TIME_SEC</a> = 1000*1000*1000</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Nanoseconds per second.  <a href="#a26856754378fb87f1fe132ebe1f95267"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const Duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html#a7d29b9443ed52ad7fb8a866bb415f9a0">qpid::sys::TIME_MSEC</a> = 1000*1000</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Nanoseconds per millisecond.  <a href="#a7d29b9443ed52ad7fb8a866bb415f9a0"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const Duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html#a4dce4509e1d0c59783a56b8ccf03f59f">qpid::sys::TIME_USEC</a> = 1000</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Nanoseconds per microseconds.  <a href="#a4dce4509e1d0c59783a56b8ccf03f59f"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const Duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html#a9c6c2f454252b1e3ae4995662835990c">qpid::sys::TIME_NSEC</a> = 1</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Nanoseconds per nanosecond.  <a href="#a9c6c2f454252b1e3ae4995662835990c"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const Duration&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html#a3aa132e281f66ba27d5fd25d71043bc0">qpid::sys::TIME_INFINITE</a> = std::numeric_limits&lt;int64_t&gt;::max()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Value to represent an infinite timeout.  <a href="#a3aa132e281f66ba27d5fd25d71043bc0"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const AbsTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html#a848c1c7e84bfc6321240b89caf4a50eb">qpid::sys::EPOCH</a> = AbsTime::Epoch()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Absolute time point for the Unix epoch: 1970-01-01T00:00:00.  <a href="#a848c1c7e84bfc6321240b89caf4a50eb"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const AbsTime&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00592.html#a2f812cf237347eabf03aeb424a5d7672">qpid::sys::FAR_FUTURE</a> = AbsTime::FarFuture()</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Time greater than any other time.  <a href="#a2f812cf237347eabf03aeb424a5d7672"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">NullIOHandle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00594.html#a0b49411d127328a82bbcfc3bcd0ad6be">qpid::sys::DummyIOHandle</a></td></tr>
 </table>
 </div>
 <!--
@@ -147,7 +122,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

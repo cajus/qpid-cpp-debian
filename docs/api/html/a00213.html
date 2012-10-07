@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::messaging::MessagingException Struct Reference</title>
+    <title>qpid::framing::MessageResumeResult Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,50 +60,111 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00591.html">messaging</a>      </li>
-      <li class="navelem"><a class="el" href="a00213.html">MessagingException</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00582.html">framing</a>      </li>
+      <li class="navelem"><a class="el" href="a00213.html">MessageResumeResult</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a>  </div>
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#friends">Friends</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::messaging::MessagingException Struct Reference<div class="ingroups"><a class="el" href="a00596.html">Qpid C++ Client API</a></div></div>  </div>
+<div class="title">qpid::framing::MessageResumeResult Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::messaging::MessagingException" --><!-- doxytag: inherits="qpid::types::Exception" -->
-<p>This is the base class for all messaging related exceptions thrown by this API.  
- <a href="a00213.html#details">More...</a></p>
+<!-- doxytag: class="qpid::framing::MessageResumeResult" -->
+<p><code>#include &lt;<a class="el" href="a00515_source.html">qpid/framing/MessageResumeResult.h</a>&gt;</code></p>
 
-<p><code>#include &lt;<a class="el" href="a00436_source.html">qpid/messaging/exceptions.h</a>&gt;</code></p>
-
-<p><a href="a00846.html">List of all members.</a></p>
+<p><a href="a00787.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#afabb71aa2b0cc448b941a10b1e4ea90d">MessagingException</a> (const <a class="el" href="a00345.html">std::string</a> &amp;msg)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#afb8d5f10b1f3e97b0c67d545ddcb033c">~MessagingException</a> ()  throw ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual QPID_TYPES_EXTERN <br class="typebreak"/>
-const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00112.html#a96ddb3fe10a2b9d059cb78832a64751d">what</a> () const   throw ()</td></tr>
-<tr><td colspan="2"><h2><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#ad2a0464e06d10b0ba61a4520bac1cfa7">detail</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#a29baac1a6b8afe15bb517cab38ec6d5b">MessageResumeResult</a> (uint64_t _offset)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#a3e19c2924bbe1e0a4ade20356451adab">MessageResumeResult</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#a48bc807b405b2b614d5702afc72e13a3">setOffset</a> (uint64_t _offset)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#aa78ad62a2d343959978986a38d4b5548">getOffset</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#a76fa517eb03accae2be4537803446791">hasOffset</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#a75f5bb4eb896c48ea3fdc7b3aeefcba6">clearOffsetFlag</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#a783900dcbecd8e09420af2c49e44f239">encode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#a0cad6f0fe81a2fc829a326763fb604e6">decode</a> (<a class="el" href="a00045.html">Buffer</a> &amp;, <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#a43fd12deb53c6f1f52075ea67071d0b8">encodeStructBody</a> (<a class="el" href="a00045.html">Buffer</a> &amp;) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#a78f71dbdbcf0c446ef33d5ac712050d1">decodeStructBody</a> (<a class="el" href="a00045.html">Buffer</a> &amp;, <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#a851b8f92f7096a892fe6fa5f1e53a120">encodedSize</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#ad92ed66b872837517d9cc657fb09f77e">bodySize</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#ad577ce79e341b286a574a82688a4bbc7">print</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;out) const </td></tr>
+<tr><td colspan="2"><h2><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static const <a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#a42de86f31e8c60fb0b4ce447f488a46a">TYPE</a> = 1029</td></tr>
+<tr><td colspan="2"><h2><a name="friends"></a>
+Friends</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html#a1d2d7fe3a81a7bbe9de7c79a7a051a8b">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;, const <a class="el" href="a00213.html">MessageResumeResult</a> &amp;)</td></tr>
 </table>
-<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
-<div class="textblock"><p>This is the base class for all messaging related exceptions thrown by this API. </p>
-</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="afabb71aa2b0cc448b941a10b1e4ea90d"></a><!-- doxytag: member="qpid::messaging::MessagingException::MessagingException" ref="afabb71aa2b0cc448b941a10b1e4ea90d" args="(const std::string &amp;msg)" -->
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a29baac1a6b8afe15bb517cab38ec6d5b"></a><!-- doxytag: member="qpid::framing::MessageResumeResult::MessageResumeResult" ref="a29baac1a6b8afe15bb517cab38ec6d5b" args="(uint64_t _offset)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::messaging::MessagingException::MessagingException </td>
+          <td class="memname">qpid::framing::MessageResumeResult::MessageResumeResult </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>_offset</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00515_source.html#l00044">44</a> of file <a class="el" href="a00515_source.html">MessageResumeResult.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3e19c2924bbe1e0a4ade20356451adab"></a><!-- doxytag: member="qpid::framing::MessageResumeResult::MessageResumeResult" ref="a3e19c2924bbe1e0a4ade20356451adab" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::framing::MessageResumeResult::MessageResumeResult </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00515_source.html#l00050">50</a> of file <a class="el" href="a00515_source.html">MessageResumeResult.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ad92ed66b872837517d9cc657fb09f77e"></a><!-- doxytag: member="qpid::framing::MessageResumeResult::bodySize" ref="ad92ed66b872837517d9cc657fb09f77e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::MessageResumeResult::bodySize </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a75f5bb4eb896c48ea3fdc7b3aeefcba6"></a><!-- doxytag: member="qpid::framing::MessageResumeResult::clearOffsetFlag" ref="a75f5bb4eb896c48ea3fdc7b3aeefcba6" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::MessageResumeResult::clearOffsetFlag </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -112,15 +173,26 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="afb8d5f10b1f3e97b0c67d545ddcb033c"></a><!-- doxytag: member="qpid::messaging::MessagingException::~MessagingException" ref="afb8d5f10b1f3e97b0c67d545ddcb033c" args="()" -->
+<a class="anchor" id="a0cad6f0fe81a2fc829a326763fb604e6"></a><!-- doxytag: member="qpid::framing::MessageResumeResult::decode" ref="a0cad6f0fe81a2fc829a326763fb604e6" args="(Buffer &amp;, uint32_t=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual qpid::messaging::MessagingException::~MessagingException </td>
+          <td class="memname">void qpid::framing::MessageResumeResult::decode </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>  throw ()<code> [virtual]</code></td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div>
@@ -128,16 +200,170 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a96ddb3fe10a2b9d059cb78832a64751d"></a><!-- doxytag: member="qpid::messaging::MessagingException::what" ref="a96ddb3fe10a2b9d059cb78832a64751d" args="() const " -->
+<a class="anchor" id="a78f71dbdbcf0c446ef33d5ac712050d1"></a><!-- doxytag: member="qpid::framing::MessageResumeResult::decodeStructBody" ref="a78f71dbdbcf0c446ef33d5ac712050d1" args="(Buffer &amp;, uint32_t=0)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual QPID_TYPES_EXTERN const char* qpid::types::Exception::what </td>
+          <td class="memname">void qpid::framing::MessageResumeResult::decodeStructBody </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
+          <td class="paramname"> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a783900dcbecd8e09420af2c49e44f239"></a><!-- doxytag: member="qpid::framing::MessageResumeResult::encode" ref="a783900dcbecd8e09420af2c49e44f239" args="(Buffer &amp;) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::MessageResumeResult::encode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a851b8f92f7096a892fe6fa5f1e53a120"></a><!-- doxytag: member="qpid::framing::MessageResumeResult::encodedSize" ref="a851b8f92f7096a892fe6fa5f1e53a120" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::framing::MessageResumeResult::encodedSize </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const  throw ()<code> [virtual, inherited]</code></td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a43fd12deb53c6f1f52075ea67071d0b8"></a><!-- doxytag: member="qpid::framing::MessageResumeResult::encodeStructBody" ref="a43fd12deb53c6f1f52075ea67071d0b8" args="(Buffer &amp;) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::MessageResumeResult::encodeStructBody </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00045.html">Buffer</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa78ad62a2d343959978986a38d4b5548"></a><!-- doxytag: member="qpid::framing::MessageResumeResult::getOffset" ref="aa78ad62a2d343959978986a38d4b5548" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t qpid::framing::MessageResumeResult::getOffset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a76fa517eb03accae2be4537803446791"></a><!-- doxytag: member="qpid::framing::MessageResumeResult::hasOffset" ref="a76fa517eb03accae2be4537803446791" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::framing::MessageResumeResult::hasOffset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad577ce79e341b286a574a82688a4bbc7"></a><!-- doxytag: member="qpid::framing::MessageResumeResult::print" ref="ad577ce79e341b286a574a82688a4bbc7" args="(std::ostream &amp;out) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::MessageResumeResult::print </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>out</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a48bc807b405b2b614d5702afc72e13a3"></a><!-- doxytag: member="qpid::framing::MessageResumeResult::setOffset" ref="a48bc807b405b2b614d5702afc72e13a3" args="(uint64_t _offset)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qpid::framing::MessageResumeResult::setOffset </td>
+          <td>(</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>_offset</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Friends And Related Function Documentation</h2>
+<a class="anchor" id="a1d2d7fe3a81a7bbe9de7c79a7a051a8b"></a><!-- doxytag: member="qpid::framing::MessageResumeResult::operator&lt;&lt;" ref="a1d2d7fe3a81a7bbe9de7c79a7a051a8b" args="(std::ostream &amp;, const MessageResumeResult &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00244.html">std::ostream</a>&amp; operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00213.html">MessageResumeResult</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [friend]</code></td>
         </tr>
       </table>
 </div>
@@ -146,23 +372,23 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="ad2a0464e06d10b0ba61a4520bac1cfa7"></a><!-- doxytag: member="qpid::messaging::MessagingException::detail" ref="ad2a0464e06d10b0ba61a4520bac1cfa7" args="" -->
+<a class="anchor" id="a42de86f31e8c60fb0b4ce447f488a46a"></a><!-- doxytag: member="qpid::framing::MessageResumeResult::TYPE" ref="a42de86f31e8c60fb0b4ce447f488a46a" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> <a class="el" href="a00213.html#ad2a0464e06d10b0ba61a4520bac1cfa7">qpid::messaging::MessagingException::detail</a></td>
+          <td class="memname">const <a class="el" href="a00558.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> <a class="el" href="a00213.html#a42de86f31e8c60fb0b4ce447f488a46a">qpid::framing::MessageResumeResult::TYPE</a> = 1029<code> [static]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00436_source.html#l00044">44</a> of file <a class="el" href="a00436_source.html">exceptions.h</a>.</p>
+<p>Definition at line <a class="el" href="a00515_source.html#l00043">43</a> of file <a class="el" href="a00515_source.html">MessageResumeResult.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/messaging/<a class="el" href="a00436_source.html">exceptions.h</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qpid/framing/<a class="el" href="a00515_source.html">MessageResumeResult.h</a></li>
 </ul>
 </div>
 <!--
@@ -192,7 +418,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

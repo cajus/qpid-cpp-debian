@@ -67,13 +67,13 @@ QPID_BROKER_CLASS_EXTERN class Session : public ::qpid::management::ManagementOb
     uint32_t maxClientRate;
 
     // Statistics
+    uint64_t  unackedMessages;
 
 
     // Per-Thread Statistics
 
  public:    
     struct PerThreadStats {
-        uint32_t  framesOutstanding;
         uint64_t  TxnStarts;
         uint64_t  TxnCommits;
         uint64_t  TxnRejects;
@@ -91,7 +91,6 @@ QPID_BROKER_CLASS_EXTERN class Session : public ::qpid::management::ManagementOb
         if (threadStats == 0) {
             threadStats = new(PerThreadStats);
             perThreadStatsArray[idx] = threadStats;
-            threadStats->framesOutstanding = 0;
             threadStats->TxnStarts = 0;
             threadStats->TxnCommits = 0;
             threadStats->TxnRejects = 0;
@@ -221,13 +220,14 @@ QPID_BROKER_CLASS_EXTERN class Session : public ::qpid::management::ManagementOb
     inline bool isSet_maxClientRate() {
         return (presenceMask[presenceByte_maxClientRate] & presenceMask_maxClientRate) != 0;
     }
-    inline void inc_framesOutstanding (uint32_t by = 1) {
-        getThreadStats()->framesOutstanding += by;
+    inline void set_unackedMessages (uint64_t val) {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        unackedMessages = val;
         instChanged = true;
     }
-    inline void dec_framesOutstanding (uint32_t by = 1) {
-        getThreadStats()->framesOutstanding -= by;
-        instChanged = true;
+    inline uint64_t get_unackedMessages() {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        return unackedMessages;
     }
     inline void inc_TxnStarts (uint64_t by = 1) {
         getThreadStats()->TxnStarts += by;

@@ -161,6 +161,7 @@ class ClusterConnectionQueueFairshareStateBody;
 class ClusterConnectionQueueObserverStateBody;
 class ClusterConnectionClockBody;
 class ClusterConnectionQueueDequeueSincePurgeStateBody;
+class ClusterConnectionInternalStateBody;
 class MethodBodyConstVisitor
 {
     public:
@@ -295,6 +296,7 @@ class MethodBodyConstVisitor
     virtual void visit(const ClusterConnectionQueueObserverStateBody&) = 0;
     virtual void visit(const ClusterConnectionClockBody&) = 0;
     virtual void visit(const ClusterConnectionQueueDequeueSincePurgeStateBody&) = 0;
+    virtual void visit(const ClusterConnectionInternalStateBody&) = 0;
 };
 
 }} // namespace qpid::framing

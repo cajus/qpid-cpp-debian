@@ -108,6 +108,7 @@ struct ApplyVisitor<ControlVisitor, F>:
     virtual void visit(cluster-connection::QueueObserverState& x) { this->invoke(x); }
     virtual void visit(cluster-connection::Clock& x) { this->invoke(x); }
     virtual void visit(cluster-connection::QueueDequeueSincePurgeState& x) { this->invoke(x); }
+    virtual void visit(cluster-connection::InternalState& x) { this->invoke(x); }
 };
 template <class F>
 struct ApplyVisitor<ConstControlVisitor, F>:
@@ -184,6 +185,7 @@ struct ApplyVisitor<ConstControlVisitor, F>:
     virtual void visit(const cluster-connection::QueueObserverState& x) { this->invoke(x); }
     virtual void visit(const cluster-connection::Clock& x) { this->invoke(x); }
     virtual void visit(const cluster-connection::QueueDequeueSincePurgeState& x) { this->invoke(x); }
+    virtual void visit(const cluster-connection::InternalState& x) { this->invoke(x); }
 };
 
 }} // namespace qpid::amqp_0_10

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::messaging Namespace Reference</title>
+    <title>qpid::log Namespace Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,419 +58,156 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00591.html">messaging</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00591.html">log</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::messaging Namespace Reference</div>  </div>
+<div class="title">qpid::log Namespace Reference</div>  </div>
 </div>
 <div class="contents">
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00003.html">Address</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents an address to which messages can be sent and from which messages can be received.  <a href="a00003.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html">Connection</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A connection represents a network connection to a remote endpoint.  <a href="a00059.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00104.html">Duration</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A duration is a time in milliseconds.  <a href="a00104.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html">MessagingException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the base class for all messaging related exceptions thrown by this API.  <a href="a00213.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00164.html">InvalidOptionString</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown when the syntax of the option string used to configure a connection in not valid.  <a href="a00164.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00184.html">KeyError</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown to indicate a failed lookup of some local object.  <a href="a00184.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00188.html">LinkError</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00004.html">AddressError</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00279.html">ResolutionError</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown when a syntactically correct address cannot be resolved or used.  <a href="a00279.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00018.html">AssertionFailed</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown when creating a sender or receiver for an address for which some asserted property of the node is not matched.  <a href="a00018.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00227.html">NotFound</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown on attempts to create a sender or receiver to a non-existent node.  <a href="a00227.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00196.html">MalformedAddress</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown when an address string with invalid syntax is used.  <a href="a00196.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00272.html">ReceiverError</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00122.html">FetchError</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00224.html">NoMessageAvailable</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown by <a class="el" href="a00271.html#ac0819f612dfc58de03cbc95a39420925" title="Retrieves a message for this receivers subscription or waits for up to the specified timeout for one ...">Receiver::fetch()</a>, <a class="el" href="a00271.html#a1d708f9763a9b1f5aefb41002e7446e6" title="Retrieves a message from this receivers local queue, or waits for upto the specified timeout for a me...">Receiver::get()</a> and <a class="el" href="a00325.html#af633ded76d86d312c4114efa8480d3df" title="Retrieves the receiver for the next available message.">Session::nextReceiver()</a> to indicate that there no message was available before the timeout specified.  <a href="a00224.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00320.html">SenderError</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00321.html">SendError</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00354.html">TargetCapacityExceeded</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown to indicate that the sender attempted to send a message that would result in the target node on the peer exceeding a preconfigured capacity.  <a href="a00354.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00330.html">SessionError</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00358.html">TransactionError</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00357.html">TransactionAborted</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown on <a class="el" href="a00325.html#ad1135088120d995954e782dd5c8889c7" title="Commits the sessions transaction.">Session::commit()</a> if reconnection results in the transaction being automatically aborted.  <a href="a00357.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00365.html">UnauthorizedAccess</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown to indicate that the application attempted to do something for which it was not authorised by its peer.  <a href="a00365.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00060.html">ConnectionError</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00360.html">TransportFailure</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown to indicate loss of underlying connection.  <a href="a00360.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00120.html">FailoverUpdates</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A utility to listen for updates on cluster membership and update the list of known urls for a connection accordingly.  <a href="a00120.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html">Handle</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A handle is like a pointer: refers to an underlying implementation object.  <a href="a00139.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html">Message</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Representation of a message.  <a href="a00205.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00106.html">EncodingException</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html">Receiver</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface through which messages are received.  <a href="a00271.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html">Sender</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface through which messages are sent.  <a href="a00319.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00325.html">Session</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A session represents a distinct 'conversation' which can involve sending and receiving messages to and from different addresses.  <a href="a00325.html#details">More...</a><br/></td></tr>
-<tr><td colspan="2"><h2><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html#a7f0b8d91af7827b93bfeba35a843168d">operator&lt;&lt;</a> (<a class="el" href="a00243.html">std::ostream</a> &amp;out, const <a class="el" href="a00003.html">Address</a> &amp;address)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00104.html">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html#a459c51ff9d1561bacd2bce12548d95c7">operator*</a> (const <a class="el" href="a00104.html">Duration</a> &amp;duration, uint64_t multiplier)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00104.html">Duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html#a2b6e28b60be1fb6ca4a74f3d71c603f8">operator*</a> (uint64_t multiplier, const <a class="el" href="a00104.html">Duration</a> &amp;duration)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html#ad6b3c1090c7a9c977547c3b02fb92c21">operator==</a> (const <a class="el" href="a00104.html">Duration</a> &amp;a, const <a class="el" href="a00104.html">Duration</a> &amp;b)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html#a2258913affedf4b9aed1b4c63eb30b20">operator!=</a> (const <a class="el" href="a00104.html">Duration</a> &amp;a, const <a class="el" href="a00104.html">Duration</a> &amp;b)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html#ad37dfc262612bfde8fdc73e3a85ddf95">decode</a> (const <a class="el" href="a00205.html">Message</a> &amp;message, <a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;map, const <a class="el" href="a00345.html">std::string</a> &amp;encoding=<a class="el" href="a00345.html">std::string</a>())</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes message content into a Variant::Map.  <a href="#ad37dfc262612bfde8fdc73e3a85ddf95"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html#a69fce48e522c7cf19d587786512b02d3">decode</a> (const <a class="el" href="a00205.html">Message</a> &amp;message, <a class="el" href="a00385.html#a8603092790e51851bc2166e9562a2e11">qpid::types::Variant::List</a> &amp;list, const <a class="el" href="a00345.html">std::string</a> &amp;encoding=<a class="el" href="a00345.html">std::string</a>())</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes message content into a Variant::List.  <a href="#a69fce48e522c7cf19d587786512b02d3"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html#afefbffac1ba55c37a1f7ab3a85ca753b">encode</a> (const <a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;map, <a class="el" href="a00205.html">Message</a> &amp;message, const <a class="el" href="a00345.html">std::string</a> &amp;encoding=<a class="el" href="a00345.html">std::string</a>())</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes a Variant::Map into a message.  <a href="#afefbffac1ba55c37a1f7ab3a85ca753b"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html#a4ded93ce7f9698edc896106fef23e7ae">encode</a> (const <a class="el" href="a00385.html#a8603092790e51851bc2166e9562a2e11">qpid::types::Variant::List</a> &amp;list, <a class="el" href="a00205.html">Message</a> &amp;message, const <a class="el" href="a00345.html">std::string</a> &amp;encoding=<a class="el" href="a00345.html">std::string</a>())</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Encodes a Variant::List into a message.  <a href="#a4ded93ce7f9698edc896106fef23e7ae"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00195.html">Logger</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Central logging agent.  <a href="a00195.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00242.html">Options</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Logging options for config parser.  <a href="a00242.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html">Selector</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A selector identifies the set of log messages to enable.  <a href="a00319.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00339.html">SinkOptions</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Logging sink options.  <a href="a00339.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00188.html">LevelTraits</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html">CategoryTraits</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html">CategoryFileNameHints</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00341.html">Statement</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">POD struct representing a logging statement in source code.  <a href="a00341.html#details">More...</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e">Level</a> { <br/>
+&#160;&#160;<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587ead112aed39622ff72d2129fbe9011e807">trace</a>, 
+<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587eaed32fb0ecec461827baa7352bcc5742e">debug</a>, 
+<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587eacea94907e695feb2e619d0985a98990f">info</a>, 
+<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587ea2d9db56e94bfa85cd3d10389ff32ba14">notice</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587ea9fbc1fd8e080b35db485d0a7b5894a05">warning</a>, 
+<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587ea3b827b7f174d3318795eaab4e3a3616a">error</a>, 
+<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587ea08e0eee29ce0eadc035a2e5605f58ef5">critical</a>
+<br/>
+ }</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Debugging severity levels.  <a href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fc">Category</a> { <br/>
+&#160;&#160;<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fcae178f006c123abd595a0936a1fe3d09b">security</a>, 
+<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca8faf76d40e06af2f7012e9cd2850e0bb">broker</a>, 
+<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca819da084b6e5d2f6fea2e9189ad658ea">management</a>, 
+<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca177a9899d8b00c4cbed51f1c612f5651">protocol</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca6c6fa4531e385d8e435af55ec2ab4350">system</a>, 
+<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca485f645db57c07b82b0e414a389692c1">ha</a>, 
+<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca48b7b5226fcc703289171143d344185b">messaging</a>, 
+<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fcac67e94ac216ac9328142f541818fbbd4">store</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fcae727984ff558ca628e5fd2d263694dd0">network</a>, 
+<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca859ee4e52a3eeeaf476fc42460a98d3c">test</a>, 
+<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca8a6e04ce91f4d365de37ccc1a4ef0dc9">client</a>, 
+<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca7e130c3b115904ad93112b145ff52a99">unspecified</a>
+<br/>
+ }</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Formal message categories <a href="https://issues.apache.org/jira/browse/QPID-3902.">https://issues.apache.org/jira/browse/QPID-3902.</a>  <a href="a00591.html#a7473d5e4c024e60ca78700d1019370fc">More...</a><br/></td></tr>
 </table>
-<hr/><h2>Function Documentation</h2>
-<a class="anchor" id="ad37dfc262612bfde8fdc73e3a85ddf95"></a><!-- doxytag: member="qpid::messaging::decode" ref="ad37dfc262612bfde8fdc73e3a85ddf95" args="(const Message &amp;message, qpid::types::Variant::Map &amp;map, const std::string &amp;encoding=std::string())" -->
+<hr/><h2>Enumeration Type Documentation</h2>
+<a class="anchor" id="a7473d5e4c024e60ca78700d1019370fc"></a><!-- doxytag: member="qpid::log::Category" ref="a7473d5e4c024e60ca78700d1019370fc" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::messaging::decode </td>
-          <td>(</td>
-          <td class="paramtype">const Message &amp;&#160;</td>
-          <td class="paramname"><em>message</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;&#160;</td>
-          <td class="paramname"><em>map</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>encoding</em> = <code><a class="el" href="a00345.html">std::string</a>()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">enum <a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fc">qpid::log::Category</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Decodes message content into a Variant::Map. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td>the message whose content should be decoded </td></tr>
-    <tr><td class="paramname">map</td><td>the map into which the message contents will be decoded </td></tr>
-    <tr><td class="paramname">encoding</td><td>if specified, the encoding to use - this overrides any encoding specified by the content-type of the message </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl><dt><b>Exceptions:</b></dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="a00106.html">EncodingException</a></td><td></td></tr>
-  </table>
-  </dd>
+<p>Formal message categories <a href="https://issues.apache.org/jira/browse/QPID-3902.">https://issues.apache.org/jira/browse/QPID-3902.</a> </p>
+<p>Category Source code directory -------- --------------------- Security acl ssl gssapi sasl cyrus Broker broker Management agent console qmf Protocol <a class="el" href="a00577.html">amqp_0_10</a> framing System log sys types xml thread mutex fork pipe time ... HA cluster ha replication Messaging messaging Client client Store store Network tcp rdma AsynchIO socket epoll Test Unspecified </p>
+<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="a7473d5e4c024e60ca78700d1019370fcae178f006c123abd595a0936a1fe3d09b"></a><!-- doxytag: member="security" ref="a7473d5e4c024e60ca78700d1019370fcae178f006c123abd595a0936a1fe3d09b" args="" -->security</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a7473d5e4c024e60ca78700d1019370fca8faf76d40e06af2f7012e9cd2850e0bb"></a><!-- doxytag: member="broker" ref="a7473d5e4c024e60ca78700d1019370fca8faf76d40e06af2f7012e9cd2850e0bb" args="" -->broker</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a7473d5e4c024e60ca78700d1019370fca819da084b6e5d2f6fea2e9189ad658ea"></a><!-- doxytag: member="management" ref="a7473d5e4c024e60ca78700d1019370fca819da084b6e5d2f6fea2e9189ad658ea" args="" -->management</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a7473d5e4c024e60ca78700d1019370fca177a9899d8b00c4cbed51f1c612f5651"></a><!-- doxytag: member="protocol" ref="a7473d5e4c024e60ca78700d1019370fca177a9899d8b00c4cbed51f1c612f5651" args="" -->protocol</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a7473d5e4c024e60ca78700d1019370fca6c6fa4531e385d8e435af55ec2ab4350"></a><!-- doxytag: member="system" ref="a7473d5e4c024e60ca78700d1019370fca6c6fa4531e385d8e435af55ec2ab4350" args="" -->system</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a7473d5e4c024e60ca78700d1019370fca485f645db57c07b82b0e414a389692c1"></a><!-- doxytag: member="ha" ref="a7473d5e4c024e60ca78700d1019370fca485f645db57c07b82b0e414a389692c1" args="" -->ha</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a7473d5e4c024e60ca78700d1019370fca48b7b5226fcc703289171143d344185b"></a><!-- doxytag: member="messaging" ref="a7473d5e4c024e60ca78700d1019370fca48b7b5226fcc703289171143d344185b" args="" -->messaging</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a7473d5e4c024e60ca78700d1019370fcac67e94ac216ac9328142f541818fbbd4"></a><!-- doxytag: member="store" ref="a7473d5e4c024e60ca78700d1019370fcac67e94ac216ac9328142f541818fbbd4" args="" -->store</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a7473d5e4c024e60ca78700d1019370fcae727984ff558ca628e5fd2d263694dd0"></a><!-- doxytag: member="network" ref="a7473d5e4c024e60ca78700d1019370fcae727984ff558ca628e5fd2d263694dd0" args="" -->network</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a7473d5e4c024e60ca78700d1019370fca859ee4e52a3eeeaf476fc42460a98d3c"></a><!-- doxytag: member="test" ref="a7473d5e4c024e60ca78700d1019370fca859ee4e52a3eeeaf476fc42460a98d3c" args="" -->test</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a7473d5e4c024e60ca78700d1019370fca8a6e04ce91f4d365de37ccc1a4ef0dc9"></a><!-- doxytag: member="client" ref="a7473d5e4c024e60ca78700d1019370fca8a6e04ce91f4d365de37ccc1a4ef0dc9" args="" -->client</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a7473d5e4c024e60ca78700d1019370fca7e130c3b115904ad93112b145ff52a99"></a><!-- doxytag: member="unspecified" ref="a7473d5e4c024e60ca78700d1019370fca7e130c3b115904ad93112b145ff52a99" args="" -->unspecified</em>&nbsp;</td><td>
+</td></tr>
+</table>
+</dd>
 </dl>
 
+<p>Definition at line <a class="el" href="a00536_source.html#l00077">77</a> of file <a class="el" href="a00536_source.html">Statement.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a69fce48e522c7cf19d587786512b02d3"></a><!-- doxytag: member="qpid::messaging::decode" ref="a69fce48e522c7cf19d587786512b02d3" args="(const Message &amp;message, qpid::types::Variant::List &amp;list, const std::string &amp;encoding=std::string())" -->
+<a class="anchor" id="aa048da8f9d1639c5a9195578b0e8587e"></a><!-- doxytag: member="qpid::log::Level" ref="aa048da8f9d1639c5a9195578b0e8587e" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::messaging::decode </td>
-          <td>(</td>
-          <td class="paramtype">const Message &amp;&#160;</td>
-          <td class="paramname"><em>message</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00385.html#a8603092790e51851bc2166e9562a2e11">qpid::types::Variant::List</a> &amp;&#160;</td>
-          <td class="paramname"><em>list</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>encoding</em> = <code><a class="el" href="a00345.html">std::string</a>()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">enum <a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e">qpid::log::Level</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Decodes message content into a Variant::List. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">message</td><td>the message whose content should be decoded </td></tr>
-    <tr><td class="paramname">list</td><td>the list into which the message contents will be decoded </td></tr>
-    <tr><td class="paramname">encoding</td><td>if specified, the encoding to use - this overrides any encoding specified by the content-type of the message </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl><dt><b>Exceptions:</b></dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="a00106.html">EncodingException</a></td><td></td></tr>
-  </table>
-  </dd>
+<p>Debugging severity levels. </p>
+<ul>
+<li>trace: High-volume debugging messages.</li>
+<li>debug: Debugging messages.</li>
+<li>info: Informational messages.</li>
+<li>notice: Normal but significant condition.</li>
+<li>warning: Warn of a possible problem.</li>
+<li>error: A definite error has occured.</li>
+<li>critical: System in danger of severe failure. </li>
+</ul>
+<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="aa048da8f9d1639c5a9195578b0e8587ead112aed39622ff72d2129fbe9011e807"></a><!-- doxytag: member="trace" ref="aa048da8f9d1639c5a9195578b0e8587ead112aed39622ff72d2129fbe9011e807" args="" -->trace</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aa048da8f9d1639c5a9195578b0e8587eaed32fb0ecec461827baa7352bcc5742e"></a><!-- doxytag: member="debug" ref="aa048da8f9d1639c5a9195578b0e8587eaed32fb0ecec461827baa7352bcc5742e" args="" -->debug</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aa048da8f9d1639c5a9195578b0e8587eacea94907e695feb2e619d0985a98990f"></a><!-- doxytag: member="info" ref="aa048da8f9d1639c5a9195578b0e8587eacea94907e695feb2e619d0985a98990f" args="" -->info</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aa048da8f9d1639c5a9195578b0e8587ea2d9db56e94bfa85cd3d10389ff32ba14"></a><!-- doxytag: member="notice" ref="aa048da8f9d1639c5a9195578b0e8587ea2d9db56e94bfa85cd3d10389ff32ba14" args="" -->notice</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aa048da8f9d1639c5a9195578b0e8587ea9fbc1fd8e080b35db485d0a7b5894a05"></a><!-- doxytag: member="warning" ref="aa048da8f9d1639c5a9195578b0e8587ea9fbc1fd8e080b35db485d0a7b5894a05" args="" -->warning</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aa048da8f9d1639c5a9195578b0e8587ea3b827b7f174d3318795eaab4e3a3616a"></a><!-- doxytag: member="error" ref="aa048da8f9d1639c5a9195578b0e8587ea3b827b7f174d3318795eaab4e3a3616a" args="" -->error</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="aa048da8f9d1639c5a9195578b0e8587ea08e0eee29ce0eadc035a2e5605f58ef5"></a><!-- doxytag: member="critical" ref="aa048da8f9d1639c5a9195578b0e8587ea08e0eee29ce0eadc035a2e5605f58ef5" args="" -->critical</em>&nbsp;</td><td>
+</td></tr>
+</table>
+</dd>
 </dl>
 
-</div>
-</div>
-<a class="anchor" id="afefbffac1ba55c37a1f7ab3a85ca753b"></a><!-- doxytag: member="qpid::messaging::encode" ref="afefbffac1ba55c37a1f7ab3a85ca753b" args="(const qpid::types::Variant::Map &amp;map, Message &amp;message, const std::string &amp;encoding=std::string())" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::messaging::encode </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00385.html#ae4e24d890f56397299a6ebadb2dfa7f0">qpid::types::Variant::Map</a> &amp;&#160;</td>
-          <td class="paramname"><em>map</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Message &amp;&#160;</td>
-          <td class="paramname"><em>message</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>encoding</em> = <code><a class="el" href="a00345.html">std::string</a>()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Encodes a Variant::Map into a message. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">map</td><td>the map to be encoded </td></tr>
-    <tr><td class="paramname">message</td><td>the message whose content should be set to the encoded map </td></tr>
-    <tr><td class="paramname">encoding</td><td>if specified, the encoding to use - this overrides any encoding specified by the content-type of the message </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl><dt><b>Exceptions:</b></dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="a00106.html">EncodingException</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a4ded93ce7f9698edc896106fef23e7ae"></a><!-- doxytag: member="qpid::messaging::encode" ref="a4ded93ce7f9698edc896106fef23e7ae" args="(const qpid::types::Variant::List &amp;list, Message &amp;message, const std::string &amp;encoding=std::string())" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::messaging::encode </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00385.html#a8603092790e51851bc2166e9562a2e11">qpid::types::Variant::List</a> &amp;&#160;</td>
-          <td class="paramname"><em>list</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Message &amp;&#160;</td>
-          <td class="paramname"><em>message</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>encoding</em> = <code><a class="el" href="a00345.html">std::string</a>()</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Encodes a Variant::List into a message. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">list</td><td>the list to be encoded </td></tr>
-    <tr><td class="paramname">message</td><td>the message whose content should be set to the encoded list </td></tr>
-    <tr><td class="paramname">encoding</td><td>if specified, the encoding to use - this overrides any encoding specified by the content-type of the message </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl><dt><b>Exceptions:</b></dt><dd>
-  <table class="exception">
-    <tr><td class="paramname"><a class="el" href="a00106.html">EncodingException</a></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a class="anchor" id="a2258913affedf4b9aed1b4c63eb30b20"></a><!-- doxytag: member="qpid::messaging::operator!=" ref="a2258913affedf4b9aed1b4c63eb30b20" args="(const Duration &amp;a, const Duration &amp;b)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::messaging::operator!= </td>
-          <td>(</td>
-          <td class="paramtype">const Duration &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Duration &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a459c51ff9d1561bacd2bce12548d95c7"></a><!-- doxytag: member="qpid::messaging::operator*" ref="a459c51ff9d1561bacd2bce12548d95c7" args="(const Duration &amp;duration, uint64_t multiplier)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00104.html">Duration</a> qpid::messaging::operator* </td>
-          <td>(</td>
-          <td class="paramtype">const Duration &amp;&#160;</td>
-          <td class="paramname"><em>duration</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>multiplier</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a2b6e28b60be1fb6ca4a74f3d71c603f8"></a><!-- doxytag: member="qpid::messaging::operator*" ref="a2b6e28b60be1fb6ca4a74f3d71c603f8" args="(uint64_t multiplier, const Duration &amp;duration)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00104.html">Duration</a> qpid::messaging::operator* </td>
-          <td>(</td>
-          <td class="paramtype">uint64_t&#160;</td>
-          <td class="paramname"><em>multiplier</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Duration &amp;&#160;</td>
-          <td class="paramname"><em>duration</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a7f0b8d91af7827b93bfeba35a843168d"></a><!-- doxytag: member="qpid::messaging::operator&lt;&lt;" ref="a7f0b8d91af7827b93bfeba35a843168d" args="(std::ostream &amp;out, const Address &amp;address)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00243.html">std::ostream</a>&amp; qpid::messaging::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00243.html">std::ostream</a> &amp;&#160;</td>
-          <td class="paramname"><em>out</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Address &amp;&#160;</td>
-          <td class="paramname"><em>address</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ad6b3c1090c7a9c977547c3b02fb92c21"></a><!-- doxytag: member="qpid::messaging::operator==" ref="ad6b3c1090c7a9c977547c3b02fb92c21" args="(const Duration &amp;a, const Duration &amp;b)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::messaging::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const Duration &amp;&#160;</td>
-          <td class="paramname"><em>a</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const Duration &amp;&#160;</td>
-          <td class="paramname"><em>b</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
+<p>Definition at line <a class="el" href="a00536_source.html#l00039">39</a> of file <a class="el" href="a00536_source.html">Statement.h</a>.</p>
 
 </div>
 </div>
@@ -502,7 +239,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

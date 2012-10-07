@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/FileOpenBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void FileOpenBody::setIdentifier(const std::string& _identifier) {
     identifier = _identifier;
     flags |= (1 << 8);
+    if (identifier.size() >= 256) throw IllegalArgumentException("Value for identifier is too large");
 }
 const std::string& FileOpenBody::getIdentifier() const { return identifier; }
 bool FileOpenBody::hasIdentifier() const { return flags & (1 << 8); }

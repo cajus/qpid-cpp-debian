@@ -59,7 +59,6 @@ QPID_BROKER_CLASS_EXTERN class Broker : public ::qpid::management::ManagementObj
     ::qpid::management::ObjectId systemRef;
     uint16_t port;
     uint16_t workerThreads;
-    uint16_t maxConns;
     uint16_t connBacklog;
     uint32_t stagingThreshold;
     bool mgmtPublish;
@@ -239,15 +238,6 @@ QPID_BROKER_CLASS_EXTERN class Broker : public ::qpid::management::ManagementObj
     inline uint16_t get_workerThreads() {
         ::qpid::management::Mutex::ScopedLock mutex(accessLock);
         return workerThreads;
-    }
-    inline void set_maxConns (uint16_t val) {
-        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
-        maxConns = val;
-        configChanged = true;
-    }
-    inline uint16_t get_maxConns() {
-        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
-        return maxConns;
     }
     inline void set_connBacklog (uint16_t val) {
         ::qpid::management::Mutex::ScopedLock mutex(accessLock);

@@ -30,6 +30,7 @@
 
 #include <ostream>
 #include "qpid/framing/amqp_types_full.h"
+#include "qpid/framing/reply_exceptions.h"
 #include "qpid/CommonImportExport.h"
 
 namespace qpid {
@@ -53,6 +54,7 @@ public:
         setNotFound(_notFound);
         flags |= (1 << 8);
         flags |= (1 << 11);
+        if (type.size() >= 256) throw IllegalArgumentException("Value for type is too large");
     }
     ExchangeQueryResult()  : flags(0) {}
     

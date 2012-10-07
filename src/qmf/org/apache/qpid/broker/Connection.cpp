@@ -30,6 +30,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <string.h>
 
 using namespace qmf::org::apache::qpid::broker;
 using           qpid::management::ManagementAgent;
@@ -48,16 +49,16 @@ Connection::Connection (ManagementAgent*, Manageable* _core, ::qpid::management:
     ManagementObject(_core),address(_address),incoming(_incoming),SystemConnection(_SystemConnection)
 {
     vhostRef = _parent->GetManagementObject ()->getObjectId ();
-    userProxyAuth = 0;
-    federationLink = 0;
+    userProxyAuth = false;
+    federationLink = false;
     authIdentity = "";
     remoteProcessName = "";
     remotePid = 0;
     remoteParentPid = 0;
-    shadow = 0;
+    shadow = false;
     saslMechanism = "";
     saslSsf = 0;
-    closing = 0;
+    closing = false;
 
 
     // Optional properties start out not-present
@@ -579,29 +580,45 @@ void Connection::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
 
     if ((_i = _map.find("vhostRef")) != _map.end()) {
         vhostRef = _i->second;
+    } else {
+        vhostRef = ::qpid::management::ObjectId();
     }
     if ((_i = _map.find("address")) != _map.end()) {
         address = (_i->second).getString();
+    } else {
+        address = "";
     }
     if ((_i = _map.find("incoming")) != _map.end()) {
         incoming = _i->second;
+    } else {
+        incoming = false;
     }
     if ((_i = _map.find("SystemConnection")) != _map.end()) {
         SystemConnection = _i->second;
+    } else {
+        SystemConnection = false;
     }
     if ((_i = _map.find("userProxyAuth")) != _map.end()) {
         userProxyAuth = _i->second;
+    } else {
+        userProxyAuth = false;
     }
     if ((_i = _map.find("federationLink")) != _map.end()) {
         federationLink = _i->second;
+    } else {
+        federationLink = false;
     }
     if ((_i = _map.find("authIdentity")) != _map.end()) {
         authIdentity = (_i->second).getString();
+    } else {
+        authIdentity = "";
     }
     _found = false;
     if ((_i = _map.find("remoteProcessName")) != _map.end()) {
         remoteProcessName = (_i->second).getString();
         _found = true;
+    } else {
+        remoteProcessName = "";
     }
     if (_found) {
         presenceMask[presenceByte_remoteProcessName] |= presenceMask_remoteProcessName;
@@ -610,6 +627,8 @@ void Connection::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
     if ((_i = _map.find("remotePid")) != _map.end()) {
         remotePid = _i->second;
         _found = true;
+    } else {
+        remotePid = 0;
     }
     if (_found) {
         presenceMask[presenceByte_remotePid] |= presenceMask_remotePid;
@@ -618,18 +637,26 @@ void Connection::mapDecodeValues (const ::qpid::types::Variant::Map& _map)
     if ((_i = _map.find("remoteParentPid")) != _map.end()) {
         remoteParentPid = _i->second;
         _found = true;
+    } else {
+        remoteParentPid = 0;
     }
     if (_found) {
         presenceMask[presenceByte_remoteParentPid] |= presenceMask_remoteParentPid;
     }
     if ((_i = _map.find("shadow")) != _map.end()) {
         shadow = _i->second;
+    } else {
+        shadow = false;
     }
     if ((_i = _map.find("saslMechanism")) != _map.end()) {
         saslMechanism = (_i->second).getString();
+    } else {
+        saslMechanism = "";
     }
     if ((_i = _map.find("saslSsf")) != _map.end()) {
         saslSsf = _i->second;
+    } else {
+        saslSsf = 0;
     }
 
 }

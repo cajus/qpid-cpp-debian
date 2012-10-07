@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/log/Selector.h Source File</title>
+    <title>qpid/log/Options.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,11 +58,11 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/log/Selector.h</div>  </div>
+<div class="title">qpid/log/Options.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00532.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef SELECTOR_H</span>
-<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define SELECTOR_H</span>
+<a href="a00532.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef QPID_LOG_OPTIONS_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define QPID_LOG_OPTIONS_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="comment">/*</span>
 <a name="l00005"></a>00005 <span class="comment"> *</span>
@@ -81,43 +81,34 @@
 <a name="l00018"></a>00018 <span class="comment"> * limitations under the License.</span>
 <a name="l00019"></a>00019 <span class="comment"> *</span>
 <a name="l00020"></a>00020 <span class="comment"> */</span>
-<a name="l00021"></a>00021 
-<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="a00534.html">qpid/log/Statement.h</a>&quot;</span>
-<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;<a class="code" href="a00482.html">qpid/CommonImportExport.h</a>&quot;</span>
-<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;vector&gt;</span>
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026 <span class="keyword">namespace </span>qpid {
-<a name="l00027"></a>00027 <span class="keyword">namespace </span>log {
-<a name="l00028"></a>00028 <span class="keyword">struct </span>Options;
+<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;<a class="code" href="a00533.html">qpid/Options.h</a>&quot;</span>
+<a name="l00022"></a>00022 <span class="preprocessor">#include &quot;<a class="code" href="a00484.html">qpid/CommonImportExport.h</a>&quot;</span>
+<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;<a class="code" href="a00535.html">qpid/log/SinkOptions.h</a>&quot;</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;iosfwd&gt;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &lt;memory&gt;</span>
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="keyword">namespace </span>qpid {
+<a name="l00028"></a>00028 <span class="keyword">namespace </span>log {
 <a name="l00029"></a>00029 
-<a name="l00035"></a>00035 <span class="keyword">class </span>Selector {
-<a name="l00036"></a>00036   <span class="keyword">public</span>:
-<a name="l00038"></a><a class="code" href="a00318.html#ab27181f8056e93322f4eb2b55973fddc">00038</a>     <a class="code" href="a00318.html#ab27181f8056e93322f4eb2b55973fddc" title="Empty selector selects nothing.">Selector</a>() {}
-<a name="l00039"></a>00039 
-<a name="l00041"></a>00041     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00318.html#ab27181f8056e93322f4eb2b55973fddc" title="Empty selector selects nothing.">Selector</a>(<span class="keyword">const</span> <a class="code" href="a00241.html" title="Logging options for config parser.">Options</a>&amp;);
-<a name="l00042"></a>00042 
-<a name="l00044"></a><a class="code" href="a00318.html#a1e0b4421ece78acb33914d785488b6a0">00044</a>     <a class="code" href="a00318.html#a1e0b4421ece78acb33914d785488b6a0" title="Equavlient to: Selector s; s.enable(l, s)">Selector</a>(<a class="code" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587e" title="Debugging severity levels.">Level</a> l, <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; s=<a class="code" href="a00345.html" title="STL class.">std::string</a>()) {
-<a name="l00045"></a>00045         <a class="code" href="a00318.html#a274daac39a640bd34dbad96f67c9f66f" title="Enable messages with level in levels where the file name contains substring.">enable</a>(l,s);
-<a name="l00046"></a>00046     }
+<a name="l00031"></a>00031 <span class="keyword">struct </span>Options : <span class="keyword">public</span> qpid::Options {
+<a name="l00033"></a>00033     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00242.html#a22f6bcc66c66cd18de94c0fb6e9146aa" title="Pass argv[0] for use in syslog output.">Options</a>(<span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; argv0_=<a class="code" href="a00346.html" title="STL class.">std::string</a>(),
+<a name="l00034"></a>00034             <span class="keyword">const</span> <a class="code" href="a00346.html" title="STL class.">std::string</a>&amp; name_=<span class="stringliteral">&quot;Logging options&quot;</span>);
+<a name="l00035"></a>00035     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00242.html#a22f6bcc66c66cd18de94c0fb6e9146aa" title="Pass argv[0] for use in syslog output.">Options</a>(<span class="keyword">const</span> <a class="code" href="a00242.html#a22f6bcc66c66cd18de94c0fb6e9146aa" title="Pass argv[0] for use in syslog output.">Options</a> &amp;);
+<a name="l00036"></a>00036 
+<a name="l00037"></a>00037     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00242.html#a22f6bcc66c66cd18de94c0fb6e9146aa" title="Pass argv[0] for use in syslog output.">Options</a>&amp; <a class="code" href="a00242.html#a6027061ffdf86e54aaa18fb8a4511224">operator=</a>(<span class="keyword">const</span> <a class="code" href="a00242.html#a22f6bcc66c66cd18de94c0fb6e9146aa" title="Pass argv[0] for use in syslog output.">Options</a>&amp;);
+<a name="l00038"></a>00038 
+<a name="l00039"></a><a class="code" href="a00242.html#a83b26999bc100749ea239edb1bcacf87">00039</a>     std::string <a class="code" href="a00242.html#a83b26999bc100749ea239edb1bcacf87">argv0</a>;
+<a name="l00040"></a><a class="code" href="a00242.html#a74bd1af305b37ebc96f2380b5f859e56">00040</a>     std::string <a class="code" href="a00242.html#a74bd1af305b37ebc96f2380b5f859e56">name</a>;
+<a name="l00041"></a><a class="code" href="a00242.html#a0a815ce3eebdf5ca7836ecb0d6c88106">00041</a>     std::vector&lt;std::string&gt; <a class="code" href="a00242.html#a0a815ce3eebdf5ca7836ecb0d6c88106">selectors</a>;
+<a name="l00042"></a><a class="code" href="a00242.html#ab2455bc3f0aa30ed2694b74865176349">00042</a>     <span class="keywordtype">bool</span> <a class="code" href="a00242.html#ab2455bc3f0aa30ed2694b74865176349">time</a>, <a class="code" href="a00242.html#a5788b0187097ffa85435b348eb102528">level</a>, <a class="code" href="a00242.html#a4685d89b666e64987a94d93ab3ec41a8">thread</a>, <a class="code" href="a00242.html#a69cb1f13da77d8f71551cb4eb29c72e2">source</a>, <span class="keyword">function</span>, <a class="code" href="a00242.html#a78147305282a7aa0c626f9349a556b9c">hiresTs</a>, <a class="code" href="a00242.html#a6f0f65b00fb9138c1c8a4862df218ae0">category</a>;
+<a name="l00043"></a><a class="code" href="a00242.html#a39e83b8d5268cdc5a3f0fc050afd386e">00043</a>     <span class="keywordtype">bool</span> <a class="code" href="a00242.html#a39e83b8d5268cdc5a3f0fc050afd386e">trace</a>;
+<a name="l00044"></a><a class="code" href="a00242.html#a1ae2f362341da4c7b25784b3f0605fc6">00044</a>     std::string <a class="code" href="a00242.html#a1ae2f362341da4c7b25784b3f0605fc6">prefix</a>;
+<a name="l00045"></a><a class="code" href="a00242.html#a3eadaf9623e6a40729c1fb7e743e8b73">00045</a>     std::auto_ptr&lt;SinkOptions&gt; <a class="code" href="a00242.html#a3eadaf9623e6a40729c1fb7e743e8b73">sinkOptions</a>;
+<a name="l00046"></a>00046 };
 <a name="l00047"></a>00047 
-<a name="l00048"></a><a class="code" href="a00318.html#a1bc403dc2646ceb846116dbe75c8dc53">00048</a>     <a class="code" href="a00318.html#a1bc403dc2646ceb846116dbe75c8dc53">Selector</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; enableStr) { <a class="code" href="a00318.html#a274daac39a640bd34dbad96f67c9f66f" title="Enable messages with level in levels where the file name contains substring.">enable</a>(enableStr); }
-<a name="l00053"></a><a class="code" href="a00318.html#a274daac39a640bd34dbad96f67c9f66f">00053</a>     <span class="keywordtype">void</span> <a class="code" href="a00318.html#a274daac39a640bd34dbad96f67c9f66f" title="Enable messages with level in levels where the file name contains substring.">enable</a>(<a class="code" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587e" title="Debugging severity levels.">Level</a> level, <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; substring=<a class="code" href="a00345.html" title="STL class.">std::string</a>()) {
-<a name="l00054"></a>00054         substrings[level].push_back(substring);
-<a name="l00055"></a>00055     }
-<a name="l00056"></a>00056 
-<a name="l00058"></a>00058     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00318.html#a274daac39a640bd34dbad96f67c9f66f" title="Enable messages with level in levels where the file name contains substring.">enable</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; enableStr);
-<a name="l00059"></a>00059 
-<a name="l00061"></a>00061     <a class="code" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> <a class="code" href="a00318.html#afbe33086dd6c8ad558e8387db23f00ba" title="True if level is enabled for file.">isEnabled</a>(<a class="code" href="a00589.html#aa048da8f9d1639c5a9195578b0e8587e" title="Debugging severity levels.">Level</a> level, <span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">function</span>);
-<a name="l00062"></a>00062 
-<a name="l00063"></a>00063   <span class="keyword">private</span>:
-<a name="l00064"></a>00064     std::vector&lt;std::string&gt; substrings[<a class="code" href="a00187.html">LevelTraits</a>::COUNT];
-<a name="l00065"></a>00065 };
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067 
-<a name="l00068"></a>00068 }} <span class="comment">// namespace qpid::log</span>
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070 
-<a name="l00071"></a>00071 <span class="preprocessor">#endif  </span>
+<a name="l00048"></a>00048 }} <span class="comment">// namespace qpid::log</span>
+<a name="l00049"></a>00049 
+<a name="l00050"></a>00050 <span class="preprocessor">#endif  </span>
 </pre></div></div>
 </div>
 <!--
@@ -147,7 +138,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

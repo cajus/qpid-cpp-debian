@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::client::MessageReplayTracker::ReplayRecord Struct Reference</title>
+    <title>qpid::console::RefValue Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,56 +60,103 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00576.html">client</a>      </li>
-      <li class="navelem"><a class="el" href="a00211.html">MessageReplayTracker</a>      </li>
-      <li class="navelem"><a class="el" href="a00275.html">ReplayRecord</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00581.html">console</a>      </li>
+      <li class="navelem"><a class="el" href="a00275.html">RefValue</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a>  </div>
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::client::MessageReplayTracker::ReplayRecord Struct Reference</div>  </div>
+<div class="title">qpid::console::RefValue Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::client::MessageReplayTracker::ReplayRecord" -->
-<p><a href="a00694.html">List of all members.</a></p>
+<!-- doxytag: class="qpid::console::RefValue" --><!-- doxytag: inherits="qpid::console::Value" -->
+<p><code>#include &lt;<a class="el" href="a00436_source.html">qpid/console/Value.h</a>&gt;</code></p>
+
+<p><a href="a00730.html">List of all members.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef boost::shared_ptr&lt; <a class="el" href="a00380.html">Value</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a9834997d76e11574c7779190c0e0a796">Ptr</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00275.html#a114de9c80d141bbef1e880e9c98aecd8">ReplayRecord</a> (const <a class="el" href="a00206.html">Message</a> &amp;<a class="el" href="a00275.html#aa5ca9e04c64f4a8d6ae840234d446238">message</a>, const <a class="el" href="a00345.html">std::string</a> &amp;<a class="el" href="a00275.html#a2e3cb37596ab33a5a9d94222d3b27ab6">destination</a>)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00275.html#a88ffc4aa7d28f267cb00607c1ae1c070">send</a> (<a class="el" href="a00211.html">MessageReplayTracker</a> &amp;)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00275.html#a0406b655819a390448e6ed6a4ea5b268">isComplete</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00054.html">Completion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00275.html#ad80983e6b29c2984a1ec7ce8ac90ba16">status</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00206.html">Message</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00275.html#aa5ca9e04c64f4a8d6ae840234d446238">message</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00275.html#a2e3cb37596ab33a5a9d94222d3b27ab6">destination</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00275.html#a94ddd301a6ef2d7646d3ed4ec8163181">RefValue</a> (<a class="el" href="a00237.html">ObjectId</a> v)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00275.html#a0dd4729149d989f0674cd20d4ffdd1e1">RefValue</a> (<a class="el" href="a00045.html">framing::Buffer</a> &amp;buffer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00275.html#a015307d6a3b7c5292091aad6332f67af">str</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00275.html#a82db116f2799ed0e43d25aafbe7f381e">isObjectId</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00237.html">ObjectId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00275.html#a0deba5c1803187cc3aa5d3340a5c2c31">asObjectId</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a1c7dd830d702a8faebafeb0053634961">isNull</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#ab2f09e977bd08bb17a4b05acc0ff5a1b">isUint</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a19d79a0d80f6f62ee63fda0d3330a0a2">isInt</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a972d7eafb3de1b63a22bf9a7623381c4">isUint64</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#aefb7c121c29a173cdff8a07e661d12ab">isInt64</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a8128b817aa583bef3f1b7b0f6b74ead6">isString</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a97e36a7fd1b29b0396568d14cf1142cf">isBool</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a0e5f70fa8e3413647d164661aac5e7b9">isFloat</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a20be729fbff090709185a0624195ac17">isDouble</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a6a6aa6acd0868843bdbc826d288e28f9">isUuid</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#afcb398bc05144d57d6f08d255c97cdfc">isMap</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a874d4d49a551d678613c8b9e2fb8c0d7">asUint</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00558.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a4fd3c2f8c1b6d68a134c76f8fff5f33f">asInt</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a23e7072dcb99a9b2682f76ad69d861fd">asUint64</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a468f81b8979fc3b32fc772750b6b4c89">asInt64</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a2eafe1e4128bb78479b9d95c3910873b">asString</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a744d937a96d917abafdd6ec8a4a189a8">asBool</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a161a0c2d67cad814c15be85e44aa9ec4">asFloat</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a67f68742e28b98b6cdb6f143c4d85ad1">asDouble</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00376.html">framing::Uuid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#acf60f0d7259ca235c9cb312a5660510d">asUuid</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00125.html">framing::FieldTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00380.html#a7ff3e3a3cdea1b6bc589efbaa7d1ddd6">asMap</a> () const </td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a114de9c80d141bbef1e880e9c98aecd8"></a><!-- doxytag: member="qpid::client::MessageReplayTracker::ReplayRecord::ReplayRecord" ref="a114de9c80d141bbef1e880e9c98aecd8" args="(const Message &amp;message, const std::string &amp;destination)" -->
+<hr/><h2>Member Typedef Documentation</h2>
+<a class="anchor" id="a9834997d76e11574c7779190c0e0a796"></a><!-- doxytag: member="qpid::console::RefValue::Ptr" ref="a9834997d76e11574c7779190c0e0a796" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::client::MessageReplayTracker::ReplayRecord::ReplayRecord </td>
+          <td class="memname">typedef boost::shared_ptr&lt;<a class="el" href="a00380.html">Value</a>&gt; <a class="el" href="a00380.html#a9834997d76e11574c7779190c0e0a796">qpid::console::Value::Ptr</a><code> [inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00042">42</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a94ddd301a6ef2d7646d3ed4ec8163181"></a><!-- doxytag: member="qpid::console::RefValue::RefValue" ref="a94ddd301a6ef2d7646d3ed4ec8163181" args="(ObjectId v)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::console::RefValue::RefValue </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00206.html">Message</a> &amp;&#160;</td>
-          <td class="paramname"><em>message</em>, </td>
+          <td class="paramtype"><a class="el" href="a00237.html">ObjectId</a>&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td><code> [inline]</code></td>
         </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00086">86</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0dd4729149d989f0674cd20d4ffdd1e1"></a><!-- doxytag: member="qpid::console::RefValue::RefValue" ref="a0dd4729149d989f0674cd20d4ffdd1e1" args="(framing::Buffer &amp;buffer)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
         <tr>
-          <td class="paramkey"></td>
+          <td class="memname">qpid::console::RefValue::RefValue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00045.html">framing::Buffer</a> &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>destination</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div>
@@ -118,87 +165,486 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a0406b655819a390448e6ed6a4ea5b268"></a><!-- doxytag: member="qpid::client::MessageReplayTracker::ReplayRecord::isComplete" ref="a0406b655819a390448e6ed6a4ea5b268" args="()" -->
+<a class="anchor" id="a744d937a96d917abafdd6ec8a4a189a8"></a><!-- doxytag: member="qpid::console::RefValue::asBool" ref="a744d937a96d917abafdd6ec8a4a189a8" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool qpid::client::MessageReplayTracker::ReplayRecord::isComplete </td>
+          <td class="memname">virtual bool qpid::console::Value::asBool </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Reimplemented in <a class="el" href="a00041.html#ae0550b477c32765cd431b6d4a7bb3fe1">qpid::console::BoolValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00065">65</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a88ffc4aa7d28f267cb00607c1ae1c070"></a><!-- doxytag: member="qpid::client::MessageReplayTracker::ReplayRecord::send" ref="a88ffc4aa7d28f267cb00607c1ae1c070" args="(MessageReplayTracker &amp;)" -->
+<a class="anchor" id="a67f68742e28b98b6cdb6f143c4d85ad1"></a><!-- doxytag: member="qpid::console::RefValue::asDouble" ref="a67f68742e28b98b6cdb6f143c4d85ad1" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::client::MessageReplayTracker::ReplayRecord::send </td>
+          <td class="memname">virtual double qpid::console::Value::asDouble </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00211.html">MessageReplayTracker</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
+<p>Reimplemented in <a class="el" href="a00102.html#a33fb37acc586b174fb4576ca6afc7733">qpid::console::DoubleValue</a>, and <a class="el" href="a00133.html#a0becfd9a1607b016573166c315abf063">qpid::console::FloatValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00067">67</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
 </div>
 </div>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a2e3cb37596ab33a5a9d94222d3b27ab6"></a><!-- doxytag: member="qpid::client::MessageReplayTracker::ReplayRecord::destination" ref="a2e3cb37596ab33a5a9d94222d3b27ab6" args="" -->
+<a class="anchor" id="a161a0c2d67cad814c15be85e44aa9ec4"></a><!-- doxytag: member="qpid::console::RefValue::asFloat" ref="a161a0c2d67cad814c15be85e44aa9ec4" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> <a class="el" href="a00275.html#a2e3cb37596ab33a5a9d94222d3b27ab6">qpid::client::MessageReplayTracker::ReplayRecord::destination</a></td>
+          <td class="memname">virtual float qpid::console::Value::asFloat </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00472_source.html#l00059">59</a> of file <a class="el" href="a00472_source.html">MessageReplayTracker.h</a>.</p>
+<p>Reimplemented in <a class="el" href="a00133.html#a4cec764b74ea0fe0c8c283e0de335d65">qpid::console::FloatValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00066">66</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="aa5ca9e04c64f4a8d6ae840234d446238"></a><!-- doxytag: member="qpid::client::MessageReplayTracker::ReplayRecord::message" ref="aa5ca9e04c64f4a8d6ae840234d446238" args="" -->
+<a class="anchor" id="a4fd3c2f8c1b6d68a134c76f8fff5f33f"></a><!-- doxytag: member="qpid::console::RefValue::asInt" ref="a4fd3c2f8c1b6d68a134c76f8fff5f33f" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00206.html">Message</a> <a class="el" href="a00275.html#aa5ca9e04c64f4a8d6ae840234d446238">qpid::client::MessageReplayTracker::ReplayRecord::message</a></td>
+          <td class="memname">virtual <a class="el" href="a00558.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a> qpid::console::Value::asInt </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00472_source.html#l00058">58</a> of file <a class="el" href="a00472_source.html">MessageReplayTracker.h</a>.</p>
+<p>Reimplemented in <a class="el" href="a00160.html#a6c42cfb70efa41ebc7cc07e44463c230">qpid::console::IntValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00061">61</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ad80983e6b29c2984a1ec7ce8ac90ba16"></a><!-- doxytag: member="qpid::client::MessageReplayTracker::ReplayRecord::status" ref="ad80983e6b29c2984a1ec7ce8ac90ba16" args="" -->
+<a class="anchor" id="a468f81b8979fc3b32fc772750b6b4c89"></a><!-- doxytag: member="qpid::console::RefValue::asInt64" ref="a468f81b8979fc3b32fc772750b6b4c89" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00054.html">Completion</a> <a class="el" href="a00275.html#ad80983e6b29c2984a1ec7ce8ac90ba16">qpid::client::MessageReplayTracker::ReplayRecord::status</a></td>
+          <td class="memname">virtual int64_t qpid::console::Value::asInt64 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00472_source.html#l00057">57</a> of file <a class="el" href="a00472_source.html">MessageReplayTracker.h</a>.</p>
+<p>Reimplemented in <a class="el" href="a00154.html#a816612ae4f33c1b1503384a43015f9ef">qpid::console::Int64Value</a>, and <a class="el" href="a00160.html#afea688c9d24d043c213e7ec622d8c047">qpid::console::IntValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00063">63</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/client/<a class="el" href="a00472_source.html">MessageReplayTracker.h</a></li>
+<a class="anchor" id="a7ff3e3a3cdea1b6bc589efbaa7d1ddd6"></a><!-- doxytag: member="qpid::console::RefValue::asMap" ref="a7ff3e3a3cdea1b6bc589efbaa7d1ddd6" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00125.html">framing::FieldTable</a> qpid::console::Value::asMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00205.html#af2f5bb26dc660191547705f95d7d1fb2">qpid::console::MapValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00069">69</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0deba5c1803187cc3aa5d3340a5c2c31"></a><!-- doxytag: member="qpid::console::RefValue::asObjectId" ref="a0deba5c1803187cc3aa5d3340a5c2c31" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00237.html">ObjectId</a> qpid::console::RefValue::asObjectId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="a00380.html#acb9c8c74e7dd391d466ec2219c8ea98f">qpid::console::Value</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00090">90</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2eafe1e4128bb78479b9d95c3910873b"></a><!-- doxytag: member="qpid::console::RefValue::asString" ref="a2eafe1e4128bb78479b9d95c3910873b" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00346.html">std::string</a> qpid::console::Value::asString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00348.html#a6e144a857c8c7fe42014250bc4a7b882">qpid::console::StringValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00064">64</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a874d4d49a551d678613c8b9e2fb8c0d7"></a><!-- doxytag: member="qpid::console::RefValue::asUint" ref="a874d4d49a551d678613c8b9e2fb8c0d7" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::console::Value::asUint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00365.html#ada358712505c28447b9fea050a7ba1a2">qpid::console::UintValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00060">60</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a23e7072dcb99a9b2682f76ad69d861fd"></a><!-- doxytag: member="qpid::console::RefValue::asUint64" ref="a23e7072dcb99a9b2682f76ad69d861fd" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual uint64_t qpid::console::Value::asUint64 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00364.html#ac2b518036a7c9d8e5609d4b80a36f482">qpid::console::Uint64Value</a>, and <a class="el" href="a00365.html#a37e7ab62994ec5d0db671e985c61293e">qpid::console::UintValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00062">62</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="acf60f0d7259ca235c9cb312a5660510d"></a><!-- doxytag: member="qpid::console::RefValue::asUuid" ref="acf60f0d7259ca235c9cb312a5660510d" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00376.html">framing::Uuid</a> qpid::console::Value::asUuid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00377.html#a56827e0afe9c3fd377ccf9f7345ce3f2">qpid::console::UuidValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00068">68</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a97e36a7fd1b29b0396568d14cf1142cf"></a><!-- doxytag: member="qpid::console::RefValue::isBool" ref="a97e36a7fd1b29b0396568d14cf1142cf" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool qpid::console::Value::isBool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00041.html#aa72d48b0a6f5d0595d3c63f6b40e50b9">qpid::console::BoolValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00053">53</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a20be729fbff090709185a0624195ac17"></a><!-- doxytag: member="qpid::console::RefValue::isDouble" ref="a20be729fbff090709185a0624195ac17" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool qpid::console::Value::isDouble </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00102.html#a6246459b45a4e9b54efa145a2acbdbc0">qpid::console::DoubleValue</a>, and <a class="el" href="a00133.html#a31cc60b274420114aae0d9e979f54357">qpid::console::FloatValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00055">55</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0e5f70fa8e3413647d164661aac5e7b9"></a><!-- doxytag: member="qpid::console::RefValue::isFloat" ref="a0e5f70fa8e3413647d164661aac5e7b9" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool qpid::console::Value::isFloat </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00133.html#a487146f4898449feffaf80c4120854e9">qpid::console::FloatValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00054">54</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a19d79a0d80f6f62ee63fda0d3330a0a2"></a><!-- doxytag: member="qpid::console::RefValue::isInt" ref="a19d79a0d80f6f62ee63fda0d3330a0a2" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool qpid::console::Value::isInt </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00160.html#aca4420853254a6e70b3e40ff9d820cfd">qpid::console::IntValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00049">49</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aefb7c121c29a173cdff8a07e661d12ab"></a><!-- doxytag: member="qpid::console::RefValue::isInt64" ref="aefb7c121c29a173cdff8a07e661d12ab" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool qpid::console::Value::isInt64 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00154.html#a7a1a4906a4ef0eaba51a68a6843f8e4e">qpid::console::Int64Value</a>, and <a class="el" href="a00160.html#a01b358e2fe0d862eae4c7aad95967678">qpid::console::IntValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00051">51</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afcb398bc05144d57d6f08d255c97cdfc"></a><!-- doxytag: member="qpid::console::RefValue::isMap" ref="afcb398bc05144d57d6f08d255c97cdfc" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool qpid::console::Value::isMap </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00205.html#a25c3458959c9f896d67424e5242d4dc9">qpid::console::MapValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00057">57</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1c7dd830d702a8faebafeb0053634961"></a><!-- doxytag: member="qpid::console::RefValue::isNull" ref="a1c7dd830d702a8faebafeb0053634961" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool qpid::console::Value::isNull </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00233.html#a36431c2ba06e4ff808c777b8f15c21e6">qpid::console::NullValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00046">46</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a82db116f2799ed0e43d25aafbe7f381e"></a><!-- doxytag: member="qpid::console::RefValue::isObjectId" ref="a82db116f2799ed0e43d25aafbe7f381e" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool qpid::console::RefValue::isObjectId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented from <a class="el" href="a00380.html#a8dd1f2237d651448e2dfa1d939d8c80e">qpid::console::Value</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00089">89</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8128b817aa583bef3f1b7b0f6b74ead6"></a><!-- doxytag: member="qpid::console::RefValue::isString" ref="a8128b817aa583bef3f1b7b0f6b74ead6" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool qpid::console::Value::isString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00348.html#af4ea64a1b4eb93ea6bfaaa22dc55d9d7">qpid::console::StringValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00052">52</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab2f09e977bd08bb17a4b05acc0ff5a1b"></a><!-- doxytag: member="qpid::console::RefValue::isUint" ref="ab2f09e977bd08bb17a4b05acc0ff5a1b" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool qpid::console::Value::isUint </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00365.html#a9ccec9566cb62eaba2d08dc3ef98e0a1">qpid::console::UintValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00048">48</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a972d7eafb3de1b63a22bf9a7623381c4"></a><!-- doxytag: member="qpid::console::RefValue::isUint64" ref="a972d7eafb3de1b63a22bf9a7623381c4" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool qpid::console::Value::isUint64 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00364.html#ad76f4a6a7c641d89d13938a7b1552d60">qpid::console::Uint64Value</a>, and <a class="el" href="a00365.html#a829532251c77ae0076eb79ebfdb4e13a">qpid::console::UintValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00050">50</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6a6aa6acd0868843bdbc826d288e28f9"></a><!-- doxytag: member="qpid::console::RefValue::isUuid" ref="a6a6aa6acd0868843bdbc826d288e28f9" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool qpid::console::Value::isUuid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, virtual, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="a00377.html#a9c4e432a8dca93135c0d7596701b4c77">qpid::console::UuidValue</a>.</p>
+
+<p>Definition at line <a class="el" href="a00436_source.html#l00056">56</a> of file <a class="el" href="a00436_source.html">Value.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a015307d6a3b7c5292091aad6332f67af"></a><!-- doxytag: member="qpid::console::RefValue::str" ref="a015307d6a3b7c5292091aad6332f67af" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::console::RefValue::str </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Implements <a class="el" href="a00380.html#ac6c8c3b7e148879b8ce210bf16f84897">qpid::console::Value</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qpid/console/<a class="el" href="a00436_source.html">Value.h</a></li>
 </ul>
 </div>
 <!--
@@ -228,7 +674,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

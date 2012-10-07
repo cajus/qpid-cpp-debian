@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ClusterTimerWakeupBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ClusterTimerWakeupBody::setName(const std::string& _name) {
     name = _name;
     flags |= (1 << 8);
+    if (name.size() >= 65536) throw IllegalArgumentException("Value for name is too large");
 }
 const std::string& ClusterTimerWakeupBody::getName() const { return name; }
 bool ClusterTimerWakeupBody::hasName() const { return flags & (1 << 8); }

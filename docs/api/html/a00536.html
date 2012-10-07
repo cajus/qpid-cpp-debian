@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/management/Manageable.h File Reference</title>
+    <title>qpid/log/Statement.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,28 +60,420 @@
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#define-members">Defines</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/management/Manageable.h File Reference</div>  </div>
+<div class="title">qpid/log/Statement.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00538_source.html">qpid/management/ManagementObject.h</a>&quot;</code><br/>
-<code>#include &quot;<a class="el" href="a00535_source.html">qpid/management/Args.h</a>&quot;</code><br/>
-<code>#include &lt;string&gt;</code><br/>
-<code>#include &quot;<a class="el" href="a00482_source.html">qpid/CommonImportExport.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00549_source.html">qpid/Msg.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00484_source.html">qpid/CommonImportExport.h</a>&quot;</code><br/>
+<code>#include &lt;boost/current_function.hpp&gt;</code><br/>
+<code>#include &lt;list&gt;</code><br/>
 </div>
 <p><a href="a00536_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00197.html">qpid::management::Manageable</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00188.html">qpid::log::LevelTraits</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00049.html">qpid::log::CategoryTraits</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html">qpid::log::CategoryFileNameHints</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00341.html">qpid::log::Statement</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">POD struct representing a logging statement in source code.  <a href="a00341.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html">qpid::log::Statement::Initializer</a></td></tr>
 <tr><td colspan="2"><h2><a name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00574.html">qpid</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
 <br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00590.html">qpid::management</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html">qpid::log</a></td></tr>
+<tr><td colspan="2"><h2><a name="define-members"></a>
+Defines</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#a6585b7a6e0ee5faaca6750a55db0a17c">QPID_LOG_STATEMENT_INIT_CAT</a>(LEVEL, CATEGORY)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#a1ba4e126ad2a7fe8e4935cee3ddd61fe">QPID_LOG_STATEMENT_INIT</a>(LEVEL)&#160;&#160;&#160;QPID_LOG_STATEMENT_INIT_CAT ( LEVEL , unspecified )</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#a38824641a781842d2b17baf27faf91e9">QPID_LOG_IF</a>(LEVEL, TEST, MESSAGE)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Like QPID_LOG but computes an additional boolean test expression to determine if the message should be logged.  <a href="#a38824641a781842d2b17baf27faf91e9"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#a316192d90b22c31e8a7c4a17dcc6c4a0">QPID_LOG_IF_CAT</a>(LEVEL, CATEGORY, TEST, MESSAGE)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Line QPID_LOG_IF but with the additional specification of a category.  <a href="#a316192d90b22c31e8a7c4a17dcc6c4a0"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#ad7c54d4c5531f99e00df4011e36e12ec">QPID_LOG_TEST</a>(LEVEL, FLAG)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">FLAG must be a boolean variable.  <a href="#ad7c54d4c5531f99e00df4011e36e12ec"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#ab0e49e0ed7698d841eb1a89f1a881e69">QPID_LOG_TEST_CAT</a>(LEVEL, CATEGORY, FLAG)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">FLAG must be a boolean variable.  <a href="#ab0e49e0ed7698d841eb1a89f1a881e69"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#aaea824f90880b957ef12b97c7f3573ce">QPID_LOG</a>(LEVEL, MESSAGE)&#160;&#160;&#160;QPID_LOG_IF(LEVEL, true, MESSAGE);</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for log statements.  <a href="#aaea824f90880b957ef12b97c7f3573ce"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00536.html#aff73d82dd45c4fe23e5e01b79e7e20ac">QPID_LOG_CAT</a>(LEVEL, CATEGORY, MESSAGE)&#160;&#160;&#160;QPID_LOG_IF_CAT(LEVEL, CATEGORY, true, MESSAGE);</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for log statements.  <a href="#aff73d82dd45c4fe23e5e01b79e7e20ac"></a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e">qpid::log::Level</a> { <br/>
+&#160;&#160;<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587ead112aed39622ff72d2129fbe9011e807">qpid::log::trace</a>, 
+<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587eaed32fb0ecec461827baa7352bcc5742e">qpid::log::debug</a>, 
+<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587eacea94907e695feb2e619d0985a98990f">qpid::log::info</a>, 
+<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587ea2d9db56e94bfa85cd3d10389ff32ba14">qpid::log::notice</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587ea9fbc1fd8e080b35db485d0a7b5894a05">qpid::log::warning</a>, 
+<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587ea3b827b7f174d3318795eaab4e3a3616a">qpid::log::error</a>, 
+<a class="el" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587ea08e0eee29ce0eadc035a2e5605f58ef5">qpid::log::critical</a>
+<br/>
+ }</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Debugging severity levels.  <a href="a00591.html#aa048da8f9d1639c5a9195578b0e8587e">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fc">qpid::log::Category</a> { <br/>
+&#160;&#160;<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fcae178f006c123abd595a0936a1fe3d09b">qpid::log::security</a>, 
+<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca8faf76d40e06af2f7012e9cd2850e0bb">qpid::log::broker</a>, 
+<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca819da084b6e5d2f6fea2e9189ad658ea">qpid::log::management</a>, 
+<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca177a9899d8b00c4cbed51f1c612f5651">qpid::log::protocol</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca6c6fa4531e385d8e435af55ec2ab4350">qpid::log::system</a>, 
+<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca485f645db57c07b82b0e414a389692c1">qpid::log::ha</a>, 
+<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca48b7b5226fcc703289171143d344185b">qpid::log::messaging</a>, 
+<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fcac67e94ac216ac9328142f541818fbbd4">qpid::log::store</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fcae727984ff558ca628e5fd2d263694dd0">qpid::log::network</a>, 
+<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca859ee4e52a3eeeaf476fc42460a98d3c">qpid::log::test</a>, 
+<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca8a6e04ce91f4d365de37ccc1a4ef0dc9">qpid::log::client</a>, 
+<a class="el" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca7e130c3b115904ad93112b145ff52a99">qpid::log::unspecified</a>
+<br/>
+ }</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Formal message categories <a href="https://issues.apache.org/jira/browse/QPID-3902.">https://issues.apache.org/jira/browse/QPID-3902.</a>  <a href="a00591.html#a7473d5e4c024e60ca78700d1019370fc">More...</a><br/></td></tr>
 </table>
+<hr/><h2>Define Documentation</h2>
+<a class="anchor" id="aaea824f90880b957ef12b97c7f3573ce"></a><!-- doxytag: member="Statement.h::QPID_LOG" ref="aaea824f90880b957ef12b97c7f3573ce" args="(LEVEL, MESSAGE)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define QPID_LOG</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">LEVEL, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">MESSAGE&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;QPID_LOG_IF(LEVEL, true, MESSAGE);</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Macro for log statements. </p>
+<p>Example of use: </p>
+<div class="fragment"><pre class="fragment"> <a class="code" href="a00536.html#aaea824f90880b957ef12b97c7f3573ce" title="Macro for log statements.">QPID_LOG</a>(<a class="code" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587eaed32fb0ecec461827baa7352bcc5742e">debug</a>, <span class="stringliteral">&quot;There are &quot;</span> &lt;&lt; foocount &lt;&lt; <span class="stringliteral">&quot; foos in the bar.&quot;</span>);
+ <a class="code" href="a00536.html#aaea824f90880b957ef12b97c7f3573ce" title="Macro for log statements.">QPID_LOG</a>(<a class="code" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587ea3b827b7f174d3318795eaab4e3a3616a">error</a>, boost::format(<span class="stringliteral">&quot;Dohickey %s exploded&quot;</span>) % dohicky.name());
+</pre></div><p> Using QPID_LOG implies a category of Unspecified.</p>
+<p>You can subscribe to log messages by level, by component, by filename or a combination </p>
+<dl class="see"><dt><b>See also:</b></dt><dd>Configuration.</dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">LEVEL</td><td>severity Level for message, should be one of: debug, info, notice, warning, error, critical. NB no <a class="el" href="a00591.html">qpid::log</a>:: prefix. </td></tr>
+    <tr><td class="paramname">MESSAGE</td><td>any object with an  operator&lt;&lt;, or a sequence like of ostreamable objects separated by <em></em> &lt;&lt;. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00536_source.html#l00273">273</a> of file <a class="el" href="a00536_source.html">Statement.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aff73d82dd45c4fe23e5e01b79e7e20ac"></a><!-- doxytag: member="Statement.h::QPID_LOG_CAT" ref="aff73d82dd45c4fe23e5e01b79e7e20ac" args="(LEVEL, CATEGORY, MESSAGE)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define QPID_LOG_CAT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">LEVEL, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">CATEGORY, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">MESSAGE&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;QPID_LOG_IF_CAT(LEVEL, CATEGORY, true, MESSAGE);</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Macro for log statements. </p>
+<p>Example of use: </p>
+<div class="fragment"><pre class="fragment"> <a class="code" href="a00536.html#aff73d82dd45c4fe23e5e01b79e7e20ac" title="Macro for log statements.">QPID_LOG_CAT</a>(<a class="code" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587eaed32fb0ecec461827baa7352bcc5742e">debug</a>, System, <span class="stringliteral">&quot;There are &quot;</span> &lt;&lt; foocount &lt;&lt; <span class="stringliteral">&quot; foos in the bar.&quot;</span>);
+ <a class="code" href="a00536.html#aff73d82dd45c4fe23e5e01b79e7e20ac" title="Macro for log statements.">QPID_LOG_CAT</a>(<a class="code" href="a00591.html#aa048da8f9d1639c5a9195578b0e8587ea3b827b7f174d3318795eaab4e3a3616a">error</a>, System, boost::format(<span class="stringliteral">&quot;Dohickey %s exploded&quot;</span>) % dohicky.name());
+</pre></div><p> Using QPID_LOG_CAT requires the specification of a category.</p>
+<p>You can subscribe to log messages by level, by component, by filename or a combination </p>
+<dl class="see"><dt><b>See also:</b></dt><dd>Configuration.</dd></dl>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">LEVEL</td><td>severity Level for message, should be one of: debug, info, notice, warning, error, critical. NB no <a class="el" href="a00591.html">qpid::log</a>:: prefix. </td></tr>
+    <tr><td class="paramname">CATEGORY</td><td>basic Category for the message. </td></tr>
+    <tr><td class="paramname">MESSAGE</td><td>any object with an  operator&lt;&lt;, or a sequence like of ostreamable objects separated by <em></em> &lt;&lt;. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00536_source.html#l00292">292</a> of file <a class="el" href="a00536_source.html">Statement.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a38824641a781842d2b17baf27faf91e9"></a><!-- doxytag: member="Statement.h::QPID_LOG_IF" ref="a38824641a781842d2b17baf27faf91e9" args="(LEVEL, TEST, MESSAGE)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define QPID_LOG_IF</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">LEVEL, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TEST, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">MESSAGE&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Value:</b><div class="fragment"><pre class="fragment"><span class="keywordflow">do</span> {                                                        \
+        using ::qpid::log::Statement;                           \
+        static Statement stmt_= <a class="code" href="a00536.html#a1ba4e126ad2a7fe8e4935cee3ddd61fe">QPID_LOG_STATEMENT_INIT</a>(LEVEL); \
+        static Statement::Initializer init_(stmt_);             \
+        if (stmt_.enabled &amp;&amp; (TEST))                            \
+            stmt_.log(::<a class="code" href="a00218.html" title="A simple wrapper for std::ostringstream that allows in place construction of a message and automatic ...">qpid::Msg</a>() &lt;&lt; MESSAGE);                \
+    } <span class="keywordflow">while</span>(0)
+</pre></div>
+<p>Like QPID_LOG but computes an additional boolean test expression to determine if the message should be logged. </p>
+<p>Evaluation of both the test and message expressions occurs only if the requested log level is enabled. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">LEVEL</td><td>severity Level for message, should be one of: debug, info, notice, warning, error, critical. NB no <a class="el" href="a00591.html">qpid::log</a>:: prefix. </td></tr>
+    <tr><td class="paramname">TEST</td><td>message is logged only if expression TEST evaluates to true. </td></tr>
+    <tr><td class="paramname">MESSAGE</td><td>any object with an  operator&lt;&lt;, or a sequence like of ostreamable objects separated by <em></em> &lt;&lt;. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00536_source.html#l00199">199</a> of file <a class="el" href="a00536_source.html">Statement.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a316192d90b22c31e8a7c4a17dcc6c4a0"></a><!-- doxytag: member="Statement.h::QPID_LOG_IF_CAT" ref="a316192d90b22c31e8a7c4a17dcc6c4a0" args="(LEVEL, CATEGORY, TEST, MESSAGE)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define QPID_LOG_IF_CAT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">LEVEL, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">CATEGORY, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">TEST, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">MESSAGE&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Value:</b><div class="fragment"><pre class="fragment"><span class="keywordflow">do</span> {                                                        \
+        using ::qpid::log::Statement;                           \
+        static Statement stmt_= <a class="code" href="a00536.html#a6585b7a6e0ee5faaca6750a55db0a17c">QPID_LOG_STATEMENT_INIT_CAT</a>(LEVEL, CATEGORY); \
+        static Statement::Initializer init_(stmt_);             \
+        if (stmt_.enabled &amp;&amp; (TEST))                            \
+            stmt_.log(::<a class="code" href="a00218.html" title="A simple wrapper for std::ostringstream that allows in place construction of a message and automatic ...">qpid::Msg</a>() &lt;&lt; MESSAGE);                \
+    } <span class="keywordflow">while</span>(0)
+</pre></div>
+<p>Line QPID_LOG_IF but with the additional specification of a category. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">CATEGORY</td><td>message category. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00536_source.html#l00212">212</a> of file <a class="el" href="a00536_source.html">Statement.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1ba4e126ad2a7fe8e4935cee3ddd61fe"></a><!-- doxytag: member="Statement.h::QPID_LOG_STATEMENT_INIT" ref="a1ba4e126ad2a7fe8e4935cee3ddd61fe" args="(LEVEL)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define QPID_LOG_STATEMENT_INIT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">LEVEL</td><td>)</td>
+          <td>&#160;&#160;&#160;QPID_LOG_STATEMENT_INIT_CAT ( LEVEL , unspecified )</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00536_source.html#l00185">185</a> of file <a class="el" href="a00536_source.html">Statement.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a6585b7a6e0ee5faaca6750a55db0a17c"></a><!-- doxytag: member="Statement.h::QPID_LOG_STATEMENT_INIT_CAT" ref="a6585b7a6e0ee5faaca6750a55db0a17c" args="(LEVEL, CATEGORY)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define QPID_LOG_STATEMENT_INIT_CAT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">LEVEL, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">CATEGORY&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Value:</b><div class="fragment"><pre class="fragment">{ 0, __FILE__, __LINE__,  BOOST_CURRENT_FUNCTION, (::qpid::log::LEVEL), \
+(::qpid::log::CATEGORY) }
+</pre></div>
+<p>Definition at line <a class="el" href="a00536_source.html#l00179">179</a> of file <a class="el" href="a00536_source.html">Statement.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad7c54d4c5531f99e00df4011e36e12ec"></a><!-- doxytag: member="Statement.h::QPID_LOG_TEST" ref="ad7c54d4c5531f99e00df4011e36e12ec" args="(LEVEL, FLAG)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define QPID_LOG_TEST</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">LEVEL, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">FLAG&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Value:</b><div class="fragment"><pre class="fragment"><span class="keywordflow">do</span> {                                                        \
+        using ::qpid::log::Statement;                           \
+        static Statement stmt_= <a class="code" href="a00536.html#a1ba4e126ad2a7fe8e4935cee3ddd61fe">QPID_LOG_STATEMENT_INIT</a>(LEVEL); \
+        static Statement::Initializer init_(stmt_);             \
+        FLAG = stmt_.enabled;                                   \
+    } <span class="keywordflow">while</span>(0)
+</pre></div>
+<p>FLAG must be a boolean variable. </p>
+<p>Assigns FLAG to true iff logging is enabled for LEVEL in the calling context. Use when extra support code is needed to generate log messages, to ensure that it is only run if the logging level is enabled. e.g. bool logWarning; <a class="el" href="a00536.html#ad7c54d4c5531f99e00df4011e36e12ec" title="FLAG must be a boolean variable.">QPID_LOG_TEST(warning, logWarning)</a>; if (logWarning) { do stuff needed for warning log messages } </p>
+
+<p>Definition at line <a class="el" href="a00536_source.html#l00231">231</a> of file <a class="el" href="a00536_source.html">Statement.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab0e49e0ed7698d841eb1a89f1a881e69"></a><!-- doxytag: member="Statement.h::QPID_LOG_TEST_CAT" ref="ab0e49e0ed7698d841eb1a89f1a881e69" args="(LEVEL, CATEGORY, FLAG)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define QPID_LOG_TEST_CAT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">LEVEL, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">CATEGORY, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">FLAG&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<b>Value:</b><div class="fragment"><pre class="fragment"><span class="keywordflow">do</span> {                                                        \
+        using ::qpid::log::Statement;                           \
+        static Statement stmt_= <a class="code" href="a00536.html#a6585b7a6e0ee5faaca6750a55db0a17c">QPID_LOG_STATEMENT_INIT_CAT</a>(LEVEL, CATEGORY); \
+        static Statement::Initializer init_(stmt_);             \
+        FLAG = stmt_.enabled;                                   \
+    } <span class="keywordflow">while</span>(0)
+</pre></div>
+<p>FLAG must be a boolean variable. </p>
+<p>Assigns FLAG to true iff logging is enabled for LEVEL in the calling context. Use when extra support code is needed to generate log messages, to ensure that it is only run if the logging level is enabled. e.g. bool logWarning; <a class="el" href="a00536.html#ab0e49e0ed7698d841eb1a89f1a881e69" title="FLAG must be a boolean variable.">QPID_LOG_TEST_CAT(warning, System, logWarning)</a>; if (logWarning) { do stuff needed for warning log messages } </p>
+
+<p>Definition at line <a class="el" href="a00536_source.html#l00249">249</a> of file <a class="el" href="a00536_source.html">Statement.h</a>.</p>
+
+</div>
+</div>
 </div>
 <!--
  
@@ -110,7 +502,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

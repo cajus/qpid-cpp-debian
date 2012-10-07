@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::Options::Exception Struct Reference</title>
+    <title>qpid::console::Event Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,63 +60,142 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00240.html">Options</a>      </li>
-      <li class="navelem"><a class="el" href="a00111.html">Exception</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00581.html">console</a>      </li>
+      <li class="navelem"><a class="el" href="a00111.html">Event</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::Options::Exception Struct Reference</div>  </div>
+<div class="title">qpid::console::Event Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::Options::Exception" --><!-- doxytag: inherits="qpid::Exception" -->
-<p><code>#include &lt;<a class="el" href="a00531_source.html">qpid/Options.h</a>&gt;</code></p>
+<!-- doxytag: class="qpid::console::Event" -->
+<p><code>#include &lt;<a class="el" href="a00419_source.html">qpid/console/Event.h</a>&gt;</code></p>
 
-<p><a href="a00666.html">List of all members.</a></p>
+<p><a href="a00712.html">List of all members.</a></p>
 <table class="memberdecls">
+<tr><td colspan="2"><h2><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a0d85a7c5f2d84067518884aacf9cae80">Severity</a> { <br/>
+&#160;&#160;<a class="el" href="a00111.html#a0d85a7c5f2d84067518884aacf9cae80a99c2c37d8597a4654ff81cd4ccb377be">SEV_EMERGENCY</a> =  0, 
+<a class="el" href="a00111.html#a0d85a7c5f2d84067518884aacf9cae80a1fbc70da45b0bbfbbb42cbc5b6851b2f">SEV_ALERT</a> =  1, 
+<a class="el" href="a00111.html#a0d85a7c5f2d84067518884aacf9cae80a5642210b43b50f273a8c9b1387387bc5">SEV_CRITICAL</a> =  2, 
+<a class="el" href="a00111.html#a0d85a7c5f2d84067518884aacf9cae80ac847bbd5d074c9ef5edb1a740198c7a7">SEV_ERROR</a> =  3, 
+<br/>
+&#160;&#160;<a class="el" href="a00111.html#a0d85a7c5f2d84067518884aacf9cae80a81642a68cd9f991512ca7f8ad7d251b3">SEV_WARNING</a> =  4, 
+<a class="el" href="a00111.html#a0d85a7c5f2d84067518884aacf9cae80a6e092a75ee3cc4f774bf171bf12f68fa">SEV_NOTICE</a> =  5, 
+<a class="el" href="a00111.html#a0d85a7c5f2d84067518884aacf9cae80a2b0e45f048dab61764f06b5df5639a15">SEV_INFO</a> =  6, 
+<a class="el" href="a00111.html#a0d85a7c5f2d84067518884aacf9cae80a18556efbceb8404eb8a9dc076da6ac52">SEV_DEBUG</a> =  7
+<br/>
+ }</td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a1425dcadeb34356581709b69b9bbf447">Exception</a> (const <a class="el" href="a00345.html">std::string</a> &amp;msg)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00114.html#a1319c2877b78e71fb5ded050298be31a">what</a> () const   throw ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00114.html#a5fd1b7dd26ec0e2742c54b2b7da6c6b0">getMessage</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00114.html#a8680803b228ba1036624fd5cee183d36">getPrefix</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#ab5226243d3ef7339fa6b7376723c875e">Event</a> (<a class="el" href="a00042.html">Broker</a> *broker, <a class="el" href="a00300.html">SchemaClass</a> *schemaClass, <a class="el" href="a00045.html">framing::Buffer</a> &amp;buffer)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00042.html">Broker</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#aa1d731aa3af84caa57f8f9bcfad4a4ef">getBroker</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00051.html">ClassKey</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#abf6f472a6016208ffc88853a714f1b95">getClassKey</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00300.html">SchemaClass</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a9dbb1b92a77268d742b409067896c299">getSchema</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00021.html">Object::AttributeMap</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a8742085619ded8589fa4f2128d423f5c">getAttributes</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a3e1610197a42dd5205abc05ae60fe526">getTimestamp</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a533ee53564af7bc04209c15058b5dcf3">getSeverity</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a684534e3a60d6d451b7a1b3a1a6ff37d">getSeverityString</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00237.html">ObjectId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a686700d121b4103426c686551f684fc2">attrRef</a> (const <a class="el" href="a00346.html">std::string</a> &amp;key) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#ab5b1d75b3b4d9274b99d9962f878e5e8">attrUint</a> (const <a class="el" href="a00346.html">std::string</a> &amp;key) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#afe98849bb40b08979ca843a484b51586">attrInt</a> (const <a class="el" href="a00346.html">std::string</a> &amp;key) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a8b8011e29e4d6a0aba19364ad815debe">attrUint64</a> (const <a class="el" href="a00346.html">std::string</a> &amp;key) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#affec044c65cd8ed1b96a7244c412987b">attrInt64</a> (const <a class="el" href="a00346.html">std::string</a> &amp;key) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a8d01ed005d08feabda15b9a966bfd90e">attrString</a> (const <a class="el" href="a00346.html">std::string</a> &amp;key) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a70ac1c6ee27ca77a50640290fcd3fc43">attrBool</a> (const <a class="el" href="a00346.html">std::string</a> &amp;key) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#aaff6901cf8c8eabd4836be013e0ed3b9">attrFloat</a> (const <a class="el" href="a00346.html">std::string</a> &amp;key) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a69c976e4eed7e04388dcab31e37915a8">attrDouble</a> (const <a class="el" href="a00346.html">std::string</a> &amp;key) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00376.html">framing::Uuid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#aa32bf1bee49c1dfb34374946a23de39a">attrUuid</a> (const <a class="el" href="a00346.html">std::string</a> &amp;key) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00125.html">framing::FieldTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00111.html#a4ffa669364e7f32f3bc5cb95338938a9">attrMap</a> (const <a class="el" href="a00346.html">std::string</a> &amp;key) const </td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a1425dcadeb34356581709b69b9bbf447"></a><!-- doxytag: member="qpid::Options::Exception::Exception" ref="a1425dcadeb34356581709b69b9bbf447" args="(const std::string &amp;msg)" -->
+<hr/><h2>Member Enumeration Documentation</h2>
+<a class="anchor" id="a0d85a7c5f2d84067518884aacf9cae80"></a><!-- doxytag: member="qpid::console::Event::Severity" ref="a0d85a7c5f2d84067518884aacf9cae80" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::Options::Exception::Exception </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>msg</em></td><td>)</td>
-          <td><code> [inline]</code></td>
+          <td class="memname">enum <a class="el" href="a00111.html#a0d85a7c5f2d84067518884aacf9cae80">qpid::console::Event::Severity</a></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
+<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="a0d85a7c5f2d84067518884aacf9cae80a99c2c37d8597a4654ff81cd4ccb377be"></a><!-- doxytag: member="SEV_EMERGENCY" ref="a0d85a7c5f2d84067518884aacf9cae80a99c2c37d8597a4654ff81cd4ccb377be" args="" -->SEV_EMERGENCY</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0d85a7c5f2d84067518884aacf9cae80a1fbc70da45b0bbfbbb42cbc5b6851b2f"></a><!-- doxytag: member="SEV_ALERT" ref="a0d85a7c5f2d84067518884aacf9cae80a1fbc70da45b0bbfbbb42cbc5b6851b2f" args="" -->SEV_ALERT</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0d85a7c5f2d84067518884aacf9cae80a5642210b43b50f273a8c9b1387387bc5"></a><!-- doxytag: member="SEV_CRITICAL" ref="a0d85a7c5f2d84067518884aacf9cae80a5642210b43b50f273a8c9b1387387bc5" args="" -->SEV_CRITICAL</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0d85a7c5f2d84067518884aacf9cae80ac847bbd5d074c9ef5edb1a740198c7a7"></a><!-- doxytag: member="SEV_ERROR" ref="a0d85a7c5f2d84067518884aacf9cae80ac847bbd5d074c9ef5edb1a740198c7a7" args="" -->SEV_ERROR</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0d85a7c5f2d84067518884aacf9cae80a81642a68cd9f991512ca7f8ad7d251b3"></a><!-- doxytag: member="SEV_WARNING" ref="a0d85a7c5f2d84067518884aacf9cae80a81642a68cd9f991512ca7f8ad7d251b3" args="" -->SEV_WARNING</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0d85a7c5f2d84067518884aacf9cae80a6e092a75ee3cc4f774bf171bf12f68fa"></a><!-- doxytag: member="SEV_NOTICE" ref="a0d85a7c5f2d84067518884aacf9cae80a6e092a75ee3cc4f774bf171bf12f68fa" args="" -->SEV_NOTICE</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0d85a7c5f2d84067518884aacf9cae80a2b0e45f048dab61764f06b5df5639a15"></a><!-- doxytag: member="SEV_INFO" ref="a0d85a7c5f2d84067518884aacf9cae80a2b0e45f048dab61764f06b5df5639a15" args="" -->SEV_INFO</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a0d85a7c5f2d84067518884aacf9cae80a18556efbceb8404eb8a9dc076da6ac52"></a><!-- doxytag: member="SEV_DEBUG" ref="a0d85a7c5f2d84067518884aacf9cae80a18556efbceb8404eb8a9dc076da6ac52" args="" -->SEV_DEBUG</em>&nbsp;</td><td>
+</td></tr>
+</table>
+</dd>
+</dl>
 
-<p>Reimplemented from <a class="el" href="a00114.html#a58d191df2878597c40c636ab9a11d889">qpid::Exception</a>.</p>
+<p>Definition at line <a class="el" href="a00419_source.html#l00045">45</a> of file <a class="el" href="a00419_source.html">Event.h</a>.</p>
 
-<p>Definition at line <a class="el" href="a00531_source.html#l00139">139</a> of file <a class="el" href="a00531_source.html">Options.h</a>.</p>
+</div>
+</div>
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ab5226243d3ef7339fa6b7376723c875e"></a><!-- doxytag: member="qpid::console::Event::Event" ref="ab5226243d3ef7339fa6b7376723c875e" args="(Broker *broker, SchemaClass *schemaClass, framing::Buffer &amp;buffer)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qpid::console::Event::Event </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00042.html">Broker</a> *&#160;</td>
+          <td class="paramname"><em>broker</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00300.html">SchemaClass</a> *&#160;</td>
+          <td class="paramname"><em>schemaClass</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00045.html">framing::Buffer</a> &amp;&#160;</td>
+          <td class="paramname"><em>buffer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="a5fd1b7dd26ec0e2742c54b2b7da6c6b0"></a><!-- doxytag: member="qpid::Options::Exception::getMessage" ref="a5fd1b7dd26ec0e2742c54b2b7da6c6b0" args="() const " -->
+<a class="anchor" id="a70ac1c6ee27ca77a50640290fcd3fc43"></a><!-- doxytag: member="qpid::console::Event::attrBool" ref="a70ac1c6ee27ca77a50640290fcd3fc43" args="(const std::string &amp;key) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a00345.html">std::string</a> qpid::Exception::getMessage </td>
+          <td class="memname">bool qpid::console::Event::attrBool </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [virtual, inherited]</code></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div>
@@ -124,33 +203,16 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a8680803b228ba1036624fd5cee183d36"></a><!-- doxytag: member="qpid::Options::Exception::getPrefix" ref="a8680803b228ba1036624fd5cee183d36" args="() const " -->
+<a class="anchor" id="a69c976e4eed7e04388dcab31e37915a8"></a><!-- doxytag: member="qpid::console::Event::attrDouble" ref="a69c976e4eed7e04388dcab31e37915a8" args="(const std::string &amp;key) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a00345.html">std::string</a> qpid::Exception::getPrefix </td>
+          <td class="memname">double qpid::console::Event::attrDouble </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [virtual, inherited]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Reimplemented in <a class="el" href="a00368.html#a2b396d56db865b062fd1971fb203ea79">qpid::framing::UnknownIdsException</a>, <a class="el" href="a00226.html#a74a6fa53c98ada3d89397b5befe23704">qpid::framing::NotAttachedException</a>, <a class="el" href="a00359.html#a0b3a8d5112a65cd06d0ba4e057df852b">qpid::framing::TransportBusyException</a>, <a class="el" href="a00329.html#a276d6be7f637e2983a0f81d1a471ce58">qpid::framing::SessionBusyException</a>, <a class="el" href="a00134.html#ad2d071fded654f988803a78f0d10c606">qpid::framing::FramingErrorException</a>, <a class="el" href="a00165.html#a4c7d1b105617c905e70b93be1d3344d5">qpid::framing::InvalidPathException</a>, <a class="el" href="a00062.html#a8908ed76d6ee75405e54a0c9ec05fdc2">qpid::framing::ConnectionForcedException</a>, <a class="el" href="a00161.html#a64a5f314238c65a88cbf40a5167802dd">qpid::framing::InvalidArgumentException</a>, <a class="el" href="a00157.html#a7abb408867ff45af4d52d98f40a7255f">qpid::framing::InternalErrorException</a>, <a class="el" href="a00230.html#a6b04f2753b351971edbb842f7b0cfab5">qpid::framing::NotImplementedException</a>, <a class="el" href="a00144.html#a3fe0033d91b8067780110c202066b117">qpid::framing::IllegalArgumentException</a>, <a class="el" href="a00225.html#adc44ba31830bd0327d1a977a24de0112">qpid::framing::NotAllowedException</a>, <a class="el" href="a00281.html#a82adefb368554e09b2e5c9432f98336e">qpid::framing::ResourceLimitExceededException</a>, <a class="el" href="a00052.html#ae0f4432e4b8a2e42e2c5808e6d3ad5d2">qpid::framing::CommandInvalidException</a>, <a class="el" href="a00145.html#a58c3f099ba425ccf96223676ad8a0f59">qpid::framing::IllegalStateException</a>, <a class="el" href="a00280.html#ac2fdd5327c3696d9ad3e2bea65cc39ee">qpid::framing::ResourceDeletedException</a>, <a class="el" href="a00253.html#a2540228a5234ec04e85a63cf6441b10a">qpid::framing::PreconditionFailedException</a>, <a class="el" href="a00050.html#ad7fc8034f1f05ac512e2e505da93e0f1">qpid::ClosedException</a>, <a class="el" href="a00282.html#a074ad096de110ad2e2f9a6e819ac1304">qpid::framing::ResourceLockedException</a>, <a class="el" href="a00228.html#a3183173cc8af2c9f13a76bedb1dec855">qpid::framing::NotFoundException</a>, and <a class="el" href="a00366.html#a3d960f4967e25321280d70daeb95e38b">qpid::framing::UnauthorizedAccessException</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a1319c2877b78e71fb5ded050298be31a"></a><!-- doxytag: member="qpid::Options::Exception::what" ref="a1319c2877b78e71fb5ded050298be31a" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual const char* qpid::Exception::what </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const  throw ()<code> [virtual, inherited]</code></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div>
@@ -158,8 +220,283 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/<a class="el" href="a00531_source.html">Options.h</a></li>
+<a class="anchor" id="aaff6901cf8c8eabd4836be013e0ed3b9"></a><!-- doxytag: member="qpid::console::Event::attrFloat" ref="aaff6901cf8c8eabd4836be013e0ed3b9" args="(const std::string &amp;key) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float qpid::console::Event::attrFloat </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afe98849bb40b08979ca843a484b51586"></a><!-- doxytag: member="qpid::console::Event::attrInt" ref="afe98849bb40b08979ca843a484b51586" args="(const std::string &amp;key) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a> qpid::console::Event::attrInt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="affec044c65cd8ed1b96a7244c412987b"></a><!-- doxytag: member="qpid::console::Event::attrInt64" ref="affec044c65cd8ed1b96a7244c412987b" args="(const std::string &amp;key) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int64_t qpid::console::Event::attrInt64 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4ffa669364e7f32f3bc5cb95338938a9"></a><!-- doxytag: member="qpid::console::Event::attrMap" ref="a4ffa669364e7f32f3bc5cb95338938a9" args="(const std::string &amp;key) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00125.html">framing::FieldTable</a> qpid::console::Event::attrMap </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a686700d121b4103426c686551f684fc2"></a><!-- doxytag: member="qpid::console::Event::attrRef" ref="a686700d121b4103426c686551f684fc2" args="(const std::string &amp;key) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00237.html">ObjectId</a> qpid::console::Event::attrRef </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8d01ed005d08feabda15b9a966bfd90e"></a><!-- doxytag: member="qpid::console::Event::attrString" ref="a8d01ed005d08feabda15b9a966bfd90e" args="(const std::string &amp;key) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::console::Event::attrString </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab5b1d75b3b4d9274b99d9962f878e5e8"></a><!-- doxytag: member="qpid::console::Event::attrUint" ref="ab5b1d75b3b4d9274b99d9962f878e5e8" args="(const std::string &amp;key) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::console::Event::attrUint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8b8011e29e4d6a0aba19364ad815debe"></a><!-- doxytag: member="qpid::console::Event::attrUint64" ref="a8b8011e29e4d6a0aba19364ad815debe" args="(const std::string &amp;key) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t qpid::console::Event::attrUint64 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa32bf1bee49c1dfb34374946a23de39a"></a><!-- doxytag: member="qpid::console::Event::attrUuid" ref="aa32bf1bee49c1dfb34374946a23de39a" args="(const std::string &amp;key) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00376.html">framing::Uuid</a> qpid::console::Event::attrUuid </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8742085619ded8589fa4f2128d423f5c"></a><!-- doxytag: member="qpid::console::Event::getAttributes" ref="a8742085619ded8589fa4f2128d423f5c" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00021.html">Object::AttributeMap</a>&amp; qpid::console::Event::getAttributes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00419_source.html#l00056">56</a> of file <a class="el" href="a00419_source.html">Event.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa1d731aa3af84caa57f8f9bcfad4a4ef"></a><!-- doxytag: member="qpid::console::Event::getBroker" ref="aa1d731aa3af84caa57f8f9bcfad4a4ef" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00042.html">Broker</a>* qpid::console::Event::getBroker </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00419_source.html#l00053">53</a> of file <a class="el" href="a00419_source.html">Event.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abf6f472a6016208ffc88853a714f1b95"></a><!-- doxytag: member="qpid::console::Event::getClassKey" ref="abf6f472a6016208ffc88853a714f1b95" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00051.html">ClassKey</a>&amp; qpid::console::Event::getClassKey </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a9dbb1b92a77268d742b409067896c299"></a><!-- doxytag: member="qpid::console::Event::getSchema" ref="a9dbb1b92a77268d742b409067896c299" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00300.html">SchemaClass</a>* qpid::console::Event::getSchema </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00419_source.html#l00055">55</a> of file <a class="el" href="a00419_source.html">Event.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a533ee53564af7bc04209c15058b5dcf3"></a><!-- doxytag: member="qpid::console::Event::getSeverity" ref="a533ee53564af7bc04209c15058b5dcf3" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> qpid::console::Event::getSeverity </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00419_source.html#l00058">58</a> of file <a class="el" href="a00419_source.html">Event.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a684534e3a60d6d451b7a1b3a1a6ff37d"></a><!-- doxytag: member="qpid::console::Event::getSeverityString" ref="a684534e3a60d6d451b7a1b3a1a6ff37d" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00346.html">std::string</a> qpid::console::Event::getSeverityString </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3e1610197a42dd5205abc05ae60fe526"></a><!-- doxytag: member="qpid::console::Event::getTimestamp" ref="a3e1610197a42dd5205abc05ae60fe526" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t qpid::console::Event::getTimestamp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00419_source.html#l00057">57</a> of file <a class="el" href="a00419_source.html">Event.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qpid/console/<a class="el" href="a00419_source.html">Event.h</a></li>
 </ul>
 </div>
 <!--
@@ -189,7 +526,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

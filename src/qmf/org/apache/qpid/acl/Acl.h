@@ -55,6 +55,9 @@ QPID_BROKER_CLASS_EXTERN class Acl : public ::qpid::management::ManagementObject
     bool enforcingAcl;
     bool transferAcl;
     int64_t lastAclLoad;
+    uint16_t maxConnections;
+    uint16_t maxConnectionsPerIp;
+    uint16_t maxConnectionsPerUser;
 
     // Statistics
 
@@ -64,6 +67,7 @@ QPID_BROKER_CLASS_EXTERN class Acl : public ::qpid::management::ManagementObject
  public:    
     struct PerThreadStats {
         uint64_t  aclDenyCount;
+        uint64_t  connectionDenyCount;
 
     };
  private:
@@ -77,6 +81,7 @@ QPID_BROKER_CLASS_EXTERN class Acl : public ::qpid::management::ManagementObject
             threadStats = new(PerThreadStats);
             perThreadStatsArray[idx] = threadStats;
             threadStats->aclDenyCount = 0;
+            threadStats->connectionDenyCount = 0;
 
         }
         return threadStats;
@@ -126,6 +131,8 @@ QPID_BROKER_CLASS_EXTERN class Acl : public ::qpid::management::ManagementObject
 
     // Method IDs
     QPID_BROKER_EXTERN static const uint32_t METHOD_RELOADACLFILE = 1;
+    QPID_BROKER_EXTERN static const uint32_t METHOD_LOOKUP = 2;
+    QPID_BROKER_EXTERN static const uint32_t METHOD_LOOKUPPUBLISH = 3;
 
     // Accessor Methods
     inline void set_brokerRef (const ::qpid::management::ObjectId& val) {
@@ -173,12 +180,47 @@ QPID_BROKER_CLASS_EXTERN class Acl : public ::qpid::management::ManagementObject
         ::qpid::management::Mutex::ScopedLock mutex(accessLock);
         return lastAclLoad;
     }
+    inline void set_maxConnections (uint16_t val) {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        maxConnections = val;
+        configChanged = true;
+    }
+    inline uint16_t get_maxConnections() {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        return maxConnections;
+    }
+    inline void set_maxConnectionsPerIp (uint16_t val) {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        maxConnectionsPerIp = val;
+        configChanged = true;
+    }
+    inline uint16_t get_maxConnectionsPerIp() {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        return maxConnectionsPerIp;
+    }
+    inline void set_maxConnectionsPerUser (uint16_t val) {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        maxConnectionsPerUser = val;
+        configChanged = true;
+    }
+    inline uint16_t get_maxConnectionsPerUser() {
+        ::qpid::management::Mutex::ScopedLock mutex(accessLock);
+        return maxConnectionsPerUser;
+    }
     inline void inc_aclDenyCount (uint64_t by = 1) {
         getThreadStats()->aclDenyCount += by;
         instChanged = true;
     }
     inline void dec_aclDenyCount (uint64_t by = 1) {
         getThreadStats()->aclDenyCount -= by;
+        instChanged = true;
+    }
+    inline void inc_connectionDenyCount (uint64_t by = 1) {
+        getThreadStats()->connectionDenyCount += by;
+        instChanged = true;
+    }
+    inline void dec_connectionDenyCount (uint64_t by = 1) {
+        getThreadStats()->connectionDenyCount -= by;
         instChanged = true;
     }
 

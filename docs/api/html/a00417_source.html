@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/console/Event.h Source File</title>
+    <title>qmf/engine/Console.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,91 +58,230 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/console/Event.h</div>  </div>
+<div class="title">qmf/engine/Console.h</div>  </div>
 </div>
 <div class="contents">
-<a href="a00417.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
-<a name="l00002"></a>00002 <span class="comment"> *</span>
-<a name="l00003"></a>00003 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
-<a name="l00004"></a>00004 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
-<a name="l00005"></a>00005 <span class="comment"> * distributed with this work for additional information</span>
-<a name="l00006"></a>00006 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
-<a name="l00007"></a>00007 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
-<a name="l00008"></a>00008 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
-<a name="l00009"></a>00009 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
-<a name="l00010"></a>00010 <span class="comment"> *</span>
-<a name="l00011"></a>00011 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
-<a name="l00012"></a>00012 <span class="comment"> *</span>
-<a name="l00013"></a>00013 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
-<a name="l00014"></a>00014 <span class="comment"> * software distributed under the License is distributed on an</span>
-<a name="l00015"></a>00015 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
-<a name="l00016"></a>00016 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
-<a name="l00017"></a>00017 <span class="comment"> * specific language governing permissions and limitations</span>
-<a name="l00018"></a>00018 <span class="comment"> * under the License.</span>
-<a name="l00019"></a>00019 <span class="comment"> *</span>
-<a name="l00020"></a>00020 <span class="comment"> */</span>
-<a name="l00021"></a>00021 <span class="preprocessor">#ifndef _QPID_CONSOLE_EVENT_H_</span>
-<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define _QPID_CONSOLE_EVENT_H_</span>
-<a name="l00023"></a>00023 <span class="preprocessor"></span>
-<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="a00485.html">qpid/console/ConsoleImportExport.h</a>&quot;</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00422.html">qpid/console/Object.h</a>&quot;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00523.html">qpid/framing/Uuid.h</a>&quot;</span>
-<a name="l00027"></a>00027 <span class="preprocessor">#include &quot;<a class="code" href="a00505.html">qpid/framing/FieldTable.h</a>&quot;</span>
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029 <span class="keyword">namespace </span>qpid {
-<a name="l00030"></a>00030 <span class="keyword">namespace </span>framing {
-<a name="l00031"></a>00031     <span class="keyword">class </span>Buffer;
-<a name="l00032"></a>00032 }
-<a name="l00033"></a>00033 <span class="keyword">namespace </span>console {
+<a href="a00417.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef _QmfEngineConsole_</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define _QmfEngineConsole_</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="comment">/*</span>
+<a name="l00005"></a>00005 <span class="comment"> * Licensed to the Apache Software Foundation (ASF) under one</span>
+<a name="l00006"></a>00006 <span class="comment"> * or more contributor license agreements.  See the NOTICE file</span>
+<a name="l00007"></a>00007 <span class="comment"> * distributed with this work for additional information</span>
+<a name="l00008"></a>00008 <span class="comment"> * regarding copyright ownership.  The ASF licenses this file</span>
+<a name="l00009"></a>00009 <span class="comment"> * to you under the Apache License, Version 2.0 (the</span>
+<a name="l00010"></a>00010 <span class="comment"> * &quot;License&quot;); you may not use this file except in compliance</span>
+<a name="l00011"></a>00011 <span class="comment"> * with the License.  You may obtain a copy of the License at</span>
+<a name="l00012"></a>00012 <span class="comment"> * </span>
+<a name="l00013"></a>00013 <span class="comment"> *   http://www.apache.org/licenses/LICENSE-2.0</span>
+<a name="l00014"></a>00014 <span class="comment"> * </span>
+<a name="l00015"></a>00015 <span class="comment"> * Unless required by applicable law or agreed to in writing,</span>
+<a name="l00016"></a>00016 <span class="comment"> * software distributed under the License is distributed on an</span>
+<a name="l00017"></a>00017 <span class="comment"> * &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY</span>
+<a name="l00018"></a>00018 <span class="comment"> * KIND, either express or implied.  See the License for the</span>
+<a name="l00019"></a>00019 <span class="comment"> * specific language governing permissions and limitations</span>
+<a name="l00020"></a>00020 <span class="comment"> * under the License.</span>
+<a name="l00021"></a>00021 <span class="comment"> */</span>
+<a name="l00022"></a>00022 
+<a name="l00023"></a>00023 <span class="preprocessor">#include &lt;<a class="code" href="a00430.html">qmf/engine/ResilientConnection.h</a>&gt;</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;<a class="code" href="a00431.html">qmf/engine/Schema.h</a>&gt;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &lt;<a class="code" href="a00425.html">qmf/engine/ObjectId.h</a>&gt;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &lt;<a class="code" href="a00423.html">qmf/engine/Object.h</a>&gt;</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include &lt;<a class="code" href="a00418.html">qmf/engine/Event.h</a>&gt;</span>
+<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;<a class="code" href="a00428.html">qmf/engine/Query.h</a>&gt;</span>
+<a name="l00029"></a>00029 <span class="preprocessor">#include &lt;<a class="code" href="a00435.html">qmf/engine/Value.h</a>&gt;</span>
+<a name="l00030"></a>00030 <span class="preprocessor">#include &lt;<a class="code" href="a00420.html">qmf/engine/Message.h</a>&gt;</span>
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="keyword">namespace </span>qmf {
+<a name="l00033"></a>00033 <span class="keyword">namespace </span>engine {
 <a name="l00034"></a>00034 
-<a name="l00035"></a>00035     <span class="keyword">class  </span>Broker;
-<a name="l00036"></a>00036     <span class="keyword">struct </span>SchemaClass;
-<a name="l00037"></a>00037     <span class="keyword">class  </span>ClassKey;
-<a name="l00038"></a>00038 
-<a name="l00043"></a>00043     <span class="keyword">class </span>Event {
-<a name="l00044"></a>00044     <span class="keyword">public</span>:
-<a name="l00045"></a><a class="code" href="a00109.html#a0d85a7c5f2d84067518884aacf9cae80">00045</a>         <span class="keyword">typedef</span> <span class="keyword">enum</span> {
-<a name="l00046"></a><a class="code" href="a00109.html#a0d85a7c5f2d84067518884aacf9cae80ac847bbd5d074c9ef5edb1a740198c7a7">00046</a>         <a class="code" href="a00109.html#a0d85a7c5f2d84067518884aacf9cae80a99c2c37d8597a4654ff81cd4ccb377be">SEV_EMERGENCY</a> = 0, <a class="code" href="a00109.html#a0d85a7c5f2d84067518884aacf9cae80a1fbc70da45b0bbfbbb42cbc5b6851b2f">SEV_ALERT</a> = 1, <a class="code" href="a00109.html#a0d85a7c5f2d84067518884aacf9cae80a5642210b43b50f273a8c9b1387387bc5">SEV_CRITICAL</a> = 2, <a class="code" href="a00109.html#a0d85a7c5f2d84067518884aacf9cae80ac847bbd5d074c9ef5edb1a740198c7a7">SEV_ERROR</a> = 3,
-<a name="l00047"></a><a class="code" href="a00109.html#a0d85a7c5f2d84067518884aacf9cae80a81642a68cd9f991512ca7f8ad7d251b3">00047</a>         <a class="code" href="a00109.html#a0d85a7c5f2d84067518884aacf9cae80a81642a68cd9f991512ca7f8ad7d251b3">SEV_WARNING</a> = 4, <a class="code" href="a00109.html#a0d85a7c5f2d84067518884aacf9cae80a6e092a75ee3cc4f774bf171bf12f68fa">SEV_NOTICE</a> = 5, <a class="code" href="a00109.html#a0d85a7c5f2d84067518884aacf9cae80a2b0e45f048dab61764f06b5df5639a15">SEV_INFO</a> = 6, <a class="code" href="a00109.html#a0d85a7c5f2d84067518884aacf9cae80a18556efbceb8404eb8a9dc076da6ac52">SEV_DEBUG</a> = 7
-<a name="l00048"></a>00048         } <a class="code" href="a00109.html#a0d85a7c5f2d84067518884aacf9cae80">Severity</a>;
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050         <a class="code" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> <a class="code" href="a00109.html#ab5226243d3ef7339fa6b7376723c875e">Event</a>(<a class="code" href="a00042.html">Broker</a>* broker,
-<a name="l00051"></a>00051                                   <a class="code" href="a00299.html">SchemaClass</a>* schemaClass,
-<a name="l00052"></a>00052                                   <a class="code" href="a00045.html">framing::Buffer</a>&amp; buffer);
-<a name="l00053"></a><a class="code" href="a00109.html#aa1d731aa3af84caa57f8f9bcfad4a4ef">00053</a>         <a class="code" href="a00042.html">Broker</a>* <a class="code" href="a00109.html#aa1d731aa3af84caa57f8f9bcfad4a4ef">getBroker</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> broker; }
-<a name="l00054"></a>00054         <a class="code" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> <span class="keyword">const</span> <a class="code" href="a00049.html">ClassKey</a>&amp; <a class="code" href="a00109.html#abf6f472a6016208ffc88853a714f1b95">getClassKey</a>() <span class="keyword">const</span>;
-<a name="l00055"></a><a class="code" href="a00109.html#a9dbb1b92a77268d742b409067896c299">00055</a>         <a class="code" href="a00299.html">SchemaClass</a>* <a class="code" href="a00109.html#a9dbb1b92a77268d742b409067896c299">getSchema</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> schema; }
-<a name="l00056"></a><a class="code" href="a00109.html#a8742085619ded8589fa4f2128d423f5c">00056</a>         <span class="keyword">const</span> <a class="code" href="a00234.html">Object</a>::AttributeMap&amp; <a class="code" href="a00109.html#a8742085619ded8589fa4f2128d423f5c">getAttributes</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> attributes; }
-<a name="l00057"></a><a class="code" href="a00109.html#a3e1610197a42dd5205abc05ae60fe526">00057</a>         uint64_t <a class="code" href="a00109.html#a3e1610197a42dd5205abc05ae60fe526">getTimestamp</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> timestamp; }
-<a name="l00058"></a><a class="code" href="a00109.html#a533ee53564af7bc04209c15058b5dcf3">00058</a>         <a class="code" href="a00556.html#aba7bc1797add20fe3efdf37ced1182c5">uint8_t</a> <a class="code" href="a00109.html#a533ee53564af7bc04209c15058b5dcf3">getSeverity</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> severity; }
-<a name="l00059"></a>00059         <a class="code" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> std::string <a class="code" href="a00109.html#a684534e3a60d6d451b7a1b3a1a6ff37d">getSeverityString</a>() <span class="keyword">const</span>;
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061         <a class="code" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> <a class="code" href="a00235.html">ObjectId</a> <a class="code" href="a00109.html#a686700d121b4103426c686551f684fc2">attrRef</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; key) <span class="keyword">const</span>;
-<a name="l00062"></a>00062         <a class="code" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00109.html#ab5b1d75b3b4d9274b99d9962f878e5e8">attrUint</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; key) <span class="keyword">const</span>;
-<a name="l00063"></a>00063         <a class="code" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> <a class="code" href="a00556.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a> <a class="code" href="a00109.html#afe98849bb40b08979ca843a484b51586">attrInt</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; key) <span class="keyword">const</span>;
-<a name="l00064"></a>00064         <a class="code" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> uint64_t <a class="code" href="a00109.html#a8b8011e29e4d6a0aba19364ad815debe">attrUint64</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; key) <span class="keyword">const</span>;
-<a name="l00065"></a>00065         <a class="code" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> int64_t <a class="code" href="a00109.html#affec044c65cd8ed1b96a7244c412987b">attrInt64</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; key) <span class="keyword">const</span>;
-<a name="l00066"></a>00066         <a class="code" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> std::string <a class="code" href="a00109.html#a8d01ed005d08feabda15b9a966bfd90e">attrString</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; key) <span class="keyword">const</span>;
-<a name="l00067"></a>00067         <a class="code" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> <span class="keywordtype">bool</span> <a class="code" href="a00109.html#a70ac1c6ee27ca77a50640290fcd3fc43">attrBool</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; key) <span class="keyword">const</span>;
-<a name="l00068"></a>00068         <a class="code" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> <span class="keywordtype">float</span> <a class="code" href="a00109.html#aaff6901cf8c8eabd4836be013e0ed3b9">attrFloat</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; key) <span class="keyword">const</span>;
-<a name="l00069"></a>00069         <a class="code" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> <span class="keywordtype">double</span> <a class="code" href="a00109.html#a69c976e4eed7e04388dcab31e37915a8">attrDouble</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; key) <span class="keyword">const</span>;
-<a name="l00070"></a>00070         <a class="code" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> framing::Uuid <a class="code" href="a00109.html#aa32bf1bee49c1dfb34374946a23de39a">attrUuid</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; key) <span class="keyword">const</span>;
-<a name="l00071"></a>00071         <a class="code" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> framing::FieldTable <a class="code" href="a00109.html#a4ffa669364e7f32f3bc5cb95338938a9">attrMap</a>(<span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; key) <span class="keyword">const</span>;
+<a name="l00035"></a>00035     <span class="keyword">class </span>Console;
+<a name="l00036"></a>00036     <span class="keyword">class </span>ConsoleImpl;
+<a name="l00037"></a>00037     <span class="keyword">class </span>BrokerProxyImpl;
+<a name="l00038"></a>00038     <span class="keyword">class </span>AgentProxy;
+<a name="l00039"></a>00039     <span class="keyword">struct </span>AgentProxyImpl;
+<a name="l00040"></a>00040     <span class="keyword">struct </span>MethodResponseImpl;
+<a name="l00041"></a>00041     <span class="keyword">struct </span>QueryResponseImpl;
+<a name="l00042"></a>00042     <span class="keyword">struct </span>QueryContext;
+<a name="l00043"></a>00043 
+<a name="l00047"></a>00047     <span class="keyword">class </span>MethodResponse {
+<a name="l00048"></a>00048     <span class="keyword">public</span>:
+<a name="l00049"></a>00049         <a class="code" href="a00215.html#a61e3847c60b29d9694b3837604ba714e">MethodResponse</a>(<span class="keyword">const</span> <a class="code" href="a00215.html#a61e3847c60b29d9694b3837604ba714e">MethodResponse</a>&amp; from);
+<a name="l00050"></a>00050         <a class="code" href="a00215.html#abac7144779ee8f5044eef8de22108b79">~MethodResponse</a>();
+<a name="l00051"></a>00051         <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00215.html#a354817274df573f062e69dae62baa0b2">getStatus</a>() <span class="keyword">const</span>;
+<a name="l00052"></a>00052         <span class="keyword">const</span> Value* <a class="code" href="a00215.html#acf3ba48222758f9be6a675023baf7699">getException</a>() <span class="keyword">const</span>;
+<a name="l00053"></a>00053         <span class="keyword">const</span> Value* <a class="code" href="a00215.html#ac56cef754ad68bf1f2c0e6807857172f">getArgs</a>() <span class="keyword">const</span>;
+<a name="l00054"></a>00054 
+<a name="l00055"></a>00055     <span class="keyword">private</span>:
+<a name="l00056"></a><a class="code" href="a00215.html#a3062b2e02e138c04f7642bcdad42b1dc">00056</a>         <span class="keyword">friend</span> <span class="keyword">struct </span><a class="code" href="a00215.html#a3062b2e02e138c04f7642bcdad42b1dc">MethodResponseImpl</a>;
+<a name="l00057"></a><a class="code" href="a00215.html#ac8ec685962ccd76cb34ba67474236420">00057</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a00215.html#ac8ec685962ccd76cb34ba67474236420">ConsoleImpl</a>;
+<a name="l00058"></a>00058         <a class="code" href="a00215.html#a61e3847c60b29d9694b3837604ba714e">MethodResponse</a>(<a class="code" href="a00215.html#a3062b2e02e138c04f7642bcdad42b1dc">MethodResponseImpl</a>* impl);
+<a name="l00059"></a>00059         <a class="code" href="a00215.html#a3062b2e02e138c04f7642bcdad42b1dc">MethodResponseImpl</a>* impl;
+<a name="l00060"></a>00060     };
+<a name="l00061"></a>00061 
+<a name="l00065"></a>00065     <span class="keyword">class </span><a class="code" href="a00263.html">QueryResponse</a> {
+<a name="l00066"></a>00066     <span class="keyword">public</span>:
+<a name="l00067"></a>00067         <a class="code" href="a00263.html#a00de44cfdd5e20d51ce45d81f748089b">~QueryResponse</a>();
+<a name="l00068"></a>00068         <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00263.html#a6908d8326921ea24a2e388a8ee3a235c">getStatus</a>() <span class="keyword">const</span>;
+<a name="l00069"></a>00069         <span class="keyword">const</span> <a class="code" href="a00381.html">Value</a>* <a class="code" href="a00263.html#abd2aeda37267f90ec93126f3b0d6f468">getException</a>() <span class="keyword">const</span>;
+<a name="l00070"></a>00070         <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00263.html#aa717aac7a90b88e92e45c845965d7260">getObjectCount</a>() <span class="keyword">const</span>;
+<a name="l00071"></a>00071         <span class="keyword">const</span> <a class="code" href="a00234.html">Object</a>* <a class="code" href="a00263.html#a3f53106a6ed3cb2ce2810debf27137f6">getObject</a>(<a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> idx) <span class="keyword">const</span>;
 <a name="l00072"></a>00072 
 <a name="l00073"></a>00073     <span class="keyword">private</span>:
-<a name="l00074"></a>00074         <a class="code" href="a00042.html">Broker</a>* broker;
-<a name="l00075"></a>00075         <a class="code" href="a00299.html">SchemaClass</a>* schema;
-<a name="l00076"></a>00076         uint64_t timestamp;
-<a name="l00077"></a>00077         <a class="code" href="a00109.html#a0d85a7c5f2d84067518884aacf9cae80">Severity</a> severity;
-<a name="l00078"></a>00078         <a class="code" href="a00234.html">Object</a>::AttributeMap attributes;
-<a name="l00079"></a>00079     };
-<a name="l00080"></a>00080 
-<a name="l00081"></a>00081     <a class="code" href="a00485.html#adc1c9fffeb12a98cd48682f22ed91c04">QPID_CONSOLE_EXTERN</a> std::ostream&amp; <a class="code" href="a00579.html#a763bc9be304a9da97f6446b8ff47eef5">operator&lt;&lt;</a>(<a class="code" href="a00243.html" title="STL class.">std::ostream</a>&amp; o, <span class="keyword">const</span> Event&amp; event);
-<a name="l00082"></a>00082 }
-<a name="l00083"></a>00083 }
-<a name="l00084"></a>00084 
-<a name="l00085"></a>00085 
-<a name="l00086"></a>00086 <span class="preprocessor">#endif</span>
+<a name="l00074"></a><a class="code" href="a00263.html#a47c71b2f79e72ad9587805080786371c">00074</a>         <span class="keyword">friend</span> <span class="keyword">struct </span><a class="code" href="a00263.html#a47c71b2f79e72ad9587805080786371c">QueryResponseImpl</a>;
+<a name="l00075"></a><a class="code" href="a00263.html#ad4a4d83ea02bb261b180bf5eeac1d215">00075</a>         <span class="keyword">friend</span> <span class="keyword">struct </span><a class="code" href="a00263.html#ad4a4d83ea02bb261b180bf5eeac1d215">QueryContext</a>;
+<a name="l00076"></a>00076         <a class="code" href="a00263.html">QueryResponse</a>(<a class="code" href="a00263.html#a47c71b2f79e72ad9587805080786371c">QueryResponseImpl</a>* impl);
+<a name="l00077"></a>00077         <a class="code" href="a00263.html#a47c71b2f79e72ad9587805080786371c">QueryResponseImpl</a> *impl;
+<a name="l00078"></a>00078     };
+<a name="l00079"></a>00079 
+<a name="l00083"></a>00083     <span class="keyword">struct </span><a class="code" href="a00071.html">ConsoleEvent</a> {
+<a name="l00084"></a><a class="code" href="a00071.html#adcf94d5dc2aa560da1dcfac075cfdcc4">00084</a>         <span class="keyword">enum</span> <a class="code" href="a00071.html#adcf94d5dc2aa560da1dcfac075cfdcc4">EventKind</a> {
+<a name="l00085"></a><a class="code" href="a00071.html#adcf94d5dc2aa560da1dcfac075cfdcc4ade243b175b4c7c78b2cd9460c259ac99">00085</a>             <a class="code" href="a00071.html#adcf94d5dc2aa560da1dcfac075cfdcc4ade243b175b4c7c78b2cd9460c259ac99">AGENT_ADDED</a>     = 1,
+<a name="l00086"></a><a class="code" href="a00071.html#adcf94d5dc2aa560da1dcfac075cfdcc4a8c003988176f0d5f56ec021a75007446">00086</a>             <a class="code" href="a00071.html#adcf94d5dc2aa560da1dcfac075cfdcc4a8c003988176f0d5f56ec021a75007446">AGENT_DELETED</a>   = 2,
+<a name="l00087"></a><a class="code" href="a00071.html#adcf94d5dc2aa560da1dcfac075cfdcc4a23c0572a46e3c72ee69e0d0ac63307d6">00087</a>             <a class="code" href="a00071.html#adcf94d5dc2aa560da1dcfac075cfdcc4a23c0572a46e3c72ee69e0d0ac63307d6">NEW_PACKAGE</a>     = 3,
+<a name="l00088"></a><a class="code" href="a00071.html#adcf94d5dc2aa560da1dcfac075cfdcc4a127458c9918454e80f5d30ed8a33d6b9">00088</a>             <a class="code" href="a00071.html#adcf94d5dc2aa560da1dcfac075cfdcc4a127458c9918454e80f5d30ed8a33d6b9">NEW_CLASS</a>       = 4,
+<a name="l00089"></a><a class="code" href="a00071.html#adcf94d5dc2aa560da1dcfac075cfdcc4a8920dbe68cb92d6804e5c5fd5ca2d706">00089</a>             <a class="code" href="a00071.html#adcf94d5dc2aa560da1dcfac075cfdcc4a8920dbe68cb92d6804e5c5fd5ca2d706">OBJECT_UPDATE</a>   = 5,
+<a name="l00090"></a><a class="code" href="a00071.html#adcf94d5dc2aa560da1dcfac075cfdcc4ad02e70b8eae957603ae4fb8289cf69f0">00090</a>             <a class="code" href="a00071.html#adcf94d5dc2aa560da1dcfac075cfdcc4ad02e70b8eae957603ae4fb8289cf69f0">EVENT_RECEIVED</a>  = 7,
+<a name="l00091"></a><a class="code" href="a00071.html#adcf94d5dc2aa560da1dcfac075cfdcc4a02d29fa869e213fccacb6aded65301aa">00091</a>             <a class="code" href="a00071.html#adcf94d5dc2aa560da1dcfac075cfdcc4a02d29fa869e213fccacb6aded65301aa">AGENT_HEARTBEAT</a> = 8
+<a name="l00092"></a>00092         };
+<a name="l00093"></a>00093 
+<a name="l00094"></a><a class="code" href="a00071.html#ac330c665d0c4aadd421420e5c1b153ac">00094</a>         <a class="code" href="a00071.html#adcf94d5dc2aa560da1dcfac075cfdcc4">EventKind</a>       <a class="code" href="a00071.html#ac330c665d0c4aadd421420e5c1b153ac">kind</a>;
+<a name="l00095"></a><a class="code" href="a00071.html#a758ddef6306f80076ca0fa8342b13503">00095</a>         <a class="code" href="a00011.html">AgentProxy</a>*     <a class="code" href="a00071.html#a758ddef6306f80076ca0fa8342b13503">agent</a>;          <span class="comment">// (AGENT_[ADDED|DELETED|HEARTBEAT])</span>
+<a name="l00096"></a><a class="code" href="a00071.html#a361e028f2413ddb0e5b92fa7c95d1092">00096</a>         <span class="keywordtype">char</span>*           <a class="code" href="a00071.html#a361e028f2413ddb0e5b92fa7c95d1092">name</a>;           <span class="comment">// (NEW_PACKAGE)</span>
+<a name="l00097"></a><a class="code" href="a00071.html#aec48c159a3d47988411da4781f0ae499">00097</a>         <span class="keyword">const</span> <a class="code" href="a00301.html">SchemaClassKey</a>* <a class="code" href="a00071.html#aec48c159a3d47988411da4781f0ae499">classKey</a>; <span class="comment">// (NEW_CLASS)</span>
+<a name="l00098"></a><a class="code" href="a00071.html#a5b672c0819eb4b7f64f39bb72c421cb9">00098</a>         <a class="code" href="a00234.html">Object</a>*         <a class="code" href="a00071.html#a5b672c0819eb4b7f64f39bb72c421cb9">object</a>;         <span class="comment">// (OBJECT_UPDATE)</span>
+<a name="l00099"></a><a class="code" href="a00071.html#a32d4c869930537172568e1f7e7371d31">00099</a>         <span class="keywordtype">void</span>*           <a class="code" href="a00071.html#a32d4c869930537172568e1f7e7371d31">context</a>;        <span class="comment">// (OBJECT_UPDATE)</span>
+<a name="l00100"></a><a class="code" href="a00071.html#aaedbca7e0c5ab02240c0620cfb4d8bea">00100</a>         <a class="code" href="a00110.html">Event</a>*          <a class="code" href="a00071.html#aaedbca7e0c5ab02240c0620cfb4d8bea">event</a>;          <span class="comment">// (EVENT_RECEIVED)</span>
+<a name="l00101"></a><a class="code" href="a00071.html#a1731cbf66b9126b563da2f6943e28220">00101</a>         uint64_t        <a class="code" href="a00071.html#a1731cbf66b9126b563da2f6943e28220">timestamp</a>;      <span class="comment">// (AGENT_HEARTBEAT)</span>
+<a name="l00102"></a><a class="code" href="a00071.html#a7f6b89b382513cdd64e94a6961bb6de3">00102</a>         <a class="code" href="a00263.html">QueryResponse</a>*  <a class="code" href="a00071.html#a7f6b89b382513cdd64e94a6961bb6de3">queryResponse</a>;  <span class="comment">// (QUERY_COMPLETE)</span>
+<a name="l00103"></a><a class="code" href="a00071.html#a70a0faf668c60da3cd25b2b00ec8b6c2">00103</a>         <span class="keywordtype">bool</span>            <a class="code" href="a00071.html#a70a0faf668c60da3cd25b2b00ec8b6c2">hasProps</a>;
+<a name="l00104"></a><a class="code" href="a00071.html#a32fa9a219c0f3cbdb42b1c38cf9028b3">00104</a>         <span class="keywordtype">bool</span>            <a class="code" href="a00071.html#a32fa9a219c0f3cbdb42b1c38cf9028b3">hasStats</a>;
+<a name="l00105"></a>00105     };
+<a name="l00106"></a>00106 
+<a name="l00110"></a>00110     <span class="keyword">struct </span><a class="code" href="a00043.html">BrokerEvent</a> {
+<a name="l00111"></a><a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92">00111</a>         <span class="keyword">enum</span> <a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92">EventKind</a> {
+<a name="l00112"></a><a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92aacf5c58e4df42fdb21a623b30a4dcc8f">00112</a>             <a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92aacf5c58e4df42fdb21a623b30a4dcc8f">BROKER_INFO</a>     = 10,
+<a name="l00113"></a><a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92a86e8cea55857ba373025c16e642f3d0d">00113</a>             <a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92a86e8cea55857ba373025c16e642f3d0d">DECLARE_QUEUE</a>   = 11,
+<a name="l00114"></a><a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92a470dde6e95482b23a2d8fbfa7253efa7">00114</a>             <a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92a470dde6e95482b23a2d8fbfa7253efa7">DELETE_QUEUE</a>    = 12,
+<a name="l00115"></a><a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92a068da00f8670c6be7c004697b70c577c">00115</a>             <a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92a068da00f8670c6be7c004697b70c577c">BIND</a>            = 13,
+<a name="l00116"></a><a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92a9ab47dbdaa45c4733eff5203dfa73068">00116</a>             <a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92a9ab47dbdaa45c4733eff5203dfa73068">UNBIND</a>          = 14,
+<a name="l00117"></a><a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92af3df05b5a4815a1605f1a15af077c7ae">00117</a>             <a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92af3df05b5a4815a1605f1a15af077c7ae">SETUP_COMPLETE</a>  = 15,
+<a name="l00118"></a><a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92afea1525ae1544cfd4ed648c7f3c25291">00118</a>             <a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92afea1525ae1544cfd4ed648c7f3c25291">STABLE</a>          = 16,
+<a name="l00119"></a><a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92ada16d438be07526cc0fb93456698fd70">00119</a>             <a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92ada16d438be07526cc0fb93456698fd70">QUERY_COMPLETE</a>  = 17,
+<a name="l00120"></a><a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92a0161e20c8b109e5526deaa22961b10d7">00120</a>             <a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92a0161e20c8b109e5526deaa22961b10d7">METHOD_RESPONSE</a> = 18
+<a name="l00121"></a>00121         };
+<a name="l00122"></a>00122 
+<a name="l00123"></a><a class="code" href="a00043.html#acc1863ea1c07f1fca96b3365908c128c">00123</a>         <a class="code" href="a00043.html#aa1c1158cc59a2d6e22e6a3f4a9a1fc92">EventKind</a> <a class="code" href="a00043.html#acc1863ea1c07f1fca96b3365908c128c">kind</a>;
+<a name="l00124"></a><a class="code" href="a00043.html#aff17da062eaa9938ceb5d1ff8a30da41">00124</a>         <span class="keywordtype">char</span>*           <a class="code" href="a00043.html#aff17da062eaa9938ceb5d1ff8a30da41">name</a>;           <span class="comment">// ([DECLARE|DELETE]_QUEUE, [UN]BIND)</span>
+<a name="l00125"></a><a class="code" href="a00043.html#abd507aaa1f0b7004161d3fd40ada0aab">00125</a>         <span class="keywordtype">char</span>*           <a class="code" href="a00043.html#abd507aaa1f0b7004161d3fd40ada0aab">exchange</a>;       <span class="comment">// ([UN]BIND)</span>
+<a name="l00126"></a><a class="code" href="a00043.html#a5c96c52b248b7aee28bb31baaae022b9">00126</a>         <span class="keywordtype">char</span>*           <a class="code" href="a00043.html#a5c96c52b248b7aee28bb31baaae022b9">bindingKey</a>;     <span class="comment">// ([UN]BIND)</span>
+<a name="l00127"></a><a class="code" href="a00043.html#a35d92f33ad0ef2732b412a97d7b4c50b">00127</a>         <span class="keywordtype">void</span>*           <a class="code" href="a00043.html#a35d92f33ad0ef2732b412a97d7b4c50b">context</a>;        <span class="comment">// (QUERY_COMPLETE, METHOD_RESPONSE)</span>
+<a name="l00128"></a><a class="code" href="a00043.html#a11cbdfa9029a355bf6d74d4f4aaafa51">00128</a>         <a class="code" href="a00263.html">QueryResponse</a>*  <a class="code" href="a00043.html#a11cbdfa9029a355bf6d74d4f4aaafa51">queryResponse</a>;  <span class="comment">// (QUERY_COMPLETE)</span>
+<a name="l00129"></a><a class="code" href="a00043.html#adb3f42665d7f25ee6f72db597070fcc5">00129</a>         <a class="code" href="a00215.html">MethodResponse</a>* <a class="code" href="a00043.html#adb3f42665d7f25ee6f72db597070fcc5">methodResponse</a>; <span class="comment">// (METHOD_RESPONSE)</span>
+<a name="l00130"></a>00130     };
+<a name="l00131"></a>00131 
+<a name="l00135"></a>00135     <span class="keyword">class </span><a class="code" href="a00011.html">AgentProxy</a> {
+<a name="l00136"></a>00136     <span class="keyword">public</span>:
+<a name="l00137"></a>00137         <a class="code" href="a00011.html#aaaa185ce28286920296948ccc1ad1c1a">AgentProxy</a>(<span class="keyword">const</span> <a class="code" href="a00011.html">AgentProxy</a>&amp; from);
+<a name="l00138"></a>00138         <a class="code" href="a00011.html#a41b5361d5d05d4281b438c5e5ed55ab1">~AgentProxy</a>();
+<a name="l00139"></a>00139         <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="a00011.html#a7b130ff4cbcf1d8448bee1c39bd68265">getLabel</a>() <span class="keyword">const</span>;
+<a name="l00140"></a>00140         <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00011.html#a4758e58e55ba0b910f971b6cf2cb0b4f">getBrokerBank</a>() <span class="keyword">const</span>;
+<a name="l00141"></a>00141         <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00011.html#a6f81211d7cadefc3e0ddcf5e3cd72b3b">getAgentBank</a>() <span class="keyword">const</span>;
+<a name="l00142"></a>00142 
+<a name="l00143"></a>00143     <span class="keyword">private</span>:
+<a name="l00144"></a><a class="code" href="a00011.html#a5fbe5891dec5417c11ff3074dc16e13d">00144</a>         <span class="keyword">friend</span> <span class="keyword">struct </span><a class="code" href="a00011.html#a5fbe5891dec5417c11ff3074dc16e13d">StaticContext</a>;
+<a name="l00145"></a><a class="code" href="a00011.html#ad4a4d83ea02bb261b180bf5eeac1d215">00145</a>         <span class="keyword">friend</span> <span class="keyword">struct </span><a class="code" href="a00011.html#ad4a4d83ea02bb261b180bf5eeac1d215">QueryContext</a>;
+<a name="l00146"></a><a class="code" href="a00011.html#ad7fab4a76b34aab1bbff173c385f5dd3">00146</a>         <span class="keyword">friend</span> <span class="keyword">struct </span><a class="code" href="a00011.html#ad7fab4a76b34aab1bbff173c385f5dd3">AgentProxyImpl</a>;
+<a name="l00147"></a><a class="code" href="a00011.html#a55134f81947ec9b2a089fd2a5eed67a6">00147</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a00011.html#a55134f81947ec9b2a089fd2a5eed67a6">BrokerProxyImpl</a>;
+<a name="l00148"></a>00148         <a class="code" href="a00011.html#aaaa185ce28286920296948ccc1ad1c1a">AgentProxy</a>(<a class="code" href="a00011.html#ad7fab4a76b34aab1bbff173c385f5dd3">AgentProxyImpl</a>* impl);
+<a name="l00149"></a>00149         <a class="code" href="a00011.html#ad7fab4a76b34aab1bbff173c385f5dd3">AgentProxyImpl</a>* impl;
+<a name="l00150"></a>00150     };
+<a name="l00151"></a>00151 
+<a name="l00155"></a>00155     <span class="keyword">class </span><a class="code" href="a00044.html">BrokerProxy</a> {
+<a name="l00156"></a>00156     <span class="keyword">public</span>:
+<a name="l00157"></a>00157         <a class="code" href="a00044.html#a845bd2a6ad11774d5a56d06d9bfd2e6f">BrokerProxy</a>(<a class="code" href="a00069.html">Console</a>&amp; console);
+<a name="l00158"></a>00158         <a class="code" href="a00044.html#a502adccd54c31c1603ad3a2241a8202d">~BrokerProxy</a>();
+<a name="l00159"></a>00159 
+<a name="l00160"></a>00160         <span class="keywordtype">void</span> <a class="code" href="a00044.html#a025159f35e21b6c1b5e403b920e2b224">sessionOpened</a>(<a class="code" href="a00333.html">SessionHandle</a>&amp; sh);
+<a name="l00161"></a>00161         <span class="keywordtype">void</span> <a class="code" href="a00044.html#a1282e6752652adec1b222982b2fc7a80">sessionClosed</a>();
+<a name="l00162"></a>00162         <span class="keywordtype">void</span> <a class="code" href="a00044.html#adac57bae35493881ce9e5b6ae1386a8b">startProtocol</a>();
+<a name="l00163"></a>00163 
+<a name="l00164"></a>00164         <span class="keywordtype">void</span> <a class="code" href="a00044.html#a4634bd90880d6fd08093d707aeed5d30">handleRcvMessage</a>(<a class="code" href="a00207.html">Message</a>&amp; message);
+<a name="l00165"></a>00165         <span class="keywordtype">bool</span> <a class="code" href="a00044.html#a9600ad3798598afa2680d0de18af0aaa">getXmtMessage</a>(<a class="code" href="a00207.html">Message</a>&amp; item) <span class="keyword">const</span>;
+<a name="l00166"></a>00166         <span class="keywordtype">void</span> <a class="code" href="a00044.html#aa7675c21d3a2ba6b90697779a2653758">popXmt</a>();
+<a name="l00167"></a>00167 
+<a name="l00168"></a>00168         <span class="keywordtype">bool</span> <a class="code" href="a00044.html#aec3ec14ae222676a80d936b06da64ef0">getEvent</a>(<a class="code" href="a00043.html">BrokerEvent</a>&amp; event) <span class="keyword">const</span>;
+<a name="l00169"></a>00169         <span class="keywordtype">void</span> <a class="code" href="a00044.html#aed55b57f7b5e46afa1252fc0a6afa25d">popEvent</a>();
+<a name="l00170"></a>00170 
+<a name="l00171"></a>00171         <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00044.html#a9bd43eaf40521cc4b43ebbff591dc8e8">agentCount</a>() <span class="keyword">const</span>;
+<a name="l00172"></a>00172         <span class="keyword">const</span> <a class="code" href="a00011.html">AgentProxy</a>* <a class="code" href="a00044.html#ac3efb86aeb9feda132e562e2880b7f7a">getAgent</a>(<a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> idx) <span class="keyword">const</span>;
+<a name="l00173"></a>00173         <span class="keywordtype">void</span> <a class="code" href="a00044.html#acd1bbddac4b7f503db7fe1b463541ba1">sendQuery</a>(<span class="keyword">const</span> <a class="code" href="a00259.html">Query</a>&amp; query, <span class="keywordtype">void</span>* context, <span class="keyword">const</span> <a class="code" href="a00011.html">AgentProxy</a>* agent = 0);
+<a name="l00174"></a>00174 
+<a name="l00175"></a>00175     <span class="keyword">private</span>:
+<a name="l00176"></a><a class="code" href="a00044.html#ac8ec685962ccd76cb34ba67474236420">00176</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a00044.html#ac8ec685962ccd76cb34ba67474236420">ConsoleImpl</a>;
+<a name="l00177"></a><a class="code" href="a00044.html#a5fbe5891dec5417c11ff3074dc16e13d">00177</a>         <span class="keyword">friend</span> <span class="keyword">struct </span><a class="code" href="a00044.html#a5fbe5891dec5417c11ff3074dc16e13d">StaticContext</a>;
+<a name="l00178"></a>00178         BrokerProxyImpl* impl;
+<a name="l00179"></a>00179     };
+<a name="l00180"></a>00180 
+<a name="l00181"></a>00181     <span class="comment">// TODO - move this to a public header</span>
+<a name="l00182"></a>00182     <span class="keyword">struct </span><a class="code" href="a00074.html">ConsoleSettings</a> {
+<a name="l00183"></a><a class="code" href="a00074.html#aa0ced3ec31af4728daf01de78bb4df57">00183</a>         <span class="keywordtype">bool</span> <a class="code" href="a00074.html#aa0ced3ec31af4728daf01de78bb4df57">rcvObjects</a>;
+<a name="l00184"></a><a class="code" href="a00074.html#a591aed5dedddbffab148fa4ae58d016c">00184</a>         <span class="keywordtype">bool</span> <a class="code" href="a00074.html#a591aed5dedddbffab148fa4ae58d016c">rcvEvents</a>;
+<a name="l00185"></a><a class="code" href="a00074.html#a49fe65ab7afc01530569fdd9a6f71bc2">00185</a>         <span class="keywordtype">bool</span> <a class="code" href="a00074.html#a49fe65ab7afc01530569fdd9a6f71bc2">rcvHeartbeats</a>;
+<a name="l00186"></a><a class="code" href="a00074.html#a96bdc1b78beafd45300288cb173d48b9">00186</a>         <span class="keywordtype">bool</span> <a class="code" href="a00074.html#a96bdc1b78beafd45300288cb173d48b9">userBindings</a>;
+<a name="l00187"></a>00187 
+<a name="l00188"></a><a class="code" href="a00074.html#a25a9d5008ecd153cb62e45671684eaf7">00188</a>         <a class="code" href="a00074.html#a25a9d5008ecd153cb62e45671684eaf7">ConsoleSettings</a>() :
+<a name="l00189"></a>00189             <a class="code" href="a00074.html#aa0ced3ec31af4728daf01de78bb4df57">rcvObjects</a>(true),
+<a name="l00190"></a>00190             <a class="code" href="a00074.html#a591aed5dedddbffab148fa4ae58d016c">rcvEvents</a>(true),
+<a name="l00191"></a>00191             <a class="code" href="a00074.html#a49fe65ab7afc01530569fdd9a6f71bc2">rcvHeartbeats</a>(true),
+<a name="l00192"></a>00192             <a class="code" href="a00074.html#a96bdc1b78beafd45300288cb173d48b9">userBindings</a>(false) {}
+<a name="l00193"></a>00193     };
+<a name="l00194"></a>00194 
+<a name="l00195"></a>00195     <span class="keyword">class </span>Console {
+<a name="l00196"></a>00196     <span class="keyword">public</span>:
+<a name="l00197"></a>00197         <a class="code" href="a00069.html#aba6118318d68b6ddde1ec75c9ebc2203">Console</a>(<span class="keyword">const</span> ConsoleSettings&amp; settings = ConsoleSettings());
+<a name="l00198"></a>00198         <a class="code" href="a00069.html#a8533cafac0900a32c5fb1c7803accf12">~Console</a>();
+<a name="l00199"></a>00199 
+<a name="l00200"></a>00200         <span class="keywordtype">bool</span> <a class="code" href="a00069.html#a613e1ef1be744c772d8cb08c6177265b">getEvent</a>(<a class="code" href="a00070.html">ConsoleEvent</a>&amp; event) <span class="keyword">const</span>;
+<a name="l00201"></a>00201         <span class="keywordtype">void</span> <a class="code" href="a00069.html#a32748ea5ff196ac60251ce0741367281">popEvent</a>();
+<a name="l00202"></a>00202 
+<a name="l00203"></a>00203         <span class="keywordtype">void</span> <a class="code" href="a00069.html#ab39ef0953f4003462b1ebd3bc1c0560d">addConnection</a>(BrokerProxy&amp; <a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca8faf76d40e06af2f7012e9cd2850e0bb">broker</a>, <span class="keywordtype">void</span>* context);
+<a name="l00204"></a>00204         <span class="keywordtype">void</span> <a class="code" href="a00069.html#a51595c2b0c280799d9ccf441a68e5416">delConnection</a>(BrokerProxy&amp; <a class="code" href="a00591.html#a7473d5e4c024e60ca78700d1019370fca8faf76d40e06af2f7012e9cd2850e0bb">broker</a>);
+<a name="l00205"></a>00205 
+<a name="l00206"></a>00206         <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00069.html#ac4761bc526597fbaf1ecaad82431abb7">packageCount</a>() <span class="keyword">const</span>;
+<a name="l00207"></a>00207         <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="a00069.html#a3d778a813d3eff0827559b84798335f9">getPackageName</a>(<a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> idx) <span class="keyword">const</span>;
+<a name="l00208"></a>00208 
+<a name="l00209"></a>00209         <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="code" href="a00069.html#a3e9e5961796b29b5e2fad71b0c727127">classCount</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* packageName) <span class="keyword">const</span>;
+<a name="l00210"></a>00210         <span class="keyword">const</span> SchemaClassKey* <a class="code" href="a00069.html#a837852649d21de89d33eee7dbfb3ba28">getClass</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* packageName, <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> idx) <span class="keyword">const</span>;
+<a name="l00211"></a>00211 
+<a name="l00212"></a>00212         <a class="code" href="a00574.html#a743bf8024ee99e49b1e847fc3c26d59c">ClassKind</a> <a class="code" href="a00069.html#aafefd76bf47b8dcca214082321859a98">getClassKind</a>(<span class="keyword">const</span> SchemaClassKey* key) <span class="keyword">const</span>;
+<a name="l00213"></a>00213         <span class="keyword">const</span> SchemaObjectClass* <a class="code" href="a00069.html#a8e616082aaab47330ff5cf2914513c20">getObjectClass</a>(<span class="keyword">const</span> SchemaClassKey* key) <span class="keyword">const</span>;
+<a name="l00214"></a>00214         <span class="keyword">const</span> SchemaEventClass* <a class="code" href="a00069.html#af3d48f037b26b1d0a3c3d7acf4c487f7">getEventClass</a>(<span class="keyword">const</span> SchemaClassKey* key) <span class="keyword">const</span>;
+<a name="l00215"></a>00215 
+<a name="l00216"></a>00216         <span class="keywordtype">void</span> <a class="code" href="a00069.html#a6bc07f51ed4517746cc381ddc1759b3b">bindPackage</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* packageName);
+<a name="l00217"></a>00217         <span class="keywordtype">void</span> <a class="code" href="a00069.html#a824285d45981817dab73560debc61e42">bindClass</a>(<span class="keyword">const</span> SchemaClassKey* key);
+<a name="l00218"></a>00218         <span class="keywordtype">void</span> <a class="code" href="a00069.html#a824285d45981817dab73560debc61e42">bindClass</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* packageName, <span class="keyword">const</span> <span class="keywordtype">char</span>* className);
+<a name="l00219"></a>00219 
+<a name="l00220"></a>00220         <span class="keywordtype">void</span> <a class="code" href="a00069.html#a60b016834b399f770dc9413ee7f80481">bindEvent</a>(<span class="keyword">const</span> SchemaClassKey *key);
+<a name="l00221"></a>00221         <span class="keywordtype">void</span> <a class="code" href="a00069.html#a60b016834b399f770dc9413ee7f80481">bindEvent</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* packageName, <span class="keyword">const</span> <span class="keywordtype">char</span>* eventName);
+<a name="l00222"></a>00222 
+<a name="l00223"></a>00223         <span class="comment">/*</span>
+<a name="l00224"></a>00224 <span class="comment">        void startSync(const Query&amp; query, void* context, SyncQuery&amp; sync);</span>
+<a name="l00225"></a>00225 <span class="comment">        void touchSync(SyncQuery&amp; sync);</span>
+<a name="l00226"></a>00226 <span class="comment">        void endSync(SyncQuery&amp; sync);</span>
+<a name="l00227"></a>00227 <span class="comment">        */</span>
+<a name="l00228"></a>00228 
+<a name="l00229"></a>00229     <span class="keyword">private</span>:
+<a name="l00230"></a><a class="code" href="a00069.html#a55134f81947ec9b2a089fd2a5eed67a6">00230</a>         <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="a00069.html#a55134f81947ec9b2a089fd2a5eed67a6">BrokerProxyImpl</a>;
+<a name="l00231"></a><a class="code" href="a00069.html#ad7fab4a76b34aab1bbff173c385f5dd3">00231</a>         <span class="keyword">friend</span> <span class="keyword">struct </span><a class="code" href="a00069.html#ad7fab4a76b34aab1bbff173c385f5dd3">AgentProxyImpl</a>;
+<a name="l00232"></a><a class="code" href="a00069.html#a5fbe5891dec5417c11ff3074dc16e13d">00232</a>         <span class="keyword">friend</span> <span class="keyword">struct </span><a class="code" href="a00069.html#a5fbe5891dec5417c11ff3074dc16e13d">StaticContext</a>;
+<a name="l00233"></a>00233         ConsoleImpl* impl;
+<a name="l00234"></a>00234     };
+<a name="l00235"></a>00235 }
+<a name="l00236"></a>00236 }
+<a name="l00237"></a>00237 
+<a name="l00238"></a>00238 <span class="preprocessor">#endif</span>
+<a name="l00239"></a>00239 <span class="preprocessor"></span>
 </pre></div></div>
 </div>
 <!--
@@ -172,7 +311,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

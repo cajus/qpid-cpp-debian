@@ -60,30 +60,76 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00579.html">console</a>      </li>
-      <li class="navelem"><a class="el" href="a00042.html">Broker</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00580.html">no_keyword</a>      </li>
+      <li class="navelem"><a class="el" href="a00328.html">Session_0_10</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid::console::Broker Member List</div>  </div>
+<div class="title">qpid::client::no_keyword::Session_0_10 Member List</div>  </div>
 </div>
 <div class="contents">
-This is the complete list of members for <a class="el" href="a00042.html">qpid::console::Broker</a>, including all inherited members.<table>
-  <tr class="memlist"><td><a class="el" href="a00042.html#add626831a9a326a8dfc003fa218318f4">addBinding</a>(const std::string &amp;key)</td><td><a class="el" href="a00042.html">qpid::console::Broker</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00042.html#ab4c07ebb764b9ff1443c403f07f3ebf7">Broker</a>(SessionManager &amp;sm, client::ConnectionSettings &amp;settings)</td><td><a class="el" href="a00042.html">qpid::console::Broker</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00042.html#a34a262d9e5ff614f3a985e1cf51b6c0c">getBrokerBank</a>() const </td><td><a class="el" href="a00042.html">qpid::console::Broker</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00042.html#a8326e548027290f66d47172c40735337">getBrokerId</a>() const </td><td><a class="el" href="a00042.html">qpid::console::Broker</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00042.html#a29737aed2f237bc41115f323498eac3f">getError</a>() const </td><td><a class="el" href="a00042.html">qpid::console::Broker</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00042.html#a93db3b969b1cc3ddc7c967a22ca45074">getSessionId</a>() const </td><td><a class="el" href="a00042.html">qpid::console::Broker</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00042.html#a852cce0a1d4430c4713869010e7ed634">getUrl</a>() const </td><td><a class="el" href="a00042.html">qpid::console::Broker</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00042.html#aa292827121dd5052ccb949bcf74b2f1f">isConnected</a>() const </td><td><a class="el" href="a00042.html">qpid::console::Broker</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00042.html#a5d0b1ef03b271cf0adfd7059116e287d">operator&lt;&lt;</a>(std::ostream &amp;o, const Broker &amp;k)</td><td><a class="el" href="a00042.html">qpid::console::Broker</a></td><td><code> [friend]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00042.html#a8b6c3327ce8f7b21fc2c1e2c61c08efa">waitForStable</a>()</td><td><a class="el" href="a00042.html">qpid::console::Broker</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00042.html#a1b8ffb8e4de032a49c3c28660772fc39">~Broker</a>()</td><td><a class="el" href="a00042.html">qpid::console::Broker</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00209.html#a2ac4beffe6e0dfab7a7f4d369ce6bacc">~MessageListener</a>()</td><td><a class="el" href="a00209.html">qpid::client::MessageListener</a></td><td><code> [virtual]</code></td></tr>
+This is the complete list of members for <a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a>, including all inherited members.<table>
+  <tr class="memlist"><td><a class="el" href="a00329.html#aa3db8a210e8bdb4d9c04f048a3bc16af">close</a>()</td><td><a class="el" href="a00329.html">qpid::client::SessionBase_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a0059fa98a0e399917f0a212ce88bbadd">dtxCommit</a>(const Xid &amp;xid=Xid(), bool onePhase=false, bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a05292645e7ab1194b6edf09c7885b3a5">dtxEnd</a>(const Xid &amp;xid=Xid(), bool fail=false, bool suspend=false, bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#ab603a0b4690fd95ca3c86ecd65e73d7b">dtxForget</a>(const Xid &amp;xid=Xid(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a5a62bf71629847494dbfc4cba1a9a926">dtxGetTimeout</a>(const Xid &amp;xid=Xid(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a96c75999c547cc9d29994e0e7708928e">dtxPrepare</a>(const Xid &amp;xid=Xid(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#afcfa84f2a75c47358438f92aad3dfd1e">dtxRecover</a>(bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a5bad468e4ee69622985a6df6fbe2246b">dtxRollback</a>(const Xid &amp;xid=Xid(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#adfdc774a5d6f37c077221300916e63f3">dtxSelect</a>(bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a0d9e5ca2e6515a58dffea15c452eafdf">dtxSetTimeout</a>(const Xid &amp;xid=Xid(), uint32_t timeout=0, bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a463fd94be164145621ade42119159979">dtxStart</a>(const Xid &amp;xid=Xid(), bool join=false, bool resume=false, bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a7a96fb24e976628a11917397db5c9dc3">exchangeBind</a>(const std::string &amp;queue=std::string(), const std::string &amp;exchange=std::string(), const std::string &amp;bindingKey=std::string(), const FieldTable &amp;arguments=FieldTable(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a7518a71279426205b6ed5676643156bc">exchangeBound</a>(const std::string &amp;exchange=std::string(), const std::string &amp;queue=std::string(), const std::string &amp;bindingKey=std::string(), const FieldTable &amp;arguments=FieldTable(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#ac7b94acf8820d902df82d8303d15eca4">exchangeDeclare</a>(const std::string &amp;exchange=std::string(), const std::string &amp;type=std::string(), const std::string &amp;alternateExchange=std::string(), bool passive=false, bool durable=false, bool autoDelete=false, const FieldTable &amp;arguments=FieldTable(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a7d8439a5d24db730c8dcd717fc0f1600">exchangeDelete</a>(const std::string &amp;exchange=std::string(), bool ifUnused=false, bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a7ffd9f8af395cdb9caba56ee51e6d8ef">exchangeQuery</a>(const std::string &amp;name=std::string(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#ac84cb0ea976003d1886943c8405d0fe8">exchangeUnbind</a>(const std::string &amp;queue=std::string(), const std::string &amp;exchange=std::string(), const std::string &amp;bindingKey=std::string(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a0d1e6ed0c378c3bf3beb8b63b6a8597e">executionException</a>(uint16_t errorCode=0, const SequenceNumber &amp;commandId=SequenceNumber(), uint8_t classCode=0, uint8_t commandCode=0, uint8_t fieldIndex=0, const std::string &amp;description=std::string(), const FieldTable &amp;errorInfo=FieldTable(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#af3363be39e7fac0f20bb72300051bbd9">executionResult</a>(const SequenceNumber &amp;commandId=SequenceNumber(), const std::string &amp;value=std::string(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a8624344fa93ef539d494ca729d0a7c62">executionSync</a>(bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00329.html#aad3b41e7fb8e6d40c309a9b0c7144243">flush</a>()</td><td><a class="el" href="a00329.html">qpid::client::SessionBase_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00329.html#a2395fbbedb1705bfefc45a70a9b80b6f">getChannel</a>() const </td><td><a class="el" href="a00329.html">qpid::client::SessionBase_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00329.html#ad90f254bc31ff8e5933c4dd14f3a48b5">getConnection</a>()</td><td><a class="el" href="a00329.html">qpid::client::SessionBase_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00329.html#aba4c611d0f2008bf153b5a0d372d7b32">getId</a>() const </td><td><a class="el" href="a00329.html">qpid::client::SessionBase_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00329.html#a72d171e291fab3cd457bf04276970904">impl</a></td><td><a class="el" href="a00329.html">qpid::client::SessionBase_0_10</a></td><td><code> [protected]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00329.html#ae4424751cfa94ad272711dae9213cb2c">isValid</a>() const </td><td><a class="el" href="a00329.html">qpid::client::SessionBase_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00329.html#a71b6f8e5c01c5ab1d8dba353f0c2dc6e">markCompleted</a>(const framing::SequenceSet &amp;ids, bool notifyPeer)</td><td><a class="el" href="a00329.html">qpid::client::SessionBase_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00329.html#ab9d172be089286ffc7b4fda418b87301">markCompleted</a>(const framing::SequenceNumber &amp;id, bool cumulative, bool notifyPeer)</td><td><a class="el" href="a00329.html">qpid::client::SessionBase_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a265bec6609180acb136026c81c694a93">messageAccept</a>(const SequenceSet &amp;transfers=SequenceSet(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a193732a30d8e483df3712c87abc49302">messageAcquire</a>(const SequenceSet &amp;transfers=SequenceSet(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a10756c4a0bd621fe50aacb476c80d9b8">messageCancel</a>(const std::string &amp;destination=std::string(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a228c32c3844499f8e8338152b4726717">messageFlow</a>(const std::string &amp;destination=std::string(), uint8_t unit=0, uint32_t value=0, bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a251093386143c538d2f9de26afe9f09f">messageFlush</a>(const std::string &amp;destination=std::string(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#ac42a3dc8392a8d30f700a331940921ba">messageReject</a>(const SequenceSet &amp;transfers=SequenceSet(), uint16_t code=0, const std::string &amp;text=std::string(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#ae630b4bb8e5ac453e3cf5b3c481d91ea">messageRelease</a>(const SequenceSet &amp;transfers=SequenceSet(), bool setRedelivered=false, bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a5d9acd859143ba51d5252876924ad4f0">messageResume</a>(const std::string &amp;destination=std::string(), const std::string &amp;resumeId=std::string(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a825a3aac640482ec9bcfafb82de2d3e8">messageSetFlowMode</a>(const std::string &amp;destination=std::string(), uint8_t flowMode=0, bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a16892606ee60682645875f7814506f72">messageStop</a>(const std::string &amp;destination=std::string(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a2f9be432ec2b20e1f6101871fb45bb57">messageSubscribe</a>(const std::string &amp;queue=std::string(), const std::string &amp;destination=std::string(), uint8_t acceptMode=0, uint8_t acquireMode=0, bool exclusive=false, const std::string &amp;resumeId=std::string(), uint64_t resumeTtl=0, const FieldTable &amp;arguments=FieldTable(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a7d814e81e09073acd21557e8ec23afb9">messageTransfer</a>(const std::string &amp;destination=std::string(), uint8_t acceptMode=1, uint8_t acquireMode=0, const Message &amp;content=Message(std::string()), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a3fdd057ad448fd954af3ee27a4e22fcc">operator=</a>(const SessionBase_0_10 &amp;other)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a785df7f03802bfa5aa436f01bd037c81">queueDeclare</a>(const std::string &amp;queue=std::string(), const std::string &amp;alternateExchange=std::string(), bool passive=false, bool durable=false, bool exclusive=false, bool autoDelete=false, const FieldTable &amp;arguments=FieldTable(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a78c98223b64afdf3e8a971747ec38701">queueDelete</a>(const std::string &amp;queue=std::string(), bool ifUnused=false, bool ifEmpty=false, bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#adb7e81811bd0da8feefa2ad1369d52d1">queuePurge</a>(const std::string &amp;queue=std::string(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a272232fbf5f88c293b0b666ef57bfb91">queueQuery</a>(const std::string &amp;queue=std::string(), bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00329.html#a7b6f55034313f9a4ca2d2ae71649b840">resume</a>(Connection)</td><td><a class="el" href="a00329.html">qpid::client::SessionBase_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00329.html#a151e42932f03d3a453bb1598e160a025">sendCompletion</a>()</td><td><a class="el" href="a00329.html">qpid::client::SessionBase_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#aab751f910be43a2bbfde5461e06f307d">Session_0_10</a>()</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a4861748d70f2e6d92c19c47626043feb">Session_0_10</a>(const SessionBase_0_10 &amp;other)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00329.html#a83ff389441c0ca4610d22a080dfdae4e">SessionBase_0_10</a>()</td><td><a class="el" href="a00329.html">qpid::client::SessionBase_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00329.html#a7767cc2b33cdba119824b86ca212dbd6">suspend</a>()</td><td><a class="el" href="a00329.html">qpid::client::SessionBase_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00329.html#a198880ec0840c18b0d8a9140d38db699">sync</a>()</td><td><a class="el" href="a00329.html">qpid::client::SessionBase_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00329.html#a90f4dc4899c23d4cfb00360a5f215b26">timeout</a>(uint32_t seconds)</td><td><a class="el" href="a00329.html">qpid::client::SessionBase_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a39be16ae229b675318202245278092d4">txCommit</a>(bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#a36483b4abf4b4c60f429585eb6cf4173">txRollback</a>(bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00328.html#abfb204dc7a10ed736d55cdf52b2d015e">txSelect</a>(bool sync=true)</td><td><a class="el" href="a00328.html">qpid::client::no_keyword::Session_0_10</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00329.html#a1a9b24e6032eabad4ed2efbc288217cc">~SessionBase_0_10</a>()</td><td><a class="el" href="a00329.html">qpid::client::SessionBase_0_10</a></td><td></td></tr>
 </table></div>
 <!--
  
@@ -112,7 +158,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

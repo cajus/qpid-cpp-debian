@@ -26,7 +26,7 @@
 
 
 #include "qpid/framing/StreamReturnBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
@@ -41,6 +41,7 @@ void StreamReturnBody::clearReplyCodeFlag() { flags &= ~(1 << 8); }
 void StreamReturnBody::setReplyText(const std::string& _replyText) {
     replyText = _replyText;
     flags |= (1 << 9);
+    if (replyText.size() >= 256) throw IllegalArgumentException("Value for replyText is too large");
 }
 const std::string& StreamReturnBody::getReplyText() const { return replyText; }
 bool StreamReturnBody::hasReplyText() const { return flags & (1 << 9); }
@@ -49,6 +50,7 @@ void StreamReturnBody::clearReplyTextFlag() { flags &= ~(1 << 9); }
 void StreamReturnBody::setExchange(const std::string& _exchange) {
     exchange = _exchange;
     flags |= (1 << 10);
+    if (exchange.size() >= 256) throw IllegalArgumentException("Value for exchange is too large");
 }
 const std::string& StreamReturnBody::getExchange() const { return exchange; }
 bool StreamReturnBody::hasExchange() const { return flags & (1 << 10); }
@@ -57,6 +59,7 @@ void StreamReturnBody::clearExchangeFlag() { flags &= ~(1 << 10); }
 void StreamReturnBody::setRoutingKey(const std::string& _routingKey) {
     routingKey = _routingKey;
     flags |= (1 << 11);
+    if (routingKey.size() >= 256) throw IllegalArgumentException("Value for routingKey is too large");
 }
 const std::string& StreamReturnBody::getRoutingKey() const { return routingKey; }
 bool StreamReturnBody::hasRoutingKey() const { return flags & (1 << 11); }

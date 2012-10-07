@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/CommonImportExport.h File Reference</title>
+    <title>qpid/client/SubscriptionSettings.h File Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -59,67 +59,35 @@
 </div>
 <div class="header">
   <div class="summary">
-<a href="#define-members">Defines</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a>  </div>
   <div class="headertitle">
-<div class="title">qpid/CommonImportExport.h File Reference</div>  </div>
+<div class="title">qpid/client/SubscriptionSettings.h File Reference</div>  </div>
 </div>
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00441_source.html">qpid/ImportExport.h</a>&quot;</code><br/>
+<div class="textblock"><code>#include &quot;<a class="el" href="a00468_source.html">qpid/client/FlowControl.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="a00504_source.html">qpid/framing/enum.h</a>&quot;</code><br/>
 </div>
 <p><a href="a00482_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="define-members"></a>
-Defines</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a>&#160;&#160;&#160;QPID_IMPORT</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a>&#160;&#160;&#160;QPID_CLASS_IMPORT</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00482.html#a22b814cc5ef605d90a1295eae41f4ee4">QPID_COMMON_INLINE_EXTERN</a>&#160;&#160;&#160;QPID_INLINE_IMPORT</td></tr>
+<tr><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00354.html">qpid::client::SubscriptionSettings</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Settings for a subscription.  <a href="a00354.html#details">More...</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00576.html">qpid</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>This file was automatically generated from the AMQP specification. </p>
+<br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00578.html">qpid::client</a></td></tr>
+<tr><td colspan="2"><h2><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00578.html#a42369ab37a91cfa7cd1702713dd211c8">qpid::client::CompletionMode</a> { <a class="el" href="a00578.html#a42369ab37a91cfa7cd1702713dd211c8a5b271da5858f056db87fd00012fcac67">qpid::client::MANUAL_COMPLETION</a> =  0, 
+<a class="el" href="a00578.html#a42369ab37a91cfa7cd1702713dd211c8a7484fcf320e489fd971883456384e9cb">qpid::client::COMPLETE_ON_DELIVERY</a> =  1, 
+<a class="el" href="a00578.html#a42369ab37a91cfa7cd1702713dd211c8af5159dbb296bb4dd4f80461582651abd">qpid::client::COMPLETE_ON_ACCEPT</a> =  2
+ }</td></tr>
 </table>
-<hr/><h2>Define Documentation</h2>
-<a class="anchor" id="a576adb7800c9b864175ee17c892bca14"></a><!-- doxytag: member="CommonImportExport.h::QPID_COMMON_CLASS_EXTERN" ref="a576adb7800c9b864175ee17c892bca14" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define QPID_COMMON_CLASS_EXTERN&#160;&#160;&#160;QPID_CLASS_IMPORT</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00482_source.html#l00031">31</a> of file <a class="el" href="a00482_source.html">CommonImportExport.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a0b7cbe1dd21be86348943cd971d33a20"></a><!-- doxytag: member="CommonImportExport.h::QPID_COMMON_EXTERN" ref="a0b7cbe1dd21be86348943cd971d33a20" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define QPID_COMMON_EXTERN&#160;&#160;&#160;QPID_IMPORT</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00482_source.html#l00030">30</a> of file <a class="el" href="a00482_source.html">CommonImportExport.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a22b814cc5ef605d90a1295eae41f4ee4"></a><!-- doxytag: member="CommonImportExport.h::QPID_COMMON_INLINE_EXTERN" ref="a22b814cc5ef605d90a1295eae41f4ee4" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define QPID_COMMON_INLINE_EXTERN&#160;&#160;&#160;QPID_INLINE_IMPORT</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00482_source.html#l00032">32</a> of file <a class="el" href="a00482_source.html">CommonImportExport.h</a>.</p>
-
-</div>
-</div>
 </div>
 <!--
  
@@ -148,7 +116,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>Qpid C++ Client API</title>
+    <title>qpid::types Namespace Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -45,41 +45,506 @@
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
-      <li><a href="namespaces.html"><span>Namespaces</span></a></li>
+      <li class="current"><a href="namespaces.html"><span>Namespaces</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="namespaces.html"><span>Namespace&#160;List</span></a></li>
+      <li><a href="namespacemembers.html"><span>Namespace&#160;Members</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00596.html">types</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">Qpid C++ Client API</div>  </div>
+<div class="title">qpid::types Namespace Reference</div>  </div>
 </div>
 <div class="contents">
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00003.html">qpid::messaging::Address</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents an address to which messages can be sent and from which messages can be received.  <a href="a00003.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html">qpid::messaging::Connection</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A connection represents a network connection to a remote endpoint.  <a href="a00059.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00104.html">qpid::messaging::Duration</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A duration is a time in milliseconds.  <a href="a00104.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00213.html">qpid::messaging::MessagingException</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">This is the base class for all messaging related exceptions thrown by this API.  <a href="a00213.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00139.html">qpid::messaging::Handle</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A handle is like a pointer: refers to an underlying implementation object.  <a href="a00139.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00205.html">qpid::messaging::Message</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Representation of a message.  <a href="a00205.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00271.html">qpid::messaging::Receiver</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface through which messages are received.  <a href="a00271.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00319.html">qpid::messaging::Sender</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface through which messages are sent.  <a href="a00319.html#details">More...</a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00325.html">qpid::messaging::Session</a></td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">A session represents a distinct 'conversation' which can involve sending and receiving messages to and from different addresses.  <a href="a00325.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00114.html">Exception</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html">Uuid</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00164.html">InvalidConversion</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Thrown when an illegal conversion of a variant is attempted.  <a href="a00164.html#details">More...</a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00386.html">Variant</a></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a value of variable type.  <a href="a00386.html#details">More...</a><br/></td></tr>
+<tr><td colspan="2"><h2><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16">VariantType</a> { <br/>
+&#160;&#160;<a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16a7676ba2aa51c62d7990234b3182cda8d">VAR_VOID</a> =  0, 
+<a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16a459b6a348d780e9e0f051b58d6742446">VAR_BOOL</a>, 
+<a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16afebe70b5d29e4b292a18227512aed3aa">VAR_UINT8</a>, 
+<a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16a64223439b1202ebd6bb34e62d7d64ef7">VAR_UINT16</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16ab7d539b6a29d6a00a6bd50e3c9d4eae9">VAR_UINT32</a>, 
+<a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16a196a192a2191a3b500b119963c1235c1">VAR_UINT64</a>, 
+<a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16a4f0446bae585ccffaf8fc56e064ef54b">VAR_INT8</a>, 
+<a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16a4d0c9b0c123719d4584695185bc4b6db">VAR_INT16</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16a33fddb08e1155588686215917619dda5">VAR_INT32</a>, 
+<a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16aaef7586df8f57462bae5cba5ad2b1c2c">VAR_INT64</a>, 
+<a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16a3db294177c04883245c056ab13aee788">VAR_FLOAT</a>, 
+<a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16a37fba29cfc5e48d2e37c68439fc31e68">VAR_DOUBLE</a>, 
+<br/>
+&#160;&#160;<a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16a2ddc3e8d840f935e022260fedc9b6160">VAR_STRING</a>, 
+<a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16a063b07f094839b92a4764ae2c95601f1">VAR_MAP</a>, 
+<a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16a503b9d266cf23fd4de6aff1cb75bde45">VAR_LIST</a>, 
+<a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16a962364a6de33098c57a0a77c99278a07">VAR_UUID</a>
+<br/>
+ }</td></tr>
+<tr><td colspan="2"><h2><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00596.html#a7115f0349b934fbf2bda7d6eb4b49b74">operator==</a> (const <a class="el" href="a00375.html">Uuid</a> &amp;, const <a class="el" href="a00375.html">Uuid</a> &amp;)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the uuids are equal, false otherwise.  <a href="#a7115f0349b934fbf2bda7d6eb4b49b74"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00596.html#a602267e3c06bfbc277235cd5c0b3087b">operator!=</a> (const <a class="el" href="a00375.html">Uuid</a> &amp;, const <a class="el" href="a00375.html">Uuid</a> &amp;)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the uuids are NOT equal, false if they are.  <a href="#a602267e3c06bfbc277235cd5c0b3087b"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00596.html#ad0190ccb56db505fb962f6c477d84ae7">operator&lt;</a> (const <a class="el" href="a00375.html">Uuid</a> &amp;, const <a class="el" href="a00375.html">Uuid</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00596.html#ab5b33165e47cea8d69da726869ff3e23">operator&gt;</a> (const <a class="el" href="a00375.html">Uuid</a> &amp;, const <a class="el" href="a00375.html">Uuid</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00596.html#afd879d0505e716e566dd514520b0510f">operator&lt;=</a> (const <a class="el" href="a00375.html">Uuid</a> &amp;, const <a class="el" href="a00375.html">Uuid</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00596.html#a63e81903d1491d3b0dd40a695448a177">operator&gt;=</a> (const <a class="el" href="a00375.html">Uuid</a> &amp;, const <a class="el" href="a00375.html">Uuid</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00596.html#af86247d266d06be5863387fc0e0c861f">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;, <a class="el" href="a00375.html">Uuid</a>)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Print in format 1b4e28ba-2fa1-11d2-883f-b9a761bde3fb.  <a href="#af86247d266d06be5863387fc0e0c861f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00172.html">std::istream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00596.html#a891bb9ebc0abcbb75cb1f4f9c2da3342">operator&gt;&gt;</a> (<a class="el" href="a00172.html">std::istream</a> &amp;, <a class="el" href="a00375.html">Uuid</a> &amp;)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Read from format 1b4e28ba-2fa1-11d2-883f-b9a761bde3fb.  <a href="#a891bb9ebc0abcbb75cb1f4f9c2da3342"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00346.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00596.html#abea01d998021253cc0774f9f1e68e960">getTypeName</a> (<a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16">VariantType</a> type)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00596.html#a8f3a2d85fa7422cca02f3a67c7c3e383">isIntegerType</a> (<a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16">VariantType</a> type)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00596.html#a73d30b9f74c30cfd39839fecd9249c73">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;out, const <a class="el" href="a00386.html">Variant</a> &amp;value)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00596.html#a95e61f6c2b56dac4596c2dd833068b23">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;out, const <a class="el" href="a00386.html#ae4e24d890f56397299a6ebadb2dfa7f0">Variant::Map</a> &amp;map)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN <a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00596.html#a15c402659610534a4338768f05c096c5">operator&lt;&lt;</a> (<a class="el" href="a00244.html">std::ostream</a> &amp;out, const <a class="el" href="a00386.html#a8603092790e51851bc2166e9562a2e11">Variant::List</a> &amp;list)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QPID_TYPES_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00596.html#ac0b257e4f9830e1b47a0f4b732507a15">operator==</a> (const <a class="el" href="a00386.html">Variant</a> &amp;a, const <a class="el" href="a00386.html">Variant</a> &amp;b)</td></tr>
 </table>
+<hr/><h2>Enumeration Type Documentation</h2>
+<a class="anchor" id="a323b1c4216c2de54ac6383df362fde16"></a><!-- doxytag: member="qpid::types::VariantType" ref="a323b1c4216c2de54ac6383df362fde16" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00596.html#a323b1c4216c2de54ac6383df362fde16">qpid::types::VariantType</a></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl><dt><b>Enumerator: </b></dt><dd><table border="0" cellspacing="2" cellpadding="0">
+<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a7676ba2aa51c62d7990234b3182cda8d"></a><!-- doxytag: member="VAR_VOID" ref="a323b1c4216c2de54ac6383df362fde16a7676ba2aa51c62d7990234b3182cda8d" args="" -->VAR_VOID</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a459b6a348d780e9e0f051b58d6742446"></a><!-- doxytag: member="VAR_BOOL" ref="a323b1c4216c2de54ac6383df362fde16a459b6a348d780e9e0f051b58d6742446" args="" -->VAR_BOOL</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16afebe70b5d29e4b292a18227512aed3aa"></a><!-- doxytag: member="VAR_UINT8" ref="a323b1c4216c2de54ac6383df362fde16afebe70b5d29e4b292a18227512aed3aa" args="" -->VAR_UINT8</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a64223439b1202ebd6bb34e62d7d64ef7"></a><!-- doxytag: member="VAR_UINT16" ref="a323b1c4216c2de54ac6383df362fde16a64223439b1202ebd6bb34e62d7d64ef7" args="" -->VAR_UINT16</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16ab7d539b6a29d6a00a6bd50e3c9d4eae9"></a><!-- doxytag: member="VAR_UINT32" ref="a323b1c4216c2de54ac6383df362fde16ab7d539b6a29d6a00a6bd50e3c9d4eae9" args="" -->VAR_UINT32</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a196a192a2191a3b500b119963c1235c1"></a><!-- doxytag: member="VAR_UINT64" ref="a323b1c4216c2de54ac6383df362fde16a196a192a2191a3b500b119963c1235c1" args="" -->VAR_UINT64</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a4f0446bae585ccffaf8fc56e064ef54b"></a><!-- doxytag: member="VAR_INT8" ref="a323b1c4216c2de54ac6383df362fde16a4f0446bae585ccffaf8fc56e064ef54b" args="" -->VAR_INT8</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a4d0c9b0c123719d4584695185bc4b6db"></a><!-- doxytag: member="VAR_INT16" ref="a323b1c4216c2de54ac6383df362fde16a4d0c9b0c123719d4584695185bc4b6db" args="" -->VAR_INT16</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a33fddb08e1155588686215917619dda5"></a><!-- doxytag: member="VAR_INT32" ref="a323b1c4216c2de54ac6383df362fde16a33fddb08e1155588686215917619dda5" args="" -->VAR_INT32</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16aaef7586df8f57462bae5cba5ad2b1c2c"></a><!-- doxytag: member="VAR_INT64" ref="a323b1c4216c2de54ac6383df362fde16aaef7586df8f57462bae5cba5ad2b1c2c" args="" -->VAR_INT64</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a3db294177c04883245c056ab13aee788"></a><!-- doxytag: member="VAR_FLOAT" ref="a323b1c4216c2de54ac6383df362fde16a3db294177c04883245c056ab13aee788" args="" -->VAR_FLOAT</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a37fba29cfc5e48d2e37c68439fc31e68"></a><!-- doxytag: member="VAR_DOUBLE" ref="a323b1c4216c2de54ac6383df362fde16a37fba29cfc5e48d2e37c68439fc31e68" args="" -->VAR_DOUBLE</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a2ddc3e8d840f935e022260fedc9b6160"></a><!-- doxytag: member="VAR_STRING" ref="a323b1c4216c2de54ac6383df362fde16a2ddc3e8d840f935e022260fedc9b6160" args="" -->VAR_STRING</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a063b07f094839b92a4764ae2c95601f1"></a><!-- doxytag: member="VAR_MAP" ref="a323b1c4216c2de54ac6383df362fde16a063b07f094839b92a4764ae2c95601f1" args="" -->VAR_MAP</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a503b9d266cf23fd4de6aff1cb75bde45"></a><!-- doxytag: member="VAR_LIST" ref="a323b1c4216c2de54ac6383df362fde16a503b9d266cf23fd4de6aff1cb75bde45" args="" -->VAR_LIST</em>&nbsp;</td><td>
+</td></tr>
+<tr><td valign="top"><em><a class="anchor" id="a323b1c4216c2de54ac6383df362fde16a962364a6de33098c57a0a77c99278a07"></a><!-- doxytag: member="VAR_UUID" ref="a323b1c4216c2de54ac6383df362fde16a962364a6de33098c57a0a77c99278a07" args="" -->VAR_UUID</em>&nbsp;</td><td>
+</td></tr>
+</table>
+</dd>
+</dl>
+
+<p>Definition at line <a class="el" href="a00571_source.html#l00044">44</a> of file <a class="el" href="a00571_source.html">Variant.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Function Documentation</h2>
+<a class="anchor" id="abea01d998021253cc0774f9f1e68e960"></a><!-- doxytag: member="qpid::types::getTypeName" ref="abea01d998021253cc0774f9f1e68e960" args="(VariantType type)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00346.html">std::string</a> qpid::types::getTypeName </td>
+          <td>(</td>
+          <td class="paramtype">VariantType&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a8f3a2d85fa7422cca02f3a67c7c3e383"></a><!-- doxytag: member="qpid::types::isIntegerType" ref="a8f3a2d85fa7422cca02f3a67c7c3e383" args="(VariantType type)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::isIntegerType </td>
+          <td>(</td>
+          <td class="paramtype">VariantType&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a602267e3c06bfbc277235cd5c0b3087b"></a><!-- doxytag: member="qpid::types::operator!=" ref="a602267e3c06bfbc277235cd5c0b3087b" args="(const Uuid &amp;, const Uuid &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const Uuid &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Uuid &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Returns true if the uuids are NOT equal, false if they are. </p>
+
+</div>
+</div>
+<a class="anchor" id="ad0190ccb56db505fb962f6c477d84ae7"></a><!-- doxytag: member="qpid::types::operator&lt;" ref="ad0190ccb56db505fb962f6c477d84ae7" args="(const Uuid &amp;, const Uuid &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype">const Uuid &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Uuid &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af86247d266d06be5863387fc0e0c861f"></a><!-- doxytag: member="qpid::types::operator&lt;&lt;" ref="af86247d266d06be5863387fc0e0c861f" args="(std::ostream &amp;, Uuid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00244.html">std::ostream</a>&amp; qpid::types::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uuid&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Print in format 1b4e28ba-2fa1-11d2-883f-b9a761bde3fb. </p>
+
+</div>
+</div>
+<a class="anchor" id="a73d30b9f74c30cfd39839fecd9249c73"></a><!-- doxytag: member="qpid::types::operator&lt;&lt;" ref="a73d30b9f74c30cfd39839fecd9249c73" args="(std::ostream &amp;out, const Variant &amp;value)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00244.html">std::ostream</a>&amp; qpid::types::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Variant &amp;&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a95e61f6c2b56dac4596c2dd833068b23"></a><!-- doxytag: member="qpid::types::operator&lt;&lt;" ref="a95e61f6c2b56dac4596c2dd833068b23" args="(std::ostream &amp;out, const Variant::Map &amp;map)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00244.html">std::ostream</a>&amp; qpid::types::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Variant::Map &amp;&#160;</td>
+          <td class="paramname"><em>map</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a15c402659610534a4338768f05c096c5"></a><!-- doxytag: member="qpid::types::operator&lt;&lt;" ref="a15c402659610534a4338768f05c096c5" args="(std::ostream &amp;out, const Variant::List &amp;list)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00244.html">std::ostream</a>&amp; qpid::types::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00244.html">std::ostream</a> &amp;&#160;</td>
+          <td class="paramname"><em>out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Variant::List &amp;&#160;</td>
+          <td class="paramname"><em>list</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afd879d0505e716e566dd514520b0510f"></a><!-- doxytag: member="qpid::types::operator&lt;=" ref="afd879d0505e716e566dd514520b0510f" args="(const Uuid &amp;, const Uuid &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::operator&lt;= </td>
+          <td>(</td>
+          <td class="paramtype">const Uuid &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Uuid &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a7115f0349b934fbf2bda7d6eb4b49b74"></a><!-- doxytag: member="qpid::types::operator==" ref="a7115f0349b934fbf2bda7d6eb4b49b74" args="(const Uuid &amp;, const Uuid &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const Uuid &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Uuid &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Returns true if the uuids are equal, false otherwise. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac0b257e4f9830e1b47a0f4b732507a15"></a><!-- doxytag: member="qpid::types::operator==" ref="ac0b257e4f9830e1b47a0f4b732507a15" args="(const Variant &amp;a, const Variant &amp;b)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const Variant &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Variant &amp;&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab5b33165e47cea8d69da726869ff3e23"></a><!-- doxytag: member="qpid::types::operator&gt;" ref="ab5b33165e47cea8d69da726869ff3e23" args="(const Uuid &amp;, const Uuid &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::operator&gt; </td>
+          <td>(</td>
+          <td class="paramtype">const Uuid &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Uuid &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a63e81903d1491d3b0dd40a695448a177"></a><!-- doxytag: member="qpid::types::operator&gt;=" ref="a63e81903d1491d3b0dd40a695448a177" args="(const Uuid &amp;, const Uuid &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN bool qpid::types::operator&gt;= </td>
+          <td>(</td>
+          <td class="paramtype">const Uuid &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Uuid &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a891bb9ebc0abcbb75cb1f4f9c2da3342"></a><!-- doxytag: member="qpid::types::operator&gt;&gt;" ref="a891bb9ebc0abcbb75cb1f4f9c2da3342" args="(std::istream &amp;, Uuid &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QPID_TYPES_EXTERN <a class="el" href="a00172.html">std::istream</a>&amp; qpid::types::operator&gt;&gt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00172.html">std::istream</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Uuid &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Read from format 1b4e28ba-2fa1-11d2-883f-b9a761bde3fb. </p>
+
+</div>
+</div>
 </div>
 <!--
  
@@ -108,7 +573,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

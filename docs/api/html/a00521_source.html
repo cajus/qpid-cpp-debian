@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid/framing/StructHelper.h Source File</title>
+    <title>qpid/framing/SequenceSet.h Source File</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -58,7 +58,7 @@
   </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid/framing/StructHelper.h</div>  </div>
+<div class="title">qpid/framing/SequenceSet.h</div>  </div>
 </div>
 <div class="contents">
 <a href="a00521.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
@@ -81,43 +81,55 @@
 <a name="l00018"></a>00018 <span class="comment"> * under the License.</span>
 <a name="l00019"></a>00019 <span class="comment"> *</span>
 <a name="l00020"></a>00020 <span class="comment"> */</span>
-<a name="l00021"></a>00021 <span class="preprocessor">#ifndef _StructHelper_</span>
-<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define _StructHelper_</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#ifndef _framing_SequenceSet_h</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define _framing_SequenceSet_h</span>
 <a name="l00023"></a>00023 <span class="preprocessor"></span>
-<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="a00490.html">qpid/Exception.h</a>&quot;</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00482.html">qpid/CommonImportExport.h</a>&quot;</span>
-<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00496.html">qpid/framing/Buffer.h</a>&quot;</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &quot;<a class="code" href="a00520.html">qpid/framing/SequenceNumber.h</a>&quot;</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include &quot;<a class="code" href="a00550.html">qpid/RangeSet.h</a>&quot;</span>
+<a name="l00026"></a>00026 <span class="preprocessor">#include &quot;<a class="code" href="a00484.html">qpid/CommonImportExport.h</a>&quot;</span>
 <a name="l00027"></a>00027 
-<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;stdlib.h&gt;</span> <span class="comment">// For alloca</span>
-<a name="l00029"></a>00029 
-<a name="l00030"></a>00030 <span class="keyword">namespace </span>qpid {
-<a name="l00031"></a>00031 <span class="keyword">namespace </span>framing {
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033 <span class="keyword">class </span><a class="code" href="a00482.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> StructHelper
-<a name="l00034"></a>00034 {
-<a name="l00035"></a>00035 <span class="keyword">public</span>:
-<a name="l00036"></a>00036 
-<a name="l00037"></a><a class="code" href="a00349.html#a9d453e9b6240b67e089f9385032a3751">00037</a>     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="a00349.html#a9d453e9b6240b67e089f9385032a3751">encode</a>(<span class="keyword">const</span> T t, <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; data) {
-<a name="l00038"></a>00038         <a class="code" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> size = t.bodySize() + 2<span class="comment">/*type*/</span>;
-<a name="l00039"></a>00039         data.resize(size);
-<a name="l00040"></a>00040         <a class="code" href="a00045.html">Buffer</a> wbuffer(const_cast&lt;char*&gt;(data.data()), size);
-<a name="l00041"></a>00041         wbuffer.<a class="code" href="a00045.html#a14f36dbf812ebe377dae97c65155b8e2">putShort</a>(T::TYPE);
-<a name="l00042"></a>00042         t.encodeStructBody(wbuffer);
-<a name="l00043"></a>00043     }
+<a name="l00028"></a>00028 <span class="keyword">namespace </span>qpid {
+<a name="l00029"></a>00029 <span class="keyword">namespace </span>framing {
+<a name="l00030"></a>00030 <span class="keyword">class </span>Buffer;
+<a name="l00031"></a>00031 
+<a name="l00032"></a>00032 <span class="keyword">class </span><a class="code" href="a00484.html#a576adb7800c9b864175ee17c892bca14">QPID_COMMON_CLASS_EXTERN</a> SequenceSet : <span class="keyword">public</span> RangeSet&lt;SequenceNumber&gt; {
+<a name="l00033"></a>00033   <span class="keyword">public</span>:
+<a name="l00034"></a><a class="code" href="a00325.html#ade65b1df2b615659b7d7fbff6944d5b3">00034</a>     <a class="code" href="a00325.html#ade65b1df2b615659b7d7fbff6944d5b3">SequenceSet</a>() {}
+<a name="l00035"></a><a class="code" href="a00325.html#ae02ecfab9741b5f5277dea769539dfa9">00035</a>     <a class="code" href="a00325.html">SequenceSet</a>(<span class="keyword">const</span> <a class="code" href="a00270.html">RangeSet&lt;SequenceNumber&gt;</a>&amp; r)
+<a name="l00036"></a>00036         : <a class="code" href="a00270.html" title="A set implemented as a list of [begin, end) ranges.">RangeSet</a>&lt;<a class="code" href="a00324.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&gt;(r) {}
+<a name="l00037"></a><a class="code" href="a00325.html#a41d84a5935c40f58c7efb785caf801ea">00037</a>     <a class="code" href="a00325.html#a41d84a5935c40f58c7efb785caf801ea">SequenceSet</a>(<span class="keyword">const</span> <a class="code" href="a00324.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&amp; s) { add(s); }
+<a name="l00038"></a><a class="code" href="a00325.html#ad8baf381bb84d24213df8c7819a45675">00038</a>     <a class="code" href="a00325.html#ad8baf381bb84d24213df8c7819a45675">SequenceSet</a>(<span class="keyword">const</span> <a class="code" href="a00324.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&amp; start, <span class="keyword">const</span> <a class="code" href="a00324.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a> finish) { add(start,finish); }
+<a name="l00039"></a>00039 
+<a name="l00040"></a>00040 
+<a name="l00041"></a>00041     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00593.html#afefbffac1ba55c37a1f7ab3a85ca753b" title="Encodes a Variant::Map into a message.">encode</a>(<a class="code" href="a00045.html">Buffer</a>&amp; buffer) <span class="keyword">const</span>;
+<a name="l00042"></a>00042     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <a class="code" href="a00593.html#ad37dfc262612bfde8fdc73e3a85ddf95" title="Decodes message content into a Variant::Map.">decode</a>(<a class="code" href="a00045.html">Buffer</a>&amp; buffer);
+<a name="l00043"></a>00043     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <a class="code" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> encodedSize() <span class="keyword">const</span>;
 <a name="l00044"></a>00044 
-<a name="l00045"></a><a class="code" href="a00349.html#a98131849d179db1ff9766307fbb142a8">00045</a>     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="a00349.html#a98131849d179db1ff9766307fbb142a8">decode</a>(T&amp; t, <span class="keyword">const</span> <a class="code" href="a00345.html" title="STL class.">std::string</a>&amp; data) {
-<a name="l00046"></a>00046         <a class="code" href="a00045.html">Buffer</a> rbuffer(const_cast&lt;char*&gt;(data.data()), data.length());
-<a name="l00047"></a>00047         <a class="code" href="a00556.html#a273cf69d639a59973b6019625df33e30">uint16_t</a> type = rbuffer.<a class="code" href="a00045.html#a998b60e3c056f12841ae2b96b176c73d">getShort</a>();
-<a name="l00048"></a>00048         <span class="keywordflow">if</span> (type == T::TYPE) {
-<a name="l00049"></a>00049             t.decodeStructBody(rbuffer);
-<a name="l00050"></a>00050         } <span class="keywordflow">else</span> {
-<a name="l00051"></a>00051             <span class="keywordflow">throw</span> <a class="code" href="a00114.html" title="Base class for Qpid runtime exceptions.">Exception</a>(<span class="stringliteral">&quot;Type code does not match&quot;</span>);
-<a name="l00052"></a>00052         }
-<a name="l00053"></a>00053     }
-<a name="l00054"></a>00054 };
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056 }}
-<a name="l00057"></a>00057 <span class="preprocessor">#endif</span>
+<a name="l00045"></a>00045     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">bool</span> contains(<span class="keyword">const</span> <a class="code" href="a00324.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&amp; s) <span class="keyword">const</span>;
+<a name="l00046"></a>00046     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> add(<span class="keyword">const</span> <a class="code" href="a00324.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&amp; s);
+<a name="l00047"></a>00047     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> add(<span class="keyword">const</span> <a class="code" href="a00324.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&amp; start, <span class="keyword">const</span> <a class="code" href="a00324.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&amp; finish); <span class="comment">// Closed range</span>
+<a name="l00048"></a>00048     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> add(<span class="keyword">const</span> <a class="code" href="a00325.html">SequenceSet</a>&amp; <span class="keyword">set</span>);
+<a name="l00049"></a>00049     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <span class="keyword">remove</span>(<span class="keyword">const</span> <a class="code" href="a00324.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&amp; s);
+<a name="l00050"></a>00050     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <span class="keyword">remove</span>(<span class="keyword">const</span> <a class="code" href="a00324.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&amp; start, <span class="keyword">const</span> <a class="code" href="a00324.html" title="4-byte sequence number that &#39;wraps around&#39;.">SequenceNumber</a>&amp; finish); <span class="comment">// Closed range</span>
+<a name="l00051"></a>00051     <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> <span class="keywordtype">void</span> <span class="keyword">remove</span>(<span class="keyword">const</span> <a class="code" href="a00325.html">SequenceSet</a>&amp; <span class="keyword">set</span>);
+<a name="l00052"></a>00052 
+<a name="l00053"></a><a class="code" href="a00325.html#acc8ea52d5958986b9dd827e8eff5098a">00053</a>     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="a00325.html#acc8ea52d5958986b9dd827e8eff5098a">for_each</a>(T&amp; t)<span class="keyword"> const </span>{
+<a name="l00054"></a>00054         <span class="keywordflow">for</span> (<a class="code" href="a00270.html#a8d99ec609a78357b8afcd4a69c43ba3d">RangeIterator</a> i = rangesBegin(); i != rangesEnd(); i++)
+<a name="l00055"></a>00055             t(i-&gt;first(), i-&gt;last());
+<a name="l00056"></a>00056         }
+<a name="l00057"></a>00057 
+<a name="l00058"></a><a class="code" href="a00325.html#a93a41605c3745a1094524cd52c6ae775">00058</a>     <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keywordtype">void</span> <a class="code" href="a00325.html#a93a41605c3745a1094524cd52c6ae775">for_each</a>(<span class="keyword">const</span> T&amp; t)<span class="keyword"> const </span>{
+<a name="l00059"></a>00059         <span class="keywordflow">for</span> (<a class="code" href="a00270.html#a8d99ec609a78357b8afcd4a69c43ba3d">RangeIterator</a> i = rangesBegin(); i != rangesEnd(); i++)
+<a name="l00060"></a>00060             t(i-&gt;first(), i-&gt;last());
+<a name="l00061"></a>00061     }
+<a name="l00062"></a>00062 
+<a name="l00063"></a>00063   <span class="keyword">friend</span> <a class="code" href="a00484.html#a0b7cbe1dd21be86348943cd971d33a20">QPID_COMMON_EXTERN</a> std::ostream&amp; <a class="code" href="a00582.html#a26b5aa4aa3e48e044e86832a401304b7">operator&lt;&lt;</a>(<a class="code" href="a00244.html" title="STL class.">std::ostream</a>&amp;, <span class="keyword">const</span> <a class="code" href="a00325.html">SequenceSet</a>&amp;);
+<a name="l00064"></a>00064 };
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 }} <span class="comment">// namespace qpid::framing</span>
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 
+<a name="l00069"></a>00069 <span class="preprocessor">#endif</span>
 </pre></div></div>
 </div>
 <!--
@@ -147,7 +159,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

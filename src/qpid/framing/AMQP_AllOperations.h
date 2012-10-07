@@ -499,7 +499,8 @@ class AMQP_AllOperations {
     bool notifyEnabled,
     const SequenceNumber& position,
     uint32_t usedMsgCredit,
-    uint32_t usedByteCredit) = 0;
+    uint32_t usedByteCredit,
+    uint32_t deliveryCount) = 0;
     
     virtual void deliveryRecord(const std::string& queue,
     const SequenceNumber& position,
@@ -601,6 +602,10 @@ class AMQP_AllOperations {
     
     virtual void queueDequeueSincePurgeState(const std::string& queue,
     uint32_t dequeueSincePurge) = 0;
+    
+    virtual void internalState(const std::string& type,
+    const std::string& name,
+    const FieldTable& state) = 0;
     }; // class ClusterConnectionHandler
     
     

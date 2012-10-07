@@ -60,23 +60,28 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00576.html">client</a>      </li>
-      <li class="navelem"><a class="el" href="a00119.html">FailoverManager</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00120.html">FailoverListener</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid::client::FailoverManager Member List</div>  </div>
+<div class="title">qpid::client::FailoverListener Member List</div>  </div>
 </div>
 <div class="contents">
-This is the complete list of members for <a class="el" href="a00119.html">qpid::client::FailoverManager</a>, including all inherited members.<table>
-  <tr class="memlist"><td><a class="el" href="a00119.html#a33215cb636cd3446d407848a8f15c95a">close</a>()</td><td><a class="el" href="a00119.html">qpid::client::FailoverManager</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00119.html#a6d3e7cbd9fd9263f274e492743a29c72">connect</a>(std::vector&lt; Url &gt; brokers=std::vector&lt; Url &gt;())</td><td><a class="el" href="a00119.html">qpid::client::FailoverManager</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00119.html#a3df5cecbae290c75e121d5ed45811013">execute</a>(Command &amp;)</td><td><a class="el" href="a00119.html">qpid::client::FailoverManager</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00119.html#ae0c259b14b780faa344fde59e957abee">FailoverManager</a>(const ConnectionSettings &amp;settings, ReconnectionStrategy *strategy=0)</td><td><a class="el" href="a00119.html">qpid::client::FailoverManager</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00119.html#ad5db4f3c25d41830ac1c3b28f771b5fe">getConnection</a>()</td><td><a class="el" href="a00119.html">qpid::client::FailoverManager</a></td><td></td></tr>
+This is the complete list of members for <a class="el" href="a00120.html">qpid::client::FailoverListener</a>, including all inherited members.<table>
+  <tr class="memlist"><td><a class="el" href="a00120.html#ae7881f50027f0f303b9b3ff070bc5728">AMQ_FAILOVER</a></td><td><a class="el" href="a00120.html">qpid::client::FailoverListener</a></td><td><code> [static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00120.html#a68b519623a0a4d3b17cae8261164980d">FailoverListener</a>(Connection)</td><td><a class="el" href="a00120.html">qpid::client::FailoverListener</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00120.html#a99ee8bbe5c3d95a7ff7e633f25824832">FailoverListener</a>(Connection, bool useInitial)</td><td><a class="el" href="a00120.html">qpid::client::FailoverListener</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00294.html#ac0af11e62e346d8295ddb9ee40620eb0">functor</a>()</td><td><a class="el" href="a00294.html">qpid::sys::Runnable</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00294.html#ae6dd30caad64962b36e826fb505cc626">Functor</a> typedef</td><td><a class="el" href="a00294.html">qpid::sys::Runnable</a></td><td><code> [private]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00120.html#a882650870f3aef8515fb79116fd4183e">getKnownBrokers</a>(const Message &amp;m)</td><td><a class="el" href="a00120.html">qpid::client::FailoverListener</a></td><td><code> [static]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00120.html#ab02a17be815ff38783b0f539f3cc16b4">getKnownBrokers</a>() const </td><td><a class="el" href="a00120.html">qpid::client::FailoverListener</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00120.html#ae1ab635dbb52e5db8c230d8f6d683ae8">~FailoverListener</a>()</td><td><a class="el" href="a00120.html">qpid::client::FailoverListener</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00210.html#a2ac4beffe6e0dfab7a7f4d369ce6bacc">~MessageListener</a>()</td><td><a class="el" href="a00210.html">qpid::client::MessageListener</a></td><td><code> [private, virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00294.html#a8de9e9de2df28eb9d664ffb34ea7d133">~Runnable</a>()</td><td><a class="el" href="a00294.html">qpid::sys::Runnable</a></td><td><code> [private, virtual]</code></td></tr>
 </table></div>
 <!--
  
@@ -105,7 +110,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

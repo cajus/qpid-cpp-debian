@@ -60,30 +60,21 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00576.html">client</a>      </li>
-      <li class="navelem"><a class="el" href="a00132.html">FlowControl</a>      </li>
+      <li class="navelem"><a class="el" href="a00576.html">qpid</a>      </li>
+      <li class="navelem"><a class="el" href="a00578.html">client</a>      </li>
+      <li class="navelem"><a class="el" href="a00121.html">FailoverManager</a>      </li>
+      <li class="navelem"><a class="el" href="a00053.html">Command</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">qpid::client::FlowControl Member List</div>  </div>
+<div class="title">qpid::client::FailoverManager::Command Member List</div>  </div>
 </div>
 <div class="contents">
-This is the complete list of members for <a class="el" href="a00132.html">qpid::client::FlowControl</a>, including all inherited members.<table>
-  <tr class="memlist"><td><a class="el" href="a00132.html#a121aeaaac832c22255af480795f04b66">byteCredit</a>(uint32_t bytes_)</td><td><a class="el" href="a00132.html">qpid::client::FlowControl</a></td><td><code> [inline, static]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00132.html#a91155edfa05bff8c5b186d40ffdd1445">bytes</a></td><td><a class="el" href="a00132.html">qpid::client::FlowControl</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00132.html#a071925adc0dfffe2497a1897493343b3">byteWindow</a>(uint32_t bytes_)</td><td><a class="el" href="a00132.html">qpid::client::FlowControl</a></td><td><code> [inline, static]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00132.html#a70a9cd61b9e475c3d1978a3d15742863">FlowControl</a>(uint32_t messages_=0, uint32_t bytes_=0, bool window_=false)</td><td><a class="el" href="a00132.html">qpid::client::FlowControl</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00132.html#ad70c11ee99f9c3e2d98ff96acb011efc">messageCredit</a>(uint32_t messages_)</td><td><a class="el" href="a00132.html">qpid::client::FlowControl</a></td><td><code> [inline, static]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00132.html#a6d69bece2668a3781975501fe4275404">messages</a></td><td><a class="el" href="a00132.html">qpid::client::FlowControl</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00132.html#a9e79a3b0299c43718010b35009016678">messageWindow</a>(uint32_t messages_)</td><td><a class="el" href="a00132.html">qpid::client::FlowControl</a></td><td><code> [inline, static]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00132.html#a9faa2fcf29b06be1a3230108b0c4aa97">operator==</a>(const FlowControl &amp;x)</td><td><a class="el" href="a00132.html">qpid::client::FlowControl</a></td><td><code> [inline]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00132.html#afee588b945f5edbf4a6108dfd3fe3a70">UNLIMITED</a></td><td><a class="el" href="a00132.html">qpid::client::FlowControl</a></td><td><code> [static]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00132.html#a4e07036ab42cf4a593fcb578edd4b7bd">unlimited</a>()</td><td><a class="el" href="a00132.html">qpid::client::FlowControl</a></td><td><code> [inline, static]</code></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00132.html#a6b85045fe5866ac8f66a738401d05768">window</a></td><td><a class="el" href="a00132.html">qpid::client::FlowControl</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="a00132.html#a2ca4cadfaee543ab80bab25f6176f784">zero</a>()</td><td><a class="el" href="a00132.html">qpid::client::FlowControl</a></td><td><code> [inline, static]</code></td></tr>
+This is the complete list of members for <a class="el" href="a00053.html">qpid::client::FailoverManager::Command</a>, including all inherited members.<table>
+  <tr class="memlist"><td><a class="el" href="a00053.html#ae9f7b98960d0c9234f0cc22246ba335a">execute</a>(AsyncSession &amp;session, bool isRetry)=0</td><td><a class="el" href="a00053.html">qpid::client::FailoverManager::Command</a></td><td><code> [pure virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="a00053.html#a50bbb9fab2dabb30725abd01d373b84f">~Command</a>()</td><td><a class="el" href="a00053.html">qpid::client::FailoverManager::Command</a></td><td><code> [inline, virtual]</code></td></tr>
 </table></div>
 <!--
  
@@ -112,7 +103,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

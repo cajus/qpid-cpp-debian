@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::console::MethodResponse Struct Reference</title>
+    <title>qmf::engine::MethodResponse Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,79 +60,117 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00579.html">console</a>      </li>
+      <li class="navelem"><a class="el" href="a00573.html">qmf</a>      </li>
+      <li class="navelem"><a class="el" href="a00574.html">engine</a>      </li>
       <li class="navelem"><a class="el" href="a00215.html">MethodResponse</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#pub-attribs">Public Attributes</a>  </div>
+<a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::console::MethodResponse Struct Reference</div>  </div>
+<div class="title">qmf::engine::MethodResponse Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::console::MethodResponse" -->
-<p><code>#include &lt;<a class="el" href="a00422_source.html">qpid/console/Object.h</a>&gt;</code></p>
+<!-- doxytag: class="qmf::engine::MethodResponse" -->
+<p><code>#include &lt;<a class="el" href="a00417_source.html">qmf/engine/Console.h</a>&gt;</code></p>
 
-<p><a href="a00711.html">List of all members.</a></p>
+<p><a href="a00623.html">List of all members.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00215.html#a42bc7248a48297dafb95065e5f2217b3">code</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00215.html#a2abd45d8fd292290dd130ecba7ed6a9c">text</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00202.html">std::map</a>&lt; <a class="el" href="a00345.html">std::string</a>, <br class="typebreak"/>
-boost::shared_ptr&lt; <a class="el" href="a00380.html">Value</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00215.html#af465e2151b45999f48ce632b7c87650d">arguments</a></td></tr>
+<tr><td colspan="2"><h2><a name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00215.html#a61e3847c60b29d9694b3837604ba714e">MethodResponse</a> (const <a class="el" href="a00215.html">MethodResponse</a> &amp;from)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00215.html#abac7144779ee8f5044eef8de22108b79">~MethodResponse</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00215.html#a354817274df573f062e69dae62baa0b2">getStatus</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00381.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00215.html#acf3ba48222758f9be6a675023baf7699">getException</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00381.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00215.html#ac56cef754ad68bf1f2c0e6807857172f">getArgs</a> () const </td></tr>
 </table>
-<hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="af465e2151b45999f48ce632b7c87650d"></a><!-- doxytag: member="qpid::console::MethodResponse::arguments" ref="af465e2151b45999f48ce632b7c87650d" args="" -->
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a61e3847c60b29d9694b3837604ba714e"></a><!-- doxytag: member="qmf::engine::MethodResponse::MethodResponse" ref="a61e3847c60b29d9694b3837604ba714e" args="(const MethodResponse &amp;from)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00202.html">std::map</a>&lt;<a class="el" href="a00345.html">std::string</a>, boost::shared_ptr&lt;<a class="el" href="a00380.html">Value</a>&gt; &gt; <a class="el" href="a00215.html#af465e2151b45999f48ce632b7c87650d">qpid::console::MethodResponse::arguments</a></td>
+          <td class="memname">qmf::engine::MethodResponse::MethodResponse </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00215.html">MethodResponse</a> &amp;&#160;</td>
+          <td class="paramname"><em>from</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00422_source.html#l00052">52</a> of file <a class="el" href="a00422_source.html">Object.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a42bc7248a48297dafb95065e5f2217b3"></a><!-- doxytag: member="qpid::console::MethodResponse::code" ref="a42bc7248a48297dafb95065e5f2217b3" args="" -->
+<a class="anchor" id="abac7144779ee8f5044eef8de22108b79"></a><!-- doxytag: member="qmf::engine::MethodResponse::~MethodResponse" ref="abac7144779ee8f5044eef8de22108b79" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> <a class="el" href="a00215.html#a42bc7248a48297dafb95065e5f2217b3">qpid::console::MethodResponse::code</a></td>
+          <td class="memname">qmf::engine::MethodResponse::~MethodResponse </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00422_source.html#l00050">50</a> of file <a class="el" href="a00422_source.html">Object.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a2abd45d8fd292290dd130ecba7ed6a9c"></a><!-- doxytag: member="qpid::console::MethodResponse::text" ref="a2abd45d8fd292290dd130ecba7ed6a9c" args="" -->
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ac56cef754ad68bf1f2c0e6807857172f"></a><!-- doxytag: member="qmf::engine::MethodResponse::getArgs" ref="ac56cef754ad68bf1f2c0e6807857172f" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> <a class="el" href="a00215.html#a2abd45d8fd292290dd130ecba7ed6a9c">qpid::console::MethodResponse::text</a></td>
+          <td class="memname">const <a class="el" href="a00381.html">Value</a>* qmf::engine::MethodResponse::getArgs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00422_source.html#l00051">51</a> of file <a class="el" href="a00422_source.html">Object.h</a>.</p>
+</div>
+</div>
+<a class="anchor" id="acf3ba48222758f9be6a675023baf7699"></a><!-- doxytag: member="qmf::engine::MethodResponse::getException" ref="acf3ba48222758f9be6a675023baf7699" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00381.html">Value</a>* qmf::engine::MethodResponse::getException </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/console/<a class="el" href="a00422_source.html">Object.h</a></li>
+<a class="anchor" id="a354817274df573f062e69dae62baa0b2"></a><!-- doxytag: member="qmf::engine::MethodResponse::getStatus" ref="a354817274df573f062e69dae62baa0b2" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00558.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qmf::engine::MethodResponse::getStatus </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qmf/engine/<a class="el" href="a00417_source.html">Console.h</a></li>
 </ul>
 </div>
 <!--
@@ -162,7 +200,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

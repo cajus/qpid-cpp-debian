@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::console::SchemaMethod Struct Reference</title>
+    <title>qmf::SchemaId Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,45 +60,77 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00579.html">console</a>      </li>
-      <li class="navelem"><a class="el" href="a00303.html">SchemaMethod</a>      </li>
+      <li class="navelem"><a class="el" href="a00573.html">qmf</a>      </li>
+      <li class="navelem"><a class="el" href="a00303.html">SchemaId</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a>  </div>
+<a href="#pro-types">Protected Types</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::console::SchemaMethod Struct Reference</div>  </div>
+<div class="title">qmf::SchemaId Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::console::SchemaMethod" -->
-<p><code>#include &lt;<a class="el" href="a00431_source.html">qpid/console/Schema.h</a>&gt;</code></p>
+<!-- doxytag: class="qmf::SchemaId" --><!-- doxytag: inherits="Handle&lt; SchemaIdImpl &gt;" -->
+<p><code>#include &lt;<a class="el" href="a00447_source.html">qmf/SchemaId.h</a>&gt;</code></p>
 
-<p><a href="a00721.html">List of all members.</a></p>
+<p><a href="a00616.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a1fbb067ecd391ba6ea8e58be7b3337b8">SchemaMethod</a> (<a class="el" href="a00045.html">framing::Buffer</a> &amp;buffer)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a2b90a9089c5432b5553a5dc8bbfd994d">~SchemaMethod</a> ()</td></tr>
-<tr><td colspan="2"><h2><a name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#ab4ee69af55109d7f7c92145220c40e06">name</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a19241ac31ae768aa53ecbb932eeaf671">desc</a></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00386.html">std::vector</a>&lt; <a class="el" href="a00297.html">SchemaArgument</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a62ec784915179a30d839c0b4f514c880">arguments</a></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a4c93e9f0ec07dab7be79c5175d12a1f4">SchemaId</a> (SchemaIdImpl *<a class="el" href="a00143.html#a0effa7fbf9c8ae45a927102af0b25679">impl</a>=0)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a1f6ff43bc02c00b86afdf8bea2e5497d">SchemaId</a> (const <a class="el" href="a00303.html">SchemaId</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00303.html">SchemaId</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#abe9288f79076e3d109ce30d8119f6d61">operator=</a> (const <a class="el" href="a00303.html">SchemaId</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a6b16cefe2abcb80af4d36f91b6f0293a">~SchemaId</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a33b6b97751d269436c54d7e741d7f879">SchemaId</a> (int, const <a class="el" href="a00346.html">std::string</a> &amp;, const <a class="el" href="a00346.html">std::string</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#abca6edc78105d5b9d33a83b23c3251cb">setHash</a> (const <a class="el" href="a00375.html">qpid::types::Uuid</a> &amp;)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#aa0471c34482460e910766aa34b82615f">getType</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a1fd0e898682cd8c392268fdea83f7401">getPackageName</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a6c2d896c941196de8183f4934e9c7656">getName</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00375.html">qpid::types::Uuid</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a7dfc0384b7e372560b706a8dcc17bdfe">getHash</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00143.html#a39749de38a4fc07f8401696d497a0d3c">isValid</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00143.html#a015fea48a0cd370654102196b8972b0c">isNull</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00143.html#ac1b6422c4626a1a630ac5cc13b41ad9a">operator bool</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to bool supports idiom if (handle) { handle-&gt;...  <a href="#ac1b6422c4626a1a630ac5cc13b41ad9a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QMF_INLINE_EXTERN bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00143.html#a5f7fe4689daf51182ceb8db1c5a7b85f">operator!</a> () const </td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }.  <a href="#a5f7fe4689daf51182ceb8db1c5a7b85f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00143.html#aa5de6b64fd036c74cbc332ac2c5d1377">swap</a> (<a class="el" href="a00143.html">Handle</a>&lt; T &gt; &amp;h)</td></tr>
+<tr><td colspan="2"><h2><a name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">typedef T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00143.html#a15c17b50788ef3057bf2c7a99e7c39b2">Impl</a></td></tr>
+<tr><td colspan="2"><h2><a name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00143.html#a15c17b50788ef3057bf2c7a99e7c39b2">Impl</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00143.html#a0effa7fbf9c8ae45a927102af0b25679">impl</a></td></tr>
 </table>
-<hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a1fbb067ecd391ba6ea8e58be7b3337b8"></a><!-- doxytag: member="qpid::console::SchemaMethod::SchemaMethod" ref="a1fbb067ecd391ba6ea8e58be7b3337b8" args="(framing::Buffer &amp;buffer)" -->
+<hr/><h2>Member Typedef Documentation</h2>
+<a class="anchor" id="a15c17b50788ef3057bf2c7a99e7c39b2"></a><!-- doxytag: member="qmf::SchemaId::Impl" ref="a15c17b50788ef3057bf2c7a99e7c39b2" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::console::SchemaMethod::SchemaMethod </td>
+          <td class="memname">typedef T <a class="el" href="a00143.html#a15c17b50788ef3057bf2c7a99e7c39b2">qmf::Handle::Impl</a><code> [protected, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00439_source.html#l00056">56</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a4c93e9f0ec07dab7be79c5175d12a1f4"></a><!-- doxytag: member="qmf::SchemaId::SchemaId" ref="a4c93e9f0ec07dab7be79c5175d12a1f4" args="(SchemaIdImpl *impl=0)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qmf::SchemaId::SchemaId </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">framing::Buffer</a> &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em></td><td>)</td>
+          <td class="paramtype">SchemaIdImpl *&#160;</td>
+          <td class="paramname"><em>impl</em> = <code>0</code></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -107,12 +139,29 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a2b90a9089c5432b5553a5dc8bbfd994d"></a><!-- doxytag: member="qpid::console::SchemaMethod::~SchemaMethod" ref="a2b90a9089c5432b5553a5dc8bbfd994d" args="()" -->
+<a class="anchor" id="a1f6ff43bc02c00b86afdf8bea2e5497d"></a><!-- doxytag: member="qmf::SchemaId::SchemaId" ref="a1f6ff43bc02c00b86afdf8bea2e5497d" args="(const SchemaId &amp;)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::console::SchemaMethod::~SchemaMethod </td>
+          <td class="memname">qmf::SchemaId::SchemaId </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00303.html">SchemaId</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6b16cefe2abcb80af4d36f91b6f0293a"></a><!-- doxytag: member="qmf::SchemaId::~SchemaId" ref="a6b16cefe2abcb80af4d36f91b6f0293a" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qmf::SchemaId::~SchemaId </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -123,54 +172,254 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a33b6b97751d269436c54d7e741d7f879"></a><!-- doxytag: member="qmf::SchemaId::SchemaId" ref="a33b6b97751d269436c54d7e741d7f879" args="(int, const std::string &amp;, const std::string &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">qmf::SchemaId::SchemaId </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00346.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a7dfc0384b7e372560b706a8dcc17bdfe"></a><!-- doxytag: member="qmf::SchemaId::getHash" ref="a7dfc0384b7e372560b706a8dcc17bdfe" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00375.html">qpid::types::Uuid</a>&amp; qmf::SchemaId::getHash </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a6c2d896c941196de8183f4934e9c7656"></a><!-- doxytag: member="qmf::SchemaId::getName" ref="a6c2d896c941196de8183f4934e9c7656" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a>&amp; qmf::SchemaId::getName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1fd0e898682cd8c392268fdea83f7401"></a><!-- doxytag: member="qmf::SchemaId::getPackageName" ref="a1fd0e898682cd8c392268fdea83f7401" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="a00346.html">std::string</a>&amp; qmf::SchemaId::getPackageName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa0471c34482460e910766aa34b82615f"></a><!-- doxytag: member="qmf::SchemaId::getType" ref="aa0471c34482460e910766aa34b82615f" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int qmf::SchemaId::getType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a015fea48a0cd370654102196b8972b0c"></a><!-- doxytag: member="qmf::SchemaId::isNull" ref="a015fea48a0cd370654102196b8972b0c" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMF_INLINE_EXTERN bool qmf::Handle::isNull </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is null. It is an error to call any function on a null handle. </dd></dl>
+
+<p>Definition at line <a class="el" href="a00439_source.html#l00045">45</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a39749de38a4fc07f8401696d497a0d3c"></a><!-- doxytag: member="qmf::SchemaId::isValid" ref="a39749de38a4fc07f8401696d497a0d3c" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMF_INLINE_EXTERN bool qmf::Handle::isValid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<dl class="return"><dt><b>Returns:</b></dt><dd>true if handle is valid, i.e. not null. </dd></dl>
+
+<p>Definition at line <a class="el" href="a00439_source.html#l00042">42</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac1b6422c4626a1a630ac5cc13b41ad9a"></a><!-- doxytag: member="qmf::SchemaId::operator bool" ref="ac1b6422c4626a1a630ac5cc13b41ad9a" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMF_INLINE_EXTERN qmf::Handle::operator bool </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Conversion to bool supports idiom if (handle) { handle-&gt;... </p>
+<p>} </p>
+
+<p>Definition at line <a class="el" href="a00439_source.html#l00048">48</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5f7fe4689daf51182ceb8db1c5a7b85f"></a><!-- doxytag: member="qmf::SchemaId::operator!" ref="a5f7fe4689daf51182ceb8db1c5a7b85f" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QMF_INLINE_EXTERN bool qmf::Handle::operator! </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Operator ! supports idiom if (!handle) { do_if_handle_is_null(); }. </p>
+
+<p>Definition at line <a class="el" href="a00439_source.html#l00051">51</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abe9288f79076e3d109ce30d8119f6d61"></a><!-- doxytag: member="qmf::SchemaId::operator=" ref="abe9288f79076e3d109ce30d8119f6d61" args="(const SchemaId &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00303.html">SchemaId</a>&amp; qmf::SchemaId::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00303.html">SchemaId</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="abca6edc78105d5b9d33a83b23c3251cb"></a><!-- doxytag: member="qmf::SchemaId::setHash" ref="abca6edc78105d5b9d33a83b23c3251cb" args="(const qpid::types::Uuid &amp;)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qmf::SchemaId::setHash </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00375.html">qpid::types::Uuid</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa5de6b64fd036c74cbc332ac2c5d1377"></a><!-- doxytag: member="qmf::SchemaId::swap" ref="aa5de6b64fd036c74cbc332ac2c5d1377" args="(Handle&lt; T &gt; &amp;h)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qmf::Handle::swap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00143.html">Handle</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>h</em></td><td>)</td>
+          <td><code> [inline, inherited]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="a00439_source.html#l00053">53</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
+
+</div>
+</div>
 <hr/><h2>Member Data Documentation</h2>
-<a class="anchor" id="a62ec784915179a30d839c0b4f514c880"></a><!-- doxytag: member="qpid::console::SchemaMethod::arguments" ref="a62ec784915179a30d839c0b4f514c880" args="" -->
+<a class="anchor" id="a0effa7fbf9c8ae45a927102af0b25679"></a><!-- doxytag: member="qmf::SchemaId::impl" ref="a0effa7fbf9c8ae45a927102af0b25679" args="" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00386.html">std::vector</a>&lt;<a class="el" href="a00297.html">SchemaArgument</a>*&gt; <a class="el" href="a00303.html#a62ec784915179a30d839c0b4f514c880">qpid::console::SchemaMethod::arguments</a></td>
+          <td class="memname"><a class="el" href="a00143.html#a15c17b50788ef3057bf2c7a99e7c39b2">Impl</a>* <a class="el" href="a00143.html#a0effa7fbf9c8ae45a927102af0b25679">qmf::Handle::impl</a><code> [protected, inherited]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00431_source.html#l00083">83</a> of file <a class="el" href="a00431_source.html">Schema.h</a>.</p>
+<p>Definition at line <a class="el" href="a00439_source.html#l00063">63</a> of file <a class="el" href="a00439_source.html">Handle.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a19241ac31ae768aa53ecbb932eeaf671"></a><!-- doxytag: member="qpid::console::SchemaMethod::desc" ref="a19241ac31ae768aa53ecbb932eeaf671" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> <a class="el" href="a00303.html#a19241ac31ae768aa53ecbb932eeaf671">qpid::console::SchemaMethod::desc</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00431_source.html#l00082">82</a> of file <a class="el" href="a00431_source.html">Schema.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="ab4ee69af55109d7f7c92145220c40e06"></a><!-- doxytag: member="qpid::console::SchemaMethod::name" ref="ab4ee69af55109d7f7c92145220c40e06" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> <a class="el" href="a00303.html#ab4ee69af55109d7f7c92145220c40e06">qpid::console::SchemaMethod::name</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00431_source.html#l00081">81</a> of file <a class="el" href="a00431_source.html">Schema.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>qpid/console/<a class="el" href="a00431_source.html">Schema.h</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>qmf/<a class="el" href="a00447_source.html">SchemaId.h</a></li>
 </ul>
 </div>
 <!--
@@ -200,7 +449,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

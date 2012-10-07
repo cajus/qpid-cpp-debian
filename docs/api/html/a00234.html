@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>qpid::console::Object Class Reference</title>
+    <title>qmf::engine::Object Class Reference</title>
     <link href="doxygen.css" rel="stylesheet" type="text/css">
     <link href="tabs.css" rel="stylesheet" type="text/css">
   </head>
@@ -60,116 +60,49 @@
   </div>
   <div id="nav-path" class="navpath">
     <ul>
-      <li class="navelem"><a class="el" href="a00574.html">qpid</a>      </li>
-      <li class="navelem"><a class="el" href="a00579.html">console</a>      </li>
+      <li class="navelem"><a class="el" href="a00573.html">qmf</a>      </li>
+      <li class="navelem"><a class="el" href="a00574.html">engine</a>      </li>
       <li class="navelem"><a class="el" href="a00234.html">Object</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
-<div class="title">qpid::console::Object Class Reference</div>  </div>
+<div class="title">qmf::engine::Object Class Reference</div>  </div>
 </div>
 <div class="contents">
-<!-- doxytag: class="qpid::console::Object" -->
-<p><code>#include &lt;<a class="el" href="a00422_source.html">qpid/console/Object.h</a>&gt;</code></p>
+<!-- doxytag: class="qmf::engine::Object" -->
+<p><code>#include &lt;<a class="el" href="a00423_source.html">qmf/engine/Object.h</a>&gt;</code></p>
 
-<p><a href="a00712.html">List of all members.</a></p>
+<p><a href="a00633.html">List of all members.</a></p>
 <table class="memberdecls">
-<tr><td colspan="2"><h2><a name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00021.html">AttributeMap</a></td></tr>
-<tr><td colspan="2"><h2><a name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="a00386.html">std::vector</a>&lt; <a class="el" href="a00234.html">Object</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a5f9389be059d0a9590a3054d0e4ff62d">Vector</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a546a4073add293b622940168cf6390e0">Object</a> (<a class="el" href="a00042.html">Broker</a> *broker, <a class="el" href="a00299.html">SchemaClass</a> *schemaClass, <a class="el" href="a00045.html">framing::Buffer</a> &amp;buffer, bool prop, bool stat)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a5a4acef515b1fe333eb5a7bb965cc8e1">~Object</a> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00042.html">Broker</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a1ec55766eaf4f39f8628750b9a378cd6">getBroker</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00235.html">ObjectId</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a5dc8481d615df781bf365848630424b5">getObjectId</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00049.html">ClassKey</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#af20c266fa431ee168859babd49cdb89f">getClassKey</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00299.html">SchemaClass</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a8d15343ba81ea65547f9b5946ab7b192">getSchema</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a97599c9557e7f7610afcd1130516accf">getCurrentTime</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#ae76fafdcb5a7bcdea91a1faef54f7cf2">getCreateTime</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#aa78730338720ed1bab66cf42841ac3f6">getDeleteTime</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a6fdb7a8130eaf01d528dd539b9871ecf">isDeleted</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#abf02e20d0a4243b0213c09b2f77eb7e2">getIndex</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a2f2f00f85f3e8e0a9db3bc13f901c698">mergeUpdate</a> (const <a class="el" href="a00234.html">Object</a> &amp;updated)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00021.html">AttributeMap</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a0f0dabb98cc8c398ad14963a229c1494">getAttributes</a> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a16362206033777b0c1b846e9c1bf1a2c">invokeMethod</a> (const <a class="el" href="a00345.html">std::string</a> name, const <a class="el" href="a00021.html">AttributeMap</a> &amp;args, <a class="el" href="a00215.html">MethodResponse</a> &amp;result)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a78b557a61a579cc964cc7eb0f32c9a0c">handleMethodResp</a> (<a class="el" href="a00045.html">framing::Buffer</a> &amp;buffer, <a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> sequence)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00235.html">ObjectId</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#ade8742693677fbb77f4ba8051f0f464e">attrRef</a> (const <a class="el" href="a00345.html">std::string</a> &amp;key) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#add81b25a3f9f6b590edbd25a7c136453">attrUint</a> (const <a class="el" href="a00345.html">std::string</a> &amp;key) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00556.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#ac64fb2405bf2a9ae9cb1dcf859f3f35d">attrInt</a> (const <a class="el" href="a00345.html">std::string</a> &amp;key) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a54a1fceb89e6cc18f616b0affaeb2c23">attrUint64</a> (const <a class="el" href="a00345.html">std::string</a> &amp;key) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a0b4d513a5f76302eda0b9d2f162932ae">attrInt64</a> (const <a class="el" href="a00345.html">std::string</a> &amp;key) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00345.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a1f4d89dc735c33eb859258346fe55479">attrString</a> (const <a class="el" href="a00345.html">std::string</a> &amp;key) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#aa79d49f32e0e4caa617a6c4b5fa9fafd">attrBool</a> (const <a class="el" href="a00345.html">std::string</a> &amp;key) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#aeb42aa2617222d91c8e063cc7b6cd6c3">attrFloat</a> (const <a class="el" href="a00345.html">std::string</a> &amp;key) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#aa7813ae3bd63dfdf5f7e590c8f707f96">attrDouble</a> (const <a class="el" href="a00345.html">std::string</a> &amp;key) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00374.html">framing::Uuid</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a76b89d1b65a17fe6d3f4ec0a2dbfe63d">attrUuid</a> (const <a class="el" href="a00345.html">std::string</a> &amp;key) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00123.html">framing::FieldTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a0444b733ca5cf7af3c5f38a59b305e69">attrMap</a> (const <a class="el" href="a00345.html">std::string</a> &amp;key) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a7773d4807c0c5d47d403197740f7eb1d">Object</a> (const <a class="el" href="a00307.html">SchemaObjectClass</a> *type)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#abe85ae83aba94557a55c30d28db5e2c7">Object</a> (const <a class="el" href="a00234.html">Object</a> &amp;from)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#ac93e12ff883dfef0ca283ffc52eaa94e">~Object</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a62351e6db121c6d4c17ab9ee9b2a8817">destroy</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00236.html">ObjectId</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a0a5a7b5f2b60c95cf40dfe7db764fd41">getObjectId</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a45e1c61bb4f8c784ca8b2f1c87f72139">setObjectId</a> (<a class="el" href="a00236.html">ObjectId</a> *oid)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="a00307.html">SchemaObjectClass</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a6f0e33242aac844ff015ccb1f5ea4584">getClass</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00381.html">Value</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a64cdb2621e34a4583fd0a10557768180">getValue</a> (const char *key) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a1afd461b5d61fda8c0af6312861d091c">invokeMethod</a> (const char *methodName, const <a class="el" href="a00381.html">Value</a> *inArgs, void *context) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a39ee2509021d714ec6168629c1084dd3">isDeleted</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00234.html#a1e91a4af81fb40dfb306dc8ed9cfcc5c">merge</a> (const <a class="el" href="a00234.html">Object</a> &amp;from)</td></tr>
 </table>
-<hr/><h2>Member Typedef Documentation</h2>
-<a class="anchor" id="a5f9389be059d0a9590a3054d0e4ff62d"></a><!-- doxytag: member="qpid::console::Object::Vector" ref="a5f9389be059d0a9590a3054d0e4ff62d" args="" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">typedef <a class="el" href="a00386.html">std::vector</a>&lt;<a class="el" href="a00234.html">Object</a>&gt; <a class="el" href="a00234.html#a5f9389be059d0a9590a3054d0e4ff62d">qpid::console::Object::Vector</a></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00422_source.html#l00057">57</a> of file <a class="el" href="a00422_source.html">Object.h</a>.</p>
-
-</div>
-</div>
 <hr/><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a546a4073add293b622940168cf6390e0"></a><!-- doxytag: member="qpid::console::Object::Object" ref="a546a4073add293b622940168cf6390e0" args="(Broker *broker, SchemaClass *schemaClass, framing::Buffer &amp;buffer, bool prop, bool stat)" -->
+<a class="anchor" id="a7773d4807c0c5d47d403197740f7eb1d"></a><!-- doxytag: member="qmf::engine::Object::Object" ref="a7773d4807c0c5d47d403197740f7eb1d" args="(const SchemaObjectClass *type)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::console::Object::Object </td>
+          <td class="memname">qmf::engine::Object::Object </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00042.html">Broker</a> *&#160;</td>
-          <td class="paramname"><em>broker</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="a00307.html">SchemaObjectClass</a> *&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00299.html">SchemaClass</a> *&#160;</td>
-          <td class="paramname"><em>schemaClass</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00045.html">framing::Buffer</a> &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>prop</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>stat</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div>
@@ -177,15 +110,32 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a5a4acef515b1fe333eb5a7bb965cc8e1"></a><!-- doxytag: member="qpid::console::Object::~Object" ref="a5a4acef515b1fe333eb5a7bb965cc8e1" args="()" -->
+<a class="anchor" id="abe85ae83aba94557a55c30d28db5e2c7"></a><!-- doxytag: member="qmf::engine::Object::Object" ref="abe85ae83aba94557a55c30d28db5e2c7" args="(const Object &amp;from)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">qpid::console::Object::~Object </td>
+          <td class="memname">qmf::engine::Object::Object </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00234.html">Object</a> &amp;&#160;</td>
+          <td class="paramname"><em>from</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac93e12ff883dfef0ca283ffc52eaa94e"></a><!-- doxytag: member="qmf::engine::Object::~Object" ref="ac93e12ff883dfef0ca283ffc52eaa94e" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual qmf::engine::Object::~Object </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
@@ -194,235 +144,28 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/><h2>Member Function Documentation</h2>
-<a class="anchor" id="aa79d49f32e0e4caa617a6c4b5fa9fafd"></a><!-- doxytag: member="qpid::console::Object::attrBool" ref="aa79d49f32e0e4caa617a6c4b5fa9fafd" args="(const std::string &amp;key) const " -->
+<a class="anchor" id="a62351e6db121c6d4c17ab9ee9b2a8817"></a><!-- doxytag: member="qmf::engine::Object::destroy" ref="a62351e6db121c6d4c17ab9ee9b2a8817" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool qpid::console::Object::attrBool </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa7813ae3bd63dfdf5f7e590c8f707f96"></a><!-- doxytag: member="qpid::console::Object::attrDouble" ref="aa7813ae3bd63dfdf5f7e590c8f707f96" args="(const std::string &amp;key) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double qpid::console::Object::attrDouble </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aeb42aa2617222d91c8e063cc7b6cd6c3"></a><!-- doxytag: member="qpid::console::Object::attrFloat" ref="aeb42aa2617222d91c8e063cc7b6cd6c3" args="(const std::string &amp;key) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float qpid::console::Object::attrFloat </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ac64fb2405bf2a9ae9cb1dcf859f3f35d"></a><!-- doxytag: member="qpid::console::Object::attrInt" ref="ac64fb2405bf2a9ae9cb1dcf859f3f35d" args="(const std::string &amp;key) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a32f2e37ee053cf2ce8ca28d1f74630e5">int32_t</a> qpid::console::Object::attrInt </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0b4d513a5f76302eda0b9d2f162932ae"></a><!-- doxytag: member="qpid::console::Object::attrInt64" ref="a0b4d513a5f76302eda0b9d2f162932ae" args="(const std::string &amp;key) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int64_t qpid::console::Object::attrInt64 </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0444b733ca5cf7af3c5f38a59b305e69"></a><!-- doxytag: member="qpid::console::Object::attrMap" ref="a0444b733ca5cf7af3c5f38a59b305e69" args="(const std::string &amp;key) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00123.html">framing::FieldTable</a> qpid::console::Object::attrMap </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="ade8742693677fbb77f4ba8051f0f464e"></a><!-- doxytag: member="qpid::console::Object::attrRef" ref="ade8742693677fbb77f4ba8051f0f464e" args="(const std::string &amp;key) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00235.html">ObjectId</a> qpid::console::Object::attrRef </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a1f4d89dc735c33eb859258346fe55479"></a><!-- doxytag: member="qpid::console::Object::attrString" ref="a1f4d89dc735c33eb859258346fe55479" args="(const std::string &amp;key) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> qpid::console::Object::attrString </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="add81b25a3f9f6b590edbd25a7c136453"></a><!-- doxytag: member="qpid::console::Object::attrUint" ref="add81b25a3f9f6b590edbd25a7c136453" args="(const std::string &amp;key) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a> qpid::console::Object::attrUint </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a54a1fceb89e6cc18f616b0affaeb2c23"></a><!-- doxytag: member="qpid::console::Object::attrUint64" ref="a54a1fceb89e6cc18f616b0affaeb2c23" args="(const std::string &amp;key) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint64_t qpid::console::Object::attrUint64 </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a76b89d1b65a17fe6d3f4ec0a2dbfe63d"></a><!-- doxytag: member="qpid::console::Object::attrUuid" ref="a76b89d1b65a17fe6d3f4ec0a2dbfe63d" args="(const std::string &amp;key) const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00374.html">framing::Uuid</a> qpid::console::Object::attrUuid </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a> &amp;&#160;</td>
-          <td class="paramname"><em>key</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a0f0dabb98cc8c398ad14963a229c1494"></a><!-- doxytag: member="qpid::console::Object::getAttributes" ref="a0f0dabb98cc8c398ad14963a229c1494" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00021.html">AttributeMap</a>&amp; qpid::console::Object::getAttributes </td>
+          <td class="memname">void qmf::engine::Object::destroy </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00422_source.html#l00085">85</a> of file <a class="el" href="a00422_source.html">Object.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a1ec55766eaf4f39f8628750b9a378cd6"></a><!-- doxytag: member="qpid::console::Object::getBroker" ref="a1ec55766eaf4f39f8628750b9a378cd6" args="() const " -->
+<a class="anchor" id="a6f0e33242aac844ff015ccb1f5ea4584"></a><!-- doxytag: member="qmf::engine::Object::getClass" ref="a6f0e33242aac844ff015ccb1f5ea4584" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00042.html">Broker</a>* qpid::console::Object::getBroker </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00422_source.html#l00075">75</a> of file <a class="el" href="a00422_source.html">Object.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="af20c266fa431ee168859babd49cdb89f"></a><!-- doxytag: member="qpid::console::Object::getClassKey" ref="af20c266fa431ee168859babd49cdb89f" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="a00049.html">ClassKey</a>&amp; qpid::console::Object::getClassKey </td>
+          <td class="memname">const <a class="el" href="a00307.html">SchemaObjectClass</a>* qmf::engine::Object::getClass </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -433,66 +176,12 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ae76fafdcb5a7bcdea91a1faef54f7cf2"></a><!-- doxytag: member="qpid::console::Object::getCreateTime" ref="ae76fafdcb5a7bcdea91a1faef54f7cf2" args="() const " -->
+<a class="anchor" id="a0a5a7b5f2b60c95cf40dfe7db764fd41"></a><!-- doxytag: member="qmf::engine::Object::getObjectId" ref="a0a5a7b5f2b60c95cf40dfe7db764fd41" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint64_t qpid::console::Object::getCreateTime </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00422_source.html#l00080">80</a> of file <a class="el" href="a00422_source.html">Object.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a97599c9557e7f7610afcd1130516accf"></a><!-- doxytag: member="qpid::console::Object::getCurrentTime" ref="a97599c9557e7f7610afcd1130516accf" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint64_t qpid::console::Object::getCurrentTime </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00422_source.html#l00079">79</a> of file <a class="el" href="a00422_source.html">Object.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="aa78730338720ed1bab66cf42841ac3f6"></a><!-- doxytag: member="qpid::console::Object::getDeleteTime" ref="aa78730338720ed1bab66cf42841ac3f6" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint64_t qpid::console::Object::getDeleteTime </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00422_source.html#l00081">81</a> of file <a class="el" href="a00422_source.html">Object.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="abf02e20d0a4243b0213c09b2f77eb7e2"></a><!-- doxytag: member="qpid::console::Object::getIndex" ref="abf02e20d0a4243b0213c09b2f77eb7e2" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00345.html">std::string</a> qpid::console::Object::getIndex </td>
+          <td class="memname">const <a class="el" href="a00236.html">ObjectId</a>* qmf::engine::Object::getObjectId </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -503,62 +192,49 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a5dc8481d615df781bf365848630424b5"></a><!-- doxytag: member="qpid::console::Object::getObjectId" ref="a5dc8481d615df781bf365848630424b5" args="() const " -->
+<a class="anchor" id="a64cdb2621e34a4583fd0a10557768180"></a><!-- doxytag: member="qmf::engine::Object::getValue" ref="a64cdb2621e34a4583fd0a10557768180" args="(const char *key) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="a00235.html">ObjectId</a>&amp; qpid::console::Object::getObjectId </td>
+          <td class="memname"><a class="el" href="a00381.html">Value</a>* qmf::engine::Object::getValue </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>key</em></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00422_source.html#l00076">76</a> of file <a class="el" href="a00422_source.html">Object.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a8d15343ba81ea65547f9b5946ab7b192"></a><!-- doxytag: member="qpid::console::Object::getSchema" ref="a8d15343ba81ea65547f9b5946ab7b192" args="() const " -->
+<a class="anchor" id="a1afd461b5d61fda8c0af6312861d091c"></a><!-- doxytag: member="qmf::engine::Object::invokeMethod" ref="a1afd461b5d61fda8c0af6312861d091c" args="(const char *methodName, const Value *inArgs, void *context) const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00299.html">SchemaClass</a>* qpid::console::Object::getSchema </td>
+          <td class="memname">void qmf::engine::Object::invokeMethod </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Definition at line <a class="el" href="a00422_source.html#l00078">78</a> of file <a class="el" href="a00422_source.html">Object.h</a>.</p>
-
-</div>
-</div>
-<a class="anchor" id="a78b557a61a579cc964cc7eb0f32c9a0c"></a><!-- doxytag: member="qpid::console::Object::handleMethodResp" ref="a78b557a61a579cc964cc7eb0f32c9a0c" args="(framing::Buffer &amp;buffer, uint32_t sequence)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void qpid::console::Object::handleMethodResp </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00045.html">framing::Buffer</a> &amp;&#160;</td>
-          <td class="paramname"><em>buffer</em>, </td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>methodName</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00556.html#a435d1572bf3f880d55459d9805097f62">uint32_t</a>&#160;</td>
-          <td class="paramname"><em>sequence</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00381.html">Value</a> *&#160;</td>
+          <td class="paramname"><em>inArgs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>context</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td></td>
+          <td></td><td> const</td>
         </tr>
       </table>
 </div>
@@ -566,66 +242,48 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a16362206033777b0c1b846e9c1bf1a2c"></a><!-- doxytag: member="qpid::console::Object::invokeMethod" ref="a16362206033777b0c1b846e9c1bf1a2c" args="(const std::string name, const AttributeMap &amp;args, MethodResponse &amp;result)" -->
+<a class="anchor" id="a39ee2509021d714ec6168629c1084dd3"></a><!-- doxytag: member="qmf::engine::Object::isDeleted" ref="a39ee2509021d714ec6168629c1084dd3" args="() const " -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::console::Object::invokeMethod </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00345.html">std::string</a>&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00021.html">AttributeMap</a> &amp;&#160;</td>
-          <td class="paramname"><em>args</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00215.html">MethodResponse</a> &amp;&#160;</td>
-          <td class="paramname"><em>result</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="a6fdb7a8130eaf01d528dd539b9871ecf"></a><!-- doxytag: member="qpid::console::Object::isDeleted" ref="a6fdb7a8130eaf01d528dd539b9871ecf" args="() const " -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool qpid::console::Object::isDeleted </td>
+          <td class="memname">bool qmf::engine::Object::isDeleted </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const<code> [inline]</code></td>
+          <td> const</td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
-<p>Definition at line <a class="el" href="a00422_source.html#l00082">82</a> of file <a class="el" href="a00422_source.html">Object.h</a>.</p>
-
 </div>
 </div>
-<a class="anchor" id="a2f2f00f85f3e8e0a9db3bc13f901c698"></a><!-- doxytag: member="qpid::console::Object::mergeUpdate" ref="a2f2f00f85f3e8e0a9db3bc13f901c698" args="(const Object &amp;updated)" -->
+<a class="anchor" id="a1e91a4af81fb40dfb306dc8ed9cfcc5c"></a><!-- doxytag: member="qmf::engine::Object::merge" ref="a1e91a4af81fb40dfb306dc8ed9cfcc5c" args="(const Object &amp;from)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void qpid::console::Object::mergeUpdate </td>
+          <td class="memname">void qmf::engine::Object::merge </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="a00234.html">Object</a> &amp;&#160;</td>
-          <td class="paramname"><em>updated</em></td><td>)</td>
+          <td class="paramname"><em>from</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a45e1c61bb4f8c784ca8b2f1c87f72139"></a><!-- doxytag: member="qmf::engine::Object::setObjectId" ref="a45e1c61bb4f8c784ca8b2f1c87f72139" args="(ObjectId *oid)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void qmf::engine::Object::setObjectId </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00236.html">ObjectId</a> *&#160;</td>
+          <td class="paramname"><em>oid</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -635,7 +293,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>qpid/console/<a class="el" href="a00422_source.html">Object.h</a></li>
+<li>qmf/engine/<a class="el" href="a00423_source.html">Object.h</a></li>
 </ul>
 </div>
 <!--
@@ -665,7 +323,7 @@ Qpid C++ API Reference</small></address>
 
 <address style="text-align: right;">
 <small>
-Generated on Thu May 10 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
+Generated on Mon Aug 20 2012 for Qpid C++ Client API by&nbsp;<a href="http://www.doxygen.org/index.html"><img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.7.5</small>
 </address>
 </body>
 </html>

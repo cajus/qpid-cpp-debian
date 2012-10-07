@@ -26,13 +26,14 @@
 
 
 #include "qpid/framing/ClusterConnectionDtxStartBody.h"
-#include "qpid/framing/reply_exceptions.h"
+#include "qpid/framing/Buffer.h"
 
 using namespace qpid::framing;
 
 void ClusterConnectionDtxStartBody::setXid(const std::string& _xid) {
     xid = _xid;
     flags |= (1 << 8);
+    if (xid.size() >= 65536) throw IllegalArgumentException("Value for xid is too large");
 }
 const std::string& ClusterConnectionDtxStartBody::getXid() const { return xid; }
 bool ClusterConnectionDtxStartBody::hasXid() const { return flags & (1 << 8); }
